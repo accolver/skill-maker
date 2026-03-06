@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "feature-auth-flow",
+  "prompt": "Write a PR description for my branch. Here's what changed:\n\nI'm adding OAuth2 login with Google to our Express.js app. Currently we only have email/password auth. The branch has 8 changed files:\n\n- New: src/auth/oauth2.ts (OAuth2 client setup, token exchange, callback handler)\n- New: src/auth/providers/google.ts (Google-specific profile mapping)\n- Modified: src/auth/router.ts (added /auth/google and /auth/google/callback routes)\n- Modified: src/middleware/session.ts (extended session to store OAuth tokens)\n- Modified: src/models/user.ts (added google_id, avatar_url, auth_provider fields)\n- New: migrations/20260305_add_oauth_fields.sql (ALTER TABLE users ADD columns)\n- New: tests/auth/oauth2.test.ts (15 new tests)\n- Modified: config/default.yaml (added oauth2 section with client_id placeholder)\n\nThe motivation is that 60% of our beta users requested social login in the feedback survey. We chose Google first because 80% of our users already have Google accounts based on email domain analysis.\n\nThis is going to production next week.",
+  "assertions": [
+    "Description includes a Summary section with a 1-3 sentence overview mentioning OAuth2 or Google login",
+    "Description includes a Motivation section explaining WHY (user feedback, 60% requested social login)",
+    "Description includes a Changes section that groups changes by concept (auth flow, data model, configuration) rather than listing files one by one",
+    "Description includes a Testing Instructions section with numbered, copy-pasteable steps for verifying the OAuth flow",
+    "Description includes a Rollback Plan section that addresses the database migration (ALTER TABLE) and how to reverse it",
+    "Description includes a Reviewer Notes section that flags security-sensitive areas (token handling, OAuth callback, session management)",
+    "Testing instructions include at least one edge case or error scenario (e.g., user denies consent, invalid token, duplicate Google account)",
+    "Rollback plan mentions the database migration specifically and whether it is reversible"
+  ]
+}

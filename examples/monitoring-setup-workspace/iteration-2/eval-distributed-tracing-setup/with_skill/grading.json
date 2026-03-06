@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Tracing configuration is generated for all 3 services (api-gateway, order-service, inventory-service) with service-specific names",
+      "passed": true,
+      "evidence": "Three config files: api-gateway/tracing.js (serviceName: 'api-gateway'), order-service/tracing.js (serviceName: 'order-service'), inventory-service/tracing.py (service_name='inventory-service')."
+    },
+    {
+      "text": "W3C Trace Context headers (traceparent) are propagated between services on outgoing HTTP calls",
+      "passed": true,
+      "evidence": "All services explicitly configure W3CTraceContextPropagator (Node.js) / TraceContextTextMapPropagator (Python). Outgoing HTTP calls use instrumented clients."
+    },
+    {
+      "text": "A correlation ID middleware extracts trace ID from incoming requests or generates a new one if absent",
+      "passed": true,
+      "evidence": "Middleware extracts trace ID from traceparent header or X-Request-ID, generates new trace ID if neither present. Sets req.traceId / g.trace_id."
+    },
+    {
+      "text": "Correlation IDs are injected into log output so logs can be correlated with traces",
+      "passed": true,
+      "evidence": "Logger wrapper created that prepends [trace_id=<id>] to all log messages. Python uses logging filter to inject trace_id into log records."
+    },
+    {
+      "text": "Child spans are created for outgoing HTTP calls from api-gateway to order-service and from order-service to inventory-service",
+      "passed": true,
+      "evidence": "Auto-instrumentation via @opentelemetry/instrumentation-http (Node.js) and RequestsInstrumentor (Python) creates child spans for all outgoing HTTP calls."
+    },
+    {
+      "text": "Both Node.js (api-gateway, order-service) and Python (inventory-service) configurations are provided with language-appropriate OpenTelemetry SDKs",
+      "passed": true,
+      "evidence": "Node.js services use @opentelemetry/sdk-node. Python service uses opentelemetry-sdk with FlaskInstrumentor and RequestsInstrumentor."
+    },
+    {
+      "text": "Trace exporter is configured to send to a Jaeger-compatible OTLP endpoint (configurable via environment variable)",
+      "passed": true,
+      "evidence": "All services use process.env.OTEL_EXPORTER_OTLP_ENDPOINT (Node.js) or os.environ.get('OTEL_EXPORTER_OTLP_ENDPOINT') (Python) with default fallback to localhost:4318."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

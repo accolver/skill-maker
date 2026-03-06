@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration uses CREATE INDEX CONCURRENTLY (not a regular CREATE INDEX)",
+      "passed": true,
+      "evidence": "Uses CREATE INDEX CONCURRENTLY"
+    },
+    {
+      "text": "Migration includes an estimate or discussion of how long the index creation will take on 100M rows",
+      "passed": true,
+      "evidence": "Header: '~30-60 min on 100M rows'"
+    },
+    {
+      "text": "Impact analysis discusses the effect on write performance (insert overhead from maintaining the new index)",
+      "passed": true,
+      "evidence": "Header: '~5-15% insert latency after build'"
+    },
+    {
+      "text": "A rollback is provided that drops the index (DROP INDEX or DROP INDEX CONCURRENTLY)",
+      "passed": true,
+      "evidence": "rollback.sql: DROP INDEX CONCURRENTLY"
+    },
+    {
+      "text": "Verification queries confirm the index exists and is valid (not in an invalid state from a failed CONCURRENTLY build)",
+      "passed": true,
+      "evidence": "Runbook checks indisvalid from pg_index"
+    },
+    {
+      "text": "The migration notes that CONCURRENTLY cannot run inside a transaction block",
+      "passed": true,
+      "evidence": "Header: 'CANNOT run inside a transaction block'"
+    },
+    {
+      "text": "A deployment runbook recommends running during off-peak hours or low-traffic periods",
+      "passed": true,
+      "evidence": "Pre-flight includes off-peak check with traffic query"
+    },
+    {
+      "text": "Lock impact analysis mentions that CONCURRENTLY avoids blocking writes (SHARE UPDATE EXCLUSIVE vs SHARE lock)",
+      "passed": true,
+      "evidence": "Header: 'SHARE UPDATE EXCLUSIVE (non-blocking)'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The changelog identifies this as a major version bump (v3.0.0) because of the two breaking changes",
+      "passed": true,
+      "evidence": "Header: '## [3.0.0] — Major Release (2026-03-06)' with note: 'Major version bump due to 2 breaking API changes. See migration guide below.'"
+    },
+    {
+      "text": "Breaking changes appear as the FIRST section in the changelog, before features and fixes",
+      "passed": true,
+      "evidence": "### Breaking Changes is the first section, followed by ### Features, ### Bug Fixes, etc."
+    },
+    {
+      "text": "The request.parse_body() breaking change includes migration steps explaining how to update from request.json()",
+      "passed": true,
+      "evidence": "Migration guide with numbered steps: '1. Find all request.json() calls 2. Replace with request.parse_body() 3. Update type hints from dict to ParsedBody'"
+    },
+    {
+      "text": "The serializer breaking change includes the migration command (framework migrate-cache) and explains data incompatibility",
+      "passed": true,
+      "evidence": "States: 'Existing pickle-serialized cache data will be unreadable. Run `framework migrate-cache` to convert all cached data to msgpack format before deploying.'"
+    },
+    {
+      "text": "At least one breaking change includes a before/after code example showing old vs new usage",
+      "passed": true,
+      "evidence": "Both breaking changes have diff code blocks. request.parse_body() shows: '- data = await request.json()' / '+ body = await request.parse_body()' with type annotation changes."
+    },
+    {
+      "text": "The security fix references CVE-2026-1234 and appears in a Security section",
+      "passed": true,
+      "evidence": "### Security section: '**auth:** patch JWT algorithm confusion vulnerability (CVE-2026-1234) ([#452](url))'"
+    },
+    {
+      "text": "The changelog includes at least 5 distinct category groupings (Breaking Changes, Features, Bug Fixes, Performance, Security, Dependencies)",
+      "passed": true,
+      "evidence": "6 category headings: Breaking Changes, Features, Bug Fixes, Performance, Security, Dependencies"
+    },
+    {
+      "text": "A compare link is included for the full diff between v2.5.0 and v3.0.0",
+      "passed": true,
+      "evidence": "Footer: **Full Changelog:** [v2.5.0...v3.0.0](https://github.com/acme/py-framework/compare/v2.5.0...v3.0.0)"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

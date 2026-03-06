@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The changelog identifies the release as a minor version bump (v1.9.0) because the highest-impact commits are features",
+      "passed": true,
+      "evidence": "Header: '## [1.9.0]' with classification: 'Minor release — 3 new features, 5 bug fixes, 2 performance improvements.'"
+    },
+    {
+      "text": "Commits are grouped under category headings (Features, Bug Fixes, Performance, Dependencies) rather than a flat bullet list",
+      "passed": true,
+      "evidence": "Four category headings: ### Features, ### Bug Fixes, ### Performance, ### Dependencies"
+    },
+    {
+      "text": "All three feature commits appear under a Features heading with their scope and PR links",
+      "passed": true,
+      "evidence": "Features lists: client: retry logic [#312], streaming: SSE [#318], types: TypeScript defs [#320] — all with clickable links"
+    },
+    {
+      "text": "All five bug fix commits appear under a Bug Fixes heading with scope, description, and PR links",
+      "passed": true,
+      "evidence": "Bug Fixes lists all 5 commits with scope, description, and [#NNN](url) links"
+    },
+    {
+      "text": "Both performance commits appear under a Performance heading",
+      "passed": true,
+      "evidence": "Performance section: serialization [#309] and connection [#313]"
+    },
+    {
+      "text": "Dependency bumps are grouped under a Dependencies heading showing old and new versions",
+      "passed": true,
+      "evidence": "Dependencies: 'Bump axios from 1.6.2 to 1.7.0', 'Bump typescript from 5.3.2 to 5.4.0'"
+    },
+    {
+      "text": "PR links are formatted as clickable Markdown links pointing to https://github.com/acme/node-sdk/pull/NNN",
+      "passed": true,
+      "evidence": "All PR refs formatted as [#312](https://github.com/acme/node-sdk/pull/312)"
+    },
+    {
+      "text": "A compare link is included showing the full diff between v1.8.0 and v1.9.0",
+      "passed": true,
+      "evidence": "Footer: **Full Changelog:** [v1.8.0...v1.9.0](https://github.com/acme/node-sdk/compare/v1.8.0...v1.9.0)"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

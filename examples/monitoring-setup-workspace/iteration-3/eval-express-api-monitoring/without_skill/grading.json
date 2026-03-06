@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a liveness endpoint at /healthz that does NOT check database or Redis connectivity",
+      "passed": false,
+      "evidence": "Single /health endpoint that checks database. No separate liveness endpoint. Health check includes DB connectivity test."
+    },
+    {
+      "text": "Output includes a readiness endpoint at /readyz that checks both PostgreSQL and Redis with individual status per dependency",
+      "passed": false,
+      "evidence": "No /readyz endpoint. Single /health checks DB only, not Redis. No individual dependency status."
+    },
+    {
+      "text": "Output includes a startup endpoint at /startupz that verifies initialization completion",
+      "passed": false,
+      "evidence": "No startup endpoint."
+    },
+    {
+      "text": "Health check responses include structured JSON with status, individual check results, and version information",
+      "passed": false,
+      "evidence": "Response: { status: 'ok' } or { status: 'error', message }. No individual checks, no version, no uptime."
+    },
+    {
+      "text": "Metrics are exposed at /metrics endpoint in Prometheus exposition format using a Prometheus client library",
+      "passed": false,
+      "evidence": "No /metrics endpoint. Uses console.log for request logging."
+    },
+    {
+      "text": "RED metrics are implemented: request rate counter (http_requests_total), error counter, and duration histogram with appropriate bucket values",
+      "passed": false,
+      "evidence": "No Prometheus metrics. Request timing logged to console only."
+    },
+    {
+      "text": "A metrics middleware is created that automatically instruments all incoming HTTP requests with method, path, and status_code labels",
+      "passed": true,
+      "evidence": "Logging middleware captures method, url, status, response time for all requests. Not Prometheus but does instrument all requests."
+    },
+    {
+      "text": "OpenTelemetry tracing configuration is generated with W3C Trace Context header propagation (traceparent)",
+      "passed": false,
+      "evidence": "No OpenTelemetry. UUID-based request ID middleware only. No W3C trace context."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

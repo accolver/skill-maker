@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base exception class (AppError or similar) is defined with attributes: code, message, status_code, category, and support for __cause__ chaining",
+      "passed": false,
+      "evidence": "No base exception class. Uses built-in ValueError and RuntimeError with string messages."
+    },
+    {
+      "text": "At least 4 domain-specific exception subclasses exist (e.g., NotFoundError, ValidationError, ServiceUnavailableError, PaymentError)",
+      "passed": false,
+      "evidence": "Only OrderNotFoundError defined. No ValidationError, ServiceUnavailableError, or PaymentError."
+    },
+    {
+      "text": "Exception wrapping uses 'raise NewError(...) from original_error' syntax to preserve the causal chain",
+      "passed": false,
+      "evidence": "No 'from' syntax. Errors raised as new exceptions losing original traceback: 'raise RuntimeError(f\"DB error: {e}\")'"
+    },
+    {
+      "text": "No bare 'except:' or 'except Exception:' clauses that swallow errors without re-raising or wrapping",
+      "passed": false,
+      "evidence": "process_payment has 'except Exception as e: print(f\"Payment error: {e}\"); return {\"status\": \"failed\"}' which swallows the exception and returns a dict."
+    },
+    {
+      "text": "Structured logging outputs JSON-formatted log entries with at minimum: code, message, correlation_id, and timestamp",
+      "passed": false,
+      "evidence": "Uses print() and logging.error() with default text format. No JSON, no correlation IDs, no error codes in log output."
+    },
+    {
+      "text": "Database errors (SQLAlchemy exceptions) are caught and wrapped in domain-specific errors with context",
+      "passed": false,
+      "evidence": "Catches 'except Exception' broadly. Wraps as RuntimeError('Database error') with no domain context or specific exception type."
+    },
+    {
+      "text": "External API errors (httpx/HTTP errors) are caught and wrapped with the upstream service name and response details",
+      "passed": false,
+      "evidence": "Catches generic Exception for API calls. Wraps as RuntimeError('External API failed') with no service name or response details."
+    },
+    {
+      "text": "Each error includes a stable string error code (e.g., ERR_ORDER_NOT_FOUND) not just a status number",
+      "passed": false,
+      "evidence": "No error codes. Errors identified only by exception class name and free-text message."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0.0
+  }
+}

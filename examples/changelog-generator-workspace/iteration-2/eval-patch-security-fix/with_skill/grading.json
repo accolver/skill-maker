@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The changelog identifies this as a patch version bump (v4.2.1)",
+      "passed": true,
+      "evidence": "Header: '## [4.2.1] — Security Patch' with note 'Patch release addressing a high-severity security vulnerability.'"
+    },
+    {
+      "text": "The security vulnerability is described with advisory language including severity level (HIGH) and CVSS score (8.1)",
+      "passed": true,
+      "evidence": "Security advisory block: '> **Severity:** HIGH | **CVSS:** 8.1'"
+    },
+    {
+      "text": "Affected versions (4.0.0 - 4.2.0) are explicitly stated so operators know if they need to upgrade",
+      "passed": true,
+      "evidence": "Advisory states: '**Affected versions:** 4.0.0 through 4.2.0'"
+    },
+    {
+      "text": "The changelog communicates upgrade urgency — words like 'urgent', 'immediately', 'critical', or 'recommended to upgrade' appear",
+      "passed": true,
+      "evidence": "Opening paragraph: 'All users on versions 4.0.0 through 4.2.0 are **strongly recommended to upgrade immediately**.'"
+    },
+    {
+      "text": "The open redirect vulnerability description explains the attack vector (URL-encoded characters bypassing validation)",
+      "passed": true,
+      "evidence": "Description: 'An attacker could craft a malicious redirect_uri using URL-encoded characters to bypass validation, redirecting users to attacker-controlled sites.'"
+    },
+    {
+      "text": "The CSRF fix (state parameter check) is documented as a separate entry from the redirect fix",
+      "passed": true,
+      "evidence": "Two separate entries under ### Bug Fixes: redirect validation fix (#890) and state parameter CSRF check (#891)"
+    },
+    {
+      "text": "A compare link is included for the diff between v4.2.0 and v4.2.1",
+      "passed": true,
+      "evidence": "Footer: [v4.2.0...v4.2.1](https://github.com/acme/auth-service/compare/v4.2.0...v4.2.1)"
+    },
+    {
+      "text": "The changelog does NOT include the test commit as a user-facing change (tests are internal)",
+      "passed": false,
+      "evidence": "The test commit 'add regression tests for redirect validation (#892)' still appears under an 'Internal' section."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "An error response JSON schema is defined with required fields: error.code, error.message, and requestId",
+      "passed": false,
+      "evidence": "No formal JSON schema. Error format described in prose as { message: string, status: number }. No 'code' field and no 'requestId'."
+    },
+    {
+      "text": "The schema supports optional fields for: error.details (structured), error.target (field name), and error.docUrl (documentation link)",
+      "passed": false,
+      "evidence": "No optional fields defined. Flat error object with message and status only."
+    },
+    {
+      "text": "An error code registry lists at least 15 distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)",
+      "passed": false,
+      "evidence": "No error code registry. Lists HTTP status codes (400, 401, 403, 404, 500) with descriptions. No string error codes, no rate-limit or conflict categories."
+    },
+    {
+      "text": "Example responses are provided for at least 5 different error scenarios: validation, authentication, not-found, rate-limit, and internal",
+      "passed": false,
+      "evidence": "Only 3 examples: validation (400), not-found (404), internal (500). Missing authentication and rate-limit examples."
+    },
+    {
+      "text": "Validation error examples show field-level detail with the specific field name, constraint violated, and value received",
+      "passed": false,
+      "evidence": "Validation example: { message: 'Validation failed', status: 400, errors: ['email is required'] }. Array of strings, no structured field/constraint/received detail."
+    },
+    {
+      "text": "Rate limit error response includes Retry-After header guidance or a retryAfter field in the response body",
+      "passed": false,
+      "evidence": "No rate limit error response. Rate limiting not addressed in the document."
+    },
+    {
+      "text": "Internal server errors use a generic safe message and never expose implementation details in the example",
+      "passed": true,
+      "evidence": "Internal error: { message: 'Something went wrong', status: 500 }. Generic and safe."
+    },
+    {
+      "text": "A developer-facing error reference document explains how clients should programmatically handle each error category",
+      "passed": false,
+      "evidence": "No developer-facing error reference. Brief paragraph saying 'Check the status code to determine the error type' with no category-specific handling guidance."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

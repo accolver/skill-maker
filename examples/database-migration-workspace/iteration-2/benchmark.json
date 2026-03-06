@@ -1,0 +1,39 @@
+{
+  "skill_name": "database-migration",
+  "iteration": 2,
+  "timestamp": "2026-03-06T15:00:00.000Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": { "mean": 1.0, "stddev": 0.0 },
+      "time_seconds": { "mean": 34.5, "stddev": 2.3 },
+      "tokens": { "mean": 8293, "stddev": 546 }
+    },
+    "without_skill": {
+      "pass_rate": { "mean": 0.042, "stddev": 0.059 },
+      "time_seconds": { "mean": 6.3, "stddev": 1.2 },
+      "tokens": { "mean": 1440, "stddev": 243 }
+    },
+    "delta": {
+      "pass_rate": 0.958,
+      "time_seconds": 28.2,
+      "tokens": 6853
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "add-column-with-default",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 34.8, "tokens": 8250 },
+      "without_skill": { "pass_rate": 0.0, "time_seconds": 7.9, "tokens": 1780 }
+    },
+    {
+      "eval_name": "rename-column-safely",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 37.2, "tokens": 8980 },
+      "without_skill": { "pass_rate": 0.125, "time_seconds": 5.8, "tokens": 1350 }
+    },
+    {
+      "eval_name": "add-index-on-large-table",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 31.5, "tokens": 7650 },
+      "without_skill": { "pass_rate": 0.0, "time_seconds": 5.1, "tokens": 1190 }
+    }
+  ]
+}

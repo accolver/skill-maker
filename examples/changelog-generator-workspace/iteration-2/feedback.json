@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T15:15:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Still a flat list with minimal grouping. No improvement from baseline.",
+      "timestamp": "2026-03-06T15:16:00.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T15:17:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Still no migration instructions or code examples for breaking changes.",
+      "timestamp": "2026-03-06T15:18:00.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "Test commit still showing up under 'Internal' section. Need to explicitly exclude test/ci/docs commits from the changelog output entirely.",
+      "timestamp": "2026-03-06T15:19:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "No improvement. Still missing advisory language and affected versions.",
+      "timestamp": "2026-03-06T15:20:00.000Z"
+    }
+  ],
+  "status": "complete"
+}

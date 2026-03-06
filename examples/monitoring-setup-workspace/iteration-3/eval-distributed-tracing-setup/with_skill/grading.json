@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Tracing configuration is generated for all 3 services (api-gateway, order-service, inventory-service) with service-specific names",
+      "passed": true,
+      "evidence": "Three config files: api-gateway/tracing.js (serviceName: 'api-gateway'), order-service/tracing.js (serviceName: 'order-service'), inventory-service/tracing.py (service_name='inventory-service')."
+    },
+    {
+      "text": "W3C Trace Context headers (traceparent) are propagated between services on outgoing HTTP calls",
+      "passed": true,
+      "evidence": "W3CTraceContextPropagator configured in Node.js services. TraceContextTextMapPropagator in Python. All outgoing HTTP calls propagate traceparent header."
+    },
+    {
+      "text": "A correlation ID middleware extracts trace ID from incoming requests or generates a new one if absent",
+      "passed": true,
+      "evidence": "Middleware extracts trace ID from traceparent header, falls back to X-Request-ID/X-Correlation-ID, generates new ID if absent."
+    },
+    {
+      "text": "Correlation IDs are injected into log output so logs can be correlated with traces",
+      "passed": true,
+      "evidence": "Node.js: custom logger wraps console methods with [trace_id=<id>] prefix. Python: logging filter adds trace_id to LogRecord, formatter includes %(trace_id)s."
+    },
+    {
+      "text": "Child spans are created for outgoing HTTP calls from api-gateway to order-service and from order-service to inventory-service",
+      "passed": true,
+      "evidence": "Auto-instrumentation via @opentelemetry/instrumentation-http creates child spans. Python uses RequestsInstrumentor for outgoing calls."
+    },
+    {
+      "text": "Both Node.js (api-gateway, order-service) and Python (inventory-service) configurations are provided with language-appropriate OpenTelemetry SDKs",
+      "passed": true,
+      "evidence": "Node.js: @opentelemetry/sdk-node with auto-instrumentations-node. Python: opentelemetry-sdk with FlaskInstrumentor, RequestsInstrumentor."
+    },
+    {
+      "text": "Trace exporter is configured to send to a Jaeger-compatible OTLP endpoint (configurable via environment variable)",
+      "passed": true,
+      "evidence": "All services use OTEL_EXPORTER_OTLP_ENDPOINT env var with default http://localhost:4318/v1/traces."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

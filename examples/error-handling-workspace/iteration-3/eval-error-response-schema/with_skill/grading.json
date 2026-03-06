@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "An error response JSON schema is defined with required fields: error.code, error.message, and requestId",
+      "passed": true,
+      "evidence": "JSON Schema (draft-07) defines top-level required properties: 'error' (object) and 'requestId' (string). Error object has required properties: 'code' (string) and 'message' (string)."
+    },
+    {
+      "text": "The schema supports optional fields for: error.details (structured), error.target (field name), and error.docUrl (documentation link)",
+      "passed": true,
+      "evidence": "Error object includes optional properties: details (oneOf: object with additionalProperties, or array of field error objects), target (string), docUrl (string, format: uri)."
+    },
+    {
+      "text": "An error code registry lists at least 15 distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)",
+      "passed": true,
+      "evidence": "Registry contains 19 error codes across 7 categories: validation (ERR_VALIDATION, ERR_VALIDATION_FIELD, ERR_VALIDATION_FORMAT, ERR_VALIDATION_RANGE), authentication (ERR_AUTH_INVALID, ERR_AUTH_EXPIRED, ERR_AUTH_MISSING), authorization (ERR_FORBIDDEN, ERR_FORBIDDEN_ROLE), not-found (ERR_NOT_FOUND_USER, ERR_NOT_FOUND_ORDER, ERR_NOT_FOUND_RESOURCE), conflict (ERR_CONFLICT_EMAIL, ERR_CONFLICT_VERSION), rate-limit (ERR_RATE_LIMIT, ERR_RATE_LIMIT_BURST), internal (ERR_INTERNAL, ERR_UPSTREAM_TIMEOUT, ERR_UPSTREAM_UNAVAILABLE)."
+    },
+    {
+      "text": "Example responses are provided for at least 5 different error scenarios: validation, authentication, not-found, rate-limit, and internal",
+      "passed": true,
+      "evidence": "Found 7 example responses: validation with multiple fields (400), authentication expired (401), authorization forbidden (403), not-found (404), conflict (409), rate-limit (429), internal (500)."
+    },
+    {
+      "text": "Validation error examples show field-level detail with the specific field name, constraint violated, and value received",
+      "passed": true,
+      "evidence": "Validation example includes details array: [{ field: 'email', constraint: 'Must be a valid email address', received: 'not-an-email' }, { field: 'age', constraint: 'Must be between 18 and 120', received: 15 }]."
+    },
+    {
+      "text": "Rate limit error response includes Retry-After header guidance or a retryAfter field in the response body",
+      "passed": true,
+      "evidence": "Rate limit example includes Retry-After header (60 seconds) in the response headers section and retryAfter field in error details: { retryAfter: 60, limit: 100, window: '60s', remaining: 0 }."
+    },
+    {
+      "text": "Internal server errors use a generic safe message and never expose implementation details in the example",
+      "passed": true,
+      "evidence": "Internal error example: { error: { code: 'ERR_INTERNAL', message: 'An unexpected error occurred', docUrl: 'https://api.example.com/docs/errors#ERR_INTERNAL' }, requestId: 'req_8k4m2n1p' }. No stack traces or implementation details."
+    },
+    {
+      "text": "A developer-facing error reference document explains how clients should programmatically handle each error category",
+      "passed": true,
+      "evidence": "Error reference document includes 'Client Handling Guide' section with specific guidance for all 7 categories: validation (display field errors), authentication (redirect to login/refresh token), authorization (show permission denied), not-found (show 404 page), conflict (retry with latest version), rate-limit (implement exponential backoff using Retry-After), internal (show generic error, retry with backoff)."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

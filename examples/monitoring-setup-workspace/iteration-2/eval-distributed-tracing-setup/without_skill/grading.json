@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Tracing configuration is generated for all 3 services (api-gateway, order-service, inventory-service) with service-specific names",
+      "passed": true,
+      "evidence": "Three config files generated with service-specific names. Python service correctly uses Python SDK this time."
+    },
+    {
+      "text": "W3C Trace Context headers (traceparent) are propagated between services on outgoing HTTP calls",
+      "passed": false,
+      "evidence": "Custom X-Trace-ID header used instead of W3C traceparent format. Header value is a UUID, not the W3C version-traceid-parentid-flags format."
+    },
+    {
+      "text": "A correlation ID middleware extracts trace ID from incoming requests or generates a new one if absent",
+      "passed": true,
+      "evidence": "Middleware extracts X-Trace-ID from incoming request or generates UUID. Attaches to request context."
+    },
+    {
+      "text": "Correlation IDs are injected into log output so logs can be correlated with traces",
+      "passed": false,
+      "evidence": "Trace ID on request object but not injected into log output. console.log calls don't include trace ID."
+    },
+    {
+      "text": "Child spans are created for outgoing HTTP calls from api-gateway to order-service and from order-service to inventory-service",
+      "passed": false,
+      "evidence": "No span creation. Tracing is request-ID passing only, not OpenTelemetry spans with parent-child relationships."
+    },
+    {
+      "text": "Both Node.js (api-gateway, order-service) and Python (inventory-service) configurations are provided with language-appropriate OpenTelemetry SDKs",
+      "passed": false,
+      "evidence": "No OpenTelemetry SDK used in any service. Custom middleware for request ID passing only."
+    },
+    {
+      "text": "Trace exporter is configured to send to a Jaeger-compatible OTLP endpoint (configurable via environment variable)",
+      "passed": false,
+      "evidence": "No trace exporter. No OTLP endpoint configuration. Request IDs are only passed between services, not exported."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 5,
+    "total": 7,
+    "pass_rate": 0.286
+  }
+}

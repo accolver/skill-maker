@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration uses CREATE INDEX CONCURRENTLY (not a regular CREATE INDEX)",
+      "passed": false,
+      "evidence": "Migration uses 'CREATE INDEX idx_events_customer_id_created_at ON events (customer_id, created_at)' without CONCURRENTLY"
+    },
+    {
+      "text": "Migration includes an estimate or discussion of how long the index creation will take on 100M rows",
+      "passed": false,
+      "evidence": "No time estimate or duration discussion provided"
+    },
+    {
+      "text": "Impact analysis discusses the effect on write performance (insert overhead from maintaining the new index)",
+      "passed": false,
+      "evidence": "No write performance impact analysis. Only mentions query speed improvement"
+    },
+    {
+      "text": "A rollback is provided that drops the index (DROP INDEX or DROP INDEX CONCURRENTLY)",
+      "passed": false,
+      "evidence": "No rollback migration provided"
+    },
+    {
+      "text": "Verification queries confirm the index exists and is valid (not in an invalid state from a failed CONCURRENTLY build)",
+      "passed": false,
+      "evidence": "No verification queries provided"
+    },
+    {
+      "text": "The migration notes that CONCURRENTLY cannot run inside a transaction block",
+      "passed": false,
+      "evidence": "CONCURRENTLY is not used, so this is not applicable, but the migration also doesn't discuss transaction considerations"
+    },
+    {
+      "text": "A deployment runbook recommends running during off-peak hours or low-traffic periods",
+      "passed": false,
+      "evidence": "No deployment runbook provided"
+    },
+    {
+      "text": "Lock impact analysis mentions that CONCURRENTLY avoids blocking writes (SHARE UPDATE EXCLUSIVE vs SHARE lock)",
+      "passed": false,
+      "evidence": "No lock impact analysis provided"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0.0
+  }
+}

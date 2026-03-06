@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "minor-release",
+  "prompt": "Generate a changelog for the commits between v1.8.0 and v1.9.0 of our Node.js SDK. Here are the 15 commits:\n\na1b2c3d feat(client): add retry logic with exponential backoff (#312)\nb4c5d6e feat(streaming): support server-sent events for real-time updates (#318)\nc7d8e9f feat(types): export TypeScript type definitions for all public APIs (#320)\nd0e1f2a fix(auth): handle expired refresh tokens gracefully (#305)\ne3f4a5b fix(auth): prevent double token refresh on concurrent requests (#308)\nf6a7b8c fix(pagination): correct off-by-one error in cursor-based pagination (#311)\ng9h0i1j fix(websocket): reconnect on abnormal close codes (#314)\nh2i3j4k fix(cache): invalidate stale entries after TTL expiry (#316)\ni5j6k7l perf(serialization): use streaming JSON parser for large responses (#309)\nj8k9l0m perf(connection): implement connection pooling for HTTP/2 (#313)\nk1l2m3n chore(deps): bump axios from 1.6.2 to 1.7.0\nl4m5n6o chore(deps): bump typescript from 5.3.2 to 5.4.0\nm7n8o9p docs(readme): add streaming API usage examples\nn0o1p2q test(client): add integration tests for retry logic\no3p4q5r ci(release): automate npm publish on tag push\n\nThis is a developer-facing changelog for CHANGELOG.md. The repository is at https://github.com/acme/node-sdk.",
+  "assertions": [
+    "The changelog identifies the release as a minor version bump (v1.9.0) because the highest-impact commits are features",
+    "Commits are grouped under category headings (Features, Bug Fixes, Performance, Dependencies) rather than a flat bullet list",
+    "All three feature commits appear under a Features heading with their scope and PR links",
+    "All five bug fix commits appear under a Bug Fixes heading with scope, description, and PR links",
+    "Both performance commits appear under a Performance heading",
+    "Dependency bumps are grouped under a Dependencies heading showing old and new versions",
+    "PR links are formatted as clickable Markdown links pointing to https://github.com/acme/node-sdk/pull/NNN",
+    "A compare link is included showing the full diff between v1.8.0 and v1.9.0"
+  ]
+}

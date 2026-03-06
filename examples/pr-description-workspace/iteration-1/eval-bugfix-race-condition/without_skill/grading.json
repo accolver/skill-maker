@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Description includes a Motivation section that explains the root cause (non-atomic read-then-update causing duplicate processing)",
+      "passed": true,
+      "evidence": "Description explains 'acquireJob used two separate queries (SELECT then UPDATE) instead of an atomic operation' — root cause is present though not in a dedicated Motivation section"
+    },
+    {
+      "text": "Description references the support tickets (SUPPORT-891, SUPPORT-894, SUPPORT-897) or the customer impact (duplicate emails)",
+      "passed": true,
+      "evidence": "Last line states 'Fixes SUPPORT-891, SUPPORT-894, SUPPORT-897'"
+    },
+    {
+      "text": "Description includes a Testing Instructions section with steps to run the concurrent stress test",
+      "passed": false,
+      "evidence": "Testing section says 'Run npm test to verify everything passes. The new concurrent acquisition test spawns 10 workers to verify only one gets the job.' — mentions the test exists but doesn't provide steps to run it specifically"
+    },
+    {
+      "text": "Description includes a Rollback Plan section",
+      "passed": false,
+      "evidence": "No rollback plan section present in the description"
+    },
+    {
+      "text": "Description includes a Reviewer Notes section that flags the atomic query change as needing careful review",
+      "passed": false,
+      "evidence": "No reviewer notes section. The description doesn't guide reviewers on what to focus on."
+    },
+    {
+      "text": "Description mentions the payment processing implication as a risk or area needing attention",
+      "passed": false,
+      "evidence": "No mention of payment processing implications anywhere in the description"
+    },
+    {
+      "text": "Testing instructions mention running the new regression tests specifically (not just 'run the tests')",
+      "passed": false,
+      "evidence": "Testing section says 'Run npm test' — generic command, doesn't specify the new test file"
+    },
+    {
+      "text": "Changes section explains the fix conceptually (atomic operation replacing two-step read-update) not just which files changed",
+      "passed": true,
+      "evidence": "Changes section explains 'Changed the job acquisition to use UPDATE...RETURNING instead of separate SELECT and UPDATE queries'"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

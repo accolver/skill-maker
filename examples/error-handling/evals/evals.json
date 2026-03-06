@@ -1,0 +1,53 @@
+{
+  "skill_name": "error-handling",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add standardized error handling to this Express.js API that has 5 routes: GET /api/users (list), GET /api/users/:id (get one), POST /api/users (create), PUT /api/users/:id (update), DELETE /api/users/:id (delete). Currently the routes have ad-hoc try/catch blocks with inconsistent error responses. Implement a proper error class hierarchy, centralized error middleware, consistent error response format, and structured logging. The API uses MongoDB and has JWT authentication middleware.",
+      "expected_output": "A complete error handling implementation with: base AppError class and subclasses (ValidationError, NotFoundError, ConflictError, AuthenticationError, AuthorizationError, InternalError), centralized Express error middleware that converts errors to consistent JSON responses, structured logging with correlation IDs, and all 5 routes updated to throw typed errors instead of ad-hoc responses.",
+      "files": [],
+      "assertions": [
+        "A base error class (AppError or similar) exists with properties: code, message, statusCode, category, and cause",
+        "At least 5 error subclasses are defined covering: validation (400), authentication (401), authorization (403), not-found (404), and conflict (409)",
+        "Each error class has a stable string error code (e.g., ERR_NOT_FOUND_USER) not just an HTTP status number",
+        "A centralized error middleware function handles all errors and produces a consistent JSON response format",
+        "Error responses include a requestId or correlationId field for debugging",
+        "User-facing error responses do not contain stack traces, file paths, or internal implementation details",
+        "Structured error logging includes at minimum: error code, message, stack trace, correlation ID, and request path",
+        "The error response JSON schema is consistent across all endpoints with at least code and message fields"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Add comprehensive error handling to a Python service that makes database calls (PostgreSQL via SQLAlchemy) and external API calls (via httpx). The service has functions: create_order, get_order, update_order_status, sync_inventory (calls external API), and process_payment (calls payment gateway). Currently errors are handled with bare except clauses and print statements. Implement custom exception classes, proper error wrapping that preserves the original exception chain, and structured logging with correlation IDs using the standard logging module.",
+      "expected_output": "Python error handling implementation with: base AppError exception class and subclasses for each error category, proper exception chaining using 'raise X from original', structured JSON logging with correlation IDs, and all 5 service functions updated to raise typed exceptions with context. Database errors wrapped as ServiceUnavailableError, external API errors wrapped with upstream context preserved.",
+      "files": [],
+      "assertions": [
+        "A base exception class (AppError or similar) is defined with attributes: code, message, status_code, category, and support for __cause__ chaining",
+        "At least 4 domain-specific exception subclasses exist (e.g., NotFoundError, ValidationError, ServiceUnavailableError, PaymentError)",
+        "Exception wrapping uses 'raise NewError(...) from original_error' syntax to preserve the causal chain",
+        "No bare 'except:' or 'except Exception:' clauses that swallow errors without re-raising or wrapping",
+        "Structured logging outputs JSON-formatted log entries with at minimum: code, message, correlation_id, and timestamp",
+        "Database errors (SQLAlchemy exceptions) are caught and wrapped in domain-specific errors with context",
+        "External API errors (httpx/HTTP errors) are caught and wrapped with the upstream service name and response details",
+        "Each error includes a stable string error code (e.g., ERR_ORDER_NOT_FOUND) not just a status number"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Design a comprehensive error response format for a public REST API. The API serves mobile and web clients and needs machine-readable error codes, human-readable messages, field-level validation details, localization support, and documentation references. Create the error response JSON schema, an error code registry with at least 15 error codes across all categories, and example responses for: validation error with multiple field failures, authentication error, not-found error, rate limit error, and internal server error. Also create a developer-facing error reference document.",
+      "expected_output": "A complete error response specification with: JSON schema defining the error envelope format, an error code registry with 15+ codes organized by category, example error responses for each major error type, documentation showing how clients should handle each error category, and guidance on error response headers (Retry-After, X-Request-Id).",
+      "files": [],
+      "assertions": [
+        "An error response JSON schema is defined with required fields: error.code, error.message, and requestId",
+        "The schema supports optional fields for: error.details (structured), error.target (field name), and error.docUrl (documentation link)",
+        "An error code registry lists at least 15 distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)",
+        "Example responses are provided for at least 5 different error scenarios: validation, authentication, not-found, rate-limit, and internal",
+        "Validation error examples show field-level detail with the specific field name, constraint violated, and value received",
+        "Rate limit error response includes Retry-After header guidance or a retryAfter field in the response body",
+        "Internal server errors use a generic safe message and never expose implementation details in the example",
+        "A developer-facing error reference document explains how clients should programmatically handle each error category"
+      ]
+    }
+  ]
+}

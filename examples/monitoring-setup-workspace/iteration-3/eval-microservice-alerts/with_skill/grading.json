@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Alert thresholds are derived from the stated SLO (99.95% availability) using burn rate calculations, not arbitrary fixed values",
+      "passed": true,
+      "evidence": "All alert expressions use burn rate formula with 99.95% SLO. Critical: (1 - 0.9995) * 14.4 for 1h window. Warning: (1 - 0.9995) * 6 for 6h window. Error budget calculation shown in comments."
+    },
+    {
+      "text": "Alert rules are in valid Prometheus alerting rule YAML format with groups, rules, expr, for, labels, and annotations",
+      "passed": true,
+      "evidence": "Valid Prometheus alerting rule YAML with groups, rules array, each rule has alert, expr, for, labels, and annotations."
+    },
+    {
+      "text": "Each alert rule includes severity labels (critical, warning) and a team label for routing",
+      "passed": true,
+      "evidence": "All rules include labels: { severity: critical|warning, team: platform-oncall }."
+    },
+    {
+      "text": "Every alert annotation includes a runbook link URL pointing to resolution documentation",
+      "passed": true,
+      "evidence": "All 5 alert rules include annotations.runbook with URL pattern https://runbooks.example.com/<alert-name-kebab-case>."
+    },
+    {
+      "text": "An escalation policy is defined with different response times and notification channels per severity level (PagerDuty for critical, Slack for warning)",
+      "passed": true,
+      "evidence": "Escalation policy: critical -> 5min response, PagerDuty to platform-oncall, escalate 15min; warning -> 30min, Slack #platform-alerts, escalate 2h; info -> next business day, Slack #monitoring."
+    },
+    {
+      "text": "Runbook files are generated for each alert containing diagnosis steps, resolution procedures, and escalation instructions",
+      "passed": true,
+      "evidence": "Runbook files generated for all 5 alerts: high-error-rate.md, high-latency.md, low-availability.md, high-saturation.md, error-budget-burn.md. Each contains Symptoms, Diagnosis Steps, Resolution, and Escalation sections."
+    },
+    {
+      "text": "Latency alert uses histogram_quantile for P99 measurement against the 200ms SLO target, not average latency",
+      "passed": true,
+      "evidence": "Latency alert: histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 0.2. Uses P99 via histogram_quantile, threshold 0.2s (200ms)."
+    },
+    {
+      "text": "Error rate alert uses a ratio calculation (errors/total requests) rather than an absolute error count",
+      "passed": true,
+      "evidence": "Error rate: sum(rate(http_requests_total{status=~\"5..\"}[5m])) / sum(rate(http_requests_total[5m])). Ratio calculation, not absolute count."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

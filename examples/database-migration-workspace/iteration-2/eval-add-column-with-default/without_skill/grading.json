@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Up migration adds the column as nullable first (without NOT NULL in the initial ALTER TABLE)",
+      "passed": false,
+      "evidence": "Uses 'ADD COLUMN status varchar(50) NOT NULL DEFAULT' in a single statement"
+    },
+    {
+      "text": "Up migration includes a batched backfill strategy (multiple UPDATE statements with WHERE clauses limiting rows per batch, or explicit batch size guidance)",
+      "passed": false,
+      "evidence": "No backfill strategy. Single ALTER TABLE attempts to set default for all 50M rows"
+    },
+    {
+      "text": "Up migration adds the NOT NULL constraint as a separate step after backfill",
+      "passed": false,
+      "evidence": "NOT NULL in same ALTER TABLE statement"
+    },
+    {
+      "text": "A complete rollback migration is provided that drops the status column",
+      "passed": false,
+      "evidence": "No rollback migration provided"
+    },
+    {
+      "text": "Data backup commands are included (CREATE TABLE AS, pg_dump, or equivalent)",
+      "passed": false,
+      "evidence": "No backup commands"
+    },
+    {
+      "text": "Lock impact analysis is present, mentioning ACCESS EXCLUSIVE lock or table-level locking concerns for the 50M row table",
+      "passed": false,
+      "evidence": "No lock impact analysis"
+    },
+    {
+      "text": "Verification queries are included that check the column exists with correct type and constraints",
+      "passed": false,
+      "evidence": "No verification queries"
+    },
+    {
+      "text": "A deployment runbook is provided with pre-flight checks, execution steps, and rollback instructions",
+      "passed": false,
+      "evidence": "No deployment runbook"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0.0
+  }
+}

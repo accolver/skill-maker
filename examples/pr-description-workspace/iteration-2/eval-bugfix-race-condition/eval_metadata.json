@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "bugfix-race-condition",
+  "prompt": "Help me write a PR description. I fixed a race condition in our job queue processor. Here's the context:\n\nOur background job processor was occasionally processing the same job twice when two workers picked it up simultaneously. This caused duplicate emails being sent to customers (we got 3 support tickets about it this week — SUPPORT-891, SUPPORT-894, SUPPORT-897).\n\nRoot cause: The `acquireJob` function reads the job status and updates it in two separate queries instead of using an atomic operation.\n\nChanges (2 files):\n- Modified: src/workers/job-processor.ts — replaced the SELECT+UPDATE with a single UPDATE...RETURNING using a WHERE status='pending' clause, added a unique processing lock with a UUID\n- New: tests/workers/job-processor.test.ts — 8 new tests including a concurrent acquisition stress test that spawns 10 workers competing for the same job\n\nThe fix is small but critical — it affects payment processing jobs too.",
+  "assertions": [
+    "Description includes a Motivation section that explains the root cause (non-atomic read-then-update causing duplicate processing)",
+    "Description references the support tickets (SUPPORT-891, SUPPORT-894, SUPPORT-897) or the customer impact (duplicate emails)",
+    "Description includes a Testing Instructions section with steps to run the concurrent stress test",
+    "Description includes a Rollback Plan section",
+    "Description includes a Reviewer Notes section that flags the atomic query change as needing careful review",
+    "Description mentions the payment processing implication as a risk or area needing attention",
+    "Testing instructions mention running the new regression tests specifically (not just 'run the tests')",
+    "Changes section explains the fix conceptually (atomic operation replacing two-step read-update) not just which files changed"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "add-column-with-default",
+  "prompt": "Write a database migration to add a non-nullable `status` column (varchar(50), default 'pending') to the `orders` table. The orders table has approximately 50 million rows and is actively used by the production application for reads and writes. We're using PostgreSQL 15.",
+  "assertions": [
+    "Up migration adds the column as nullable first (without NOT NULL in the initial ALTER TABLE)",
+    "Up migration includes a batched backfill strategy (multiple UPDATE statements with WHERE clauses limiting rows per batch, or explicit batch size guidance)",
+    "Up migration adds the NOT NULL constraint as a separate step after backfill",
+    "A complete rollback migration is provided that drops the status column",
+    "Data backup commands are included (CREATE TABLE AS, pg_dump, or equivalent)",
+    "Lock impact analysis is present, mentioning ACCESS EXCLUSIVE lock or table-level locking concerns for the 50M row table",
+    "Verification queries are included that check the column exists with correct type and constraints",
+    "A deployment runbook is provided with pre-flight checks, execution steps, and rollback instructions"
+  ]
+}

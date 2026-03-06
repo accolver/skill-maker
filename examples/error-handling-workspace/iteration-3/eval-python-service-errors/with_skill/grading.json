@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base exception class (AppError or similar) is defined with attributes: code, message, status_code, category, and support for __cause__ chaining",
+      "passed": true,
+      "evidence": "AppError base class in exceptions.py with code, message, status_code, category attributes. Uses 'raise ... from e' pattern for __cause__ chaining throughout."
+    },
+    {
+      "text": "At least 4 domain-specific exception subclasses exist (e.g., NotFoundError, ValidationError, ServiceUnavailableError, PaymentError)",
+      "passed": true,
+      "evidence": "Found 6 subclasses: NotFoundError, ValidationError, ServiceUnavailableError, PaymentError, ConflictError, AuthenticationError. Each with appropriate default codes and status codes."
+    },
+    {
+      "text": "Exception wrapping uses 'raise NewError(...) from original_error' syntax to preserve the causal chain",
+      "passed": true,
+      "evidence": "All service functions use 'raise X from e' syntax consistently. Example: 'raise ServiceUnavailableError(\"Database connection failed\", code=\"ERR_DB_CONNECT\") from e'"
+    },
+    {
+      "text": "No bare 'except:' or 'except Exception:' clauses that swallow errors without re-raising or wrapping",
+      "passed": true,
+      "evidence": "All except clauses catch specific types (SQLAlchemyError, IntegrityError, httpx.HTTPStatusError, httpx.RequestError) and re-raise as wrapped AppError subclasses. No swallowed exceptions."
+    },
+    {
+      "text": "Structured logging outputs JSON-formatted log entries with at minimum: code, message, correlation_id, and timestamp",
+      "passed": true,
+      "evidence": "Uses python-json-logger with custom JsonFormatter. Log entries include: code, message, correlation_id, timestamp, category, exc_info, service_name."
+    },
+    {
+      "text": "Database errors (SQLAlchemy exceptions) are caught and wrapped in domain-specific errors with context",
+      "passed": true,
+      "evidence": "SQLAlchemyError caught in all DB functions. IntegrityError caught separately for constraint violations. Wrapped with context: 'raise ServiceUnavailableError(\"Failed to create order\", code=\"ERR_DB_CREATE_ORDER\", details={\"table\": \"orders\"}) from e'"
+    },
+    {
+      "text": "External API errors (httpx/HTTP errors) are caught and wrapped with the upstream service name and response details",
+      "passed": true,
+      "evidence": "httpx.HTTPStatusError caught with upstream details: 'raise ServiceUnavailableError(\"Inventory sync failed\", code=\"ERR_UPSTREAM_INVENTORY\", details={\"service\": \"inventory-api\", \"status\": e.response.status_code, \"body\": e.response.text[:200]}) from e'"
+    },
+    {
+      "text": "Each error includes a stable string error code (e.g., ERR_ORDER_NOT_FOUND) not just a status number",
+      "passed": true,
+      "evidence": "All errors use string codes: ERR_ORDER_NOT_FOUND, ERR_VALIDATION_ORDER, ERR_DB_CREATE_ORDER, ERR_PAYMENT_FAILED, ERR_UPSTREAM_INVENTORY, ERR_PAYMENT_GATEWAY, ERR_DB_CONNECT"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

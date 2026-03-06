@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "add-index-on-large-table",
+  "prompt": "Add a composite index on (customer_id, created_at) to the `events` table for a query optimization. The events table has approximately 100 million rows and receives about 5,000 inserts per second during peak hours. We're using PostgreSQL 16.",
+  "assertions": [
+    "Migration uses CREATE INDEX CONCURRENTLY (not a regular CREATE INDEX)",
+    "Migration includes an estimate or discussion of how long the index creation will take on 100M rows",
+    "Impact analysis discusses the effect on write performance (insert overhead from maintaining the new index)",
+    "A rollback is provided that drops the index (DROP INDEX or DROP INDEX CONCURRENTLY)",
+    "Verification queries confirm the index exists and is valid (not in an invalid state from a failed CONCURRENTLY build)",
+    "The migration notes that CONCURRENTLY cannot run inside a transaction block",
+    "A deployment runbook recommends running during off-peak hours or low-traffic periods",
+    "Lock impact analysis mentions that CONCURRENTLY avoids blocking writes (SHARE UPDATE EXCLUSIVE vs SHARE lock)"
+  ]
+}

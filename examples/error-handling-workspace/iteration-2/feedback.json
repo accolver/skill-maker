@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T15:15:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Still no error taxonomy, no codes, leaks internals. Slightly better than iteration 1 — has a basic error middleware now but format is inconsistent.",
+      "timestamp": "2026-03-06T15:16:00.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "When wrapping external API errors, include the upstream service name (e.g., 'inventory-api') and the HTTP status code from the failed response in the error details.",
+      "timestamp": "2026-03-06T15:17:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Same issues as iteration 1. Swallowed exceptions, no structured logging.",
+      "timestamp": "2026-03-06T15:18:00.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "Client handling section needs to cover ALL error categories with specific guidance: retry logic for 429, re-authenticate for 401, show field errors for 400, etc.",
+      "timestamp": "2026-03-06T15:19:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "No improvement from iteration 1. Still no schema, no codes, no field-level details.",
+      "timestamp": "2026-03-06T15:20:00.000Z"
+    }
+  ],
+  "status": "complete"
+}

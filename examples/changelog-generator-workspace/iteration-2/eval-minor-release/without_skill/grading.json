@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The changelog identifies the release as a minor version bump (v1.9.0) because the highest-impact commits are features",
+      "passed": false,
+      "evidence": "Header says '# Changelog' with no version classification. Version number v1.9.0 appears but no SemVer reasoning."
+    },
+    {
+      "text": "Commits are grouped under category headings (Features, Bug Fixes, Performance, Dependencies) rather than a flat bullet list",
+      "passed": true,
+      "evidence": "This run grouped commits under 'New Features' and 'Bug Fixes' headings, but performance and deps are in 'Other'."
+    },
+    {
+      "text": "All three feature commits appear under a Features heading with their scope and PR links",
+      "passed": false,
+      "evidence": "Features listed under 'New Features' but without scope prefixes. PR numbers shown as raw (#312) text."
+    },
+    {
+      "text": "All five bug fix commits appear under a Bug Fixes heading with scope, description, and PR links",
+      "passed": false,
+      "evidence": "Bug fixes listed but missing scope prefixes and PR links are not clickable."
+    },
+    {
+      "text": "Both performance commits appear under a Performance heading",
+      "passed": false,
+      "evidence": "Performance commits lumped into 'Other Changes' with no dedicated heading."
+    },
+    {
+      "text": "Dependency bumps are grouped under a Dependencies heading showing old and new versions",
+      "passed": false,
+      "evidence": "Dependency bumps in 'Other Changes' as raw commit messages. No dedicated Dependencies heading."
+    },
+    {
+      "text": "PR links are formatted as clickable Markdown links pointing to https://github.com/acme/node-sdk/pull/NNN",
+      "passed": false,
+      "evidence": "PR numbers shown as plain text (#312) with no Markdown link formatting."
+    },
+    {
+      "text": "A compare link is included showing the full diff between v1.8.0 and v1.9.0",
+      "passed": false,
+      "evidence": "No compare link present in the output."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

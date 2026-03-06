@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "PR links need to be clickable Markdown links, not just raw (#NNN) text. The skill should be more explicit about link formatting.",
+      "timestamp": "2026-03-06T14:15:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Flat bullet list with no categorization. No SemVer classification. Exactly the failure mode we expected.",
+      "timestamp": "2026-03-06T14:16:00.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "Breaking changes need before/after code examples, not just prose migration steps. Also missing the compare link footer.",
+      "timestamp": "2026-03-06T14:17:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Breaking changes completely buried. No migration instructions. No security section. No CVE reference.",
+      "timestamp": "2026-03-06T14:18:00.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "Missing urgency language for security advisory. Also should filter out test commits from user-facing changelog.",
+      "timestamp": "2026-03-06T14:19:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "No advisory language, no severity, no affected versions. Test commit included. Basically a raw git log.",
+      "timestamp": "2026-03-06T14:20:00.000Z"
+    }
+  ],
+  "status": "complete"
+}

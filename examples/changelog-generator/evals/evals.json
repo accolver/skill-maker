@@ -1,0 +1,53 @@
+{
+  "skill_name": "changelog-generator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate a changelog for the commits between v1.8.0 and v1.9.0 of our Node.js SDK. Here are the 15 commits:\n\na1b2c3d feat(client): add retry logic with exponential backoff (#312)\nb4c5d6e feat(streaming): support server-sent events for real-time updates (#318)\nc7d8e9f feat(types): export TypeScript type definitions for all public APIs (#320)\nd0e1f2a fix(auth): handle expired refresh tokens gracefully (#305)\ne3f4a5b fix(auth): prevent double token refresh on concurrent requests (#308)\nf6a7b8c fix(pagination): correct off-by-one error in cursor-based pagination (#311)\ng9h0i1j fix(websocket): reconnect on abnormal close codes (#314)\nh2i3j4k fix(cache): invalidate stale entries after TTL expiry (#316)\ni5j6k7l perf(serialization): use streaming JSON parser for large responses (#309)\nj8k9l0m perf(connection): implement connection pooling for HTTP/2 (#313)\nk1l2m3n chore(deps): bump axios from 1.6.2 to 1.7.0\nl4m5n6o chore(deps): bump typescript from 5.3.2 to 5.4.0\nm7n8o9p docs(readme): add streaming API usage examples\nn0o1p2q test(client): add integration tests for retry logic\no3p4q5r ci(release): automate npm publish on tag push\n\nThis is a developer-facing changelog for CHANGELOG.md. The repository is at https://github.com/acme/node-sdk.",
+      "expected_output": "A structured changelog for v1.9.0 classified as a minor release (3 features, no breaking changes). Commits grouped by category: Features (3), Bug Fixes (5), Performance (2), Dependencies (2), Other (3). Each entry has scope, description, and PR link. Includes compare link and release date.",
+      "files": [],
+      "assertions": [
+        "The changelog identifies the release as a minor version bump (v1.9.0) because the highest-impact commits are features",
+        "Commits are grouped under category headings (Features, Bug Fixes, Performance, Dependencies) rather than a flat bullet list",
+        "All three feature commits appear under a Features heading with their scope and PR links",
+        "All five bug fix commits appear under a Bug Fixes heading with scope, description, and PR links",
+        "Both performance commits appear under a Performance heading",
+        "Dependency bumps are grouped under a Dependencies heading showing old and new versions",
+        "PR links are formatted as clickable Markdown links pointing to https://github.com/acme/node-sdk/pull/NNN",
+        "A compare link is included showing the full diff between v1.8.0 and v1.9.0"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate a changelog for v3.0.0 of our Python REST framework. This is a major release with breaking changes. Here are the 20 commits between v2.5.0 and v3.0.0:\n\na1a1a1a feat!: replace request.json() with request.parse_body() for unified parsing (#450)\nb2b2b2b feat!: change default serializer from pickle to msgpack (#455)\nc3c3c3c feat(middleware): add request/response lifecycle hooks (#440)\nd4d4d4d feat(router): support path parameter type coercion (#442)\ne5e5e5e feat(validation): add Pydantic v2 schema support (#448)\nf6f6f6f fix(cors): apply CORS headers to preflight OPTIONS responses (#435)\ng7g7g7g fix(auth): validate JWT audience claim (#438)\nh8h8h8h fix(router): handle trailing slashes consistently (#441)\ni9i9i9i fix(middleware): preserve request context across async boundaries (#444)\nj0j0j0j fix(response): set correct Content-Length for streaming responses (#447)\nk1k1k1k perf(router): compile route patterns at startup instead of per-request (#443)\nl2l2l2l perf(json): use orjson for JSON serialization when available (#446)\nm3m3m3m security(auth): patch JWT algorithm confusion vulnerability (CVE-2026-1234) (#452)\nn4n4n4n chore(deps): bump pydantic from 1.10 to 2.6\no5o5o5o chore(deps): bump uvicorn from 0.27 to 0.29\np6p6p6p chore(deps): drop support for Python 3.8 (EOL)\nq7q7q7q docs(migration): add v2-to-v3 migration guide\nr8r8r8r test(middleware): add lifecycle hook integration tests\ns9s9s9s refactor(internals): extract route compilation to separate module\nt0t0t0t ci(release): add Python 3.12 to test matrix\n\nThe first commit (a1a1a1a) has this body:\nBREAKING CHANGE: request.json() is removed. Use request.parse_body() which handles JSON, form data, and multipart automatically. The return type changes from dict to ParsedBody.\n\nThe second commit (b2b2b2b) has this body:\nBREAKING CHANGE: The default serializer for cache and session backends changes from pickle to msgpack. Existing cached data will be unreadable after upgrade. Run `framework migrate-cache` to convert existing data.\n\nThe repository is at https://github.com/acme/py-framework. Generate a developer changelog with full migration instructions for the breaking changes.",
+      "expected_output": "A major release changelog for v3.0.0 with breaking changes prominently displayed first. Two breaking changes with detailed migration guides including before/after code examples. Remaining commits grouped by category. Security fix highlighted with CVE reference. Compare link from v2.5.0 to v3.0.0.",
+      "files": [],
+      "assertions": [
+        "The changelog identifies this as a major version bump (v3.0.0) because of the two breaking changes",
+        "Breaking changes appear as the FIRST section in the changelog, before features and fixes",
+        "The request.parse_body() breaking change includes migration steps explaining how to update from request.json()",
+        "The serializer breaking change includes the migration command (framework migrate-cache) and explains data incompatibility",
+        "At least one breaking change includes a before/after code example showing old vs new usage",
+        "The security fix references CVE-2026-1234 and appears in a Security section",
+        "The changelog includes at least 5 distinct category groupings (Breaking Changes, Features, Bug Fixes, Performance, Security, Dependencies)",
+        "A compare link is included for the full diff between v2.5.0 and v3.0.0"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Generate a changelog for a patch release v4.2.1 of our authentication service. This is an urgent security fix. Here are the 3 commits between v4.2.0 and v4.2.1:\n\na1b1c1d security(oauth): fix open redirect in OAuth callback validation (#890)\nb2c2d2e fix(oauth): add state parameter CSRF check to OAuth flow (#891)\nc3d3e3f test(oauth): add regression tests for redirect validation (#892)\n\nThe first commit (a1b1c1d) body:\nAn attacker could craft a malicious redirect_uri that bypassed validation by using URL-encoded characters. This allowed redirecting users to attacker-controlled sites after OAuth authentication, potentially capturing authorization codes.\n\nSeverity: HIGH\nCVSS: 8.1\nAffected versions: 4.0.0 - 4.2.0\nReported by: security@example.com via responsible disclosure\n\nThe repository is at https://github.com/acme/auth-service. Generate release notes that communicate urgency to both developers and operations teams. This should use security advisory language.",
+      "expected_output": "A patch release changelog for v4.2.1 with security advisory language. The security fix is prominently highlighted with severity, affected versions, and upgrade urgency. The CSRF fix is documented. The changelog communicates that this is an urgent upgrade.",
+      "files": [],
+      "assertions": [
+        "The changelog identifies this as a patch version bump (v4.2.1)",
+        "The security vulnerability is described with advisory language including severity level (HIGH) and CVSS score (8.1)",
+        "Affected versions (4.0.0 - 4.2.0) are explicitly stated so operators know if they need to upgrade",
+        "The changelog communicates upgrade urgency — words like 'urgent', 'immediately', 'critical', or 'recommended to upgrade' appear",
+        "The open redirect vulnerability description explains the attack vector (URL-encoded characters bypassing validation)",
+        "The CSRF fix (state parameter check) is documented as a separate entry from the redirect fix",
+        "A compare link is included for the diff between v4.2.0 and v4.2.1",
+        "The changelog does NOT include the test commit as a user-facing change (tests are internal)"
+      ]
+    }
+  ]
+}

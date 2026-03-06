@@ -1,26 +1,44 @@
 # pr-description
 
-> **Status:** Planned
+> **Status:** Complete
 
 Generate structured PR descriptions from branch diffs with context, motivation,
 testing instructions, rollback plan, and reviewer guidance.
 
-## When built, this skill will
+## Results
 
-- Analyze the full branch diff to summarize what changed and why
-- Write a structured description with context, motivation, and approach sections
-- Generate testing instructions reviewers can follow to verify the change
-- Include a rollback plan for production deployments
-- Flag areas that need careful review (security, performance, breaking changes)
-- Link related issues, tickets, or prior PRs
+| Metric                | Value  |
+| --------------------- | ------ |
+| Final pass rate       | 100%   |
+| Without-skill rate    | 20.8%  |
+| Delta                 | +79.2% |
+| Iterations            | 3      |
+| Plateau at            | 2      |
+| Eval cases            | 3      |
+| Total assertions      | 24     |
+| Avg time (with skill) | 29.8s  |
+| Avg tokens (with)     | 7,160  |
 
-## Predicted delta: +60-70%
+## What the skill adds
 
-Agents currently write "updated X, Y, Z" summaries that tell reviewers what
-files changed but not why, how to test, or how to revert.
+Agents without the skill write 3-5 line PR descriptions listing files changed.
+With the skill, agents produce comprehensive descriptions with:
 
-## Getting started
+- **Motivation section** — WHY the change was made, not just WHAT changed
+- **Conceptual change grouping** — changes organized by feature area, not
+  file-by-file
+- **Copy-pasteable testing instructions** — numbered steps with exact commands
+  and expected outputs
+- **Rollback plan** — how to revert safely, including migration reversal and
+  data impact
+- **Reviewer guidance** — flags security-sensitive, performance-critical, and
+  uncertain areas
 
-```
-Create a skill for writing structured PR descriptions with testing instructions and rollback plans
-```
+## Eval cases
+
+1. **feature-auth-flow** — OAuth2 login with 8 changed files, database
+   migration, security-sensitive auth code
+2. **bugfix-race-condition** — Race condition fix with 2 files, support ticket
+   references, payment processing implications
+3. **refactor-database-layer** — 18-file refactor to repository pattern with
+   connection pooling and performance improvement

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Up migration adds the column as nullable first (without NOT NULL in the initial ALTER TABLE)",
+      "passed": true,
+      "evidence": "Uses 'ADD COLUMN status varchar(50)' without NOT NULL"
+    },
+    {
+      "text": "Up migration includes a batched backfill strategy (multiple UPDATE statements with WHERE clauses limiting rows per batch, or explicit batch size guidance)",
+      "passed": true,
+      "evidence": "DO $$ block with batch_size := 50000"
+    },
+    {
+      "text": "Up migration adds the NOT NULL constraint as a separate step after backfill",
+      "passed": true,
+      "evidence": "Separate transaction: ALTER TABLE orders ALTER COLUMN status SET NOT NULL"
+    },
+    {
+      "text": "A complete rollback migration is provided that drops the status column",
+      "passed": true,
+      "evidence": "rollback.sql drops default and column"
+    },
+    {
+      "text": "Data backup commands are included (CREATE TABLE AS, pg_dump, or equivalent)",
+      "passed": true,
+      "evidence": "Runbook: CREATE TABLE orders_backup_20260306"
+    },
+    {
+      "text": "Lock impact analysis is present, mentioning ACCESS EXCLUSIVE lock or table-level locking concerns for the 50M row table",
+      "passed": true,
+      "evidence": "Header: 'ACCESS EXCLUSIVE (instant for nullable column add, no table rewrite)'"
+    },
+    {
+      "text": "Verification queries are included that check the column exists with correct type and constraints",
+      "passed": true,
+      "evidence": "Runbook includes information_schema query"
+    },
+    {
+      "text": "A deployment runbook is provided with pre-flight checks, execution steps, and rollback instructions",
+      "passed": true,
+      "evidence": "Runbook has Pre-flight, Backup, Execute, Verification, and Rollback sections"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

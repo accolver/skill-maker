@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "An error response JSON schema is defined with required fields: error.code, error.message, and requestId",
+      "passed": true,
+      "evidence": "JSON schema defines error object with required properties 'code' (string) and 'message' (string), and top-level required 'requestId' (string)."
+    },
+    {
+      "text": "The schema supports optional fields for: error.details (structured), error.target (field name), and error.docUrl (documentation link)",
+      "passed": true,
+      "evidence": "Schema includes optional properties: details (object), target (string), and docUrl (string, format: uri) in the error object."
+    },
+    {
+      "text": "An error code registry lists at least 15 distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)",
+      "passed": false,
+      "evidence": "Error code registry lists 12 codes across 5 categories. Missing rate-limit category entirely and only has 2 codes for validation. Needs at least 3 more codes."
+    },
+    {
+      "text": "Example responses are provided for at least 5 different error scenarios: validation, authentication, not-found, rate-limit, and internal",
+      "passed": true,
+      "evidence": "Found 5 example responses: validation (400), authentication (401), not-found (404), rate-limit (429), and internal (500)."
+    },
+    {
+      "text": "Validation error examples show field-level detail with the specific field name, constraint violated, and value received",
+      "passed": true,
+      "evidence": "Validation error example includes details array with entries containing field: 'email', constraint: 'Must be a valid email address', received: 'not-an-email'."
+    },
+    {
+      "text": "Rate limit error response includes Retry-After header guidance or a retryAfter field in the response body",
+      "passed": false,
+      "evidence": "Rate limit example shows the 429 status code and error message but does not include a Retry-After header or retryAfter field in the response body."
+    },
+    {
+      "text": "Internal server errors use a generic safe message and never expose implementation details in the example",
+      "passed": true,
+      "evidence": "Internal error example uses message: 'An unexpected error occurred' with no stack traces, file paths, or implementation details."
+    },
+    {
+      "text": "A developer-facing error reference document explains how clients should programmatically handle each error category",
+      "passed": false,
+      "evidence": "Error reference document lists error codes and descriptions but does not explain how clients should handle each category (e.g., retry logic for 429, re-authenticate for 401, show field errors for 400)."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

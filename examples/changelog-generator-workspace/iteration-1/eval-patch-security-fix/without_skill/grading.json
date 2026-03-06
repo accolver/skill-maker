@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The changelog identifies this as a patch version bump (v4.2.1)",
+      "passed": true,
+      "evidence": "Header says '## v4.2.1' but does not explain it is a patch release or why."
+    },
+    {
+      "text": "The security vulnerability is described with advisory language including severity level (HIGH) and CVSS score (8.1)",
+      "passed": false,
+      "evidence": "The fix is described as 'fix open redirect in OAuth callback validation' with no severity, CVSS, or advisory language."
+    },
+    {
+      "text": "Affected versions (4.0.0 - 4.2.0) are explicitly stated so operators know if they need to upgrade",
+      "passed": false,
+      "evidence": "No affected versions mentioned. The changelog only describes what was fixed, not who is affected."
+    },
+    {
+      "text": "The changelog communicates upgrade urgency — words like 'urgent', 'immediately', 'critical', or 'recommended to upgrade' appear",
+      "passed": false,
+      "evidence": "No urgency language present. The fix is listed as a regular bullet point with no special emphasis."
+    },
+    {
+      "text": "The open redirect vulnerability description explains the attack vector (URL-encoded characters bypassing validation)",
+      "passed": false,
+      "evidence": "Description says 'fix open redirect in OAuth callback validation' — no explanation of the attack vector or URL-encoded character bypass."
+    },
+    {
+      "text": "The CSRF fix (state parameter check) is documented as a separate entry from the redirect fix",
+      "passed": true,
+      "evidence": "Two separate bullet points: one for the redirect fix and one for the state parameter CSRF check."
+    },
+    {
+      "text": "A compare link is included for the diff between v4.2.0 and v4.2.1",
+      "passed": false,
+      "evidence": "No compare link present in the output."
+    },
+    {
+      "text": "The changelog does NOT include the test commit as a user-facing change (tests are internal)",
+      "passed": false,
+      "evidence": "The test commit 'add regression tests for redirect validation' is listed as a bullet point alongside the fixes."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 6,
+    "total": 8,
+    "pass_rate": 0.25
+  }
+}

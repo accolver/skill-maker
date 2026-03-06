@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "An error response JSON schema is defined with required fields: error.code, error.message, and requestId",
+      "passed": false,
+      "evidence": "No formal JSON schema defined. Error format described in prose as '{ error: string, status: number }' with no requestId field and no code field separate from status."
+    },
+    {
+      "text": "The schema supports optional fields for: error.details (structured), error.target (field name), and error.docUrl (documentation link)",
+      "passed": false,
+      "evidence": "No optional fields defined. Error format is a flat object with only 'error' (string) and 'status' (number). No details, target, or docUrl support."
+    },
+    {
+      "text": "An error code registry lists at least 15 distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)",
+      "passed": false,
+      "evidence": "No error code registry. Document lists 6 HTTP status codes (400, 401, 403, 404, 409, 500) with descriptions but no stable string error codes."
+    },
+    {
+      "text": "Example responses are provided for at least 5 different error scenarios: validation, authentication, not-found, rate-limit, and internal",
+      "passed": false,
+      "evidence": "Only 3 example responses provided: validation (400), not-found (404), and internal (500). Missing authentication and rate-limit examples."
+    },
+    {
+      "text": "Validation error examples show field-level detail with the specific field name, constraint violated, and value received",
+      "passed": false,
+      "evidence": "Validation error example shows { error: 'Validation failed', status: 400 } with no field-level detail, no constraint information, and no received value."
+    },
+    {
+      "text": "Rate limit error response includes Retry-After header guidance or a retryAfter field in the response body",
+      "passed": false,
+      "evidence": "No rate limit error response provided. Rate limiting not mentioned in the document."
+    },
+    {
+      "text": "Internal server errors use a generic safe message and never expose implementation details in the example",
+      "passed": true,
+      "evidence": "Internal error example uses { error: 'Internal server error', status: 500 } which is generic and safe."
+    },
+    {
+      "text": "A developer-facing error reference document explains how clients should programmatically handle each error category",
+      "passed": false,
+      "evidence": "No developer-facing error reference document. Only a brief section titled 'Error Handling' with a table of status codes and one-line descriptions."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

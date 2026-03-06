@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a liveness endpoint at /healthz that does NOT check database or Redis connectivity",
+      "passed": true,
+      "evidence": "Found /healthz returning { status: 'ok', uptime_seconds } with no external dependency checks. Comment explicitly notes: 'Liveness - process alive only, no dependency checks'."
+    },
+    {
+      "text": "Output includes a readiness endpoint at /readyz that checks both PostgreSQL and Redis with individual status per dependency",
+      "passed": true,
+      "evidence": "Found /readyz with separate checks for PostgreSQL (pool.query('SELECT 1')) and Redis (redis.ping()), each reporting { status, latency_ms } in checks object."
+    },
+    {
+      "text": "Output includes a startup endpoint at /startupz that verifies initialization completion",
+      "passed": true,
+      "evidence": "Found /startupz with startupComplete flag, returns 503 until markStartupComplete() called. Checks migrations and config loading."
+    },
+    {
+      "text": "Health check responses include structured JSON with status, individual check results, and version information",
+      "passed": true,
+      "evidence": "Readiness response: { status, checks: { database: { status, latency_ms }, cache: { status, latency_ms } }, version: process.env.APP_VERSION || 'unknown', uptime_seconds }."
+    },
+    {
+      "text": "Metrics are exposed at /metrics endpoint in Prometheus exposition format using a Prometheus client library",
+      "passed": true,
+      "evidence": "GET /metrics using prom-client register.metrics() with Content-Type: register.contentType header."
+    },
+    {
+      "text": "RED metrics are implemented: request rate counter (http_requests_total), error counter, and duration histogram with appropriate bucket values",
+      "passed": true,
+      "evidence": "http_requests_total counter with method/path/status labels, http_errors_total counter for 4xx/5xx, http_request_duration_seconds histogram with buckets [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10]."
+    },
+    {
+      "text": "A metrics middleware is created that automatically instruments all incoming HTTP requests with method, path, and status_code labels",
+      "passed": true,
+      "evidence": "metricsMiddleware function using res.on('finish') to record method, normalized route path, and status_code on counter and histogram."
+    },
+    {
+      "text": "OpenTelemetry tracing configuration is generated with W3C Trace Context header propagation (traceparent)",
+      "passed": true,
+      "evidence": "tracing.js imports W3CTraceContextPropagator and sets it as textMapPropagator in NodeSDK config. OTLP endpoint configurable via OTEL_EXPORTER_OTLP_ENDPOINT env var."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

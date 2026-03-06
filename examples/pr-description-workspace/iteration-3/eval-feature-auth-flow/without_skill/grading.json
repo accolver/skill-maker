@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Description includes a Summary section with a 1-3 sentence overview mentioning OAuth2 or Google login",
+      "passed": true,
+      "evidence": "First line: 'This PR adds Google OAuth2 login to the application'"
+    },
+    {
+      "text": "Description includes a Motivation section explaining WHY (user feedback, 60% requested social login)",
+      "passed": false,
+      "evidence": "No motivation section. Jumps from summary to file list."
+    },
+    {
+      "text": "Description includes a Changes section that groups changes by concept (auth flow, data model, configuration) rather than listing files one by one",
+      "passed": false,
+      "evidence": "File-by-file list with no conceptual grouping"
+    },
+    {
+      "text": "Description includes a Testing Instructions section with numbered, copy-pasteable steps for verifying the OAuth flow",
+      "passed": false,
+      "evidence": "Says 'Run the tests with npm test' — not numbered, not specific"
+    },
+    {
+      "text": "Description includes a Rollback Plan section that addresses the database migration (ALTER TABLE) and how to reverse it",
+      "passed": false,
+      "evidence": "No rollback plan section"
+    },
+    {
+      "text": "Description includes a Reviewer Notes section that flags security-sensitive areas (token handling, OAuth callback, session management)",
+      "passed": false,
+      "evidence": "Notes section has no security guidance"
+    },
+    {
+      "text": "Testing instructions include at least one edge case or error scenario (e.g., user denies consent, invalid token, duplicate Google account)",
+      "passed": false,
+      "evidence": "No edge cases mentioned"
+    },
+    {
+      "text": "Rollback plan mentions the database migration specifically and whether it is reversible",
+      "passed": false,
+      "evidence": "No rollback plan exists"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

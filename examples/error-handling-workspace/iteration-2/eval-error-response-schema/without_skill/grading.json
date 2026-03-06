@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "An error response JSON schema is defined with required fields: error.code, error.message, and requestId",
+      "passed": false,
+      "evidence": "Error format described as { error: string, statusCode: number } with no formal JSON schema, no 'code' field separate from statusCode, and no requestId."
+    },
+    {
+      "text": "The schema supports optional fields for: error.details (structured), error.target (field name), and error.docUrl (documentation link)",
+      "passed": false,
+      "evidence": "No optional fields. Flat error object with only error (string) and statusCode (number)."
+    },
+    {
+      "text": "An error code registry lists at least 15 distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)",
+      "passed": false,
+      "evidence": "No error code registry. Lists 6 HTTP status codes with one-line descriptions. No string error codes."
+    },
+    {
+      "text": "Example responses are provided for at least 5 different error scenarios: validation, authentication, not-found, rate-limit, and internal",
+      "passed": false,
+      "evidence": "Only 3 examples: validation (400), not-found (404), internal (500). Missing authentication and rate-limit."
+    },
+    {
+      "text": "Validation error examples show field-level detail with the specific field name, constraint violated, and value received",
+      "passed": false,
+      "evidence": "Validation example: { error: 'Invalid input', statusCode: 400 }. No field-level detail."
+    },
+    {
+      "text": "Rate limit error response includes Retry-After header guidance or a retryAfter field in the response body",
+      "passed": false,
+      "evidence": "No rate limit error response. Rate limiting not addressed."
+    },
+    {
+      "text": "Internal server errors use a generic safe message and never expose implementation details in the example",
+      "passed": true,
+      "evidence": "Internal error: { error: 'Internal server error', statusCode: 500 }. Generic and safe."
+    },
+    {
+      "text": "A developer-facing error reference document explains how clients should programmatically handle each error category",
+      "passed": false,
+      "evidence": "No developer-facing error reference. Brief 'Errors' section with a status code table only."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

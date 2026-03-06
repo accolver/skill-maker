@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base error class (AppError or similar) exists with properties: code, message, statusCode, category, and cause",
+      "passed": false,
+      "evidence": "No base error class defined. Routes use ad-hoc res.status(404).json({ error: 'Not found' }) patterns with no shared error structure."
+    },
+    {
+      "text": "At least 5 error subclasses are defined covering: validation (400), authentication (401), authorization (403), not-found (404), and conflict (409)",
+      "passed": false,
+      "evidence": "No error subclasses defined. All errors are inline res.status().json() calls with inconsistent formats."
+    },
+    {
+      "text": "Each error class has a stable string error code (e.g., ERR_NOT_FOUND_USER) not just an HTTP status number",
+      "passed": false,
+      "evidence": "No error codes used. Errors identified only by HTTP status codes. Response bodies use free-text messages like 'User not found' and 'Invalid input'."
+    },
+    {
+      "text": "A centralized error middleware function handles all errors and produces a consistent JSON response format",
+      "passed": false,
+      "evidence": "No centralized error middleware. Each route handles its own errors with try/catch blocks producing different response formats."
+    },
+    {
+      "text": "Error responses include a requestId or correlationId field for debugging",
+      "passed": false,
+      "evidence": "No requestId or correlationId in any error response. No request ID generation or propagation."
+    },
+    {
+      "text": "User-facing error responses do not contain stack traces, file paths, or internal implementation details",
+      "passed": false,
+      "evidence": "The catch block in POST /api/users returns res.status(500).json({ error: err.message }) which exposes raw MongoDB error messages including collection names and index details."
+    },
+    {
+      "text": "Structured error logging includes at minimum: error code, message, stack trace, correlation ID, and request path",
+      "passed": false,
+      "evidence": "Error logging uses console.log('Error:', err) with no structured format, no correlation ID, and no request context."
+    },
+    {
+      "text": "The error response JSON schema is consistent across all endpoints with at least code and message fields",
+      "passed": false,
+      "evidence": "Inconsistent formats: GET /:id returns { error: 'Not found' }, POST returns { message: 'Validation failed', errors: [...] }, DELETE returns { msg: 'User deleted' } on success and { error: err.message } on failure."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0.0
+  }
+}

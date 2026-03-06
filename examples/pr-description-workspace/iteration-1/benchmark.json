@@ -1,0 +1,39 @@
+{
+  "skill_name": "pr-description",
+  "iteration": 1,
+  "timestamp": "2026-03-06T14:00:00.000Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": { "mean": 0.917, "stddev": 0.059 },
+      "time_seconds": { "mean": 29.4, "stddev": 4.7 },
+      "tokens": { "mean": 7037, "stddev": 1003 }
+    },
+    "without_skill": {
+      "pass_rate": { "mean": 0.208, "stddev": 0.118 },
+      "time_seconds": { "mean": 8.2, "stddev": 1.4 },
+      "tokens": { "mean": 2103, "stddev": 328 }
+    },
+    "delta": {
+      "pass_rate": 0.709,
+      "time_seconds": 21.2,
+      "tokens": 4934
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "feature-auth-flow",
+      "with_skill": { "pass_rate": 0.875, "time_seconds": 28.4, "tokens": 6820 },
+      "without_skill": { "pass_rate": 0.125, "time_seconds": 8.2, "tokens": 2150 }
+    },
+    {
+      "eval_name": "bugfix-race-condition",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 24.1, "tokens": 5940 },
+      "without_skill": { "pass_rate": 0.375, "time_seconds": 6.5, "tokens": 1680 }
+    },
+    {
+      "eval_name": "refactor-database-layer",
+      "with_skill": { "pass_rate": 0.875, "time_seconds": 35.6, "tokens": 8350 },
+      "without_skill": { "pass_rate": 0.125, "time_seconds": 9.8, "tokens": 2480 }
+    }
+  ]
+}

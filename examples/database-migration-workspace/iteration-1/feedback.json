@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "Runbook pre-flight should include checking for long-running transactions that could block the ALTER TABLE.",
+      "timestamp": "2026-03-06T14:30:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Completely unsafe for a 50M row table. Would lock the table for minutes. No rollback, no backup, no verification.",
+      "timestamp": "2026-03-06T14:31:00.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "Good dual-write strategy but should explicitly mention identifying all background jobs and queries that reference the old column name.",
+      "timestamp": "2026-03-06T14:32:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Bare RENAME COLUMN would break production instantly. No rollback, no backup, no zero-downtime consideration.",
+      "timestamp": "2026-03-06T14:33:00.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "Good CONCURRENTLY usage but off-peak guidance should be more specific about how to identify the right window.",
+      "timestamp": "2026-03-06T14:34:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "Would block all writes on a 100M row table for 20-40 minutes. No CONCURRENTLY, no rollback, no impact analysis.",
+      "timestamp": "2026-03-06T14:35:00.000Z"
+    }
+  ],
+  "status": "complete"
+}

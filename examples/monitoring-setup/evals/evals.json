@@ -1,0 +1,52 @@
+{
+  "skill_name": "monitoring-setup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add comprehensive monitoring to our Express.js API service that handles user orders. The service connects to PostgreSQL for data storage and Redis for caching. It runs in Kubernetes. I need health checks, Prometheus metrics, and request tracing so we can debug issues in production. The service is at src/app.js and uses Express with middleware patterns.",
+      "expected_output": "Health check endpoints (liveness at /healthz, readiness at /readyz checking Postgres and Redis, startup at /startupz), Prometheus metrics middleware collecting RED metrics with proper histogram buckets exposed at /metrics, OpenTelemetry tracing configuration with W3C trace context propagation. All output as separate files: health.js, metrics.js, tracing.js.",
+      "files": [],
+      "assertions": [
+        "Output includes a liveness endpoint at /healthz that does NOT check database or Redis connectivity",
+        "Output includes a readiness endpoint at /readyz that checks both PostgreSQL and Redis with individual status per dependency",
+        "Output includes a startup endpoint at /startupz that verifies initialization completion",
+        "Health check responses include structured JSON with status, individual check results, and version information",
+        "Metrics are exposed at /metrics endpoint in Prometheus exposition format using a Prometheus client library",
+        "RED metrics are implemented: request rate counter (http_requests_total), error counter, and duration histogram with appropriate bucket values",
+        "A metrics middleware is created that automatically instruments all incoming HTTP requests with method, path, and status_code labels",
+        "OpenTelemetry tracing configuration is generated with W3C Trace Context header propagation (traceparent)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Configure alerting for our payment processing microservice. We have an SLO of 99.95% availability and P99 latency under 200ms. The service processes about 500 requests/second. I need Prometheus alert rules, escalation policies, and runbooks for each alert. The alerts should notify our platform-oncall team via PagerDuty for critical issues and Slack for warnings.",
+      "expected_output": "Prometheus alerting rules YAML with SLO-derived thresholds using burn rate calculations. Alert rules for error rate, latency, and availability with severity labels. Escalation policy defining response times per severity. Runbook markdown files for each alert with diagnosis steps, resolution procedures, and escalation paths. Every alert annotation includes runbook and dashboard links.",
+      "files": [],
+      "assertions": [
+        "Alert thresholds are derived from the stated SLO (99.95% availability) using burn rate calculations, not arbitrary fixed values",
+        "Alert rules are in valid Prometheus alerting rule YAML format with groups, rules, expr, for, labels, and annotations",
+        "Each alert rule includes severity labels (critical, warning) and a team label for routing",
+        "Every alert annotation includes a runbook link URL pointing to resolution documentation",
+        "An escalation policy is defined with different response times and notification channels per severity level (PagerDuty for critical, Slack for warning)",
+        "Runbook files are generated for each alert containing diagnosis steps, resolution procedures, and escalation instructions",
+        "Latency alert uses histogram_quantile for P99 measurement against the 200ms SLO target, not average latency",
+        "Error rate alert uses a ratio calculation (errors/total requests) rather than an absolute error count"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Set up distributed tracing across our 3 microservices: api-gateway (Node.js), order-service (Node.js), and inventory-service (Python/Flask). When a request comes into the gateway, it calls order-service which calls inventory-service. I need trace context to propagate across all 3 services so we can see the full request flow in Jaeger. Include correlation IDs in all log output.",
+      "expected_output": "OpenTelemetry tracing configuration for each of the 3 services with proper SDK setup. W3C Trace Context header propagation between services. Correlation ID middleware that extracts or generates trace IDs and includes them in all log output. Span creation for incoming requests and outgoing HTTP calls with proper parent-child relationships. Configuration pointing to a Jaeger-compatible OTLP endpoint.",
+      "files": [],
+      "assertions": [
+        "Tracing configuration is generated for all 3 services (api-gateway, order-service, inventory-service) with service-specific names",
+        "W3C Trace Context headers (traceparent) are propagated between services on outgoing HTTP calls",
+        "A correlation ID middleware extracts trace ID from incoming requests or generates a new one if absent",
+        "Correlation IDs are injected into log output so logs can be correlated with traces",
+        "Child spans are created for outgoing HTTP calls from api-gateway to order-service and from order-service to inventory-service",
+        "Both Node.js (api-gateway, order-service) and Python (inventory-service) configurations are provided with language-appropriate OpenTelemetry SDKs",
+        "Trace exporter is configured to send to a Jaeger-compatible OTLP endpoint (configurable via environment variable)"
+      ]
+    }
+  ]
+}

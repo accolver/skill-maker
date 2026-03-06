@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Description includes a Motivation section that explains the root cause (non-atomic read-then-update causing duplicate processing)",
+      "passed": true,
+      "evidence": "Motivation explains 'it reads the job status with a SELECT, then updates it with a separate UPDATE. Between these two queries, another worker can read the same pending status'"
+    },
+    {
+      "text": "Description references the support tickets (SUPPORT-891, SUPPORT-894, SUPPORT-897) or the customer impact (duplicate emails)",
+      "passed": true,
+      "evidence": "Motivation references 'Three customers reported receiving duplicate emails this week (SUPPORT-891, SUPPORT-894, SUPPORT-897)'"
+    },
+    {
+      "text": "Description includes a Testing Instructions section with steps to run the concurrent stress test",
+      "passed": true,
+      "evidence": "Testing instructions include specific test commands and a manual staging verification with psql commands to insert a test job and verify single processing"
+    },
+    {
+      "text": "Description includes a Rollback Plan section",
+      "passed": true,
+      "evidence": "Rollback Plan section present with revert command, note about no migrations, and risk warning about race condition returning"
+    },
+    {
+      "text": "Description includes a Reviewer Notes section that flags the atomic query change as needing careful review",
+      "passed": true,
+      "evidence": "Reviewer Notes flags 'Verify the UPDATE...RETURNING WHERE status=pending query is correct and that the database engine guarantees atomicity'"
+    },
+    {
+      "text": "Description mentions the payment processing implication as a risk or area needing attention",
+      "passed": true,
+      "evidence": "Reviewer Notes states 'The same acquireJob function is used for payment jobs...please verify there are no payment-specific code paths that bypass acquireJob'"
+    },
+    {
+      "text": "Testing instructions mention running the new regression tests specifically (not just 'run the tests')",
+      "passed": true,
+      "evidence": "Step 1: 'npm test -- tests/workers/job-processor.test.ts' with specific test names to watch for"
+    },
+    {
+      "text": "Changes section explains the fix conceptually (atomic operation replacing two-step read-update) not just which files changed",
+      "passed": true,
+      "evidence": "Changes section explains 'Replaced the two-step SELECT + UPDATE with a single UPDATE...RETURNING WHERE status=pending query. This is atomic at the database level'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

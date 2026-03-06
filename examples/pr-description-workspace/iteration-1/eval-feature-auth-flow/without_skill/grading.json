@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Description includes a Summary section with a 1-3 sentence overview mentioning OAuth2 or Google login",
+      "passed": true,
+      "evidence": "First line states 'This PR adds Google OAuth2 login to the application'"
+    },
+    {
+      "text": "Description includes a Motivation section explaining WHY (user feedback, 60% requested social login)",
+      "passed": false,
+      "evidence": "No motivation section. Description jumps directly from summary to file list. No mention of user feedback or the 60% statistic."
+    },
+    {
+      "text": "Description includes a Changes section that groups changes by concept (auth flow, data model, configuration) rather than listing files one by one",
+      "passed": false,
+      "evidence": "Changes listed as a file-by-file list (8 bullet points, one per file) with no conceptual grouping"
+    },
+    {
+      "text": "Description includes a Testing Instructions section with numbered, copy-pasteable steps for verifying the OAuth flow",
+      "passed": false,
+      "evidence": "Testing section says 'Run the tests with npm test. You can also test manually by setting up Google OAuth credentials and trying the login flow.' — not numbered, not copy-pasteable, no specific steps"
+    },
+    {
+      "text": "Description includes a Rollback Plan section that addresses the database migration (ALTER TABLE) and how to reverse it",
+      "passed": false,
+      "evidence": "No rollback plan section present in the description"
+    },
+    {
+      "text": "Description includes a Reviewer Notes section that flags security-sensitive areas (token handling, OAuth callback, session management)",
+      "passed": false,
+      "evidence": "Notes section says 'This is a new feature that adds social login. The existing email/password authentication is unchanged.' — no security guidance for reviewers"
+    },
+    {
+      "text": "Testing instructions include at least one edge case or error scenario (e.g., user denies consent, invalid token, duplicate Google account)",
+      "passed": false,
+      "evidence": "No edge cases mentioned. Testing section only says 'Run the tests' and 'try the login flow'"
+    },
+    {
+      "text": "Rollback plan mentions the database migration specifically and whether it is reversible",
+      "passed": false,
+      "evidence": "No rollback plan section exists"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base error class (AppError or similar) exists with properties: code, message, statusCode, category, and cause",
+      "passed": false,
+      "evidence": "No base error class. Routes use inline res.status().json() with varying object shapes."
+    },
+    {
+      "text": "At least 5 error subclasses are defined covering: validation (400), authentication (401), authorization (403), not-found (404), and conflict (409)",
+      "passed": false,
+      "evidence": "No error subclasses. A single HttpError class exists with only statusCode and message, no category or code."
+    },
+    {
+      "text": "Each error class has a stable string error code (e.g., ERR_NOT_FOUND_USER) not just an HTTP status number",
+      "passed": false,
+      "evidence": "No string error codes. HttpError uses numeric status codes only."
+    },
+    {
+      "text": "A centralized error middleware function handles all errors and produces a consistent JSON response format",
+      "passed": true,
+      "evidence": "A basic error middleware exists that catches HttpError and returns { error: err.message, status: err.statusCode }. However the format differs from inline error responses in routes."
+    },
+    {
+      "text": "Error responses include a requestId or correlationId field for debugging",
+      "passed": false,
+      "evidence": "No requestId or correlationId in any error response."
+    },
+    {
+      "text": "User-facing error responses do not contain stack traces, file paths, or internal implementation details",
+      "passed": false,
+      "evidence": "The catch-all in error middleware returns err.message for unknown errors, which can expose MongoDB driver errors and file paths."
+    },
+    {
+      "text": "Structured error logging includes at minimum: error code, message, stack trace, correlation ID, and request path",
+      "passed": false,
+      "evidence": "Error middleware uses console.error(err) which dumps the full error object. No structured format, no correlation ID."
+    },
+    {
+      "text": "The error response JSON schema is consistent across all endpoints with at least code and message fields",
+      "passed": false,
+      "evidence": "Inconsistent: middleware returns { error, status }, but POST route returns { message: 'Validation failed', errors: [...] } and GET /:id returns { error: 'Not found' }."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

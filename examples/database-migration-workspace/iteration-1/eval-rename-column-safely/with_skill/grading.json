@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration does NOT use a bare ALTER TABLE RENAME COLUMN as the primary strategy (may mention it as unsafe alternative)",
+      "passed": true,
+      "evidence": "Migration uses dual-write strategy with add column → backfill → trigger → drop old. Comments note bare RENAME would 'break all application code'"
+    },
+    {
+      "text": "Migration uses a dual-write or copy-column strategy: adds new column, backfills, migrates application code, then drops old column",
+      "passed": true,
+      "evidence": "Three-phase approach: Phase 1 adds column and backfills, Phase 2 deploys app changes, Phase 3 drops old column"
+    },
+    {
+      "text": "A complete rollback migration is provided that reverses the changes",
+      "passed": true,
+      "evidence": "rollback.sql drops the trigger, function, and email_address column, leaving original email column intact"
+    },
+    {
+      "text": "The migration addresses zero-downtime by ensuring both old and new columns coexist during transition",
+      "passed": true,
+      "evidence": "Sync trigger keeps both columns in sync. Runbook confirms 'both columns coexist during the entire transition period'"
+    },
+    {
+      "text": "Verification queries are included that confirm data was correctly copied from email to email_address",
+      "passed": true,
+      "evidence": "Runbook includes 'SELECT count(*) FROM users WHERE email != email_address' expecting 0 rows"
+    },
+    {
+      "text": "Data backup commands are included before any destructive operations",
+      "passed": true,
+      "evidence": "Runbook includes 'CREATE TABLE users_email_backup_20260306 AS SELECT id, email FROM users' with verification count"
+    },
+    {
+      "text": "A deployment runbook is provided with phased steps (add column, backfill, deploy app changes, drop old column)",
+      "passed": true,
+      "evidence": "Runbook has Phase 1 (add/backfill), Phase 2 (deploy app), Phase 3 (drop old column), plus rollback for each phase"
+    },
+    {
+      "text": "The migration mentions or addresses the need to update application code, background jobs, or queries that reference the old column name",
+      "passed": false,
+      "evidence": "Migration mentions updating application code in Phase 2 comments but does not specifically call out background jobs or provide guidance on identifying all code references"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

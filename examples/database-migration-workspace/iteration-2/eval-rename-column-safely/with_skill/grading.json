@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration does NOT use a bare ALTER TABLE RENAME COLUMN as the primary strategy (may mention it as unsafe alternative)",
+      "passed": true,
+      "evidence": "Uses dual-write strategy with add column → backfill → trigger. No bare RENAME used."
+    },
+    {
+      "text": "Migration uses a dual-write or copy-column strategy: adds new column, backfills, migrates application code, then drops old column",
+      "passed": true,
+      "evidence": "Three-phase approach: add/backfill/trigger → deploy app → drop old column"
+    },
+    {
+      "text": "A complete rollback migration is provided that reverses the changes",
+      "passed": true,
+      "evidence": "rollback.sql drops trigger, function, and email_address column"
+    },
+    {
+      "text": "The migration addresses zero-downtime by ensuring both old and new columns coexist during transition",
+      "passed": true,
+      "evidence": "Sync trigger keeps both columns in sync. Runbook confirms zero-downtime."
+    },
+    {
+      "text": "Verification queries are included that confirm data was correctly copied from email to email_address",
+      "passed": true,
+      "evidence": "Runbook verifies NULL count = 0 and email != email_address count = 0"
+    },
+    {
+      "text": "Data backup commands are included before any destructive operations",
+      "passed": true,
+      "evidence": "CREATE TABLE users_email_backup_20260306 with verification count"
+    },
+    {
+      "text": "A deployment runbook is provided with phased steps (add column, backfill, deploy app changes, drop old column)",
+      "passed": true,
+      "evidence": "Runbook has Phase 1 (add/backfill/trigger), Phase 2 (deploy app), Phase 3 (drop old)"
+    },
+    {
+      "text": "The migration mentions or addresses the need to update application code, background jobs, or queries that reference the old column name",
+      "passed": true,
+      "evidence": "Migration header lists 'Application code, Background jobs, Reporting queries, External API contracts'. Runbook Phase 2 includes 'Update background jobs to use email_address'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

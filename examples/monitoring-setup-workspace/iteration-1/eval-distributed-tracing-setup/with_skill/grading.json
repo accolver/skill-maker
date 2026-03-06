@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Tracing configuration is generated for all 3 services (api-gateway, order-service, inventory-service) with service-specific names",
+      "passed": true,
+      "evidence": "Three separate tracing config files generated: api-gateway/tracing.js (serviceName: 'api-gateway'), order-service/tracing.js (serviceName: 'order-service'), inventory-service/tracing.py (service_name='inventory-service')."
+    },
+    {
+      "text": "W3C Trace Context headers (traceparent) are propagated between services on outgoing HTTP calls",
+      "passed": true,
+      "evidence": "Node.js services use W3CTraceContextPropagator in the SDK configuration. Python service uses TraceContextTextMapPropagator. All outgoing HTTP calls use instrumented clients that inject traceparent headers."
+    },
+    {
+      "text": "A correlation ID middleware extracts trace ID from incoming requests or generates a new one if absent",
+      "passed": true,
+      "evidence": "Middleware in api-gateway extracts traceparent header, falls back to X-Request-ID, and generates a new UUID if neither present. Sets req.correlationId for downstream use."
+    },
+    {
+      "text": "Correlation IDs are injected into log output so logs can be correlated with traces",
+      "passed": false,
+      "evidence": "Correlation ID is set on the request object but not injected into the logger. Log statements use console.log without trace ID context. No structured logging with trace_id field."
+    },
+    {
+      "text": "Child spans are created for outgoing HTTP calls from api-gateway to order-service and from order-service to inventory-service",
+      "passed": true,
+      "evidence": "Auto-instrumentation via @opentelemetry/instrumentation-http creates child spans for all outgoing HTTP calls. Explicit span creation also shown for custom operations."
+    },
+    {
+      "text": "Both Node.js (api-gateway, order-service) and Python (inventory-service) configurations are provided with language-appropriate OpenTelemetry SDKs",
+      "passed": true,
+      "evidence": "Node.js services use @opentelemetry/sdk-node with auto-instrumentations-node. Python service uses opentelemetry-sdk with FlaskInstrumentor and RequestsInstrumentor."
+    },
+    {
+      "text": "Trace exporter is configured to send to a Jaeger-compatible OTLP endpoint (configurable via environment variable)",
+      "passed": false,
+      "evidence": "Node.js services have OTLP exporter with hardcoded URL 'http://jaeger:4318/v1/traces'. Not configurable via environment variable. Python service uses OTEL_EXPORTER_OTLP_ENDPOINT env var correctly."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.714
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "eval_id": 3,
+  "eval_name": "distributed-tracing-setup",
+  "prompt": "Set up distributed tracing across our 3 microservices: api-gateway (Node.js), order-service (Node.js), and inventory-service (Python/Flask). When a request comes into the gateway, it calls order-service which calls inventory-service. I need trace context to propagate across all 3 services so we can see the full request flow in Jaeger. Include correlation IDs in all log output.",
+  "assertions": [
+    "Tracing configuration is generated for all 3 services (api-gateway, order-service, inventory-service) with service-specific names",
+    "W3C Trace Context headers (traceparent) are propagated between services on outgoing HTTP calls",
+    "A correlation ID middleware extracts trace ID from incoming requests or generates a new one if absent",
+    "Correlation IDs are injected into log output so logs can be correlated with traces",
+    "Child spans are created for outgoing HTTP calls from api-gateway to order-service and from order-service to inventory-service",
+    "Both Node.js (api-gateway, order-service) and Python (inventory-service) configurations are provided with language-appropriate OpenTelemetry SDKs",
+    "Trace exporter is configured to send to a Jaeger-compatible OTLP endpoint (configurable via environment variable)"
+  ]
+}

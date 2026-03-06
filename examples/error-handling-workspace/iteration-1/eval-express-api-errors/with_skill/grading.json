@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base error class (AppError or similar) exists with properties: code, message, statusCode, category, and cause",
+      "passed": true,
+      "evidence": "Found AppError class in errors/AppError.ts with constructor accepting code, message, statusCode, category, and cause parameters. Extends built-in Error class."
+    },
+    {
+      "text": "At least 5 error subclasses are defined covering: validation (400), authentication (401), authorization (403), not-found (404), and conflict (409)",
+      "passed": true,
+      "evidence": "Found 6 subclasses: ValidationError (400), AuthenticationError (401), AuthorizationError (403), NotFoundError (404), ConflictError (409), InternalError (500)"
+    },
+    {
+      "text": "Each error class has a stable string error code (e.g., ERR_NOT_FOUND_USER) not just an HTTP status number",
+      "passed": true,
+      "evidence": "All error classes use string codes: ERR_VALIDATION, ERR_AUTH_INVALID, ERR_FORBIDDEN, ERR_NOT_FOUND_USER, ERR_CONFLICT, ERR_INTERNAL"
+    },
+    {
+      "text": "A centralized error middleware function handles all errors and produces a consistent JSON response format",
+      "passed": true,
+      "evidence": "Found errorHandler middleware in middleware/errorHandler.ts that checks instanceof AppError and produces consistent { error: { code, message, details }, requestId } format"
+    },
+    {
+      "text": "Error responses include a requestId or correlationId field for debugging",
+      "passed": false,
+      "evidence": "Error middleware includes requestId in response but does not generate one if x-request-id header is missing. Falls back to undefined instead of generating a UUID."
+    },
+    {
+      "text": "User-facing error responses do not contain stack traces, file paths, or internal implementation details",
+      "passed": true,
+      "evidence": "Error middleware strips stack traces and internal details. AppError responses include only code, message, and details. Non-AppError responses use generic 'An unexpected error occurred' message."
+    },
+    {
+      "text": "Structured error logging includes at minimum: error code, message, stack trace, correlation ID, and request path",
+      "passed": false,
+      "evidence": "Error middleware logs error code, message, and stack trace but is missing correlation ID and request path in the log output. Uses console.error instead of structured JSON logging."
+    },
+    {
+      "text": "The error response JSON schema is consistent across all endpoints with at least code and message fields",
+      "passed": true,
+      "evidence": "All 5 routes throw typed AppError subclasses. Error middleware produces consistent { error: { code, message } } format for all error types."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

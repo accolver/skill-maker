@@ -1,0 +1,53 @@
+{
+  "skill_name": "pr-description",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a PR description for my branch. Here's what changed:\n\nI'm adding OAuth2 login with Google to our Express.js app. Currently we only have email/password auth. The branch has 8 changed files:\n\n- New: src/auth/oauth2.ts (OAuth2 client setup, token exchange, callback handler)\n- New: src/auth/providers/google.ts (Google-specific profile mapping)\n- Modified: src/auth/router.ts (added /auth/google and /auth/google/callback routes)\n- Modified: src/middleware/session.ts (extended session to store OAuth tokens)\n- Modified: src/models/user.ts (added google_id, avatar_url, auth_provider fields)\n- New: migrations/20260305_add_oauth_fields.sql (ALTER TABLE users ADD columns)\n- New: tests/auth/oauth2.test.ts (15 new tests)\n- Modified: config/default.yaml (added oauth2 section with client_id placeholder)\n\nThe motivation is that 60% of our beta users requested social login in the feedback survey. We chose Google first because 80% of our users already have Google accounts based on email domain analysis.\n\nThis is going to production next week.",
+      "expected_output": "Structured PR description with all sections filled: summary mentioning OAuth2/Google login, motivation citing user feedback stats, organized changes grouped by concept, copy-pasteable testing instructions for the OAuth flow, rollback plan addressing the database migration, and reviewer notes flagging security-sensitive auth code.",
+      "files": [],
+      "assertions": [
+        "Description includes a Summary section with a 1-3 sentence overview mentioning OAuth2 or Google login",
+        "Description includes a Motivation section explaining WHY (user feedback, 60% requested social login)",
+        "Description includes a Changes section that groups changes by concept (auth flow, data model, configuration) rather than listing files one by one",
+        "Description includes a Testing Instructions section with numbered, copy-pasteable steps for verifying the OAuth flow",
+        "Description includes a Rollback Plan section that addresses the database migration (ALTER TABLE) and how to reverse it",
+        "Description includes a Reviewer Notes section that flags security-sensitive areas (token handling, OAuth callback, session management)",
+        "Testing instructions include at least one edge case or error scenario (e.g., user denies consent, invalid token, duplicate Google account)",
+        "Rollback plan mentions the database migration specifically and whether it is reversible"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Help me write a PR description. I fixed a race condition in our job queue processor. Here's the context:\n\nOur background job processor was occasionally processing the same job twice when two workers picked it up simultaneously. This caused duplicate emails being sent to customers (we got 3 support tickets about it this week — SUPPORT-891, SUPPORT-894, SUPPORT-897).\n\nRoot cause: The `acquireJob` function reads the job status and updates it in two separate queries instead of using an atomic operation.\n\nChanges (2 files):\n- Modified: src/workers/job-processor.ts — replaced the SELECT+UPDATE with a single UPDATE...RETURNING using a WHERE status='pending' clause, added a unique processing lock with a UUID\n- New: tests/workers/job-processor.test.ts — 8 new tests including a concurrent acquisition stress test that spawns 10 workers competing for the same job\n\nThe fix is small but critical — it affects payment processing jobs too.",
+      "expected_output": "PR description with clear root cause explanation in motivation, concise changes section, testing instructions that include running the concurrent stress test, rollback plan noting this is a safe revert, and reviewer notes flagging the atomic query change and payment processing implications.",
+      "files": [],
+      "assertions": [
+        "Description includes a Motivation section that explains the root cause (non-atomic read-then-update causing duplicate processing)",
+        "Description references the support tickets (SUPPORT-891, SUPPORT-894, SUPPORT-897) or the customer impact (duplicate emails)",
+        "Description includes a Testing Instructions section with steps to run the concurrent stress test",
+        "Description includes a Rollback Plan section",
+        "Description includes a Reviewer Notes section that flags the atomic query change as needing careful review",
+        "Description mentions the payment processing implication as a risk or area needing attention",
+        "Testing instructions mention running the new regression tests specifically (not just 'run the tests')",
+        "Changes section explains the fix conceptually (atomic operation replacing two-step read-update) not just which files changed"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need a PR description for a database layer refactor. Here's what I did:\n\nRefactored our database access layer from raw SQL queries scattered across 12 service files to a centralized repository pattern. Every service was writing its own SQL, leading to inconsistent query patterns, no connection pooling, and duplicated WHERE clauses.\n\nThe refactor:\n- Created a new `src/repositories/` directory with 6 repository classes (UserRepository, OrderRepository, ProductRepository, PaymentRepository, ShippingRepository, InventoryRepository)\n- Each repository encapsulates all SQL for its domain entity\n- Added connection pooling via pg-pool (was creating new connections per query before)\n- Standardized error handling — all repos throw typed RepositoryError instead of raw pg errors\n- Removed raw SQL from all 12 service files, replaced with repository method calls\n\n12 files modified, 6 new files created. No functional changes — all existing API endpoints return identical responses. Performance improvement: average query time dropped from 45ms to 12ms in staging due to connection pooling.\n\nThis is a large refactor so I want reviewers to understand the approach.",
+      "expected_output": "PR description with motivation explaining the problems with scattered SQL (inconsistency, no pooling, duplication), changes grouped by concept (repository layer, connection pooling, error handling, service migration), testing instructions verifying no behavioral changes plus performance improvement, rollback plan for a large refactor, and reviewer notes guiding attention to the repository pattern and connection pool configuration.",
+      "files": [],
+      "assertions": [
+        "Description includes a Motivation section explaining WHY the refactor was needed (inconsistent queries, no connection pooling, duplicated SQL)",
+        "Description includes performance numbers (45ms to 12ms or similar improvement metrics)",
+        "Description includes a Changes section that groups the 18 file changes by concept (repository layer, pooling, error handling, service migration) not file-by-file",
+        "Description includes a Testing Instructions section with steps to verify no behavioral regression (e.g., running existing test suite, comparing API responses)",
+        "Description includes a Rollback Plan that addresses the complexity of reverting a 18-file refactor",
+        "Description includes a Reviewer Notes section guiding reviewers on what to focus on in a large refactor",
+        "Testing instructions include a way to verify the performance improvement (query timing, connection pool stats, or load test)",
+        "Rollback plan is substantive (not just 'revert the PR') — addresses whether partial rollback is possible or if it's all-or-nothing"
+      ]
+    }
+  ]
+}

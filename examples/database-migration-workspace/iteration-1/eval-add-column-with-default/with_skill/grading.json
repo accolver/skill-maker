@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Up migration adds the column as nullable first (without NOT NULL in the initial ALTER TABLE)",
+      "passed": true,
+      "evidence": "Step 1 uses 'ALTER TABLE orders ADD COLUMN status varchar(50)' without NOT NULL"
+    },
+    {
+      "text": "Up migration includes a batched backfill strategy (multiple UPDATE statements with WHERE clauses limiting rows per batch, or explicit batch size guidance)",
+      "passed": true,
+      "evidence": "Step 2 shows UPDATE statements with 'id BETWEEN 1 AND 50000' batches, plus a DO $$ loop alternative with 50,000 batch size"
+    },
+    {
+      "text": "Up migration adds the NOT NULL constraint as a separate step after backfill",
+      "passed": true,
+      "evidence": "Step 3 runs 'ALTER TABLE orders ALTER COLUMN status SET NOT NULL' as a separate transaction after backfill"
+    },
+    {
+      "text": "A complete rollback migration is provided that drops the status column",
+      "passed": true,
+      "evidence": "rollback.sql contains 'ALTER TABLE orders DROP COLUMN status' wrapped in a transaction with lock_timeout"
+    },
+    {
+      "text": "Data backup commands are included (CREATE TABLE AS, pg_dump, or equivalent)",
+      "passed": true,
+      "evidence": "Runbook includes 'CREATE TABLE orders_pre_status_backup_20260306 AS SELECT id FROM orders' and pg_dump alternative"
+    },
+    {
+      "text": "Lock impact analysis is present, mentioning ACCESS EXCLUSIVE lock or table-level locking concerns for the 50M row table",
+      "passed": true,
+      "evidence": "Migration comments state 'ACCESS EXCLUSIVE lock acquired for ALTER TABLE, but operation is instant' and runbook details lock impact"
+    },
+    {
+      "text": "Verification queries are included that check the column exists with correct type and constraints",
+      "passed": true,
+      "evidence": "Runbook includes information_schema query checking column_name, data_type, is_nullable, column_default for the status column"
+    },
+    {
+      "text": "A deployment runbook is provided with pre-flight checks, execution steps, and rollback instructions",
+      "passed": false,
+      "evidence": "Runbook has pre-flight, execute, and rollback sections but the pre-flight section does not verify that no long-running transactions could block the ALTER TABLE"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

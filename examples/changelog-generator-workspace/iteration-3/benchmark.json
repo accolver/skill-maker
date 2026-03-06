@@ -1,0 +1,39 @@
+{
+  "skill_name": "changelog-generator",
+  "iteration": 3,
+  "timestamp": "2026-03-06T16:00:00.000Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": { "mean": 1.0, "stddev": 0.0 },
+      "time_seconds": { "mean": 31.4, "stddev": 8.2 },
+      "tokens": { "mean": 14577, "stddev": 4740 }
+    },
+    "without_skill": {
+      "pass_rate": { "mean": 0.208, "stddev": 0.072 },
+      "time_seconds": { "mean": 13.5, "stddev": 3.8 },
+      "tokens": { "mean": 6450, "stddev": 2170 }
+    },
+    "delta": {
+      "pass_rate": 0.792,
+      "time_seconds": 17.9,
+      "tokens": 8127
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "minor-release",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 30.2, "tokens": 13350 },
+      "without_skill": { "pass_rate": 0.25, "time_seconds": 12.8, "tokens": 6150 }
+    },
+    {
+      "eval_name": "major-breaking-release",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 40.1, "tokens": 19800 },
+      "without_skill": { "pass_rate": 0.125, "time_seconds": 17.5, "tokens": 8720 }
+    },
+    {
+      "eval_name": "patch-security-fix",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 23.8, "tokens": 10580 },
+      "without_skill": { "pass_rate": 0.25, "time_seconds": 10.1, "tokens": 4480 }
+    }
+  ]
+}

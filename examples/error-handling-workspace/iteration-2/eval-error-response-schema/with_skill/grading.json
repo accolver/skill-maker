@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "An error response JSON schema is defined with required fields: error.code, error.message, and requestId",
+      "passed": true,
+      "evidence": "JSON schema defines error object with required 'code' and 'message' properties, and top-level required 'requestId'. Schema uses JSON Schema draft-07."
+    },
+    {
+      "text": "The schema supports optional fields for: error.details (structured), error.target (field name), and error.docUrl (documentation link)",
+      "passed": true,
+      "evidence": "Schema includes optional properties: details (oneOf: object or array), target (string), docUrl (string, format: uri). All marked as not required."
+    },
+    {
+      "text": "An error code registry lists at least 15 distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)",
+      "passed": true,
+      "evidence": "Registry contains 18 error codes across 7 categories: validation (4), authentication (3), authorization (2), not-found (3), conflict (2), rate-limit (2), internal (2)."
+    },
+    {
+      "text": "Example responses are provided for at least 5 different error scenarios: validation, authentication, not-found, rate-limit, and internal",
+      "passed": true,
+      "evidence": "Found 6 example responses: validation with multiple field errors (400), authentication expired token (401), authorization insufficient role (403), not-found (404), rate-limit (429), internal (500)."
+    },
+    {
+      "text": "Validation error examples show field-level detail with the specific field name, constraint violated, and value received",
+      "passed": true,
+      "evidence": "Validation example includes details array with entries: { field: 'email', constraint: 'Must be a valid email', received: 'not-an-email' } and { field: 'age', constraint: 'Must be at least 18', received: 15 }."
+    },
+    {
+      "text": "Rate limit error response includes Retry-After header guidance or a retryAfter field in the response body",
+      "passed": true,
+      "evidence": "Rate limit example includes both Retry-After response header (60) and retryAfter field in error details: { retryAfter: 60, limit: 100, window: '1m' }."
+    },
+    {
+      "text": "Internal server errors use a generic safe message and never expose implementation details in the example",
+      "passed": true,
+      "evidence": "Internal error example: { error: { code: 'ERR_INTERNAL', message: 'An unexpected error occurred' }, requestId: 'req_...' }. No stack traces or implementation details."
+    },
+    {
+      "text": "A developer-facing error reference document explains how clients should programmatically handle each error category",
+      "passed": false,
+      "evidence": "Error reference document lists all error codes with descriptions and examples but the 'Client Handling' section only covers validation and authentication. Missing handling guidance for not-found, conflict, rate-limit, and internal categories."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

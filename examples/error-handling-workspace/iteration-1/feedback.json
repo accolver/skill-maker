@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "Correlation ID should always be generated even when x-request-id header is missing. Need a UUID fallback. Also structured logging should use JSON format, not console.error.",
+      "timestamp": "2026-03-06T14:15:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Completely ad-hoc. No error classes, no consistent format, leaks MongoDB errors to users.",
+      "timestamp": "2026-03-06T14:16:00.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "Good exception hierarchy but structured logging needs JSON formatter. Also external API error wrapping should include the service name and HTTP status from the upstream response.",
+      "timestamp": "2026-03-06T14:17:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Bare except clauses, print statements, swallowed exceptions. No error codes at all.",
+      "timestamp": "2026-03-06T14:18:00.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "Need at least 15 error codes in the registry. Missing Retry-After for rate limits. Need client handling guidance per category.",
+      "timestamp": "2026-03-06T14:19:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "No JSON schema, no error codes, no field-level validation details. Just HTTP status codes and strings.",
+      "timestamp": "2026-03-06T14:20:00.000Z"
+    }
+  ],
+  "status": "complete"
+}

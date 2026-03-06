@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Description includes a Motivation section explaining WHY the refactor was needed (inconsistent queries, no connection pooling, duplicated SQL)",
+      "passed": true,
+      "evidence": "Motivation lists three problems: 'Inconsistent query patterns', 'No connection pooling', and 'Duplicated logic' with specific details for each"
+    },
+    {
+      "text": "Description includes performance numbers (45ms to 12ms or similar improvement metrics)",
+      "passed": true,
+      "evidence": "Summary states 'reducing average query time from 45ms to 12ms' and Reviewer Notes adds 'The 45ms → 12ms improvement is measured in staging'"
+    },
+    {
+      "text": "Description includes a Changes section that groups the 18 file changes by concept (repository layer, pooling, error handling, service migration) not file-by-file",
+      "passed": true,
+      "evidence": "Changes grouped as: 'Repository layer', 'Connection pooling', 'Standardized error handling', 'Service migration' — four conceptual groups covering 18 files"
+    },
+    {
+      "text": "Description includes a Testing Instructions section with steps to verify no behavioral regression (e.g., running existing test suite, comparing API responses)",
+      "passed": true,
+      "evidence": "Step 1: 'Run the existing test suite to verify no behavioral regression: npm test' with note 'All existing tests should pass unchanged'"
+    },
+    {
+      "text": "Description includes a Rollback Plan that addresses the complexity of reverting a 18-file refactor",
+      "passed": true,
+      "evidence": "Rollback plan states 'This is a large refactor (18 files) and must be rolled back as a single unit — partial rollback is not possible' with deployment coordination note"
+    },
+    {
+      "text": "Description includes a Reviewer Notes section guiding reviewers on what to focus on in a large refactor",
+      "passed": true,
+      "evidence": "Reviewer Notes guides: start with base-repository.ts, check pool config, verify error mapping, spot-check 2-3 services then trust tests for the rest"
+    },
+    {
+      "text": "Testing instructions include a way to verify the performance improvement (query timing, connection pool stats, or load test)",
+      "passed": false,
+      "evidence": "Step 3 includes a load test command (ab -n 1000 -c 50) and step 4 checks pool stats endpoint, but step 3 doesn't specify the expected response time threshold to compare against — it says 'Compare average response time against baseline (was ~45ms, should be ~12ms)' which is directional but not a concrete pass/fail criterion"
+    },
+    {
+      "text": "Rollback plan is substantive (not just 'revert the PR') — addresses whether partial rollback is possible or if it's all-or-nothing",
+      "passed": true,
+      "evidence": "Explicitly states 'must be rolled back as a single unit — partial rollback is not possible' and addresses performance regression, error handling regression, and team coordination"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

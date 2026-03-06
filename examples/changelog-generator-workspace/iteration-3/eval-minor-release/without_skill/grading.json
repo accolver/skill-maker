@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The changelog identifies the release as a minor version bump (v1.9.0) because the highest-impact commits are features",
+      "passed": false,
+      "evidence": "Header says '## v1.9.0' with no SemVer classification or reasoning."
+    },
+    {
+      "text": "Commits are grouped under category headings (Features, Bug Fixes, Performance, Dependencies) rather than a flat bullet list",
+      "passed": true,
+      "evidence": "Grouped under 'Added' and 'Fixed' headings (Keep a Changelog style) but missing Performance and Dependencies."
+    },
+    {
+      "text": "All three feature commits appear under a Features heading with their scope and PR links",
+      "passed": false,
+      "evidence": "Features under 'Added' but without scope prefixes. PR numbers as raw text."
+    },
+    {
+      "text": "All five bug fix commits appear under a Bug Fixes heading with scope, description, and PR links",
+      "passed": false,
+      "evidence": "Fixes under 'Fixed' but without scope prefixes and no clickable PR links."
+    },
+    {
+      "text": "Both performance commits appear under a Performance heading",
+      "passed": false,
+      "evidence": "Performance commits under 'Changed' heading, not a dedicated Performance section."
+    },
+    {
+      "text": "Dependency bumps are grouped under a Dependencies heading showing old and new versions",
+      "passed": false,
+      "evidence": "Dependency bumps listed under 'Changed' as raw commit messages."
+    },
+    {
+      "text": "PR links are formatted as clickable Markdown links pointing to https://github.com/acme/node-sdk/pull/NNN",
+      "passed": false,
+      "evidence": "PR numbers shown as plain text (#312) with no Markdown link formatting."
+    },
+    {
+      "text": "A compare link is included showing the full diff between v1.8.0 and v1.9.0",
+      "passed": true,
+      "evidence": "Compare link present at bottom: https://github.com/acme/node-sdk/compare/v1.8.0...v1.9.0"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 6,
+    "total": 8,
+    "pass_rate": 0.25
+  }
+}

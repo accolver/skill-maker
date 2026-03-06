@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "refactor-database-layer",
+  "prompt": "I need a PR description for a database layer refactor. Here's what I did:\n\nRefactored our database access layer from raw SQL queries scattered across 12 service files to a centralized repository pattern. Every service was writing its own SQL, leading to inconsistent query patterns, no connection pooling, and duplicated WHERE clauses.\n\nThe refactor:\n- Created a new `src/repositories/` directory with 6 repository classes (UserRepository, OrderRepository, ProductRepository, PaymentRepository, ShippingRepository, InventoryRepository)\n- Each repository encapsulates all SQL for its domain entity\n- Added connection pooling via pg-pool (was creating new connections per query before)\n- Standardized error handling — all repos throw typed RepositoryError instead of raw pg errors\n- Removed raw SQL from all 12 service files, replaced with repository method calls\n\n12 files modified, 6 new files created. No functional changes — all existing API endpoints return identical responses. Performance improvement: average query time dropped from 45ms to 12ms in staging due to connection pooling.\n\nThis is a large refactor so I want reviewers to understand the approach.",
+  "assertions": [
+    "Description includes a Motivation section explaining WHY the refactor was needed (inconsistent queries, no connection pooling, duplicated SQL)",
+    "Description includes performance numbers (45ms to 12ms or similar improvement metrics)",
+    "Description includes a Changes section that groups the 18 file changes by concept (repository layer, pooling, error handling, service migration) not file-by-file",
+    "Description includes a Testing Instructions section with steps to verify no behavioral regression (e.g., running existing test suite, comparing API responses)",
+    "Description includes a Rollback Plan that addresses the complexity of reverting a 18-file refactor",
+    "Description includes a Reviewer Notes section guiding reviewers on what to focus on in a large refactor",
+    "Testing instructions include a way to verify the performance improvement (query timing, connection pool stats, or load test)",
+    "Rollback plan is substantive (not just 'revert the PR') — addresses whether partial rollback is possible or if it's all-or-nothing"
+  ]
+}

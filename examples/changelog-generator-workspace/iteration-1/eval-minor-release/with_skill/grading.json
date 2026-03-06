@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The changelog identifies the release as a minor version bump (v1.9.0) because the highest-impact commits are features",
+      "passed": true,
+      "evidence": "Header reads '## [1.9.0]' and a note states 'This is a minor release — the highest-impact changes are new features.'"
+    },
+    {
+      "text": "Commits are grouped under category headings (Features, Bug Fixes, Performance, Dependencies) rather than a flat bullet list",
+      "passed": true,
+      "evidence": "Output has ### Features, ### Bug Fixes, ### Performance, ### Dependencies headings with commits grouped beneath each"
+    },
+    {
+      "text": "All three feature commits appear under a Features heading with their scope and PR links",
+      "passed": true,
+      "evidence": "Features section lists: client: add retry logic (#312), streaming: SSE support (#318), types: export TypeScript definitions (#320)"
+    },
+    {
+      "text": "All five bug fix commits appear under a Bug Fixes heading with scope, description, and PR links",
+      "passed": true,
+      "evidence": "Bug Fixes section lists all 5: auth expired tokens (#305), auth double refresh (#308), pagination off-by-one (#311), websocket reconnect (#314), cache TTL (#316)"
+    },
+    {
+      "text": "Both performance commits appear under a Performance heading",
+      "passed": true,
+      "evidence": "Performance section lists: serialization: streaming JSON parser (#309), connection: HTTP/2 pooling (#313)"
+    },
+    {
+      "text": "Dependency bumps are grouped under a Dependencies heading showing old and new versions",
+      "passed": true,
+      "evidence": "Dependencies section shows 'Bump axios from 1.6.2 to 1.7.0' and 'Bump typescript from 5.3.2 to 5.4.0'"
+    },
+    {
+      "text": "PR links are formatted as clickable Markdown links pointing to https://github.com/acme/node-sdk/pull/NNN",
+      "passed": false,
+      "evidence": "PR numbers are shown as (#312) but not formatted as clickable links. Missing [#312](https://github.com/acme/node-sdk/pull/312) format."
+    },
+    {
+      "text": "A compare link is included showing the full diff between v1.8.0 and v1.9.0",
+      "passed": true,
+      "evidence": "Footer includes 'Full Changelog: [v1.8.0...v1.9.0](https://github.com/acme/node-sdk/compare/v1.8.0...v1.9.0)'"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

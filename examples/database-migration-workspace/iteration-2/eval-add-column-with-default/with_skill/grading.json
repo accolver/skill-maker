@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Up migration adds the column as nullable first (without NOT NULL in the initial ALTER TABLE)",
+      "passed": true,
+      "evidence": "Step 1 uses 'ALTER TABLE orders ADD COLUMN status varchar(50)' without NOT NULL"
+    },
+    {
+      "text": "Up migration includes a batched backfill strategy (multiple UPDATE statements with WHERE clauses limiting rows per batch, or explicit batch size guidance)",
+      "passed": true,
+      "evidence": "DO $$ block with batch_size := 50000 and WHERE clause limiting rows per iteration"
+    },
+    {
+      "text": "Up migration adds the NOT NULL constraint as a separate step after backfill",
+      "passed": true,
+      "evidence": "Step 3 runs 'ALTER TABLE orders ALTER COLUMN status SET NOT NULL' in a separate transaction after backfill"
+    },
+    {
+      "text": "A complete rollback migration is provided that drops the status column",
+      "passed": true,
+      "evidence": "rollback.sql drops default and column in a transaction with lock_timeout"
+    },
+    {
+      "text": "Data backup commands are included (CREATE TABLE AS, pg_dump, or equivalent)",
+      "passed": true,
+      "evidence": "Runbook includes CREATE TABLE orders_pre_status_backup_20260306 with verification count"
+    },
+    {
+      "text": "Lock impact analysis is present, mentioning ACCESS EXCLUSIVE lock or table-level locking concerns for the 50M row table",
+      "passed": true,
+      "evidence": "Migration header states 'ACCESS EXCLUSIVE lock for ALTER TABLE, but instant (no table rewrite)'"
+    },
+    {
+      "text": "Verification queries are included that check the column exists with correct type and constraints",
+      "passed": true,
+      "evidence": "Runbook includes information_schema queries after each step checking column_name, is_nullable, column_default"
+    },
+    {
+      "text": "A deployment runbook is provided with pre-flight checks, execution steps, and rollback instructions",
+      "passed": true,
+      "evidence": "Runbook has Pre-flight (with blocking transaction check), Execute (7 steps), Rollback, and Post-migration sections"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

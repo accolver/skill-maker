@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration does NOT use a bare ALTER TABLE RENAME COLUMN as the primary strategy (may mention it as unsafe alternative)",
+      "passed": false,
+      "evidence": "Migration uses 'ALTER TABLE users RENAME COLUMN email TO email_address' as the sole strategy"
+    },
+    {
+      "text": "Migration uses a dual-write or copy-column strategy: adds new column, backfills, migrates application code, then drops old column",
+      "passed": false,
+      "evidence": "No dual-write strategy. Uses bare RENAME which breaks all references instantly"
+    },
+    {
+      "text": "A complete rollback migration is provided that reverses the changes",
+      "passed": false,
+      "evidence": "No rollback migration file provided"
+    },
+    {
+      "text": "The migration addresses zero-downtime by ensuring both old and new columns coexist during transition",
+      "passed": false,
+      "evidence": "Bare RENAME does not allow coexistence — old column name stops working immediately"
+    },
+    {
+      "text": "Verification queries are included that confirm data was correctly copied from email to email_address",
+      "passed": false,
+      "evidence": "No verification queries provided"
+    },
+    {
+      "text": "Data backup commands are included before any destructive operations",
+      "passed": false,
+      "evidence": "No backup commands included"
+    },
+    {
+      "text": "A deployment runbook is provided with phased steps (add column, backfill, deploy app changes, drop old column)",
+      "passed": false,
+      "evidence": "No deployment runbook provided"
+    },
+    {
+      "text": "The migration mentions or addresses the need to update application code, background jobs, or queries that reference the old column name",
+      "passed": true,
+      "evidence": "Comment states 'You'll need to update your application code to reference the new column name'"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

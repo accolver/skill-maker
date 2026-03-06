@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "express-api-monitoring",
+  "prompt": "Add comprehensive monitoring to our Express.js API service that handles user orders. The service connects to PostgreSQL for data storage and Redis for caching. It runs in Kubernetes. I need health checks, Prometheus metrics, and request tracing so we can debug issues in production. The service is at src/app.js and uses Express with middleware patterns.",
+  "assertions": [
+    "Output includes a liveness endpoint at /healthz that does NOT check database or Redis connectivity",
+    "Output includes a readiness endpoint at /readyz that checks both PostgreSQL and Redis with individual status per dependency",
+    "Output includes a startup endpoint at /startupz that verifies initialization completion",
+    "Health check responses include structured JSON with status, individual check results, and version information",
+    "Metrics are exposed at /metrics endpoint in Prometheus exposition format using a Prometheus client library",
+    "RED metrics are implemented: request rate counter (http_requests_total), error counter, and duration histogram with appropriate bucket values",
+    "A metrics middleware is created that automatically instruments all incoming HTTP requests with method, path, and status_code labels",
+    "OpenTelemetry tracing configuration is generated with W3C Trace Context header propagation (traceparent)"
+  ]
+}

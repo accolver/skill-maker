@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Alert thresholds are derived from the stated SLO (99.95% availability) using burn rate calculations, not arbitrary fixed values",
+      "passed": false,
+      "evidence": "Alert uses error_rate > 0.05 (5%) as threshold. No burn rate calculation. SLO mentioned in comments but not used in the alert expression."
+    },
+    {
+      "text": "Alert rules are in valid Prometheus alerting rule YAML format with groups, rules, expr, for, labels, and annotations",
+      "passed": true,
+      "evidence": "Valid Prometheus alerting rule YAML format with all required fields."
+    },
+    {
+      "text": "Each alert rule includes severity labels (critical, warning) and a team label for routing",
+      "passed": false,
+      "evidence": "Severity labels present (critical, warning) but no team label for routing."
+    },
+    {
+      "text": "Every alert annotation includes a runbook link URL pointing to resolution documentation",
+      "passed": false,
+      "evidence": "No runbook annotations. Only summary and description annotations present."
+    },
+    {
+      "text": "An escalation policy is defined with different response times and notification channels per severity level (PagerDuty for critical, Slack for warning)",
+      "passed": false,
+      "evidence": "No escalation policy document. Only alert rules YAML generated."
+    },
+    {
+      "text": "Runbook files are generated for each alert containing diagnosis steps, resolution procedures, and escalation instructions",
+      "passed": false,
+      "evidence": "No runbook files generated."
+    },
+    {
+      "text": "Latency alert uses histogram_quantile for P99 measurement against the 200ms SLO target, not average latency",
+      "passed": false,
+      "evidence": "Latency alert uses avg(rate(http_request_duration_seconds_sum[5m]) / rate(http_request_duration_seconds_count[5m])) > 0.5. Uses average, not P99. Threshold is 500ms, not 200ms."
+    },
+    {
+      "text": "Error rate alert uses a ratio calculation (errors/total requests) rather than an absolute error count",
+      "passed": true,
+      "evidence": "Error rate uses ratio: http_requests_total{status=~\"5..\"} / http_requests_total. However threshold is arbitrary 5%."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 6,
+    "total": 8,
+    "pass_rate": 0.25
+  }
+}

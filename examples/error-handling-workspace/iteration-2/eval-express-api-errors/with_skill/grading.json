@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base error class (AppError or similar) exists with properties: code, message, statusCode, category, and cause",
+      "passed": true,
+      "evidence": "AppError class in errors/AppError.ts with code, message, statusCode, category, cause properties. Extends Error with Error.captureStackTrace."
+    },
+    {
+      "text": "At least 5 error subclasses are defined covering: validation (400), authentication (401), authorization (403), not-found (404), and conflict (409)",
+      "passed": true,
+      "evidence": "Found 7 subclasses: ValidationError (400), AuthenticationError (401), AuthorizationError (403), NotFoundError (404), ConflictError (409), RateLimitError (429), InternalError (500)"
+    },
+    {
+      "text": "Each error class has a stable string error code (e.g., ERR_NOT_FOUND_USER) not just an HTTP status number",
+      "passed": true,
+      "evidence": "All error classes use stable string codes: ERR_VALIDATION, ERR_AUTH_INVALID, ERR_FORBIDDEN, ERR_NOT_FOUND_USER, ERR_CONFLICT_EMAIL, ERR_RATE_LIMIT, ERR_INTERNAL"
+    },
+    {
+      "text": "A centralized error middleware function handles all errors and produces a consistent JSON response format",
+      "passed": true,
+      "evidence": "errorHandler middleware in middleware/errorHandler.ts handles AppError instances and unknown errors. Produces consistent { error: { code, message, details? }, requestId } format."
+    },
+    {
+      "text": "Error responses include a requestId or correlationId field for debugging",
+      "passed": true,
+      "evidence": "Error middleware extracts x-request-id header with crypto.randomUUID() fallback. requestId included in every error response and log entry."
+    },
+    {
+      "text": "User-facing error responses do not contain stack traces, file paths, or internal implementation details",
+      "passed": true,
+      "evidence": "AppError responses expose only code, message, and safe details. Unknown errors return generic 'An unexpected error occurred'. Stack traces logged internally only."
+    },
+    {
+      "text": "Structured error logging includes at minimum: error code, message, stack trace, correlation ID, and request path",
+      "passed": true,
+      "evidence": "Logger outputs JSON with fields: code, message, stack, correlationId, path, method, category, timestamp. Uses structured JSON logger instead of console.error."
+    },
+    {
+      "text": "The error response JSON schema is consistent across all endpoints with at least code and message fields",
+      "passed": true,
+      "evidence": "All 5 routes throw typed AppError subclasses. Error middleware produces consistent { error: { code, message } } format. No inline res.status().json() error responses remain."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

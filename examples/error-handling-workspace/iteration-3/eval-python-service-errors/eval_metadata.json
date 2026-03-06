@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "python-service-errors",
+  "prompt": "Add comprehensive error handling to a Python service that makes database calls (PostgreSQL via SQLAlchemy) and external API calls (via httpx). The service has functions: create_order, get_order, update_order_status, sync_inventory (calls external API), and process_payment (calls payment gateway). Currently errors are handled with bare except clauses and print statements. Implement custom exception classes, proper error wrapping that preserves the original exception chain, and structured logging with correlation IDs using the standard logging module.",
+  "assertions": [
+    "A base exception class (AppError or similar) is defined with attributes: code, message, status_code, category, and support for __cause__ chaining",
+    "At least 4 domain-specific exception subclasses exist (e.g., NotFoundError, ValidationError, ServiceUnavailableError, PaymentError)",
+    "Exception wrapping uses 'raise NewError(...) from original_error' syntax to preserve the causal chain",
+    "No bare 'except:' or 'except Exception:' clauses that swallow errors without re-raising or wrapping",
+    "Structured logging outputs JSON-formatted log entries with at minimum: code, message, correlation_id, and timestamp",
+    "Database errors (SQLAlchemy exceptions) are caught and wrapped in domain-specific errors with context",
+    "External API errors (httpx/HTTP errors) are caught and wrapped with the upstream service name and response details",
+    "Each error includes a stable string error code (e.g., ERR_ORDER_NOT_FOUND) not just a status number"
+  ]
+}

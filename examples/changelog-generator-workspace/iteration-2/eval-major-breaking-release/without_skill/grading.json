@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The changelog identifies this as a major version bump (v3.0.0) because of the two breaking changes",
+      "passed": true,
+      "evidence": "Header says 'v3.0.0' and mentions 'major release' but does not explain the two breaking changes as the reason."
+    },
+    {
+      "text": "Breaking changes appear as the FIRST section in the changelog, before features and fixes",
+      "passed": false,
+      "evidence": "A 'Breaking Changes' section exists but appears after 'Features'. Not the first section."
+    },
+    {
+      "text": "The request.parse_body() breaking change includes migration steps explaining how to update from request.json()",
+      "passed": false,
+      "evidence": "Listed as 'replace request.json() with request.parse_body()' — no migration steps provided."
+    },
+    {
+      "text": "The serializer breaking change includes the migration command (framework migrate-cache) and explains data incompatibility",
+      "passed": false,
+      "evidence": "Listed as 'change default serializer from pickle to msgpack' — no migration command or incompatibility warning."
+    },
+    {
+      "text": "At least one breaking change includes a before/after code example showing old vs new usage",
+      "passed": false,
+      "evidence": "No code examples present for any breaking change. All are one-line descriptions."
+    },
+    {
+      "text": "The security fix references CVE-2026-1234 and appears in a Security section",
+      "passed": false,
+      "evidence": "Security fix listed under 'Bug Fixes' with no CVE reference. No dedicated Security section."
+    },
+    {
+      "text": "The changelog includes at least 5 distinct category groupings (Breaking Changes, Features, Bug Fixes, Performance, Security, Dependencies)",
+      "passed": false,
+      "evidence": "Only 3 groupings: Features, Bug Fixes, Breaking Changes. Performance, Security, and Dependencies missing."
+    },
+    {
+      "text": "A compare link is included for the full diff between v2.5.0 and v3.0.0",
+      "passed": false,
+      "evidence": "No compare link present in the output."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

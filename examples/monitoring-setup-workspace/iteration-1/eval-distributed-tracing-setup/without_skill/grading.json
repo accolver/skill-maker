@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Tracing configuration is generated for all 3 services (api-gateway, order-service, inventory-service) with service-specific names",
+      "passed": true,
+      "evidence": "Three configuration files generated with service names set. However, all three use Node.js configuration despite inventory-service being Python."
+    },
+    {
+      "text": "W3C Trace Context headers (traceparent) are propagated between services on outgoing HTTP calls",
+      "passed": false,
+      "evidence": "Custom X-Request-ID header is passed between services but not W3C traceparent format. Header value is a UUID, not the W3C trace context format (version-trace_id-parent_id-trace_flags)."
+    },
+    {
+      "text": "A correlation ID middleware extracts trace ID from incoming requests or generates a new one if absent",
+      "passed": true,
+      "evidence": "Middleware generates UUID and attaches to request as X-Request-ID. Extracts from incoming header if present."
+    },
+    {
+      "text": "Correlation IDs are injected into log output so logs can be correlated with traces",
+      "passed": false,
+      "evidence": "Request ID is attached to req object but not injected into logger context. Logs use console.log without correlation ID."
+    },
+    {
+      "text": "Child spans are created for outgoing HTTP calls from api-gateway to order-service and from order-service to inventory-service",
+      "passed": false,
+      "evidence": "No span creation. No OpenTelemetry SDK used. Tracing is implemented as simple request ID passing, not proper distributed tracing with spans."
+    },
+    {
+      "text": "Both Node.js (api-gateway, order-service) and Python (inventory-service) configurations are provided with language-appropriate OpenTelemetry SDKs",
+      "passed": false,
+      "evidence": "All three services use Node.js configuration. inventory-service should use Python OpenTelemetry SDK but was given a Node.js config file."
+    },
+    {
+      "text": "Trace exporter is configured to send to a Jaeger-compatible OTLP endpoint (configurable via environment variable)",
+      "passed": false,
+      "evidence": "No trace exporter configured. No OpenTelemetry SDK used. Request IDs are only passed via HTTP headers, not exported to any tracing backend."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 5,
+    "total": 7,
+    "pass_rate": 0.286
+  }
+}

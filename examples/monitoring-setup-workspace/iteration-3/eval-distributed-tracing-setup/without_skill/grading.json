@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Tracing configuration is generated for all 3 services (api-gateway, order-service, inventory-service) with service-specific names",
+      "passed": true,
+      "evidence": "Three config files with service-specific names. Python service correctly uses Python this time."
+    },
+    {
+      "text": "W3C Trace Context headers (traceparent) are propagated between services on outgoing HTTP calls",
+      "passed": false,
+      "evidence": "Custom X-Request-ID header propagated, not W3C traceparent. UUID format, not W3C trace context format."
+    },
+    {
+      "text": "A correlation ID middleware extracts trace ID from incoming requests or generates a new one if absent",
+      "passed": true,
+      "evidence": "Middleware generates UUID and passes as X-Request-ID. Extracts from incoming header if present."
+    },
+    {
+      "text": "Correlation IDs are injected into log output so logs can be correlated with traces",
+      "passed": false,
+      "evidence": "Request ID on request object but not in log output. console.log without trace context."
+    },
+    {
+      "text": "Child spans are created for outgoing HTTP calls from api-gateway to order-service and from order-service to inventory-service",
+      "passed": false,
+      "evidence": "No OpenTelemetry spans. Request ID passing only, no parent-child span relationships."
+    },
+    {
+      "text": "Both Node.js (api-gateway, order-service) and Python (inventory-service) configurations are provided with language-appropriate OpenTelemetry SDKs",
+      "passed": false,
+      "evidence": "No OpenTelemetry SDK in any service. Custom request-ID middleware only."
+    },
+    {
+      "text": "Trace exporter is configured to send to a Jaeger-compatible OTLP endpoint (configurable via environment variable)",
+      "passed": false,
+      "evidence": "No trace exporter. No OTLP configuration. Request IDs passed via headers only."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 5,
+    "total": 7,
+    "pass_rate": 0.286
+  }
+}

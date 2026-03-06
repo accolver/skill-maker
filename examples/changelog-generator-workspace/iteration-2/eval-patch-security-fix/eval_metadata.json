@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "patch-security-fix",
+  "prompt": "Generate a changelog for a patch release v4.2.1 of our authentication service. This is an urgent security fix. Here are the 3 commits between v4.2.0 and v4.2.1:\n\na1b1c1d security(oauth): fix open redirect in OAuth callback validation (#890)\nb2c2d2e fix(oauth): add state parameter CSRF check to OAuth flow (#891)\nc3d3e3f test(oauth): add regression tests for redirect validation (#892)\n\nThe first commit (a1b1c1d) body:\nAn attacker could craft a malicious redirect_uri that bypassed validation by using URL-encoded characters. This allowed redirecting users to attacker-controlled sites after OAuth authentication, potentially capturing authorization codes.\n\nSeverity: HIGH\nCVSS: 8.1\nAffected versions: 4.0.0 - 4.2.0\nReported by: security@example.com via responsible disclosure\n\nThe repository is at https://github.com/acme/auth-service. Generate release notes that communicate urgency to both developers and operations teams. This should use security advisory language.",
+  "assertions": [
+    "The changelog identifies this as a patch version bump (v4.2.1)",
+    "The security vulnerability is described with advisory language including severity level (HIGH) and CVSS score (8.1)",
+    "Affected versions (4.0.0 - 4.2.0) are explicitly stated so operators know if they need to upgrade",
+    "The changelog communicates upgrade urgency — words like 'urgent', 'immediately', 'critical', or 'recommended to upgrade' appear",
+    "The open redirect vulnerability description explains the attack vector (URL-encoded characters bypassing validation)",
+    "The CSRF fix (state parameter check) is documented as a separate entry from the redirect fix",
+    "A compare link is included for the diff between v4.2.0 and v4.2.1",
+    "The changelog does NOT include the test commit as a user-facing change (tests are internal)"
+  ]
+}

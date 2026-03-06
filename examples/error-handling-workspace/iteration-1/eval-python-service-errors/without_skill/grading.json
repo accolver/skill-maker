@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base exception class (AppError or similar) is defined with attributes: code, message, status_code, category, and support for __cause__ chaining",
+      "passed": false,
+      "evidence": "No base exception class defined. Service functions raise built-in ValueError and RuntimeError with string messages."
+    },
+    {
+      "text": "At least 4 domain-specific exception subclasses exist (e.g., NotFoundError, ValidationError, ServiceUnavailableError, PaymentError)",
+      "passed": false,
+      "evidence": "Only one custom exception defined: OrderNotFoundError(Exception). No ValidationError, ServiceUnavailableError, or PaymentError classes."
+    },
+    {
+      "text": "Exception wrapping uses 'raise NewError(...) from original_error' syntax to preserve the causal chain",
+      "passed": false,
+      "evidence": "No 'from' syntax used anywhere. Errors are raised as new exceptions without preserving the original: 'raise RuntimeError(\"Database error\")' instead of 'raise ... from e'"
+    },
+    {
+      "text": "No bare 'except:' or 'except Exception:' clauses that swallow errors without re-raising or wrapping",
+      "passed": false,
+      "evidence": "Found bare 'except Exception as e:' in process_payment that logs the error but returns None instead of re-raising, effectively swallowing the exception."
+    },
+    {
+      "text": "Structured logging outputs JSON-formatted log entries with at minimum: code, message, correlation_id, and timestamp",
+      "passed": false,
+      "evidence": "No structured logging. Uses print(f'Error: {e}') statements throughout. No JSON formatting, no correlation IDs, no timestamps."
+    },
+    {
+      "text": "Database errors (SQLAlchemy exceptions) are caught and wrapped in domain-specific errors with context",
+      "passed": false,
+      "evidence": "SQLAlchemy errors caught with bare 'except Exception' and re-raised as generic RuntimeError('Database error') with no domain context or original error preserved."
+    },
+    {
+      "text": "External API errors (httpx/HTTP errors) are caught and wrapped with the upstream service name and response details",
+      "passed": false,
+      "evidence": "httpx errors caught but wrapped as generic RuntimeError('API call failed'). No upstream service name, no response status code, no response body details."
+    },
+    {
+      "text": "Each error includes a stable string error code (e.g., ERR_ORDER_NOT_FOUND) not just a status number",
+      "passed": false,
+      "evidence": "No error codes used anywhere. Errors identified only by exception type and free-text messages."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0.0
+  }
+}

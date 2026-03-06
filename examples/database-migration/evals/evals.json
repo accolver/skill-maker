@@ -1,0 +1,53 @@
+{
+  "skill_name": "database-migration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a database migration to add a non-nullable `status` column (varchar(50), default 'pending') to the `orders` table. The orders table has approximately 50 million rows and is actively used by the production application for reads and writes. We're using PostgreSQL 15.",
+      "expected_output": "A safe migration that avoids table-level locks on a 50M row table by splitting into add-nullable, batch-backfill, and add-constraint steps. Includes rollback, backup commands, verification queries, and a deployment runbook.",
+      "files": [],
+      "assertions": [
+        "Up migration adds the column as nullable first (without NOT NULL in the initial ALTER TABLE)",
+        "Up migration includes a batched backfill strategy (multiple UPDATE statements with WHERE clauses limiting rows per batch, or explicit batch size guidance)",
+        "Up migration adds the NOT NULL constraint as a separate step after backfill",
+        "A complete rollback migration is provided that drops the status column",
+        "Data backup commands are included (CREATE TABLE AS, pg_dump, or equivalent)",
+        "Lock impact analysis is present, mentioning ACCESS EXCLUSIVE lock or table-level locking concerns for the 50M row table",
+        "Verification queries are included that check the column exists with correct type and constraints",
+        "A deployment runbook is provided with pre-flight checks, execution steps, and rollback instructions"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need to rename the `email` column to `email_address` on the `users` table. This column is referenced throughout our application code and in several background jobs. The table has about 5 million rows. We're on PostgreSQL 14. This is a production system with zero-downtime requirements.",
+      "expected_output": "A dual-write migration strategy that avoids a bare RENAME COLUMN. Adds the new column, backfills data, deploys application code to write to both columns, then drops the old column in a separate migration. Includes rollback, verification, and runbook.",
+      "files": [],
+      "assertions": [
+        "Migration does NOT use a bare ALTER TABLE RENAME COLUMN as the primary strategy (may mention it as unsafe alternative)",
+        "Migration uses a dual-write or copy-column strategy: adds new column, backfills, migrates application code, then drops old column",
+        "A complete rollback migration is provided that reverses the changes",
+        "The migration addresses zero-downtime by ensuring both old and new columns coexist during transition",
+        "Verification queries are included that confirm data was correctly copied from email to email_address",
+        "Data backup commands are included before any destructive operations",
+        "A deployment runbook is provided with phased steps (add column, backfill, deploy app changes, drop old column)",
+        "The migration mentions or addresses the need to update application code, background jobs, or queries that reference the old column name"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add a composite index on (customer_id, created_at) to the `events` table for a query optimization. The events table has approximately 100 million rows and receives about 5,000 inserts per second during peak hours. We're using PostgreSQL 16.",
+      "expected_output": "Uses CREATE INDEX CONCURRENTLY to avoid blocking writes. Includes estimated time for 100M rows, impact analysis on write performance, rollback (DROP INDEX), verification that the index was created correctly, and deployment runbook with off-peak timing recommendation.",
+      "files": [],
+      "assertions": [
+        "Migration uses CREATE INDEX CONCURRENTLY (not a regular CREATE INDEX)",
+        "Migration includes an estimate or discussion of how long the index creation will take on 100M rows",
+        "Impact analysis discusses the effect on write performance (insert overhead from maintaining the new index)",
+        "A rollback is provided that drops the index (DROP INDEX or DROP INDEX CONCURRENTLY)",
+        "Verification queries confirm the index exists and is valid (not in an invalid state from a failed CONCURRENTLY build)",
+        "The migration notes that CONCURRENTLY cannot run inside a transaction block",
+        "A deployment runbook recommends running during off-peak hours or low-traffic periods",
+        "Lock impact analysis mentions that CONCURRENTLY avoids blocking writes (SHARE UPDATE EXCLUSIVE vs SHARE lock)"
+      ]
+    }
+  ]
+}

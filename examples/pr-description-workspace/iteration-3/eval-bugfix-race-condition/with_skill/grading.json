@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Description includes a Motivation section that explains the root cause (non-atomic read-then-update causing duplicate processing)",
+      "passed": true,
+      "evidence": "Motivation explains the SELECT then UPDATE race condition in detail"
+    },
+    {
+      "text": "Description references the support tickets (SUPPORT-891, SUPPORT-894, SUPPORT-897) or the customer impact (duplicate emails)",
+      "passed": true,
+      "evidence": "References all three support tickets and 'duplicate emails'"
+    },
+    {
+      "text": "Description includes a Testing Instructions section with steps to run the concurrent stress test",
+      "passed": true,
+      "evidence": "Step 1 runs specific test file, step 4 provides manual staging verification with psql commands"
+    },
+    {
+      "text": "Description includes a Rollback Plan section",
+      "passed": true,
+      "evidence": "Rollback plan with revert command, no-migration note, and risk warning"
+    },
+    {
+      "text": "Description includes a Reviewer Notes section that flags the atomic query change as needing careful review",
+      "passed": true,
+      "evidence": "Flags 'verify UPDATE...RETURNING WHERE status=pending is correct and PostgreSQL guarantees atomicity'"
+    },
+    {
+      "text": "Description mentions the payment processing implication as a risk or area needing attention",
+      "passed": true,
+      "evidence": "Reviewer Notes: 'Same acquireJob function handles payment jobs. Verify no payment-specific code paths bypass acquireJob.'"
+    },
+    {
+      "text": "Testing instructions mention running the new regression tests specifically (not just 'run the tests')",
+      "passed": true,
+      "evidence": "Step 1: 'npm test -- tests/workers/job-processor.test.ts' with specific test names"
+    },
+    {
+      "text": "Changes section explains the fix conceptually (atomic operation replacing two-step read-update) not just which files changed",
+      "passed": true,
+      "evidence": "Explains 'Replaced the two-step SELECT + UPDATE with a single UPDATE...RETURNING' with atomicity explanation"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "skill_name": "error-handling",
+  "iteration": 2,
+  "timestamp": "2026-03-06T15:00:00.000Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": { "mean": 0.917, "stddev": 0.063 },
+      "time_seconds": { "mean": 33.8, "stddev": 3.8 },
+      "tokens": { "mean": 15267, "stddev": 2200 }
+    },
+    "without_skill": {
+      "pass_rate": { "mean": 0.083, "stddev": 0.072 },
+      "time_seconds": { "mean": 14.7, "stddev": 1.6 },
+      "tokens": { "mean": 6633, "stddev": 620 }
+    },
+    "delta": {
+      "pass_rate": 0.834,
+      "time_seconds": 19.1,
+      "tokens": 8634
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "express-api-errors",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 30.2, "tokens": 13100 },
+      "without_skill": { "pass_rate": 0.125, "time_seconds": 14.8, "tokens": 6500 }
+    },
+    {
+      "eval_name": "python-service-errors",
+      "with_skill": { "pass_rate": 0.875, "time_seconds": 33.5, "tokens": 15200 },
+      "without_skill": { "pass_rate": 0.0, "time_seconds": 16.2, "tokens": 7300 }
+    },
+    {
+      "eval_name": "error-response-schema",
+      "with_skill": { "pass_rate": 0.875, "time_seconds": 37.8, "tokens": 17500 },
+      "without_skill": { "pass_rate": 0.125, "time_seconds": 13.1, "tokens": 6100 }
+    }
+  ]
+}

@@ -1,26 +1,31 @@
 # error-handling
 
-> **Status:** Planned
+> **Status:** Built
 
 Standardize error handling across a codebase with a unified error taxonomy,
 consistent error codes, proper propagation, user-facing vs internal error
 separation, and structured logging.
 
-## When built, this skill will
+## Results
 
-- Define an error taxonomy with categories (validation, auth, not-found,
-  conflict, internal)
-- Assign stable error codes that clients can match on programmatically
-- Separate user-facing messages from internal diagnostic details
-- Implement consistent error propagation (no swallowed exceptions, no bare
-  throws)
-- Add structured error logging with correlation IDs and request context
-- Generate error response schemas for API documentation
+| Metric                     | Value  |
+| -------------------------- | ------ |
+| Final With-Skill Pass Rate | 100.0% |
+| Without-Skill Pass Rate    | 8.3%   |
+| Delta                      | +91.7% |
+| Iterations                 | 3      |
+| Plateau At                 | 3      |
 
-## Predicted delta: +65-75%
+## What agents miss without this skill
 
-Agents scatter ad-hoc try/catch blocks, mix user-facing and internal error
-details, and rarely implement a unified error code system.
+- Unified error taxonomy with categories mapping to HTTP status codes
+- Stable string error codes (ERR_NOT_FOUND_USER) for programmatic matching
+- Error class hierarchy with base class and category-specific subclasses
+- User-facing vs internal error separation (no leaked stack traces)
+- Correlation IDs for cross-service debugging
+- Structured JSON logging with error context
+- Proper error propagation chains (no swallowed exceptions)
+- Consistent error response format across all endpoints
 
 ## Getting started
 

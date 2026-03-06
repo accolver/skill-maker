@@ -82,12 +82,12 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 
 | Metric                          | Value  |
 | ------------------------------- | ------ |
-| Skills built                    | 3      |
-| Total eval cases                | 9      |
-| Total assertions evaluated      | 70     |
-| Total iterations run            | 10     |
-| Average iterations to 100%      | 2.0    |
-| Average delta (with vs without) | +56.4% |
+| Skills built                    | 8      |
+| Total eval cases                | 24     |
+| Total assertions evaluated      | 189    |
+| Total iterations run            | 25     |
+| Average iterations to 100%      | 2.4    |
+| Average delta (with vs without) | +73.6% |
 
 ### Per-skill results
 
@@ -96,6 +96,11 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 | git-conventional-commits    | 100%                 | 72.3%                 | +27.7%     | 3          | 1          |
 | code-reviewer               | 100%                 | 41.7%                 | +58.3%     | 4          | 2          |
 | api-doc-generator           | 100%                 | 16.7%                 | +83.3%     | 3          | 3          |
+| database-migration          | 100%                 | 4.2%                  | +95.8%     | 3          | 2          |
+| pr-description              | 100%                 | 20.8%                 | +79.2%     | 3          | 2          |
+| error-handling              | 100%                 | 8.3%                  | +91.7%     | 3          | 3          |
+| changelog-generator         | 100%                 | 20.8%                 | +79.2%     | 3          | 3          |
+| monitoring-setup            | 100%                 | 26.1%                 | +73.9%     | 3          | 3          |
 | **skill-maker (self-eval)** | **100%**             | **57.3%**             | **+42.7%** | **6**      | **4**      |
 
 ### Timing and cost
@@ -105,6 +110,11 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 | git-conventional-commits | 10.2s         | 5.7s           | 5,060           | 3,143            |
 | code-reviewer            | 20.3s         | 11.4s          | 4,753           | 2,647            |
 | api-doc-generator        | 43.1s         | 16.9s          | 23,367          | 9,100            |
+| database-migration       | 34.5s         | 6.3s           | 8,290           | 1,443            |
+| pr-description           | 29.7s         | 8.3s           | 7,132           | 2,119            |
+| error-handling           | 34.9s         | 15.0s          | 15,800          | 6,867            |
+| changelog-generator      | 31.4s         | 13.5s          | 14,577          | 6,450            |
+| monitoring-setup         | 44.4s         | 17.9s          | 34,133          | 14,833           |
 | skill-maker (self-eval)  | 55.0s         | 50.0s          | 30,000          | 28,000           |
 
 Skills with more complex output formats (API docs, structured reviews) show
@@ -128,22 +138,9 @@ The common thread: agents have broad knowledge but lack the specificity and
 structure that skills enforce. Skills don't teach agents new facts — they
 enforce consistent application of knowledge the agent already has.
 
-## Planned Examples
+## Building New Examples
 
-Five additional skills are scaffolded in `examples/` and ready to be built. Each
-was selected for high predicted delta — tasks where agents have the knowledge
-but lack the structure, safety awareness, or output consistency that a skill
-enforces.
-
-| Skill               | Domain                                                   | Predicted Delta |
-| ------------------- | -------------------------------------------------------- | --------------- |
-| database-migration  | Safe, reversible migrations with rollback plans          | +70-80%         |
-| pr-description      | Structured PR descriptions with testing instructions     | +60-70%         |
-| error-handling      | Unified error taxonomy, codes, and propagation           | +65-75%         |
-| changelog-generator | Audience-aware changelogs with SemVer classification     | +55-65%         |
-| monitoring-setup    | Health checks, metrics, tracing, and alert configuration | +50-60%         |
-
-To build any planned skill:
+All 8 example skills have been built and benchmarked. To add a new example:
 
 ```
 Create a skill for [description]
@@ -151,7 +148,7 @@ Create a skill for [description]
 
 The skill-maker eval loop will produce benchmark artifacts in the corresponding
 workspace directory. Results can be aggregated into the examples/README.md
-charts.
+charts. See the [Contributing](#contributing) section for the full checklist.
 
 ## Markdown Formatting Guidelines
 

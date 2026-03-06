@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base exception class (AppError or similar) is defined with attributes: code, message, status_code, category, and support for __cause__ chaining",
+      "passed": true,
+      "evidence": "AppError base class in exceptions.py with code, message, status_code, category attributes. Constructor accepts cause parameter and sets self.__cause__ = cause."
+    },
+    {
+      "text": "At least 4 domain-specific exception subclasses exist (e.g., NotFoundError, ValidationError, ServiceUnavailableError, PaymentError)",
+      "passed": true,
+      "evidence": "Found 6 subclasses: NotFoundError, ValidationError, ServiceUnavailableError, PaymentError, ConflictError, AuthenticationError"
+    },
+    {
+      "text": "Exception wrapping uses 'raise NewError(...) from original_error' syntax to preserve the causal chain",
+      "passed": true,
+      "evidence": "All service functions use 'raise X from e' syntax: 'raise ServiceUnavailableError(...) from e', 'raise PaymentError(...) from e'"
+    },
+    {
+      "text": "No bare 'except:' or 'except Exception:' clauses that swallow errors without re-raising or wrapping",
+      "passed": true,
+      "evidence": "All except clauses catch specific types (SQLAlchemyError, httpx.HTTPStatusError, httpx.RequestError) and re-raise as wrapped AppError subclasses."
+    },
+    {
+      "text": "Structured logging outputs JSON-formatted log entries with at minimum: code, message, correlation_id, and timestamp",
+      "passed": true,
+      "evidence": "Uses python-json-logger with JsonFormatter. Log entries include code, message, correlation_id, timestamp, category, and exc_info for stack traces."
+    },
+    {
+      "text": "Database errors (SQLAlchemy exceptions) are caught and wrapped in domain-specific errors with context",
+      "passed": true,
+      "evidence": "SQLAlchemyError caught in create_order, get_order, update_order_status. Wrapped as ServiceUnavailableError with context: 'raise ServiceUnavailableError(\"Failed to create order in database\", code=\"ERR_DB_CREATE_ORDER\") from e'"
+    },
+    {
+      "text": "External API errors (httpx/HTTP errors) are caught and wrapped with the upstream service name and response details",
+      "passed": false,
+      "evidence": "httpx errors caught and wrapped but sync_inventory wraps as ServiceUnavailableError('Inventory sync failed') without including the upstream service name 'inventory-api' or the HTTP response status code from the failed request."
+    },
+    {
+      "text": "Each error includes a stable string error code (e.g., ERR_ORDER_NOT_FOUND) not just a status number",
+      "passed": true,
+      "evidence": "All errors use string codes: ERR_ORDER_NOT_FOUND, ERR_VALIDATION_ORDER, ERR_DB_CREATE_ORDER, ERR_PAYMENT_FAILED, ERR_INVENTORY_SYNC, ERR_PAYMENT_GATEWAY"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Description includes a Motivation section explaining WHY the refactor was needed (inconsistent queries, no connection pooling, duplicated SQL)",
+      "passed": false,
+      "evidence": "No motivation section. Description starts with 'Moved all raw SQL queries from service files into dedicated repository classes. Added connection pooling with pg-pool.' — states what was done but not why"
+    },
+    {
+      "text": "Description includes performance numbers (45ms to 12ms or similar improvement metrics)",
+      "passed": true,
+      "evidence": "Notes section states 'This improves query performance from ~45ms to ~12ms due to connection pooling'"
+    },
+    {
+      "text": "Description includes a Changes section that groups the 18 file changes by concept (repository layer, pooling, error handling, service migration) not file-by-file",
+      "passed": false,
+      "evidence": "Changes listed as 18 individual file paths (6 new, 12 modified) with no conceptual grouping"
+    },
+    {
+      "text": "Description includes a Testing Instructions section with steps to verify no behavioral regression (e.g., running existing test suite, comparing API responses)",
+      "passed": false,
+      "evidence": "Testing section says 'Run npm test to make sure nothing is broken. The API responses should be identical.' — single generic command, no specific verification steps"
+    },
+    {
+      "text": "Description includes a Rollback Plan that addresses the complexity of reverting a 18-file refactor",
+      "passed": false,
+      "evidence": "No rollback plan section present in the description"
+    },
+    {
+      "text": "Description includes a Reviewer Notes section guiding reviewers on what to focus on in a large refactor",
+      "passed": false,
+      "evidence": "Notes section only states 'This improves query performance from ~45ms to ~12ms due to connection pooling. No functional changes.' — no reviewer guidance"
+    },
+    {
+      "text": "Testing instructions include a way to verify the performance improvement (query timing, connection pool stats, or load test)",
+      "passed": false,
+      "evidence": "No performance verification steps. Testing section only says 'Run npm test'"
+    },
+    {
+      "text": "Rollback plan is substantive (not just 'revert the PR') — addresses whether partial rollback is possible or if it's all-or-nothing",
+      "passed": false,
+      "evidence": "No rollback plan section exists"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

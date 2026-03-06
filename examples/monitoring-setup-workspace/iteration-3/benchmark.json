@@ -1,0 +1,39 @@
+{
+  "skill_name": "monitoring-setup",
+  "iteration": 3,
+  "timestamp": "2026-03-06T16:00:00.000Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": { "mean": 1.0, "stddev": 0.0 },
+      "time_seconds": { "mean": 44.4, "stddev": 3.4 },
+      "tokens": { "mean": 34133, "stddev": 2650 }
+    },
+    "without_skill": {
+      "pass_rate": { "mean": 0.261, "stddev": 0.125 },
+      "time_seconds": { "mean": 17.9, "stddev": 2.4 },
+      "tokens": { "mean": 14833, "stddev": 2410 }
+    },
+    "delta": {
+      "pass_rate": 0.739,
+      "time_seconds": 26.5,
+      "tokens": 19300
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "express-api-monitoring",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 40.5, "tokens": 31200 },
+      "without_skill": { "pass_rate": 0.125, "time_seconds": 15.2, "tokens": 12100 }
+    },
+    {
+      "eval_name": "microservice-alerts",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 45.6, "tokens": 34800 },
+      "without_skill": { "pass_rate": 0.375, "time_seconds": 18.8, "tokens": 15600 }
+    },
+    {
+      "eval_name": "distributed-tracing-setup",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 47.2, "tokens": 36400 },
+      "without_skill": { "pass_rate": 0.286, "time_seconds": 19.8, "tokens": 16800 }
+    }
+  ]
+}

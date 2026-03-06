@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a liveness endpoint at /healthz that does NOT check database or Redis connectivity",
+      "passed": false,
+      "evidence": "Created a single /health endpoint that checks database connectivity. No separate liveness endpoint. The health check includes a database ping, which violates the liveness principle."
+    },
+    {
+      "text": "Output includes a readiness endpoint at /readyz that checks both PostgreSQL and Redis with individual status per dependency",
+      "passed": false,
+      "evidence": "No /readyz endpoint. Only a single /health endpoint exists. No distinction between liveness and readiness."
+    },
+    {
+      "text": "Output includes a startup endpoint at /startupz that verifies initialization completion",
+      "passed": false,
+      "evidence": "No startup endpoint created. Only a single /health endpoint exists."
+    },
+    {
+      "text": "Health check responses include structured JSON with status, individual check results, and version information",
+      "passed": false,
+      "evidence": "Health response is { status: 'ok' } or { status: 'error', message: err.message }. No individual check breakdown, no version, no uptime."
+    },
+    {
+      "text": "Metrics are exposed at /metrics endpoint in Prometheus exposition format using a Prometheus client library",
+      "passed": false,
+      "evidence": "No /metrics endpoint created. No Prometheus client library used. Monitoring is done via console.log statements."
+    },
+    {
+      "text": "RED metrics are implemented: request rate counter (http_requests_total), error counter, and duration histogram with appropriate bucket values",
+      "passed": false,
+      "evidence": "No Prometheus metrics implemented. Request logging uses console.log with timestamp and duration but no counters, histograms, or Prometheus format."
+    },
+    {
+      "text": "A metrics middleware is created that automatically instruments all incoming HTTP requests with method, path, and status_code labels",
+      "passed": true,
+      "evidence": "A logging middleware is created that logs method, path, status code, and response time to console. While not Prometheus metrics, it does instrument all requests."
+    },
+    {
+      "text": "OpenTelemetry tracing configuration is generated with W3C Trace Context header propagation (traceparent)",
+      "passed": false,
+      "evidence": "No OpenTelemetry configuration generated. No tracing setup. Request ID is generated using uuid but not propagated via W3C headers."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

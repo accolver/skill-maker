@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The changelog identifies the release as a minor version bump (v1.9.0) because the highest-impact commits are features",
+      "passed": false,
+      "evidence": "Output header says '## Changes' with no version number or SemVer classification. No mention of minor/major/patch."
+    },
+    {
+      "text": "Commits are grouped under category headings (Features, Bug Fixes, Performance, Dependencies) rather than a flat bullet list",
+      "passed": false,
+      "evidence": "All 15 commits listed as a flat bullet list under a single '## Changes' heading with no categorization."
+    },
+    {
+      "text": "All three feature commits appear under a Features heading with their scope and PR links",
+      "passed": false,
+      "evidence": "Feature commits are present but mixed in with all other commits in a flat list. No Features heading."
+    },
+    {
+      "text": "All five bug fix commits appear under a Bug Fixes heading with scope, description, and PR links",
+      "passed": false,
+      "evidence": "Bug fix commits present in the flat list but no Bug Fixes heading or grouping."
+    },
+    {
+      "text": "Both performance commits appear under a Performance heading",
+      "passed": false,
+      "evidence": "Performance commits present in the flat list but no Performance heading."
+    },
+    {
+      "text": "Dependency bumps are grouped under a Dependencies heading showing old and new versions",
+      "passed": false,
+      "evidence": "Dependency commits listed as raw commit messages 'chore(deps): bump axios from 1.6.2 to 1.7.0' with no Dependencies heading."
+    },
+    {
+      "text": "PR links are formatted as clickable Markdown links pointing to https://github.com/acme/node-sdk/pull/NNN",
+      "passed": false,
+      "evidence": "PR numbers shown as raw text (#312) with no Markdown link formatting."
+    },
+    {
+      "text": "A compare link is included showing the full diff between v1.8.0 and v1.9.0",
+      "passed": true,
+      "evidence": "A compare link is present at the bottom: https://github.com/acme/node-sdk/compare/v1.8.0...v1.9.0"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

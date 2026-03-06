@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration does NOT use a bare ALTER TABLE RENAME COLUMN as the primary strategy (may mention it as unsafe alternative)",
+      "passed": false,
+      "evidence": "Uses bare RENAME COLUMN"
+    },
+    {
+      "text": "Migration uses a dual-write or copy-column strategy: adds new column, backfills, migrates application code, then drops old column",
+      "passed": false,
+      "evidence": "No dual-write strategy"
+    },
+    {
+      "text": "A complete rollback migration is provided that reverses the changes",
+      "passed": false,
+      "evidence": "No rollback"
+    },
+    {
+      "text": "The migration addresses zero-downtime by ensuring both old and new columns coexist during transition",
+      "passed": false,
+      "evidence": "Bare RENAME breaks all references instantly"
+    },
+    {
+      "text": "Verification queries are included that confirm data was correctly copied from email to email_address",
+      "passed": false,
+      "evidence": "No verification queries"
+    },
+    {
+      "text": "Data backup commands are included before any destructive operations",
+      "passed": false,
+      "evidence": "No backup commands"
+    },
+    {
+      "text": "A deployment runbook is provided with phased steps (add column, backfill, deploy app changes, drop old column)",
+      "passed": false,
+      "evidence": "No runbook"
+    },
+    {
+      "text": "The migration mentions or addresses the need to update application code, background jobs, or queries that reference the old column name",
+      "passed": true,
+      "evidence": "Implicit — renaming the column requires updating references"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

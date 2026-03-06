@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base error class (AppError or similar) exists with properties: code, message, statusCode, category, and cause",
+      "passed": false,
+      "evidence": "Created a CustomError class with only message and statusCode. Missing code, category, and cause properties."
+    },
+    {
+      "text": "At least 5 error subclasses are defined covering: validation (400), authentication (401), authorization (403), not-found (404), and conflict (409)",
+      "passed": false,
+      "evidence": "Only 2 subclasses: NotFoundError (404) and ValidationError (400). Missing authentication, authorization, and conflict error classes."
+    },
+    {
+      "text": "Each error class has a stable string error code (e.g., ERR_NOT_FOUND_USER) not just an HTTP status number",
+      "passed": false,
+      "evidence": "No string error codes. CustomError uses numeric statusCode only. Error responses contain { error: message, statusCode: number }."
+    },
+    {
+      "text": "A centralized error middleware function handles all errors and produces a consistent JSON response format",
+      "passed": true,
+      "evidence": "Error middleware catches CustomError and returns { error: err.message, statusCode: err.statusCode }. Also catches generic errors with 500."
+    },
+    {
+      "text": "Error responses include a requestId or correlationId field for debugging",
+      "passed": false,
+      "evidence": "No requestId or correlationId in error responses or logs."
+    },
+    {
+      "text": "User-facing error responses do not contain stack traces, file paths, or internal implementation details",
+      "passed": false,
+      "evidence": "Generic error handler returns { error: err.message } for non-CustomError, which can expose MongoDB driver errors with connection strings and collection names."
+    },
+    {
+      "text": "Structured error logging includes at minimum: error code, message, stack trace, correlation ID, and request path",
+      "passed": false,
+      "evidence": "Uses console.error('Error:', err.message) with no structured format, no correlation ID, no request path."
+    },
+    {
+      "text": "The error response JSON schema is consistent across all endpoints with at least code and message fields",
+      "passed": false,
+      "evidence": "Middleware returns { error, statusCode } but some routes still have inline res.status(400).json({ message: '...' }) bypassing the middleware."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

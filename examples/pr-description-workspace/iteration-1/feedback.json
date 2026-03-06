@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "Edge case testing instructions need to be more concrete — 'deny consent on the Google screen' isn't actionable in a dev environment. Should suggest using a test OAuth app or mock.",
+      "timestamp": "2026-03-06T14:30:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Just a file list with no motivation, no testing steps, no rollback plan. Useless for a reviewer.",
+      "timestamp": "2026-03-06T14:31:00.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T14:32:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Missing rollback plan, no reviewer guidance, testing instructions are just 'run npm test'.",
+      "timestamp": "2026-03-06T14:33:00.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "Performance verification could be more concrete — specify an expected threshold, not just 'compare against baseline'.",
+      "timestamp": "2026-03-06T14:34:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "18 files listed individually with no grouping. No motivation, no rollback, no reviewer guidance. Performance number buried in notes.",
+      "timestamp": "2026-03-06T14:35:00.000Z"
+    }
+  ],
+  "status": "complete"
+}
