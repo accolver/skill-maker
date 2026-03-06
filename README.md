@@ -134,14 +134,49 @@ The agent will follow the 5-phase workflow automatically:
 
 ## Benchmark results
 
-The skill was tested on itself (meta-evaluation). After 6 iterations:
+Skills built with skill-maker were evaluated against unguided agents across 8
+domains. Each skill went through the full eval loop: isolated subagent pairs
+(with-skill vs without-skill), assertion grading, and iteration until plateau.
 
-| Metric                  | Score       |
-| ----------------------- | ----------- |
-| with_skill pass rate    | 100%        |
-| without_skill pass rate | 57.3%       |
-| Delta                   | +42.7%      |
-| Plateau reached at      | Iteration 6 |
+| Metric                     | Value      |
+| -------------------------- | ---------- |
+| Skills evaluated           | 8          |
+| Total eval assertions      | 189        |
+| With-skill pass rate       | 100%       |
+| Average without-skill rate | 26.4%      |
+| **Average improvement**    | **+73.6%** |
+| Average iterations to 100% | 2.4        |
+
+### Per-skill results
+
+| Skill                    | With Skill | Without | Delta      |
+| ------------------------ | ---------- | ------- | ---------- |
+| database-migration       | 100%       | 4.2%    | **+95.8%** |
+| error-handling           | 100%       | 8.3%    | **+91.7%** |
+| api-doc-generator        | 100%       | 16.7%   | **+83.3%** |
+| pr-description           | 100%       | 20.8%   | **+79.2%** |
+| changelog-generator      | 100%       | 20.8%   | **+79.2%** |
+| monitoring-setup         | 100%       | 26.1%   | **+73.9%** |
+| code-reviewer            | 100%       | 41.7%   | **+58.3%** |
+| git-conventional-commits | 100%       | 72.3%   | **+27.7%** |
+
+Skills add the most value where agents have knowledge but lack structure: output
+formatting, safety checklists, comprehensive coverage, and convention-specific
+rules consistently fail without skill guidance.
+
+See [examples/README.md](examples/README.md) for detailed per-skill breakdowns,
+convergence charts, and guidance on choosing high-delta skill use cases.
+
+### Self-evaluation
+
+skill-maker was also tested on itself (meta-evaluation):
+
+| Metric               | Score  |
+| -------------------- | ------ |
+| with_skill pass rate | 100%   |
+| without_skill rate   | 57.3%  |
+| Delta                | +42.7% |
+| Plateau reached at   | Iter 6 |
 
 See `skill-maker-workspace/FINAL-BENCHMARK.md` for the full iteration history.
 

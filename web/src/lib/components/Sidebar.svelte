@@ -35,6 +35,22 @@
 					children: [{ name: 'evals.json', icon: '{}', color: 'text-syn-yellow' }]
 				}
 			]
+		},
+		{
+			name: 'examples',
+			icon: '',
+			color: '',
+			children: [
+				{ name: 'README.md', icon: 'M', color: 'text-syn-blue' },
+				{ name: 'database-migration', icon: 'S', color: 'text-syn-success' },
+				{ name: 'error-handling', icon: 'S', color: 'text-syn-success' },
+				{ name: 'api-doc-generator', icon: 'S', color: 'text-syn-success' },
+				{ name: 'pr-description', icon: 'S', color: 'text-syn-success' },
+				{ name: 'changelog-generator', icon: 'S', color: 'text-syn-success' },
+				{ name: 'monitoring-setup', icon: 'S', color: 'text-syn-success' },
+				{ name: 'code-reviewer', icon: 'S', color: 'text-syn-success' },
+				{ name: 'git-conventional-commits', icon: 'S', color: 'text-syn-success' }
+			]
 		}
 	];
 
@@ -42,7 +58,8 @@
 		'skill-maker': true,
 		scripts: true,
 		references: false,
-		evals: false
+		evals: false,
+		examples: false
 	});
 
 	function toggle(name: string) {

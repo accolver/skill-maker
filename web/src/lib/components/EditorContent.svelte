@@ -83,36 +83,67 @@
 		<span class="text-ide-text-muted">##</span> Benchmark
 	</h2>
 	<p class="mb-3 text-ide-text">
-		Tested on itself <span class="text-syn-comment">// meta-evaluation</span>
+		Evaluated across <span class="font-bold text-syn-number">8</span> skills,
+		<span class="font-bold text-syn-number">189</span> assertions
+		<span class="text-syn-comment">// with-skill vs without-skill subagent pairs</span>
 	</p>
+
+	<!-- Summary stats row -->
+	<div class="mb-4 grid grid-cols-3 gap-3 text-center">
+		<div class="rounded border border-ide-border bg-black/20 px-3 py-3">
+			<div class="text-xl font-bold text-syn-success">100%</div>
+			<div class="text-[11px] text-ide-text-muted">with skill</div>
+		</div>
+		<div class="rounded border border-ide-border bg-black/20 px-3 py-3">
+			<div class="text-xl font-bold text-syn-green">+73.6%</div>
+			<div class="text-[11px] text-ide-text-muted">avg improvement</div>
+		</div>
+		<div class="rounded border border-ide-border bg-black/20 px-3 py-3">
+			<div class="text-xl font-bold text-syn-number">2.4</div>
+			<div class="text-[11px] text-ide-text-muted">avg iterations</div>
+		</div>
+	</div>
+
+	<!-- Per-skill results -->
 	<div class="mb-8 overflow-hidden rounded border border-ide-border font-mono text-sm">
 		<table class="w-full">
 			<thead>
 				<tr class="border-b border-ide-border bg-ide-panel">
-					<th class="px-4 py-2 text-left font-semibold text-ide-white">Metric</th>
-					<th class="px-4 py-2 text-right font-semibold text-ide-white">Score</th>
+					<th class="px-4 py-2 text-left font-semibold text-ide-white">Skill</th>
+					<th class="px-4 py-2 text-right font-semibold text-ide-white">Baseline</th>
+					<th class="px-4 py-2 text-right font-semibold text-ide-white">Delta</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="border-b border-ide-border">
-					<td class="px-4 py-2 text-ide-text">with_skill pass rate</td>
-					<td class="px-4 py-2 text-right font-bold text-syn-success">100%</td>
-				</tr>
-				<tr class="border-b border-ide-border">
-					<td class="px-4 py-2 text-ide-text">without_skill pass rate</td>
-					<td class="px-4 py-2 text-right text-syn-string">57.3%</td>
-				</tr>
-				<tr class="border-b border-ide-border">
-					<td class="px-4 py-2 text-ide-text">Delta</td>
-					<td class="px-4 py-2 text-right font-bold text-syn-green">+42.7%</td>
-				</tr>
-				<tr>
-					<td class="px-4 py-2 text-ide-text">Plateau reached at</td>
-					<td class="px-4 py-2 text-right text-syn-number">Iteration 6</td>
-				</tr>
+				{#each [
+					{ name: 'database-migration', baseline: '4.2%', delta: '+95.8%' },
+					{ name: 'error-handling', baseline: '8.3%', delta: '+91.7%' },
+					{ name: 'api-doc-generator', baseline: '16.7%', delta: '+83.3%' },
+					{ name: 'pr-description', baseline: '20.8%', delta: '+79.2%' },
+					{ name: 'changelog-generator', baseline: '20.8%', delta: '+79.2%' },
+					{ name: 'monitoring-setup', baseline: '26.1%', delta: '+73.9%' },
+					{ name: 'code-reviewer', baseline: '41.7%', delta: '+58.3%' },
+					{ name: 'git-conventional-commits', baseline: '72.3%', delta: '+27.7%' }
+				] as skill, i (skill.name)}
+					<tr class="{i < 7 ? 'border-b border-ide-border' : ''}">
+						<td class="px-4 py-1.5 text-syn-cyan">{skill.name}</td>
+						<td class="px-4 py-1.5 text-right text-syn-string">{skill.baseline}</td>
+						<td class="px-4 py-1.5 text-right font-bold text-syn-success">{skill.delta}</td>
+					</tr>
+				{/each}
 			</tbody>
 		</table>
 	</div>
+
+	<p class="mb-8 max-w-2xl text-[13px] text-ide-text-muted">
+		All skills reach <span class="text-syn-success">100% pass rate</span> after the eval loop.
+		See <a
+			href="{REPO}/tree/main/examples"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="text-syn-cyan underline hover:text-syn-blue">examples/README.md</a
+		> for convergence charts, timing data, and per-skill breakdowns.
+	</p>
 
 	<!-- CTA -->
 	<div class="mb-12 flex flex-wrap gap-4">
