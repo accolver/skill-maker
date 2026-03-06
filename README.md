@@ -1,4 +1,4 @@
-# skill-maker
+# <img src="web/src/lib/assets/favicon.svg" width="32" height="32" align="center" alt="skill-maker logo"> skill-maker
 
 An [Agent Skill](https://agentskills.io) that creates other agent skills. It
 guides an AI coding agent through the full lifecycle: intent capture, drafting a
