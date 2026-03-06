@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@font-face {
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FPp0E1CAMk68rIFiGE68dB.woff2')
+		format('woff2');
+}
+@font-face {
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FPp0E1CAMk68rIFiGE68dB.woff2')
+		format('woff2');
+}
+@font-face {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('https://fonts.gstatic.com/s/inter/v18/UcCo3FwrK3iLTcviYwY.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url('https://fonts.gstatic.com/s/inter/v18/UcCo3FwrK3iLTcviYwY.woff2') format('woff2');
+}
+
+@theme {
+	/* IDE palette */
+	--color-ide-bg: #1e1e1e;
+	--color-ide-sidebar: #252526;
+	--color-ide-panel: #2d2d2d;
+	--color-ide-border: #333333;
+	--color-ide-active: #37373d;
+	--color-ide-accent: #007acc;
+	--color-ide-text: #cccccc;
+	--color-ide-text-muted: #888888;
+	--color-ide-white: #ffffff;
+
+	/* Syntax colors */
+	--color-syn-blue: #569cd6;
+	--color-syn-cyan: #4fc1ff;
+	--color-syn-green: #4ec9b0;
+	--color-syn-string: #ce9178;
+	--color-syn-yellow: #dcdcaa;
+	--color-syn-keyword: #c586c0;
+	--color-syn-comment: #6a9955;
+	--color-syn-number: #b5cea8;
+	--color-syn-success: #4caf50;
+
+	/* Fonts */
+	--font-mono: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Base styles */
+html {
+	scrollbar-color: #555 #1e1e1e;
+}
+
+::selection {
+	background: rgba(0, 122, 204, 0.4);
+}
+
+/* Blink animation for cursors */
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
