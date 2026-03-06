@@ -115,17 +115,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each [
-					{ name: 'database-migration', baseline: '4.2%', delta: '+95.8%' },
-					{ name: 'error-handling', baseline: '8.3%', delta: '+91.7%' },
-					{ name: 'api-doc-generator', baseline: '16.7%', delta: '+83.3%' },
-					{ name: 'pr-description', baseline: '20.8%', delta: '+79.2%' },
-					{ name: 'changelog-generator', baseline: '20.8%', delta: '+79.2%' },
-					{ name: 'monitoring-setup', baseline: '26.1%', delta: '+73.9%' },
-					{ name: 'code-reviewer', baseline: '41.7%', delta: '+58.3%' },
-					{ name: 'git-conventional-commits', baseline: '72.3%', delta: '+27.7%' }
-				] as skill, i (skill.name)}
-					<tr class="{i < 7 ? 'border-b border-ide-border' : ''}">
+				{#each [{ name: 'database-migration', baseline: '4.2%', delta: '+95.8%' }, { name: 'pdf-toolkit', baseline: '4.2%', delta: '+95.8%' }, { name: 'error-handling', baseline: '8.3%', delta: '+91.7%' }, { name: 'api-doc-generator', baseline: '16.7%', delta: '+83.3%' }, { name: 'pr-description', baseline: '20.8%', delta: '+79.2%' }, { name: 'changelog-generator', baseline: '20.8%', delta: '+79.2%' }, { name: 'monitoring-setup', baseline: '26.1%', delta: '+73.9%' }, { name: 'code-reviewer', baseline: '41.7%', delta: '+58.3%' }, { name: 'git-conventional-commits', baseline: '72.3%', delta: '+27.7%' }] as skill, i (skill.name)}
+					<tr class={i < 8 ? 'border-b border-ide-border' : ''}>
 						<td class="px-4 py-1.5 text-syn-cyan">{skill.name}</td>
 						<td class="px-4 py-1.5 text-right text-syn-string">{skill.baseline}</td>
 						<td class="px-4 py-1.5 text-right font-bold text-syn-success">{skill.delta}</td>
@@ -136,8 +127,8 @@
 	</div>
 
 	<p class="mb-8 max-w-2xl text-[13px] text-ide-text-muted">
-		All skills reach <span class="text-syn-success">100% pass rate</span> after the eval loop.
-		See <a
+		All skills reach <span class="text-syn-success">100% pass rate</span> after the eval loop. See
+		<a
 			href="{REPO}/tree/main/examples"
 			target="_blank"
 			rel="noopener noreferrer"

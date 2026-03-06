@@ -1,0 +1,152 @@
+{
+  "skill_name": "pdf-toolkit",
+  "evals": [
+    {
+      "id": 1,
+      "name": "extract-and-create-report",
+      "prompt": "hey, i've got a quarterly report pdf at ./test-data/quarterly-report.pdf — need to pull out all the text as json (save to extracted-text.json), grab the tables from the first 3 pages (save to tables.json), and also generate a new pdf from ./test-data/summary.md in A4 size (summary-report.pdf). can you show me what the json looks like from each step?",
+      "expected_output": "The agent should use extract-text.ts with --format json, extract-tables.ts with --pages 1-3, and create-pdf.ts with --from-markdown and --page-size a4. All outputs should be structured JSON summaries.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "value": "extract-text",
+          "description": "Agent uses the extract-text.ts script for text extraction"
+        },
+        {
+          "type": "output_contains",
+          "value": "--format json",
+          "description": "Agent uses JSON format flag for structured output"
+        },
+        {
+          "type": "output_contains",
+          "value": "extract-tables",
+          "description": "Agent uses the extract-tables.ts script for table extraction"
+        },
+        {
+          "type": "output_contains",
+          "value": "--pages",
+          "description": "Agent specifies page range for table extraction"
+        },
+        {
+          "type": "output_contains",
+          "value": "create-pdf",
+          "description": "Agent uses the create-pdf.ts script for PDF creation"
+        },
+        {
+          "type": "output_contains",
+          "value": "--from-markdown",
+          "description": "Agent uses markdown input mode for PDF creation"
+        },
+        {
+          "type": "output_contains",
+          "value": "--page-size a4",
+          "description": "Agent sets A4 page size as requested"
+        },
+        {
+          "type": "output_contains",
+          "value": "bun run",
+          "description": "Agent runs scripts with bun runtime"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "merge-split-workflow",
+      "prompt": "I have three PDF chapters: ./chapters/ch1.pdf (10 pages), ./chapters/ch2.pdf (8 pages), and ./chapters/ch3.pdf (12 pages). I need to: (1) merge them into a single book.pdf, including only pages 1-5 from chapter 1, all of chapter 2, and pages 3-10 from chapter 3, (2) then split the merged result into 5-page chunks in a directory called ./book-chunks/. Use the pdf-toolkit scripts for both operations.",
+      "expected_output": "The agent should use merge-pdf.ts with --page-ranges using semicolons to separate per-input ranges, then split-pdf.ts with --mode chunks --chunk-size 5. Both should produce JSON summaries.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "value": "merge-pdf",
+          "description": "Agent uses the merge-pdf.ts script for merging"
+        },
+        {
+          "type": "output_contains",
+          "value": "--output",
+          "description": "Agent specifies output path for merged PDF (required flag)"
+        },
+        {
+          "type": "output_contains",
+          "value": "--page-ranges",
+          "description": "Agent uses page-ranges flag for selective merging"
+        },
+        {
+          "type": "output_matches",
+          "value": "1-5.*all.*3-10",
+          "description": "Agent specifies correct page ranges: 1-5 for ch1, all for ch2, 3-10 for ch3"
+        },
+        {
+          "type": "output_contains",
+          "value": "split-pdf",
+          "description": "Agent uses the split-pdf.ts script for splitting"
+        },
+        {
+          "type": "output_contains",
+          "value": "--mode chunks",
+          "description": "Agent uses chunks mode for splitting"
+        },
+        {
+          "type": "output_contains",
+          "value": "--chunk-size 5",
+          "description": "Agent sets chunk size to 5 pages"
+        },
+        {
+          "type": "output_contains",
+          "value": "--output-dir",
+          "description": "Agent specifies output directory for split files using the skill's --output-dir flag"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "scanned-pdf-ocr-extraction",
+      "prompt": "I have a scanned PDF document at ./scans/old-contract.pdf. The text isn't selectable because it's a scan. I need to: (1) try extracting text first to confirm it's a scan, (2) then OCR the document to get the text content with confidence scores in JSON format, (3) also extract any images from the document and save them as JPEG files in ./contract-images/. Use 600 DPI for the OCR to get better accuracy since the scan quality might be poor.",
+      "expected_output": "The agent should first try extract-text.ts, recognize it returns empty/garbled text, then use ocr-pdf.ts with --format json --dpi 600, and extract-images.ts with --format jpeg --output-dir ./contract-images/.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "value": "extract-text",
+          "description": "Agent tries extract-text.ts first before OCR (text-before-OCR principle)"
+        },
+        {
+          "type": "output_contains",
+          "value": "ocr-pdf",
+          "description": "Agent uses ocr-pdf.ts for the scanned document"
+        },
+        {
+          "type": "output_contains",
+          "value": "--dpi 600",
+          "description": "Agent sets DPI to 600 as requested for better accuracy"
+        },
+        {
+          "type": "output_contains",
+          "value": "--format json",
+          "description": "Agent uses JSON format for structured OCR output with confidence scores"
+        },
+        {
+          "type": "output_contains",
+          "value": "extract-images",
+          "description": "Agent uses extract-images.ts for image extraction"
+        },
+        {
+          "type": "output_contains",
+          "value": "--format jpeg",
+          "description": "Agent extracts images as JPEG format"
+        },
+        {
+          "type": "output_contains",
+          "value": "--output-dir",
+          "description": "Agent specifies output directory for extracted images"
+        },
+        {
+          "type": "output_contains",
+          "value": "confidence",
+          "description": "Agent mentions or references confidence scores from OCR output"
+        }
+      ]
+    }
+  ]
+}

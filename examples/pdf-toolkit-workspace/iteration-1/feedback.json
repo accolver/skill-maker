@@ -1,0 +1,5 @@
+{
+  "eval-extract-and-create-report": "With-skill response correctly identifies all three scripts and uses proper flags. Without-skill response uses Python pdfplumber/pymupdf instead of toolkit scripts. The skill's value is clear: script selection and flag usage.",
+  "eval-merge-split-workflow": "With-skill response correctly uses --page-ranges with semicolon syntax and --mode chunks. Without-skill response uses qpdf/pdftk with entirely different syntax. The semicolon-separated page range format is a strong differentiator.",
+  "eval-scanned-pdf-ocr-extraction": "With-skill response follows text-before-OCR principle and uses integrated ocr-pdf.ts with structured lowConfidenceWords output. Without-skill uses pdftotext + pdftoppm + tesseract as separate tools. The integrated workflow and structured confidence output are the key differentiators."
+}

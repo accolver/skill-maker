@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response mentions merge-pdf.ts",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"merge-pdf.ts\":\n  response.md:23: bun run scripts/merge-pdf.ts \\\n  response.md:203: - [x] Identified the correct scripts: `merge-pdf.ts` for merging, `split-pdf.ts`"
+    },
+    {
+      "text": "Response mentions --page-ranges",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"--page-ranges\":\n  response.md:25: --page-ranges \"1-5;all;3-10\" \\\n  response.md:34: | `--page-ranges` | `\"1-5;all;3-10\"` | Semicolon-separated, one entry per input file. `1-5` selects pages 1 through 5 fr\n  response.md:205: - [x] Used `--page-ranges` with semicolons between inputs (not commas):"
+    },
+    {
+      "text": "Response mentions 1-5;all;3-10",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"1-5;all;3-10\":\n  response.md:25: --page-ranges \"1-5;all;3-10\" \\\n  response.md:34: | `--page-ranges` | `\"1-5;all;3-10\"` | Semicolon-separated, one entry per input file. `1-5` selects pages 1 through 5 fr\n  response.md:206: `\"1-5;all;3-10\"`"
+    },
+    {
+      "text": "Response mentions split-pdf.ts",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"split-pdf.ts\":\n  response.md:102: bun run scripts/split-pdf.ts book.pdf \\\n  response.md:203: - [x] Identified the correct scripts: `merge-pdf.ts` for merging, `split-pdf.ts`"
+    },
+    {
+      "text": "Response mentions --mode chunks",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"--mode chunks\":\n  response.md:103: --mode chunks \\\n  response.md:211: - [x] Split uses `--mode chunks` with `--chunk-size 5`"
+    },
+    {
+      "text": "Response mentions --chunk-size 5",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"--chunk-size 5\":\n  response.md:104: --chunk-size 5 \\\n  response.md:120: 2. In `chunks` mode with `--chunk-size 5`, it creates page groups:\n  response.md:211: - [x] Split uses `--mode chunks` with `--chunk-size 5`"
+    },
+    {
+      "text": "Response mentions bun run",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"bun run\":\n  response.md:23: bun run scripts/merge-pdf.ts \\\n  response.md:102: bun run scripts/split-pdf.ts book.pdf \\"
+    },
+    {
+      "text": "Response mentions --output-dir",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"--output-dir\":\n  response.md:105: --output-dir ./book-chunks/\n  response.md:115: | `--output-dir` | `./book-chunks/` | Directory where split files are written. Created automatically if it doesn't exist\n  response.md:212: - [x] Split `--output-dir` set to `./book-chunks/`"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

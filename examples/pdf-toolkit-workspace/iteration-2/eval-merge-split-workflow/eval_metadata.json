@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "merge-split-workflow",
+  "prompt": "I have three PDF chapters: ./chapters/ch1.pdf (10 pages), ./chapters/ch2.pdf (8 pages), and ./chapters/ch3.pdf (12 pages). I need to: (1) merge them into a single book.pdf, including only pages 1-5 from chapter 1, all of chapter 2, and pages 3-10 from chapter 3, (2) then split the merged result into 5-page chunks in a directory called ./book-chunks/. Use the pdf-toolkit scripts for both operations.",
+  "assertions": [
+    "Response mentions merge-pdf.ts",
+    "Response mentions --page-ranges",
+    "Response mentions 1-5;all;3-10",
+    "Response mentions split-pdf.ts",
+    "Response mentions --mode chunks",
+    "Response mentions --chunk-size 5",
+    "Response mentions bun run",
+    "Response mentions --output-dir"
+  ]
+}

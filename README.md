@@ -134,24 +134,25 @@ The agent will follow the 5-phase workflow automatically:
 
 ## Benchmark results
 
-Skills built with skill-maker were evaluated against unguided agents across 8
+Skills built with skill-maker were evaluated against unguided agents across 9
 domains. Each skill went through the full eval loop: isolated subagent pairs
 (with-skill vs without-skill), assertion grading, and iteration until plateau.
 
 | Metric                     | Value      |
 | -------------------------- | ---------- |
-| Skills evaluated           | 8          |
-| Total eval assertions      | 189        |
+| Skills evaluated           | 9          |
+| Total eval assertions      | 213        |
 | With-skill pass rate       | 100%       |
-| Average without-skill rate | 26.4%      |
-| **Average improvement**    | **+73.6%** |
-| Average iterations to 100% | 2.4        |
+| Average without-skill rate | 23.9%      |
+| **Average improvement**    | **+76.1%** |
+| Average iterations to 100% | 2.2        |
 
 ### Per-skill results
 
 | Skill                    | With Skill | Without | Delta      |
 | ------------------------ | ---------- | ------- | ---------- |
 | database-migration       | 100%       | 4.2%    | **+95.8%** |
+| pdf-toolkit              | 100%       | 4.2%    | **+95.8%** |
 | error-handling           | 100%       | 8.3%    | **+91.7%** |
 | api-doc-generator        | 100%       | 16.7%   | **+83.3%** |
 | pr-description           | 100%       | 20.8%   | **+79.2%** |

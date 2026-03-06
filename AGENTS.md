@@ -39,7 +39,12 @@ skill-maker/
     ├── git-conventional-commits/
     ├── code-reviewer/
     ├── api-doc-generator/
-    └── [5 planned skills]/
+    ├── database-migration/
+    ├── pr-description/
+    ├── error-handling/
+    ├── changelog-generator/
+    ├── monitoring-setup/
+    └── pdf-toolkit/
 ```
 
 ## How Examples Are Generated
@@ -70,8 +75,8 @@ For each iteration, every eval case produces:
   evidence)
 - **Benchmarking** — pass rates, timing, and token usage aggregated across all
   evals
-- **Plateau detection** — stops when pass rate delta < 2% for 3 consecutive
-  iterations
+- **Plateau detection** — stops when pass rate delta < 2% for 2 consecutive
+  iterations, or immediately when pass rate reaches 100%
 
 All artifacts are preserved in `<skill>-workspace/` directories: grading.json,
 benchmark.json, timing.json, eval_metadata.json, and output files.
@@ -82,12 +87,12 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 
 | Metric                          | Value  |
 | ------------------------------- | ------ |
-| Skills built                    | 8      |
-| Total eval cases                | 24     |
-| Total assertions evaluated      | 189    |
-| Total iterations run            | 25     |
-| Average iterations to 100%      | 2.4    |
-| Average delta (with vs without) | +73.6% |
+| Skills built                    | 9      |
+| Total eval cases                | 27     |
+| Total assertions evaluated      | 213    |
+| Total iterations run            | 28     |
+| Average iterations to 100%      | 2.2    |
+| Average delta (with vs without) | +76.1% |
 
 ### Per-skill results
 
@@ -101,6 +106,7 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 | error-handling              | 100%                 | 8.3%                  | +91.7%     | 3          | 3          |
 | changelog-generator         | 100%                 | 20.8%                 | +79.2%     | 3          | 3          |
 | monitoring-setup            | 100%                 | 26.1%                 | +73.9%     | 3          | 3          |
+| pdf-toolkit                 | 100%                 | 4.2%                  | +95.8%     | 3          | 1          |
 | **skill-maker (self-eval)** | **100%**             | **57.3%**             | **+42.7%** | **6**      | **4**      |
 
 ### Timing and cost
@@ -115,6 +121,7 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 | error-handling           | 34.9s         | 15.0s          | 15,800          | 6,867            |
 | changelog-generator      | 31.4s         | 13.5s          | 14,577          | 6,450            |
 | monitoring-setup         | 44.4s         | 17.9s          | 34,133          | 14,833           |
+| pdf-toolkit              | 32.7s         | 19.0s          | 8,800           | 6,300            |
 | skill-maker (self-eval)  | 55.0s         | 50.0s          | 30,000          | 28,000           |
 
 Skills with more complex output formats (API docs, structured reviews) show
@@ -140,7 +147,7 @@ enforce consistent application of knowledge the agent already has.
 
 ## Building New Examples
 
-All 8 example skills have been built and benchmarked. To add a new example:
+All 9 example skills have been built and benchmarked. To add a new example:
 
 ```
 Create a skill for [description]

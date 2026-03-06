@@ -335,6 +335,16 @@ are:
 - Objectively verifiable ("The output file is valid JSON")
 - Specific and observable ("The chart has labeled axes")
 - Countable ("The report includes at least 3 recommendations")
+- Testing what the **skill** adds, not what the **prompt** provides (if the
+  prompt mentions "600 DPI", checking for "600" tests the agent's reading
+  comprehension, not the skill's value)
+
+Bad assertions:
+
+- Too vague to grade ("The output is good")
+- Too brittle ("The output uses exactly the phrase 'Total Revenue: $X'")
+- Derived from the prompt itself (keywords the agent would echo regardless of
+  the skill — these always pass in both configurations)
 
 Update `eval_metadata.json` and `evals/evals.json` with the assertions.
 
@@ -382,14 +392,14 @@ tokens for each configuration, including mean, stddev, and delta.
 #### Step 6: Detect plateau
 
 ```bash
-bun run scripts/detect-plateau.ts <workspace> --threshold 0.02 --window 3 --max-iterations 20
+bun run scripts/detect-plateau.ts <workspace> --threshold 0.02 --window 2 --max-iterations 20
 ```
 
 Exit codes:
 
 - `0` (CONTINUE): Keep iterating
-- `10` (PLATEAU): Pass rate improved < 2% for 3 consecutive iterations. **Stop
-  here.**
+- `10` (PLATEAU): Pass rate improved < 2% for 2 consecutive iterations, or pass
+  rate already at 100%. **Stop here.**
 - `20` (MAX_REACHED): Hit 20 iterations. **Stop here.**
 
 If status is PLATEAU or MAX_REACHED, skip to Phase 5.
@@ -532,8 +542,8 @@ cp -r <skill-name> .agents/skills/<skill-name>
 | detect-plateau.ts      | Check if pass_rate plateaued | `bun run scripts/detect-plateau.ts <workspace>`                      |
 | validate-skill.ts      | Validate SKILL.md            | `bun run scripts/validate-skill.ts <skill-dir>`                      |
 
-| Stop condition | Trigger                                           |
-| -------------- | ------------------------------------------------- |
-| Plateau        | pass_rate delta < 2% for 3 consecutive iterations |
-| Max iterations | 20 iterations reached                             |
-| User satisfied | Feedback is empty across all evals                |
+| Stop condition | Trigger                                                            |
+| -------------- | ------------------------------------------------------------------ |
+| Plateau        | pass_rate delta < 2% for 2 consecutive iterations, or 100% reached |
+| Max iterations | 20 iterations reached                                              |
+| User satisfied | Feedback is empty across all evals                                 |

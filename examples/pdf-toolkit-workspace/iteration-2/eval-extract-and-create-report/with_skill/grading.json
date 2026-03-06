@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response mentions extract-text.ts",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"extract-text.ts\":\n  response.md:10: **Script:** `scripts/extract-text.ts`\n  response.md:13: summaries), `extract-text.ts` is the correct choice over `ocr-pdf.ts`. I'm using\n  response.md:20: bun run scripts/extract-text.ts --format json --output extracted-text.json ./test-data/quarterly-report.pdf"
+    },
+    {
+      "text": "Response mentions extract-tables.ts",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"extract-tables.ts\":\n  response.md:61: **Script:** `scripts/extract-tables.ts`\n  response.md:69: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf\n  response.md:175: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf"
+    },
+    {
+      "text": "Response mentions create-pdf.ts",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"create-pdf.ts\":\n  response.md:127: **Script:** `scripts/create-pdf.ts`\n  response.md:135: bun run scripts/create-pdf.ts --from-markdown ./test-data/summary.md --output summary-report.pdf --page-size a4\n  response.md:178: bun run scripts/create-pdf.ts --from-markdown ./test-data/summary.md --output summary-report.pdf --page-size a4"
+    },
+    {
+      "text": "Response mentions --from-markdown",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"--from-markdown\":\n  response.md:129: Using `--from-markdown` to convert the markdown file to PDF, with\n  response.md:135: bun run scripts/create-pdf.ts --from-markdown ./test-data/summary.md --output summary-report.pdf --page-size a4\n  response.md:140: - `--from-markdown ./test-data/summary.md` — Specifies the markdown source file"
+    },
+    {
+      "text": "Response mentions --page-size a4",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"--page-size a4\":\n  response.md:130: `--page-size a4` as requested.\n  response.md:135: bun run scripts/create-pdf.ts --from-markdown ./test-data/summary.md --output summary-report.pdf --page-size a4\n  response.md:142: - `--page-size a4` — A4 page size (210mm x 297mm) instead of the default letter"
+    },
+    {
+      "text": "Response mentions --pages 1-3",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"--pages 1-3\":\n  response.md:69: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf\n  response.md:74: - `--pages 1-3` — Restricts extraction to pages 1 through 3 only (1-indexed per\n  response.md:175: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf"
+    },
+    {
+      "text": "Response mentions --format json",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"--format json\":\n  response.md:14: `--format json` to get structured JSON output, and `--output` to save directly\n  response.md:20: bun run scripts/extract-text.ts --format json --output extracted-text.json ./test-data/quarterly-report.pdf\n  response.md:25: - `--format json` — Structured JSON output (needed for downstream processing and"
+    },
+    {
+      "text": "Response mentions bun run",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"bun run\":\n  response.md:20: bun run scripts/extract-text.ts --format json --output extracted-text.json ./test-data/quarterly-report.pdf\n  response.md:54: > `bun run scripts/ocr-pdf.ts --format json --output extracted-text.json ./test-data/quarterly-report.pdf`\n  response.md:69: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

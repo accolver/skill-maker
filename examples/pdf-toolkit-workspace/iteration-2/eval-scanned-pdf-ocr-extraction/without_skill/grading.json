@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response mentions extract-text.ts",
+      "passed": false,
+      "evidence": "No matches for \"extract-text.ts\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions ocr-pdf.ts",
+      "passed": false,
+      "evidence": "No matches for \"ocr-pdf.ts\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --output-dir",
+      "passed": false,
+      "evidence": "No matches for \"--output-dir\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions extract-images.ts",
+      "passed": false,
+      "evidence": "No matches for \"extract-images.ts\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --format jpeg",
+      "passed": false,
+      "evidence": "No matches for \"--format jpeg\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --format json",
+      "passed": false,
+      "evidence": "No matches for \"--format json\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions lowConfidenceWords",
+      "passed": false,
+      "evidence": "No matches for \"lowconfidencewords\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions bun run",
+      "passed": false,
+      "evidence": "No matches for \"bun run\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

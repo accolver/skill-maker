@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response mentions extract-text.ts",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"extract-text.ts\":\n  response.md:21: - Text extraction → `scripts/extract-text.ts`\n  response.md:25: summaries → use `extract-text.ts`, not `ocr-pdf.ts`)\n  response.md:39: Principle #1 (\"Text before OCR\"), use `extract-text.ts` first."
+    },
+    {
+      "text": "Response mentions extract-tables.ts",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"extract-tables.ts\":\n  response.md:22: - Table extraction → `scripts/extract-tables.ts`\n  response.md:102: Use `extract-tables.ts` — the task explicitly asks for table extraction from\n  response.md:108: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf"
+    },
+    {
+      "text": "Response mentions create-pdf.ts",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"create-pdf.ts\":\n  response.md:23: - PDF creation from markdown → `scripts/create-pdf.ts`\n  response.md:189: Use `create-pdf.ts` with the `--from-markdown` flag — the task provides a `.md`\n  response.md:195: bun run scripts/create-pdf.ts --from-markdown ./test-data/summary.md --output summary-report.pdf --page-size a4"
+    },
+    {
+      "text": "Response mentions --from-markdown",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"--from-markdown\":\n  response.md:189: Use `create-pdf.ts` with the `--from-markdown` flag — the task provides a `.md`\n  response.md:195: bun run scripts/create-pdf.ts --from-markdown ./test-data/summary.md --output summary-report.pdf --page-size a4\n  response.md:202: | `--from-markdown` | `./test-data/summary.md`     | Input is a markdown file                      |"
+    },
+    {
+      "text": "Response mentions --page-size a4",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"--page-size a4\":\n  response.md:195: bun run scripts/create-pdf.ts --from-markdown ./test-data/summary.md --output summary-report.pdf --page-size a4\n  response.md:264: bun run scripts/create-pdf.ts --from-markdown ./test-data/summary.md --output summary-report.pdf --page-size a4\n  response.md:296: 4. **Used `--page-size a4`**: The default is `letter`. Since the user explicitly"
+    },
+    {
+      "text": "Response mentions --pages 1-3",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"--pages 1-3\":\n  response.md:108: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf\n  response.md:261: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf\n  response.md:293: 3. **Page ranges are 1-indexed**: The `--pages 1-3` flag uses 1-indexed page"
+    },
+    {
+      "text": "Response mentions --format json",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"--format json\":\n  response.md:26: - [x] Using `--format json` for structured output in operations 1 and 2\n  response.md:44: bun run scripts/extract-text.ts --format json --output extracted-text.json ./test-data/quarterly-report.pdf\n  response.md:108: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf"
+    },
+    {
+      "text": "Response mentions bun run",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"bun run\":\n  response.md:44: bun run scripts/extract-text.ts --format json --output extracted-text.json ./test-data/quarterly-report.pdf\n  response.md:108: bun run scripts/extract-tables.ts --pages 1-3 --format json --output tables.json ./test-data/quarterly-report.pdf\n  response.md:195: bun run scripts/create-pdf.ts --from-markdown ./test-data/summary.md --output summary-report.pdf --page-size a4"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

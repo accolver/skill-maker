@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response mentions merge-pdf.ts",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"merge-pdf.ts\":\n  response.md:13: | 1    | `scripts/merge-pdf.ts` | Merge chapters with per-input page ranges |\n  response.md:21: bun run scripts/merge-pdf.ts --output book.pdf --page-ranges \"1-5;all;3-10\" ./chapters/ch1.pdf ./chapters/ch2.pdf ./chap\n  response.md:144: 4. **The `--output` flag is required for merge-pdf.ts.** Omitting it is listed"
+    },
+    {
+      "text": "Response mentions --page-ranges",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"--page-ranges\":\n  response.md:21: bun run scripts/merge-pdf.ts --output book.pdf --page-ranges \"1-5;all;3-10\" ./chapters/ch1.pdf ./chapters/ch2.pdf ./chap\n  response.md:27: - `--page-ranges \"1-5;all;3-10\"` — Semicolon-separated per-input page\n  response.md:131: 1. **Semicolon syntax for `--page-ranges`:** This is the key merge-specific"
+    },
+    {
+      "text": "Response mentions 1-5;all;3-10",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"1-5;all;3-10\":\n  response.md:21: bun run scripts/merge-pdf.ts --output book.pdf --page-ranges \"1-5;all;3-10\" ./chapters/ch1.pdf ./chapters/ch2.pdf ./chap\n  response.md:27: - `--page-ranges \"1-5;all;3-10\"` — Semicolon-separated per-input page"
+    },
+    {
+      "text": "Response mentions split-pdf.ts",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"split-pdf.ts\":\n  response.md:14: | 2    | `scripts/split-pdf.ts` | Split merged PDF into 5-page chunks       |\n  response.md:73: bun run scripts/split-pdf.ts book.pdf --mode chunks --chunk-size 5 --output-dir ./book-chunks/\n  response.md:152: - [x] Identified correct scripts: `merge-pdf.ts` then `split-pdf.ts`"
+    },
+    {
+      "text": "Response mentions --mode chunks",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"--mode chunks\":\n  response.md:73: bun run scripts/split-pdf.ts book.pdf --mode chunks --chunk-size 5 --output-dir ./book-chunks/\n  response.md:79: - `--mode chunks` — Splits by fixed-size page chunks (as opposed to `pages` for\n  response.md:82: `--mode chunks`."
+    },
+    {
+      "text": "Response mentions --chunk-size 5",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"--chunk-size 5\":\n  response.md:73: bun run scripts/split-pdf.ts book.pdf --mode chunks --chunk-size 5 --output-dir ./book-chunks/\n  response.md:81: - `--chunk-size 5` — Each output file gets 5 pages. Required when"
+    },
+    {
+      "text": "Response mentions bun run",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"bun run\":\n  response.md:21: bun run scripts/merge-pdf.ts --output book.pdf --page-ranges \"1-5;all;3-10\" ./chapters/ch1.pdf ./chapters/ch2.pdf ./chap\n  response.md:73: bun run scripts/split-pdf.ts book.pdf --mode chunks --chunk-size 5 --output-dir ./book-chunks/"
+    },
+    {
+      "text": "Response mentions --output-dir",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"--output-dir\":\n  response.md:73: bun run scripts/split-pdf.ts book.pdf --mode chunks --chunk-size 5 --output-dir ./book-chunks/\n  response.md:83: - `--output-dir ./book-chunks/` — Directory where chunk files are written."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

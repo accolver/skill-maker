@@ -1,0 +1,81 @@
+{
+  "skill_name": "pdf-toolkit",
+  "iteration": 3,
+  "timestamp": "2026-03-06T19:06:15.015Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 32.6667,
+        "stddev": 4.1096
+      },
+      "tokens": {
+        "mean": 8800,
+        "stddev": 816.4966
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.0417,
+        "stddev": 0.0589
+      },
+      "time_seconds": {
+        "mean": 19,
+        "stddev": 1.633
+      },
+      "tokens": {
+        "mean": 6300,
+        "stddev": 408.2483
+      }
+    },
+    "delta": {
+      "pass_rate": 0.9583,
+      "time_seconds": 13.7,
+      "tokens": 2500
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "extract-and-create-report",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 28,
+        "tokens": 8800
+      },
+      "without_skill": {
+        "pass_rate": 0.125,
+        "time_seconds": 19,
+        "tokens": 6300
+      }
+    },
+    {
+      "eval_name": "merge-split-workflow",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 32,
+        "tokens": 7800
+      },
+      "without_skill": {
+        "pass_rate": 0,
+        "time_seconds": 17,
+        "tokens": 5800
+      }
+    },
+    {
+      "eval_name": "scanned-pdf-ocr-extraction",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 38,
+        "tokens": 9800
+      },
+      "without_skill": {
+        "pass_rate": 0,
+        "time_seconds": 21,
+        "tokens": 6800
+      }
+    }
+  ]
+}

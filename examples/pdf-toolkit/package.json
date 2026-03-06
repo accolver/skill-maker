@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "mupdf": "^1.27.0",
+    "unpdf": "^1.4.0"
+  },
+  "devDependencies": {
+    "jspdf": "^4.2.0"
+  }
+}

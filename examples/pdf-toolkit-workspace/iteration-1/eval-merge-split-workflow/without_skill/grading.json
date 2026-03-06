@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response mentions merge-pdf.ts",
+      "passed": false,
+      "evidence": "No matches for \"merge-pdf.ts\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --page-ranges",
+      "passed": false,
+      "evidence": "No matches for \"--page-ranges\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions 1-5;all;3-10",
+      "passed": false,
+      "evidence": "No matches for \"1-5;all;3-10\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions split-pdf.ts",
+      "passed": false,
+      "evidence": "No matches for \"split-pdf.ts\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --mode chunks",
+      "passed": false,
+      "evidence": "No matches for \"--mode chunks\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --chunk-size 5",
+      "passed": false,
+      "evidence": "No matches for \"--chunk-size 5\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions bun run",
+      "passed": false,
+      "evidence": "No matches for \"bun run\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --output-dir",
+      "passed": false,
+      "evidence": "No matches for \"--output-dir\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

@@ -11,10 +11,10 @@ vs operating without one?
 ```mermaid
 xychart-beta
     title "Pass Rate: With Skill vs Without Skill"
-    x-axis ["Git Commits", "Code Review", "API Docs", "DB Migration", "PR Desc", "Errors", "Changelog", "Monitoring"]
+    x-axis ["Git Commits", "Code Review", "API Docs", "DB Migration", "PR Desc", "Errors", "Changelog", "Monitoring", "PDF Toolkit"]
     y-axis "Pass Rate (%)" 0 --> 100
-    bar [100, 100, 100, 100, 100, 100, 100, 100]
-    bar [72.3, 41.7, 16.7, 4.2, 20.8, 8.3, 20.8, 26.1]
+    bar [100, 100, 100, 100, 100, 100, 100, 100, 100]
+    bar [72.3, 41.7, 16.7, 4.2, 20.8, 8.3, 20.8, 26.1, 4.2]
 ```
 
 > **Legend:** <span style="color: #4CAF50;">&#9632;</span> With Skill
@@ -30,8 +30,9 @@ xychart-beta
 | [error-handling](#error-handling)                     | 100%       | 8.3%          | **+91.7%** |
 | [changelog-generator](#changelog-generator)           | 100%       | 20.8%         | **+79.2%** |
 | [monitoring-setup](#monitoring-setup)                 | 100%       | 26.1%         | **+73.9%** |
+| [pdf-toolkit](#pdf-toolkit)                           | 100%       | 4.2%          | **+95.8%** |
 
-**Average delta: +73.6%** across all 8 example skills.
+**Average delta: +76.1%** across all 9 example skills.
 
 ## Eval Loop Convergence
 
@@ -50,6 +51,7 @@ xychart-beta
     line [70.8, 91.7, 100]
     line [79.2, 95.8, 100]
     line [73.9, 95.7, 100]
+    line [100, 100, 100]
 ```
 
 > **Legend:** <span style="color: #4CAF50;">&#9632;</span> Git Commits
@@ -60,6 +62,7 @@ xychart-beta
 > &nbsp;&nbsp; <span style="color: #795548;">&#9632;</span> Error Handling
 > &nbsp;&nbsp; <span style="color: #607D8B;">&#9632;</span> Changelog
 > &nbsp;&nbsp; <span style="color: #E91E63;">&#9632;</span> Monitoring
+> &nbsp;&nbsp; <span style="color: #3F51B5;">&#9632;</span> PDF Toolkit
 
 | Skill                    | Iter 1 | Iter 2 | Iter 3 | Iter 4 | Plateau At |
 | ------------------------ | ------ | ------ | ------ | ------ | ---------- |
@@ -71,8 +74,9 @@ xychart-beta
 | error-handling           | 70.8%  | 91.7%  | 100%   | -      | 3          |
 | changelog-generator      | 79.2%  | 95.8%  | 100%   | -      | 3          |
 | monitoring-setup         | 73.9%  | 95.7%  | 100%   | -      | 3          |
+| pdf-toolkit              | 100%   | 100%   | 100%   | -      | 1          |
 
-**Average iterations to plateau: 2.4** (reaching 100% pass rate).
+**Average iterations to plateau: 2.3** (reaching 100% pass rate).
 
 ## Time and Token Cost
 
@@ -83,10 +87,10 @@ correct.
 ```mermaid
 xychart-beta
     title "Average Execution Time (seconds)"
-    x-axis ["Git Commits", "Code Review", "API Docs", "DB Migration", "PR Desc", "Errors", "Changelog", "Monitoring"]
+    x-axis ["Git Commits", "Code Review", "API Docs", "DB Migration", "PR Desc", "Errors", "Changelog", "Monitoring", "PDF Toolkit"]
     y-axis "Seconds" 0 --> 50
-    bar [10.2, 20.3, 43.1, 34.5, 29.7, 34.9, 31.4, 44.4]
-    bar [5.7, 11.4, 16.9, 6.3, 8.3, 15.0, 13.5, 17.9]
+    bar [10.2, 20.3, 43.1, 34.5, 29.7, 34.9, 31.4, 44.4, 32.7]
+    bar [5.7, 11.4, 16.9, 6.3, 8.3, 15.0, 13.5, 17.9, 19.0]
 ```
 
 > **Legend:** <span style="color: #4CAF50;">&#9632;</span> With Skill
@@ -102,6 +106,7 @@ xychart-beta
 | error-handling           | 34.9s           | 15.0s            | 15,800           | 6,867             |
 | changelog-generator      | 31.4s           | 13.5s            | 14,577           | 6,450             |
 | monitoring-setup         | 44.4s           | 17.9s            | 34,133           | 14,833            |
+| pdf-toolkit              | 32.7s           | 19.0s            | 8,800            | 6,300             |
 
 Higher-complexity skills (monitoring, API docs) show a larger time increase, but
 also the largest quality deltas.
@@ -277,6 +282,29 @@ propagation across services (always fails), runbook templates (always fails).
 [Skill directory](monitoring-setup/) |
 [Benchmark details](monitoring-setup-workspace/FINAL-BENCHMARK.md)
 
+### pdf-toolkit
+
+Extracts text, tables, and images from PDFs, OCRs scanned documents, creates
+PDFs from text/images/markdown, and merges or splits PDF files using 7 bundled
+Bun TypeScript scripts.
+
+| Metric                | Value                                                                           |
+| --------------------- | ------------------------------------------------------------------------------- |
+| Final pass rate       | 100%                                                                            |
+| Baseline pass rate    | 4.2%                                                                            |
+| Delta                 | +95.8%                                                                          |
+| Iterations to plateau | 1                                                                               |
+| Eval cases            | 3 (extract-and-create-report, merge-split-workflow, scanned-pdf-ocr-extraction) |
+
+**Strongest differentiators:** Correct script selection (agents use generic
+tools instead of toolkit scripts — always fails without skill), bun run
+execution (always fails), --from-markdown flag (always fails), --page-ranges
+semicolon syntax (always fails), lowConfidenceWords in OCR output (always
+fails), integrated ocr-pdf.ts with --dpi flag (always fails).
+
+[Skill directory](pdf-toolkit/) |
+[Benchmark details](pdf-toolkit-workspace/FINAL-BENCHMARK.md)
+
 ---
 
 ## Choosing Good Skill Use Cases
@@ -321,5 +349,7 @@ The built examples confirm this pattern:
   no error codes, leaked internals — 8.3% baseline
 - **api-doc-generator (+83.3%):** 10 agents would produce 10 different doc
   formats, most missing error responses and auth details
+- **pdf-toolkit (+95.8%):** Agents produce competent PDF solutions using generic
+  tools, completely missing the toolkit's purpose-built scripts and flags
 - **git-conventional-commits (+27.7%):** Lower delta because agents already know
   commit message basics; the skill enforces specific formatting rules

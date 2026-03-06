@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response mentions extract-text.ts",
+      "passed": false,
+      "evidence": "No matches for \"extract-text.ts\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions extract-tables.ts",
+      "passed": false,
+      "evidence": "No matches for \"extract-tables.ts\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions create-pdf.ts",
+      "passed": false,
+      "evidence": "No matches for \"create-pdf.ts\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --from-markdown",
+      "passed": false,
+      "evidence": "No matches for \"--from-markdown\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --page-size a4",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"--page-size a4\":\n  response.md:100: wkhtmltopdf --page-size A4 /tmp/summary.html summary-report.pdf"
+    },
+    {
+      "text": "Response mentions --pages 1-3",
+      "passed": false,
+      "evidence": "No matches for \"--pages 1-3\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions --format json",
+      "passed": false,
+      "evidence": "No matches for \"--format json\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions bun run",
+      "passed": false,
+      "evidence": "No matches for \"bun run\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

@@ -64,7 +64,7 @@ OPTIONS
   --threshold <n>       Minimum pass_rate improvement to consider meaningful
                         (default: 0.02 = 2%)
   --window <n>          Number of consecutive iterations below threshold to
-                        declare plateau (default: 3)
+                        declare plateau (default: 2)
   --max-iterations <n>  Hard stop iteration limit (default: 20)
   --help, -h            Show this help message
 
@@ -98,7 +98,7 @@ function parseArgs(args: string[]): {
 
   let workspaceDir = "";
   let threshold = 0.02;
-  let window = 3;
+  let window = 2;
   let maxIterations = 20;
 
   let i = 0;
@@ -277,6 +277,10 @@ function detectStatus(
 ): "PLATEAU" | "MAX_REACHED" | "CONTINUE" {
   // Not enough data to determine plateau
   if (results.length <= 1) {
+    // Early exit: if the very first iteration already hits 100%, plateau immediately
+    if (results.length === 1 && results[0].pass_rate >= 1.0) {
+      return "PLATEAU";
+    }
     return "CONTINUE";
   }
 
@@ -285,6 +289,12 @@ function detectStatus(
   // Check max iterations first
   if (currentIteration >= maxIterations) {
     return "MAX_REACHED";
+  }
+
+  // Early exit: if pass rate is already at 100%, no improvement is possible
+  const latestPassRate = results[results.length - 1].pass_rate;
+  if (latestPassRate >= 1.0 && results.length >= 2) {
+    return "PLATEAU";
   }
 
   // Need at least `window` deltas to check for plateau
@@ -322,6 +332,12 @@ function buildRecommendation(
 
   switch (status) {
     case "PLATEAU":
+      if (best >= 1.0) {
+        return (
+          `Pass rate is at 100% — no further improvement possible. ` +
+          `Plateau reached at iteration ${results.length}.`
+        );
+      }
       return (
         `Pass rate has plateaued (delta < ${thresholdPct}% for ${window} consecutive iterations). ` +
         `Current best: ${best.toFixed(2)}. ` +

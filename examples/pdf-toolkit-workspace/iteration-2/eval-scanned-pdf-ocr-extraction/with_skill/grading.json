@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response mentions extract-text.ts",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"extract-text.ts\":\n  response.md:4: from the pdf-toolkit skill — always try `extract-text.ts` first before reaching\n  response.md:11: Per the skill's Key Principle #1, we always attempt `extract-text.ts` before\n  response.md:15: **Script:** `scripts/extract-text.ts`"
+    },
+    {
+      "text": "Response mentions ocr-pdf.ts",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"ocr-pdf.ts\":\n  response.md:12: `ocr-pdf.ts`. If the PDF is truly a scan, this will return empty or garbled\n  response.md:48: Since Step 1 confirmed it's a scan, we use `ocr-pdf.ts` with `--dpi 600` for\n  response.md:52: **Script:** `scripts/ocr-pdf.ts`"
+    },
+    {
+      "text": "Response mentions --output-dir",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"--output-dir\":\n  response.md:120: bun run scripts/extract-images.ts --format jpeg --output-dir ./contract-images/ ./scans/old-contract.pdf\n  response.md:169: | 3    | Extract images as JPEG     | `bun run scripts/extract-images.ts --format jpeg --output-dir ./contract-images/ ."
+    },
+    {
+      "text": "Response mentions extract-images.ts",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"extract-images.ts\":\n  response.md:117: **Script:** `scripts/extract-images.ts`\n  response.md:120: bun run scripts/extract-images.ts --format jpeg --output-dir ./contract-images/ ./scans/old-contract.pdf\n  response.md:169: | 3    | Extract images as JPEG     | `bun run scripts/extract-images.ts --format jpeg --output-dir ./contract-images/ ."
+    },
+    {
+      "text": "Response mentions --format jpeg",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"--format jpeg\":\n  response.md:120: bun run scripts/extract-images.ts --format jpeg --output-dir ./contract-images/ ./scans/old-contract.pdf\n  response.md:169: | 3    | Extract images as JPEG     | `bun run scripts/extract-images.ts --format jpeg --output-dir ./contract-images/ ."
+    },
+    {
+      "text": "Response mentions --format json",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"--format json\":\n  response.md:18: bun run scripts/extract-text.ts --format json ./scans/old-contract.pdf\n  response.md:49: better accuracy on poor-quality scans, and `--format json` to get confidence\n  response.md:55: bun run scripts/ocr-pdf.ts --format json --dpi 600 ./scans/old-contract.pdf"
+    },
+    {
+      "text": "Response mentions lowConfidenceWords",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"lowconfidencewords\":\n  response.md:58: **Expected JSON output** (with confidence scores and lowConfidenceWords):\n  response.md:72: \"lowConfidenceWords\": [\n  response.md:82: \"lowConfidenceWords\": ["
+    },
+    {
+      "text": "Response mentions bun run",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"bun run\":\n  response.md:18: bun run scripts/extract-text.ts --format json ./scans/old-contract.pdf\n  response.md:55: bun run scripts/ocr-pdf.ts --format json --dpi 600 ./scans/old-contract.pdf\n  response.md:120: bun run scripts/extract-images.ts --format jpeg --output-dir ./contract-images/ ./scans/old-contract.pdf"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

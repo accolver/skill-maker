@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response mentions extract-text.ts",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"extract-text.ts\":\n  response.md:21: | Confirm it's a scan (try text extraction first) | `scripts/extract-text.ts`   | Skill principle #1: \"Text before OCR\" \n  response.md:30: bun run scripts/extract-text.ts --format json ./scans/old-contract.pdf\n  response.md:281: bun run scripts/extract-text.ts --format json ./scans/old-contract.pdf"
+    },
+    {
+      "text": "Response mentions ocr-pdf.ts",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"ocr-pdf.ts\":\n  response.md:22: | OCR with confidence scores in JSON              | `scripts/ocr-pdf.ts`        | Document is a scan, need `--format jso\n  response.md:80: we must use `ocr-pdf.ts` as the skill's \"Text before OCR\" principle recommends.\n  response.md:87: bun run scripts/ocr-pdf.ts --format json --dpi 600 ./scans/old-contract.pdf"
+    },
+    {
+      "text": "Response mentions --output-dir",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"--output-dir\":\n  response.md:13: - [x] For image extraction: confirmed `--format jpeg` and `--output-dir` are set\n  response.md:186: bun run scripts/extract-images.ts --output-dir ./contract-images/ --format jpeg ./scans/old-contract.pdf\n  response.md:191: - `--output-dir ./contract-images/` — save extracted images to the user's"
+    },
+    {
+      "text": "Response mentions extract-images.ts",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"extract-images.ts\":\n  response.md:23: | Extract images as JPEG                          | `scripts/extract-images.ts` | User wants embedded images saved as JP\n  response.md:186: bun run scripts/extract-images.ts --output-dir ./contract-images/ --format jpeg ./scans/old-contract.pdf\n  response.md:287: bun run scripts/extract-images.ts --output-dir ./contract-images/ --format jpeg ./scans/old-contract.pdf"
+    },
+    {
+      "text": "Response mentions --format jpeg",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"--format jpeg\":\n  response.md:13: - [x] For image extraction: confirmed `--format jpeg` and `--output-dir` are set\n  response.md:186: bun run scripts/extract-images.ts --output-dir ./contract-images/ --format jpeg ./scans/old-contract.pdf\n  response.md:193: - `--format jpeg` — save as JPEG files instead of the default PNG (user"
+    },
+    {
+      "text": "Response mentions --format json",
+      "passed": true,
+      "evidence": "Found 8 match(es) for \"--format json\":\n  response.md:10: - [x] Used `--format json` when structured output is needed downstream\n  response.md:22: | OCR with confidence scores in JSON              | `scripts/ocr-pdf.ts`        | Document is a scan, need `--format jso\n  response.md:30: bun run scripts/extract-text.ts --format json ./scans/old-contract.pdf"
+    },
+    {
+      "text": "Response mentions lowConfidenceWords",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"lowconfidencewords\":\n  response.md:129: \"lowConfidenceWords\": [\n  response.md:137: \"lowConfidenceWords\": []\n  response.md:143: \"lowConfidenceWords\": ["
+    },
+    {
+      "text": "Response mentions bun run",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"bun run\":\n  response.md:30: bun run scripts/extract-text.ts --format json ./scans/old-contract.pdf\n  response.md:87: bun run scripts/ocr-pdf.ts --format json --dpi 600 ./scans/old-contract.pdf\n  response.md:186: bun run scripts/extract-images.ts --output-dir ./contract-images/ --format jpeg ./scans/old-contract.pdf"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

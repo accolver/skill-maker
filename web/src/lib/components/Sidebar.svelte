@@ -48,6 +48,7 @@
 				{ name: 'pr-description', icon: 'S', color: 'text-syn-success' },
 				{ name: 'changelog-generator', icon: 'S', color: 'text-syn-success' },
 				{ name: 'monitoring-setup', icon: 'S', color: 'text-syn-success' },
+				{ name: 'pdf-toolkit', icon: 'S', color: 'text-syn-success' },
 				{ name: 'code-reviewer', icon: 'S', color: 'text-syn-success' },
 				{ name: 'git-conventional-commits', icon: 'S', color: 'text-syn-success' }
 			]
