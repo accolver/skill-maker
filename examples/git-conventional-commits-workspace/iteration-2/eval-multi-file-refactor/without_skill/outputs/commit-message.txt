@@ -1,0 +1,7 @@
+refactor: Improve user service with better naming
+
+Renamed methods in UserService for clarity:
+- fetchUser → findUserById
+- fetchAllUsers → listUsers
+
+Updated routes and added TypeScript types.

@@ -1,0 +1,7 @@
+{
+  "type": "fix",
+  "scope": "auth",
+  "subject": "update authenticate to throw errors",
+  "body": "Changed authenticate() to throw RateLimitError instead of returning null. Updated AuthResult interface to use permissions array instead of role string for better access control.",
+  "breaking_change": null
+}

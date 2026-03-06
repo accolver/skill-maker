@@ -1,0 +1,13 @@
+{
+  "assertion_results": [
+    { "text": "Review identifies the N+1 query pattern as a performance issue with high or critical severity", "passed": true, "evidence": "Finding with severity 'high' and category 'performance' for N+1 pattern" },
+    { "text": "Review explains that the nested loops cause multiplicative database queries (e.g., for N orders with M items each, this runs 1 + N + N*M + N queries)", "passed": true, "evidence": "States 'For N orders with M items each, this executes 1 + N + (N * M) + N queries. With 50 orders averaging 3 items each, that's 251 database queries'" },
+    { "text": "Review suggests using JOINs or batch queries as a fix for the N+1 pattern", "passed": true, "evidence": "Provides complete JOIN query with LEFT JOINs across all four tables" },
+    { "text": "Review identifies missing error handling (no try-catch around async database operations)", "passed": true, "evidence": "Finding titled 'Missing error handling for async database operations' with try-catch code" },
+    { "text": "Review identifies missing input validation on req.params.userId", "passed": true, "evidence": "Finding titled 'Missing input validation on userId parameter' with parseInt validation code" },
+    { "text": "Each finding includes a severity level (critical, high, medium, low, or info)", "passed": true, "evidence": "All 4 findings have severity levels: 2 high, 1 medium, 1 low" },
+    { "text": "Each finding includes a specific fix suggestion showing code or approach", "passed": true, "evidence": "All findings include code diffs with specific implementations" },
+    { "text": "Review includes a summary section with overall assessment", "passed": true, "evidence": "Review starts with 'Code Review Summary' with Overall Assessment: NEEDS CHANGES" }
+  ],
+  "summary": { "passed": 8, "failed": 0, "total": 8, "pass_rate": 1.0 }
+}

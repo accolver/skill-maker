@@ -1,0 +1,5 @@
+fix: Update authentication to throw errors
+
+Changed the authenticate function to throw RateLimitError instead of
+returning null. Also updated the AuthResult interface to use permissions
+instead of role.

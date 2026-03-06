@@ -1,0 +1,13 @@
+{
+  "assertion_results": [
+    { "text": "Review identifies at least one SQL injection vulnerability as a critical or high severity security finding", "passed": false, "evidence": "Mentions SQL injection but no severity level assigned" },
+    { "text": "Review identifies the SQL injection in the search_users endpoint specifically mentioning string concatenation into the query", "passed": true, "evidence": "States 'search_users function builds a query by concatenating search_term directly into the SQL string'" },
+    { "text": "Review identifies the SQL injection in the delete_user endpoint", "passed": true, "evidence": "States 'delete_user function does the same with user_id'" },
+    { "text": "Each finding includes a severity level (critical, high, medium, low, or info)", "passed": false, "evidence": "No severity levels assigned to any finding" },
+    { "text": "Each finding includes a specific fix suggestion with code showing parameterized queries", "passed": true, "evidence": "Shows parameterized query code example for search_users" },
+    { "text": "Findings are categorized by type (security, bug, performance, style, or maintainability)", "passed": false, "evidence": "Findings in flat numbered list without category labels" },
+    { "text": "Review includes a summary section with overall assessment", "passed": false, "evidence": "No structured summary section with assessment rating" },
+    { "text": "Review identifies the missing database connection cleanup (conn.close or context manager) as a resource leak", "passed": true, "evidence": "States 'database connections are never closed'" }
+  ],
+  "summary": { "passed": 4, "failed": 4, "total": 8, "pass_rate": 0.5 }
+}

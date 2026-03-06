@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes all four HTTP methods: GET, POST, PUT, and DELETE",
+      "passed": true,
+      "evidence": "All four HTTP methods documented with complete endpoint sections"
+    },
+    {
+      "text": "Each endpoint has a human-readable description explaining what it does",
+      "passed": true,
+      "evidence": "Each endpoint has a clear, descriptive paragraph explaining purpose, behavior, and side effects"
+    },
+    {
+      "text": "Path parameters (e.g., :id) are documented with their type and constraints",
+      "passed": true,
+      "evidence": "Path parameter 'id' documented as MongoId with format constraint and error message for invalid format"
+    },
+    {
+      "text": "Query parameters for the list endpoint (page, limit) are documented with defaults",
+      "passed": true,
+      "evidence": "Complete parameter table: page (int, default 1, min 1), limit (int, default 25, 1-100), role (enum), search (string)"
+    },
+    {
+      "text": "POST and PUT endpoints have request body schemas with field types and validation rules",
+      "passed": true,
+      "evidence": "Comprehensive body schemas with all Zod/validator constraints reflected"
+    },
+    {
+      "text": "Each endpoint includes at least one response example with realistic JSON data",
+      "passed": true,
+      "evidence": "All endpoints have realistic response examples with proper data types and values"
+    },
+    {
+      "text": "Error responses are documented with status codes (400, 404, 409, 422) and response bodies",
+      "passed": true,
+      "evidence": "Complete error tables with 404, 409, 422, 500 status codes and JSON response body examples"
+    },
+    {
+      "text": "An OpenAPI 3.0 JSON spec is produced with valid paths and component schemas",
+      "passed": true,
+      "evidence": "Valid OpenAPI 3.0.3 spec with paths, component schemas, and proper $ref usage"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

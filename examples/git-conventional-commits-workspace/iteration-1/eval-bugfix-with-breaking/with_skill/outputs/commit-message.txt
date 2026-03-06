@@ -1,0 +1,11 @@
+fix(auth): throw errors instead of returning null
+
+authenticate() now throws RateLimitError for missing or
+invalid tokens instead of silently returning null. The
+AuthResult interface replaces 'role' with 'permissions'
+array for finer-grained access control.
+
+BREAKING CHANGE: authenticate() no longer returns null.
+Callers using null checks must switch to try/catch.
+The 'role' field on AuthResult is replaced by
+'permissions: string[]'.

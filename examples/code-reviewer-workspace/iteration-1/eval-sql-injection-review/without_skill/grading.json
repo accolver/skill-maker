@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Review identifies at least one SQL injection vulnerability as a critical or high severity security finding",
+      "passed": false,
+      "evidence": "Review mentions SQL injection but does not assign a severity level (critical/high/medium/low/info) to any finding"
+    },
+    {
+      "text": "Review identifies the SQL injection in the search_users endpoint specifically mentioning string concatenation into the query",
+      "passed": true,
+      "evidence": "States 'The search_users function concatenates user input directly into the SQL query'"
+    },
+    {
+      "text": "Review identifies the SQL injection in the delete_user endpoint",
+      "passed": true,
+      "evidence": "States 'Similarly, the delete_user function concatenates user_id into the query'"
+    },
+    {
+      "text": "Each finding includes a severity level (critical, high, medium, low, or info)",
+      "passed": false,
+      "evidence": "No severity levels assigned to any of the 5 findings. Uses numbered list without severity classification."
+    },
+    {
+      "text": "Each finding includes a specific fix suggestion with code showing parameterized queries",
+      "passed": true,
+      "evidence": "Shows parameterized query code for search_users but not for delete_user. Partial pass — one code fix shown."
+    },
+    {
+      "text": "Findings are categorized by type (security, bug, performance, style, or maintainability)",
+      "passed": false,
+      "evidence": "Findings are in a flat numbered list without category labels. No categorization system used."
+    },
+    {
+      "text": "Review includes a summary section with overall assessment",
+      "passed": false,
+      "evidence": "Has a brief closing paragraph but no structured summary section with overall assessment rating"
+    },
+    {
+      "text": "Review identifies the missing database connection cleanup (conn.close or context manager) as a resource leak",
+      "passed": true,
+      "evidence": "States 'database connections are never closed, which could lead to issues'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 4,
+    "total": 8,
+    "pass_rate": 0.5
+  }
+}

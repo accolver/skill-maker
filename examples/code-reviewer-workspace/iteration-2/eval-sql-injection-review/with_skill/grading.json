@@ -1,0 +1,13 @@
+{
+  "assertion_results": [
+    { "text": "Review identifies at least one SQL injection vulnerability as a critical or high severity security finding", "passed": true, "evidence": "Two findings with severity 'critical' and category 'security' for SQL injection" },
+    { "text": "Review identifies the SQL injection in the search_users endpoint specifically mentioning string concatenation into the query", "passed": true, "evidence": "Finding titled 'SQL injection in search_users via string concatenation'" },
+    { "text": "Review identifies the SQL injection in the delete_user endpoint", "passed": true, "evidence": "Finding titled 'SQL injection in delete_user via string concatenation'" },
+    { "text": "Each finding includes a severity level (critical, high, medium, low, or info)", "passed": true, "evidence": "All 5 findings have severity levels: 2 critical, 1 high, 1 medium, 1 low" },
+    { "text": "Each finding includes a specific fix suggestion with code showing parameterized queries", "passed": true, "evidence": "Both SQL injection findings include diff blocks with parameterized query syntax" },
+    { "text": "Findings are categorized by type (security, bug, performance, style, or maintainability)", "passed": true, "evidence": "findings.json shows by_category: security: 2, bug: 2, style: 1" },
+    { "text": "Review includes a summary section with overall assessment", "passed": true, "evidence": "Review starts with 'Code Review Summary' with Overall Assessment: REJECT" },
+    { "text": "Review identifies the missing database connection cleanup (conn.close or context manager) as a resource leak", "passed": true, "evidence": "Finding titled 'Missing database connection cleanup (resource leak)' with context manager fix" }
+  ],
+  "summary": { "passed": 8, "failed": 0, "total": 8, "pass_rate": 1.0 }
+}

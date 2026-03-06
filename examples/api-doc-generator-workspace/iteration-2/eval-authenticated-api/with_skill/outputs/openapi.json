@@ -1,0 +1,196 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Blog API",
+    "version": "2.0.0",
+    "description": "RESTful API for managing blog posts and comments"
+  },
+  "servers": [
+    { "url": "https://api.example.com" }
+  ],
+  "security": [],
+  "paths": {
+    "/api/posts": {
+      "get": {
+        "summary": "List posts",
+        "description": "List blog posts with pagination. Public endpoint.",
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer", "minimum": 1, "default": 1 } },
+          { "name": "per_page", "in": "query", "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 20 } },
+          { "name": "tag", "in": "query", "schema": { "type": "string" } },
+          { "name": "author_id", "in": "query", "schema": { "type": "string" } },
+          { "name": "published_only", "in": "query", "schema": { "type": "boolean", "default": true } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of posts",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PaginatedPostResponse" }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create post",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PostCreate" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Post created" },
+          "401": { "description": "Authentication required" },
+          "422": { "description": "Validation failed" }
+        }
+      }
+    },
+    "/api/posts/{post_id}": {
+      "get": {
+        "summary": "Get post",
+        "parameters": [
+          { "name": "post_id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Post details" },
+          "404": { "description": "Post not found" }
+        }
+      },
+      "put": {
+        "summary": "Update post",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "post_id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Post updated" },
+          "401": { "description": "Authentication required" },
+          "403": { "description": "Not author or admin" },
+          "404": { "description": "Post not found" }
+        }
+      },
+      "delete": {
+        "summary": "Delete post",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "post_id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "204": { "description": "Post deleted" },
+          "401": { "description": "Authentication required" },
+          "403": { "description": "Not author or admin" },
+          "404": { "description": "Post not found" }
+        }
+      }
+    },
+    "/api/posts/{post_id}/comments": {
+      "get": {
+        "summary": "List comments",
+        "parameters": [
+          { "name": "post_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } },
+          { "name": "per_page", "in": "query", "schema": { "type": "integer", "default": 50 } }
+        ],
+        "responses": {
+          "200": { "description": "List of comments" },
+          "404": { "description": "Post not found" }
+        }
+      },
+      "post": {
+        "summary": "Create comment",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "post_id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CommentCreate" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Comment created" },
+          "401": { "description": "Authentication required" },
+          "404": { "description": "Post not found" }
+        }
+      }
+    },
+    "/api/posts/{post_id}/comments/{comment_id}": {
+      "delete": {
+        "summary": "Delete comment",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "post_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "comment_id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "204": { "description": "Comment deleted" },
+          "401": { "description": "Authentication required" },
+          "403": { "description": "Requires moderator role" },
+          "404": { "description": "Comment not found" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "PostCreate": {
+        "type": "object",
+        "required": ["title", "content"],
+        "properties": {
+          "title": { "type": "string", "minLength": 5, "maxLength": 200 },
+          "content": { "type": "string", "minLength": 20 },
+          "tags": { "type": "array", "items": { "type": "string" }, "maxItems": 10 },
+          "published": { "type": "boolean", "default": false }
+        }
+      },
+      "CommentCreate": {
+        "type": "object",
+        "required": ["body"],
+        "properties": {
+          "body": { "type": "string", "minLength": 1, "maxLength": 2000 },
+          "parent_id": { "type": "string" }
+        }
+      },
+      "PostResponse": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "content": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "published": { "type": "boolean" },
+          "author_id": { "type": "string" },
+          "author_name": { "type": "string" },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" },
+          "comment_count": { "type": "integer" }
+        }
+      },
+      "PaginatedPostResponse": {
+        "type": "object",
+        "properties": {
+          "items": { "type": "array", "items": { "$ref": "#/components/schemas/PostResponse" } },
+          "total": { "type": "integer" },
+          "page": { "type": "integer" },
+          "per_page": { "type": "integer" },
+          "has_more": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

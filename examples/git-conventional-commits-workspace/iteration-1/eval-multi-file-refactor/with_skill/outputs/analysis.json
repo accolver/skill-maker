@@ -1,0 +1,12 @@
+{
+  "type": "refactor",
+  "scope": "users",
+  "subject": "rename methods and add types",
+  "body": "Replace raw SQL queries with typed ORM calls. Rename fetchUser/fetchAllUsers to findUserById/listUsers for clarity. Add Database type, ListOptions interface, and explicit return types across service, routes, and types.",
+  "breaking_change": null,
+  "reasoning": {
+    "type_classification": "Code restructuring: variable renames, method renames, type additions. No new user-facing functionality, no bug fix. 'refactor' is correct.",
+    "scope_selection": "Changes span user-service.ts, user-routes.ts, and user.ts — all related to the 'users' domain. Using 'users' as scope.",
+    "multi_file_note": "3 files changed but all within the same domain boundary, so a single commit is appropriate."
+  }
+}

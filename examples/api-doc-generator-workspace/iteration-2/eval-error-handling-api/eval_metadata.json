@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "error-handling-api",
+  "prompt": "Generate API documentation for this Node.js API that has extensive error handling with custom error classes (ValidationError, NotFoundError, ConflictError, RateLimitError), a centralized error middleware, and request validation using Zod schemas. The API manages products and inventory. Focus especially on documenting all error responses, validation rules, and the error response format.",
+  "assertions": [
+    "Documentation includes a dedicated Error Responses section explaining the standard error format",
+    "The standard error response schema is documented with fields: code, message, and details",
+    "Each endpoint documents all possible error status codes (400, 404, 409, 422, 429, 500)",
+    "Validation errors (400/422) include details about which fields failed and why",
+    "Custom error classes (NotFoundError, ConflictError) are mapped to their HTTP status codes",
+    "Zod schema validation rules are reflected in parameter constraints (min, max, regex, enum)",
+    "At least one error response example is shown per endpoint with realistic error data",
+    "The OpenAPI spec includes error response schemas in the components section"
+  ]
+}

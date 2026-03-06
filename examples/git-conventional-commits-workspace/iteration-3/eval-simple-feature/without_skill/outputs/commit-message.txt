@@ -1,0 +1,4 @@
+feat: Add string utility functions
+
+Added truncate() and isValidUrl() helper functions to the
+string-helpers module for string manipulation and validation.

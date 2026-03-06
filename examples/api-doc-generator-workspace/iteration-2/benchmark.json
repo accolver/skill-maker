@@ -1,0 +1,39 @@
+{
+  "skill_name": "api-doc-generator",
+  "iteration": 2,
+  "timestamp": "2026-03-06T11:00:00.000Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": { "mean": 0.958, "stddev": 0.063 },
+      "time_seconds": { "mean": 42.4, "stddev": 5.7 },
+      "tokens": { "mean": 23050, "stddev": 3080 }
+    },
+    "without_skill": {
+      "pass_rate": { "mean": 0.167, "stddev": 0.072 },
+      "time_seconds": { "mean": 17.1, "stddev": 2.2 },
+      "tokens": { "mean": 9133, "stddev": 1070 }
+    },
+    "delta": {
+      "pass_rate": 0.791,
+      "time_seconds": 25.3,
+      "tokens": 13917
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "rest-crud-endpoints",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 36.4, "tokens": 19850 },
+      "without_skill": { "pass_rate": 0.25, "time_seconds": 16.8, "tokens": 9100 }
+    },
+    {
+      "eval_name": "authenticated-api",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 43.2, "tokens": 23400 },
+      "without_skill": { "pass_rate": 0.125, "time_seconds": 19.4, "tokens": 10200 }
+    },
+    {
+      "eval_name": "error-handling-api",
+      "with_skill": { "pass_rate": 0.875, "time_seconds": 47.6, "tokens": 25900 },
+      "without_skill": { "pass_rate": 0.125, "time_seconds": 15.2, "tokens": 8100 }
+    }
+  ]
+}

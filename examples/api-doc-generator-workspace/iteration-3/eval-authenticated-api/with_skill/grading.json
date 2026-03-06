@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes an Authentication section explaining JWT Bearer token format",
+      "passed": true,
+      "evidence": "Complete Authentication section with JWT format, header example, token fields, and all auth error scenarios"
+    },
+    {
+      "text": "Each endpoint clearly indicates whether authentication is required or optional",
+      "passed": true,
+      "evidence": "Every endpoint has clear auth indicator with role requirements where applicable"
+    },
+    {
+      "text": "Rate limiting is documented with specific limits (100/min authenticated, 20/min anonymous)",
+      "passed": true,
+      "evidence": "Rate Limiting section with specific limits and 429 response documentation"
+    },
+    {
+      "text": "Paginated endpoints document pagination parameters (page, per_page or cursor) with defaults",
+      "passed": true,
+      "evidence": "All paginated endpoints have parameter tables with defaults and constraints"
+    },
+    {
+      "text": "Response schema for list endpoints shows the pagination envelope (items, total, has_more)",
+      "passed": true,
+      "evidence": "Pagination envelope fully documented with items, total, page, per_page, has_more"
+    },
+    {
+      "text": "Public read endpoints (GET) are distinguished from authenticated write endpoints (POST, PUT, DELETE)",
+      "passed": true,
+      "evidence": "Clear distinction with 'Public' vs 'Requires authentication' labels"
+    },
+    {
+      "text": "At least one curl example includes the Authorization header with a Bearer token",
+      "passed": true,
+      "evidence": "Multiple curl examples with Authorization: Bearer header"
+    },
+    {
+      "text": "The OpenAPI spec includes a securitySchemes component defining the JWT bearer scheme",
+      "passed": true,
+      "evidence": "securitySchemes with bearerAuth type http/bearer/JWT, correctly applied to authenticated endpoints"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

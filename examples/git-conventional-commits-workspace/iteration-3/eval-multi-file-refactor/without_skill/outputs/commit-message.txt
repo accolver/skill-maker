@@ -1,0 +1,6 @@
+refactor: Clean up user service naming and types
+
+- Renamed fetchUser to findUserById and fetchAllUsers to listUsers
+- Replaced raw SQL queries with ORM methods
+- Added ListOptions interface and proper return types
+- Updated route handlers to match new method names

@@ -1,0 +1,5 @@
+feat(string-helpers): add truncate and URL utils
+
+Add truncate() for ellipsis-based string shortening with
+configurable max length, and isValidUrl() for URL format
+validation using the native URL constructor.

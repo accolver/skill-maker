@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output starts with 'feat' as the commit type since new functions are being added",
+      "passed": true,
+      "evidence": "First line starts with 'feat:' — correct type"
+    },
+    {
+      "text": "Output includes a scope in parentheses (e.g., 'string-helpers' or 'utils')",
+      "passed": false,
+      "evidence": "Output is 'feat: Add string utility functions' — no scope in parentheses"
+    },
+    {
+      "text": "Subject line (first line) is 50 characters or fewer in total",
+      "passed": true,
+      "evidence": "'feat: Add string utility functions' is 34 characters"
+    },
+    {
+      "text": "Subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+      "passed": true,
+      "evidence": "Subject uses 'Add' — imperative mood (capitalized but correct tense)"
+    },
+    {
+      "text": "First letter after the colon-space is lowercase",
+      "passed": false,
+      "evidence": "'Add string utility...' — 'A' is uppercase"
+    },
+    {
+      "text": "Subject line does not end with a period",
+      "passed": true,
+      "evidence": "Subject ends with 'functions' — no period"
+    },
+    {
+      "text": "Output mentions both truncate and URL validation functionality",
+      "passed": true,
+      "evidence": "Body mentions 'truncate() and isValidUrl() helper functions'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.71
+  }
+}

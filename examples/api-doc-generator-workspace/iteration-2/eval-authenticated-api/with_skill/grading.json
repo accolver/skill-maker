@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes an Authentication section explaining JWT Bearer token format",
+      "passed": true,
+      "evidence": "Comprehensive Authentication section with JWT Bearer format, header example, token payload fields, and error scenarios"
+    },
+    {
+      "text": "Each endpoint clearly indicates whether authentication is required or optional",
+      "passed": true,
+      "evidence": "Every endpoint has bold auth indicator: 'Public', 'Requires authentication', or 'Requires moderator role'"
+    },
+    {
+      "text": "Rate limiting is documented with specific limits (100/min authenticated, 20/min anonymous)",
+      "passed": true,
+      "evidence": "Rate Limiting section with table: Authenticated 100 req/min, Anonymous 20 req/min, plus 429 response documentation"
+    },
+    {
+      "text": "Paginated endpoints document pagination parameters (page, per_page or cursor) with defaults",
+      "passed": true,
+      "evidence": "GET /api/posts: page (default: 1), per_page (default: 20). GET comments: page (default: 1), per_page (default: 50)"
+    },
+    {
+      "text": "Response schema for list endpoints shows the pagination envelope (items, total, has_more)",
+      "passed": true,
+      "evidence": "Response example shows items array, total, page, per_page, has_more fields"
+    },
+    {
+      "text": "Public read endpoints (GET) are distinguished from authenticated write endpoints (POST, PUT, DELETE)",
+      "passed": true,
+      "evidence": "GET endpoints marked 'Public - no auth required', write endpoints marked 'Requires authentication'"
+    },
+    {
+      "text": "At least one curl example includes the Authorization header with a Bearer token",
+      "passed": true,
+      "evidence": "Multiple curl examples include -H 'Authorization: Bearer eyJhbG...'"
+    },
+    {
+      "text": "The OpenAPI spec includes a securitySchemes component defining the JWT bearer scheme",
+      "passed": true,
+      "evidence": "securitySchemes.bearerAuth with type: http, scheme: bearer, bearerFormat: JWT. Global security now correctly configured."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

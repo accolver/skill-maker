@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes all four HTTP methods: GET, POST, PUT, and DELETE",
+      "passed": true,
+      "evidence": "All four methods present"
+    },
+    {
+      "text": "Each endpoint has a human-readable description explaining what it does",
+      "passed": false,
+      "evidence": "Minimal one-line descriptions without behavioral detail"
+    },
+    {
+      "text": "Path parameters (e.g., :id) are documented with their type and constraints",
+      "passed": false,
+      "evidence": "Path parameter :id not documented with type or constraints"
+    },
+    {
+      "text": "Query parameters for the list endpoint (page, limit) are documented with defaults",
+      "passed": true,
+      "evidence": "Page and limit mentioned with defaults"
+    },
+    {
+      "text": "POST and PUT endpoints have request body schemas with field types and validation rules",
+      "passed": false,
+      "evidence": "Field list without validation rules"
+    },
+    {
+      "text": "Each endpoint includes at least one response example with realistic JSON data",
+      "passed": false,
+      "evidence": "Partial examples with placeholder values"
+    },
+    {
+      "text": "Error responses are documented with status codes (400, 404, 409, 422) and response bodies",
+      "passed": false,
+      "evidence": "Only 404 and 409 mentioned inline without response bodies"
+    },
+    {
+      "text": "An OpenAPI 3.0 JSON spec is produced with valid paths and component schemas",
+      "passed": false,
+      "evidence": "No OpenAPI spec produced"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 6,
+    "total": 8,
+    "pass_rate": 0.25
+  }
+}

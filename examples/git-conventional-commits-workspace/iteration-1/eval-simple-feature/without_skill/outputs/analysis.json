@@ -1,0 +1,11 @@
+{
+  "type": "feat",
+  "scope": null,
+  "subject": "Added string helper functions",
+  "body": "Added truncate and isValidUrl utility functions to the string helpers module.",
+  "breaking_change": null,
+  "reasoning": {
+    "type_classification": "New functions being added, so feat seems right.",
+    "scope_selection": "Not sure what scope to use, leaving it out."
+  }
+}

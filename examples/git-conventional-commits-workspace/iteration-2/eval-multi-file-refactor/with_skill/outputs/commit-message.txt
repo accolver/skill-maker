@@ -1,0 +1,6 @@
+refactor(users): rename methods and improve types
+
+Replace raw SQL with typed ORM calls. Rename fetchUser
+and fetchAllUsers to findUserById and listUsers. Add
+Database type constraint, ListOptions interface, and
+explicit return types across service, routes, and types.

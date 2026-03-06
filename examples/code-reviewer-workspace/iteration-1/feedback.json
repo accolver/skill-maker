@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T10:15:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Missing severity levels and structured format. Suggestions are too vague.",
+      "timestamp": "2026-03-06T10:16:00.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T10:17:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Doesn't quantify the performance impact. No code examples for fixes.",
+      "timestamp": "2026-03-06T10:18:00.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "The swallowed exceptions finding needs a more complete code fix showing proper logging setup.",
+      "timestamp": "2026-03-06T10:19:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "Identifies issues but no severity, no code fixes, no structured output.",
+      "timestamp": "2026-03-06T10:20:00.000Z"
+    }
+  ],
+  "status": "complete"
+}

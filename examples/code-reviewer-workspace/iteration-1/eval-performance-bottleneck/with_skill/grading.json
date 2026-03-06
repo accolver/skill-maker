@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Review identifies the N+1 query pattern as a performance issue with high or critical severity",
+      "passed": true,
+      "evidence": "Finding titled 'N+1 query pattern with multiplicative database calls' with severity 'high' and category 'performance'"
+    },
+    {
+      "text": "Review explains that the nested loops cause multiplicative database queries (e.g., for N orders with M items each, this runs 1 + N + N*M + N queries)",
+      "passed": true,
+      "evidence": "States 'For N orders with M items each, this executes 1 + N + (N * M) + N queries. With 50 orders averaging 3 items each, that's 1 + 50 + 150 + 50 = 251 database queries'"
+    },
+    {
+      "text": "Review suggests using JOINs or batch queries as a fix for the N+1 pattern",
+      "passed": true,
+      "evidence": "Provides a complete JOIN query example with LEFT JOINs across orders, order_items, products, and shipping tables"
+    },
+    {
+      "text": "Review identifies missing error handling (no try-catch around async database operations)",
+      "passed": true,
+      "evidence": "Finding titled 'Missing error handling for async database operations' with severity 'high'"
+    },
+    {
+      "text": "Review identifies missing input validation on req.params.userId",
+      "passed": true,
+      "evidence": "Finding titled 'Missing input validation on userId parameter' with severity 'medium', includes parseInt validation code"
+    },
+    {
+      "text": "Each finding includes a severity level (critical, high, medium, low, or info)",
+      "passed": true,
+      "evidence": "All 4 findings have severity levels: 2 high, 1 medium, 1 low"
+    },
+    {
+      "text": "Each finding includes a specific fix suggestion showing code or approach",
+      "passed": true,
+      "evidence": "All findings include code diffs or specific approach descriptions"
+    },
+    {
+      "text": "Review includes a summary section with overall assessment",
+      "passed": true,
+      "evidence": "Review starts with 'Code Review Summary' including Context, Overall Assessment: NEEDS CHANGES, and Findings count"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

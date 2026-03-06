@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes all four HTTP methods: GET, POST, PUT, and DELETE",
+      "passed": true,
+      "evidence": "Found all four methods documented: GET /api/users, GET /api/users/:id, POST /api/users, PUT /api/users/:id, DELETE /api/users/:id"
+    },
+    {
+      "text": "Each endpoint has a human-readable description explaining what it does",
+      "passed": true,
+      "evidence": "Each endpoint section starts with a description: 'List all users with optional filtering and pagination', 'Get a single user by their ID', 'Create a new user account', 'Update an existing user', 'Delete a user by ID'"
+    },
+    {
+      "text": "Path parameters (e.g., :id) are documented with their type and constraints",
+      "passed": true,
+      "evidence": "Path parameter 'id' documented as ObjectId type with description 'MongoDB ObjectId of the user' in GET /:id, PUT /:id, and DELETE /:id"
+    },
+    {
+      "text": "Query parameters for the list endpoint (page, limit) are documented with defaults",
+      "passed": true,
+      "evidence": "Query Parameters table shows page (default: 1), limit (default: 25), role, and search with types and descriptions"
+    },
+    {
+      "text": "POST and PUT endpoints have request body schemas with field types and validation rules",
+      "passed": true,
+      "evidence": "POST has Request Body table with email, name, password, role, bio including constraints. PUT has similar table with all optional fields."
+    },
+    {
+      "text": "Each endpoint includes at least one response example with realistic JSON data",
+      "passed": true,
+      "evidence": "All endpoints have Response sections with JSON examples using realistic data like 'jane.smith@example.com', 'Jane Smith', ObjectId values"
+    },
+    {
+      "text": "Error responses are documented with status codes (400, 404, 409, 422) and response bodies",
+      "passed": false,
+      "evidence": "Error responses documented for 404, 409, 422 but missing 400 status code. Also missing 500 Internal Server Error which is present in the source code."
+    },
+    {
+      "text": "An OpenAPI 3.0 JSON spec is produced with valid paths and component schemas",
+      "passed": true,
+      "evidence": "openapi.json file present with openapi: 3.0.3, paths for /api/users and /api/users/{id}, and component schemas for User, UserCreate, UserUpdate, UserResponse, UserListResponse"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

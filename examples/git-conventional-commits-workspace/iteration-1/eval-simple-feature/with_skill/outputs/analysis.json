@@ -1,0 +1,12 @@
+{
+  "type": "feat",
+  "scope": "string-helpers",
+  "subject": "add truncate and URL utils",
+  "body": "Add truncate() for ellipsis-based string shortening and isValidUrl() for URL format validation using the URL constructor.",
+  "breaking_change": null,
+  "reasoning": {
+    "type_classification": "New exported functions added to an existing utility module — this is new functionality, so 'feat' is correct.",
+    "scope_selection": "All changes are in src/utils/string-helpers.ts, so the module name 'string-helpers' is the natural scope.",
+    "imperative_mood_check": "'add' is imperative — passes the test: 'If applied, this commit will add truncate and URL utils'."
+  }
+}

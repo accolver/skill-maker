@@ -1,0 +1,7 @@
+{
+  "type": "refactor",
+  "scope": null,
+  "subject": "Clean up user service naming and types",
+  "body": "Renamed fetchUser to findUserById and fetchAllUsers to listUsers. Replaced raw SQL queries with ORM methods. Added ListOptions interface and proper return types. Updated route handlers to match new method names.",
+  "breaking_change": null
+}

@@ -1,0 +1,7 @@
+{
+  "type": "feat",
+  "scope": null,
+  "subject": "Add string utility functions",
+  "body": "Added truncate() and isValidUrl() helper functions to the string-helpers module for string manipulation and validation.",
+  "breaking_change": null
+}

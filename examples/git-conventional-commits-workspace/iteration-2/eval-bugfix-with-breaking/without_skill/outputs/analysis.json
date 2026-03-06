@@ -1,0 +1,7 @@
+{
+  "type": "fix",
+  "scope": "auth",
+  "subject": "Replace null returns with error throwing",
+  "body": "The authenticate function now throws RateLimitError for missing or invalid tokens. Updated AuthResult to use permissions array instead of single role string.",
+  "breaking_change": null
+}

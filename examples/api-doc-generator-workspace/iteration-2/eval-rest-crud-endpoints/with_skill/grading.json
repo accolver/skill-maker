@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes all four HTTP methods: GET, POST, PUT, and DELETE",
+      "passed": true,
+      "evidence": "All four methods documented: GET /api/users (list), GET /api/users/:id (single), POST /api/users, PUT /api/users/:id, DELETE /api/users/:id"
+    },
+    {
+      "text": "Each endpoint has a human-readable description explaining what it does",
+      "passed": true,
+      "evidence": "Each endpoint has a descriptive paragraph explaining purpose and behavior"
+    },
+    {
+      "text": "Path parameters (e.g., :id) are documented with their type and constraints",
+      "passed": true,
+      "evidence": "Path parameter 'id' documented as MongoId type with constraint 'Valid MongoDB ObjectId format'"
+    },
+    {
+      "text": "Query parameters for the list endpoint (page, limit) are documented with defaults",
+      "passed": true,
+      "evidence": "Full parameter table with page (default: 1, min: 1), limit (default: 25, range: 1-100), role (enum), search (string)"
+    },
+    {
+      "text": "POST and PUT endpoints have request body schemas with field types and validation rules",
+      "passed": true,
+      "evidence": "POST body table includes email (valid email), name (2-100 chars), password (min 8 chars), role (enum with default), bio (max 500). PUT has same fields all optional."
+    },
+    {
+      "text": "Each endpoint includes at least one response example with realistic JSON data",
+      "passed": true,
+      "evidence": "All endpoints have response examples with realistic data: jane.smith@example.com, ObjectId values, timestamps"
+    },
+    {
+      "text": "Error responses are documented with status codes (400, 404, 409, 422) and response bodies",
+      "passed": true,
+      "evidence": "Error tables now include 404 (User not found), 409 (Email already registered/in use), 422 (Validation failed), and 500 (Internal server error) with response body examples"
+    },
+    {
+      "text": "An OpenAPI 3.0 JSON spec is produced with valid paths and component schemas",
+      "passed": true,
+      "evidence": "openapi.json with version 3.0.3, paths for /api/users and /api/users/{id}, component schemas with proper $ref usage"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

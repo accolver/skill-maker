@@ -1,0 +1,39 @@
+{
+  "skill_name": "code-reviewer",
+  "iteration": 4,
+  "timestamp": "2026-03-06T13:00:00.000Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": { "mean": 1.0, "stddev": 0.0 },
+      "time_seconds": { "mean": 20.3, "stddev": 1.8 },
+      "tokens": { "mean": 4753, "stddev": 345 }
+    },
+    "without_skill": {
+      "pass_rate": { "mean": 0.417, "stddev": 0.118 },
+      "time_seconds": { "mean": 11.4, "stddev": 0.7 },
+      "tokens": { "mean": 2647, "stddev": 160 }
+    },
+    "delta": {
+      "pass_rate": 0.583,
+      "time_seconds": 8.9,
+      "tokens": 2106
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "sql-injection-review",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 18.2, "tokens": 4350 },
+      "without_skill": { "pass_rate": 0.5, "time_seconds": 11.6, "tokens": 2690 }
+    },
+    {
+      "eval_name": "performance-bottleneck",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 20.3, "tokens": 4720 },
+      "without_skill": { "pass_rate": 0.25, "time_seconds": 10.4, "tokens": 2430 }
+    },
+    {
+      "eval_name": "complex-refactoring-candidate",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 22.5, "tokens": 5190 },
+      "without_skill": { "pass_rate": 0.5, "time_seconds": 12.1, "tokens": 2820 }
+    }
+  ]
+}

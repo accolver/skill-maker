@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "performance-bottleneck",
+  "prompt": "Review this Node.js service that fetches order details:\n\n```javascript\nconst express = require('express');\nconst db = require('./db');\n\nasync function getOrderDetails(req, res) {\n  const orders = await db.query('SELECT * FROM orders WHERE user_id = $1', [req.params.userId]);\n  \n  const enrichedOrders = [];\n  for (const order of orders) {\n    const items = await db.query('SELECT * FROM order_items WHERE order_id = $1', [order.id]);\n    for (const item of items) {\n      const product = await db.query('SELECT * FROM products WHERE id = $1', [item.product_id]);\n      item.product = product[0];\n    }\n    const shipping = await db.query('SELECT * FROM shipping WHERE order_id = $1', [order.id]);\n    order.items = items;\n    order.shipping = shipping[0];\n    enrichedOrders.push(order);\n  }\n  \n  res.json(enrichedOrders);\n}\n\nmodule.exports = { getOrderDetails };\n```",
+  "assertions": [
+    "Review identifies the N+1 query pattern as a performance issue with high or critical severity",
+    "Review explains that the nested loops cause multiplicative database queries (e.g., for N orders with M items each, this runs 1 + N + N*M + N queries)",
+    "Review suggests using JOINs or batch queries as a fix for the N+1 pattern",
+    "Review identifies missing error handling (no try-catch around async database operations)",
+    "Review identifies missing input validation on req.params.userId",
+    "Each finding includes a severity level (critical, high, medium, low, or info)",
+    "Each finding includes a specific fix suggestion showing code or approach",
+    "Review includes a summary section with overall assessment"
+  ]
+}

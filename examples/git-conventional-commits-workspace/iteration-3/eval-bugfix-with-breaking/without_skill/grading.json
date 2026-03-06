@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output starts with 'fix' as the commit type since the null-return bug is being corrected",
+      "passed": true,
+      "evidence": "First line starts with 'fix(auth):' — correct type"
+    },
+    {
+      "text": "Output includes a scope in parentheses (e.g., 'auth' or 'api')",
+      "passed": true,
+      "evidence": "Scope is '(auth)' — present"
+    },
+    {
+      "text": "Subject line (first line) is 50 characters or fewer in total",
+      "passed": true,
+      "evidence": "'fix(auth): update authenticate to throw errors' is 48 characters"
+    },
+    {
+      "text": "Subject line uses imperative mood (e.g., 'throw' or 'replace' not 'threw' or 'replaced')",
+      "passed": true,
+      "evidence": "Subject uses 'update' — imperative mood"
+    },
+    {
+      "text": "Output contains a 'BREAKING CHANGE:' footer (uppercase) because the function signature and return type changed",
+      "passed": false,
+      "evidence": "No 'BREAKING CHANGE:' footer found. The body describes the changes but does not use the conventional commits footer format."
+    },
+    {
+      "text": "The BREAKING CHANGE footer describes what breaks (null return removed, role replaced with permissions)",
+      "passed": false,
+      "evidence": "No BREAKING CHANGE footer exists. The body mentions 'permissions array instead of role string' but not in footer format."
+    },
+    {
+      "text": "First letter after the colon-space in the subject is lowercase",
+      "passed": true,
+      "evidence": "'update authenticate...' — 'u' is lowercase"
+    },
+    {
+      "text": "Subject line does not end with a period",
+      "passed": true,
+      "evidence": "Subject ends with 'errors' — no period"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

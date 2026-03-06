@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes an Authentication section explaining JWT Bearer token format",
+      "passed": true,
+      "evidence": "Authentication section present at bottom of doc with JWT Bearer token format and header example"
+    },
+    {
+      "text": "Each endpoint clearly indicates whether authentication is required or optional",
+      "passed": false,
+      "evidence": "POST/PUT/DELETE say 'Requires authentication' but GET endpoints don't explicitly state they are public. No consistent per-endpoint auth indicator."
+    },
+    {
+      "text": "Rate limiting is documented with specific limits (100/min authenticated, 20/min anonymous)",
+      "passed": false,
+      "evidence": "No rate limiting documentation found anywhere in the output"
+    },
+    {
+      "text": "Paginated endpoints document pagination parameters (page, per_page or cursor) with defaults",
+      "passed": false,
+      "evidence": "GET /api/posts mentions 'page and per_page parameters' but no defaults, types, or constraints. Comments endpoint just says 'Supports pagination'."
+    },
+    {
+      "text": "Response schema for list endpoints shows the pagination envelope (items, total, has_more)",
+      "passed": false,
+      "evidence": "No response examples or schemas shown for any endpoint. No pagination envelope documented."
+    },
+    {
+      "text": "Public read endpoints (GET) are distinguished from authenticated write endpoints (POST, PUT, DELETE)",
+      "passed": false,
+      "evidence": "Auth section says 'Some endpoints are public (GET requests)' but individual GET endpoints don't state this. Distinction is vague."
+    },
+    {
+      "text": "At least one curl example includes the Authorization header with a Bearer token",
+      "passed": false,
+      "evidence": "No curl examples in the documentation"
+    },
+    {
+      "text": "The OpenAPI spec includes a securitySchemes component defining the JWT bearer scheme",
+      "passed": false,
+      "evidence": "No OpenAPI JSON spec was produced"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

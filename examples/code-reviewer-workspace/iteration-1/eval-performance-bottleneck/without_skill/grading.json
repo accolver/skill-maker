@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Review identifies the N+1 query pattern as a performance issue with high or critical severity",
+      "passed": false,
+      "evidence": "Mentions 'N+1 query problem' but does not assign any severity level to it"
+    },
+    {
+      "text": "Review explains that the nested loops cause multiplicative database queries (e.g., for N orders with M items each, this runs 1 + N + N*M + N queries)",
+      "passed": false,
+      "evidence": "Says 'could result in a lot of database calls' but does not quantify the multiplicative nature or provide the formula"
+    },
+    {
+      "text": "Review suggests using JOINs or batch queries as a fix for the N+1 pattern",
+      "passed": true,
+      "evidence": "States 'Consider using a JOIN query to fetch all the data at once'"
+    },
+    {
+      "text": "Review identifies missing error handling (no try-catch around async database operations)",
+      "passed": true,
+      "evidence": "States 'You might want to add some error handling with try/catch since these are async operations'"
+    },
+    {
+      "text": "Review identifies missing input validation on req.params.userId",
+      "passed": false,
+      "evidence": "No mention of input validation on userId parameter anywhere in the review"
+    },
+    {
+      "text": "Each finding includes a severity level (critical, high, medium, low, or info)",
+      "passed": false,
+      "evidence": "No severity levels assigned to any finding. Uses informal prose without classification."
+    },
+    {
+      "text": "Each finding includes a specific fix suggestion showing code or approach",
+      "passed": false,
+      "evidence": "Suggestions are vague ('Consider using a JOIN query', 'add some error handling') without code examples"
+    },
+    {
+      "text": "Review includes a summary section with overall assessment",
+      "passed": false,
+      "evidence": "Has a brief closing paragraph but no structured summary with assessment rating"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 6,
+    "total": 8,
+    "pass_rate": 0.25
+  }
+}

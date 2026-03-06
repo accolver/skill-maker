@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T10:05:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Missing scope, used past tense, capitalized first letter",
+      "timestamp": "2026-03-06T10:05:30.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T10:06:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Missing BREAKING CHANGE footer entirely — this is the biggest gap. Also missing scope and capitalized first letter.",
+      "timestamp": "2026-03-06T10:06:30.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T10:07:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "Used past tense 'Refactored', missing scope, capitalized first letter",
+      "timestamp": "2026-03-06T10:07:30.000Z"
+    }
+  ],
+  "status": "complete"
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Review identifies the deep nesting (5+ levels) as a maintainability concern",
+      "passed": true,
+      "evidence": "States 'The if-else structure is deeply nested, making it hard to follow'"
+    },
+    {
+      "text": "Review identifies magic numbers (tax rate 0.08, shipping 5.99, currency rates, thresholds) and suggests using named constants",
+      "passed": true,
+      "evidence": "States 'magic numbers like 0.08, 5.99, 0.85, 0.73, 110.0 scattered throughout. These should be constants.'"
+    },
+    {
+      "text": "Review identifies the hardcoded database credentials ('root', 'password123') as a critical or high severity security finding",
+      "passed": false,
+      "evidence": "Mentions 'database connection string contains hardcoded credentials' but does not assign a severity level"
+    },
+    {
+      "text": "Review identifies duplicated code (currency conversion logic and database insertion appear twice) and suggests extraction",
+      "passed": true,
+      "evidence": "States 'currency conversion logic and database insertion code are duplicated between the standard and subscription branches'"
+    },
+    {
+      "text": "Review suggests extracting the long method into smaller, focused methods",
+      "passed": true,
+      "evidence": "States 'refactoring this into smaller methods and extracting the shared logic'"
+    },
+    {
+      "text": "Each finding includes a severity level (critical, high, medium, low, or info)",
+      "passed": false,
+      "evidence": "No severity levels assigned to any of the 6 findings. Uses numbered list without classification."
+    },
+    {
+      "text": "Each finding includes a specific fix suggestion with code or clear approach",
+      "passed": false,
+      "evidence": "Suggestions are vague ('should be constants', 'should be externalized to configuration') without code examples"
+    },
+    {
+      "text": "Review includes a summary section with overall assessment",
+      "passed": false,
+      "evidence": "Has a brief closing paragraph but no structured summary with assessment rating"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 4,
+    "total": 8,
+    "pass_rate": 0.5
+  }
+}

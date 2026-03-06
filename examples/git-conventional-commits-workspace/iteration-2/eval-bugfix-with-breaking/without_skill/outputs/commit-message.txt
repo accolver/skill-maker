@@ -1,0 +1,5 @@
+fix(auth): Replace null returns with error throwing
+
+The authenticate function now throws RateLimitError for missing
+or invalid tokens. Updated AuthResult to use permissions array
+instead of single role string.

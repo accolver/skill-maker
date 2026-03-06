@@ -1,0 +1,5 @@
+fix(auth): update authenticate to throw errors
+
+Changed authenticate() to throw RateLimitError instead of returning
+null. Updated AuthResult interface to use permissions array instead
+of role string for better access control.

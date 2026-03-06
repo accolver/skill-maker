@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "authenticated-api",
+  "prompt": "Document this FastAPI application that has JWT authentication, rate limiting middleware, and paginated list endpoints. The API manages blog posts and comments. Auth is required for write operations but read endpoints are public. Rate limiting is 100 requests/minute for authenticated users and 20/minute for anonymous. Generate full API docs showing auth requirements, rate limits, and pagination details.",
+  "assertions": [
+    "Documentation includes an Authentication section explaining JWT Bearer token format",
+    "Each endpoint clearly indicates whether authentication is required or optional",
+    "Rate limiting is documented with specific limits (100/min authenticated, 20/min anonymous)",
+    "Paginated endpoints document pagination parameters (page, per_page or cursor) with defaults",
+    "Response schema for list endpoints shows the pagination envelope (items, total, has_more)",
+    "Public read endpoints (GET) are distinguished from authenticated write endpoints (POST, PUT, DELETE)",
+    "At least one curl example includes the Authorization header with a Bearer token",
+    "The OpenAPI spec includes a securitySchemes component defining the JWT bearer scheme"
+  ]
+}

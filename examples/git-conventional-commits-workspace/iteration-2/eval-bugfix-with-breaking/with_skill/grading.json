@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output starts with 'fix' as the commit type since the null-return bug is being corrected",
+      "passed": true,
+      "evidence": "First line starts with 'fix(auth):'"
+    },
+    {
+      "text": "Output includes a scope in parentheses (e.g., 'auth' or 'api')",
+      "passed": true,
+      "evidence": "Scope is '(auth)'"
+    },
+    {
+      "text": "Subject line (first line) is 50 characters or fewer in total",
+      "passed": true,
+      "evidence": "'fix(auth): throw on missing or invalid tokens' is 47 characters"
+    },
+    {
+      "text": "Subject line uses imperative mood (e.g., 'throw' or 'replace' not 'threw' or 'replaced')",
+      "passed": true,
+      "evidence": "Subject uses 'throw' — imperative mood"
+    },
+    {
+      "text": "Output contains a 'BREAKING CHANGE:' footer (uppercase) because the function signature and return type changed",
+      "passed": true,
+      "evidence": "Footer contains 'BREAKING CHANGE: authenticate() return type changed from AuthResult | null to AuthResult.'"
+    },
+    {
+      "text": "The BREAKING CHANGE footer describes what breaks (null return removed, role replaced with permissions)",
+      "passed": true,
+      "evidence": "Footer mentions 'return type changed from AuthResult | null to AuthResult', 'null checks must switch to try/catch', and 'role field is removed in favor of permissions: string[]'"
+    },
+    {
+      "text": "First letter after the colon-space in the subject is lowercase",
+      "passed": true,
+      "evidence": "'throw on missing...' — 't' is lowercase"
+    },
+    {
+      "text": "Subject line does not end with a period",
+      "passed": true,
+      "evidence": "Subject ends with 'tokens' — no period"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

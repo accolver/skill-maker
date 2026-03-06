@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "context": "Express.js handler fetching orders with nested queries for items, products, and shipping per order.",
+    "overall_assessment": "NEEDS CHANGES",
+    "total_findings": 4,
+    "by_severity": { "critical": 0, "high": 2, "medium": 1, "low": 1, "info": 0 },
+    "by_category": { "security": 0, "bug": 2, "performance": 1, "style": 1, "maintainability": 0, "testing": 0 }
+  },
+  "findings": [
+    {
+      "severity": "high",
+      "category": "performance",
+      "title": "N+1 query pattern with multiplicative database calls",
+      "location": "getOrderDetails(), nested for loops",
+      "issue": "For N orders with M items each, executes 1 + N + (N*M) + N queries. 50 orders with 3 items = 251 queries.",
+      "suggestion": "Use JOINs to fetch all data in 1-2 queries",
+      "fix_diff": "Use a single JOIN query across orders, order_items, products, and shipping tables"
+    },
+    {
+      "severity": "high",
+      "category": "bug",
+      "title": "Missing error handling for async database operations",
+      "location": "Entire getOrderDetails() function",
+      "issue": "No try-catch wraps async database calls. Unhandled rejection will crash process or leak stack trace.",
+      "suggestion": "Wrap in try-catch with proper error response and logging"
+    },
+    {
+      "severity": "medium",
+      "category": "bug",
+      "title": "Missing input validation on userId parameter",
+      "location": "req.params.userId usage",
+      "issue": "userId from URL passed to query without validation. Invalid input causes confusing errors.",
+      "suggestion": "Parse and validate userId as positive integer before querying"
+    },
+    {
+      "severity": "low",
+      "category": "style",
+      "title": "Using SELECT * instead of explicit column names",
+      "location": "All four queries",
+      "issue": "SELECT * fetches unnecessary columns and is fragile to schema changes",
+      "suggestion": "List explicit column names in each query"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output starts with 'refactor' as the commit type since this is restructuring without behavior change",
+      "passed": true,
+      "evidence": "First line starts with 'refactor(users):'"
+    },
+    {
+      "text": "Output includes a scope in parentheses (e.g., 'users', 'user-service', or 'user')",
+      "passed": true,
+      "evidence": "Scope is '(users)'"
+    },
+    {
+      "text": "Subject line (first line) is 50 characters or fewer in total",
+      "passed": true,
+      "evidence": "'refactor(users): rename methods and improve types' is 50 characters — exactly at the limit"
+    },
+    {
+      "text": "Subject line uses imperative mood (e.g., 'rename', 'restructure', 'improve' not past tense)",
+      "passed": true,
+      "evidence": "Subject uses 'rename' — imperative mood"
+    },
+    {
+      "text": "Output includes a commit body (text after a blank line following the subject) explaining the changes across multiple files",
+      "passed": true,
+      "evidence": "Body present: 'Replace raw SQL with typed ORM calls...' — mentions service, routes, and types."
+    },
+    {
+      "text": "First letter after the colon-space in the subject is lowercase",
+      "passed": true,
+      "evidence": "'rename methods...' — 'r' is lowercase"
+    },
+    {
+      "text": "Subject line does not end with a period",
+      "passed": true,
+      "evidence": "Subject ends with 'types' — no period"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

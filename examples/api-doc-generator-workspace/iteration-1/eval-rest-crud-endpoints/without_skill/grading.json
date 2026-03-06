@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes all four HTTP methods: GET, POST, PUT, and DELETE",
+      "passed": true,
+      "evidence": "All four methods present: GET /api/users, GET /api/users/:id, POST /api/users, PUT /api/users/:id, DELETE /api/users/:id"
+    },
+    {
+      "text": "Each endpoint has a human-readable description explaining what it does",
+      "passed": false,
+      "evidence": "Descriptions are minimal one-liners like 'Returns a list of users' and 'Creates a new user' - not explanatory descriptions of behavior and purpose"
+    },
+    {
+      "text": "Path parameters (e.g., :id) are documented with their type and constraints",
+      "passed": false,
+      "evidence": "Path parameter :id is used in routes but never documented with type (ObjectId/MongoId) or constraints"
+    },
+    {
+      "text": "Query parameters for the list endpoint (page, limit) are documented with defaults",
+      "passed": false,
+      "evidence": "Query params mentioned as 'page and limit query params' but no table, no types, no defaults, no constraints documented"
+    },
+    {
+      "text": "POST and PUT endpoints have request body schemas with field types and validation rules",
+      "passed": false,
+      "evidence": "POST has a bullet list of fields with types but no validation rules (min/max length, format). PUT says 'Same fields as POST but all optional' with no detail."
+    },
+    {
+      "text": "Each endpoint includes at least one response example with realistic JSON data",
+      "passed": false,
+      "evidence": "GET /api/users has a response example but uses '...' placeholders. GET /:id uses '...' for all values. POST and PUT have no response examples."
+    },
+    {
+      "text": "Error responses are documented with status codes (400, 404, 409, 422) and response bodies",
+      "passed": false,
+      "evidence": "Only mentions '404 if user not found' and '409 if email already exists' as inline text. No error response bodies, no 400 or 422 documentation."
+    },
+    {
+      "text": "An OpenAPI 3.0 JSON spec is produced with valid paths and component schemas",
+      "passed": false,
+      "evidence": "No OpenAPI JSON file was produced. Only a Markdown file was generated."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

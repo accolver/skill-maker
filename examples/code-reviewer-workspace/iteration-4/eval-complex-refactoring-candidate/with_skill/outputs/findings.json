@@ -1,0 +1,17 @@
+{
+  "summary": {
+    "context": "Java OrderProcessor with deeply nested 80+ line method.",
+    "overall_assessment": "NEEDS CHANGES",
+    "total_findings": 6,
+    "by_severity": { "critical": 1, "high": 1, "medium": 3, "low": 1, "info": 0 },
+    "by_category": { "security": 1, "bug": 1, "performance": 0, "style": 1, "maintainability": 3, "testing": 0 }
+  },
+  "findings": [
+    { "severity": "critical", "category": "security", "title": "Hardcoded credentials", "location": "DriverManager calls", "issue": "Credentials in source", "suggestion": "Env vars + DataSource" },
+    { "severity": "high", "category": "maintainability", "title": "Deep nesting", "location": "processOrder", "issue": "5+ levels", "suggestion": "Guard clauses" },
+    { "severity": "medium", "category": "maintainability", "title": "Magic numbers", "location": "Multiple", "issue": "Unnamed constants", "suggestion": "Named constants" },
+    { "severity": "medium", "category": "maintainability", "title": "Duplicated code", "location": "Both blocks", "issue": "Copy-pasted logic", "suggestion": "Extract methods" },
+    { "severity": "medium", "category": "bug", "title": "Swallowed exceptions", "location": "Catch blocks", "issue": "No logging", "suggestion": "Specific catch + Logger" },
+    { "severity": "low", "category": "style", "title": "Method too long", "location": "processOrder", "issue": "80+ lines", "suggestion": "Extract methods" }
+  ]
+}

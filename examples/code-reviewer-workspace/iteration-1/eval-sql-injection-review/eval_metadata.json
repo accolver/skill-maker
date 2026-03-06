@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "sql-injection-review",
+  "prompt": "Review this Python Flask endpoint for any issues:\n\n```python\nfrom flask import Flask, request, jsonify\nimport sqlite3\n\napp = Flask(__name__)\n\n@app.route('/api/users', methods=['GET'])\ndef search_users():\n    search_term = request.args.get('q', '')\n    conn = sqlite3.connect('app.db')\n    cursor = conn.cursor()\n    query = \"SELECT id, username, email FROM users WHERE username LIKE '%\" + search_term + \"%'\"\n    cursor.execute(query)\n    results = cursor.fetchall()\n    users = []\n    for row in results:\n        users.append({'id': row[0], 'username': row[1], 'email': row[2]})\n    return jsonify(users)\n\n@app.route('/api/users/<user_id>', methods=['DELETE'])\ndef delete_user(user_id):\n    conn = sqlite3.connect('app.db')\n    cursor = conn.cursor()\n    cursor.execute(\"DELETE FROM users WHERE id = \" + user_id)\n    conn.commit()\n    return jsonify({'status': 'deleted'})\n```",
+  "assertions": [
+    "Review identifies at least one SQL injection vulnerability as a critical or high severity security finding",
+    "Review identifies the SQL injection in the search_users endpoint specifically mentioning string concatenation into the query",
+    "Review identifies the SQL injection in the delete_user endpoint",
+    "Each finding includes a severity level (critical, high, medium, low, or info)",
+    "Each finding includes a specific fix suggestion with code showing parameterized queries",
+    "Findings are categorized by type (security, bug, performance, style, or maintainability)",
+    "Review includes a summary section with overall assessment",
+    "Review identifies the missing database connection cleanup (conn.close or context manager) as a resource leak"
+  ]
+}

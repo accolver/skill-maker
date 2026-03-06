@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "bugfix-with-breaking",
+  "prompt": "Generate a commit message for these staged changes:\n\n```diff\ndiff --git a/src/api/auth.ts b/src/api/auth.ts\nindex 9a8b7c6..3d2e1f0 100644\n--- a/src/api/auth.ts\n+++ b/src/api/auth.ts\n@@ -1,5 +1,6 @@\n import { Request, Response } from 'express';\n import { verifyToken } from '../utils/jwt';\n+import { RateLimitError } from '../errors';\n \n interface AuthResult {\n-  userId: string;\n-  role: string;\n+  userId: string;\n+  permissions: string[];\n }\n \n-export function authenticate(req: Request): AuthResult | null {\n-  const token = req.headers.authorization?.split(' ')[1];\n-  if (!token) return null;\n+export function authenticate(req: Request): AuthResult {\n+  const token = req.headers.authorization?.split(' ')[1];\n+  if (!token) throw new RateLimitError('Missing authorization token');\n   const decoded = verifyToken(token);\n-  if (!decoded) return null;\n-  return { userId: decoded.sub, role: decoded.role };\n+  if (!decoded) throw new RateLimitError('Invalid token');\n+  return { userId: decoded.sub, permissions: decoded.permissions ?? [] };\n }\n```",
+  "assertions": [
+    "Output starts with 'fix' as the commit type since the null-return bug is being corrected",
+    "Output includes a scope in parentheses (e.g., 'auth' or 'api')",
+    "Subject line (first line) is 50 characters or fewer in total",
+    "Subject line uses imperative mood (e.g., 'throw' or 'replace' not 'threw' or 'replaced')",
+    "Output contains a 'BREAKING CHANGE:' footer (uppercase) because the function signature and return type changed",
+    "The BREAKING CHANGE footer describes what breaks (null return removed, role replaced with permissions)",
+    "First letter after the colon-space in the subject is lowercase",
+    "Subject line does not end with a period"
+  ]
+}

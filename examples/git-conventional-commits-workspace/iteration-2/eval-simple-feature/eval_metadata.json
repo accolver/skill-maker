@@ -1,0 +1,14 @@
+{
+  "eval_id": 1,
+  "eval_name": "simple-feature",
+  "prompt": "Write a conventional commit message for the following staged diff:\n\n```diff\ndiff --git a/src/utils/string-helpers.ts b/src/utils/string-helpers.ts\nindex a1b2c3d..e4f5g6h 100644\n--- a/src/utils/string-helpers.ts\n+++ b/src/utils/string-helpers.ts\n@@ -22,6 +22,24 @@ export function capitalize(str: string): string {\n   return str.charAt(0).toUpperCase() + str.slice(1);\n }\n \n+/**\n+ * Truncate a string to a maximum length, appending an ellipsis if truncated.\n+ * @param str - The input string\n+ * @param maxLength - Maximum allowed length (default: 100)\n+ * @returns The truncated string with ellipsis, or original if within limit\n+ */\n+export function truncate(str: string, maxLength: number = 100): string {\n+  if (!str) return '';\n+  if (str.length <= maxLength) return str;\n+  return str.slice(0, maxLength - 3) + '...';\n+}\n+\n+/**\n+ * Check if a string is a valid URL.\n+ */\n+export function isValidUrl(str: string): boolean {\n+  try {\n+    new URL(str);\n+    return true;\n+  } catch {\n+    return false;\n+  }\n+}\n```",
+  "assertions": [
+    "Output starts with 'feat' as the commit type since new functions are being added",
+    "Output includes a scope in parentheses (e.g., 'string-helpers' or 'utils')",
+    "Subject line (first line) is 50 characters or fewer in total",
+    "Subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+    "First letter after the colon-space is lowercase",
+    "Subject line does not end with a period",
+    "Output mentions both truncate and URL validation functionality"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "refactor",
+  "scope": "users",
+  "subject": "rename methods and improve types",
+  "body": "Replace raw SQL with typed ORM calls. Rename fetchUser and fetchAllUsers to findUserById and listUsers. Add Database type constraint, ListOptions interface, and explicit return types across service, routes, and types.",
+  "breaking_change": null,
+  "reasoning": {
+    "type_classification": "Code restructuring: renames, type additions, ORM migration. No new user-facing behavior. 'refactor' is correct.",
+    "scope_selection": "3 files all in the 'users' domain → scope is 'users'.",
+    "subject_char_count": "48 characters — within 50-char limit."
+  }
+}

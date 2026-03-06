@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes a dedicated Error Responses section explaining the standard error format",
+      "passed": true,
+      "evidence": "Has an error handling section with basic error format"
+    },
+    {
+      "text": "The standard error response schema is documented with fields: code, message, and details",
+      "passed": false,
+      "evidence": "Shows code and message but omits details field"
+    },
+    {
+      "text": "Each endpoint documents all possible error status codes (400, 404, 409, 422, 429, 500)",
+      "passed": false,
+      "evidence": "Only 404 and 409 mentioned on some endpoints. No comprehensive per-endpoint error listing."
+    },
+    {
+      "text": "Validation errors (400/422) include details about which fields failed and why",
+      "passed": false,
+      "evidence": "No validation error details documented"
+    },
+    {
+      "text": "Custom error classes (NotFoundError, ConflictError) are mapped to their HTTP status codes",
+      "passed": false,
+      "evidence": "Mentions error codes but doesn't map class names to status codes"
+    },
+    {
+      "text": "Zod schema validation rules are reflected in parameter constraints (min, max, regex, enum)",
+      "passed": false,
+      "evidence": "No Zod constraints reflected in parameter documentation"
+    },
+    {
+      "text": "At least one error response example is shown per endpoint with realistic error data",
+      "passed": false,
+      "evidence": "No error response examples shown"
+    },
+    {
+      "text": "The OpenAPI spec includes error response schemas in the components section",
+      "passed": false,
+      "evidence": "No OpenAPI spec produced"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

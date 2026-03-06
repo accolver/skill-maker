@@ -1,0 +1,12 @@
+{
+  "type": "feat",
+  "scope": "string-helpers",
+  "subject": "add truncate and URL utils",
+  "body": "Add truncate() for ellipsis-based string shortening with configurable max length, and isValidUrl() for URL format validation using the native URL constructor.",
+  "breaking_change": null,
+  "reasoning": {
+    "type_classification": "Two new exported functions — new functionality → 'feat'.",
+    "scope_selection": "Single file src/utils/string-helpers.ts → 'string-helpers'.",
+    "subject_char_count": "49 characters — verified within 50-char limit."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes an Authentication section explaining JWT Bearer token format",
+      "passed": true,
+      "evidence": "Brief auth section mentions JWT Bearer tokens"
+    },
+    {
+      "text": "Each endpoint clearly indicates whether authentication is required or optional",
+      "passed": false,
+      "evidence": "Write endpoints mention 'requires auth' but GET endpoints don't explicitly state they're public"
+    },
+    {
+      "text": "Rate limiting is documented with specific limits (100/min authenticated, 20/min anonymous)",
+      "passed": false,
+      "evidence": "No rate limiting documentation"
+    },
+    {
+      "text": "Paginated endpoints document pagination parameters (page, per_page or cursor) with defaults",
+      "passed": false,
+      "evidence": "Mentions pagination exists but no parameter details or defaults"
+    },
+    {
+      "text": "Response schema for list endpoints shows the pagination envelope (items, total, has_more)",
+      "passed": false,
+      "evidence": "No response schemas or examples shown"
+    },
+    {
+      "text": "Public read endpoints (GET) are distinguished from authenticated write endpoints (POST, PUT, DELETE)",
+      "passed": false,
+      "evidence": "Vague distinction. GET endpoints don't state they're public."
+    },
+    {
+      "text": "At least one curl example includes the Authorization header with a Bearer token",
+      "passed": false,
+      "evidence": "No curl examples in output"
+    },
+    {
+      "text": "The OpenAPI spec includes a securitySchemes component defining the JWT bearer scheme",
+      "passed": false,
+      "evidence": "No OpenAPI spec produced"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "refactor",
+  "scope": null,
+  "subject": "Refactored user service and routes",
+  "body": "Renamed fetchUser to findUserById, fetchAllUsers to listUsers. Updated routes to use new method names. Added ListOptions type. Replaced raw SQL with ORM calls.",
+  "breaking_change": null,
+  "reasoning": {
+    "type_classification": "This is restructuring code, so refactor is correct.",
+    "scope_selection": "Multiple files changed, hard to pick one scope."
+  }
+}

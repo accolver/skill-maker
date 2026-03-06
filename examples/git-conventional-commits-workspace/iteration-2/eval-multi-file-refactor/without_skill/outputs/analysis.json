@@ -1,0 +1,7 @@
+{
+  "type": "refactor",
+  "scope": null,
+  "subject": "Improve user service with better naming",
+  "body": "Renamed methods in UserService for clarity: fetchUser → findUserById, fetchAllUsers → listUsers. Updated routes and added TypeScript types.",
+  "breaking_change": null
+}

@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "Missing 500 error documentation even though source code has catch blocks returning 500. Need to document all error paths including server errors.",
+      "timestamp": "2026-03-06T10:15:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Very minimal output. No tables, no examples, no OpenAPI spec.",
+      "timestamp": "2026-03-06T10:16:00.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "Good overall but OpenAPI global security should reference bearerAuth as optional, not empty array.",
+      "timestamp": "2026-03-06T10:17:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Missing rate limiting entirely. No curl examples. No response schemas.",
+      "timestamp": "2026-03-06T10:18:00.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "Error format section is good but need error examples on every endpoint, not just some. Also missing 429 and 500 on individual endpoints.",
+      "timestamp": "2026-03-06T10:19:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "Missed the details field in error schema. No Zod constraints reflected. No OpenAPI output.",
+      "timestamp": "2026-03-06T10:20:00.000Z"
+    }
+  ],
+  "status": "complete"
+}

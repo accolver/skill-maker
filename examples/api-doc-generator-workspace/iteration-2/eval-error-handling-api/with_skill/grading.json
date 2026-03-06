@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes a dedicated Error Responses section explaining the standard error format",
+      "passed": true,
+      "evidence": "Comprehensive Error Response Format section with JSON template, field descriptions, and error code reference table"
+    },
+    {
+      "text": "The standard error response schema is documented with fields: code, message, and details",
+      "passed": true,
+      "evidence": "Error schema documented with code (string), message (string), and details (optional object) with examples"
+    },
+    {
+      "text": "Each endpoint documents all possible error status codes (400, 404, 409, 422, 429, 500)",
+      "passed": false,
+      "evidence": "Endpoints now document 404, 409, 422, and 500. Still missing 429 (RateLimitError) on individual endpoints - only in the global error codes table."
+    },
+    {
+      "text": "Validation errors (400/422) include details about which fields failed and why",
+      "passed": true,
+      "evidence": "Validation error example shows field-level errors with specific messages from Zod"
+    },
+    {
+      "text": "Custom error classes (NotFoundError, ConflictError) are mapped to their HTTP status codes",
+      "passed": true,
+      "evidence": "Error codes table maps all custom classes: NotFoundError->404, ConflictError->409, ValidationError->422, RateLimitError->429, UnauthorizedError->401, ForbiddenError->403"
+    },
+    {
+      "text": "Zod schema validation rules are reflected in parameter constraints (min, max, regex, enum)",
+      "passed": true,
+      "evidence": "Request body tables show Zod constraints: name 2-200 chars, sku regex, price positive max 999999.99, category enum, stock_quantity min 0"
+    },
+    {
+      "text": "At least one error response example is shown per endpoint with realistic error data",
+      "passed": true,
+      "evidence": "Each endpoint now has at least one error response JSON example with realistic data"
+    },
+    {
+      "text": "The OpenAPI spec includes error response schemas in the components section",
+      "passed": true,
+      "evidence": "components.schemas.ErrorResponse and components.responses with ValidationError, NotFoundError, ConflictError, RateLimitError"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

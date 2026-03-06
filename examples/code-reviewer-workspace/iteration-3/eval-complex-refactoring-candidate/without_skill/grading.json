@@ -1,0 +1,13 @@
+{
+  "assertion_results": [
+    { "text": "Review identifies the deep nesting (5+ levels) as a maintainability concern", "passed": true, "evidence": "States '5+ levels of if/else nesting'" },
+    { "text": "Review identifies magic numbers (tax rate 0.08, shipping 5.99, currency rates, thresholds) and suggests using named constants", "passed": true, "evidence": "Lists specific numbers and says 'should be named constants'" },
+    { "text": "Review identifies the hardcoded database credentials ('root', 'password123') as a critical or high severity security finding", "passed": false, "evidence": "Mentions hardcoded credentials but no severity level assigned" },
+    { "text": "Review identifies duplicated code (currency conversion logic and database insertion appear twice) and suggests extraction", "passed": true, "evidence": "States 'currency conversion and database insertion logic is duplicated'" },
+    { "text": "Review suggests extracting the long method into smaller, focused methods", "passed": true, "evidence": "States 'Refactor this into smaller, testable methods'" },
+    { "text": "Each finding includes a severity level (critical, high, medium, low, or info)", "passed": false, "evidence": "No severity levels assigned to any finding" },
+    { "text": "Each finding includes a specific fix suggestion with code or clear approach", "passed": false, "evidence": "Suggestions are directional ('use environment variables', 'extract shared methods') without code" },
+    { "text": "Review includes a summary section with overall assessment", "passed": false, "evidence": "No structured summary with assessment rating" }
+  ],
+  "summary": { "passed": 4, "failed": 4, "total": 8, "pass_rate": 0.5 }
+}

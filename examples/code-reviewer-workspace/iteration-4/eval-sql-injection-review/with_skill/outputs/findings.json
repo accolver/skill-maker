@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "context": "Flask API with SQLite string concatenation in queries.",
+    "overall_assessment": "REJECT",
+    "total_findings": 5,
+    "by_severity": { "critical": 2, "high": 1, "medium": 1, "low": 1, "info": 0 },
+    "by_category": { "security": 2, "bug": 2, "performance": 0, "style": 1, "maintainability": 0, "testing": 0 }
+  },
+  "findings": [
+    { "severity": "critical", "category": "security", "title": "SQL injection in search_users", "location": "search_users()", "issue": "String concatenation in SQL", "suggestion": "Parameterized queries" },
+    { "severity": "critical", "category": "security", "title": "SQL injection in delete_user", "location": "delete_user()", "issue": "String concatenation in SQL", "suggestion": "Parameterized queries" },
+    { "severity": "high", "category": "bug", "title": "Resource leak", "location": "Both endpoints", "issue": "Connections never closed", "suggestion": "Context manager" },
+    { "severity": "medium", "category": "bug", "title": "No authorization on DELETE", "location": "delete_user()", "issue": "Unauthenticated deletion", "suggestion": "Auth middleware" },
+    { "severity": "low", "category": "style", "title": "Missing type hints", "location": "Both functions", "issue": "No documentation", "suggestion": "Add type hints" }
+  ]
+}

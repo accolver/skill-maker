@@ -1,0 +1,15 @@
+{
+  "summary": {
+    "context": "Express.js order handler with nested DB queries.",
+    "overall_assessment": "NEEDS CHANGES",
+    "total_findings": 4,
+    "by_severity": { "critical": 0, "high": 2, "medium": 1, "low": 1, "info": 0 },
+    "by_category": { "security": 0, "bug": 2, "performance": 1, "style": 1, "maintainability": 0, "testing": 0 }
+  },
+  "findings": [
+    { "severity": "high", "category": "performance", "title": "N+1 query pattern", "location": "Nested loops", "issue": "Multiplicative queries", "suggestion": "JOIN query" },
+    { "severity": "high", "category": "bug", "title": "No error handling", "location": "Entire function", "issue": "Unhandled rejections", "suggestion": "try-catch" },
+    { "severity": "medium", "category": "bug", "title": "No userId validation", "location": "req.params.userId", "issue": "Invalid input", "suggestion": "parseInt + check" },
+    { "severity": "low", "category": "style", "title": "SELECT *", "location": "All queries", "issue": "Fragile", "suggestion": "Explicit columns" }
+  ]
+}

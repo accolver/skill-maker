@@ -1,0 +1,7 @@
+refactor: Refactored user service and routes
+
+- Renamed fetchUser to findUserById
+- Renamed fetchAllUsers to listUsers
+- Updated routes to use new method names
+- Added ListOptions type
+- Replaced raw SQL with ORM calls

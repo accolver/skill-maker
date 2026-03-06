@@ -1,0 +1,39 @@
+{
+  "skill_name": "git-conventional-commits",
+  "iteration": 3,
+  "timestamp": "2026-03-06T11:00:00.000Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": { "mean": 1.0, "stddev": 0.0 },
+      "time_seconds": { "mean": 10.17, "stddev": 1.29 },
+      "tokens": { "mean": 5060, "stddev": 571 }
+    },
+    "without_skill": {
+      "pass_rate": { "mean": 0.72, "stddev": 0.02 },
+      "time_seconds": { "mean": 5.67, "stddev": 0.47 },
+      "tokens": { "mean": 3143, "stddev": 228 }
+    },
+    "delta": {
+      "pass_rate": 0.28,
+      "time_seconds": 4.5,
+      "tokens": 1917
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "simple-feature",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 8.6, "tokens": 4400 },
+      "without_skill": { "pass_rate": 0.71, "time_seconds": 5.1, "tokens": 2900 }
+    },
+    {
+      "eval_name": "bugfix-with-breaking",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 10.8, "tokens": 5300 },
+      "without_skill": { "pass_rate": 0.75, "time_seconds": 5.9, "tokens": 3180 }
+    },
+    {
+      "eval_name": "multi-file-refactor",
+      "with_skill": { "pass_rate": 1.0, "time_seconds": 11.1, "tokens": 5480 },
+      "without_skill": { "pass_rate": 0.71, "time_seconds": 6.0, "tokens": 3350 }
+    }
+  ]
+}

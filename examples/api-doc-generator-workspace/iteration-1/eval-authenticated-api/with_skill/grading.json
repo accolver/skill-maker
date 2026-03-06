@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes an Authentication section explaining JWT Bearer token format",
+      "passed": true,
+      "evidence": "Authentication section present with JWT Bearer token format, header example 'Authorization: Bearer <your-jwt-token>', and token payload description"
+    },
+    {
+      "text": "Each endpoint clearly indicates whether authentication is required or optional",
+      "passed": true,
+      "evidence": "Each endpoint marked with bold text: 'Public - no auth required' or 'Requires authentication' or 'Requires moderator role or higher'"
+    },
+    {
+      "text": "Rate limiting is documented with specific limits (100/min authenticated, 20/min anonymous)",
+      "passed": true,
+      "evidence": "Rate Limiting section with table showing Authenticated: 100 requests/1 minute, Anonymous: 20 requests/1 minute"
+    },
+    {
+      "text": "Paginated endpoints document pagination parameters (page, per_page or cursor) with defaults",
+      "passed": true,
+      "evidence": "GET /api/posts has page (default: 1) and per_page (default: 20) documented. GET /api/posts/{post_id}/comments has page (default: 1) and per_page (default: 50)"
+    },
+    {
+      "text": "Response schema for list endpoints shows the pagination envelope (items, total, has_more)",
+      "passed": true,
+      "evidence": "GET /api/posts response example shows items array, total: 87, page: 1, per_page: 20, has_more: true"
+    },
+    {
+      "text": "Public read endpoints (GET) are distinguished from authenticated write endpoints (POST, PUT, DELETE)",
+      "passed": true,
+      "evidence": "GET endpoints marked 'Public - no auth required', POST/PUT/DELETE marked 'Requires authentication' or 'Requires moderator role'"
+    },
+    {
+      "text": "At least one curl example includes the Authorization header with a Bearer token",
+      "passed": true,
+      "evidence": "POST /api/posts curl example includes '-H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIs...\"'"
+    },
+    {
+      "text": "The OpenAPI spec includes a securitySchemes component defining the JWT bearer scheme",
+      "passed": false,
+      "evidence": "securitySchemes present with bearerAuth type http/bearer/JWT, but the global security array is empty [] instead of referencing bearerAuth as optional. Individual paths correctly use security: [{ bearerAuth: [] }]"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

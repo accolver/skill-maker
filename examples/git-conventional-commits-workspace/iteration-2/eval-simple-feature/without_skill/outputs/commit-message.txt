@@ -1,0 +1,4 @@
+feat: Add truncate and URL validation helpers
+
+Added two new utility functions to string-helpers.ts: truncate() for
+shortening strings with ellipsis, and isValidUrl() for checking URL format.

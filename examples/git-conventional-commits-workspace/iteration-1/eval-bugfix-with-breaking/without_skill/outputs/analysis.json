@@ -1,0 +1,11 @@
+{
+  "type": "fix",
+  "scope": null,
+  "subject": "Update authentication to throw errors",
+  "body": "Changed the authenticate function to throw RateLimitError instead of returning null. Also updated the AuthResult interface to use permissions instead of role.",
+  "breaking_change": null,
+  "reasoning": {
+    "type_classification": "This fixes the null return issue, so fix is appropriate.",
+    "scope_selection": "Could be auth or api, not sure which convention to follow."
+  }
+}

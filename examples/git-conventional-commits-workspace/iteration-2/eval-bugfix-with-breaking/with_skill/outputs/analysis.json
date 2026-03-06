@@ -1,0 +1,13 @@
+{
+  "type": "fix",
+  "scope": "auth",
+  "subject": "throw on missing or invalid tokens",
+  "body": "authenticate() now throws RateLimitError instead of returning null for missing or invalid tokens. AuthResult replaces 'role: string' with 'permissions: string[]' for finer-grained access control.",
+  "breaking_change": "authenticate() return type changed from AuthResult | null to AuthResult. Callers using null checks must switch to try/catch. The 'role' field is removed in favor of 'permissions: string[]'.",
+  "reasoning": {
+    "type_classification": "Primary intent: fix the silent null return. 'fix' is correct.",
+    "scope_selection": "Changes in src/api/auth.ts → scope is 'auth'.",
+    "subject_char_count": "47 characters — within 50-char limit.",
+    "breaking_change_detection": "Return type narrowed (removed null), interface field renamed. Both are breaking."
+  }
+}

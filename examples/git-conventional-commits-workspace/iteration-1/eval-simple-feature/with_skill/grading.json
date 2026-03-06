@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output starts with 'feat' as the commit type since new functions are being added",
+      "passed": true,
+      "evidence": "First line starts with 'feat(string-helpers): add truncate and URL utils'"
+    },
+    {
+      "text": "Output includes a scope in parentheses (e.g., 'string-helpers' or 'utils')",
+      "passed": true,
+      "evidence": "Scope is '(string-helpers)' which matches the module name"
+    },
+    {
+      "text": "Subject line (first line) is 50 characters or fewer in total",
+      "passed": true,
+      "evidence": "'feat(string-helpers): add truncate and URL utils' is 49 characters"
+    },
+    {
+      "text": "Subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+      "passed": true,
+      "evidence": "Subject uses 'add' — imperative mood"
+    },
+    {
+      "text": "First letter after the colon-space is lowercase",
+      "passed": true,
+      "evidence": "'add truncate...' — 'a' is lowercase"
+    },
+    {
+      "text": "Subject line does not end with a period",
+      "passed": true,
+      "evidence": "Subject ends with 'utils' — no period"
+    },
+    {
+      "text": "Output mentions both truncate and URL validation functionality",
+      "passed": true,
+      "evidence": "Subject mentions 'truncate and URL utils', body mentions 'truncate()' and 'isValidUrl()'"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

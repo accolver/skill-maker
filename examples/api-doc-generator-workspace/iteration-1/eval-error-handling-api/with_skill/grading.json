@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes a dedicated Error Responses section explaining the standard error format",
+      "passed": true,
+      "evidence": "Error Response Format section at top of doc with JSON example showing code, message, details structure"
+    },
+    {
+      "text": "The standard error response schema is documented with fields: code, message, and details",
+      "passed": true,
+      "evidence": "Error format documented with code (ERROR_CODE), message (Human-readable), and optional details field"
+    },
+    {
+      "text": "Each endpoint documents all possible error status codes (400, 404, 409, 422, 429, 500)",
+      "passed": false,
+      "evidence": "Endpoints document 404, 409, 422 errors. Missing 429 (RateLimitError) on individual endpoints and 500 (INTERNAL_ERROR). The error codes table lists them but per-endpoint coverage is incomplete."
+    },
+    {
+      "text": "Validation errors (400/422) include details about which fields failed and why",
+      "passed": true,
+      "evidence": "Validation Error Details section shows field-level errors with example: fields.name: ['String must contain at least 2 character(s)']"
+    },
+    {
+      "text": "Custom error classes (NotFoundError, ConflictError) are mapped to their HTTP status codes",
+      "passed": true,
+      "evidence": "Error Codes table maps NOT_FOUND to 404, CONFLICT to 409, VALIDATION_ERROR to 422, RATE_LIMITED to 429, etc."
+    },
+    {
+      "text": "Zod schema validation rules are reflected in parameter constraints (min, max, regex, enum)",
+      "passed": true,
+      "evidence": "Request body tables show constraints from Zod: name 2-200 chars, sku regex ^[A-Z]{2,4}-\\d{4,8}$, price positive max 999999.99, category enum, etc."
+    },
+    {
+      "text": "At least one error response example is shown per endpoint with realistic error data",
+      "passed": false,
+      "evidence": "GET /:id has a NOT_FOUND error example. POST /inventory has insufficient stock error example. But GET /products, POST /products, PUT, DELETE lack error response examples."
+    },
+    {
+      "text": "The OpenAPI spec includes error response schemas in the components section",
+      "passed": true,
+      "evidence": "components.schemas.ErrorResponse defined with code, message, details. components.responses includes ValidationError, NotFoundError, ConflictError with $ref to ErrorResponse schema."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

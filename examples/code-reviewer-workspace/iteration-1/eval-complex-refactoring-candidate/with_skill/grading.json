@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Review identifies the deep nesting (5+ levels) as a maintainability concern",
+      "passed": true,
+      "evidence": "Finding titled 'Deeply nested conditional structure (5+ levels)' with severity 'high' and category 'maintainability'"
+    },
+    {
+      "text": "Review identifies magic numbers (tax rate 0.08, shipping 5.99, currency rates, thresholds) and suggests using named constants",
+      "passed": true,
+      "evidence": "Finding titled 'Magic numbers throughout the code' lists 0.08, 5.99, 100, 10000, 0.85, 0.73, 110.0 and suggests named constants like TAX_RATE, STANDARD_SHIPPING"
+    },
+    {
+      "text": "Review identifies the hardcoded database credentials ('root', 'password123') as a critical or high severity security finding",
+      "passed": true,
+      "evidence": "Finding titled 'Hardcoded database credentials' with severity 'critical' and category 'security'"
+    },
+    {
+      "text": "Review identifies duplicated code (currency conversion logic and database insertion appear twice) and suggests extraction",
+      "passed": true,
+      "evidence": "Finding titled 'Duplicated currency conversion and database code' suggests extracting convertCurrency() and saveOrder() methods"
+    },
+    {
+      "text": "Review suggests extracting the long method into smaller, focused methods",
+      "passed": true,
+      "evidence": "Finding suggests extracting calculateTax(), calculateShipping(), convertCurrency(), saveOrder(), processStandardOrder(), processSubscriptionOrder()"
+    },
+    {
+      "text": "Each finding includes a severity level (critical, high, medium, low, or info)",
+      "passed": true,
+      "evidence": "All 6 findings have severity levels: 1 critical, 1 high, 3 medium, 1 low"
+    },
+    {
+      "text": "Each finding includes a specific fix suggestion with code or clear approach",
+      "passed": false,
+      "evidence": "Most findings include code diffs, but the 'Swallowed exceptions' finding only shows a partial fix without complete error handling approach"
+    },
+    {
+      "text": "Review includes a summary section with overall assessment",
+      "passed": true,
+      "evidence": "Review starts with 'Code Review Summary' including Context, Overall Assessment: NEEDS CHANGES, and Findings count"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

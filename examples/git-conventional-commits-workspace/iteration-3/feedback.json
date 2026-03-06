@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T11:05:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Same pattern: missing scope, capitalized first letter. These are consistent without-skill gaps.",
+      "timestamp": "2026-03-06T11:05:30.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T11:06:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Improved: got scope, lowercase first letter, correct length. Still missing BREAKING CHANGE footer — this is the hardest gap to close without explicit instructions.",
+      "timestamp": "2026-03-06T11:06:30.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-06T11:07:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "Missing scope and capitalized first letter. Got imperative mood and body right. Consistent pattern.",
+      "timestamp": "2026-03-06T11:07:30.000Z"
+    }
+  ],
+  "status": "complete"
+}

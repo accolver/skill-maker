@@ -1,0 +1,7 @@
+{
+  "type": "feat",
+  "scope": null,
+  "subject": "Add truncate and URL validation helpers",
+  "body": "Added two new utility functions to string-helpers.ts: truncate() for shortening strings with ellipsis, and isValidUrl() for checking URL format.",
+  "breaking_change": null
+}

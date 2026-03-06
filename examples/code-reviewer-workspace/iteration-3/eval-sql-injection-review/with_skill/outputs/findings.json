@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "context": "Two Flask API endpoints using SQLite with string concatenation in queries.",
+    "overall_assessment": "REJECT",
+    "total_findings": 5,
+    "by_severity": { "critical": 2, "high": 1, "medium": 1, "low": 1, "info": 0 },
+    "by_category": { "security": 2, "bug": 2, "performance": 0, "style": 1, "maintainability": 0, "testing": 0 }
+  },
+  "findings": [
+    { "severity": "critical", "category": "security", "title": "SQL injection in search_users", "location": "search_users()", "issue": "User input concatenated into SQL query", "suggestion": "Use parameterized queries with ? placeholder" },
+    { "severity": "critical", "category": "security", "title": "SQL injection in delete_user", "location": "delete_user()", "issue": "Path parameter concatenated into DELETE query", "suggestion": "Use parameterized queries" },
+    { "severity": "high", "category": "bug", "title": "Database connections never closed", "location": "Both endpoints", "issue": "Resource leak from unclosed connections", "suggestion": "Use context manager" },
+    { "severity": "medium", "category": "bug", "title": "No authorization on DELETE endpoint", "location": "delete_user()", "issue": "Unauthenticated deletion possible", "suggestion": "Add auth middleware" },
+    { "severity": "low", "category": "style", "title": "Missing type hints and docstrings", "location": "Both functions", "issue": "No documentation", "suggestion": "Add type hints and docstrings" }
+  ]
+}

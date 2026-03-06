@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Documentation includes a dedicated Error Responses section explaining the standard error format",
+      "passed": true,
+      "evidence": "Error Handling section at bottom shows the standard error format with code and message fields"
+    },
+    {
+      "text": "The standard error response schema is documented with fields: code, message, and details",
+      "passed": false,
+      "evidence": "Error format shows code and message but omits the 'details' field which is present in the source code's AppError class"
+    },
+    {
+      "text": "Each endpoint documents all possible error status codes (400, 404, 409, 422, 429, 500)",
+      "passed": false,
+      "evidence": "Only 404 and 409 mentioned on individual endpoints. No 422, 429, or 500 per-endpoint. No comprehensive error listing."
+    },
+    {
+      "text": "Validation errors (400/422) include details about which fields failed and why",
+      "passed": false,
+      "evidence": "No validation error details documented. No field-level error information."
+    },
+    {
+      "text": "Custom error classes (NotFoundError, ConflictError) are mapped to their HTTP status codes",
+      "passed": false,
+      "evidence": "Error section mentions VALIDATION_ERROR (422), NOT_FOUND (404), CONFLICT (409) but doesn't map the class names or cover all custom classes (RateLimitError, UnauthorizedError, ForbiddenError missing)"
+    },
+    {
+      "text": "Zod schema validation rules are reflected in parameter constraints (min, max, regex, enum)",
+      "passed": false,
+      "evidence": "POST endpoint lists required/optional fields but no constraints from Zod schemas (no min/max lengths, no regex for SKU, no enum values for category)"
+    },
+    {
+      "text": "At least one error response example is shown per endpoint with realistic error data",
+      "passed": false,
+      "evidence": "No error response examples shown for any endpoint. Only inline text like 'Returns 404 if not found'."
+    },
+    {
+      "text": "The OpenAPI spec includes error response schemas in the components section",
+      "passed": false,
+      "evidence": "No OpenAPI JSON spec was produced"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

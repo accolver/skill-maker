@@ -1,0 +1,177 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Product & Inventory API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/products": {
+      "get": {
+        "summary": "List products",
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer", "minimum": 1, "default": 1 } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 25 } },
+          { "name": "category", "in": "query", "schema": { "type": "string", "enum": ["electronics", "clothing", "food", "books", "other"] } },
+          { "name": "min_price", "in": "query", "schema": { "type": "number", "minimum": 0 } },
+          { "name": "max_price", "in": "query", "schema": { "type": "number", "maximum": 999999.99 } },
+          { "name": "in_stock", "in": "query", "schema": { "type": "boolean" } },
+          { "name": "sort_by", "in": "query", "schema": { "type": "string", "enum": ["name", "price", "created_at", "stock_quantity"], "default": "created_at" } },
+          { "name": "sort_order", "in": "query", "schema": { "type": "string", "enum": ["asc", "desc"], "default": "desc" } }
+        ],
+        "responses": {
+          "200": { "description": "Paginated product list" },
+          "422": { "$ref": "#/components/responses/ValidationError" }
+        }
+      },
+      "post": {
+        "summary": "Create product",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ProductCreate" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Product created" },
+          "409": { "$ref": "#/components/responses/ConflictError" },
+          "422": { "$ref": "#/components/responses/ValidationError" }
+        }
+      }
+    },
+    "/api/products/{id}": {
+      "get": {
+        "summary": "Get product",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Product details" },
+          "404": { "$ref": "#/components/responses/NotFoundError" }
+        }
+      },
+      "put": {
+        "summary": "Update product",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Product updated" },
+          "404": { "$ref": "#/components/responses/NotFoundError" },
+          "409": { "$ref": "#/components/responses/ConflictError" },
+          "422": { "$ref": "#/components/responses/ValidationError" }
+        }
+      },
+      "delete": {
+        "summary": "Delete product",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "204": { "description": "Product deleted" },
+          "404": { "$ref": "#/components/responses/NotFoundError" }
+        }
+      }
+    },
+    "/api/products/{id}/inventory": {
+      "post": {
+        "summary": "Adjust inventory",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/InventoryAdjust" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Inventory adjusted" },
+          "404": { "$ref": "#/components/responses/NotFoundError" },
+          "422": { "$ref": "#/components/responses/ValidationError" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProductCreate": {
+        "type": "object",
+        "required": ["name", "sku", "price", "category"],
+        "properties": {
+          "name": { "type": "string", "minLength": 2, "maxLength": 200 },
+          "sku": { "type": "string", "pattern": "^[A-Z]{2,4}-\\d{4,8}$" },
+          "price": { "type": "number", "exclusiveMinimum": 0, "maximum": 999999.99 },
+          "currency": { "type": "string", "enum": ["USD", "EUR", "GBP"], "default": "USD" },
+          "category": { "type": "string", "enum": ["electronics", "clothing", "food", "books", "other"] },
+          "description": { "type": "string", "maxLength": 5000 },
+          "stock_quantity": { "type": "integer", "minimum": 0, "default": 0 },
+          "tags": { "type": "array", "items": { "type": "string", "maxLength": 50 }, "maxItems": 20 },
+          "weight_kg": { "type": "number", "exclusiveMinimum": 0 },
+          "dimensions": { "$ref": "#/components/schemas/Dimensions" }
+        }
+      },
+      "Dimensions": {
+        "type": "object",
+        "required": ["length_cm", "width_cm", "height_cm"],
+        "properties": {
+          "length_cm": { "type": "number", "exclusiveMinimum": 0 },
+          "width_cm": { "type": "number", "exclusiveMinimum": 0 },
+          "height_cm": { "type": "number", "exclusiveMinimum": 0 }
+        }
+      },
+      "InventoryAdjust": {
+        "type": "object",
+        "required": ["adjustment", "reason"],
+        "properties": {
+          "adjustment": { "type": "integer" },
+          "reason": { "type": "string", "enum": ["restock", "sale", "damage", "return", "correction"] },
+          "reference_id": { "type": "string" }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": ["code", "message"],
+            "properties": {
+              "code": { "type": "string" },
+              "message": { "type": "string" },
+              "details": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "ValidationError": {
+        "description": "Validation failed",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+          }
+        }
+      },
+      "NotFoundError": {
+        "description": "Resource not found",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+          }
+        }
+      },
+      "ConflictError": {
+        "description": "Resource conflict",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+          }
+        }
+      }
+    }
+  }
+}
