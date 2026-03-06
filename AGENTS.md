@@ -152,6 +152,77 @@ The skill-maker eval loop will produce benchmark artifacts in the corresponding
 workspace directory. Results can be aggregated into the examples/README.md
 charts.
 
+## Markdown Formatting Guidelines
+
+SKILL.md files and documentation in this repo are rendered on GitHub. Follow
+these rules to avoid broken rendering:
+
+### Code fence nesting
+
+GitHub markdown uses backtick fences (`` ``` ``) for code blocks. When your
+content contains code blocks (e.g., showing example output that itself has
+fenced code), you **must** use a longer fence for the outer block:
+
+- Use `` ````` `` (5 backticks) to wrap content containing `` ``` `` (3
+  backticks)
+- Use `` ```` `` (4 backticks) to wrap content containing `` ``` `` (3
+  backticks)
+- Never nest fences of the same length — the inner fence will close the outer
+
+**Correct** — 5-backtick outer fence wrapping 3-backtick inner blocks:
+
+``````
+`````markdown
+## Example
+
+```json
+{ "key": "value" }
+```
+`````
+``````
+
+**Broken** — same-length fences cause the inner block to close the outer:
+
+````
+```markdown
+## Example
+
+```json
+{ "key": "value" }
+```
+```
+````
+
+The second `` ``` `` closes the first fence, and everything after renders as raw
+text. This is the most common rendering bug in this repo.
+
+### Mermaid chart legends
+
+Mermaid `xychart-beta` does not support legends. When using multiple `bar` or
+`line` datasets, always add a text legend immediately below the chart explaining
+what each color represents. Colors are assigned in palette order (first dataset
+= first color, second = second color):
+
+```
+> **Legend:** <span style="color: #4CAF50;">&#9632;</span> With Skill
+> &nbsp;&nbsp; <span style="color: #FF6B6B;">&#9632;</span> Without Skill
+```
+
+### YAML frontmatter in SKILL.md
+
+- The `description` field must be a **single line** — do not use YAML multiline
+  scalars (`>` or `|`) because minimal YAML parsers reject them
+- Keep the description under 1024 characters
+- The `name` field must be lowercase, match the directory name, and use only
+  `a-z`, `0-9`, and hyphens
+
+### General rules
+
+- Keep SKILL.md body under 500 lines; move heavy content to `references/`
+- Use tables for structured data (common mistakes, quick reference)
+- Prefer single concrete examples over multiple mediocre ones
+- Use `diff` language tag for before/after code comparisons
+
 ## Key Scripts
 
 All scripts require [Bun](https://bun.sh) and live in `skill-maker/scripts/`:

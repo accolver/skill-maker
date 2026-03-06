@@ -17,6 +17,9 @@ xychart-beta
     bar [72.3, 41.7, 16.7]
 ```
 
+> **Legend:** <span style="color: #4CAF50;">&#9632;</span> With Skill
+> &nbsp;&nbsp; <span style="color: #FF6B6B;">&#9632;</span> Without Skill
+
 | Skill                                                 | With Skill | Without Skill | Delta      |
 | ----------------------------------------------------- | ---------- | ------------- | ---------- |
 | [git-conventional-commits](#git-conventional-commits) | 100%       | 72.3%         | **+27.7%** |
@@ -36,10 +39,14 @@ xychart-beta
     title "With-Skill Pass Rate Across Iterations"
     x-axis "Iteration" [1, 2, 3, 4]
     y-axis "Pass Rate (%)" 70 --> 100
-    line "Git Commits" [100, 100, 100]
-    line "Code Review" [95.8, 100, 100, 100]
-    line "API Docs" [83.3, 95.8, 100]
+    line [100, 100, 100]
+    line [95.8, 100, 100, 100]
+    line [83.3, 95.8, 100]
 ```
+
+> **Legend:** <span style="color: #4CAF50;">&#9632;</span> Git Commits
+> &nbsp;&nbsp; <span style="color: #FF6B6B;">&#9632;</span> Code Review
+> &nbsp;&nbsp; <span style="color: #00BCD4;">&#9632;</span> API Docs
 
 | Skill                    | Iter 1 | Iter 2 | Iter 3 | Iter 4 | Plateau At |
 | ------------------------ | ------ | ------ | ------ | ------ | ---------- |
@@ -63,6 +70,9 @@ xychart-beta
     bar [10.2, 20.3, 43.1]
     bar [5.7, 11.4, 16.9]
 ```
+
+> **Legend:** <span style="color: #4CAF50;">&#9632;</span> With Skill
+> &nbsp;&nbsp; <span style="color: #FF6B6B;">&#9632;</span> Without Skill
 
 | Skill                    | Time (w/ skill) | Time (w/o skill) | Token (w/ skill) | Token (w/o skill) |
 | ------------------------ | --------------- | ---------------- | ---------------- | ----------------- |
