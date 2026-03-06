@@ -1,0 +1,34 @@
+[tools]
+bun = "latest"
+
+[tasks.lint]
+description = "Run prettier and eslint checks"
+dir = "web"
+run = "bun run lint"
+
+[tasks.check]
+description = "Run svelte-check type checking"
+dir = "web"
+run = "bun run check"
+
+[tasks.build]
+description = "Build the SvelteKit site"
+depends = ["lint", "check"]
+dir = "web"
+run = "bun run build"
+
+[tasks.dev]
+description = "Start the dev server on port 5179"
+dir = "web"
+run = "bun run dev"
+
+[tasks.deploy]
+description = "Build and deploy to Cloudflare Pages"
+depends = ["build"]
+dir = "web"
+run = "bunx wrangler pages deploy .svelte-kit/cloudflare --project-name skill-maker"
+
+[tasks.format]
+description = "Auto-format with prettier"
+dir = "web"
+run = "bun run format"
