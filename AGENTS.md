@@ -39,7 +39,7 @@ skill-maker/
     ├── git-conventional-commits/
     ├── code-reviewer/
     ├── api-doc-generator/
-    └── [7 planned skills]/
+    └── [5 planned skills]/
 ```
 
 ## How Examples Are Generated
@@ -130,17 +130,18 @@ enforce consistent application of knowledge the agent already has.
 
 ## Planned Examples
 
-Seven additional skills are scaffolded in `examples/` and ready to be built:
+Five additional skills are scaffolded in `examples/` and ready to be built. Each
+was selected for high predicted delta — tasks where agents have the knowledge
+but lack the structure, safety awareness, or output consistency that a skill
+enforces.
 
-| Skill                  | Domain                                               |
-| ---------------------- | ---------------------------------------------------- |
-| pdf-tools              | PDF extraction, form filling, merging                |
-| image-gif-tools        | Image/GIF processing with ffmpeg/ImageMagick         |
-| docker-manager         | Container lifecycle and Dockerfile optimization      |
-| security-analyst       | OWASP scanning, secret detection, auth review        |
-| code-refactoring       | Code smell detection, extraction, cleanup            |
-| infrastructure-as-code | Terraform, CloudFormation, Pulumi modules            |
-| debugging              | Systematic debugging, bisection, root cause analysis |
+| Skill               | Domain                                                   | Predicted Delta |
+| ------------------- | -------------------------------------------------------- | --------------- |
+| database-migration  | Safe, reversible migrations with rollback plans          | +70-80%         |
+| pr-description      | Structured PR descriptions with testing instructions     | +60-70%         |
+| error-handling      | Unified error taxonomy, codes, and propagation           | +65-75%         |
+| changelog-generator | Audience-aware changelogs with SemVer classification     | +55-65%         |
+| monitoring-setup    | Health checks, metrics, tracing, and alert configuration | +50-60%         |
 
 To build any planned skill:
 
