@@ -152,7 +152,6 @@ Description of what this endpoint does.
 ```json
 { "example": "value" }
 ```
-````
 
 **Response (200):**
 
@@ -170,18 +169,18 @@ Description of what this endpoint does.
 ```bash
 curl -X METHOD https://api.example.com/path ...
 ```
-
 ````
+
 **`openapi.json`** - OpenAPI 3.0 specification:
 
 ```json
 {
   "openapi": "3.0.3",
   "info": { "title": "API Name", "version": "1.0.0" },
-  "paths": { ... },
-  "components": { "schemas": { ... }, "securitySchemes": { ... } }
+  "paths": { "...": {} },
+  "components": { "schemas": { "...": {} }, "securitySchemes": { "...": {} } }
 }
-````
+```
 
 ## Checklist
 
@@ -261,17 +260,15 @@ router.get(
 
 **Output:** (excerpt from api-docs.md)
 
-```markdown
+````markdown
 # API Reference
 
 ## Authentication
 
 All endpoints require a Bearer token in the Authorization header:
-```
 
-Authorization: Bearer <your-jwt-token>
+    Authorization: Bearer <your-jwt-token>
 
-````
 ## Endpoints
 
 ### Users
@@ -282,10 +279,10 @@ List users with optional filtering and pagination.
 
 **Query Parameters:**
 
-| Name  | Type    | Required | Default | Description                              |
-| ----- | ------- | -------- | ------- | ---------------------------------------- |
-| page  | integer | No       | 1       | Page number (minimum: 1)                 |
-| limit | integer | No       | 20      | Results per page (1-100)                 |
+| Name  | Type    | Required | Default | Description                               |
+| ----- | ------- | -------- | ------- | ----------------------------------------- |
+| page  | integer | No       | 1       | Page number (minimum: 1)                  |
+| limit | integer | No       | 20      | Results per page (1-100)                  |
 | role  | string  | No       | -       | Filter by role: admin, user, or moderator |
 
 **Response (200 OK):**
@@ -304,7 +301,7 @@ List users with optional filtering and pagination.
   "page": 1,
   "limit": 20
 }
-````
+```
 
 **Error Responses:**
 
@@ -373,42 +370,51 @@ curl -X POST https://api.example.com/api/users \
   -H "Content-Type: application/json" \
   -d '{"email":"jane@example.com","name":"Jane Smith","role":"user","password":"secureP@ss123"}'
 ```
+````
 
-```
 ## Common mistakes
 
-| Mistake | Fix |
-| --- | --- |
-| Missing error responses | Check every `res.status()` call and error middleware. Document ALL non-2xx responses, not just the happy path. |
-| Undocumented auth requirements | Trace middleware chains. If `authenticate` is applied to a router, ALL sub-routes require auth. |
-| No request/response examples | Generate examples for every endpoint. Use realistic data, not `"string"` or `"test"`. |
-| Ignoring query parameters | Search for `req.query`, `request.args`, `@Query()` — these are often undocumented. |
-| Missing parameter constraints | Document min/max, regex patterns, enum values — not just the type. |
-| Incomplete OpenAPI spec | Validate the JSON against the OpenAPI 3.0 schema. Common gaps: missing `required` arrays, wrong `$ref` paths. |
-| Documenting internal routes | Skip health checks, metrics endpoints, and internal admin routes unless explicitly requested. |
-| Inconsistent formatting | Use the same table structure and section order for every endpoint. Consistency aids scanning. |
+| Mistake                        | Fix                                                                                                            |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| Missing error responses        | Check every `res.status()` call and error middleware. Document ALL non-2xx responses, not just the happy path. |
+| Undocumented auth requirements | Trace middleware chains. If `authenticate` is applied to a router, ALL sub-routes require auth.                |
+| No request/response examples   | Generate examples for every endpoint. Use realistic data, not `"string"` or `"test"`.                          |
+| Ignoring query parameters      | Search for `req.query`, `request.args`, `@Query()` — these are often undocumented.                             |
+| Missing parameter constraints  | Document min/max, regex patterns, enum values — not just the type.                                             |
+| Incomplete OpenAPI spec        | Validate the JSON against the OpenAPI 3.0 schema. Common gaps: missing `required` arrays, wrong `$ref` paths.  |
+| Documenting internal routes    | Skip health checks, metrics endpoints, and internal admin routes unless explicitly requested.                  |
+| Inconsistent formatting        | Use the same table structure and section order for every endpoint. Consistency aids scanning.                  |
 
 ## Quick reference
 
-| Operation | How |
-| --- | --- |
-| Find Express routes | Search for `router.get\|post\|put\|delete\|patch` |
-| Find FastAPI routes | Search for `@app.get\|post\|put\|delete\|patch` or `@router.` |
-| Find auth middleware | Search for `authenticate`, `requireAuth`, `jwt_required`, `@login_required` |
-| Find validation | Search for `body()`, `param()`, `query()`, Zod schemas, Pydantic models |
-| Find error handling | Search for `res.status(4`, `raise HTTP`, `throw new`, custom error classes |
-| Build OpenAPI paths | One entry per unique path, methods nested under path object |
-| Build OpenAPI schemas | Extract from TypeScript types, Pydantic models, or validation schemas |
+| Operation             | How                                                                         |
+| --------------------- | --------------------------------------------------------------------------- |
+| Find Express routes   | Search for `router.get\|post\|put\|delete\|patch`                           |
+| Find FastAPI routes   | Search for `@app.get\|post\|put\|delete\|patch` or `@router.`               |
+| Find auth middleware  | Search for `authenticate`, `requireAuth`, `jwt_required`, `@login_required` |
+| Find validation       | Search for `body()`, `param()`, `query()`, Zod schemas, Pydantic models     |
+| Find error handling   | Search for `res.status(4`, `raise HTTP`, `throw new`, custom error classes  |
+| Build OpenAPI paths   | One entry per unique path, methods nested under path object                 |
+| Build OpenAPI schemas | Extract from TypeScript types, Pydantic models, or validation schemas       |
 
 ## Key principles
 
-1. **Document every parameter** - Every path param, query param, header, and body field must appear in the docs. Undocumented parameters are the #1 source of API integration bugs.
+1. **Document every parameter** - Every path param, query param, header, and
+   body field must appear in the docs. Undocumented parameters are the #1 source
+   of API integration bugs.
 
-2. **Include realistic examples** - Every endpoint needs a curl example with realistic (but fake) data, a success response, and at least one error response. Developers copy-paste from docs; make it work.
+2. **Include realistic examples** - Every endpoint needs a curl example with
+   realistic (but fake) data, a success response, and at least one error
+   response. Developers copy-paste from docs; make it work.
 
-3. **Show error cases explicitly** - Document every error status code with its trigger condition and response body. Developers spend more time debugging errors than writing happy-path code.
+3. **Show error cases explicitly** - Document every error status code with its
+   trigger condition and response body. Developers spend more time debugging
+   errors than writing happy-path code.
 
-4. **Maintain consistent structure** - Every endpoint section must follow the same format: description, parameters table, request body, response, errors, example. Consistency lets developers scan quickly.
+4. **Maintain consistent structure** - Every endpoint section must follow the
+   same format: description, parameters table, request body, response, errors,
+   example. Consistency lets developers scan quickly.
 
-5. **Dual output format** - Always produce both human-readable Markdown and machine-readable OpenAPI JSON. The Markdown is for developers reading docs; the OpenAPI spec is for tooling (Postman, SDK generators, API gateways).
-```
+5. **Dual output format** - Always produce both human-readable Markdown and
+   machine-readable OpenAPI JSON. The Markdown is for developers reading docs;
+   the OpenAPI spec is for tooling (Postman, SDK generators, API gateways).

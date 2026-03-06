@@ -157,7 +157,6 @@ why it matters] **Suggestion**: [Specific code or approach to fix it]
 - problematic code
 + suggested fix
 ```
-````
 
 ---
 
@@ -166,8 +165,8 @@ why it matters] **Suggestion**: [Specific code or approach to fix it]
 ## Recommendations
 
 [2-3 sentences on the most important things to address before merging]
-
 ````
+
 Also produce a structured `findings.json`:
 
 ```json
@@ -176,8 +175,20 @@ Also produce a structured `findings.json`:
     "context": "Brief description",
     "overall_assessment": "NEEDS CHANGES",
     "total_findings": 5,
-    "by_severity": { "critical": 1, "high": 1, "medium": 2, "low": 1, "info": 0 },
-    "by_category": { "security": 1, "bug": 1, "performance": 1, "style": 1, "maintainability": 1 }
+    "by_severity": {
+      "critical": 1,
+      "high": 1,
+      "medium": 2,
+      "low": 1,
+      "info": 0
+    },
+    "by_category": {
+      "security": 1,
+      "bug": 1,
+      "performance": 1,
+      "style": 1,
+      "maintainability": 1
+    }
   },
   "findings": [
     {
@@ -191,7 +202,7 @@ Also produce a structured `findings.json`:
     }
   ]
 }
-````
+```
 
 ## Example
 
