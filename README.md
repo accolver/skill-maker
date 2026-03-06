@@ -90,8 +90,8 @@ Or clone this repo directly into your project:
 ```bash
 cd /path/to/your/project
 mkdir -p .agents/skills
-git clone git@github.com:accolver/skill-skill.git .agents/skills/skill-skill
-# The skill is at .agents/skills/skill-skill/skill-maker/
+git clone git@github.com:accolver/skill-maker.git .agents/skills/skill-maker-repo
+# The skill is at .agents/skills/skill-maker-repo/skill-maker/
 ```
 
 > **Note:** Some clients scan `.agents/skills/` at the project root for local
