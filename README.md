@@ -5,6 +5,10 @@ guides an AI coding agent through the full lifecycle: intent capture, drafting a
 SKILL.md, running an eval loop with subagents, refining based on grading
 signals, and optimizing the description for trigger accuracy.
 
+**[Visit skill-maker.pages.dev](https://skill-maker.pages.dev)** for an
+interactive overview of how it works, benchmark results, and quick-start install
+commands.
+
 The eval loop is the core — it spawns isolated subagents per test case, grades
 assertions with bundled Bun TypeScript scripts, aggregates benchmarks, and
 iterates until pass_rate plateaus (delta < 2% for 3 consecutive iterations) or
@@ -34,16 +38,28 @@ skill-maker/
 - [Bun](https://bun.sh) — all bundled scripts require Bun
   (`bun run scripts/<name>.ts`)
 
-## Installation
+## Quick install
+
+```bash
+git clone https://github.com/accolver/skill-maker.git
+cd skill-maker
+mkdir -p ~/.agents/skills
+cp -r skill-maker ~/.agents/skills/skill-maker
+```
+
+## Installation details
 
 The skill follows the
 [Agent Skills specification](https://agentskills.io/specification). Install it
 **globally** (available to all projects) or **locally** (scoped to one project).
 
+All commands below assume you have cloned the repo and are inside it
+(`cd skill-maker`).
+
 ### Global installation
 
-Global skills are available across all your projects. Copy the `skill-maker`
-directory to your global skills location.
+Global skills are available across all your projects. Copy the inner
+`skill-maker/` directory (the skill) to your global skills location.
 
 **Generic (any Agent Skills-compatible client):**
 
@@ -69,7 +85,6 @@ cp -r skill-maker ~/.config/opencode/skills/skill-maker
 **Codex:**
 
 ```bash
-# Codex reads skills from ~/.agents/skills by default
 mkdir -p ~/.agents/skills
 cp -r skill-maker ~/.agents/skills/skill-maker
 ```
@@ -82,16 +97,7 @@ project's `.agents/skills/` folder.
 ```bash
 cd /path/to/your/project
 mkdir -p .agents/skills
-cp -r /path/to/skill-maker .agents/skills/skill-maker
-```
-
-Or clone this repo directly into your project:
-
-```bash
-cd /path/to/your/project
-mkdir -p .agents/skills
-git clone git@github.com:accolver/skill-maker.git .agents/skills/skill-maker-repo
-# The skill is at .agents/skills/skill-maker-repo/skill-maker/
+cp -r /path/to/skill-maker/skill-maker .agents/skills/skill-maker
 ```
 
 > **Note:** Some clients scan `.agents/skills/` at the project root for local
