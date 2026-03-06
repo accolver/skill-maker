@@ -1,0 +1,46 @@
+{
+  "skill_name": "git-commit-helper",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just added a new authentication module to the API package in our monorepo. The files are packages/api/src/auth/middleware.ts (new, 85 lines) and packages/api/src/auth/types.ts (new, 22 lines). I also updated packages/api/src/index.ts to register the auth routes (3 lines added). Can you write me a commit message?",
+      "expected_output": "A conventional commit message with type 'feat', scope 'api', imperative mood subject describing the new auth module, and optionally a body with more detail.",
+      "files": [],
+      "assertions": [
+        "The commit message starts with 'feat(api):' because new source files were added to the api package",
+        "The subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+        "The subject line starts with a lowercase letter after the colon and space",
+        "The subject line does not end with a period",
+        "The total first line (type + scope + subject) is under 72 characters",
+        "The commit message mentions authentication or auth in the subject or body"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I fixed a date parsing bug. Changed 2 lines in src/utils/date.ts — the month was off by one because of zero-indexed months in JavaScript. No other files changed. Write a commit message for this.",
+      "expected_output": "A conventional commit message with type 'fix', no scope or scope 'utils', imperative mood subject about fixing the date parsing bug.",
+      "files": [],
+      "assertions": [
+        "The commit message starts with 'fix' as the type prefix because this is a bug fix",
+        "The subject line uses imperative mood",
+        "The subject line starts with a lowercase letter after the colon and space",
+        "The subject line does not end with a period",
+        "The commit message references the off-by-one error or month calculation issue",
+        "The total first line is under 72 characters"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I updated the GitHub Actions workflow file at .github/workflows/ci.yml to add a new linting step, and I also updated .github/workflows/deploy.yml to use Node 20 instead of Node 18. Generate a commit message.",
+      "expected_output": "A conventional commit message with type 'ci', no scope needed, describing the CI configuration updates.",
+      "files": [],
+      "assertions": [
+        "The commit message uses 'ci' as the type prefix because only CI configuration files changed",
+        "The subject line uses imperative mood",
+        "The subject line starts with a lowercase letter after the colon and space",
+        "The subject line does not end with a period",
+        "The commit message mentions the CI/workflow changes (linting step or Node version update)"
+      ]
+    }
+  ]
+}

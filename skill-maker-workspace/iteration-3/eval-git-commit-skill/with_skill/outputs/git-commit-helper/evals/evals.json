@@ -1,0 +1,45 @@
+{
+  "skill_name": "git-commit-helper",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just staged some changes. I added a new OAuth2 login flow in packages/auth/src/oauth.ts and updated packages/auth/src/index.ts to export it. Can you write me a commit message?",
+      "expected_output": "A conventional commit message with type 'feat', scope 'auth' (detected from packages/auth/), imperative mood description, lowercase after colon, no trailing period, under 72 chars on the first line. Should mention OAuth2 or login functionality.",
+      "files": [],
+      "assertions": [
+        "Output contains a commit message starting with 'feat(auth):'",
+        "The commit message description uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+        "The first line of the commit message is under 72 characters",
+        "The description after the colon starts with a lowercase letter",
+        "No period at the end of the description line",
+        "The message references OAuth2 or OAuth or login functionality"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I fixed a bug where the date picker was showing the wrong timezone offset during daylight saving time transitions. The change is a one-line fix in src/utils/date.ts. Please generate a commit message for my staged changes.",
+      "expected_output": "A conventional commit message with type 'fix', no scope (since it's not in a monorepo package directory), imperative mood, describing the timezone/DST bug fix. Should be concise since it's a small change.",
+      "files": [],
+      "assertions": [
+        "Output contains a commit message starting with 'fix:' (no scope since src/ is not a monorepo package)",
+        "The commit message mentions timezone, DST, or daylight saving",
+        "The description uses imperative mood",
+        "The first line is under 72 characters",
+        "The description starts with a lowercase letter after the colon"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I've updated the CI pipeline config in .github/workflows/ci.yml and also changed the Dockerfile to use a newer Node base image. Can you write a commit message for these staged changes?",
+      "expected_output": "A conventional commit message. Since changes span CI config and build config, the type could be 'ci' or 'build' or 'chore'. No monorepo scope since these are root-level config files. Should describe both changes or suggest splitting into separate commits.",
+      "files": [],
+      "assertions": [
+        "Output contains a conventional commit message with a valid type prefix (ci, build, or chore)",
+        "The commit message does not include a monorepo scope in parentheses",
+        "The description uses imperative mood and starts with lowercase after the colon",
+        "The first line is under 72 characters",
+        "The output mentions or addresses both CI and Docker/Node changes"
+      ]
+    }
+  ]
+}

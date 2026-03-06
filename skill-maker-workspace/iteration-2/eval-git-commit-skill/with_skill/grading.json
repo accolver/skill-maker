@@ -1,0 +1,65 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-git-commit-skill/with_skill/outputs/git-commit-helper/SKILL.md (221 lines)"
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Frontmatter contains name: git-commit-helper and description: 'Analyzes staged git changes and generates conventional commit messages...'"
+    },
+    {
+      "text": "The name field uses only lowercase letters, numbers, and hyphens",
+      "passed": true,
+      "evidence": "name: git-commit-helper — matches pattern [a-z0-9-]+"
+    },
+    {
+      "text": "The description includes 'Use when' trigger conditions",
+      "passed": true,
+      "evidence": "Description contains: 'Use when writing commit messages, committing code, generating changelogs, asking about conventional commits, or when the user mentions git commit, commit message, staged changes, or conventional commits.'"
+    },
+    {
+      "text": "The SKILL.md body contains a numbered workflow or step-by-step instructions",
+      "passed": true,
+      "evidence": "Body contains numbered workflow: '### 1. Gather staged changes', '### 2. Determine the commit type', '### 3. Determine the scope', '### 4. Write the subject line', '### 5. Add body and footer if needed', '### 6. Present the commit message'"
+    },
+    {
+      "text": "A scripts/ directory exists with at least one Bun TypeScript script (.ts file)",
+      "passed": true,
+      "evidence": "scripts/analyze-diff.ts exists (452 lines), starts with #!/usr/bin/env bun, uses import { $ } from 'bun'"
+    },
+    {
+      "text": "The script includes a --help flag or usage documentation",
+      "passed": true,
+      "evidence": "analyze-diff.ts line 82: if (args.includes('--help') || args.includes('-h')) { console.log(HELP); process.exit(0); } — HELP constant contains full usage docs"
+    },
+    {
+      "text": "An evals/evals.json file exists with at least 2 test cases",
+      "passed": false,
+      "evidence": "No evals/evals.json file found. Glob search for **/evals.json in the output directory returned no results. No evals/ directory exists."
+    },
+    {
+      "text": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "passed": true,
+      "evidence": "Line 134: '## Common mistakes' section with a table of 8 mistake/fix pairs"
+    },
+    {
+      "text": "The SKILL.md body is under 500 lines",
+      "passed": true,
+      "evidence": "SKILL.md is 221 lines, well under the 500 line limit"
+    },
+    {
+      "text": "The script uses structured JSON output to stdout",
+      "passed": true,
+      "evidence": "analyze-diff.ts line 445: console.log(JSON.stringify(result, null, 2)); — outputs DiffAnalysis interface as JSON to stdout, diagnostics go to stderr"
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 1,
+    "total": 11,
+    "pass_rate": 0.91
+  }
+}

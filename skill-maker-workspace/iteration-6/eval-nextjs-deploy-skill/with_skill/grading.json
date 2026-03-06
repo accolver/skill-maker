@@ -1,0 +1,85 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-nextjs-deploy-skill/with_skill/outputs/nextjs-cdk-deploy/SKILL.md (278 lines)"
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Lines 1-4: YAML frontmatter with --- delimiters contains name: nextjs-cdk-deploy and description field"
+    },
+    {
+      "text": "The description includes 'Use when' trigger conditions mentioning Next.js and deployment",
+      "passed": true,
+      "evidence": "Line 3 description contains literal 'Use when deploying Next.js to AWS, setting up CDK infrastructure for Next.js, creating deployment pipelines'"
+    },
+    {
+      "text": "The SKILL.md body contains a multi-step numbered deployment workflow with at least 5 steps",
+      "passed": true,
+      "evidence": "8 numbered steps: '### 1. Verify prerequisites', '### 2. Configure environments', '### 3. Build the Next.js app', '### 4. Synthesize the CDK stack', '### 5. Deploy to staging', '### 6. Manual approval gate', '### 7. Deploy to production', '### 8. Rollback (if needed)'"
+    },
+    {
+      "text": "The SKILL.md body mentions staging and production environments with environment-specific configuration",
+      "passed": true,
+      "evidence": "Section '### 2. Configure environments' (lines 49-81) with staging/production config examples and a comparison table showing differences in domain, API URL, log level, source maps, cache TTL, and min instances"
+    },
+    {
+      "text": "The SKILL.md body includes rollback procedures with at least 3 specific strategies",
+      "passed": true,
+      "evidence": "Section '### 8. Rollback (if needed)' (lines 168-191) with 3 code-level options: (1) CDK auto-rollback for in-progress failures, (2) Redeploy previous git commit version, (3) CloudFormation rollback-stack. Plus a 4th decision tree item for data migration escalation."
+    },
+    {
+      "text": "A scripts/ directory exists with at least 2 deployment-related .ts scripts",
+      "passed": true,
+      "evidence": "scripts/ directory contains preflight-check.ts (245 lines) and gen-env-config.ts (153 lines) — both deployment-related .ts files"
+    },
+    {
+      "text": "The scripts use Bun TypeScript (.ts files) with --help flag support",
+      "passed": true,
+      "evidence": "Both scripts are .ts files with #!/usr/bin/env bun shebang. preflight-check.ts line 205: args.includes('--help'). gen-env-config.ts line 83: args.includes('--help'). Both have comprehensive HELP constants with usage docs."
+    },
+    {
+      "text": "Scripts output structured JSON to stdout",
+      "passed": true,
+      "evidence": "preflight-check.ts line 241: console.log(JSON.stringify(result, null, 2)). gen-env-config.ts line 150: console.log(JSON.stringify(result, null, 2)). Both use JSON.stringify for structured output."
+    },
+    {
+      "text": "An evals/evals.json file exists with at least 2 test cases with assertions",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 3 test cases (ids 1, 2, 3) each containing prompt, expected_output, and assertions arrays (6, 5, and 5 assertions respectively)"
+    },
+    {
+      "text": "The SKILL.md body includes a Common mistakes table with at least 5 entries",
+      "passed": true,
+      "evidence": "Line 239: '## Common mistakes' section with 8-row table: deploying without staging, NEXT_PUBLIC_ prefix, CDK version pinning, skipping cdk diff, --require-approval never in prod, not capturing previous version, wrong env vars, ignoring CloudFront cache"
+    },
+    {
+      "text": "The SKILL.md body is under 500 lines",
+      "passed": true,
+      "evidence": "SKILL.md is 278 lines total, well under the 500-line limit"
+    },
+    {
+      "text": "The skill includes a manual approval gate before production deployment",
+      "passed": true,
+      "evidence": "Section '### 6. Manual approval gate' (lines 133-144): 'STOP HERE. Do not proceed to production without explicit user approval.' Presents staging URL, warnings, and cdk diff, then waits for user confirmation."
+    },
+    {
+      "text": "The skill includes a references/ directory with CDK stack patterns",
+      "passed": true,
+      "evidence": "references/ directory exists containing cdk-stack-template.md"
+    },
+    {
+      "text": "The name field matches the directory name 'nextjs-cdk-deploy'",
+      "passed": true,
+      "evidence": "SKILL.md line 2: name: nextjs-cdk-deploy — matches the output directory name nextjs-cdk-deploy"
+    }
+  ],
+  "summary": {
+    "passed": 15,
+    "failed": 0,
+    "total": 15,
+    "pass_rate": 1.0
+  }
+}

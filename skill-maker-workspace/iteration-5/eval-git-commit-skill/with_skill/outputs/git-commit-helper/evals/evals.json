@@ -1,0 +1,44 @@
+{
+  "skill_name": "git-commit-helper",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just staged some changes to packages/api/src/auth.ts where I added a null check for req.user and packages/api/src/middleware.ts where I fixed the error handler. Can you write me a commit message?",
+      "expected_output": "A conventional commit message with type 'fix', scope 'api', imperative mood subject, and a body explaining the null check fix",
+      "files": [],
+      "assertions": [
+        "Output contains a commit message starting with 'fix(api):'",
+        "Subject line uses imperative mood (e.g., 'handle', 'add', 'fix')",
+        "Subject line does not end with a period",
+        "Subject line starts with lowercase after the colon",
+        "Total subject line is under 72 characters"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I've added a brand new UserProfile component in src/components/UserProfile.tsx and its test file src/components/UserProfile.test.tsx. Also added a new route in src/routes/profile.ts. Generate a commit message for these staged changes.",
+      "expected_output": "A conventional commit message with type 'feat', no monorepo scope (files are in src/ not a package), imperative mood",
+      "files": [],
+      "assertions": [
+        "Output contains a commit message starting with 'feat:'",
+        "Subject line uses imperative mood",
+        "No scope is used (src/ is not a valid monorepo scope)",
+        "Message mentions the user profile feature",
+        "Subject line does not end with a period"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I removed the old session-based auth endpoints from packages/auth/src/session.ts and replaced them with JWT token auth in packages/auth/src/jwt.ts. This is a breaking change for all API consumers. Write the commit message.",
+      "expected_output": "A conventional commit with 'feat(auth)!:' prefix and a BREAKING CHANGE footer explaining the migration from sessions to JWT",
+      "files": [],
+      "assertions": [
+        "Output contains 'feat(auth)' in the commit type/scope",
+        "Output includes a breaking change indicator (! or BREAKING CHANGE footer)",
+        "Output includes a body or footer with 'BREAKING CHANGE:'",
+        "Subject line uses imperative mood",
+        "Message explains the session-to-JWT migration"
+      ]
+    }
+  ]
+}

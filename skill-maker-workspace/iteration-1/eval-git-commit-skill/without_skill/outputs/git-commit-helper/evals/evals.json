@@ -1,0 +1,92 @@
+[
+  {
+    "id": "eval-simple-feature",
+    "name": "Simple feature commit in monorepo",
+    "description": "Tests that the skill generates a conventional commit with correct type and monorepo scope for a straightforward feature addition.",
+    "setup": {
+      "commands": [
+        "cd /tmp && rm -rf test-repo-eval1 && mkdir test-repo-eval1 && cd test-repo-eval1 && git init",
+        "cd /tmp/test-repo-eval1 && mkdir -p packages/auth/src",
+        "cd /tmp/test-repo-eval1 && echo 'export function login(user: string, pass: string) { return true; }' > packages/auth/src/login.ts",
+        "cd /tmp/test-repo-eval1 && git add . && git commit -m 'initial commit'",
+        "cd /tmp/test-repo-eval1 && echo 'export function resetPassword(email: string): Promise<void> { /* send reset email */ }' >> packages/auth/src/login.ts",
+        "cd /tmp/test-repo-eval1 && git add packages/auth/src/login.ts"
+      ]
+    },
+    "input": "I've staged my changes in /tmp/test-repo-eval1. Can you help me write a commit message?",
+    "expected": {
+      "type": "feat",
+      "scope": "auth",
+      "subject_pattern": "add.*password.*reset|add.*reset.*password",
+      "format": "conventional_commit",
+      "checks": [
+        "Message starts with 'feat(auth):'",
+        "Subject is in imperative mood",
+        "Subject does not end with a period",
+        "Subject is 72 characters or fewer",
+        "No breaking change indicator (no '!' after scope)"
+      ]
+    }
+  },
+  {
+    "id": "eval-breaking-change-fix",
+    "name": "Breaking change bug fix",
+    "description": "Tests that the skill detects a breaking change when a public API signature is modified as part of a bug fix, and formats the commit accordingly.",
+    "setup": {
+      "commands": [
+        "cd /tmp && rm -rf test-repo-eval2 && mkdir test-repo-eval2 && cd test-repo-eval2 && git init",
+        "cd /tmp/test-repo-eval2 && mkdir -p src/api",
+        "cd /tmp/test-repo-eval2 && printf 'export interface UserResponse {\\n  id: string;\\n  name: string;\\n  email: string;\\n}\\n\\nexport function getUser(id: string): UserResponse {\\n  return { id, name: \"test\", email: \"test@test.com\" };\\n}\\n' > src/api/users.ts",
+        "cd /tmp/test-repo-eval2 && git add . && git commit -m 'initial commit'",
+        "cd /tmp/test-repo-eval2 && printf 'export interface UserResponse {\\n  id: number;\\n  name: string;\\n  email: string;\\n  createdAt: string;\\n}\\n\\nexport function getUser(id: number): UserResponse {\\n  return { id, name: \"test\", email: \"test@test.com\", createdAt: new Date().toISOString() };\\n}\\n' > src/api/users.ts",
+        "cd /tmp/test-repo-eval2 && git add src/api/users.ts"
+      ]
+    },
+    "input": "Please generate a commit message for my staged changes in /tmp/test-repo-eval2. The id field type was wrong — it should have been number, not string.",
+    "expected": {
+      "type": "fix",
+      "scope": "api",
+      "subject_pattern": "(change|fix|correct).*id.*type|.*user.*id.*number",
+      "format": "conventional_commit",
+      "checks": [
+        "Message includes breaking change indicator ('!' after scope or BREAKING CHANGE footer)",
+        "Message type is 'fix'",
+        "Body or footer mentions the type change from string to number",
+        "Subject is in imperative mood",
+        "Subject is 72 characters or fewer"
+      ]
+    }
+  },
+  {
+    "id": "eval-multi-package-chore",
+    "name": "Multi-package dependency update",
+    "description": "Tests that the skill handles changes spanning multiple monorepo packages and selects the correct type for dependency updates.",
+    "setup": {
+      "commands": [
+        "cd /tmp && rm -rf test-repo-eval3 && mkdir test-repo-eval3 && cd test-repo-eval3 && git init",
+        "cd /tmp/test-repo-eval3 && mkdir -p packages/web/src packages/api/src",
+        "cd /tmp/test-repo-eval3 && echo '{\"dependencies\": {\"lodash\": \"4.17.20\"}}' > packages/web/package.json",
+        "cd /tmp/test-repo-eval3 && echo '{\"dependencies\": {\"lodash\": \"4.17.20\"}}' > packages/api/package.json",
+        "cd /tmp/test-repo-eval3 && echo '{}' > package.json",
+        "cd /tmp/test-repo-eval3 && git add . && git commit -m 'initial commit'",
+        "cd /tmp/test-repo-eval3 && echo '{\"dependencies\": {\"lodash\": \"4.17.21\"}}' > packages/web/package.json",
+        "cd /tmp/test-repo-eval3 && echo '{\"dependencies\": {\"lodash\": \"4.17.21\"}}' > packages/api/package.json",
+        "cd /tmp/test-repo-eval3 && git add packages/web/package.json packages/api/package.json"
+      ]
+    },
+    "input": "I bumped lodash across the monorepo in /tmp/test-repo-eval3. Write me a commit message.",
+    "expected": {
+      "type": "chore",
+      "scope": "deps",
+      "subject_pattern": "bump.*lodash|update.*lodash|upgrade.*lodash",
+      "format": "conventional_commit",
+      "checks": [
+        "Message type is 'chore' or 'build'",
+        "Scope is 'deps' or omitted (since changes span multiple packages)",
+        "Subject mentions lodash",
+        "Subject mentions version or 'bump'/'update'",
+        "No breaking change indicator"
+      ]
+    }
+  }
+]

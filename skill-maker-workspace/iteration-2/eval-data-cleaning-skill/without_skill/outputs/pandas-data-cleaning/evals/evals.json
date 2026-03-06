@@ -1,0 +1,47 @@
+[
+  {
+    "id": "eval-csv-cleaning-pipeline",
+    "skills": ["Cleaning-DataFrames-with-Pandas"],
+    "query": "I have a CSV file called 'customers.csv' with columns: 'First Name', 'Last Name', 'Email', 'Signup Date', 'Revenue ($)', 'Status'. Some rows have missing emails and signup dates. There are duplicate rows based on email. The 'Revenue ($)' column has some values like 'N/A'. Clean this data: normalize column names to snake_case, drop rows without emails, deduplicate by email keeping the first, convert signup_date to datetime, convert revenue to numeric, and fill missing status with 'inactive'.",
+    "expected_behavior": [
+      "Loads CSV with appropriate na_values including 'N/A'",
+      "Normalizes column names to snake_case (e.g., 'First Name' -> 'first_name', 'Revenue ($)' -> 'revenue')",
+      "Drops rows where email column is null using dropna with subset",
+      "Deduplicates on email column using drop_duplicates with keep='first'",
+      "Converts signup_date to datetime using pd.to_datetime with errors='coerce'",
+      "Converts revenue to numeric using pd.to_numeric with errors='coerce'",
+      "Fills missing status values with 'inactive' using fillna",
+      "Resets the index after row operations"
+    ]
+  },
+  {
+    "id": "eval-parquet-dedup-nulls",
+    "skills": ["Cleaning-DataFrames-with-Pandas"],
+    "query": "I have a Parquet file 'events.parquet' with columns: event_id, user_id, event_type, timestamp, duration_seconds, metadata. I need to: 1) check how many nulls are in each column, 2) remove duplicate events based on user_id + timestamp combination, keeping the last occurrence, 3) drop rows where event_id is missing, 4) fill null duration_seconds with the column median, 5) convert any remaining null event_type values to 'unknown'. Show me the code.",
+    "expected_behavior": [
+      "Loads data using pd.read_parquet (not read_csv)",
+      "Inspects nulls with df.isnull().sum() before cleaning",
+      "Deduplicates on subset=['user_id', 'timestamp'] with keep='last'",
+      "Drops rows with null event_id using dropna(subset=['event_id'])",
+      "Fills null duration_seconds with the median of that column",
+      "Fills null event_type with the string 'unknown'",
+      "Does not use errors='ignore' for any type conversion"
+    ]
+  },
+  {
+    "id": "eval-reusable-cleaning-function",
+    "skills": ["Cleaning-DataFrames-with-Pandas"],
+    "query": "I clean CSV files from different vendors every week and the steps are always the same: normalize column names, drop rows missing key fields, deduplicate, convert date and money columns, fill defaults. Can you write me a reusable cleaning function I can call with different parameters for each vendor file?",
+    "expected_behavior": [
+      "Creates a parameterized function that accepts a DataFrame and configuration arguments",
+      "Function normalizes column names to snake_case using regex or equivalent",
+      "Function accepts a list of required columns and drops rows where those are null",
+      "Function accepts deduplication columns and uses drop_duplicates",
+      "Function accepts lists of datetime and numeric columns for type conversion",
+      "Function accepts a dictionary of fill values for null handling",
+      "Uses errors='coerce' for pd.to_datetime and pd.to_numeric",
+      "Works on a copy of the DataFrame (does not modify the original)",
+      "Shows example usage of the function with realistic parameters"
+    ]
+  }
+]

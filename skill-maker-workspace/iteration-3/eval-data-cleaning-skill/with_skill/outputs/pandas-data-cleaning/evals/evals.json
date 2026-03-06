@@ -1,0 +1,48 @@
+{
+  "skill_name": "pandas-data-cleaning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a CSV file at data/customers.csv with columns like 'Customer ID', 'First Name', 'Last Name', 'Email Address', 'Annual Income', 'Signup Date', and 'Status'. There are about 5000 rows. Some emails are missing, Annual Income has nulls and some values have dollar signs and commas like '$50,000', dates are in mixed formats, and there are duplicate Customer IDs. Clean this up for me — I need it ready for a churn analysis model.",
+      "expected_output": "A Python script that loads the CSV, normalizes column names to snake_case, handles missing values with appropriate per-column strategies (drop rows missing customer_id, fill income with median, fill status with 'Unknown'), removes dollar signs and commas from income before converting to float, parses dates with errors='coerce', deduplicates on customer_id keeping the latest record, and saves to a new file. Should include inspection output and a cleaning summary.",
+      "files": [],
+      "assertions": [
+        "Output contains column name normalization using str.lower() and regex replacement",
+        "Missing value handling uses different strategies for different columns, not a blanket fillna",
+        "Income column has string cleaning (removing $ and commas) before numeric conversion",
+        "Date conversion uses pd.to_datetime with errors='coerce'",
+        "Deduplication specifies subset parameter with the ID column",
+        "Output includes print statements showing data shape and missing value counts before and after cleaning",
+        "Cleaned data is saved to a new file, not overwriting the original"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "hey i have this parquet file with sensor readings — columns are timestamp, sensor_id, reading_value, unit, and location. about 100k rows. lots of missing reading_values (sensors go offline), some duplicate readings for the same sensor+timestamp, and the timestamp column got saved as strings somehow. can you write me a cleaning script? the cleaned data needs to go back to parquet.",
+      "expected_output": "A Python script that loads the parquet file, inspects it, handles missing reading_values with forward-fill grouped by sensor_id (since sensor data is time-series), deduplicates on sensor_id+timestamp keeping the last value, converts timestamp strings to datetime, and saves as parquet. Should use group-aware filling and include before/after reporting.",
+      "files": [],
+      "assertions": [
+        "Output loads data with pd.read_parquet",
+        "Missing reading_values are handled with forward-fill or interpolation, not simple median fill, because this is time-series sensor data",
+        "Deduplication uses subset with both sensor_id and timestamp columns",
+        "Timestamp conversion uses pd.to_datetime with errors='coerce'",
+        "Output saves cleaned data as parquet format",
+        "Script includes inspection step showing shape, dtypes, null counts, and duplicate counts before cleaning"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need to clean a messy CSV export from our CRM. The column names have spaces and special characters like 'Lead Source (Original)', 'Created Date/Time', 'Company $Revenue'. There are boolean-ish columns with values like 'Yes', 'No', 'TRUE', 'false', 'Y', 'N'. Some numeric columns have 'N/A' and '#REF!' as values. About 2000 rows, maybe 10% duplicates. Output as CSV please.",
+      "expected_output": "A Python script that normalizes the messy column names to clean snake_case, maps various boolean string representations to proper Python booleans, handles 'N/A' and '#REF!' as missing values (using na_values parameter or replacement), deduplicates, and saves as CSV. Should handle the edge cases of CRM-style dirty data.",
+      "files": [],
+      "assertions": [
+        "Column name normalization handles parentheses, slashes, and dollar signs — converting them to snake_case",
+        "Boolean columns handle multiple representations: Yes/No, TRUE/false, Y/N mapped to Python True/False",
+        "Script handles non-standard missing value markers like 'N/A' and '#REF!' either via na_values parameter in read_csv or explicit replacement",
+        "Output includes deduplication step",
+        "Cleaned data is saved as CSV with index=False",
+        "Script includes data inspection before cleaning begins"
+      ]
+    }
+  ]
+}

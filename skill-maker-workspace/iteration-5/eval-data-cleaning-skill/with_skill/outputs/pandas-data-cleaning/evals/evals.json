@@ -1,0 +1,46 @@
+{
+  "skill_name": "pandas-data-cleaning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a CSV file called customer_orders.csv with columns 'Customer Name ', 'Order Date', 'Total $', 'Status', 'Email'. It has about 10k rows with some N/A values, duplicate rows, and the Total column has dollar signs and commas. Can you write me a cleaning script?",
+      "expected_output": "A Python script that normalizes column names, replaces sentinel values, handles missing data with appropriate strategies per column, deduplicates, converts types (dates, numerics), and exports clean data",
+      "files": [],
+      "assertions": [
+        "Output contains Python code that imports pandas",
+        "Code normalizes column names (lowercase, strip whitespace, replace special chars)",
+        "Code replaces sentinel values like 'N/A' with pd.NA before handling nulls",
+        "Code uses pd.to_numeric with errors='coerce' for the total/price column",
+        "Code uses pd.to_datetime with errors='coerce' for the date column",
+        "Code includes deduplication with drop_duplicates",
+        "Code handles the dollar sign and comma removal from the total column"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "hey i have a parquet file with sensor readings. columns are timestamp, sensor_id, value, unit. lots of missing values in the value column and some duplicate readings. the timestamps are already datetime type. can you clean it up?",
+      "expected_output": "A Python script that loads parquet, handles missing sensor values with interpolation or forward-fill (appropriate for time series), deduplicates based on timestamp+sensor_id, and validates",
+      "files": [],
+      "assertions": [
+        "Output contains Python code using pd.read_parquet",
+        "Code handles missing values in the value column using interpolation, forward-fill, or median (not fillna(0))",
+        "Code deduplicates based on timestamp and sensor_id columns",
+        "Code does NOT unnecessarily convert timestamp column (already datetime)",
+        "Code includes a validation step checking for remaining nulls or duplicates"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need to clean a CSV where the boolean column 'is_active' has values like 'Yes', 'No', 'Y', 'N', 'true', 'false', '1', '0' and some blanks. The 'category' column has about 15 unique values with mixed case ('Electronics', 'electronics', 'ELECTRONICS'). Also 'price' has some entries like '$1,234.56' and others like 'N/A'.",
+      "expected_output": "A Python script that maps boolean strings to True/False, normalizes category case, cleans price strings, and handles the sentinel N/A values",
+      "files": [],
+      "assertions": [
+        "Code maps boolean string variants (Yes/No/Y/N/true/false/1/0) to Python booleans",
+        "Code normalizes the category column to consistent case",
+        "Code strips dollar signs and commas from price before numeric conversion",
+        "Code replaces 'N/A' sentinel values with pd.NA",
+        "Code converts price to numeric type after cleaning"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-git-commit-skill/with_skill/outputs/git-commit-helper/SKILL.md (203 lines)"
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Frontmatter contains: name: git-commit-helper, description: \"Analyze staged git changes and generate conventional commit messages with correct type prefixes (feat, fix, chore, refactor, docs, test, perf, ci, build, style)...\""
+    },
+    {
+      "text": "The name field uses only lowercase letters, numbers, and hyphens",
+      "passed": true,
+      "evidence": "name: git-commit-helper — contains only lowercase letters and hyphens"
+    },
+    {
+      "text": "The description field mentions git commits and when to use the skill",
+      "passed": true,
+      "evidence": "description mentions \"generate conventional commit messages\" and \"Use when writing commit messages, committing code, generating conventional commits, or when the user asks for help with git commit messages.\""
+    },
+    {
+      "text": "The SKILL.md body contains workflow or step-by-step instructions",
+      "passed": true,
+      "evidence": "Body contains a '## Workflow' section with 6 numbered steps: '### 1. Gather staged changes', '### 2. Determine the commit type', '### 3. Determine the scope (monorepo-aware)', '### 4. Write the subject line', '### 5. Add body if needed', '### 6. Present the commit message'"
+    },
+    {
+      "text": "A scripts/ directory exists with at least one executable script",
+      "passed": true,
+      "evidence": "scripts/ directory exists containing: parse-diff.ts (1 file)"
+    },
+    {
+      "text": "An evals/evals.json file exists with at least 2 test cases",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 3 test cases (ids: 1, 2, 3) covering monorepo feature, bug fix, and CI workflow changes"
+    },
+    {
+      "text": "The SKILL.md body is under 500 lines",
+      "passed": true,
+      "evidence": "SKILL.md is 203 lines total, well under the 500-line limit"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

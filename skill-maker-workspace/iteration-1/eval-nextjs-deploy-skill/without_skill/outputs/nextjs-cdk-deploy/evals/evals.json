@@ -1,0 +1,60 @@
+[
+  {
+    "id": "eval-staging-deploy-workflow",
+    "name": "Staging Deployment Workflow",
+    "description": "Verify the skill correctly guides a full staging deployment: build, synth, diff, deploy, and smoke test.",
+    "input": "Deploy my Next.js app to staging using CDK. The app is in the current directory and the CDK code is in ./cdk/. The staging config is already set up.",
+    "expected_behavior": [
+      "Runs 'npm run build' to build the Next.js application",
+      "Runs 'npm install' in the CDK directory",
+      "Runs 'cdk synth -c stage=staging' to synthesize the stack",
+      "Runs 'cdk diff -c stage=staging' to preview changes",
+      "Runs 'cdk deploy -c stage=staging' to deploy",
+      "Runs smoke tests against the staging URL",
+      "Tags the deployment in git with a deploy-staging-* tag",
+      "Does NOT proceed to production without explicit approval"
+    ],
+    "expected_files_referenced": [
+      "scripts/deploy.sh",
+      "scripts/smoke-test.sh"
+    ],
+    "pass_criteria": "Agent follows the staged deployment workflow, deploys only to staging, runs smoke tests, and does not auto-promote to production."
+  },
+  {
+    "id": "eval-production-rollback",
+    "name": "Production Rollback Procedure",
+    "description": "Verify the skill correctly guides a production rollback when a deployment causes errors.",
+    "input": "My production deployment is returning 502 errors after the latest deploy. I need to roll back immediately. The app uses ECS Fargate.",
+    "expected_behavior": [
+      "Identifies this as a rollback scenario, not a new deployment",
+      "Presents rollback strategy options (CDK redeploy, ECS task swap, CFN rollback, CloudFront invalidation)",
+      "Recommends ECS task definition swap for fastest recovery given 502 errors",
+      "Provides the correct aws ecs commands to list task definitions and update the service",
+      "Includes verification steps after rollback (check service stability, CloudWatch alarms)",
+      "Mentions the CDK redeploy strategy as a follow-up for a more permanent fix"
+    ],
+    "expected_files_referenced": [
+      "scripts/rollback.sh"
+    ],
+    "pass_criteria": "Agent recommends the fastest rollback strategy (ECS swap) for a 502 error, provides correct commands, and includes post-rollback verification."
+  },
+  {
+    "id": "eval-environment-config-setup",
+    "name": "Environment Configuration Setup",
+    "description": "Verify the skill correctly guides setting up environment-specific CDK configurations for a new project.",
+    "input": "I'm setting up CDK deployment for a new Next.js project. I need staging and production configs. Staging should use minimal resources, production needs auto-scaling. The app connects to a PostgreSQL database.",
+    "expected_behavior": [
+      "References the environment config template from references/",
+      "Creates staging config with minimal resources (low CPU, memory, desiredCount=1)",
+      "Creates production config with higher resources and auto-scaling (minCount >= 2, maxCount >= 4)",
+      "Uses SSM Parameter Store references for the database URL (not hardcoded)",
+      "Sets different domains for staging vs production",
+      "Includes monitoring config with stricter thresholds for production",
+      "Explains the EnvironmentConfig interface and its fields"
+    ],
+    "expected_files_referenced": [
+      "references/environment-config-template.ts"
+    ],
+    "pass_criteria": "Agent creates properly differentiated staging and production configs with secure secret handling and appropriate resource sizing."
+  }
+]

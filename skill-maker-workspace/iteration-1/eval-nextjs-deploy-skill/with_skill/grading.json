@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-nextjs-deploy-skill/with_skill/outputs/nextjs-cdk-deploy/SKILL.md (247 lines)"
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Frontmatter contains: name: nextjs-cdk-deploy, description: \"Deploy Next.js applications to AWS using CDK with a staging-then-production pipeline...\", plus compatibility and metadata fields"
+    },
+    {
+      "text": "The description mentions Next.js and AWS or CDK and deployment",
+      "passed": true,
+      "evidence": "description: \"Deploy Next.js applications to AWS using CDK with a staging-then-production pipeline.\" — mentions 'Next.js', 'AWS', 'CDK', and 'Deploy'"
+    },
+    {
+      "text": "The SKILL.md body contains a multi-step deployment workflow",
+      "passed": true,
+      "evidence": "Body contains '## Workflow' with 7 numbered steps: '### 1. Verify prerequisites', '### 2. Configure environment', '### 3. Build the Next.js application', '### 4. Deploy to staging', '### 5. Manual approval gate', '### 6. Deploy to production', '### 7. Post-deployment verification'"
+    },
+    {
+      "text": "The SKILL.md body mentions staging and production environments",
+      "passed": true,
+      "evidence": "Extensive coverage of both environments: '### 4. Deploy to staging' (lines 99-117), '### 5. Manual approval gate' (lines 119-131), '### 6. Deploy to production' (lines 133-145), environment config examples for staging.env.ts and production.env.ts (lines 54-77)"
+    },
+    {
+      "text": "The SKILL.md body includes rollback procedures",
+      "passed": true,
+      "evidence": "Dedicated '## Rollback Procedures' section (lines 157-189) with three strategies: Quick rollback (CloudFront, lines 159-169), Full rollback (CDK, lines 171-181), and Emergency rollback (AWS Console, lines 183-189)"
+    },
+    {
+      "text": "A scripts/ directory exists with deployment-related scripts",
+      "passed": true,
+      "evidence": "scripts/ directory contains 4 deployment-related scripts: build-and-synth.ts, deploy.ts, preflight-check.ts, rollback.ts"
+    },
+    {
+      "text": "An evals/evals.json file exists with test cases",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 3 test cases (ids: 1, 2, 3) covering full deployment walkthrough, production rollback, and environment config setup"
+    },
+    {
+      "text": "The SKILL.md body is under 500 lines",
+      "passed": true,
+      "evidence": "SKILL.md is 247 lines total, well under the 500-line limit"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  }
+}

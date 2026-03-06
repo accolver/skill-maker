@@ -1,0 +1,84 @@
+{
+  "skill": "nextjs-cdk-deploy",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "staging-first-deployment",
+      "name": "Staging-first deployment workflow",
+      "description": "Verify the agent follows the staging-first deployment pattern and does not skip to production",
+      "type": "technique-application",
+      "prompt": "I have a Next.js app with CDK infrastructure ready. I need to deploy it to production right now. The app is at /app and CDK is at /app/cdk. Just push it to prod.",
+      "expected_behavior": [
+        "Agent insists on deploying to staging first before production",
+        "Agent references or uses deploy.sh with 'staging' as the first step",
+        "Agent includes a verification/health-check step between staging and production",
+        "Agent mentions or implements a manual approval gate before production deployment",
+        "Agent does NOT deploy directly to production without staging"
+      ],
+      "failure_indicators": [
+        "Agent deploys directly to production without staging",
+        "Agent skips health check between staging and production",
+        "Agent treats staging as optional",
+        "Agent runs 'cdk deploy' targeting production stack without prior staging deployment"
+      ],
+      "evaluation_criteria": {
+        "staging_before_production": "Agent must deploy to staging before production",
+        "health_check_included": "Agent must verify staging health before promoting",
+        "approval_gate_present": "Agent must include explicit approval step before production",
+        "rollback_awareness": "Agent should mention rollback option if something goes wrong"
+      }
+    },
+    {
+      "id": "environment-config-setup",
+      "name": "Environment-specific configuration",
+      "description": "Verify the agent correctly sets up environment-specific configs and does not hardcode values",
+      "type": "technique-application",
+      "prompt": "I need to add a new environment variable STRIPE_API_KEY to my Next.js CDK deployment. Staging uses sk_test_abc123 and production uses sk_live_xyz789. How should I configure this?",
+      "expected_behavior": [
+        "Agent uses separate config files per environment (config/staging.env, config/production.env)",
+        "Agent does NOT hardcode the keys directly in CDK stack code",
+        "Agent adds the variable to the config loader or environment file pattern",
+        "Agent warns about not committing secrets to git or suggests SSM Parameter Store / Secrets Manager",
+        "Agent shows how the value flows from config file through CDK to Lambda environment"
+      ],
+      "failure_indicators": [
+        "Agent hardcodes API keys directly in CDK stack TypeScript",
+        "Agent puts both staging and production keys in the same file",
+        "Agent ignores security concerns about secrets in env files",
+        "Agent does not mention git-ignoring sensitive config files"
+      ],
+      "evaluation_criteria": {
+        "separate_configs": "Uses per-environment config files, not hardcoded values",
+        "security_awareness": "Warns about secret management and suggests secure alternatives",
+        "config_flow": "Shows how config propagates from file to CDK to Lambda",
+        "no_hardcoding": "Does not embed secrets directly in infrastructure code"
+      }
+    },
+    {
+      "id": "production-rollback",
+      "name": "Production rollback procedure",
+      "description": "Verify the agent can guide a rollback after a failed production deployment",
+      "type": "technique-application",
+      "prompt": "We just deployed to production and the health check is failing — users are seeing 502 errors. We need to roll back immediately. What do I do?",
+      "expected_behavior": [
+        "Agent recommends the fast Lambda version rollback as the first action",
+        "Agent references rollback.sh or provides equivalent AWS CLI commands",
+        "Agent includes CloudFront cache invalidation as part of rollback",
+        "Agent suggests verifying the rollback with health-check.sh",
+        "Agent provides a clear sequence: rollback Lambda → invalidate cache → verify health"
+      ],
+      "failure_indicators": [
+        "Agent suggests redeploying the old code as the first step (too slow for emergency)",
+        "Agent forgets CloudFront cache invalidation",
+        "Agent does not verify health after rollback",
+        "Agent suggests debugging the issue before rolling back (wrong priority in emergency)"
+      ],
+      "evaluation_criteria": {
+        "fast_rollback_first": "Recommends Lambda version revert, not full redeploy",
+        "cache_invalidation": "Includes CloudFront invalidation in rollback steps",
+        "post_rollback_verification": "Verifies health after rollback completes",
+        "urgency_appropriate": "Treats this as an emergency — rollback first, investigate after"
+      }
+    }
+  ]
+}

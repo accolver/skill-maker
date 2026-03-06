@@ -1,0 +1,65 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-git-commit-skill/with_skill/outputs/git-commit-helper/SKILL.md (183 lines)"
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Lines 1-4: YAML frontmatter with --- delimiters contains name: git-commit-helper and description field"
+    },
+    {
+      "text": "The name field uses only lowercase letters, numbers, and hyphens",
+      "passed": true,
+      "evidence": "name: git-commit-helper — matches pattern [a-z0-9-]+"
+    },
+    {
+      "text": "The description includes 'Use when' trigger conditions",
+      "passed": true,
+      "evidence": "Line 3 description contains literal 'Use when writing commit messages, committing code, preparing git commits, working with monorepos...'"
+    },
+    {
+      "text": "The SKILL.md body contains a numbered workflow or step-by-step instructions",
+      "passed": true,
+      "evidence": "6 numbered steps: '### 1. Gather staged changes', '### 2. Analyze the diff', '### 3. Determine commit type', '### 4. Determine scope (monorepo)', '### 5. Write the commit message', '### 6. Present and confirm'"
+    },
+    {
+      "text": "A scripts/ directory exists with at least one Bun TypeScript script (.ts file)",
+      "passed": true,
+      "evidence": "scripts/parse-diff.ts exists (340 lines, shebang #!/usr/bin/env bun)"
+    },
+    {
+      "text": "The script includes a --help flag or usage documentation",
+      "passed": true,
+      "evidence": "parse-diff.ts line 23: '--help            Show this help message' in HELP constant; line 287: args.includes('--help') handler"
+    },
+    {
+      "text": "An evals/evals.json file exists with at least 2 test cases",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 3 test cases (ids 1, 2, 3) each with prompt, expected_output, and assertions arrays"
+    },
+    {
+      "text": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "passed": true,
+      "evidence": "Line 150: '## Common mistakes' section with 8-row table covering past tense, capitalization, period, scope, type mismatch, length, breaking change, and staging issues"
+    },
+    {
+      "text": "The SKILL.md body is under 500 lines",
+      "passed": true,
+      "evidence": "SKILL.md is 183 lines total, well under the 500-line limit"
+    },
+    {
+      "text": "The script uses structured JSON output to stdout",
+      "passed": true,
+      "evidence": "parse-diff.ts line 337: console.log(JSON.stringify(result, null, 2)) — outputs ParseResult object as JSON to stdout"
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "pass_rate": 1.0
+  }
+}

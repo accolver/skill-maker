@@ -1,0 +1,42 @@
+{
+  "skill_name": "git-commit-helper",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just finished adding a new authentication middleware to our Express app. I've staged the changes — can you help me write a good commit message?",
+      "expected_output": "A conventional commit message with type 'feat', imperative mood subject, under 72 chars, explaining the purpose of the new middleware",
+      "files": [],
+      "assertions": [
+        "The generated commit message starts with a valid conventional commit type prefix (feat, fix, chore, refactor, docs, test, style, perf, ci, or build)",
+        "The subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+        "The subject line does not end with a period",
+        "The total subject line (including type and scope) is under 72 characters",
+        "The parse-diff.ts script was invoked or its output was referenced"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I fixed a null pointer bug in packages/api/src/handlers/user.ts in our monorepo. The session object was undefined when Redis TTL expired. Can you generate a commit message for my staged changes?",
+      "expected_output": "A conventional commit message with type 'fix', scope 'api' detected from the monorepo path, describing the null pointer fix with context about why it happened",
+      "files": [],
+      "assertions": [
+        "The commit message uses the 'fix' type prefix",
+        "The commit message includes a monorepo scope in parentheses (e.g., 'fix(api): ...')",
+        "The subject explains the 'why' (session/Redis TTL issue) not just the 'what' (updated user.ts)",
+        "The subject line uses imperative mood"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I updated the README.md and added a CONTRIBUTING.md file. Please write me a commit message.",
+      "expected_output": "A conventional commit message with type 'docs' since only documentation files changed",
+      "files": [],
+      "assertions": [
+        "The commit message uses the 'docs' type prefix",
+        "The subject line is lowercase after the colon",
+        "The message does not use 'feat' or 'chore' type since only docs changed",
+        "The subject line does not end with a period"
+      ]
+    }
+  ]
+}

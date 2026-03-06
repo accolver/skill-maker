@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-data-cleaning-skill/without_skill/outputs/pandas-data-cleaning/SKILL.md (367 lines)"
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Frontmatter contains: name: pandas-data-cleaning, description: \"Reusable patterns for cleaning tabular data with pandas — handling missing values, deduplication, column normalization, type conversion, and file I/O for CSV and Parquet formats.\""
+    },
+    {
+      "text": "The description mentions data cleaning or pandas or csv",
+      "passed": true,
+      "evidence": "description: \"Reusable patterns for cleaning tabular data with pandas — handling missing values, deduplication, column normalization, type conversion, and file I/O for CSV and Parquet formats.\" — mentions 'pandas' and 'CSV'"
+    },
+    {
+      "text": "The SKILL.md body covers handling missing values",
+      "passed": true,
+      "evidence": "Section '## 3. Handling Missing Values' (lines 95-162) provides a strategy selection guide table, a reusable handle_missing() function with per-dtype strategies (median, mean, zero, drop for numeric; fill value for categorical; False for boolean), and rules against global fillna(0)"
+    },
+    {
+      "text": "The SKILL.md body covers deduplication",
+      "passed": true,
+      "evidence": "Section '## 4. Deduplicating Rows' (lines 165-202) covers both full-row and key-based deduplication with a reusable deduplicate() function, sort-before-dedup pattern, and rules about logging removed rows and resetting index"
+    },
+    {
+      "text": "The SKILL.md body covers column name normalization or type conversion",
+      "passed": true,
+      "evidence": "Section '## 2. Normalizing Column Names' (lines 65-92) covers snake_case normalization with a normalize_columns function. Section '## 5. Converting Data Types' (lines 204-249) covers a reusable convert_types() function handling datetime, float, int, bool, category, and string conversions with nullable dtypes"
+    },
+    {
+      "text": "The SKILL.md body contains at least one code example",
+      "passed": true,
+      "evidence": "Extensive code examples throughout: CSV/Parquet loading (lines 37-49), post-load inspection (lines 55-61), normalize_columns function (lines 72-83), handle_missing function (lines 114-148), deduplicate function (lines 180-194), convert_types function (lines 210-241), full pipeline template (lines 281-324), string cleaning (lines 357-364)"
+    },
+    {
+      "text": "An evals/evals.json file exists with test cases",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 4 test cases (ids: eval-csv-full-clean, eval-missing-value-strategy, eval-dedup-with-natural-key, eval-type-conversion-messy)"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

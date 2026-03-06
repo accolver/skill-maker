@@ -1,0 +1,59 @@
+[
+  {
+    "id": "eval-csv-full-clean",
+    "title": "End-to-end CSV cleaning with missing values, duplicates, and type conversion",
+    "prompt": "I have a CSV file at data/sales.csv with columns: 'Order ID', ' Customer Name', 'order_date', 'Amount (USD)', 'Status', 'Amount (USD)'. Some rows have missing amounts and dates, there are duplicate Order IDs (keep the latest by order_date), customer names have extra whitespace, and Amount should be float. Clean this file and save as parquet.",
+    "expected_behaviors": [
+      "Loads the CSV with appropriate na_values",
+      "Normalizes column names to snake_case (e.g., 'Order ID' -> 'order_id', ' Customer Name' -> 'customer_name', 'Amount (USD)' -> 'amount_usd')",
+      "Deduplicates by order_id, keeping the row with the latest order_date",
+      "Handles missing values per-dtype: numeric with median/mean/zero, strings with a fill value",
+      "Converts order_date to datetime and amount_usd to a numeric type (Float64 or float)",
+      "Strips extra whitespace from customer_name",
+      "Saves the result as a Parquet file with index=False",
+      "Prints or logs a summary of rows removed, nulls handled, and final shape"
+    ]
+  },
+  {
+    "id": "eval-missing-value-strategy",
+    "title": "Handle missing values with column-specific strategies",
+    "prompt": "I have a DataFrame with these columns: age (int, 3% missing), income (float, 12% missing), city (string, 1% missing), signup_date (datetime, 0.5% missing), notes (string, 80% missing). Write a cleaning function that applies the right missing-value strategy for each column based on its type and how much data is missing.",
+    "expected_behaviors": [
+      "Fills age with median (numeric, <5% missing)",
+      "Either drops rows with missing income or fills with median, noting it's >5% missing",
+      "Fills city with 'unknown' or mode (categorical, low missing)",
+      "Leaves signup_date as NaT or forward-fills (datetime)",
+      "Drops the notes column entirely (>50% null)",
+      "Uses nullable dtypes (Int64, Float64) rather than numpy int/float",
+      "Does NOT use a single global fillna(0)",
+      "Logs or prints which strategy was applied to each column"
+    ]
+  },
+  {
+    "id": "eval-dedup-with-natural-key",
+    "title": "Deduplicate rows using a composite natural key",
+    "prompt": "My dataset has columns: user_id, email, event_type, event_timestamp, payload. There are duplicate events where the same user_id + event_type + event_timestamp appears multiple times. Deduplicate keeping the first occurrence and tell me how many rows were removed.",
+    "expected_behaviors": [
+      "Identifies the composite key as [user_id, event_type, event_timestamp]",
+      "Uses drop_duplicates with subset parameter for key-based dedup",
+      "Keeps 'first' occurrence",
+      "Reports the number of rows before and after deduplication",
+      "Resets the index after deduplication",
+      "Does not silently drop rows without logging"
+    ]
+  },
+  {
+    "id": "eval-type-conversion-messy",
+    "title": "Convert messy column types with error handling",
+    "prompt": "I have a DataFrame where: the 'price' column has values like '29.99', 'N/A', '$15', and ''; the 'quantity' column has '10', '3.0', None, and 'five'; the 'is_active' column has 'yes', 'True', '0', 'no'; and 'created_at' has '2024-01-15', 'Jan 5 2024', and 'not a date'. Convert these to proper types.",
+    "expected_behaviors": [
+      "Converts price to Float64 using pd.to_numeric with errors='coerce'",
+      "Strips '$' or other non-numeric characters from price before conversion",
+      "Converts quantity to Int64 using pd.to_numeric with errors='coerce'",
+      "Converts is_active to boolean by mapping truthy/falsy string values",
+      "Converts created_at to datetime using pd.to_datetime with errors='coerce'",
+      "Does not crash on unconvertible values — coerces them to NaN/NaT",
+      "Logs which conversions succeeded and which values were coerced"
+    ]
+  }
+]

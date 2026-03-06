@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-data-cleaning-skill/with_skill/outputs/pandas-data-cleaning/SKILL.md (254 lines)."
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Lines 1-4: YAML frontmatter delimited by --- with name: pandas-data-cleaning and a description field present."
+    },
+    {
+      "text": "The description includes 'Use when' trigger conditions mentioning data cleaning or pandas",
+      "passed": true,
+      "evidence": "Description contains literal 'Use when the user mentions data cleaning, data wrangling, data prep, messy data, missing values, NaN handling, duplicates...'."
+    },
+    {
+      "text": "The SKILL.md body covers handling missing values with code examples",
+      "passed": true,
+      "evidence": "Lines 79-103: '### 3. Handle missing values' section with strategy table (fillna median, fillna Unknown, dropna) and code examples showing before/after missing value counts."
+    },
+    {
+      "text": "The SKILL.md body covers deduplication with code examples",
+      "passed": true,
+      "evidence": "Lines 105-121: '### 4. Deduplicate' section with code examples for exact duplicates (drop_duplicates()) and near-duplicates (sort_values + drop_duplicates with subset and keep params)."
+    },
+    {
+      "text": "The SKILL.md body covers column name normalization or type conversion",
+      "passed": true,
+      "evidence": "Lines 60-77: '### 2. Normalize column names' with snake_case code. Lines 124-145: '### 5. Convert types' with code for datetime, numeric, category, and boolean conversions."
+    },
+    {
+      "text": "The SKILL.md body uses progressive disclosure by referencing separate files for detailed patterns",
+      "passed": true,
+      "evidence": "Line 83: references '[references/missing-value-strategies.md](references/missing-value-strategies.md)' for the full decision tree. The file exists in the output directory."
+    },
+    {
+      "text": "An evals/evals.json file exists with at least 2 test cases",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 3 test cases (ids 1, 2, 3) covering customer CSV cleaning, sensor parquet cleaning, and CRM export cleaning."
+    },
+    {
+      "text": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "passed": true,
+      "evidence": "Line 210: '## Common mistakes' section with a 7-row table covering blanket fillna, inplace=True, missing subset, type conversion order, etc."
+    },
+    {
+      "text": "The SKILL.md body contains a workflow or ordered checklist for the cleaning pipeline",
+      "passed": true,
+      "evidence": "Lines 35-159: Numbered workflow '### 1. Load and inspect' through '### 6. Validate and save'. Lines 161-169: Checklist with 7 items covering the full pipeline."
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "skill_name": "nextjs-cdk-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a Next.js 14 app that I need to deploy to AWS. The app uses SSR for the main pages and has API routes. I want to set up a staging environment first at staging.myapp.com, verify it works, then deploy to production at myapp.com. The staging API should point to https://api-staging.myapp.com and production to https://api.myapp.com. Can you walk me through the full deployment process?",
+      "expected_output": "A complete deployment walkthrough that includes: preflight checks, environment-specific config files for staging and production with different API URLs and domains, building the Next.js app, synthesizing the CDK stack for staging first, deploying to staging, a manual approval gate before production, and then deploying to production. Should include rollback instructions.",
+      "files": [],
+      "assertions": [
+        "Output includes a preflight or prerequisite verification step",
+        "Output creates or references separate configuration for staging and production environments",
+        "Staging config includes the staging API URL (api-staging.myapp.com)",
+        "Production config includes the production API URL (api.myapp.com)",
+        "Output specifies deploying to staging before production",
+        "Output includes a manual approval or verification step between staging and production deployment",
+        "Output includes rollback instructions or references a rollback procedure",
+        "Output references CDK synth or synthesize step before deployment"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our production Next.js deployment on AWS is broken — the SSR pages are returning 500 errors after the last CDK deploy. We need to rollback immediately. The stack name is NextjsStack-Production and we deployed about 20 minutes ago. What's the fastest way to get back to a working state?",
+      "expected_output": "Immediate rollback instructions prioritizing speed. Should recommend the CloudFront rollback strategy first as the fastest option, explain what it does and doesn't cover, then provide the full CDK rollback as a fallback. Should include verification steps after rollback and mention emergency manual rollback via AWS Console as a last resort.",
+      "files": [],
+      "assertions": [
+        "Output recommends the CloudFront rollback strategy as the fastest option",
+        "Output provides the CDK rollback as a secondary or fallback strategy",
+        "Output includes a command or script reference for performing the rollback",
+        "Output mentions verifying the rollback was successful",
+        "Output mentions or references an emergency manual rollback option",
+        "Output does NOT suggest running cdk destroy as a rollback method"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm setting up a new Next.js project for deployment to AWS with CDK. I need environment-specific configs for staging and production. Staging should use a smaller Lambda (512MB) with debug logging, and production should use 1024MB with warn-level logging. Both need different CloudFront price classes. Can you create the config structure?",
+      "expected_output": "Environment configuration files with proper separation. Staging config with 512MB Lambda memory, debug log level, and a cheaper CloudFront price class. Production config with 1024MB Lambda memory, warn log level, and a broader CloudFront price class. A shared config file for values common to both environments.",
+      "files": [],
+      "assertions": [
+        "Output creates separate config files for staging and production",
+        "Staging config specifies 512MB Lambda memory",
+        "Production config specifies 1024MB Lambda memory",
+        "Staging config sets log level to debug",
+        "Production config sets log level to warn",
+        "Output includes different CloudFront price classes for each environment",
+        "Output includes a shared config file or explains shared configuration"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-git-commit-skill/with_skill/outputs/git-commit-helper/SKILL.md (212 lines)."
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Lines 1-4: YAML frontmatter delimited by --- with name: git-commit-helper and a description field present."
+    },
+    {
+      "text": "The name field uses only lowercase letters, numbers, and hyphens",
+      "passed": true,
+      "evidence": "name: git-commit-helper — contains only lowercase letters and hyphens, no uppercase, spaces, or special characters."
+    },
+    {
+      "text": "The description includes 'Use when' trigger conditions",
+      "passed": true,
+      "evidence": "Description contains literal 'Use when writing commit messages, committing code, preparing git commits, or when the user mentions conventional commits...'."
+    },
+    {
+      "text": "The SKILL.md body contains a numbered workflow or step-by-step instructions",
+      "passed": true,
+      "evidence": "Five numbered steps: '### 1. Gather staged changes', '### 2. Detect monorepo scope', '### 3. Determine commit type', '### 4. Write the commit message', '### 5. Present and confirm'."
+    },
+    {
+      "text": "A scripts/ directory exists with at least one Bun TypeScript script (.ts file)",
+      "passed": true,
+      "evidence": "scripts/parse-diff.ts exists — a .ts file with #!/usr/bin/env bun shebang (571 lines)."
+    },
+    {
+      "text": "The script includes a --help flag or usage documentation",
+      "passed": true,
+      "evidence": "Line 435: if (args.includes('--help') || args.includes('-h')) { console.log(HELP); process.exit(0); } — --help flag implemented in source code."
+    },
+    {
+      "text": "An evals/evals.json file exists with at least 2 test cases",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 3 test cases (ids 1, 2, 3) covering monorepo feat, root-level fix, and CI/build changes."
+    },
+    {
+      "text": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "passed": true,
+      "evidence": "Line 179: '## Common mistakes' section with an 8-row table covering past tense, capitalization, scope, type misuse, etc."
+    },
+    {
+      "text": "The SKILL.md body is under 500 lines",
+      "passed": true,
+      "evidence": "SKILL.md is 212 lines total, well under the 500-line limit."
+    },
+    {
+      "text": "The script uses structured JSON output to stdout",
+      "passed": true,
+      "evidence": "Line 567: console.log(JSON.stringify(result, null, 2)) — uses JSON.stringify to write structured ParseResult object to stdout."
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "pass_rate": 1.0
+  }
+}

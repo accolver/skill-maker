@@ -1,0 +1,65 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-nextjs-deploy-skill/without_skill/outputs/nextjs-cdk-deploy/SKILL.md (311 lines)"
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Frontmatter contains name: nextjs-cdk-deploy and description: 'Use when deploying Next.js applications to AWS using CDK...'"
+    },
+    {
+      "text": "The description includes 'Use when' trigger conditions mentioning Next.js and deployment",
+      "passed": true,
+      "evidence": "Description contains: 'Use when deploying Next.js applications to AWS using CDK, setting up staging-to-production pipelines with approval gates, configuring environment-specific settings, or implementing rollback procedures for CDK-based Next.js deployments'. Mentions both Next.js and deployment."
+    },
+    {
+      "text": "The SKILL.md body contains a multi-step numbered deployment workflow",
+      "passed": true,
+      "evidence": "Deployment Flow section contains a numbered graphviz diagram (steps 1-7) and the Deployment Workflow Commands section shows numbered steps: '# 1. Deploy to staging', '# 2. Verify staging', '# 3. Manual approval', '# 4. Deploy to production'. The deploy.sh script itself has 5 numbered steps."
+    },
+    {
+      "text": "The SKILL.md body mentions staging and production environments",
+      "passed": true,
+      "evidence": "Extensive coverage: config/staging.env and config/production.env, deploy.sh staging/production, staging-first deployment pattern, manual approval gate between staging and production."
+    },
+    {
+      "text": "The SKILL.md body includes rollback procedures with specific steps",
+      "passed": true,
+      "evidence": "Section '## Rollback Procedures' (lines 251-288) with 'Quick Rollback (Lambda version revert)' using rollback.sh, 'Full Rollback (CDK stack revert)' with 3 steps (git checkout, rebuild, redeploy), and 'CloudFront Cache Invalidation' with aws cloudfront create-invalidation command."
+    },
+    {
+      "text": "A scripts/ directory exists with at least 2 deployment-related scripts",
+      "passed": true,
+      "evidence": "scripts/ directory contains 3 files: deploy.sh (113 lines), rollback.sh (100 lines), health-check.sh (135 lines)"
+    },
+    {
+      "text": "The scripts use Bun TypeScript (.ts files) as the preferred runtime",
+      "passed": false,
+      "evidence": "All 3 scripts are .sh (Bash) files, not .ts files: deploy.sh, rollback.sh, health-check.sh. They use #!/usr/bin/env bash, not Bun TypeScript."
+    },
+    {
+      "text": "An evals/evals.json file exists with at least 2 test cases",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 3 test cases: 'staging-first-deployment', 'environment-config-setup', 'production-rollback'"
+    },
+    {
+      "text": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "passed": true,
+      "evidence": "Line 290: '## Common Mistakes' section with a table of 7 mistake/fix pairs covering deploying without staging, forgetting standalone output, certificate ARN region, etc."
+    },
+    {
+      "text": "The SKILL.md body is under 500 lines",
+      "passed": true,
+      "evidence": "SKILL.md is 311 lines, under the 500 line limit."
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 2,
+    "total": 11,
+    "pass_rate": 0.82
+  }
+}

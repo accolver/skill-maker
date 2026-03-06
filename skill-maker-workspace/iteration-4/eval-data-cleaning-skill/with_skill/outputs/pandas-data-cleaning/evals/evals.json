@@ -1,0 +1,44 @@
+{
+  "skill_name": "pandas-data-cleaning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a CSV file at data/sales_q4.csv with columns like 'Order ID', 'Customer Email', 'Order Date', 'Total Amount', 'Status'. There are duplicate orders, some amounts are stored as strings with dollar signs, and about 10% of the dates are in different formats. Clean this up and save to cleaned_sales.csv.",
+      "expected_output": "Python script that loads the CSV, normalizes column names, deduplicates on order_id, converts order_date to datetime with errors='coerce', strips dollar signs and converts total_amount to numeric, handles nulls appropriately, and saves to cleaned_sales.csv.",
+      "files": [],
+      "assertions": [
+        "Output contains column name normalization using lowercase and underscores",
+        "Output uses pd.to_datetime with errors='coerce' for date conversion",
+        "Output handles dollar sign removal before numeric conversion",
+        "Output deduplicates on a key column like order_id",
+        "Output saves result to CSV"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I've got a parquet file with user activity data. Columns: userId, eventType, timestamp, sessionDuration, pageViews. There are tons of duplicate events (same user + timestamp within seconds), sessionDuration has nulls and some negative values, and pageViews is stored as strings. Need to clean this for analysis.",
+      "expected_output": "Python script that reads parquet, normalizes camelCase columns to snake_case, handles time-window deduplication, converts pageViews to numeric, handles sessionDuration nulls and invalid negatives, saves cleaned output.",
+      "files": [],
+      "assertions": [
+        "Output reads from parquet format using pd.read_parquet",
+        "Output normalizes camelCase column names to snake_case",
+        "Output handles deduplication considering user_id and timestamp proximity",
+        "Output converts page_views from string to numeric type",
+        "Output handles negative session_duration values as invalid data"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write me a reusable cleaning function that I can use across multiple CSV files in my project. It should normalize columns, deduplicate, and let me specify which columns are required (drop rows where those are null). I want to be able to pass in type conversion rules too.",
+      "expected_output": "A reusable Python function with parameters for key_columns, required_columns, and type_conversions. Should follow the normalize-deduplicate-convert-fill order, include docstring, and be importable.",
+      "files": [],
+      "assertions": [
+        "Output defines a reusable function with clear parameters",
+        "Output function accepts key_columns for deduplication",
+        "Output function accepts required_columns for null handling",
+        "Output function normalizes column names as the first step",
+        "Output includes a docstring or comments explaining usage"
+      ]
+    }
+  ]
+}

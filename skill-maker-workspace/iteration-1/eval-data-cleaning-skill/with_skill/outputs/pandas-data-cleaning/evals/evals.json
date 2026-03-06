@@ -1,0 +1,49 @@
+{
+  "skill_name": "pandas-data-cleaning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a CSV file at data/sales_raw.csv with columns like 'Customer Name', 'Order Date', 'Total Amount', 'Status'. Some rows have 'N/A' in the Total Amount column and there are duplicate orders. Can you clean this up and save it as a parquet file?",
+      "expected_output": "Python code that loads the CSV, normalizes column names to snake_case, replaces sentinel values like 'N/A' with pd.NA, handles missing values in the total_amount column with an appropriate strategy (median or mean fill), deduplicates rows based on meaningful key columns, converts total_amount to numeric and order_date to datetime, and saves the result as a Parquet file. Should include a cleaning report showing before/after row counts.",
+      "files": [],
+      "assertions": [
+        "Output contains code that reads a CSV file using pd.read_csv",
+        "Column names are normalized to snake_case format",
+        "Sentinel values like 'N/A' are replaced with pd.NA before missing value handling",
+        "Missing values in the amount column are handled with fillna using median or mean, not just dropna",
+        "Deduplication uses drop_duplicates with a subset parameter, not full-row dedup",
+        "Type conversion uses errors='coerce' for numeric or datetime conversion",
+        "Output is saved as Parquet using to_parquet",
+        "Code includes a summary or report of changes made (row counts or similar)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I've got a messy dataset with columns named things like '  First Name ', 'LAST_NAME', 'email-address', 'Phone #', 'Date of Birth'. Some dates are in different formats (MM/DD/YYYY and YYYY-MM-DD mixed together). There are also empty strings and 'null' text in several columns. Write me a cleaning script that standardizes everything.",
+      "expected_output": "A Python script that normalizes all column names to consistent snake_case, handles the mixed date formats in the date_of_birth column, replaces empty strings and 'null' text sentinels with proper NA values, and produces clean output. Should demonstrate the correct order of operations: normalize columns first, then handle sentinels, then missing values, then type conversion.",
+      "files": [],
+      "assertions": [
+        "Column names are normalized: 'First Name' becomes 'first_name' or similar snake_case",
+        "The script handles sentinel values including empty strings and the text 'null'",
+        "Date parsing handles multiple formats (at least MM/DD/YYYY and YYYY-MM-DD)",
+        "The cleaning follows the correct order: column normalization before other operations",
+        "The script works on a copy or uses assignment rather than inplace=True",
+        "Output includes some form of diagnostic or reporting on what was cleaned"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Clean this parquet file at analytics/user_events.parquet. It has columns user_id, event_type, timestamp, metadata, value. The value column has mixed types (some strings, some numbers). There are duplicate events where the same user_id and timestamp appear multiple times. I need the cleaned version saved back as parquet.",
+      "expected_output": "Python code that reads the Parquet file, handles the mixed-type value column by converting to numeric with errors='coerce', deduplicates based on user_id and timestamp, handles any resulting NaN values from the type coercion, and saves back as Parquet. Should preserve the original data for comparison.",
+      "files": [],
+      "assertions": [
+        "Code reads a Parquet file using pd.read_parquet",
+        "The value column is converted to numeric using pd.to_numeric with errors='coerce'",
+        "Deduplication targets user_id and timestamp columns specifically",
+        "Index is reset after deduplication with reset_index(drop=True)",
+        "Output is saved as Parquet format",
+        "Code handles or acknowledges NaN values created by type coercion"
+      ]
+    }
+  ]
+}

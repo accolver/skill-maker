@@ -1,0 +1,81 @@
+{
+  "skill_name": "skill-maker",
+  "iteration": 2,
+  "timestamp": "2026-03-06T06:18:47.327Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9067,
+        "stddev": 0.0047
+      },
+      "time_seconds": {
+        "mean": 50,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 28000,
+        "stddev": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.5733,
+        "stddev": 0.4067
+      },
+      "time_seconds": {
+        "mean": 50,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 28000,
+        "stddev": 0
+      }
+    },
+    "delta": {
+      "pass_rate": 0.3334,
+      "time_seconds": 0,
+      "tokens": 0
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "data-cleaning-skill",
+      "with_skill": {
+        "pass_rate": 0.9,
+        "time_seconds": 50,
+        "tokens": 28000
+      },
+      "without_skill": {
+        "pass_rate": 0.9,
+        "time_seconds": 50,
+        "tokens": 28000
+      }
+    },
+    {
+      "eval_name": "git-commit-skill",
+      "with_skill": {
+        "pass_rate": 0.91,
+        "time_seconds": 50,
+        "tokens": 28000
+      },
+      "without_skill": {
+        "pass_rate": 0,
+        "time_seconds": 50,
+        "tokens": 28000
+      }
+    },
+    {
+      "eval_name": "nextjs-deploy-skill",
+      "with_skill": {
+        "pass_rate": 0.91,
+        "time_seconds": 50,
+        "tokens": 28000
+      },
+      "without_skill": {
+        "pass_rate": 0.82,
+        "time_seconds": 50,
+        "tokens": 28000
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "skill_name": "nextjs-cdk-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a Next.js app and I need to deploy it to AWS using CDK. Set up the infrastructure with S3, CloudFront, and Lambda@Edge for SSR. I want to deploy to staging first, verify it works, then promote to production. The staging domain is staging.myapp.com and production is myapp.com.",
+      "expected_output": "A complete CDK stack with S3 bucket, CloudFront distribution, Lambda@Edge for SSR, environment-specific configs for staging and production, deployment commands for both environments, and a manual approval gate before production deployment.",
+      "files": [],
+      "assertions": [
+        "Output includes a CDK stack definition with S3 bucket construct",
+        "Output includes CloudFront distribution configuration",
+        "Output includes Lambda@Edge or Lambda function for SSR",
+        "Output includes separate configuration for staging and production environments",
+        "Output specifies deployment commands for both staging and production",
+        "Output includes a manual approval step before production deployment",
+        "Output mentions next.config.js requiring output: 'standalone'",
+        "Output includes rollback procedure or instructions"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My Next.js production deployment on AWS is showing 5xx errors after the latest CDK deploy. I need to roll back immediately. The CloudFront distribution ID is E1ABC2DEF3GH and the stack name is NextJsStack-production. Walk me through the rollback process.",
+      "expected_output": "Step-by-step rollback instructions covering CloudFront rollback, CDK stack rollback, and emergency DNS failover as escalation options. Should include specific AWS CLI commands with the provided distribution ID and stack name.",
+      "files": [],
+      "assertions": [
+        "Output provides at least two rollback strategies (e.g., CloudFront rollback and CDK rollback)",
+        "Output includes AWS CLI commands using the provided distribution ID E1ABC2DEF3GH",
+        "Output references the stack name NextJsStack-production in rollback commands",
+        "Output includes a decision tree or ordered escalation path",
+        "Output mentions monitoring or verification after rollback"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need to add environment-specific configuration to my Next.js CDK deployment. Staging should have WAF disabled, 7-day log retention, and min capacity of 1. Production needs WAF enabled, 90-day log retention, and min capacity of 3. Both use us-east-1. Show me how to structure the config files and pass them to the CDK stack.",
+      "expected_output": "Environment config file structure with TypeScript interfaces, separate config files for staging and production with the specified values, and CDK stack code showing how to consume the config via context or direct imports.",
+      "files": [],
+      "assertions": [
+        "Output includes a TypeScript interface or type for environment configuration",
+        "Output includes staging config with enableWaf: false, logRetentionDays: 7, minCapacity: 1",
+        "Output includes production config with enableWaf: true, logRetentionDays: 90, minCapacity: 3",
+        "Output shows how to pass environment config to the CDK stack",
+        "Output uses us-east-1 as the region for both environments"
+      ]
+    }
+  ]
+}

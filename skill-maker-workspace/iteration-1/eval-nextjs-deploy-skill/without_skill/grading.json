@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-nextjs-deploy-skill/without_skill/outputs/nextjs-cdk-deploy/SKILL.md (406 lines)"
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Frontmatter contains: name: nextjs-cdk-deploy, description: \"Deploy Next.js applications to AWS using CDK with staged rollouts (staging → production), environment-specific configs, manual approval gates, and rollback procedures.\""
+    },
+    {
+      "text": "The description mentions Next.js and AWS or CDK and deployment",
+      "passed": true,
+      "evidence": "description: \"Deploy Next.js applications to AWS using CDK with staged rollouts (staging → production)...\" — mentions 'Next.js', 'AWS', 'CDK', and 'Deploy'"
+    },
+    {
+      "text": "The SKILL.md body contains a multi-step deployment workflow",
+      "passed": true,
+      "evidence": "Body contains '## Workflow' with 5 phases: 'Phase 1: Pre-Deploy Validation' (4 steps), 'Phase 2: Deploy to Staging' (4 steps), 'Phase 3: Manual Approval Gate' (3 steps), 'Phase 4: Deploy to Production' (4 steps), 'Phase 5: Post-Deploy' (3 steps)"
+    },
+    {
+      "text": "The SKILL.md body mentions staging and production environments",
+      "passed": true,
+      "evidence": "Extensive coverage: 'Phase 2: Deploy to Staging' (lines 43-47), 'Phase 4: Deploy to Production' (lines 55-61), environment config section with staging.ts and production.ts examples (lines 70-125), 'Production Config Differences' section (lines 118-125)"
+    },
+    {
+      "text": "The SKILL.md body includes rollback procedures",
+      "passed": true,
+      "evidence": "Dedicated '## Rollback Procedures' section (lines 253-327) with 4 strategies: Strategy 1 CDK Rollback (lines 255-269), Strategy 2 CloudFormation Rollback (lines 271-288), Strategy 3 ECS Service Rollback (lines 290-306), Strategy 4 CloudFront Rollback (lines 308-317), plus a decision table (lines 319-327)"
+    },
+    {
+      "text": "A scripts/ directory exists with deployment-related scripts",
+      "passed": true,
+      "evidence": "scripts/ directory contains 4 deployment-related scripts: deploy.sh, rollback.sh, smoke-test.sh, synth-and-diff.sh"
+    },
+    {
+      "text": "An evals/evals.json file exists with test cases",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 3 test cases (ids: eval-staging-deploy-workflow, eval-production-rollback, eval-environment-config-setup)"
+    },
+    {
+      "text": "The SKILL.md body is under 500 lines",
+      "passed": true,
+      "evidence": "SKILL.md is 406 lines total, under the 500-line limit"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  }
+}

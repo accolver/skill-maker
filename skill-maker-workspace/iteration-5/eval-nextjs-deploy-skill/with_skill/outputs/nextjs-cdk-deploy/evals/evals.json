@@ -1,0 +1,45 @@
+{
+  "skill_name": "nextjs-cdk-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to deploy my Next.js app to AWS staging environment. The app is in the current directory with a next.config.js. I have CDK set up in a cdk/ directory. Walk me through the full staging deployment process.",
+      "expected_output": "A step-by-step deployment guide covering preflight checks, building with correct env vars, CDK synth, CDK deploy to staging, and post-deploy verification",
+      "files": [],
+      "assertions": [
+        "Output includes a preflight/prerequisites check step",
+        "Output includes building the Next.js app with environment-specific variables",
+        "Output includes running cdk synth before deploy",
+        "Output includes the cdk deploy command with staging context",
+        "Output includes post-deployment verification steps",
+        "Output mentions the manual approval gate before production"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My production deployment just failed - the CloudFront distribution is returning 503 errors. The staging deployment was fine. How do I rollback?",
+      "expected_output": "Rollback instructions covering CloudFormation rollback, redeploying previous version, and cache invalidation",
+      "files": [],
+      "assertions": [
+        "Output provides at least two rollback options",
+        "Output mentions CloudFormation rollback or redeploying previous commit",
+        "Output includes checking the stack status",
+        "Output mentions CloudFront cache invalidation as part of recovery",
+        "Output includes monitoring steps after rollback"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need to set up environment-specific configurations for my Next.js CDK deployment. I have staging and production environments with different API URLs, domains, and log levels. How should I structure this?",
+      "expected_output": "Environment configuration setup with separate config files for staging and production, covering domain, API URL, log level, cache TTL, and instance count differences",
+      "files": [],
+      "assertions": [
+        "Output shows separate configuration for staging and production",
+        "Output includes environment-specific API URLs",
+        "Output includes different log levels per environment (debug for staging, warn/error for production)",
+        "Output mentions NEXT_PUBLIC_ prefix requirement for client-side env vars",
+        "Output includes the gen-env-config script or equivalent configuration generation"
+      ]
+    }
+  ]
+}

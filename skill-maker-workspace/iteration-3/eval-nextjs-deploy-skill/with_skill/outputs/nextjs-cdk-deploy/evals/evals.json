@@ -1,0 +1,46 @@
+{
+  "skill_name": "nextjs-cdk-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a Next.js app in ./my-app that I need to deploy to AWS. It uses CDK for infrastructure. I want to deploy to staging first, verify it works, then push to production. The staging domain is staging.mysite.com and production is mysite.com. Can you walk me through the full deployment process?",
+      "expected_output": "A complete step-by-step deployment walkthrough that includes: preflight checks, building the Next.js app with standalone output, CDK synthesis with staging context, deploying to staging, verifying the staging deployment, requesting manual approval before production, deploying to production with broadening approval, and post-deployment verification. Should reference environment-specific configs and mention rollback procedures.",
+      "files": [],
+      "assertions": [
+        "Output mentions building Next.js with standalone output mode",
+        "Output includes CDK synth step with --context env=staging",
+        "Output includes a manual approval gate before production deployment",
+        "Output deploys to staging before production",
+        "Output mentions cdk diff to review changes before deploying",
+        "Output references rollback procedures or how to roll back if something fails",
+        "Output includes post-deployment verification steps"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My production Next.js deployment on AWS just broke after a CDK deploy. Users are seeing 502 errors. I need to roll back immediately. The stack name is NextjsProductionStack and we deployed about 10 minutes ago. What do I do?",
+      "expected_output": "An urgent rollback procedure with specific steps: first attempt CDK rollback to previous CloudFormation stack version, if that fails try CloudFront failover to S3 static fallback, and as last resort DNS failover. Should include specific commands and verification steps after rollback.",
+      "files": [],
+      "assertions": [
+        "Output provides a CDK/CloudFormation rollback command or procedure",
+        "Output mentions checking CloudFormation stack status",
+        "Output includes a fallback option if CDK rollback fails (CloudFront or DNS)",
+        "Output includes verification steps after rollback completes",
+        "Output mentions investigating root cause after stabilizing"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm setting up a new Next.js project for AWS deployment with CDK. I need environment-specific configurations for staging and production. Staging should use a smaller Lambda with debug logging, and production needs higher memory, WAF protection, and a custom domain. How should I structure the environment configs?",
+      "expected_output": "A configuration structure showing how to manage environment-specific settings including: config files per environment, CDK context patterns, different Lambda memory/scaling settings per stage, environment variables for NEXT_PUBLIC_API_URL and domain names, and how to pass these configs during CDK synth.",
+      "files": [],
+      "assertions": [
+        "Output shows separate configuration for staging vs production",
+        "Output includes different Lambda memory sizes per environment",
+        "Output mentions LOG_LEVEL or logging differences between environments",
+        "Output shows how to pass environment context to CDK synth",
+        "Output includes domain name configuration per environment"
+      ]
+    }
+  ]
+}

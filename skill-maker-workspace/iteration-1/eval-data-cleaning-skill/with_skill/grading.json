@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A SKILL.md file exists in the output skill directory",
+      "passed": true,
+      "evidence": "SKILL.md exists at eval-data-cleaning-skill/with_skill/outputs/pandas-data-cleaning/SKILL.md (234 lines)"
+    },
+    {
+      "text": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "passed": true,
+      "evidence": "Frontmatter contains: name: pandas-data-cleaning, description: \"Guides pandas data cleaning workflows for CSV and Parquet files, including handling missing values, deduplicating rows, normalizing column names, and converting column types...\", plus compatibility field"
+    },
+    {
+      "text": "The description mentions data cleaning or pandas or csv",
+      "passed": true,
+      "evidence": "description: \"Guides pandas data cleaning workflows for CSV and Parquet files...\" — mentions all three: 'pandas', 'data cleaning', and 'CSV'"
+    },
+    {
+      "text": "The SKILL.md body covers handling missing values",
+      "passed": true,
+      "evidence": "Section '### 3. Handle missing values' (lines 77-104) provides a detailed strategy table (Drop rows, Fill with constant, Fill with median, Fill with mean, Forward/back fill, Interpolate) with code examples and guidance on sentinel values"
+    },
+    {
+      "text": "The SKILL.md body covers deduplication",
+      "passed": true,
+      "evidence": "Section '### 4. Deduplicate rows' (lines 107-123) covers key-based deduplication with subset columns, code example using drop_duplicates(subset=key_cols, keep='first'), and explains why reset_index is needed"
+    },
+    {
+      "text": "The SKILL.md body covers column name normalization or type conversion",
+      "passed": true,
+      "evidence": "Section '### 2. Normalize column names' (lines 56-71) covers snake_case normalization with a normalize_columns function. Section '### 5. Convert types' (lines 125-145) covers numeric, date, categorical, and boolean type conversion with errors='coerce'"
+    },
+    {
+      "text": "The SKILL.md body contains at least one code example",
+      "passed": true,
+      "evidence": "Multiple code examples throughout: diagnostic summary (lines 37-49), normalize_columns function (lines 60-71), missing value handling (lines 92-96, 102-104), deduplication (lines 112-119), type conversion (lines 130-141), save operations (lines 149-155), cleaning report (lines 164-177)"
+    },
+    {
+      "text": "An evals/evals.json file exists with test cases",
+      "passed": true,
+      "evidence": "evals/evals.json exists with 3 test cases (ids: 1, 2, 3) covering CSV cleaning with dedup, messy column names with mixed dates, and parquet file with mixed types"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}
