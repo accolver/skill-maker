@@ -152,19 +152,63 @@ indicators (never produced), parameter constraints from validation schemas
 
 ---
 
+## Choosing Good Skill Use Cases
+
+Not every task benefits equally from a skill. The best candidates share specific
+traits. Here's how to predict whether a skill will produce a high delta (large
+improvement over unguided agents) or a low one.
+
+### High-delta traits
+
+Skills with the largest improvement (+50% or more) share these characteristics:
+
+| Trait                                   | Why it matters                                                                | Example                                                        |
+| --------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Structured output format**            | Agents know the content but won't organize it consistently without a template | API docs, code reviews, PR descriptions                        |
+| **Convention-specific rules**           | Agents have general knowledge but miss domain conventions                     | Conventional commits, SemVer changelogs, error code taxonomies |
+| **Comprehensive coverage requirements** | Agents address the obvious case and stop; skills enforce exhaustive coverage  | All error codes, all endpoints, all migration rollback steps   |
+| **Safety/correctness checklists**       | Agents skip verification steps that prevent production incidents              | Migration rollbacks, data backups, zero-downtime checks        |
+| **Multi-artifact output**               | Agents produce one file; skills require coordinated outputs                   | Markdown + OpenAPI JSON, migration + rollback + runbook        |
+
+### Low-delta traits (avoid these)
+
+| Trait                     | Why the skill won't help much                               | Example                                    |
+| ------------------------- | ----------------------------------------------------------- | ------------------------------------------ |
+| Agents already do it well | Marginal improvement doesn't justify the overhead           | Basic README generation, simple unit tests |
+| Subjective quality        | Hard to write objectively verifiable assertions             | "Write better variable names"              |
+| Single-step tasks         | No workflow to enforce; the agent gets it right in one shot | "Add a .gitignore"                         |
+| Highly context-dependent  | The skill can't anticipate the specific codebase            | "Refactor this code" (too open-ended)      |
+
+### The litmus test
+
+Ask yourself: **"If I gave this task to 10 different agents without guidance,
+would they produce 10 different outputs with inconsistent quality?"** If yes,
+that's a high-delta skill candidate. If they'd all produce roughly the same
+reasonable output, a skill won't add much.
+
+The built examples confirm this pattern:
+
+- **api-doc-generator (+83.3%):** 10 agents would produce 10 different doc
+  formats, most missing error responses and auth details
+- **code-reviewer (+58.3%):** 10 agents would all find the bug but present
+  findings in 10 different formats with inconsistent severity
+- **git-conventional-commits (+27.7%):** Lower delta because agents already know
+  commit message basics; the skill enforces specific formatting rules
+
+---
+
 ## Planned Skills
 
-The following skills are scaffolded and ready to be built with skill-maker:
+The following skills are scaffolded and ready to be built with skill-maker. Each
+was selected for high predicted delta based on the traits above.
 
-| Skill                                             | Domain                                    | Status  |
-| ------------------------------------------------- | ----------------------------------------- | ------- |
-| [pdf-tools](pdf-tools/)                           | PDF extraction, form filling, merging     | Planned |
-| [image-gif-tools](image-gif-tools/)               | Image/GIF processing with ffmpeg          | Planned |
-| [docker-manager](docker-manager/)                 | Container lifecycle management            | Planned |
-| [security-analyst](security-analyst/)             | OWASP scanning, secret detection          | Planned |
-| [code-refactoring](code-refactoring/)             | Code smell detection, cleanup             | Planned |
-| [infrastructure-as-code](infrastructure-as-code/) | Terraform, CloudFormation, Pulumi         | Planned |
-| [debugging](debugging/)                           | Systematic debugging, root cause analysis | Planned |
+| Skill                                       | Domain                                               | Predicted Delta | Key Trait                 |
+| ------------------------------------------- | ---------------------------------------------------- | --------------- | ------------------------- |
+| [database-migration](database-migration/)   | Safe, reversible migrations with rollback plans      | +70-80%         | Safety checklists         |
+| [pr-description](pr-description/)           | Structured PR descriptions with testing instructions | +60-70%         | Structured output         |
+| [error-handling](error-handling/)           | Unified error taxonomy, codes, and propagation       | +65-75%         | Convention-specific rules |
+| [changelog-generator](changelog-generator/) | Audience-aware changelogs with SemVer classification | +55-65%         | Comprehensive coverage    |
+| [monitoring-setup](monitoring-setup/)       | Health checks, metrics, tracing, and alerts          | +50-60%         | Multi-artifact output     |
 
 To build any of these, run skill-maker:
 
