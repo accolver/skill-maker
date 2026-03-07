@@ -273,12 +273,42 @@ All scripts require [Bun](https://bun.sh) and live in `skill-maker/scripts/`:
 | `detect-plateau.ts`      | Detect pass_rate plateau              | `bun run scripts/detect-plateau.ts <workspace>`                      |
 | `validate-skill.ts`      | Validate SKILL.md against spec        | `bun run scripts/validate-skill.ts <skill-dir>`                      |
 
+## Subdirectory README Standard
+
+Every category directory under `examples/` **must** have its own `README.md`
+that follows the same standard as `examples/README.md`. This includes:
+
+1. **Summary table** — all skills in the category with pass rates, deltas,
+   iteration counts, and descriptions
+2. **Mermaid chart** — `xychart-beta` bar chart comparing with-skill vs
+   without-skill pass rates, with a color legend below
+3. **Convergence table** — iteration-by-iteration pass rates and plateau points
+4. **Timing table** — execution time and token usage for both conditions
+5. **Skill details** — individual skill descriptions with links to skill
+   directories and benchmark files
+
+Current category directories with READMEs:
+
+- `examples/dev-workflow/README.md`
+- `examples/code-quality/README.md`
+- `examples/infrastructure/README.md`
+- `examples/document-processing/README.md`
+- `examples/sovereign-engineering/README.md` (parent category landing page)
+- `examples/sovereign-engineering/nostr/README.md` (full eval reports)
+
+When adding a new category or subcategory, create its README following this
+standard. When adding a new skill to an existing category, update the category's
+README with the new skill's metrics.
+
 ## Contributing
 
 To add a new example skill:
 
-1. Create a directory under `examples/<skill-name>/`
+1. Create a directory under `examples/<category>/<skill-name>/`
 2. Run skill-maker to build it (goes through the full eval loop)
 3. Verify the FINAL-BENCHMARK.md is generated in the workspace
-4. Update `examples/README.md` charts with the new skill's metrics
-5. Update the aggregate metrics table in this file
+4. Update the category's `README.md` with the new skill's metrics
+5. Update `examples/README.md` charts with the new skill's metrics
+6. Update the aggregate metrics table in this file
+7. If creating a new category, add a `README.md` following the
+   [Subdirectory README Standard](#subdirectory-readme-standard)

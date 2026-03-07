@@ -5,25 +5,32 @@ benchmarks demonstrating measurable improvement over unguided agents.
 
 ## Directory Structure
 
-Examples are organized by category:
+Examples are organized by category. Each category has its own README with
+detailed evaluation reports:
 
 ```
 examples/
 ├── dev-workflow/                    # Developer workflow automation
+│   ├── README.md                    # Category evaluation report
 │   ├── git-conventional-commits/
 │   ├── code-reviewer/
 │   ├── pr-description/
 │   └── changelog-generator/
 ├── code-quality/                    # Code quality and documentation
+│   ├── README.md                    # Category evaluation report
 │   ├── api-doc-generator/
 │   └── error-handling/
 ├── infrastructure/                  # Infrastructure and operations
+│   ├── README.md                    # Category evaluation report
 │   ├── database-migration/
 │   └── monitoring-setup/
 ├── document-processing/             # Document manipulation
+│   ├── README.md                    # Category evaluation report
 │   └── pdf-toolkit/
 └── sovereign-engineering/           # Decentralized protocol development
+    ├── README.md                    # Category landing page
     └── nostr/                       # 11 Nostr protocol skills
+        ├── README.md                # Full Nostr evaluation report
         ├── nostr-event-builder/
         ├── nostr-nip-advisor/
         ├── nostr-relay-builder/
@@ -36,6 +43,14 @@ examples/
         ├── nostr-marketplace-builder/
         └── nostr-dvms/
 ```
+
+| Category                                                               | Skills | Avg Delta |
+| ---------------------------------------------------------------------- | ------ | --------- |
+| [Dev Workflow](dev-workflow/README.md)                                 | 4      | +61.1%    |
+| [Code Quality](code-quality/README.md)                                 | 2      | +87.5%    |
+| [Infrastructure](infrastructure/README.md)                             | 2      | +84.9%    |
+| [Document Processing](document-processing/README.md)                   | 1      | +95.8%    |
+| [Sovereign Engineering / Nostr](sovereign-engineering/nostr/README.md) | 11     | +54.7%    |
 
 ## Install
 
