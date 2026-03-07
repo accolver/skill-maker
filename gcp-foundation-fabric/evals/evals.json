@@ -1,0 +1,53 @@
+{
+  "skill_name": "gcp-foundation-fabric",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to create a Terraform configuration for a new GCP project that will host a containerized application. The project needs: GKE and Cloud SQL APIs enabled, IAM bindings for a dev team group and a CI/CD service account, Shared VPC attachment to an existing host project, CMEK encryption for compute and storage, and org policies to disable serial port access and external IPs on VMs. Use Cloud Foundation Fabric modules. Save the output to outputs/project.tf",
+      "expected_output": "A Terraform file using CFF's project module with proper IAM, services, shared_vpc_service_config, service_encryption_key_ids, and org_policies.",
+      "files": [],
+      "assertions": [
+        "Output contains modules/project",
+        "Output includes iam",
+        "Output contains container.googleapis.com",
+        "Output contains shared_vpc_service_config",
+        "Output contains service_encryption_key_ids",
+        "Output contains disableSerialPortAccess",
+        "Output contains prefix",
+        "Output contains source"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Help me set up a hub-and-spoke networking topology for my GCP organization using Cloud Foundation Fabric. I need: a hub VPC with 3 subnets across europe-west1, us-central1, and asia-southeast1; two spoke VPCs (dev and prod) each with 1 subnet; VPC peering between hub and each spoke; Cloud NAT on the hub VPC; and a hierarchical firewall policy allowing IAP SSH access. Write the Terraform configurations using CFF modules. Save all output files to outputs/",
+      "expected_output": "Terraform files using CFF networking modules with proper subnet configurations, peering, NAT, and firewall policy.",
+      "files": [],
+      "assertions": [
+        "Output contains modules/net-vpc",
+        "Output contains europe-west1",
+        "Output contains us-central1",
+        "Output contains asia-southeast1",
+        "Output contains modules/net-vpc-peering",
+        "Output contains modules/net-cloudnat",
+        "Output contains modules/net-firewall-policy",
+        "Output contains 35.235.240.0/20"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I want to use the CFF project factory to create 50+ projects from YAML definitions. Show me: 1) The Terraform configuration for the project-factory module with appropriate defaults, 2) Two example YAML project definitions (one for a standard app project and one for a data analytics project with BigQuery), and 3) How to add org policies via the factory. Save all outputs to outputs/",
+      "expected_output": "Terraform config using CFF project-factory module with factories_config, plus example YAML files.",
+      "files": [],
+      "assertions": [
+        "Output contains modules/project-factory",
+        "Output contains factories_config",
+        "Output contains billing_account",
+        "Output contains services",
+        "Output includes iam",
+        "Output contains bigquery.googleapis.com",
+        "Output contains org_policies",
+        "Output contains data_defaults"
+      ]
+    }
+  ]
+}
