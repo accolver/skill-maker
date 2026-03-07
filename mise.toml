@@ -32,3 +32,7 @@ run = "bunx wrangler pages deploy .svelte-kit/cloudflare --project-name skill-ma
 description = "Auto-format with prettier"
 dir = "web"
 run = "bun run format"
+
+[tasks.publish]
+description = "Publish the skill-maker CLI to npm"
+run = "npm publish"
