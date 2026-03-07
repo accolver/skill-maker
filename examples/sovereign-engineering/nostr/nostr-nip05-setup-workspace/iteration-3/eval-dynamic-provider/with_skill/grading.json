@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The path '/.well-known/nostr.json' appears in a route or handler definition",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"well\" (heuristic match):\n  response.md:4: that handles the `/.well-known/nostr.json` endpoint for multiple users.\n  response.md:8: Per the NIP-05 spec, the `/.well-known/nostr.json` endpoint must return a JSON\n  response.md:84: // NIP-05 Endpoint: GET /.well-known/nostr.json"
+    },
+    {
+      "text": "The query parameter 'name' is read from the request URL",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"name\" (heuristic match):\n  response.md:11: - **`names`** (REQUIRED) — Maps local-part identifiers to 64-character lowercase\n  response.md:20: \"names\": {\n  response.md:41: - Local-part names are restricted to `a-z0-9-_.` (lowercase only, no uppercase)"
+    },
+    {
+      "text": "Both 'names' and 'relays' appear in the JSON response structure",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relays\" (heuristic match):\n  response.md:13: - **`relays`** (RECOMMENDED) — Maps hex public keys to arrays of WebSocket relay\n  response.md:24: \"relays\": {\n  response.md:60: relays: [\"wss://relay.damus.io\", \"wss://nos.lol\", \"wss://relay.nostr.band\"],"
+    },
+    {
+      "text": "The 'relays' values are arrays of WebSocket URLs starting with 'wss://'",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relays\" (heuristic match):\n  response.md:13: - **`relays`** (RECOMMENDED) — Maps hex public keys to arrays of WebSocket relay\n  response.md:24: \"relays\": {\n  response.md:60: relays: [\"wss://relay.damus.io\", \"wss://nos.lol\", \"wss://relay.nostr.band\"],"
+    },
+    {
+      "text": "The string 'Access-Control-Allow-Origin' appears in the response headers",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"access\" (heuristic match):\n  response.md:88: // Without Access-Control-Allow-Origin: *, JavaScript clients\n  response.md:91: res.set(\"Access-Control-Allow-Origin\", \"*\");\n  response.md:92: res.set(\"Access-Control-Allow-Methods\", \"GET\");"
+    },
+    {
+      "text": "A regex or character validation restricts local-part to lowercase alphanumeric characters",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"local\" (heuristic match):\n  response.md:11: - **`names`** (REQUIRED) — Maps local-part identifiers to 64-character lowercase\n  response.md:41: - Local-part names are restricted to `a-z0-9-_.` (lowercase only, no uppercase)\n  response.md:74: // Local-part Validation"
+    },
+    {
+      "text": "The underscore '_' character is handled as the root identifier for the domain",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"domain\" (heuristic match):\n  response.md:42: - The `_` (underscore) is the special **root identifier** — `_@domain.com`\n  response.md:43: displays as just `domain.com` in clients\n  response.md:66: // Root identifier: _@domain displays as just the domain name"
+    },
+    {
+      "text": "All example pubkeys in the output are 64-character hex strings not npub",
+      "passed": false,
+      "evidence": "No matches for \"are 64-character hex strings not npub\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

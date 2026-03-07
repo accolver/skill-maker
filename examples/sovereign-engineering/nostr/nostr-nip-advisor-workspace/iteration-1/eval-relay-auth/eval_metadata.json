@@ -1,0 +1,16 @@
+{
+  "id": 3,
+  "name": "relay-auth",
+  "prompt": "I'm building a Nostr relay and need to implement user authentication so I can restrict who can publish events and read DMs. What NIPs do I need and how does the auth flow work?",
+  "expected_output": "Response covers NIP-42 for relay authentication (kind:22242, challenge-response flow), NIP-11 for the relay information document (advertising auth_required and supported NIPs), and explains the AUTH message protocol between client and relay.",
+  "assertions": [
+    "Response identifies NIP-42 as the primary NIP for relay authentication",
+    "Response mentions kind:22242 as the authentication event kind",
+    "Response describes the challenge-response flow: relay sends AUTH challenge, client signs kind:22242 with challenge and relay tags, sends AUTH back",
+    "Response mentions NIP-11 as the relay information document standard",
+    "Response explains that NIP-11 can advertise auth_required in the limitation field",
+    "Response mentions the AUTH message format between client and relay (e.g., [\"AUTH\", \"<challenge>\"])",
+    "Response explains that auth can be required for specific actions like reading kind:4 DMs or publishing events",
+    "Response mentions the OK or CLOSED response with auth-required prefix as part of the protocol flow"
+  ]
+}

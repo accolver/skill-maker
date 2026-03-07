@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Works with kind 9735 zap receipt events",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Validating Zap Receipts\n  response.md:3: Here's how to validate zap receipts (kind:9735 events) in your Nostr client.\n  response.md:8: function validateZapReceipt(receipt: NostrEvent, expectedPubkey: string) {"
+    },
+    {
+      "text": "Validates that the receipt pubkey matches the LNURL nostrPubkey",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"receipt\" (heuristic match):\n  response.md:1: # Validating Zap Receipts\n  response.md:3: Here's how to validate zap receipts (kind:9735 events) in your Nostr client.\n  response.md:8: function validateZapReceipt(receipt: NostrEvent, expectedPubkey: string) {"
+    },
+    {
+      "text": "Parses the description tag as JSON to get the embedded zap request",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Validating Zap Receipts\n  response.md:3: Here's how to validate zap receipts (kind:9735 events) in your Nostr client.\n  response.md:8: function validateZapReceipt(receipt: NostrEvent, expectedPubkey: string) {"
+    },
+    {
+      "text": "Checks the bolt11 tag for invoice amount verification",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"bolt11\" (heuristic match):\n  response.md:34: // Check the bolt11 invoice\n  response.md:35: const bolt11 = receipt.tags.find((t) => t[0] === \"bolt11\");\n  response.md:36: if (!bolt11) {"
+    },
+    {
+      "text": "Verifies amount in bolt11 matches amount in the zap request",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Validating Zap Receipts\n  response.md:3: Here's how to validate zap receipts (kind:9735 events) in your Nostr client.\n  response.md:8: function validateZapReceipt(receipt: NostrEvent, expectedPubkey: string) {"
+    },
+    {
+      "text": "Uses SHA256 for hashing the description to verify against bolt11 description hash",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"bolt11\" (heuristic match):\n  response.md:34: // Check the bolt11 invoice\n  response.md:35: const bolt11 = receipt.tags.find((t) => t[0] === \"bolt11\");\n  response.md:36: if (!bolt11) {"
+    },
+    {
+      "text": "Verifies the embedded zap request is kind 9734",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Validating Zap Receipts\n  response.md:3: Here's how to validate zap receipts (kind:9735 events) in your Nostr client.\n  response.md:8: function validateZapReceipt(receipt: NostrEvent, expectedPubkey: string) {"
+    },
+    {
+      "text": "Extracts the sender pubkey from the embedded zap request event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Validating Zap Receipts\n  response.md:3: Here's how to validate zap receipts (kind:9735 events) in your Nostr client.\n  response.md:8: function validateZapReceipt(receipt: NostrEvent, expectedPubkey: string) {"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

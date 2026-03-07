@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output identifies that 'Alice' must be lowercase — only a-z0-9-_. are allowed",
+      "passed": false,
+      "evidence": "No matches for \"identifies that 'alice' must be lowercase — only a-z0-9-_. are allowed\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output identifies that 'npub' format is wrong and must be converted to 64-character hex",
+      "passed": false,
+      "evidence": "No matches for \"identifies that 'npub' format is wrong and must be converted to 64-character hex\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output identifies the 301 redirect as a problem — NIP-05 prohibits HTTP redirects",
+      "passed": false,
+      "evidence": "No matches for \"identifies the 301 redirect as a problem — nip-05 prohibits http redirects\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output provides a corrected nostr.json with lowercase 'alice' and hex pubkey",
+      "passed": false,
+      "evidence": "No matches for \"provides a corrected nostr.json with lowercase 'alice' and hex pubkey\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output fixes the nip05 profile field to 'alice@mydomain.com' (all lowercase)",
+      "passed": false,
+      "evidence": "No matches for \"fixes the nip05 profile field to 'alice@mydomain.com' (all lowercase)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output provides guidance on fixing the redirect in the server configuration",
+      "passed": false,
+      "evidence": "No matches for \"provides guidance on fixing the redirect in the server configuration\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'Access-Control-Allow-Origin' or 'CORS' as a required header",
+      "passed": false,
+      "evidence": "No matches for \"contains 'access-control-allow-origin' or 'cors' as a required header\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output does NOT just say 'convert npub to hex' — it explains hex means 64 lowercase characters",
+      "passed": false,
+      "evidence": "No matches for \"does not just say 'convert npub to hex' — it explains hex means 64 lowercase characters\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output creates a rumor without a signature — 'sig' field is absent, empty, or explicitly omitted",
+      "passed": true,
+      "evidence": "No occurrences of \"a signature — 'sig' field\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'kind: 13' or 'kind:13' for the seal event with empty tags array",
+      "passed": false,
+      "evidence": "No matches for \"contains 'kind: 13' or 'kind:13' for the seal event with empty tags array\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output encrypts the rumor JSON into the seal content using NIP-44 with author and recipient keys",
+      "passed": false,
+      "evidence": "No matches for \"encrypts the rumor json into the seal content using nip-44 with author and recipient keys\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'kind: 1059' or 'kind:1059' for the gift wrap with a p-tag for the recipient",
+      "passed": false,
+      "evidence": "No matches for \"contains 'kind: 1059' or 'kind:1059' for the gift wrap with a p-tag for the recipient\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output generates a random ephemeral keypair for signing the gift wrap (not the author's key)",
+      "passed": false,
+      "evidence": "No matches for \"generates a random ephemeral keypair for signing the gift wrap (not the author's key)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output randomizes created_at timestamps on seal and/or gift wrap (not using current time directly)",
+      "passed": false,
+      "evidence": "No matches for \"randomizes created_at timestamps on seal and/or gift wrap (not using current time directly)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output unwrapping decrypts gift wrap first, then decrypts seal to get the rumor",
+      "passed": false,
+      "evidence": "No matches for \"unwrapping decrypts gift wrap first, then decrypts seal to get the rumor\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output verifies that rumor.pubkey matches seal.pubkey for author consistency",
+      "passed": false,
+      "evidence": "No matches for \"verifies that rumor.pubkey matches seal.pubkey for author consistency\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

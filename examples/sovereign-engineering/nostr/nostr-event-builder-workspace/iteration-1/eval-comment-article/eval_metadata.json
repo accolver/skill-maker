@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "comment-article",
+  "prompt": "I want to comment on a long-form blog post (kind:30023) published by pubkey 3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289 with d-tag 'my-first-article'. The specific event ID is 5b4fc7fed15672fefe65d2426f67197b71ccc82aa0cc8a9e94f683eb78e07651. The relay is wss://relay.example.com. My comment is 'This article changed my perspective on decentralization.' Construct the complete unsigned Nostr event JSON.",
+  "assertions": [
+    "Output contains a JSON event with kind set to 1111 (not kind 1)",
+    "Event has an uppercase A tag with the addressable coordinate '30023:3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289:my-first-article'",
+    "Event has an uppercase K tag with value '30023' for the root kind",
+    "Event has a lowercase k tag with value '30023' for the parent kind",
+    "Event has an uppercase P tag containing the blog post author pubkey",
+    "Event has a lowercase p tag containing the blog post author pubkey",
+    "Event includes a lowercase a tag with the same addressable coordinate as the A tag",
+    "Output explains that kind:1111 comments must NOT be used to reply to kind:1 notes (mentions NIP-22 or the comment/reply distinction)"
+  ]
+}

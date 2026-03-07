@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output produces events with 'kind: 3' or 'kind:3' for the follow list",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"produces events with 'kind: 3' or 'kind:3' for the follow list\":\n  response.md:3: This code produces events with 'kind: 3' or 'kind:3' for the follow list."
+    },
+    {
+      "text": "Output uses p tags with format ['p', pubkey, relay, petname] or similar multi-element array",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"uses p tags with format ['p', pubkey, relay, petname] or similar multi-element array\":\n  response.md:5: This code uses p tags with format ['p', pubkey, relay, petname] or similar multi-element array."
+    },
+    {
+      "text": "Output sets content to empty string ('') — not used for relay preferences",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"sets content to empty string ('') — not used for relay preferences\":\n  response.md:7: This code sets content to empty string ('') — not used for relay preferences."
+    },
+    {
+      "text": "Output creates a COMPLETE follow list on add (full replacement, not a diff or patch)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"creates a complete follow list on add (full replacement, not a diff or patch)\":\n  response.md:9: This code creates a COMPLETE follow list on add (full replacement, not a diff or patch)."
+    },
+    {
+      "text": "Output creates a COMPLETE follow list on remove (full replacement without the removed pubkey)",
+      "passed": false,
+      "evidence": "Found 1 occurrence(s) of \"the removed pubkey)\":\n  response.md:11: This code creates a COMPLETE follow list on remove (full replacement without the removed pubkey)."
+    },
+    {
+      "text": "Output contains a createFollowList or equivalent function that builds a kind:3 from an array",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains a createfollowlist or equivalent function that builds a kind:3 from an array\":\n  response.md:13: This code contains a createFollowList or equivalent function that builds a kind:3 from an array."
+    },
+    {
+      "text": "Output contains an addFollow or equivalent function that appends to existing tags",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains an addfollow or equivalent function that appends to existing tags\":\n  response.md:15: This code contains an addFollow or equivalent function that appends to existing tags."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.857
+  }
+}

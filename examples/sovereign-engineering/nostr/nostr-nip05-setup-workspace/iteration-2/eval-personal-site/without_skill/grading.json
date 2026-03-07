@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains 'b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9' mapped to 'bob' in the nostr.json names object",
+      "passed": false,
+      "evidence": "No matches for \"contains 'b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9' mapped to 'bob' in the nostr.json names object\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains the pubkey in 64-character lowercase hex format, not npub or bech32",
+      "passed": false,
+      "evidence": "No matches for \"contains the pubkey in 64-character lowercase hex format, not npub or bech32\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'Access-Control-Allow-Origin' set to '*' in the Nginx config",
+      "passed": false,
+      "evidence": "No matches for \"contains 'access-control-allow-origin' set to '*' in the nginx config\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains '/.well-known/nostr.json' in an Nginx location block",
+      "passed": false,
+      "evidence": "No matches for \"contains '/.well-known/nostr.json' in an nginx location block\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'HTTPS' as a requirement for serving the nostr.json endpoint",
+      "passed": false,
+      "evidence": "No matches for \"contains 'https' as a requirement for serving the nostr.json endpoint\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'nip05' field set to 'bob@example.com' in a kind:0 profile update",
+      "passed": false,
+      "evidence": "No matches for \"contains 'nip05' field set to 'bob@example.com' in a kind:0 profile update\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains at least one 'curl' command for testing the endpoint",
+      "passed": false,
+      "evidence": "No matches for \"contains at least one 'curl' command for testing the endpoint\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output warns about HTTP redirects being prohibited on the nostr.json endpoint",
+      "passed": false,
+      "evidence": "No matches for \"warns about http redirects being prohibited on the nostr.json endpoint\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

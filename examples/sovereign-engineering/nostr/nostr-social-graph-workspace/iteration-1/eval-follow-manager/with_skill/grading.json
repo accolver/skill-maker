@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output file follow-manager.ts exists and contains valid TypeScript",
+      "passed": false,
+      "evidence": "No matches for \"file follow-manager.ts exists and contains valid typescript\" found across 1 output file(s)"
+    },
+    {
+      "text": "The code produces kind:3 events (kind field is set to 3)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  follow-manager.ts:4: * Manages kind:3 follow list events. Follow lists are replaceable events —\n  follow-manager.ts:13: kind: number;\n  follow-manager.ts:30: * Create a kind:3 follow list event from an array of follow entries."
+    },
+    {
+      "text": "Each follow entry uses a p tag with the format ['p', '<pubkey>', '<relay>', '<petname>']",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"follow\" (heuristic match):\n  follow-manager.ts:2: * Follow List Manager for Nostr (NIP-02)\n  follow-manager.ts:4: * Manages kind:3 follow list events. Follow lists are replaceable events —\n  follow-manager.ts:19: interface FollowEntry {"
+    },
+    {
+      "text": "The content field is set to empty string, not used for relay preferences",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"string\" (heuristic match):\n  follow-manager.ts:14: tags: string[][];\n  follow-manager.ts:15: content: string;\n  follow-manager.ts:20: pubkey: string;"
+    },
+    {
+      "text": "The add-follow function produces a COMPLETE follow list event, not a partial update or diff",
+      "passed": false,
+      "evidence": "No matches for \"event, not a partial update or diff\" found across 1 output file(s)"
+    },
+    {
+      "text": "The remove-follow function produces a COMPLETE follow list event without the removed pubkey",
+      "passed": false,
+      "evidence": "Found 2 occurrence(s) of \"the removed pubkey\":\n  follow-manager.ts:113: * Returns a COMPLETE new follow list event without the removed pubkey.\n  follow-manager.ts:180: // Remove a follow (produces complete list without the removed pubkey)"
+    },
+    {
+      "text": "New follows are appended to the end of the tags array (chronological ordering)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"new\" (heuristic match):\n  follow-manager.ts:26: // Create a new follow list from an array of pubkeys/entries\n  follow-manager.ts:61: * Returns a COMPLETE new follow list event (not a diff or partial update).\n  follow-manager.ts:62: * The new follow is appended to the end of the tags array for chronological ordering."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 3,
+    "total": 7,
+    "pass_rate": 0.571
+  }
+}

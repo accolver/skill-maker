@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The path '/.well-known/nostr.json' appears in a route or handler definition",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"json\" (heuristic match):\n  response.md:3: Here's a Node.js server that handles the NIP-05 nostr.json endpoint for multiple\n  response.md:24: app.get(\"/.well-known/nostr.json\", (req, res) => {\n  response.md:28: return res.status(400).json({ error: \"Name parameter required\" });"
+    },
+    {
+      "text": "The query parameter 'name' is read from the request URL",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"name\" (heuristic match):\n  response.md:25: const name = req.query.name;\n  response.md:27: if (!name) {\n  response.md:28: return res.status(400).json({ error: \"Name parameter required\" });"
+    },
+    {
+      "text": "Both 'names' and 'relays' appear in the JSON response structure",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"json\" (heuristic match):\n  response.md:3: Here's a Node.js server that handles the NIP-05 nostr.json endpoint for multiple\n  response.md:24: app.get(\"/.well-known/nostr.json\", (req, res) => {\n  response.md:28: return res.status(400).json({ error: \"Name parameter required\" });"
+    },
+    {
+      "text": "The 'relays' values are arrays of WebSocket URLs starting with 'wss://'",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"relays\" (heuristic match):\n  response.md:16: relays: [\"wss://relay.damus.io\"],\n  response.md:20: relays: [\"wss://relay.example.com\"],\n  response.md:40: relays: {"
+    },
+    {
+      "text": "The string 'Access-Control-Allow-Origin' appears in the response headers",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"access\" (heuristic match):\n  response.md:77: Deploy this behind a reverse proxy like Nginx and make sure it's accessible over"
+    },
+    {
+      "text": "A regex or character validation restricts local-part to lowercase alphanumeric characters",
+      "passed": false,
+      "evidence": "Could not verify assertion against 1 output file(s). Content preview: \"# Dynamic NIP-05 Server in Node.js\n\nHere's a Node.js server that handles the NIP-05 nostr.json endpoint for multiple\nusers.\n\n## Server Code\n\n```javascript\nconst express = require(\"express\");\nconst app...\""
+    },
+    {
+      "text": "The underscore '_' character is handled as the root identifier for the domain",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"domain\" (heuristic match):\n  response.md:83: curl https://yourdomain.com/.well-known/nostr.json?name=bob"
+    },
+    {
+      "text": "All example pubkeys in the output are 64-character hex strings not npub",
+      "passed": false,
+      "evidence": "No matches for \"are 64-character hex strings not npub\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

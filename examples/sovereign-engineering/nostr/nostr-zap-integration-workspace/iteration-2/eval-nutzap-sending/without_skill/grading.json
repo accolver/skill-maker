@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Fetches the recipient kind 10019 nutzap configuration event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:8: The recipient publishes a kind 10019 event that tells senders which mints and\n  response.md:13: kinds: [10019],\n  response.md:20: Parse the tags from the kind:10019 event:"
+    },
+    {
+      "text": "Constructs a kind 9321 nutzap event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:8: The recipient publishes a kind 10019 event that tells senders which mints and\n  response.md:13: kinds: [10019],\n  response.md:20: Parse the tags from the kind:10019 event:"
+    },
+    {
+      "text": "Uses P2PK locking for the Cashu tokens",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"p2pk\" (heuristic match):\n  response.md:33: // Extract P2PK pubkey\n  response.md:34: const p2pkPubkey = nutzapConfig.tags.find((t) => t[0] === \"pubkey\")?.[1];\n  response.md:37: ## Step 2: Mint P2PK-Locked Tokens"
+    },
+    {
+      "text": "Prefixes the P2PK pubkey with 02 for compressed public key format",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"key\" (heuristic match):\n  response.md:14: authors: [recipientPubkey],\n  response.md:33: // Extract P2PK pubkey\n  response.md:34: const p2pkPubkey = nutzapConfig.tags.find((t) => t[0] === \"pubkey\")?.[1];"
+    },
+    {
+      "text": "Warns that the P2PK pubkey must NOT be the user main Nostr pubkey",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"p2pk\" (heuristic match):\n  response.md:33: // Extract P2PK pubkey\n  response.md:34: const p2pkPubkey = nutzapConfig.tags.find((t) => t[0] === \"pubkey\")?.[1];\n  response.md:37: ## Step 2: Mint P2PK-Locked Tokens"
+    },
+    {
+      "text": "Includes proof tags with Cashu token proofs in the nutzap event",
+      "passed": false,
+      "evidence": "No matches for \"proof tags with cashu token proofs in the nutzap event\" found across 1 output file(s)"
+    },
+    {
+      "text": "References the mint URL from the recipient kind 10019 event",
+      "passed": false,
+      "evidence": "No matches for \"mint url from the recipient kind 10019 event\" found across 1 output file(s)"
+    },
+    {
+      "text": "Explains the redemption process including kind 7376 or token swap",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:8: The recipient publishes a kind 10019 event that tells senders which mints and\n  response.md:13: kinds: [10019],\n  response.md:20: Parse the tags from the kind:10019 event:"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

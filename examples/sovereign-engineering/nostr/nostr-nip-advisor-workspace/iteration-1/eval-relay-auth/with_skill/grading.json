@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response identifies NIP-42 as the primary NIP for relay authentication",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: You need two NIPs: **NIP-42** for the authentication protocol itself, and\n  response.md:4: **NIP-11** for the relay information document that tells clients what\n  response.md:9: ## NIP-42 — Client Authentication"
+    },
+    {
+      "text": "Response mentions kind:22242 as the authentication event kind",
+      "passed": false,
+      "evidence": "No matches for \"kind:22242 as the authentication event kind\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response describes the challenge-response flow: relay sends AUTH challenge, client signs kind:22242 with challenge and relay tags, sends AUTH back",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"challenge\" (heuristic match):\n  response.md:12: challenge-response flow using **kind:22242** events.\n  response.md:17: 1. Relay → Client:  [\"AUTH\", \"<challenge-string>\"]\n  response.md:24: #### Step 1: Relay Sends Challenge"
+    },
+    {
+      "text": "Response mentions NIP-11 as the relay information document standard",
+      "passed": false,
+      "evidence": "No matches for \"nip-11 as the relay information document standard\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response explains that NIP-11 can advertise auth_required in the limitation field",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: You need two NIPs: **NIP-42** for the authentication protocol itself, and\n  response.md:4: **NIP-11** for the relay information document that tells clients what\n  response.md:9: ## NIP-42 — Client Authentication"
+    },
+    {
+      "text": "Response mentions the AUTH message format between client and relay (e.g., [\"AUTH\", \"<challenge>\"])",
+      "passed": false,
+      "evidence": "No matches for \"auth message format between client and relay (e.g., [\"auth\", \"<challenge>\"])\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response explains that auth can be required for specific actions like reading kind:4 DMs or publishing events",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  response.md:1: # Implementing Relay Authentication\n  response.md:3: You need two NIPs: **NIP-42** for the authentication protocol itself, and\n  response.md:5: authentication is required."
+    },
+    {
+      "text": "Response mentions the OK or CLOSED response with auth-required prefix as part of the protocol flow",
+      "passed": false,
+      "evidence": "No matches for \"ok or closed response with auth-required prefix as part of the protocol flow\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 4,
+    "total": 8,
+    "pass_rate": 0.5
+  }
+}

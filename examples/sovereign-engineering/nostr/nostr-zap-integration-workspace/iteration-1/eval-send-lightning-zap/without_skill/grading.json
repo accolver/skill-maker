@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Uses kind 9734 for the zap request event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  output.md:1: # Implementing Zaps in a Nostr Client\n  output.md:3: Here's how to implement sending a zap to a user in your Nostr client.\n  output.md:21: ## Step 2: Create the Zap Event"
+    },
+    {
+      "text": "Checks that the LNURL endpoint supports Nostr zaps by verifying allowsNostr",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"nostr\" (heuristic match):\n  output.md:1: # Implementing Zaps in a Nostr Client\n  output.md:3: Here's how to implement sending a zap to a user in your Nostr client.\n  output.md:23: Create a Nostr event for the zap:"
+    },
+    {
+      "text": "Verifies the LNURL endpoint has a valid nostrPubkey",
+      "passed": false,
+      "evidence": "No matches for \"valid nostrpubkey\" found across 1 output file(s)"
+    },
+    {
+      "text": "Converts 21 sats to 21000 millisats for the amount tag",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"amount\" (heuristic match):\n  output.md:32: [\"amount\", \"21\"],\n  output.md:50: const invoiceResponse = await fetch(`${callback}?amount=21000`);"
+    },
+    {
+      "text": "Sends the zap request to the LNURL callback URL",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  output.md:1: # Implementing Zaps in a Nostr Client\n  output.md:3: Here's how to implement sending a zap to a user in your Nostr client.\n  output.md:21: ## Step 2: Create the Zap Event"
+    },
+    {
+      "text": "Includes a relays tag in the zap request with relay URLs",
+      "passed": false,
+      "evidence": "No matches for \"relays tag in the zap request with relay urls\" found across 1 output file(s)"
+    },
+    {
+      "text": "Makes clear the zap request is sent via HTTP to callback, not published to relays",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  output.md:1: # Implementing Zaps in a Nostr Client\n  output.md:3: Here's how to implement sending a zap to a user in your Nostr client.\n  output.md:21: ## Step 2: Create the Zap Event"
+    },
+    {
+      "text": "Constructs the correct LNURL discovery URL using .well-known/lnurlp",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"url\" (heuristic match):\n  output.md:8: to get the LNURL pay endpoint:\n  output.md:13: const url = `https://${domain}/.well-known/lnurlp/${name}`;\n  output.md:15: const response = await fetch(url);"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

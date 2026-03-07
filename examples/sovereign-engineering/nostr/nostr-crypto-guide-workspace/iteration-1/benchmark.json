@@ -1,0 +1,81 @@
+{
+  "skill_name": "nostr-crypto-guide",
+  "iteration": 1,
+  "timestamp": "2026-03-07T18:45:04.898Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.7083,
+        "stddev": 0.0589
+      },
+      "time_seconds": {
+        "mean": 41.6667,
+        "stddev": 2.8674
+      },
+      "tokens": {
+        "mean": 22366.6667,
+        "stddev": 1481.7407
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.7083,
+        "stddev": 0.0589
+      },
+      "time_seconds": {
+        "mean": 18.6667,
+        "stddev": 2.4944
+      },
+      "tokens": {
+        "mean": 7500,
+        "stddev": 588.7841
+      }
+    },
+    "delta": {
+      "pass_rate": 0,
+      "time_seconds": 23,
+      "tokens": 14867
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "gift-wrap",
+      "with_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 45,
+        "tokens": 24300
+      },
+      "without_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 22,
+        "tokens": 8300
+      }
+    },
+    {
+      "eval_name": "nip44-encryption",
+      "with_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 38,
+        "tokens": 20700
+      },
+      "without_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 18,
+        "tokens": 7300
+      }
+    },
+    {
+      "eval_name": "nip49-encryption",
+      "with_skill": {
+        "pass_rate": 0.625,
+        "time_seconds": 42,
+        "tokens": 22100
+      },
+      "without_skill": {
+        "pass_rate": 0.625,
+        "time_seconds": 16,
+        "tokens": 6900
+      }
+    }
+  ]
+}

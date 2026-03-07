@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response discusses NIP-57 for Lightning zaps",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: Yes, you should support both Lightning zaps (NIP-57) and nutzaps (NIP-61).\n  response.md:10: ## Lightning Zaps — NIP-57\n  response.md:12: **NIP-57** defines the protocol for Lightning-based tipping on Nostr. It uses"
+    },
+    {
+      "text": "Response covers kind:9734 zap request",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:13: two event kinds:\n  response.md:15: - **kind:9734** — Zap request (created by the sender)\n  response.md:16: - **kind:9735** — Zap receipt (created by the recipient's LNURL server)"
+    },
+    {
+      "text": "Response covers kind:9735 zap receipt",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:13: two event kinds:\n  response.md:15: - **kind:9734** — Zap request (created by the sender)\n  response.md:16: - **kind:9735** — Zap receipt (created by the recipient's LNURL server)"
+    },
+    {
+      "text": "Response explains the LNURL callback for sending zap requests",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"lnurl\" (heuristic match):\n  response.md:16: - **kind:9735** — Zap receipt (created by the recipient's LNURL server)\n  response.md:23: (Lightning Address, e.g., `bob@walletofsatoshi.com`) or `lud06` (raw LNURL).\n  response.md:24: Decode the `lud16` to derive the LNURL pay endpoint:"
+    },
+    {
+      "text": "Response discusses lud16 or LNURL or allowsNostr for LNURL integration",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"lnurl\" (heuristic match):\n  response.md:16: - **kind:9735** — Zap receipt (created by the recipient's LNURL server)\n  response.md:23: (Lightning Address, e.g., `bob@walletofsatoshi.com`) or `lud06` (raw LNURL).\n  response.md:24: Decode the `lud16` to derive the LNURL pay endpoint:"
+    },
+    {
+      "text": "Response covers NIP-61 for nutzaps or Cashu-based zaps",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: Yes, you should support both Lightning zaps (NIP-57) and nutzaps (NIP-61).\n  response.md:10: ## Lightning Zaps — NIP-57\n  response.md:12: **NIP-57** defines the protocol for Lightning-based tipping on Nostr. It uses"
+    },
+    {
+      "text": "Response discusses kind:9321 nutzap event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:13: two event kinds:\n  response.md:15: - **kind:9734** — Zap request (created by the sender)\n  response.md:16: - **kind:9735** — Zap receipt (created by the recipient's LNURL server)"
+    },
+    {
+      "text": "Response covers kind:10019 nutzap mint recommendation",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:13: two event kinds:\n  response.md:15: - **kind:9734** — Zap request (created by the sender)\n  response.md:16: - **kind:9735** — Zap receipt (created by the recipient's LNURL server)"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

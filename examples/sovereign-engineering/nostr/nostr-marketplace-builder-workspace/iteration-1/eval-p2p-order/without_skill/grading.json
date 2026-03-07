@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a kind:38383 event with tags array and empty string content",
+      "passed": false,
+      "evidence": "kind:38383 event present with tags, but content is NOT empty — contains JSON with description and expiry fields"
+    },
+    {
+      "text": "The event has a d tag with a unique order identifier",
+      "passed": true,
+      "evidence": "d tag: \"sell-order-001\" — identifier present (though sequential)"
+    },
+    {
+      "text": "The k tag is set to 'sell' and the f tag is set to 'USD' (ISO 4217)",
+      "passed": false,
+      "evidence": "Uses [\"type\", \"sell\"] instead of [\"k\", \"sell\"], and [\"currency\", \"USD\"] instead of [\"f\", \"USD\"] — wrong tag names"
+    },
+    {
+      "text": "The s tag is set to 'pending' as the initial status",
+      "passed": false,
+      "evidence": "Uses [\"status\", \"pending\"] instead of [\"s\", \"pending\"] — wrong tag name"
+    },
+    {
+      "text": "The amt tag is set to '500000' (satoshis as string) and fa tag is set to '175'",
+      "passed": false,
+      "evidence": "Uses [\"amount\", \"500000\"] instead of [\"amt\", \"500000\"], and [\"fiat_amount\", \"175\"] instead of [\"fa\", \"175\"]"
+    },
+    {
+      "text": "The pm tag includes both 'zelle' and 'cashapp' (or similar payment method values) as multiple values",
+      "passed": false,
+      "evidence": "Uses two separate [\"payment_methods\", \"zelle\"] and [\"payment_methods\", \"cashapp\"] tags instead of single [\"pm\", \"zelle\", \"cashapp\"]"
+    },
+    {
+      "text": "The event includes premium tag set to '3', network tag set to 'mainnet', and layer tag set to 'lightning'",
+      "passed": false,
+      "evidence": "premium value is \"3%\" (includes percent sign, should be just \"3\"). network and layer correct but premium wrong"
+    },
+    {
+      "text": "The event has y tag set to 'nostr-market' and z tag set to 'order'",
+      "passed": false,
+      "evidence": "Uses [\"platform\", \"nostr-market\"] instead of [\"y\", \"nostr-market\"]. Missing z tag entirely"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

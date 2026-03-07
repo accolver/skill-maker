@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "name": "dm-privacy",
+  "prompt": "I need to implement private DMs in my Nostr client. I was looking at NIP-04 since it seems straightforward — just encrypt with the recipient's pubkey and publish a kind:4 event. What do I need to do?",
+  "expected_output": "Response warns that NIP-04 is deprecated due to metadata leakage, recommends NIP-17 (kind:14) with the full encryption chain (NIP-44 + NIP-59 gift wrap), explains the seal/gift-wrap flow, mentions kind:10050 DM relay list, and provides the correct event structures.",
+  "assertions": [
+    "Response explicitly warns that NIP-04 (kind:4) is deprecated or unrecommended",
+    "Response explains that NIP-04 leaks metadata such as sender, receiver, or timestamps",
+    "Response recommends NIP-17 as the replacement for private DMs",
+    "Response mentions kind:14 as the event kind for DM messages under NIP-17",
+    "Response explains the gift wrap chain: kind:14 (rumor) → kind:13 (seal) → kind:1059 (gift wrap)",
+    "Response states that the kind:14 message must NOT be signed (for deniability)",
+    "Response mentions NIP-44 as the encryption standard to use",
+    "Response mentions kind:10050 or NIP-51 DM relay list for publishing gift wraps to the recipient's preferred relays"
+  ]
+}

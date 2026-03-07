@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "application/nostr+json header checked for NIP-11",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"nip\" (heuristic match):\n  nip11.ts:2: * NIP-11 Relay Info Document\n  nip11.ts:10: supported_nips: [1, 11],\n  nip11.ts:18: // Check if this is a NIP-11 info request"
+    },
+    {
+      "text": "Access-Control-Allow-Origin header present in response",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"header\" (heuristic match):\n  nip11.ts:19: const accept = req.headers.get(\"Accept\");\n  nip11.ts:22: headers: {"
+    },
+    {
+      "text": "supported_nips field in relay info document",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"relay\" (heuristic match):\n  nip11.ts:2: * NIP-11 Relay Info Document\n  nip11.ts:3: * Serves relay information over HTTP\n  nip11.ts:6: const relayInfo = {"
+    },
+    {
+      "text": "limitation object with relay constraints",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"relay\" (heuristic match):\n  nip11.ts:2: * NIP-11 Relay Info Document\n  nip11.ts:3: * Serves relay information over HTTP\n  nip11.ts:6: const relayInfo = {"
+    },
+    {
+      "text": "max_message_length field in limitation",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"message\" (heuristic match):\n  nip11.ts:36: message(ws, raw) {\n  nip11.ts:37: // handle messages"
+    },
+    {
+      "text": "WebSocket upgrade still handled for non-NIP-11",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"websocket\" (heuristic match):\n  nip11.ts:28: // WebSocket upgrade\n  nip11.ts:30: return new Response(\"Use WebSocket\", { status: 400 });\n  nip11.ts:32: websocket: {"
+    },
+    {
+      "text": "Access-Control-Allow-Headers present in CORS",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"headers\" (heuristic match):\n  nip11.ts:19: const accept = req.headers.get(\"Accept\");\n  nip11.ts:22: headers: {"
+    },
+    {
+      "text": "Access-Control-Allow-Methods present in response",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"access\" (heuristic match):\n  nip11.ts:23: \"Access-Control-Allow-Origin\": \"*\","
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

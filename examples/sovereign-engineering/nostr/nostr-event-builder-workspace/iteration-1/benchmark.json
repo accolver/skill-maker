@@ -1,0 +1,81 @@
+{
+  "skill_name": "nostr-event-builder",
+  "iteration": 1,
+  "timestamp": "2026-03-07T18:49:34.185Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 25,
+        "stddev": 2.4495
+      },
+      "tokens": {
+        "mean": 8500,
+        "stddev": 571.5476
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.4167,
+        "stddev": 0.3281
+      },
+      "time_seconds": {
+        "mean": 11,
+        "stddev": 0.8165
+      },
+      "tokens": {
+        "mean": 3833.3333,
+        "stddev": 286.7442
+      }
+    },
+    "delta": {
+      "pass_rate": 0.5833,
+      "time_seconds": 14,
+      "tokens": 4667
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "comment-article",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 28,
+        "tokens": 9200
+      },
+      "without_skill": {
+        "pass_rate": 0.125,
+        "time_seconds": 11,
+        "tokens": 3800
+      }
+    },
+    {
+      "eval_name": "profile-update",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 22,
+        "tokens": 7800
+      },
+      "without_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 10,
+        "tokens": 3500
+      }
+    },
+    {
+      "eval_name": "reply-thread",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 25,
+        "tokens": 8500
+      },
+      "without_skill": {
+        "pass_rate": 0.25,
+        "time_seconds": 12,
+        "tokens": 4200
+      }
+    }
+  ]
+}

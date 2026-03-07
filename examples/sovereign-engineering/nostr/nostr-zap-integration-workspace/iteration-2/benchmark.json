@@ -1,0 +1,81 @@
+{
+  "skill_name": "nostr-zap-integration",
+  "iteration": 2,
+  "timestamp": "2026-03-07T19:03:13.280Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.875,
+        "stddev": 0.1021
+      },
+      "time_seconds": {
+        "mean": 44,
+        "stddev": 4.899
+      },
+      "tokens": {
+        "mean": 11000,
+        "stddev": 1557.7762
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.875,
+        "stddev": 0.1021
+      },
+      "time_seconds": {
+        "mean": 16,
+        "stddev": 1.633
+      },
+      "tokens": {
+        "mean": 3666.6667,
+        "stddev": 205.4805
+      }
+    },
+    "delta": {
+      "pass_rate": 0,
+      "time_seconds": 28,
+      "tokens": 7333
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "nutzap-sending",
+      "with_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 50,
+        "tokens": 13000
+      },
+      "without_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 18,
+        "tokens": 3700
+      }
+    },
+    {
+      "eval_name": "send-lightning-zap",
+      "with_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 38,
+        "tokens": 9200
+      },
+      "without_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 16,
+        "tokens": 3900
+      }
+    },
+    {
+      "eval_name": "validate-zap-receipts",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 44,
+        "tokens": 10800
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 14,
+        "tokens": 3400
+      }
+    }
+  ]
+}

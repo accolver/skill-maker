@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "relay-pool",
+  "prompt": "Implement a relay pool manager in TypeScript that handles connecting to multiple Nostr relays. It should track connection states (connecting, connected, disconnected), enforce one WebSocket per relay URL (with URL normalization), implement exponential backoff with jitter for reconnection, and handle NIP-42 authentication challenges. Include a method to gracefully disconnect from a relay. Save the implementation to outputs/relay-pool.ts.",
+  "assertions": [
+    "Output contains a state type or enum with 'connecting', 'connected', and 'disconnected'",
+    "Output normalizes relay URLs (lowercase hostname, remove trailing slash, or default port handling)",
+    "Output deduplicates connections — checks if a relay URL already has an active connection before creating a new one",
+    "Output contains exponential backoff with a formula like 'Math.pow(2' or '2 **' or '<< retryCount'",
+    "Output adds random jitter to backoff delay using 'Math.random'",
+    "Output contains a maximum backoff cap (e.g., 60000 or 60 * 1000 or MAX_BACKOFF)",
+    "Output handles NIP-42 AUTH challenge messages from relays and signs a kind:22242 response",
+    "Output has a disconnect method that sends CLOSE messages for subscriptions before closing the WebSocket"
+  ]
+}

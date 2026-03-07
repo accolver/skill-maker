@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output publishes a kind:5002 job request event (translation kind)",
+      "passed": false,
+      "evidence": "No matches for \"publishes a kind:5002 job request event (translation kind)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Job request includes an i tag with input type 'url' and the webpage URL",
+      "passed": false,
+      "evidence": "No matches for \"i tag with input type 'url' and the webpage url\" found across 1 output file(s)"
+    },
+    {
+      "text": "Job request includes a bid tag with value '10000' (millisats)",
+      "passed": false,
+      "evidence": "No matches for \"bid tag with value '10000' (millisats)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Job request includes a param tag for language (e.g., ['param', 'lang', 'en'])",
+      "passed": false,
+      "evidence": "No matches for \"param tag for language (e.g., ['param', 'lang', 'en'])\" found across 1 output file(s)"
+    },
+    {
+      "text": "Client subscribes to kind:7000 feedback events filtered by customer pubkey",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  output.md:3: A TypeScript client that publishes a kind:5002 translation request, handles\n  output.md:4: feedback (including payment-required), and receives the kind:6002 result.\n  output.md:20: // --- Step 1: Publish the kind:5002 translation job request ---"
+    },
+    {
+      "text": "Client subscribes to kind:6002 result events (5002 + 1000 = 6002)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  output.md:3: A TypeScript client that publishes a kind:5002 translation request, handles\n  output.md:4: feedback (including payment-required), and receives the kind:6002 result.\n  output.md:20: // --- Step 1: Publish the kind:5002 translation job request ---"
+    },
+    {
+      "text": "Client handles 'payment-required' status from kind:7000 feedback and extracts bolt11 from amount tag",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"payment\" (heuristic match):\n  output.md:4: feedback (including payment-required), and receives the kind:6002 result.\n  output.md:82: case \"payment-required\": {\n  output.md:88: console.log(`Payment required: ${msats} msats`);"
+    },
+    {
+      "text": "Job request includes a p tag with the preferred service provider pubkey",
+      "passed": false,
+      "evidence": "No matches for \"p tag with the preferred service provider pubkey\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

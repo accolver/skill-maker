@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Fetches the recipient's kind 10019 nutzap configuration event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nutzap\" (heuristic match):\n  output.md:1: # Implementing Nutzaps (NIP-61) in a Nostr Client\n  output.md:3: Here's how to implement Nutzap sending using Cashu ecash tokens.\n  output.md:7: The recipient publishes a kind 10019 event with their nutzap preferences:"
+    },
+    {
+      "text": "Constructs a kind 9321 nutzap event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nutzap\" (heuristic match):\n  output.md:1: # Implementing Nutzaps (NIP-61) in a Nostr Client\n  output.md:3: Here's how to implement Nutzap sending using Cashu ecash tokens.\n  output.md:7: The recipient publishes a kind 10019 event with their nutzap preferences:"
+    },
+    {
+      "text": "Uses P2PK locking for the Cashu tokens",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"cashu\" (heuristic match):\n  output.md:3: Here's how to implement Nutzap sending using Cashu ecash tokens.\n  output.md:25: ## Step 2: Create Cashu Tokens\n  output.md:30: import { CashuMint, CashuWallet } from \"@cashu/cashu-ts\";"
+    },
+    {
+      "text": "Prefixes the P2PK pubkey with 02 for nostr-cashu compatibility",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"cashu\" (heuristic match):\n  output.md:3: Here's how to implement Nutzap sending using Cashu ecash tokens.\n  output.md:25: ## Step 2: Create Cashu Tokens\n  output.md:30: import { CashuMint, CashuWallet } from \"@cashu/cashu-ts\";"
+    },
+    {
+      "text": "Warns that the P2PK pubkey must NOT be the user's main Nostr pubkey and must be a separate key",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"key\" (heuristic match):\n  output.md:12: authors: [recipientPubkey],\n  output.md:50: [\"p\", recipientPubkey],\n  output.md:56: pubkey: myPubkey,"
+    },
+    {
+      "text": "Includes proof tags with Cashu token proofs in the nutzap event",
+      "passed": false,
+      "evidence": "No matches for \"proof tags with cashu token proofs in the nutzap event\" found across 1 output file(s)"
+    },
+    {
+      "text": "References the mint URL and uses only mints from the recipient's kind 10019",
+      "passed": false,
+      "evidence": "No matches for \"mint url and uses only mints from the recipient's kind 10019\" found across 1 output file(s)"
+    },
+    {
+      "text": "Explains the redemption process including kind 7376 or token swapping",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"token\" (heuristic match):\n  output.md:3: Here's how to implement Nutzap sending using Cashu ecash tokens.\n  output.md:25: ## Step 2: Create Cashu Tokens\n  output.md:27: Mint tokens at one of the recipient's preferred mints:"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

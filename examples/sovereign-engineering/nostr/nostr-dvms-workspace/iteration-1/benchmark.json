@@ -1,0 +1,81 @@
+{
+  "skill_name": "nostr-dvms",
+  "iteration": 1,
+  "timestamp": "2026-03-07T18:44:11.791Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.1667,
+        "stddev": 0.1559
+      },
+      "time_seconds": {
+        "mean": 36.5,
+        "stddev": 3.667
+      },
+      "tokens": {
+        "mean": 9700,
+        "stddev": 1235.5835
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.1667,
+        "stddev": 0.1559
+      },
+      "time_seconds": {
+        "mean": 13.8,
+        "stddev": 1.7378
+      },
+      "tokens": {
+        "mean": 3700,
+        "stddev": 374.1657
+      }
+    },
+    "delta": {
+      "pass_rate": 0,
+      "time_seconds": 22.7,
+      "tokens": 6000
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "job-chaining",
+      "with_skill": {
+        "pass_rate": 0.125,
+        "time_seconds": 41.3,
+        "tokens": 11400
+      },
+      "without_skill": {
+        "pass_rate": 0.125,
+        "time_seconds": 15.7,
+        "tokens": 4100
+      }
+    },
+    {
+      "eval_name": "text-summarization-dvm",
+      "with_skill": {
+        "pass_rate": 0,
+        "time_seconds": 32.4,
+        "tokens": 8500
+      },
+      "without_skill": {
+        "pass_rate": 0,
+        "time_seconds": 14.2,
+        "tokens": 3800
+      }
+    },
+    {
+      "eval_name": "translation-client",
+      "with_skill": {
+        "pass_rate": 0.375,
+        "time_seconds": 35.8,
+        "tokens": 9200
+      },
+      "without_skill": {
+        "pass_rate": 0.375,
+        "time_seconds": 11.5,
+        "tokens": 3200
+      }
+    }
+  ]
+}

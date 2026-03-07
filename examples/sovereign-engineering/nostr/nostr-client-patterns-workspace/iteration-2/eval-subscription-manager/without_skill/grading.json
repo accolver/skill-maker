@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output tracks EOSE state per-relay per-subscription using a Map or object structure",
+      "passed": false,
+      "evidence": "No matches for \"tracks eose state per-relay per-subscription using a map or object structure\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output transitions to 'live' only after all relays have sent EOSE or a timeout fires",
+      "passed": false,
+      "evidence": "No matches for \"transitions to 'live' only after all relays have sent eose or a timeout fires\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains an EOSE timeout (setTimeout) that forces transition if relays are slow",
+      "passed": false,
+      "evidence": "No matches for \"contains an eose timeout (settimeout) that forces transition if relays are slow\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output parses CLOSED message reason prefixes — at least 'auth-required' and 'restricted'",
+      "passed": false,
+      "evidence": "No matches for \"parses closed message reason prefixes — at least 'auth-required' and 'restricted'\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output attempts re-authentication on 'auth-required' CLOSED before re-subscribing",
+      "passed": false,
+      "evidence": "No matches for \"attempts re-authentication on 'auth-required' closed before re-subscribing\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output supports subscription replacement by reusing the same subscription ID in a new REQ",
+      "passed": false,
+      "evidence": "No matches for \"supports subscription replacement by reusing the same subscription id in a new req\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output re-subscribes after reconnection with a 'since' filter set to the last EOSE timestamp",
+      "passed": false,
+      "evidence": "No matches for \"re-subscribes after reconnection with a 'since' filter set to the last eose timestamp\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output can close subscriptions by sending CLOSE messages to relays",
+      "passed": false,
+      "evidence": "No matches for \"can close subscriptions by sending close messages to relays\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response discusses NIP-42 for relay authentication",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:1: # Implementing Relay Authentication — NIP-42 + NIP-11\n  response.md:3: You need two NIPs:\n  response.md:5: 1. **NIP-42** — Client authentication (the auth handshake protocol)"
+    },
+    {
+      "text": "Response covers kind:22242 authentication event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:14: special event kind:\n  response.md:16: - **kind:22242** — The authentication event signed by the client\n  response.md:32: #### 2. Client Signs Authentication Event (kind:22242)"
+    },
+    {
+      "text": "Response explains the relay sends a challenge string that the client must sign",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  response.md:1: # Implementing Relay Authentication — NIP-42 + NIP-11\n  response.md:6: 2. **NIP-11** — Relay Information Document (tells clients what auth is required\n  response.md:11: ## NIP-42: Authentication of Clients to Relays"
+    },
+    {
+      "text": "Response discusses NIP-11 relay information document",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:1: # Implementing Relay Authentication — NIP-42 + NIP-11\n  response.md:3: You need two NIPs:\n  response.md:5: 1. **NIP-42** — Client authentication (the auth handshake protocol)"
+    },
+    {
+      "text": "Response covers auth_required in the limitation field",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  response.md:1: # Implementing Relay Authentication — NIP-42 + NIP-11\n  response.md:5: 1. **NIP-42** — Client authentication (the auth handshake protocol)\n  response.md:6: 2. **NIP-11** — Relay Information Document (tells clients what auth is required"
+    },
+    {
+      "text": "Response explains the AUTH WebSocket message format",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  response.md:1: # Implementing Relay Authentication — NIP-42 + NIP-11\n  response.md:5: 1. **NIP-42** — Client authentication (the auth handshake protocol)\n  response.md:6: 2. **NIP-11** — Relay Information Document (tells clients what auth is required"
+    },
+    {
+      "text": "Response explains auth can be required for specific actions like reading DMs or publishing",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  response.md:1: # Implementing Relay Authentication — NIP-42 + NIP-11\n  response.md:5: 1. **NIP-42** — Client authentication (the auth handshake protocol)\n  response.md:6: 2. **NIP-11** — Relay Information Document (tells clients what auth is required"
+    },
+    {
+      "text": "Response covers auth-required as an OK or CLOSED message reason prefix",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  response.md:1: # Implementing Relay Authentication — NIP-42 + NIP-11\n  response.md:5: 1. **NIP-42** — Client authentication (the auth handshake protocol)\n  response.md:6: 2. **NIP-11** — Relay Information Document (tells clients what auth is required"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

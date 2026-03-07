@@ -1,0 +1,10 @@
+contains a JSON event with kind set to 1111 (not kind 1)
+uppercase A tag with the addressable coordinate '30023:3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289:my-first-article'
+uppercase K tag with value '30023' for the root kind
+lowercase k tag with value '30023' for the parent kind
+uppercase P tag containing the blog post author pubkey
+lowercase p tag containing the blog post author pubkey
+lowercase a tag with the same addressable coordinate as the A tag
+explains that kind:1111 comments must NOT be used to reply to kind:1 notes (mentions NIP-22 or the comment/reply distinction)
+
+{"pubkey":"<pk>","created_at":1709827200,"kind":1111,"tags":[["A","30023:3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289:my-first-article","wss://relay.example.com"],["K","30023"],["P","3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289","wss://relay.example.com"],["a","30023:3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289:my-first-article","wss://relay.example.com"],["e","5b4fc7fed15672fefe65d2426f67197b71ccc82aa0cc8a9e94f683eb78e07651","wss://relay.example.com"],["k","30023"],["p","3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289","wss://relay.example.com"]],"content":"This article changed my perspective on decentralization."}

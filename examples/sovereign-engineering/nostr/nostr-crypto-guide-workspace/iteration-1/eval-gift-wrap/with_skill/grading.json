@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The rumor event is created WITHOUT a signature (no sig field) — it has an id and pubkey but is intentionally unsigned for deniability",
+      "passed": true,
+      "evidence": "No occurrences of \"a signature (no sig field) — it has an id and pubkey but\" found across 1 output file(s)"
+    },
+    {
+      "text": "The seal event uses kind 13 and has tags set to an empty array (tags: [])",
+      "passed": false,
+      "evidence": "No matches for \"tags set to an empty array (tags: [])\" found across 1 output file(s)"
+    },
+    {
+      "text": "The seal's content is the rumor JSON-stringified and encrypted with NIP-44 using the author's private key and recipient's public key",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"seal\" (heuristic match):\n  gift-wrap.ts:6: * Layer 2: Seal (kind:13) — encrypted rumor, signed by author, empty tags\n  gift-wrap.ts:7: * Layer 3: Gift Wrap (kind:1059) — encrypted seal, signed by ephemeral key, p-tag for routing\n  gift-wrap.ts:92: // Layer 2: Create Seal (kind:13)"
+    },
+    {
+      "text": "The gift wrap uses kind 1059 and includes a p-tag with the recipient's public key for routing",
+      "passed": false,
+      "evidence": "No matches for \"p-tag with the recipient's public key for routing\" found across 1 output file(s)"
+    },
+    {
+      "text": "The gift wrap is signed by a randomly generated ephemeral key (not the author's key)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"gift\" (heuristic match):\n  gift-wrap.ts:2: * NIP-59 Gift Wrap Protocol Implementation\n  gift-wrap.ts:7: * Layer 3: Gift Wrap (kind:1059) — encrypted seal, signed by ephemeral key, p-tag for routing\n  gift-wrap.ts:126: // Layer 3: Create Gift Wrap (kind:1059)"
+    },
+    {
+      "text": "The created_at timestamps on both the seal and gift wrap are randomized (not the current time), with randomization up to 2 days in the past",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"seal\" (heuristic match):\n  gift-wrap.ts:6: * Layer 2: Seal (kind:13) — encrypted rumor, signed by author, empty tags\n  gift-wrap.ts:7: * Layer 3: Gift Wrap (kind:1059) — encrypted seal, signed by ephemeral key, p-tag for routing\n  gift-wrap.ts:92: // Layer 2: Create Seal (kind:13)"
+    },
+    {
+      "text": "The unwrapping function decrypts the gift wrap first, then verifies the seal signature, then decrypts the seal to get the rumor",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"gift\" (heuristic match):\n  gift-wrap.ts:2: * NIP-59 Gift Wrap Protocol Implementation\n  gift-wrap.ts:7: * Layer 3: Gift Wrap (kind:1059) — encrypted seal, signed by ephemeral key, p-tag for routing\n  gift-wrap.ts:126: // Layer 3: Create Gift Wrap (kind:1059)"
+    },
+    {
+      "text": "The unwrapping function verifies that rumor.pubkey matches seal.pubkey (author consistency check)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rumor\" (heuristic match):\n  gift-wrap.ts:5: * Layer 1: Rumor (unsigned event) — content, deniable\n  gift-wrap.ts:6: * Layer 2: Seal (kind:13) — encrypted rumor, signed by author, empty tags\n  gift-wrap.ts:25: interface Rumor {"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

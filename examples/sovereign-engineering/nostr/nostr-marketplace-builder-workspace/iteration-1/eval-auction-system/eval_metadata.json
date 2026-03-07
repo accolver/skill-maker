@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "auction-system",
+  "prompt": "Build a Nostr auction system for selling a rare vintage Bitcoin hardware wallet. The auction should belong to an existing stall with id 'crypto-collectibles-stall'. The item is called 'Original Trezor One #0042' with a starting bid of 500000 sats, starting on January 15 2025 at midnight UTC, running for 3 days (259200 seconds). Include specs for serial number (0042) and condition (mint, sealed). Then show me: 1) A bid event from a buyer bidding 750000 sats, 2) A bid confirmation from the merchant accepting the bid and extending the auction by 10 minutes, 3) A final bid confirmation marking a different bid as the winner.",
+  "assertions": [
+    "Output contains a kind:30020 event with d tag matching the auction id in content, and stall_id set to 'crypto-collectibles-stall'",
+    "The auction content has starting_bid as an integer (500000), duration as 259200, and start_date as a Unix timestamp",
+    "Output contains a kind:1021 bid event where the content is the bid amount and tags include an e tag referencing the auction event ID",
+    "The bid's e tag references an event ID (64-char hex or placeholder), NOT a product UUID or d-tag value",
+    "Output contains a kind:1022 bid confirmation with status 'accepted' and duration_extended set to 600 (10 minutes in seconds)",
+    "The accepted bid confirmation has two e tags: one for the bid event ID and one for the auction event ID",
+    "Output contains a kind:1022 event with status 'winner' for the winning bid",
+    "The winner confirmation also has two e tags referencing both the winning bid and the auction"
+  ]
+}

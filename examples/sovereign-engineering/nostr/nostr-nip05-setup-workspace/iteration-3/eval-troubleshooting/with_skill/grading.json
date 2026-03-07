@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The word 'lowercase' appears — 'Alice' must be converted to 'alice'",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"alice\" (heuristic match):\n  response.md:6: ## Issue 1: Uppercase Local-Part — \"Alice\" Must Be Lowercase\n  response.md:8: **Problem:** Your profile has `nip05` set to `Alice@MyDomain.com` and your\n  response.md:9: nostr.json uses `\"Alice\"` as the key. The NIP-05 spec restricts local-part"
+    },
+    {
+      "text": "The word 'npub' is identified as the wrong format — must be 64-character hex",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"npub\" (heuristic match):\n  response.md:23: ## Issue 2: npub Format Instead of Hex — Must Use 64-Character Hex\n  response.md:30: \"Alice\": \"npub1dp4rcz7ufm4rrequena8s8nh5aykdw9t7e2dj0gya9j9sskjhk0qdjd0lv\"\n  response.md:35: The pubkey is in **npub** (bech32) format. NIP-05 requires pubkeys to be"
+    },
+    {
+      "text": "The word 'redirect' and '301' are identified as violations of the NIP-05 spec",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"redirect\" (heuristic match):\n  response.md:56: ## Issue 3: 301 Redirect Violates the NIP-05 Spec\n  response.md:58: **Problem:** When you curl the endpoint, you get a `301` redirect from\n  response.md:63: follow redirects. HTTP redirects (301, 302, 307, 308) are a security violation"
+    },
+    {
+      "text": "A corrected nostr.json with 'alice' in lowercase and hex pubkey is provided",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nostr\" (heuristic match):\n  response.md:9: nostr.json uses `\"Alice\"` as the key. The NIP-05 spec restricts local-part\n  response.md:19: - In the nostr.json file: change the key to `\"alice\"`\n  response.md:25: **Problem:** Your nostr.json contains:"
+    },
+    {
+      "text": "The corrected nip05 profile value 'alice@mydomain.com' in all lowercase appears",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"alice\" (heuristic match):\n  response.md:6: ## Issue 1: Uppercase Local-Part — \"Alice\" Must Be Lowercase\n  response.md:8: **Problem:** Your profile has `nip05` set to `Alice@MyDomain.com` and your\n  response.md:9: nostr.json uses `\"Alice\"` as the key. The NIP-05 spec restricts local-part"
+    },
+    {
+      "text": "Server configuration guidance for fixing the redirect is provided",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"redirect\" (heuristic match):\n  response.md:56: ## Issue 3: 301 Redirect Violates the NIP-05 Spec\n  response.md:58: **Problem:** When you curl the endpoint, you get a `301` redirect from\n  response.md:63: follow redirects. HTTP redirects (301, 302, 307, 308) are a security violation"
+    },
+    {
+      "text": "The string 'Access-Control-Allow-Origin' or 'CORS' appears as a required header",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"header\" (heuristic match):\n  response.md:84: add_header Access-Control-Allow-Origin \"*\" always;\n  response.md:85: add_header Access-Control-Allow-Methods \"GET\" always;\n  response.md:86: add_header Content-Type \"application/json\" always;"
+    },
+    {
+      "text": "The number '64' appears in the context of hex pubkey character length",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"hex\" (heuristic match):\n  response.md:23: ## Issue 2: npub Format Instead of Hex — Must Use 64-Character Hex\n  response.md:36: **64-character lowercase hex** strings. npub is a NIP-19 display encoding used\n  response.md:39: **Why it breaks:** Clients expect a raw hex pubkey in the `names` object to"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

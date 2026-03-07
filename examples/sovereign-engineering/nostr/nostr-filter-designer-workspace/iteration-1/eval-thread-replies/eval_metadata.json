@@ -1,0 +1,14 @@
+{
+  "eval_id": 1,
+  "eval_name": "thread-replies",
+  "prompt": "I have a thread root event with ID aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd. I need to get all replies to this thread, including nested replies (replies to replies). Build me the Nostr REQ filters for this. Also explain what I'd need to do client-side to get the full tree.",
+  "assertions": [
+    "The text mentions REQ",
+    "The text mentions ids",
+    "The text mentions aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd",
+    "The response references #e",
+    "The response references two filters",
+    "The response references recursive",
+    "The response does not contain {\"ids\":[\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"],\"#e\":"
+  ]
+}

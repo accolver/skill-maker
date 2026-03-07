@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response identifies NIP-57 as the primary NIP for Lightning zaps",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"lightning\" (heuristic match):\n  response.md:3: ## Lightning Zaps\n  response.md:5: Zaps in Nostr are defined in NIP-57. They allow users to send Lightning payments\n  response.md:10: 1. The recipient needs to have a Lightning address (like `user@example.com`) in"
+    },
+    {
+      "text": "Response mentions kind:9734 as the zap request event kind",
+      "passed": false,
+      "evidence": "No matches for \"kind:9734 as the zap request event kind\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions kind:9735 as the zap receipt event kind",
+      "passed": false,
+      "evidence": "No matches for \"kind:9735 as the zap receipt event kind\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response explains that the kind:9734 zap request is NOT published to relays but sent to the recipient's lnurl callback URL",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Adding Zaps to Your Nostr Client\n  response.md:3: ## Lightning Zaps\n  response.md:5: Zaps in Nostr are defined in NIP-57. They allow users to send Lightning payments"
+    },
+    {
+      "text": "Response mentions LNURL integration as a requirement (lud16, allowsNostr, or lnurl pay endpoint)",
+      "passed": false,
+      "evidence": "No matches for \"lnurl integration as a requirement (lud16, allowsnostr, or lnurl pay endpoint)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response identifies NIP-61 as the NIP for nutzaps (Cashu-based zaps)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zaps\" (heuristic match):\n  response.md:1: # Adding Zaps to Your Nostr Client\n  response.md:3: ## Lightning Zaps\n  response.md:5: Zaps in Nostr are defined in NIP-57. They allow users to send Lightning payments"
+    },
+    {
+      "text": "Response mentions kind:9321 as the nutzap event kind",
+      "passed": false,
+      "evidence": "No matches for \"kind:9321 as the nutzap event kind\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions kind:10019 as the nutzap mint recommendation event where recipients list their trusted mints and P2PK pubkey",
+      "passed": false,
+      "evidence": "No matches for \"kind:10019 as the nutzap mint recommendation event where recipients list their trusted mints and p2pk pubkey\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

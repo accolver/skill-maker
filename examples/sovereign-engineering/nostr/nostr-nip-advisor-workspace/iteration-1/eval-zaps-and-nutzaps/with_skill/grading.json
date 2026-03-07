@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response identifies NIP-57 as the primary NIP for Lightning zaps",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: You'll need two separate NIP chains: **NIP-57** for Lightning zaps and\n  response.md:4: **NIP-61** for Cashu-based nutzaps. I'd recommend supporting both — Lightning\n  response.md:10: ## Lightning Zaps (NIP-57)"
+    },
+    {
+      "text": "Response mentions kind:9734 as the zap request event kind",
+      "passed": false,
+      "evidence": "No matches for \"kind:9734 as the zap request event kind\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions kind:9735 as the zap receipt event kind",
+      "passed": false,
+      "evidence": "No matches for \"kind:9735 as the zap receipt event kind\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response explains that the kind:9734 zap request is NOT published to relays but sent to the recipient's lnurl callback URL",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:19: | NIP-57            | Zap protocol (kind:9734, kind:9735)      |\n  response.md:27: Look up the recipient's `lud16` field from their kind:0 profile metadata. For\n  response.md:39: #### 2. Create kind:9734 Zap Request"
+    },
+    {
+      "text": "Response mentions LNURL integration as a requirement (lud16, allowsNostr, or lnurl pay endpoint)",
+      "passed": false,
+      "evidence": "No matches for \"lnurl integration as a requirement (lud16, allowsnostr, or lnurl pay endpoint)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response identifies NIP-61 as the NIP for nutzaps (Cashu-based zaps)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: You'll need two separate NIP chains: **NIP-57** for Lightning zaps and\n  response.md:4: **NIP-61** for Cashu-based nutzaps. I'd recommend supporting both — Lightning\n  response.md:10: ## Lightning Zaps (NIP-57)"
+    },
+    {
+      "text": "Response mentions kind:9321 as the nutzap event kind",
+      "passed": false,
+      "evidence": "No matches for \"kind:9321 as the nutzap event kind\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions kind:10019 as the nutzap mint recommendation event where recipients list their trusted mints and P2PK pubkey",
+      "passed": false,
+      "evidence": "No matches for \"kind:10019 as the nutzap mint recommendation event where recipients list their trusted mints and p2pk pubkey\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

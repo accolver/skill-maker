@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The implementation uses HKDF-extract with salt 'nip44-v2' (the exact string) for conversation key derivation",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"hkdf\" (heuristic match):\n  nip44.ts:5: * - Conversation key derivation via ECDH + HKDF-extract\n  nip44.ts:6: * - Per-message key derivation via HKDF-expand\n  nip44.ts:12: import { hkdf } from \"@noble/hashes/hkdf\";"
+    },
+    {
+      "text": "The conversation key derivation uses ECDH (secp256k1 scalar multiplication) to compute a shared point, using the raw unhashed x-coordinate as IKM",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"conversation\" (heuristic match):\n  nip44.ts:5: * - Conversation key derivation via ECDH + HKDF-extract\n  nip44.ts:20: // Step 1: Conversation Key Derivation (one-time per user pair)\n  nip44.ts:24: * Derive a conversation key from a private key and public key using"
+    },
+    {
+      "text": "Per-message keys are derived using HKDF-expand with the conversation_key as PRK, nonce as info, and output length 76 bytes, split into chacha_key(32), chacha_nonce(12), hmac_key(32)",
+      "passed": false,
+      "evidence": "No matches for \"length 76 bytes, split into chacha_key(32), chacha_nonce(12), hmac_key(32)\" found across 1 output file(s)"
+    },
+    {
+      "text": "The nonce is 32 bytes generated from a CSPRNG (crypto.getRandomValues or equivalent)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nonce\" (heuristic match):\n  nip44.ts:52: * Derive per-message keys from conversation key and nonce using HKDF-expand.\n  nip44.ts:55: *   - chacha_nonce: bytes[32..44]  (12 bytes)\n  nip44.ts:58: function getMessageKeys(conversationKey: Uint8Array, nonce: Uint8Array): {"
+    },
+    {
+      "text": "The padding implementation uses a power-of-2 based algorithm with minimum padded size of 32 bytes and plaintext length encoded as 2-byte big-endian prefix",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"padding\" (heuristic match):\n  nip44.ts:7: * - Power-of-2 padding\n  nip44.ts:77: // Step 3: Power-of-2 Padding\n  nip44.ts:95: * Pad plaintext using NIP-44 padding scheme."
+    },
+    {
+      "text": "The MAC is computed as HMAC-SHA256 with the nonce concatenated before the ciphertext as AAD",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"mac\" (heuristic match):\n  nip44.ts:8: * - ChaCha20 encryption with HMAC-SHA256 authentication\n  nip44.ts:15: import { hmac } from \"@noble/hashes/hmac\";\n  nip44.ts:56: *   - hmac_key:     bytes[44..76]  (32 bytes)"
+    },
+    {
+      "text": "The encrypted output is base64-encoded as: version_byte(0x02) || nonce(32) || ciphertext || mac(32)",
+      "passed": false,
+      "evidence": "No matches for \"is base64-encoded as: version_byte(0x02) || nonce(32) || ciphertext || mac(32)\" found across 1 output file(s)"
+    },
+    {
+      "text": "The decryption function verifies the MAC before decrypting (not after)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"function\" (heuristic match):\n  nip44.ts:33: export function getConversationKey(privateKey: Uint8Array, publicKey: Uint8Array): Uint8Array {\n  nip44.ts:58: function getMessageKeys(conversationKey: Uint8Array, nonce: Uint8Array): {\n  nip44.ts:84: function calcPaddedLen(unpaddedLen: number): number {"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

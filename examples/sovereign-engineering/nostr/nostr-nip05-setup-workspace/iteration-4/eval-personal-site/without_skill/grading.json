@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The hex pubkey b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9 is present in the output",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9\" (heuristic match):\n  response.md:11: \"bob\": \"b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9\""
+    },
+    {
+      "text": "The output discusses hex format for the pubkey (not npub or bech32)",
+      "passed": false,
+      "evidence": "No matches for \"discusses hex format for the pubkey (not npub or bech32)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Access-Control-Allow-Origin is set in the server configuration",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"set\" (heuristic match):\n  response.md:1: # Setting Up NIP-05 Verification on Nginx\n  response.md:41: In your Nostr client, go to profile settings and set the NIP-05 identifier field"
+    },
+    {
+      "text": "The path /.well-known/nostr.json appears in a server location block",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"json\" (heuristic match):\n  response.md:3: ## 1. Create the nostr.json File\n  response.md:5: NIP-05 works by serving a JSON file at a well-known path on your domain. Create\n  response.md:6: the file at `.well-known/nostr.json`:"
+    },
+    {
+      "text": "HTTPS is stated as a requirement for the nostr.json endpoint",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"json\" (heuristic match):\n  response.md:3: ## 1. Create the nostr.json File\n  response.md:5: NIP-05 works by serving a JSON file at a well-known path on your domain. Create\n  response.md:6: the file at `.well-known/nostr.json`:"
+    },
+    {
+      "text": "The nip05 field value bob@example.com appears in a profile update",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"example\" (heuristic match):\n  response.md:25: server_name example.com;\n  response.md:27: ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;\n  response.md:28: ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;"
+    },
+    {
+      "text": "A curl command is used to test or verify the endpoint",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"curl\" (heuristic match):\n  response.md:60: You can also use curl:\n  response.md:63: curl https://example.com/.well-known/nostr.json?name=bob"
+    },
+    {
+      "text": "Redirects are warned against or prohibited for the nostr.json endpoint",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"json\" (heuristic match):\n  response.md:3: ## 1. Create the nostr.json File\n  response.md:5: NIP-05 works by serving a JSON file at a well-known path on your domain. Create\n  response.md:6: the file at `.well-known/nostr.json`:"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

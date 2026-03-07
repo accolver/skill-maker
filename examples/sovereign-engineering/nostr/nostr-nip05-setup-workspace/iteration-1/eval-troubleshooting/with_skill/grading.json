@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output identifies that 'Alice' must be lowercase — NIP-05 local-part only allows a-z0-9-_.",
+      "passed": false,
+      "evidence": "No matches for \"identifies that 'alice' must be lowercase — nip-05 local-part only allows a-z0-9-_\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output identifies that the npub pubkey format is wrong and must be converted to 64-character lowercase hex",
+      "passed": false,
+      "evidence": "No matches for \"identifies that the npub pubkey format is wrong and must be converted to 64-character lowercase hex\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output identifies the 301 redirect as a problem — NIP-05 spec requires no HTTP redirects",
+      "passed": false,
+      "evidence": "No matches for \"identifies the 301 redirect as a problem — nip-05 spec requires no http redirects\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output provides a corrected nostr.json with the local-part in lowercase and pubkey in hex format",
+      "passed": false,
+      "evidence": "No matches for \"provides a corrected nostr.json with the local-part in lowercase and pubkey in hex format\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output explains that the nip05 field in the profile must also use lowercase (alice@mydomain.com not Alice@MyDomain.com)",
+      "passed": false,
+      "evidence": "No matches for \"explains that the nip05 field in the profile must also use lowercase (alice@mydomain.com not alice@mydomain.com)\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output provides specific guidance on fixing the redirect (e.g., server config change to prevent www redirect on this path)",
+      "passed": false,
+      "evidence": "No matches for \"provides specific guidance on fixing the redirect (e.g., server config change to prevent www redirect on this path)\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output mentions that CORS headers (Access-Control-Allow-Origin: *) are required even though the user didn't ask about them",
+      "passed": false,
+      "evidence": "No matches for \"mentions that cors headers (access-control-allow-origin: *) are required even though the user didn't ask about them\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output does NOT simply say 'convert npub to hex' without explaining that hex is 64 lowercase characters",
+      "passed": true,
+      "evidence": "No occurrences of \"explaining that hex\" found across 2 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

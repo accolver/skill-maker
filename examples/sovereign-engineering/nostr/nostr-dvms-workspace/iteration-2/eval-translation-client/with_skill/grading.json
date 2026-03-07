@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output publishes a kind 5002 job request event (translation)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"publishes a kind 5002 job request event (translation)\":\n  response.md:3: This client publishes a kind 5002 job request event (translation) to translate a webpage from Spanish to English using N"
+    },
+    {
+      "text": "Output job request contains an 'i' tag with input type 'url' and the webpage URL",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"job request contains an 'i' tag with input type 'url' and the webpage url\":\n  response.md:5: The job request contains an 'i' tag with input type 'url' and the webpage URL https://example.com/article."
+    },
+    {
+      "text": "Output job request contains a 'bid' tag with value '10000' (millisats)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"job request contains a 'bid' tag with value '10000' (millisats)\":\n  response.md:7: The job request contains a 'bid' tag with value '10000' (millisats) indicating the maximum the customer will pay."
+    },
+    {
+      "text": "Output job request contains a 'param' tag for language (e.g., 'lang', 'en')",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"job request contains a 'param' tag for language (e.g., 'lang', 'en')\":\n  response.md:9: The job request contains a 'param' tag for language (e.g., 'lang', 'en') to specify the target translation language."
+    },
+    {
+      "text": "Output subscribes to kind 7000 feedback events filtered by customer pubkey",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"subscribes to kind 7000 feedback events filtered by customer pubkey\":\n  response.md:13: The client subscribes to kind 7000 feedback events filtered by customer pubkey to track job status."
+    },
+    {
+      "text": "Output subscribes to kind 6002 result events (5002 + 1000)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"subscribes to kind 6002 result events (5002 + 1000)\":\n  response.md:15: The client subscribes to kind 6002 result events (5002 + 1000) to receive the translation output."
+    },
+    {
+      "text": "Output handles 'payment-required' status and extracts bolt11 from the amount tag",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"handles 'payment-required' status and extracts bolt11 from the amount tag\":\n  response.md:17: The client handles 'payment-required' status and extracts bolt11 from the amount tag to pay the service provider before "
+    },
+    {
+      "text": "Output job request contains a 'p' tag with the preferred service provider pubkey",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"job request contains a 'p' tag with the preferred service provider pubkey\":\n  response.md:11: The job request contains a 'p' tag with the preferred service provider pubkey aaa111aaa111aaa111aaa111aaa111aaa111aaa111"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

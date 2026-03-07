@@ -1,0 +1,28 @@
+{
+  "auction_event": {
+    "kind": 30020,
+    "tags": [["d", "trezor-auction"]],
+    "content": "{\"id\":\"trezor-auction\",\"name\":\"Original Trezor One #0042\",\"description\":\"Rare vintage hardware wallet\",\"starting_bid\":500000,\"start_date\":\"2025-01-15T00:00:00Z\",\"duration\":259200,\"specs\":{\"serial_number\":\"0042\",\"condition\":\"mint, sealed\"}}"
+  },
+  "bid_event": {
+    "kind": 1021,
+    "content": "750000",
+    "tags": [
+      ["e", "trezor-auction"]
+    ]
+  },
+  "bid_confirmation_accepted": {
+    "kind": 1022,
+    "content": "{\"status\":\"accepted\",\"message\":\"Bid accepted\",\"duration_extended\":600}",
+    "tags": [
+      ["e", "trezor-auction"]
+    ]
+  },
+  "bid_confirmation_winner": {
+    "kind": 1022,
+    "content": "{\"status\":\"winner\",\"message\":\"You won the auction!\"}",
+    "tags": [
+      ["e", "winning-bid-id"]
+    ]
+  }
+}

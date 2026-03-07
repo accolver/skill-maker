@@ -1,0 +1,16 @@
+{
+  "id": 2,
+  "name": "zaps-and-nutzaps",
+  "prompt": "I want to add zaps to my Nostr client so users can tip each other with Lightning. I also heard about something called nutzaps with Cashu — should I support those too? Walk me through what NIPs I need.",
+  "expected_output": "Response covers NIP-57 for Lightning zaps with the full protocol flow (kind:9734 zap request, kind:9735 zap receipt, LNURL integration), explains NIP-61 for nutzaps with Cashu tokens (kind:9321, kind:10019), and recommends supporting both for maximum compatibility.",
+  "assertions": [
+    "Response identifies NIP-57 as the primary NIP for Lightning zaps",
+    "Response mentions kind:9734 as the zap request event kind",
+    "Response mentions kind:9735 as the zap receipt event kind",
+    "Response explains that the kind:9734 zap request is NOT published to relays but sent to the recipient's lnurl callback URL",
+    "Response mentions LNURL integration as a requirement (lud16, allowsNostr, or lnurl pay endpoint)",
+    "Response identifies NIP-61 as the NIP for nutzaps (Cashu-based zaps)",
+    "Response mentions kind:9321 as the nutzap event kind",
+    "Response mentions kind:10019 as the nutzap mint recommendation event where recipients list their trusted mints and P2PK pubkey"
+  ]
+}

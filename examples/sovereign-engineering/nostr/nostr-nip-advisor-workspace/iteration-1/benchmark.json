@@ -1,0 +1,75 @@
+{
+  "skill_name": "nostr-nip-advisor",
+  "iteration": 1,
+  "timestamp": "2026-03-07T18:42:51.673Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.5,
+        "stddev": 0.1021
+      },
+      "time_seconds": {
+        "mean": null,
+        "stddev": null
+      },
+      "tokens": {
+        "mean": null,
+        "stddev": null
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.5,
+        "stddev": 0.1021
+      },
+      "time_seconds": {
+        "mean": null,
+        "stddev": null
+      },
+      "tokens": {
+        "mean": null,
+        "stddev": null
+      }
+    },
+    "delta": {
+      "pass_rate": 0,
+      "time_seconds": null,
+      "tokens": null
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "dm-privacy",
+      "with_skill": {
+        "pass_rate": 0.625,
+        "time_seconds": null
+      },
+      "without_skill": {
+        "pass_rate": 0.625,
+        "time_seconds": null
+      }
+    },
+    {
+      "eval_name": "relay-auth",
+      "with_skill": {
+        "pass_rate": 0.5,
+        "time_seconds": null
+      },
+      "without_skill": {
+        "pass_rate": 0.5,
+        "time_seconds": null
+      }
+    },
+    {
+      "eval_name": "zaps-and-nutzaps",
+      "with_skill": {
+        "pass_rate": 0.375,
+        "time_seconds": null
+      },
+      "without_skill": {
+        "pass_rate": 0.375,
+        "time_seconds": null
+      }
+    }
+  ]
+}

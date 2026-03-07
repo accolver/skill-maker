@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a server handler for GET requests to '/.well-known/nostr.json'",
+      "passed": false,
+      "evidence": "No matches for \"contains a server handler for get requests to '/.well-known/nostr.json'\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output reads the 'name' query parameter from the request",
+      "passed": false,
+      "evidence": "No matches for \"reads the 'name' query parameter from the request\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains both a 'names' object and a 'relays' object in the JSON response",
+      "passed": false,
+      "evidence": "No matches for \"contains both a 'names' object and a 'relays' object in the json response\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'relays' keyed by hex pubkey with arrays of WebSocket relay URLs (wss://)",
+      "passed": false,
+      "evidence": "No matches for \"contains 'relays' keyed by hex pubkey with arrays of websocket relay urls (wss://)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'Access-Control-Allow-Origin' header set to '*'",
+      "passed": false,
+      "evidence": "No matches for \"contains 'access-control-allow-origin' header set to '*'\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output validates the local-part with a pattern like 'a-z0-9' or regex restricting characters",
+      "passed": false,
+      "evidence": "No matches for \"validates the local-part with a pattern like 'a-z0-9' or regex restricting characters\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output handles the underscore '_' as the root identifier for the domain itself",
+      "passed": false,
+      "evidence": "No matches for \"handles the underscore '_' as the root identifier for the domain itself\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains all pubkeys in 64-character lowercase hex format",
+      "passed": false,
+      "evidence": "No matches for \"contains all pubkeys in 64-character lowercase hex format\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

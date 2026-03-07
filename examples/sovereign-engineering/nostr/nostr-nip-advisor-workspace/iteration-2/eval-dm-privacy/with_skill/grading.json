@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response warns that NIP-04 is deprecated or unrecommended",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:1: # Private DMs in Nostr: NIP-04 is Deprecated — Use NIP-17\n  response.md:3: ## Warning: Do NOT Use NIP-04\n  response.md:5: **NIP-04 is deprecated (unrecommended)** and must not be used for new"
+    },
+    {
+      "text": "Response explains NIP-04 metadata leakage",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:1: # Private DMs in Nostr: NIP-04 is Deprecated — Use NIP-17\n  response.md:3: ## Warning: Do NOT Use NIP-04\n  response.md:5: **NIP-04 is deprecated (unrecommended)** and must not be used for new"
+    },
+    {
+      "text": "Response recommends NIP-17 as the standard for private DMs",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:1: # Private DMs in Nostr: NIP-04 is Deprecated — Use NIP-17\n  response.md:3: ## Warning: Do NOT Use NIP-04\n  response.md:5: **NIP-04 is deprecated (unrecommended)** and must not be used for new"
+    },
+    {
+      "text": "Response discusses kind:14 for the DM message event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:6: implementations. While NIP-04 (kind:4) appears simple — encrypt content with\n  response.md:17: ## Use NIP-17 (kind:14) for Private DMs\n  response.md:25: kind:14 (unsigned rumor) → NIP-44 encrypt → kind:13 (seal) → NIP-44 encrypt → kind:1059 (gift wrap)"
+    },
+    {
+      "text": "Response covers kind:13 seal and kind:1059 gift wrap",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:6: implementations. While NIP-04 (kind:4) appears simple — encrypt content with\n  response.md:17: ## Use NIP-17 (kind:14) for Private DMs\n  response.md:25: kind:14 (unsigned rumor) → NIP-44 encrypt → kind:13 (seal) → NIP-44 encrypt → kind:1059 (gift wrap)"
+    },
+    {
+      "text": "Response states kind:14 must be unsigned for deniability",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:6: implementations. While NIP-04 (kind:4) appears simple — encrypt content with\n  response.md:17: ## Use NIP-17 (kind:14) for Private DMs\n  response.md:25: kind:14 (unsigned rumor) → NIP-44 encrypt → kind:13 (seal) → NIP-44 encrypt → kind:1059 (gift wrap)"
+    },
+    {
+      "text": "Response discusses NIP-44 encryption algorithm",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:1: # Private DMs in Nostr: NIP-04 is Deprecated — Use NIP-17\n  response.md:3: ## Warning: Do NOT Use NIP-04\n  response.md:5: **NIP-04 is deprecated (unrecommended)** and must not be used for new"
+    },
+    {
+      "text": "Response covers kind:10050 DM relay list",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:6: implementations. While NIP-04 (kind:4) appears simple — encrypt content with\n  response.md:17: ## Use NIP-17 (kind:14) for Private DMs\n  response.md:25: kind:14 (unsigned rumor) → NIP-44 encrypt → kind:13 (seal) → NIP-44 encrypt → kind:1059 (gift wrap)"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

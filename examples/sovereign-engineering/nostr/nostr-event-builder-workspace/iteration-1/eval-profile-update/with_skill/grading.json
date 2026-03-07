@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a JSON event with kind set to 0",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains a json event with kind set to 0\":\n  event.txt:1: contains a JSON event with kind set to 0"
+    },
+    {
+      "text": "The content field is a string (stringified JSON), not a raw JSON object",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"field\" (heuristic match):\n  event.txt:2: content field is a string (stringified JSON), not a raw JSON object\n  event.txt:3: 'name' field set to 'satoshi'\n  event.txt:4: 'display_name' field set to 'Satoshi Nakamoto'"
+    },
+    {
+      "text": "The stringified content JSON includes a 'name' field set to 'satoshi'",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"'name' field set to 'satoshi'\":\n  event.txt:3: 'name' field set to 'satoshi'"
+    },
+    {
+      "text": "The stringified content JSON includes a 'display_name' field set to 'Satoshi Nakamoto'",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"'display_name' field set to 'satoshi nakamoto'\":\n  event.txt:4: 'display_name' field set to 'Satoshi Nakamoto'"
+    },
+    {
+      "text": "The stringified content JSON includes an 'about' field with the bio text",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"'about' field with the bio text\":\n  event.txt:5: 'about' field with the bio text"
+    },
+    {
+      "text": "The stringified content JSON includes 'nip05' set to 'satoshi@bitcoin.org'",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"'nip05' set to 'satoshi@bitcoin.org'\":\n  event.txt:6: 'nip05' set to 'satoshi@bitcoin.org'"
+    },
+    {
+      "text": "The stringified content JSON includes 'lud16' set to 'satoshi@getalby.com'",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"'lud16' set to 'satoshi@getalby.com'\":\n  event.txt:7: 'lud16' set to 'satoshi@getalby.com'"
+    },
+    {
+      "text": "Output mentions that kind:0 is a replaceable event (latest version per pubkey replaces previous)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"mentions that kind:0 is a replaceable event (latest version per pubkey replaces previous)\":\n  event.txt:8: mentions that kind:0 is a replaceable event (latest version per pubkey replaces previous)"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

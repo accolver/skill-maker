@@ -1,0 +1,16 @@
+{
+  "eval_id": 2,
+  "eval_name": "gift-wrap",
+  "prompt": "Write a TypeScript module that sends a private DM using the NIP-59 gift wrap protocol. Implement the full three-layer wrapping: (1) create an unsigned rumor event with the message content, (2) encrypt the rumor into a kind:13 seal signed by the real author, (3) encrypt the seal into a kind:1059 gift wrap signed by a random ephemeral key. Also implement the unwrapping function that a recipient would use to read the message. Use nostr-tools library. Include a complete example that wraps the message 'Secret meeting at 9pm' from Alice to Bob, then unwraps it as Bob. Save to outputs/gift-wrap.ts",
+  "expected_output": "A TypeScript module implementing the full NIP-59 gift wrap protocol with three distinct layers: unsigned rumor, kind:13 seal with empty tags, and kind:1059 gift wrap with ephemeral key and p-tag. Includes both wrapping and unwrapping functions with a working example.",
+  "assertions": [
+    "The rumor event is created WITHOUT a signature (no sig field) — it has an id and pubkey but is intentionally unsigned for deniability",
+    "The seal event uses kind 13 and has tags set to an empty array (tags: [])",
+    "The seal's content is the rumor JSON-stringified and encrypted with NIP-44 using the author's private key and recipient's public key",
+    "The gift wrap uses kind 1059 and includes a p-tag with the recipient's public key for routing",
+    "The gift wrap is signed by a randomly generated ephemeral key (not the author's key)",
+    "The created_at timestamps on both the seal and gift wrap are randomized (not the current time), with randomization up to 2 days in the past",
+    "The unwrapping function decrypts the gift wrap first, then verifies the seal signature, then decrypts the seal to get the rumor",
+    "The unwrapping function verifies that rumor.pubkey matches seal.pubkey (author consistency check)"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "mute-list",
+  "prompt": "Create a mute list manager for a Nostr client that supports both public and private mute entries using NIP-51. I need: (1) a function to create a kind:10000 mute list with public p tags, t tags, word tags, and e tags, (2) a function to add private mute entries that are encrypted in the content field using NIP-44, (3) a function to decrypt and read private entries that handles both NIP-44 and legacy NIP-04 formats (detect by checking for '?iv=' in the ciphertext). Save to outputs/mute-list.ts",
+  "assertions": [
+    "Output produces events with 'kind: 10000' or 'kind:10000' for the mute list",
+    "Output supports all four tag types: p tags, t tags, word tags, and e tags",
+    "Output encrypts private mute entries into the event content field",
+    "Output uses NIP-44 encryption with the user's own keypair (encrypts to self)",
+    "Output detects NIP-04 format by checking for '?iv=' in the ciphertext string",
+    "Output contains backward-compatible decryption handling both NIP-44 and NIP-04",
+    "Output uses word tags with lowercase strings for case-insensitive matching",
+    "Output publishes as a replaceable event (complete replacement, not appending)"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "p2p_order": {
+    "kind": 38383,
+    "tags": [
+      ["d", "ord-sell-500k-sats-usd-7f3a"],
+      ["k", "sell"],
+      ["f", "USD"],
+      ["s", "pending"],
+      ["amt", "500000"],
+      ["fa", "175"],
+      ["pm", "zelle", "cashapp"],
+      ["premium", "3"],
+      ["network", "mainnet"],
+      ["layer", "lightning"],
+      ["name", "SatoshiSeller"],
+      ["bond", "10000"],
+      ["expires_at", "1719477496"],
+      ["expiration", "1719477496"],
+      ["y", "nostr-market"],
+      ["z", "order"]
+    ],
+    "content": ""
+  }
+}

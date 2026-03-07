@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Fetches the recipient's kind 10019 nutzap configuration event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"recipient\" (heuristic match):\n  output.md:6: ## Step 1: Fetch Recipient's Nutzap Configuration (kind:10019)\n  output.md:8: First, query for the recipient's nutzap informational event:\n  output.md:14: const recipientPubkey ="
+    },
+    {
+      "text": "Constructs a kind 9321 nutzap event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  output.md:6: ## Step 1: Fetch Recipient's Nutzap Configuration (kind:10019)\n  output.md:18: kinds: [10019],\n  output.md:23: throw new Error(\"Recipient has not published a kind:10019 nutzap config\");"
+    },
+    {
+      "text": "Uses P2PK locking for the Cashu tokens",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"p2pk\" (heuristic match):\n  output.md:35: p2pkPubkey: string;\n  output.md:57: const p2pkPubkey = pubkeyTag[1];\n  output.md:60: // The P2PK pubkey MUST NOT be the user's main Nostr pubkey."
+    },
+    {
+      "text": "Prefixes the P2PK pubkey with 02 for nostr-cashu compatibility",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"p2pk\" (heuristic match):\n  output.md:35: p2pkPubkey: string;\n  output.md:57: const p2pkPubkey = pubkeyTag[1];\n  output.md:60: // The P2PK pubkey MUST NOT be the user's main Nostr pubkey."
+    },
+    {
+      "text": "Warns that the P2PK pubkey must NOT be the user's main Nostr pubkey and must be a separate key",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"p2pk\" (heuristic match):\n  output.md:35: p2pkPubkey: string;\n  output.md:57: const p2pkPubkey = pubkeyTag[1];\n  output.md:60: // The P2PK pubkey MUST NOT be the user's main Nostr pubkey."
+    },
+    {
+      "text": "Includes proof tags with Cashu token proofs in the nutzap event",
+      "passed": false,
+      "evidence": "No matches for \"proof tags with cashu token proofs in the nutzap event\" found across 1 output file(s)"
+    },
+    {
+      "text": "References the mint URL and uses only mints from the recipient's kind 10019",
+      "passed": false,
+      "evidence": "No matches for \"mint url and uses only mints from the recipient's kind 10019\" found across 1 output file(s)"
+    },
+    {
+      "text": "Explains the redemption process including kind 7376 or token swapping",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  output.md:6: ## Step 1: Fetch Recipient's Nutzap Configuration (kind:10019)\n  output.md:18: kinds: [10019],\n  output.md:23: throw new Error(\"Recipient has not published a kind:10019 nutzap config\");"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

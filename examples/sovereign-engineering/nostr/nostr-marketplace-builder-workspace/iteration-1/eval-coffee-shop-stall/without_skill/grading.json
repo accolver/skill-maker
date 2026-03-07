@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a kind:30017 event with d tag matching the stall id in the content JSON",
+      "passed": false,
+      "evidence": "kind:30017 event has d tag \"bitcoin-beans\" but content JSON has no \"id\" field — d tag cannot match content id because id is missing"
+    },
+    {
+      "text": "The stall content JSON includes a shipping array with exactly two zones, one for US and one for International",
+      "passed": true,
+      "evidence": "Stall content has shipping array with 2 zones: US Domestic and International"
+    },
+    {
+      "text": "The US shipping zone has a cost of 4.99 and the International zone has a cost of 14.99",
+      "passed": true,
+      "evidence": "US zone cost: 4.99, International zone cost: 14.99 — correct"
+    },
+    {
+      "text": "Output contains two kind:30018 events, each with a d tag matching their respective content id",
+      "passed": false,
+      "evidence": "Two kind:30018 events present but neither content JSON has an \"id\" field, so d tag cannot match content id"
+    },
+    {
+      "text": "The coffee product has stall_id referencing the stall's id, quantity set to an integer (50), and t tags for 'coffee' and 'single-origin'",
+      "passed": false,
+      "evidence": "Coffee product missing stall_id entirely. quantity is string \"50\" not integer 50. t tags present for coffee and single-origin"
+    },
+    {
+      "text": "The coffee product content includes a specs array with roast level and weight key-value pairs",
+      "passed": false,
+      "evidence": "specs is an object {\"roast_level\":\"medium\",\"weight\":\"12oz\"} not an array of [key,value] pairs as required"
+    },
+    {
+      "text": "The coffee product has a shipping array with zone IDs that match the stall's shipping zone IDs",
+      "passed": false,
+      "evidence": "Product shipping array [{\"cost\":2.00}] has no \"id\" field — cannot match stall zone IDs. Stall zones also missing \"id\" fields"
+    },
+    {
+      "text": "The digital product has quantity set to null (not 0, not omitted) and no shipping array or an empty shipping array",
+      "passed": false,
+      "evidence": "Digital product quantity: 0 (integer zero), not null as required. Should be null for unlimited digital goods"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 6,
+    "total": 8,
+    "pass_rate": 0.25
+  }
+}

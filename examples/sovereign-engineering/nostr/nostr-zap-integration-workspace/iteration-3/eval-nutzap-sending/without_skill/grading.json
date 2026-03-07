@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Fetches kind 10019 for the nutzap configuration",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nutzap\" (heuristic match):\n  response.md:1: # Implementing Nutzaps (NIP-61)\n  response.md:3: Nutzaps are Cashu ecash-based tips on Nostr. Here's how to implement them.\n  response.md:18: const nutzapRelays = config.tags.filter((t) => t[0] === \"relay\").map((t) =>"
+    },
+    {
+      "text": "Constructs kind 9321 nutzap events",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nutzap\" (heuristic match):\n  response.md:1: # Implementing Nutzaps (NIP-61)\n  response.md:3: Nutzaps are Cashu ecash-based tips on Nostr. Here's how to implement them.\n  response.md:18: const nutzapRelays = config.tags.filter((t) => t[0] === \"relay\").map((t) =>"
+    },
+    {
+      "text": "Uses P2PK for locking the Cashu tokens",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"tokens\" (heuristic match):\n  response.md:23: ## Step 2: Mint Tokens\n  response.md:25: Create Cashu tokens at one of the recipient's mints:\n  response.md:33: const { proofs } = await wallet.mintTokens(21);"
+    },
+    {
+      "text": "Prefixes the P2PK pubkey with 02 for compressed public key format",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"key\" (heuristic match):\n  response.md:13: authors: [recipientPubkey],\n  response.md:43: [\"p\", recipientPubkey],\n  response.md:50: const signed = finalizeEvent(nutzap, secretKey);"
+    },
+    {
+      "text": "Warns that the P2PK pubkey must NOT be the main Nostr pubkey",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"pubkey\" (heuristic match):\n  response.md:13: authors: [recipientPubkey],\n  response.md:43: [\"p\", recipientPubkey],\n  response.md:62: \"#p\": [myPubkey],"
+    },
+    {
+      "text": "The nutzap event has proof tags carrying Cashu token data",
+      "passed": false,
+      "evidence": "No matches for \"proof tags carrying cashu token data\" found across 1 output file(s)"
+    },
+    {
+      "text": "The mint URL is fetched from the recipient kind 10019 event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"mint\" (heuristic match):\n  response.md:7: The recipient publishes a kind:10019 event with their preferred mints and\n  response.md:16: // Parse mint and relay info\n  response.md:17: const mints = config.tags.filter((t) => t[0] === \"mint\").map((t) => t[1]);"
+    },
+    {
+      "text": "Explains redemption including kind 7376 or token swap",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"token\" (heuristic match):\n  response.md:23: ## Step 2: Mint Tokens\n  response.md:25: Create Cashu tokens at one of the recipient's mints:\n  response.md:33: const { proofs } = await wallet.mintTokens(21);"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

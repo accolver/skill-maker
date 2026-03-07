@@ -1,0 +1,8 @@
+contains a JSON event with kind set to 1
+p tag containing the root author pubkey f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca
+p tag containing the parent author pubkey 93ef2ebaaf9554661f33e79949007900bbc535d239a4c801c33a4d67d3e7f546
+reply text as plaintext
+
+{"pubkey":"<pk>","created_at":1709827200,"kind":1,"tags":[["e","aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa1"],["e","bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb2"],["p","f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca"],["p","93ef2ebaaf9554661f33e79949007900bbc535d239a4c801c33a4d67d3e7f546"]],"content":"Great point, I totally agree!"}
+
+No root/reply markers on e tags. No relay URL hints.

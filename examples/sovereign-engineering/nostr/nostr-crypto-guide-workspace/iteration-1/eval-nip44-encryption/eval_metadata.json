@@ -1,0 +1,16 @@
+{
+  "eval_id": 1,
+  "eval_name": "nip44-encryption",
+  "prompt": "Implement NIP-44 encryption between two Nostr users in TypeScript. I need functions to: (1) derive a conversation key from a private key and public key, (2) encrypt a plaintext message, and (3) decrypt a payload back to plaintext. Use the @noble/hashes and @noble/curves libraries. Include proper padding, HMAC verification, and base64 encoding. Add a test that encrypts 'Hello, Nostr!' and decrypts it back, verifying round-trip correctness. Save the implementation to outputs/nip44.ts",
+  "expected_output": "A TypeScript file implementing NIP-44v2 encryption with conversation key derivation using ECDH + HKDF-extract with 'nip44-v2' salt, per-message key derivation via HKDF-expand, power-of-2 padding, ChaCha20 encryption, HMAC-SHA256 with nonce as AAD, and base64 encoding. The test should demonstrate successful round-trip encryption/decryption.",
+  "assertions": [
+    "The implementation uses HKDF-extract with salt 'nip44-v2' (the exact string) for conversation key derivation",
+    "The conversation key derivation uses ECDH (secp256k1 scalar multiplication) to compute a shared point, using the raw unhashed x-coordinate as IKM",
+    "Per-message keys are derived using HKDF-expand with the conversation_key as PRK, nonce as info, and output length 76 bytes, split into chacha_key(32), chacha_nonce(12), hmac_key(32)",
+    "The nonce is 32 bytes generated from a CSPRNG (crypto.getRandomValues or equivalent)",
+    "The padding implementation uses a power-of-2 based algorithm with minimum padded size of 32 bytes and plaintext length encoded as 2-byte big-endian prefix",
+    "The MAC is computed as HMAC-SHA256 with the nonce concatenated before the ciphertext as AAD",
+    "The encrypted output is base64-encoded as: version_byte(0x02) || nonce(32) || ciphertext || mac(32)",
+    "The decryption function verifies the MAC before decrypting (not after)"
+  ]
+}

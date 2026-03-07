@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains 'NFKC' or 'normalize' for Unicode normalization of the password",
+      "passed": false,
+      "evidence": "No matches for \"contains 'nfkc' or 'normalize' for unicode normalization of the password\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'scrypt' with parameters including salt, N or log_n, r=8, p=1",
+      "passed": false,
+      "evidence": "No matches for \"contains 'scrypt' with parameters including salt, n or log_n, r=8, p=1\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'xchacha20' or 'XChaCha20' or 'xchacha20poly1305' for the AEAD cipher",
+      "passed": false,
+      "evidence": "No matches for \"contains 'xchacha20' or 'xchacha20' or 'xchacha20poly1305' for the aead cipher\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains '0x00' or '0x01' or '0x02' as the key security byte used as AAD",
+      "passed": false,
+      "evidence": "No matches for \"contains '0x00' or '0x01' or '0x02' as the key security byte used as aad\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains '0x02' as a version byte and describes the 91-byte payload structure",
+      "passed": false,
+      "evidence": "No matches for \"contains '0x02' as a version byte and describes the 91-byte payload structure\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'ncryptsec' as the bech32 human-readable prefix",
+      "passed": false,
+      "evidence": "No matches for \"contains 'ncryptsec' as the bech32 human-readable prefix\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains '3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683' as the decrypted test vector result",
+      "passed": false,
+      "evidence": "No matches for \"contains '3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683' as the decrypted test vector result\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains both 'encrypt' and 'decrypt' functions that are inverse operations",
+      "passed": false,
+      "evidence": "No matches for \"contains both 'encrypt' and 'decrypt' functions that are inverse operations\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

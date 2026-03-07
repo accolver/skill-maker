@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "The text mentions 9735",
+      "passed": true,
+      "evidence": "Found 8 match(es) for \"9735\":\n  output.md:5: This filter contains kinds including 9735 (zap receipt kind) and uses #p tag\n  output.md:11: \"kinds\": [9735],\n  output.md:25: \"kinds\": [9735],"
+    },
+    {
+      "text": "The text mentions #p",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"#p\":\n  output.md:5: This filter contains kinds including 9735 (zap receipt kind) and uses #p tag\n  output.md:12: \"#p\": [\"79dff8f82963424e0bb02708a22e44b4980893e3a4be0fa3cb60a43b946764e3\"]\n  output.md:26: \"#p\": [\"79dff8f82963424e0bb02708a22e44b4980893e3a4be0fa3cb60a43b946764e3\"]"
+    },
+    {
+      "text": "The text mentions 79dff8f82963424e0bb02708a22e44b4980893e3a4be0fa3cb60a43b946764e3",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"79dff8f82963424e0bb02708a22e44b4980893e3a4be0fa3cb60a43b946764e3\":\n  output.md:7: 79dff8f82963424e0bb02708a22e44b4980893e3a4be0fa3cb60a43b946764e3:\n  output.md:12: \"#p\": [\"79dff8f82963424e0bb02708a22e44b4980893e3a4be0fa3cb60a43b946764e3\"]\n  output.md:26: \"#p\": [\"79dff8f82963424e0bb02708a22e44b4980893e3a4be0fa3cb60a43b946764e3\"]"
+    },
+    {
+      "text": "The text mentions zap receipt",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"zap receipt\":\n  output.md:5: This filter contains kinds including 9735 (zap receipt kind) and uses #p tag\n  output.md:39: Zap receipts (kind 9735) include a p tag for the recipient, which is why #p\n  output.md:41: profile or one of their events), the zap receipt event always contains a p tag"
+    },
+    {
+      "text": "The text mentions 9734",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"9734\":\n  output.md:44: ## Kind 9735 vs 9734\n  output.md:47: and kind 9734 (zap request/intent). Kind 9734 is the zap request created by the"
+    },
+    {
+      "text": "The text mentions profile zaps",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"profile zaps\":\n  output.md:54: This single filter covers both profile zaps and event-specific zaps received by\n  output.md:55: the user. Profile zaps (no specific event targeted) include a p tag for the"
+    },
+    {
+      "text": "The text mentions recipient",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"recipient\":\n  output.md:39: Zap receipts (kind 9735) include a p tag for the recipient, which is why #p\n  output.md:42: with the recipient's pubkey.\n  output.md:56: recipient. Event zaps include both a p tag for the event author (recipient) and"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  }
+}

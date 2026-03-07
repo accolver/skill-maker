@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The text mentions REQ",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"req\":\n  output.md:3: ## Complete REQ Message\n  output.md:5: Contains a complete REQ message as a JSON array starting with REQ:\n  output.md:9: \"REQ\","
+    },
+    {
+      "text": "The text mentions f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca\":\n  output.md:13: \"f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca\"\n  output.md:30: f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca."
+    },
+    {
+      "text": "The text mentions authors",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"authors\":\n  output.md:12: \"authors\": [\n  output.md:29: The filter contains authors with pubkey"
+    },
+    {
+      "text": "The text mentions limit",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"limit\":\n  output.md:16: \"limit\": 50\n  output.md:34: The filter contains limit set to 50.\n  output.md:40: Fields are combined via AND: author AND kinds AND limit."
+    },
+    {
+      "text": "The text mentions single filter",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"single filter\":\n  output.md:23: ## Single filter design\n  output.md:25: Uses a single filter (not multiple) since all conditions share the same author."
+    },
+    {
+      "text": "The text mentions EOSE",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"eose\":\n  output.md:42: ## Limit and EOSE\n  output.md:45: after EOSE."
+    },
+    {
+      "text": "The text mentions OR within",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"or within\":\n  output.md:38: Kinds is OR within the list: matching any value satisfies that field."
+    },
+    {
+      "text": "The text mentions AND",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"and\":\n  output.md:32: The filter contains kinds with values: 1, 6, and 7.\n  output.md:36: ## AND/OR Semantics\n  output.md:40: Fields are combined via AND: author AND kinds AND limit."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

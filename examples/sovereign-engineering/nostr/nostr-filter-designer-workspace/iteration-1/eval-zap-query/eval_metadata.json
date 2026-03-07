@@ -1,0 +1,14 @@
+{
+  "eval_id": 2,
+  "eval_name": "zap-query",
+  "prompt": "I want to find all zaps (lightning payments) received by pubkey 79dff8f82963424e0bb02708a22e44b4980893e3a4be0fa3cb60a43b946764e3 across ALL their events, not just one specific event. What filter do I need?",
+  "assertions": [
+    "The text mentions 9735",
+    "The text mentions #p",
+    "The text mentions 79dff8f82963424e0bb02708a22e44b4980893e3a4be0fa3cb60a43b946764e3",
+    "The text mentions zap receipt",
+    "The text mentions 9734",
+    "The text mentions profile zaps",
+    "The text mentions recipient"
+  ]
+}

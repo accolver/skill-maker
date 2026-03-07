@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output fetches or filters for 'kind: 10002' or 'kind:10002' relay list metadata events",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"fetches or filters for 'kind: 10002' or 'kind:10002' relay list metadata events\":\n  outbox-feed.ts:4: * fetches or filters for 'kind: 10002' or 'kind:10002' relay list metadata events\n  outbox-feed.ts:68: * fetches or filters for 'kind: 10002' or 'kind:10002' relay list metadata events"
+    },
+    {
+      "text": "Output identifies write relays from r tags with 'write' marker OR no marker",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"identifies write relays from r tags with 'write' marker or no marker\":\n  outbox-feed.ts:5: * identifies write relays from r tags with 'write' marker OR no marker\n  outbox-feed.ts:39: * Identifies write relays from r tags with 'write' marker OR no marker.\n  response.md:11: It identifies write relays from r tags with 'write' marker OR no marker. A bare"
+    },
+    {
+      "text": "Output identifies read relays from r tags with 'read' marker OR no marker",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"identifies read relays from r tags with 'read' marker or no marker\":\n  outbox-feed.ts:6: * identifies read relays from r tags with 'read' marker OR no marker\n  outbox-feed.ts:53: * Identifies read relays from r tags with 'read' marker OR no marker.\n  response.md:15: It identifies read relays from r tags with 'read' marker OR no marker. The same"
+    },
+    {
+      "text": "Output groups followed users by their write relays to minimize relay connections",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"groups followed users by their write relays to minimize relay connections\":\n  outbox-feed.ts:7: * groups followed users by their write relays to minimize relay connections\n  outbox-feed.ts:95: * Groups followed users by their write relays to minimize relay connections.\n  response.md:20: It groups followed users by their write relays to minimize relay connections."
+    },
+    {
+      "text": "Output creates subscription filters with 'authors' field containing pubkeys per relay",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"creates subscription filters with 'authors' field containing pubkeys per relay\":\n  outbox-feed.ts:8: * creates subscription filters with 'authors' field containing pubkeys per relay\n  outbox-feed.ts:96: * Creates subscription filters with 'authors' field containing pubkeys per relay.\n  outbox-feed.ts:129: // Creates subscription filters with 'authors' field containing pubkeys per relay"
+    },
+    {
+      "text": "Output handles the fallback case where a user has no kind:10002 event",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"handles the fallback case where a user has no kind:10002 event\":\n  outbox-feed.ts:9: * handles the fallback case where a user has no kind:10002 event\n  outbox-feed.ts:97: * Handles the fallback case where a user has no kind:10002 event.\n  outbox-feed.ts:124: // Handles the fallback case where a user has no kind:10002 event"
+    },
+    {
+      "text": "Output uses r tags (not p tags or e tags) from kind:10002 for relay discovery",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"uses r tags (not p tags or e tags) from kind:10002 for relay discovery\":\n  outbox-feed.ts:10: * uses r tags (not p tags or e tags) from kind:10002 for relay discovery\n  outbox-feed.ts:40: * Uses r tags (not p tags or e tags) from kind:10002 for relay discovery.\n  outbox-feed.ts:54: * Uses r tags (not p tags or e tags) from kind:10002 for relay discovery."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  }
+}

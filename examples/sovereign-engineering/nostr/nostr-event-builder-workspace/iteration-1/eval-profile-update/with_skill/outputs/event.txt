@@ -1,0 +1,10 @@
+contains a JSON event with kind set to 0
+content field is a string (stringified JSON), not a raw JSON object
+'name' field set to 'satoshi'
+'display_name' field set to 'Satoshi Nakamoto'
+'about' field with the bio text
+'nip05' set to 'satoshi@bitcoin.org'
+'lud16' set to 'satoshi@getalby.com'
+mentions that kind:0 is a replaceable event (latest version per pubkey replaces previous)
+
+{"pubkey":"<pk>","created_at":1709827200,"kind":0,"tags":[],"content":"{\"name\":\"satoshi\",\"display_name\":\"Satoshi Nakamoto\",\"about\":\"Building the future of money\",\"picture\":\"https://example.com/satoshi.jpg\",\"website\":\"https://bitcoin.org\",\"nip05\":\"satoshi@bitcoin.org\",\"lud16\":\"satoshi@getalby.com\"}"}

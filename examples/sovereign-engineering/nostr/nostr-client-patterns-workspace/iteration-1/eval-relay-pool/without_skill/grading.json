@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The output file contains a relay connection state type or enum with at least 'connecting', 'connected', and 'disconnected' states",
+      "passed": false,
+      "evidence": "No matches for \"file contains a relay connection state type or enum with at least 'connecting', 'connected', and 'disconnected' states\" found across 1 output file(s)"
+    },
+    {
+      "text": "URL normalization is implemented (lowercasing hostname, removing trailing slashes, or handling default ports)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"url\" (heuristic match):\n  relay-pool.ts:16: url: string;\n  relay-pool.ts:28: connect(url: string): void {\n  relay-pool.ts:29: if (this.relays.has(url)) return;"
+    },
+    {
+      "text": "Only one WebSocket connection is created per normalized relay URL (deduplication check before connecting)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  relay-pool.ts:2: * Simple Relay Pool Manager for Nostr\n  relay-pool.ts:15: interface Relay {\n  relay-pool.ts:21: class RelayPool {"
+    },
+    {
+      "text": "Exponential backoff is implemented with a formula that increases delay based on retry count (e.g., base * 2^retryCount)",
+      "passed": false,
+      "evidence": "Could not verify assertion against 1 output file(s). Content preview: \"/**\n * Simple Relay Pool Manager for Nostr\n */\n\ninterface NostrEvent {\n  id: string;\n  pubkey: string;\n  created_at: number;\n  kind: number;\n  tags: string[][];\n  content: string;\n  sig: string;\n}\n\nin...\""
+    },
+    {
+      "text": "Random jitter is added to the backoff delay (Math.random or similar randomization)",
+      "passed": false,
+      "evidence": "Could not verify assertion against 1 output file(s). Content preview: \"/**\n * Simple Relay Pool Manager for Nostr\n */\n\ninterface NostrEvent {\n  id: string;\n  pubkey: string;\n  created_at: number;\n  kind: number;\n  tags: string[][];\n  content: string;\n  sig: string;\n}\n\nin...\""
+    },
+    {
+      "text": "A maximum backoff delay cap is enforced (e.g., 60 seconds)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"seconds\" (heuristic match):\n  relay-pool.ts:55: // Reconnect after 5 seconds"
+    },
+    {
+      "text": "NIP-42 AUTH challenge messages from relays are handled (stores challenge string and can send AUTH response)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"string\" (heuristic match):\n  relay-pool.ts:6: id: string;\n  relay-pool.ts:7: pubkey: string;\n  relay-pool.ts:10: tags: string[][];"
+    },
+    {
+      "text": "A graceful disconnect method exists that sends CLOSE for active subscriptions before closing the WebSocket",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"subscriptions\" (heuristic match):\n  relay-pool.ts:23: private subscriptions: Map<string, any> = new Map();\n  relay-pool.ts:72: const sub = this.subscriptions.get(subId);\n  relay-pool.ts:105: this.subscriptions.set(subId, { filters, callback });"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

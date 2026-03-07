@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output publishes a kind 5002 job request event (translation)",
+      "passed": false,
+      "evidence": "No matches for \"publishes a kind 5002 job request event (translation)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output job request contains an 'i' tag with input type 'url' and the webpage URL",
+      "passed": false,
+      "evidence": "No matches for \"job request contains an 'i' tag with input type 'url' and the webpage url\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output job request contains a 'bid' tag with value '10000' (millisats)",
+      "passed": false,
+      "evidence": "No matches for \"job request contains a 'bid' tag with value '10000' (millisats)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output job request contains a 'param' tag for language (e.g., 'lang', 'en')",
+      "passed": false,
+      "evidence": "No matches for \"job request contains a 'param' tag for language (e.g., 'lang', 'en')\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output subscribes to kind 7000 feedback events filtered by customer pubkey",
+      "passed": false,
+      "evidence": "No matches for \"subscribes to kind 7000 feedback events filtered by customer pubkey\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output subscribes to kind 6002 result events (5002 + 1000)",
+      "passed": false,
+      "evidence": "No matches for \"subscribes to kind 6002 result events (5002 + 1000)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output handles 'payment-required' status and extracts bolt11 from the amount tag",
+      "passed": false,
+      "evidence": "No matches for \"handles 'payment-required' status and extracts bolt11 from the amount tag\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output job request contains a 'p' tag with the preferred service provider pubkey",
+      "passed": false,
+      "evidence": "No matches for \"job request contains a 'p' tag with the preferred service provider pubkey\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

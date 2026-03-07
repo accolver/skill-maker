@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "application/nostr+json header checked for NIP-11",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nostr\" (heuristic match):\n  nip11.ts:4: * Adds NIP-11 support to an existing Bun.serve() Nostr relay.\n  nip11.ts:5: * When the relay receives an HTTP GET with Accept: application/nostr+json,\n  nip11.ts:16: name: \"My Nostr Relay\","
+    },
+    {
+      "text": "Access-Control-Allow-Origin header present in response",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"header\" (heuristic match):\n  nip11.ts:7: * and limitation fields. Includes proper CORS headers.\n  nip11.ts:40: // CORS Headers for NIP-11\n  nip11.ts:43: const corsHeaders = {"
+    },
+    {
+      "text": "supported_nips field in relay info document",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  nip11.ts:2: * NIP-11 Relay Information Document Support\n  nip11.ts:4: * Adds NIP-11 support to an existing Bun.serve() Nostr relay.\n  nip11.ts:5: * When the relay receives an HTTP GET with Accept: application/nostr+json,"
+    },
+    {
+      "text": "limitation object with relay constraints",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  nip11.ts:2: * NIP-11 Relay Information Document Support\n  nip11.ts:4: * Adds NIP-11 support to an existing Bun.serve() Nostr relay.\n  nip11.ts:5: * When the relay receives an HTTP GET with Accept: application/nostr+json,"
+    },
+    {
+      "text": "max_message_length field in limitation",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"max\" (heuristic match):\n  nip11.ts:24: max_message_length: 16384,\n  nip11.ts:25: max_subscriptions: 20,\n  nip11.ts:26: max_filters: 10,"
+    },
+    {
+      "text": "WebSocket upgrade still handled for non-NIP-11",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  nip11.ts:2: * NIP-11 Relay Information Document Support\n  nip11.ts:4: * Adds NIP-11 support to an existing Bun.serve() Nostr relay.\n  nip11.ts:6: * it returns a JSON info document with relay metadata, supported NIPs,"
+    },
+    {
+      "text": "Access-Control-Allow-Headers present in CORS",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"headers\" (heuristic match):\n  nip11.ts:7: * and limitation fields. Includes proper CORS headers.\n  nip11.ts:40: // CORS Headers for NIP-11\n  nip11.ts:43: const corsHeaders = {"
+    },
+    {
+      "text": "Access-Control-Allow-Methods present in response",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"access\" (heuristic match):\n  nip11.ts:44: \"Access-Control-Allow-Origin\": \"*\",\n  nip11.ts:45: \"Access-Control-Allow-Headers\": \"Accept, Content-Type, Authorization\",\n  nip11.ts:46: \"Access-Control-Allow-Methods\": \"GET, OPTIONS\","
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

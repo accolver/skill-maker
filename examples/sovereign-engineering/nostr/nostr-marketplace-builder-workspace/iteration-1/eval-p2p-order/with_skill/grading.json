@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a kind:38383 event with tags array and empty string content",
+      "passed": true,
+      "evidence": "kind:38383 event with tags array and content: \"\" (empty string)"
+    },
+    {
+      "text": "The event has a d tag with a unique order identifier",
+      "passed": true,
+      "evidence": "d tag: \"ord-sell-500k-sats-usd-7f3a\" — unique descriptive identifier"
+    },
+    {
+      "text": "The k tag is set to 'sell' and the f tag is set to 'USD' (ISO 4217)",
+      "passed": true,
+      "evidence": "[\"k\", \"sell\"] and [\"f\", \"USD\"] present and correct"
+    },
+    {
+      "text": "The s tag is set to 'pending' as the initial status",
+      "passed": true,
+      "evidence": "[\"s\", \"pending\"] present"
+    },
+    {
+      "text": "The amt tag is set to '500000' (satoshis as string) and fa tag is set to '175'",
+      "passed": true,
+      "evidence": "[\"amt\", \"500000\"] and [\"fa\", \"175\"] present — values as strings"
+    },
+    {
+      "text": "The pm tag includes both 'zelle' and 'cashapp' (or similar payment method values) as multiple values",
+      "passed": true,
+      "evidence": "[\"pm\", \"zelle\", \"cashapp\"] — both payment methods in a single tag with multiple values"
+    },
+    {
+      "text": "The event includes premium tag set to '3', network tag set to 'mainnet', and layer tag set to 'lightning'",
+      "passed": true,
+      "evidence": "[\"premium\", \"3\"], [\"network\", \"mainnet\"], [\"layer\", \"lightning\"] all present and correct"
+    },
+    {
+      "text": "The event has y tag set to 'nostr-market' and z tag set to 'order'",
+      "passed": true,
+      "evidence": "[\"y\", \"nostr-market\"] and [\"z\", \"order\"] present"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

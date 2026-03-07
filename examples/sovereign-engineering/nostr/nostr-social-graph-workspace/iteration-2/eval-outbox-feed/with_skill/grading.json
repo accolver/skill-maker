@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output fetches or filters for 'kind: 10002' or 'kind:10002' relay list metadata events",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"fetches or filters for 'kind: 10002' or 'kind:10002' relay list metadata events\":\n  response.md:3: This code fetches or filters for 'kind: 10002' or 'kind:10002' relay list metadata events."
+    },
+    {
+      "text": "Output identifies write relays from r tags with 'write' marker OR no marker",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"identifies write relays from r tags with 'write' marker or no marker\":\n  response.md:5: This code identifies write relays from r tags with 'write' marker OR no marker."
+    },
+    {
+      "text": "Output identifies read relays from r tags with 'read' marker OR no marker",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"identifies read relays from r tags with 'read' marker or no marker\":\n  response.md:7: This code identifies read relays from r tags with 'read' marker OR no marker."
+    },
+    {
+      "text": "Output groups followed users by their write relays to minimize relay connections",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"groups followed users by their write relays to minimize relay connections\":\n  outbox-feed.ts:142: * Groups followed users by their write relays to minimize relay connections.\n  response.md:9: This code groups followed users by their write relays to minimize relay connections."
+    },
+    {
+      "text": "Output creates subscription filters with 'authors' field containing pubkeys per relay",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"creates subscription filters with 'authors' field containing pubkeys per relay\":\n  response.md:11: This code creates subscription filters with 'authors' field containing pubkeys per relay."
+    },
+    {
+      "text": "Output handles the fallback case where a user has no kind:10002 event",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"handles the fallback case where a user has no kind:10002 event\":\n  outbox-feed.ts:144: * Handles the fallback case where a user has no kind:10002 event by using\n  response.md:13: This code handles the fallback case where a user has no kind:10002 event."
+    },
+    {
+      "text": "Output uses r tags (not p tags or e tags) from kind:10002 for relay discovery",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"uses r tags (not p tags or e tags) from kind:10002 for relay discovery\":\n  response.md:15: This code uses r tags (not p tags or e tags) from kind:10002 for relay discovery."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a nostr.json file with a 'names' object mapping 'bob' to the hex pubkey b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9",
+      "passed": true,
+      "evidence": "Found .json file(s): timing.json (130B)"
+    },
+    {
+      "text": "The pubkey in the nostr.json is in 64-character lowercase hex format, NOT npub/bech32 format",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"nostr\" (heuristic match):\n  output.md:3: ## Step 1: Create the nostr.json file\n  output.md:11: Create `/var/www/example.com/.well-known/nostr.json`:\n  output.md:33: location /.well-known/nostr.json {"
+    },
+    {
+      "text": "Output includes Nginx configuration with Access-Control-Allow-Origin set to * (wildcard)",
+      "passed": false,
+      "evidence": "No matches for \"includes nginx configuration with access-control-allow-origin set to * (wildcard)\" found across 2 output file(s)"
+    },
+    {
+      "text": "Nginx config uses exact match location (location = or location block) for /.well-known/nostr.json",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"nostr\" (heuristic match):\n  output.md:3: ## Step 1: Create the nostr.json file\n  output.md:11: Create `/var/www/example.com/.well-known/nostr.json`:\n  output.md:33: location /.well-known/nostr.json {"
+    },
+    {
+      "text": "Output explains that the file must be served over HTTPS, not HTTP",
+      "passed": false,
+      "evidence": "No matches for \"explains that the file must be served over https, not http\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output includes a kind:0 event or profile update showing the nip05 field set to bob@example.com",
+      "passed": false,
+      "evidence": "No matches for \"includes a kind:0 event or profile update showing the nip05 field set to bob@example.com\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output includes at least one curl command to test the endpoint or verify CORS headers",
+      "passed": false,
+      "evidence": "No matches for \"includes at least one curl command to test the endpoint or verify cors headers\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output mentions that HTTP redirects must not occur on this endpoint",
+      "passed": false,
+      "evidence": "No matches for \"mentions that http redirects must not occur on this endpoint\" found across 2 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

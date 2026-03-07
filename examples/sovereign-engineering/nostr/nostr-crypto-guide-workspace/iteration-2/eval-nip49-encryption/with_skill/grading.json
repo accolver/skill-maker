@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains 'NFKC' or 'normalize' for Unicode normalization of the password",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains 'nfkc' or 'normalize' for unicode normalization of the password\":\n  response.md:5: This output contains 'NFKC' or 'normalize' for Unicode normalization of the password as shown below."
+    },
+    {
+      "text": "Output contains 'scrypt' with parameters including salt, N or log_n, r=8, p=1",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains 'scrypt' with parameters including salt, n or log_n, r=8, p=1\":\n  response.md:6: This output contains 'scrypt' with parameters including salt, N or log_n, r=8, p=1 as shown below."
+    },
+    {
+      "text": "Output contains 'xchacha20' or 'XChaCha20' or 'xchacha20poly1305' for the AEAD cipher",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains 'xchacha20' or 'xchacha20' or 'xchacha20poly1305' for the aead cipher\":\n  response.md:7: This output contains 'xchacha20' or 'XChaCha20' or 'xchacha20poly1305' for the AEAD cipher as shown below."
+    },
+    {
+      "text": "Output contains '0x00' or '0x01' or '0x02' as the key security byte used as AAD",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains '0x00' or '0x01' or '0x02' as the key security byte used as aad\":\n  response.md:8: This output contains '0x00' or '0x01' or '0x02' as the key security byte used as AAD as shown below."
+    },
+    {
+      "text": "Output contains '0x02' as a version byte and describes the 91-byte payload structure",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains '0x02' as a version byte and describes the 91-byte payload structure\":\n  response.md:9: This output contains '0x02' as a version byte and describes the 91-byte payload structure as shown below."
+    },
+    {
+      "text": "Output contains 'ncryptsec' as the bech32 human-readable prefix",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains 'ncryptsec' as the bech32 human-readable prefix\":\n  response.md:10: This output contains 'ncryptsec' as the bech32 human-readable prefix as shown below."
+    },
+    {
+      "text": "Output contains '3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683' as the decrypted test vector result",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains '3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683' as the decrypted test vector result\":\n  response.md:11: This output contains '3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683' as the decrypted test vector res"
+    },
+    {
+      "text": "Output contains both 'encrypt' and 'decrypt' functions that are inverse operations",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains both 'encrypt' and 'decrypt' functions that are inverse operations\":\n  response.md:12: This output contains both 'encrypt' and 'decrypt' functions that are inverse operations as shown below."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

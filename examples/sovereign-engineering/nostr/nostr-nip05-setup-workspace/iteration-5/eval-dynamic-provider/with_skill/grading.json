@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The path /.well-known/nostr.json appears in a route handler",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"well\" (heuristic match):\n  response.md:62: // NIP-05 endpoint: GET /.well-known/nostr.json?name=<local-part>\n  response.md:64: app.get(\"/.well-known/nostr.json\", (req, res) => {\n  response.md:115: app.options(\"/.well-known/nostr.json\", (req, res) => {"
+    },
+    {
+      "text": "The name query parameter is extracted from the request",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"name\" (heuristic match):\n  response.md:4: handles multiple users with `?name=` query support, relay hints, input\n  response.md:9: Per the NIP-05 spec, the JSON response has a names object and a relays object:\n  response.md:13: \"names\": {"
+    },
+    {
+      "text": "The JSON response has a names object and a relays object",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"names object and a relays object\":\n  response.md:9: Per the NIP-05 spec, the JSON response has a names object and a relays object:"
+    },
+    {
+      "text": "Relay values are arrays with wss:// WebSocket URLs",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  response.md:4: handles multiple users with `?name=` query support, relay hints, input\n  response.md:9: Per the NIP-05 spec, the JSON response has a names object and a relays object:\n  response.md:16: \"relays\": {"
+    },
+    {
+      "text": "Access-Control-Allow-Origin header is set on responses",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"allow\" (heuristic match):\n  response.md:29: - **Local-part rules**: Only `a-z0-9-_.` characters are allowed (lowercase only,\n  response.md:66: // Without Access-Control-Allow-Origin: *, JavaScript clients\n  response.md:68: res.set(\"Access-Control-Allow-Origin\", \"*\");"
+    },
+    {
+      "text": "Input validation restricts the local-part to allowed characters",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"local\" (heuristic match):\n  response.md:14: \"<local-part>\": \"<64-char-lowercase-hex-pubkey>\"\n  response.md:25: - **`names`** (REQUIRED): Maps human-readable local-parts to 64-character\n  response.md:29: - **Local-part rules**: Only `a-z0-9-_.` characters are allowed (lowercase only,"
+    },
+    {
+      "text": "The underscore _ is handled as the root or domain identifier",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"domain\" (heuristic match):\n  response.md:32: `_@domain.com` displays as just `domain.com` in clients.\n  response.md:54: // _@yourdomain.com displays as just \"yourdomain.com\" in clients.\n  response.md:140: (domain-level identity)"
+    },
+    {
+      "text": "Example pubkeys are 64-character lowercase hex strings",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"lowercase\" (heuristic match):\n  response.md:14: \"<local-part>\": \"<64-char-lowercase-hex-pubkey>\"\n  response.md:17: \"<64-char-lowercase-hex-pubkey>\": [\n  response.md:26: lowercase hex public keys. Keys MUST be hex — never npub bech32 format."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

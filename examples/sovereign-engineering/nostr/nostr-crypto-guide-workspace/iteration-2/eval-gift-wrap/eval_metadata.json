@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "gift-wrap",
+  "prompt": "Write a TypeScript module that sends a private DM using the NIP-59 gift wrap protocol. Implement the full three-layer wrapping: (1) create an unsigned rumor event with the message content, (2) encrypt the rumor into a kind:13 seal signed by the real author, (3) encrypt the seal into a kind:1059 gift wrap signed by a random ephemeral key. Also implement the unwrapping function that a recipient would use to read the message. Use nostr-tools library. Include a complete example that wraps the message 'Secret meeting at 9pm' from Alice to Bob, then unwraps it as Bob. Save to outputs/gift-wrap.ts",
+  "assertions": [
+    "Output creates a rumor without a signature — 'sig' field is absent, empty, or explicitly omitted",
+    "Output contains 'kind: 13' or 'kind:13' for the seal event with empty tags array",
+    "Output encrypts the rumor JSON into the seal content using NIP-44 with author and recipient keys",
+    "Output contains 'kind: 1059' or 'kind:1059' for the gift wrap with a p-tag for the recipient",
+    "Output generates a random ephemeral keypair for signing the gift wrap (not the author's key)",
+    "Output randomizes created_at timestamps on seal and/or gift wrap (not using current time directly)",
+    "Output unwrapping decrypts gift wrap first, then decrypts seal to get the rumor",
+    "Output verifies that rumor.pubkey matches seal.pubkey for author consistency"
+  ]
+}

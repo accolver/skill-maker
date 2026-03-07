@@ -1,0 +1,75 @@
+{
+  "skill_name": "nostr-filter-designer",
+  "iteration": 1,
+  "timestamp": "2026-03-07T18:47:29.716Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": null,
+        "stddev": null
+      },
+      "tokens": {
+        "mean": null,
+        "stddev": null
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.5477,
+        "stddev": 0.1211
+      },
+      "time_seconds": {
+        "mean": null,
+        "stddev": null
+      },
+      "tokens": {
+        "mean": null,
+        "stddev": null
+      }
+    },
+    "delta": {
+      "pass_rate": 0.4523,
+      "time_seconds": null,
+      "tokens": null
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "social-feed",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": null
+      },
+      "without_skill": {
+        "pass_rate": 0.5,
+        "time_seconds": null
+      }
+    },
+    {
+      "eval_name": "thread-replies",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": null
+      },
+      "without_skill": {
+        "pass_rate": 0.714,
+        "time_seconds": null
+      }
+    },
+    {
+      "eval_name": "zap-query",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": null
+      },
+      "without_skill": {
+        "pass_rate": 0.429,
+        "time_seconds": null
+      }
+    }
+  ]
+}

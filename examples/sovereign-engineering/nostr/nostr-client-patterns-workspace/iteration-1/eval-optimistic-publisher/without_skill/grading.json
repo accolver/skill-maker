@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Events are added to local state with a 'pending' status before being sent to relays",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"events\" (heuristic match):\n  optimistic-publisher.ts:21: private events: Map<string, PublishedEvent> = new Map();\n  optimistic-publisher.ts:22: private seenEvents: Set<string> = new Set();\n  optimistic-publisher.ts:31: this.events.set(event.id, {"
+    },
+    {
+      "text": "OK responses are tracked per-relay per-event (not just a single boolean)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  optimistic-publisher.ts:2: * Event Publisher for Nostr\n  optimistic-publisher.ts:5: interface NostrEvent {\n  optimistic-publisher.ts:15: interface PublishedEvent {"
+    },
+    {
+      "text": "The 'duplicate:' OK reason prefix is treated as success (not failure)",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"duplicate\" (heuristic match):\n  optimistic-publisher.ts:58: * Deduplicate incoming events by ID\n  optimistic-publisher.ts:60: deduplicateEvent(event: NostrEvent): boolean {"
+    },
+    {
+      "text": "Retriable error prefixes (rate-limited, auth-required) are distinguished from permanent failures (blocked, restricted)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"error\" (heuristic match):\n  optimistic-publisher.ts:53: console.error(`Event ${eventId} failed: ${reason}`);"
+    },
+    {
+      "text": "Event status transitions to 'confirmed' when at least one relay accepts",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  optimistic-publisher.ts:2: * Event Publisher for Nostr\n  optimistic-publisher.ts:5: interface NostrEvent {\n  optimistic-publisher.ts:15: interface PublishedEvent {"
+    },
+    {
+      "text": "Event status transitions to 'failed' only when ALL relays have rejected or timed out",
+      "passed": false,
+      "evidence": "No matches for \"rejected or timed out\" found across 1 output file(s)"
+    },
+    {
+      "text": "A timeout mechanism exists for relays that don't send OK responses",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"relays\" (heuristic match):\n  optimistic-publisher.ts:25: * Publish an event to relays\n  optimistic-publisher.ts:29: relays: { url: string; ws: WebSocket | null; state: string }[]\n  optimistic-publisher.ts:36: for (const relay of relays) {"
+    },
+    {
+      "text": "Regular event deduplication uses event.id with a Set or Map",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  optimistic-publisher.ts:2: * Event Publisher for Nostr\n  optimistic-publisher.ts:5: interface NostrEvent {\n  optimistic-publisher.ts:15: interface PublishedEvent {"
+    },
+    {
+      "text": "Replaceable event deduplication keeps the latest created_at, and breaks ties by keeping the lowest event id",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  optimistic-publisher.ts:2: * Event Publisher for Nostr\n  optimistic-publisher.ts:5: interface NostrEvent {\n  optimistic-publisher.ts:15: interface PublishedEvent {"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 1,
+    "total": 9,
+    "pass_rate": 0.889
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "skill_name": "nostr-nip-advisor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to implement private DMs in my Nostr client. I was looking at NIP-04 since it seems straightforward — just encrypt with the recipient's pubkey and publish a kind:4 event. What do I need to do?",
+      "expected_output": "Response warns that NIP-04 is deprecated due to metadata leakage, recommends NIP-17 (kind:14) with the full encryption chain (NIP-44 + NIP-59 gift wrap), explains the seal/gift-wrap flow, mentions kind:10050 DM relay list, and provides the correct event structures.",
+      "files": [],
+      "assertions": [
+        "Output contains 'NIP-04' and 'deprecated' or 'unrecommended'",
+        "Output contains 'metadata' and 'leak' in the context of NIP-04 weaknesses",
+        "Output contains 'NIP-17' as the recommended standard for private DMs",
+        "Output contains 'kind:14' or 'kind 14' for the DM message event",
+        "Output contains 'kind:13' or 'kind 13' for the seal event AND 'kind:1059' or 'kind 1059' for the gift wrap",
+        "Output contains 'unsigned' or 'NOT be signed' or 'no signature' in the context of the rumor/kind:14",
+        "Output contains 'NIP-44' as the encryption algorithm",
+        "Output contains 'kind:10050' or 'kind 10050' or 'DM relay list' for routing gift wraps"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I want to add zaps to my Nostr client so users can tip each other with Lightning. I also heard about something called nutzaps with Cashu — should I support those too? Walk me through what NIPs I need.",
+      "expected_output": "Response covers NIP-57 for Lightning zaps with the full protocol flow (kind:9734 zap request, kind:9735 zap receipt, LNURL integration), explains NIP-61 for nutzaps with Cashu tokens (kind:9321, kind:10019), and recommends supporting both for maximum compatibility.",
+      "files": [],
+      "assertions": [
+        "Output contains 'NIP-57' for Lightning zaps",
+        "Output contains 'kind:9734' or 'kind 9734' for the zap request",
+        "Output contains 'kind:9735' or 'kind 9735' for the zap receipt",
+        "Output contains 'callback' or 'lnurl' — zap request is sent to the LNURL callback, not published to relays",
+        "Output contains 'lud16' or 'lud06' or 'LNURL' or 'allowsNostr' for LNURL integration",
+        "Output contains 'NIP-61' for nutzaps or Cashu-based zaps",
+        "Output contains 'kind:9321' or 'kind 9321' for the nutzap event",
+        "Output contains 'kind:10019' or 'kind 10019' for the nutzap mint recommendation"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm building a Nostr relay and need to implement user authentication so I can restrict who can publish events and read DMs. What NIPs do I need and how does the auth flow work?",
+      "expected_output": "Response covers NIP-42 for relay authentication (kind:22242, challenge-response flow), NIP-11 for the relay information document (advertising auth_required and supported NIPs), and explains the AUTH message protocol between client and relay.",
+      "files": [],
+      "assertions": [
+        "Output contains 'NIP-42' for relay authentication",
+        "Output contains 'kind:22242' or 'kind 22242' for the authentication event",
+        "Output contains 'challenge' — the relay sends a challenge string that the client must sign",
+        "Output contains 'NIP-11' for the relay information document",
+        "Output contains 'auth_required' or 'authentication_required' in the limitation field",
+        "Output contains 'AUTH' message format (the WebSocket message type)",
+        "Output explains auth can be required for specific actions like reading DMs or publishing",
+        "Output contains 'auth-required' as an OK or CLOSED message reason prefix"
+      ]
+    }
+  ]
+}

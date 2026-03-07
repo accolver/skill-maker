@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "zaps-and-nutzaps",
+  "prompt": "I want to add zaps to my Nostr client so users can tip each other with Lightning. I also heard about something called nutzaps with Cashu — should I support those too? Walk me through what NIPs I need.",
+  "assertions": [
+    "Response discusses NIP-57 for Lightning zaps",
+    "Response covers kind:9734 zap request",
+    "Response covers kind:9735 zap receipt",
+    "Response explains the LNURL callback for sending zap requests",
+    "Response discusses lud16 or LNURL or allowsNostr for LNURL integration",
+    "Response covers NIP-61 for nutzaps or Cashu-based zaps",
+    "Response discusses kind:9321 nutzap event",
+    "Response covers kind:10019 nutzap mint recommendation"
+  ]
+}

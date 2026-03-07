@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The string b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9 appears in the output",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9\" (heuristic match):\n  response.md:19: \"bob\": \"b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9\""
+    },
+    {
+      "text": "The word 'hex' appears in the output — pubkey must be in hex format not npub",
+      "passed": false,
+      "evidence": "No matches for \"— pubkey must be in hex format not npub\" found across 1 output file(s)"
+    },
+    {
+      "text": "The string 'Access-Control-Allow-Origin' appears in the output",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"allow\" (heuristic match):\n  response.md:3: NIP-05 allows you to associate your Nostr public key with a domain name, giving"
+    },
+    {
+      "text": "The path '/.well-known/nostr.json' appears in the output Nginx configuration",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"nginx configuration\":\n  response.md:26: ## Step 2: Nginx Configuration"
+    },
+    {
+      "text": "The word 'HTTPS' or 'https' appears as a requirement for serving nostr.json",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"nostr\" (heuristic match):\n  response.md:3: NIP-05 allows you to associate your Nostr public key with a domain name, giving\n  response.md:6: ## Step 1: Create the nostr.json File\n  response.md:8: Create the file at `.well-known/nostr.json` on your server:"
+    },
+    {
+      "text": "The string 'nip05' and 'bob@example.com' both appear in the output",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"example\" (heuristic match):\n  response.md:1: # Setting Up NIP-05 Verification for bob@example.com\n  response.md:11: mkdir -p /var/www/example.com/.well-known\n  response.md:33: server_name example.com;"
+    },
+    {
+      "text": "The word 'curl' appears in the output for testing the endpoint",
+      "passed": false,
+      "evidence": "No matches for \"for testing the endpoint\" found across 1 output file(s)"
+    },
+    {
+      "text": "The word 'redirect' appears in the output as something that must be avoided",
+      "passed": false,
+      "evidence": "No matches for \"as something that must be avoided\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

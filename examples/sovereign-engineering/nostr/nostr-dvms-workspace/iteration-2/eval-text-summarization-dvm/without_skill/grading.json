@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output subscribes to or filters for kind 5001 events (summarization job requests)",
+      "passed": false,
+      "evidence": "No matches for \"subscribes to or filters for kind 5001 events (summarization job requests)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output publishes kind 7000 feedback with status tag 'processing'",
+      "passed": false,
+      "evidence": "No matches for \"publishes kind 7000 feedback with status tag 'processing'\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output publishes kind 7000 feedback with status tag 'error' for failures",
+      "passed": false,
+      "evidence": "No matches for \"publishes kind 7000 feedback with status tag 'error' for failures\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output publishes kind 6001 result events (5001 + 1000)",
+      "passed": false,
+      "evidence": "No matches for \"publishes kind 6001 result events (5001 + 1000)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output result events contain a 'request' tag with the stringified original job request",
+      "passed": false,
+      "evidence": "No matches for \"result events contain a 'request' tag with the stringified original job request\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output result events contain an 'e' tag referencing the job request event ID",
+      "passed": false,
+      "evidence": "No matches for \"result events contain an 'e' tag referencing the job request event id\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output result events contain a 'p' tag with the customer's pubkey",
+      "passed": false,
+      "evidence": "No matches for \"result events contain a 'p' tag with the customer's pubkey\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output handles at least two input types from 'i' tags (text and url)",
+      "passed": false,
+      "evidence": "No matches for \"handles at least two input types from 'i' tags (text and url)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

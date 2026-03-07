@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "job-chaining",
+  "prompt": "Implement job chaining for a translate-then-summarize workflow using Nostr DVMs. First, publish a kind:5002 translation request to translate text input 'Nostr es un protocolo de comunicacion descentralizado basado en relays' to English. Then chain a kind:5001 summarization request that takes the translation output as input. Show both job request events with correct tags, explain how the chaining works with the 'job' input type, and show how a service provider for the summarization job would wait for and consume the translation result. Use relay wss://relay.damus.io.",
+  "assertions": [
+    "Output includes a kind:5002 translation job request with i tag using 'text' input type",
+    "Output includes a kind:5001 summarization job request that chains from the translation job",
+    "The summarization request uses input type 'job' in its i tag (not 'event' or 'text')",
+    "The summarization request's i tag references the translation job's event ID",
+    "Output explains that the summarization SP waits for the kind:6002 translation result before processing",
+    "Translation request includes a param tag for target language",
+    "Output shows or describes the kind:6002 translation result event structure with request and e tags",
+    "Output explains that the SP for job #2 may wait for payment on job #1 before starting"
+  ]
+}

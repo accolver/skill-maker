@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output file mute-list.ts exists and contains valid TypeScript",
+      "passed": false,
+      "evidence": "No matches for \"file mute-list.ts exists and contains valid typescript\" found across 1 output file(s)"
+    },
+    {
+      "text": "The code produces kind:10000 events for mute lists",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"mute\" (heuristic match):\n  mute-list.ts:2: * Mute List Manager for Nostr\n  mute-list.ts:13: * Create a mute list event\n  mute-list.ts:15: export function createMuteList("
+    },
+    {
+      "text": "Public mute entries support all four tag types: p (pubkeys), t (hashtags), word (strings), and e (threads)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"mute\" (heuristic match):\n  mute-list.ts:2: * Mute List Manager for Nostr\n  mute-list.ts:13: * Create a mute list event\n  mute-list.ts:15: export function createMuteList("
+    },
+    {
+      "text": "Private mute entries are encrypted and stored in the event content field",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"mute\" (heuristic match):\n  mute-list.ts:2: * Mute List Manager for Nostr\n  mute-list.ts:13: * Create a mute list event\n  mute-list.ts:15: export function createMuteList("
+    },
+    {
+      "text": "Encryption uses NIP-44 with the author's own key pair (not a conversation partner's key)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"key\" (heuristic match):\n  mute-list.ts:16: mutedPubkeys: string[],\n  mute-list.ts:21: ...mutedPubkeys.map((pk) => [\"p\", pk]),\n  mute-list.ts:39: privateEntries: { pubkey: string }[],"
+    },
+    {
+      "text": "Decryption includes backward compatibility: detects NIP-04 format by checking for '?iv=' in the ciphertext",
+      "passed": false,
+      "evidence": "No matches for \"backward compatibility: detects nip-04 format by checking for '?iv=' in the ciphertext\" found across 1 output file(s)"
+    },
+    {
+      "text": "Word tags use lowercase strings for case-insensitive matching",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"tags\" (heuristic match):\n  mute-list.ts:7: tags: string[][];\n  mute-list.ts:17: mutedHashtags: string[] = [],\n  mute-list.ts:20: const tags: string[][] = ["
+    },
+    {
+      "text": "The mute list is published as a complete replacement event (replaceable event semantics)",
+      "passed": false,
+      "evidence": "No matches for \"is published as a complete replacement event (replaceable event semantics)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

@@ -1,15 +1,10 @@
 <script lang="ts">
-	const commands = `# Install skill-maker
-npx skill-maker install
-
-# Or use your preferred package runner
-pnpx skill-maker install
-bunx skill-maker install`;
+	const copyCommand = 'npx skill-maker install';
 
 	let copied = $state(false);
 
 	async function copyToClipboard() {
-		await navigator.clipboard.writeText(commands);
+		await navigator.clipboard.writeText(copyCommand);
 		copied = true;
 		setTimeout(() => (copied = false), 2000);
 	}

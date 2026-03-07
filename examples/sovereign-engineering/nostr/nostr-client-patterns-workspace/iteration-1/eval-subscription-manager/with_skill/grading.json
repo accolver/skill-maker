@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "EOSE state is tracked per-relay per-subscription (not globally) using a map or similar structure",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"eose\" (heuristic match):\n  subscription-manager.ts:5: * - Per-relay EOSE tracking with overall loading → live transition\n  subscription-manager.ts:6: * - EOSE timeout to prevent infinite loading states\n  subscription-manager.ts:20: eoseReceived: boolean;"
+    },
+    {
+      "text": "The overall subscription transitions to 'live' only after all relays have sent EOSE or a timeout has elapsed",
+      "passed": false,
+      "evidence": "No matches for \"sent eose or a timeout has elapsed\" found across 1 output file(s)"
+    },
+    {
+      "text": "An EOSE timeout mechanism exists (e.g., setTimeout) that forces transition to live if relays are slow",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"eose\" (heuristic match):\n  subscription-manager.ts:5: * - Per-relay EOSE tracking with overall loading → live transition\n  subscription-manager.ts:6: * - EOSE timeout to prevent infinite loading states\n  subscription-manager.ts:20: eoseReceived: boolean;"
+    },
+    {
+      "text": "CLOSED messages are parsed and handled differently based on reason prefix (at least auth-required and restricted)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"closed\" (heuristic match):\n  subscription-manager.ts:7: * - CLOSED message handling by reason prefix\n  subscription-manager.ts:16: type SubscriptionState = \"idle\" | \"loading\" | \"live\" | \"closed\";\n  subscription-manager.ts:19: state: \"loading\" | \"live\" | \"closed\";"
+    },
+    {
+      "text": "For auth-required CLOSED, the code attempts re-authentication before re-subscribing",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  subscription-manager.ts:37: authors?: string[];\n  subscription-manager.ts:53: authChallenge: string | null;\n  subscription-manager.ts:212: * - auth-required: → authenticate with NIP-42, then re-subscribe"
+    },
+    {
+      "text": "Subscription replacement is supported by sending a new REQ with the same subscription ID and resetting EOSE tracking",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"subscription\" (heuristic match):\n  subscription-manager.ts:2: * Subscription Manager for Nostr clients\n  subscription-manager.ts:4: * Handles the complete subscription lifecycle:\n  subscription-manager.ts:8: * - Subscription replacement with same sub-id"
+    },
+    {
+      "text": "After relay reconnection, subscriptions are re-sent with a 'since' filter parameter based on the last EOSE timestamp",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  subscription-manager.ts:5: * - Per-relay EOSE tracking with overall loading → live transition\n  subscription-manager.ts:18: interface RelaySubState {\n  subscription-manager.ts:49: interface RelayConnection {"
+    },
+    {
+      "text": "Subscriptions can be closed by sending CLOSE messages to all connected relays",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"subscriptions\" (heuristic match):\n  subscription-manager.ts:16: type SubscriptionState = \"idle\" | \"loading\" | \"live\" | \"closed\";\n  subscription-manager.ts:60: overallState: SubscriptionState;\n  subscription-manager.ts:65: onStateChange: (state: SubscriptionState) => void;"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

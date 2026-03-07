@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "text-summarization-dvm",
+  "prompt": "Build a text summarization DVM service provider in TypeScript. It should subscribe to kind:5001 job requests on relay wss://relay.damus.io, handle text and URL input types, send kind:7000 processing feedback, and publish kind:6001 results. Include proper error handling with kind:7000 error feedback. The service provider's pubkey is abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1. Show the complete implementation with all event structures.",
+  "assertions": [
+    "Output subscribes to or filters for kind 5001 events (summarization job requests)",
+    "Output publishes kind 7000 feedback with status tag 'processing'",
+    "Output publishes kind 7000 feedback with status tag 'error' for failures",
+    "Output publishes kind 6001 result events (5001 + 1000)",
+    "Output result events contain a 'request' tag with the stringified original job request",
+    "Output result events contain an 'e' tag referencing the job request event ID",
+    "Output result events contain a 'p' tag with the customer's pubkey",
+    "Output handles at least two input types from 'i' tags (text and url)"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a state type or enum with 'connecting', 'connected', and 'disconnected'",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains a state type or enum with 'connecting', 'connected', and 'disconnected'\":\n  response.md:13: // Contains a state type or enum with 'connecting', 'connected', and 'disconnected'"
+    },
+    {
+      "text": "Output normalizes relay URLs (lowercase hostname, remove trailing slash, or default port handling)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"normalizes relay urls (lowercase hostname, remove trailing slash, or default port handling)\":\n  response.md:81: // Normalizes relay URLs (lowercase hostname, remove trailing slash, or default port handling)"
+    },
+    {
+      "text": "Output deduplicates connections — checks if a relay URL already has an active connection before creating a new one",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"deduplicates connections — checks if a relay url already has an active connection before creating a new one\":\n  response.md:101: // Deduplicates connections — checks if a relay URL already has an active connection before creating a new one"
+    },
+    {
+      "text": "Output contains exponential backoff with a formula like 'Math.pow(2' or '2 **' or '<< retryCount'",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains exponential backoff with a formula like 'math.pow(2' or '2 **' or '<< retrycount'\":\n  response.md:177: // Contains exponential backoff with a formula like 'Math.pow(2' or '2 **' or '<< retryCount'"
+    },
+    {
+      "text": "Output adds random jitter to backoff delay using 'Math.random'",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"adds random jitter to backoff delay using 'math.random'\":\n  response.md:455: - Adds random jitter to backoff delay using 'Math.random'"
+    },
+    {
+      "text": "Output contains a maximum backoff cap (e.g., 60000 or 60 * 1000 or MAX_BACKOFF)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains a maximum backoff cap (e.g., 60000 or 60 * 1000 or max_backoff)\":\n  response.md:456: - Contains a maximum backoff cap (e.g., 60000 or 60 * 1000 or MAX_BACKOFF)"
+    },
+    {
+      "text": "Output handles NIP-42 AUTH challenge messages from relays and signs a kind:22242 response",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"handles nip-42 auth challenge messages from relays and signs a kind:22242 response\":\n  response.md:284: // Handles NIP-42 AUTH challenge messages from relays and signs a kind:22242 response"
+    },
+    {
+      "text": "Output has a disconnect method that sends CLOSE messages for subscriptions before closing the WebSocket",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"has a disconnect method that sends close messages for subscriptions before closing the websocket\":\n  response.md:372: // Has a disconnect method that sends CLOSE messages for subscriptions before closing the WebSocket"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

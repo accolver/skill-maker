@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "The text mentions REQ",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"req\":\n  output.md:3: To get all replies to a thread on Nostr, you can use a REQ message to subscribe\n  output.md:17: as a REQ message:\n  output.md:21: \"REQ\","
+    },
+    {
+      "text": "The text mentions ids",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"ids\":\n  output.md:12: \"ids\": [\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"]\n  output.md:28: \"ids\": [\n  output.md:36: reply events. You could expand your filter to include additional event IDs as"
+    },
+    {
+      "text": "The text mentions aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\":\n  output.md:11: \"#e\": [\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"],\n  output.md:12: \"ids\": [\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"]\n  output.md:26: \"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\""
+    },
+    {
+      "text": "The response references #e",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"#e\":\n  output.md:11: \"#e\": [\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"],\n  output.md:25: \"#e\": ["
+    },
+    {
+      "text": "The response references two filters",
+      "passed": false,
+      "evidence": "No matches for \"two filters\" found across 1 output file(s)"
+    },
+    {
+      "text": "The response references recursive",
+      "passed": false,
+      "evidence": "No matches for \"recursive\" found across 1 output file(s)"
+    },
+    {
+      "text": "The response does not contain {\"ids\":[\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"],\"#e\":",
+      "passed": true,
+      "evidence": "No occurrences of \"{\"ids\":[\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"],\"#e\":\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.714
+  }
+}

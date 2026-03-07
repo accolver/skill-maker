@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "profile-update",
+  "prompt": "I want to create a user profile update for my Nostr identity. My name is 'satoshi', display name is 'Satoshi Nakamoto', bio is 'Building the future of money', profile picture is at https://example.com/satoshi.jpg, website is https://bitcoin.org, NIP-05 identifier is satoshi@bitcoin.org, and my Lightning address is satoshi@getalby.com. Construct the complete unsigned Nostr event JSON.",
+  "assertions": [
+    "Output contains a JSON event with kind set to 0",
+    "The content field is a string (stringified JSON), not a raw JSON object",
+    "The stringified content JSON includes a 'name' field set to 'satoshi'",
+    "The stringified content JSON includes a 'display_name' field set to 'Satoshi Nakamoto'",
+    "The stringified content JSON includes an 'about' field with the bio text",
+    "The stringified content JSON includes 'nip05' set to 'satoshi@bitcoin.org'",
+    "The stringified content JSON includes 'lud16' set to 'satoshi@getalby.com'",
+    "Output mentions that kind:0 is a replaceable event (latest version per pubkey replaces previous)"
+  ]
+}

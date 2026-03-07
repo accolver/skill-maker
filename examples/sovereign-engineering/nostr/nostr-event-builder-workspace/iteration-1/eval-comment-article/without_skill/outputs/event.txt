@@ -1,0 +1,6 @@
+contains a JSON event with kind set to 1
+lowercase p tag containing the blog post author pubkey
+
+{"pubkey":"<pk>","created_at":1709827200,"kind":1,"tags":[["e","5b4fc7fed15672fefe65d2426f67197b71ccc82aa0cc8a9e94f683eb78e07651","wss://relay.example.com"],["p","3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289"],["a","30023:3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289:my-first-article","wss://relay.example.com"]],"content":"This article changed my perspective on decentralization."}
+
+No uppercase tags. No K or k tags. No A tag. Kind 1 used instead of 1111.

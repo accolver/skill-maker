@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response warns that NIP-04 is deprecated or unrecommended",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: ## NIP-04 Has Issues — Consider Alternatives\n  response.md:5: You're right that NIP-04 is the simplest approach for encrypted DMs, but you\n  response.md:6: should be aware that the Nostr community has largely moved away from it. NIP-04"
+    },
+    {
+      "text": "Response explains NIP-04 metadata leakage",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: ## NIP-04 Has Issues — Consider Alternatives\n  response.md:5: You're right that NIP-04 is the simplest approach for encrypted DMs, but you\n  response.md:6: should be aware that the Nostr community has largely moved away from it. NIP-04"
+    },
+    {
+      "text": "Response recommends NIP-17 as the standard for private DMs",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: ## NIP-04 Has Issues — Consider Alternatives\n  response.md:5: You're right that NIP-04 is the simplest approach for encrypted DMs, but you\n  response.md:6: should be aware that the Nostr community has largely moved away from it. NIP-04"
+    },
+    {
+      "text": "Response discusses kind:14 for the DM message event",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"kind\" (heuristic match):\n  response.md:13: - The event kind (4) immediately identifies it as a DM\n  response.md:20: NIP-17 introduces kind:14 events for direct messages, combined with a layered\n  response.md:23: 1. **Create a kind:14 event** — this is your actual message, but it should be"
+    },
+    {
+      "text": "Response covers kind:13 seal and kind:1059 gift wrap",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"kind\" (heuristic match):\n  response.md:13: - The event kind (4) immediately identifies it as a DM\n  response.md:20: NIP-17 introduces kind:14 events for direct messages, combined with a layered\n  response.md:23: 1. **Create a kind:14 event** — this is your actual message, but it should be"
+    },
+    {
+      "text": "Response states kind:14 must be unsigned for deniability",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"kind\" (heuristic match):\n  response.md:13: - The event kind (4) immediately identifies it as a DM\n  response.md:20: NIP-17 introduces kind:14 events for direct messages, combined with a layered\n  response.md:23: 1. **Create a kind:14 event** — this is your actual message, but it should be"
+    },
+    {
+      "text": "Response discusses NIP-44 encryption algorithm",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: ## NIP-04 Has Issues — Consider Alternatives\n  response.md:5: You're right that NIP-04 is the simplest approach for encrypted DMs, but you\n  response.md:6: should be aware that the Nostr community has largely moved away from it. NIP-04"
+    },
+    {
+      "text": "Response covers kind:10050 DM relay list",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"kind\" (heuristic match):\n  response.md:13: - The event kind (4) immediately identifies it as a DM\n  response.md:20: NIP-17 introduces kind:14 events for direct messages, combined with a layered\n  response.md:23: 1. **Create a kind:14 event** — this is your actual message, but it should be"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

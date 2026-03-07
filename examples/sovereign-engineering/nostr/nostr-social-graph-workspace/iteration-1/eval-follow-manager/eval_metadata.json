@@ -1,0 +1,14 @@
+{
+  "eval_id": 1,
+  "eval_name": "follow-manager",
+  "prompt": "Build a follow list manager for a Nostr client. I need functions to: (1) create a kind:3 follow list event from an array of pubkeys, (2) add a follow to an existing follow list (given the current kind:3 event), and (3) remove a follow. Each p tag should include an optional relay hint and petname. Make sure the follow list is always published as a complete replacement. Save the code to outputs/follow-manager.ts",
+  "assertions": [
+    "Output file follow-manager.ts exists and contains valid TypeScript",
+    "The code produces kind:3 events (kind field is set to 3)",
+    "Each follow entry uses a p tag with the format ['p', '<pubkey>', '<relay>', '<petname>']",
+    "The content field is set to empty string, not used for relay preferences",
+    "The add-follow function produces a COMPLETE follow list event, not a partial update or diff",
+    "The remove-follow function produces a COMPLETE follow list event without the removed pubkey",
+    "New follows are appended to the end of the tags array (chronological ordering)"
+  ]
+}

@@ -1,0 +1,10 @@
+contains a JSON event with kind set to 1 (not 1111 or any other kind)
+e tag with the root event ID and marker 'root'
+separate e tag with the parent event ID and marker 'reply'
+p tag containing the root author pubkey f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca
+p tag containing the parent author pubkey 93ef2ebaaf9554661f33e79949007900bbc535d239a4c801c33a4d67d3e7f546
+reply text as plaintext (not markdown or HTML)
+relay URL hints (even if placeholder empty strings)
+explains that kind:1 replies must only target other kind:1 events (mentions NIP-10 or the threading rule)
+
+{"pubkey":"<pk>","created_at":1709827200,"kind":1,"tags":[["e","aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa1","","root","f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca"],["e","bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb2","","reply","93ef2ebaaf9554661f33e79949007900bbc535d239a4c801c33a4d67d3e7f546"],["p","f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca"],["p","93ef2ebaaf9554661f33e79949007900bbc535d239a4c801c33a4d67d3e7f546"]],"content":"Great point, I totally agree!"}

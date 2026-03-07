@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The text mentions REQ",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"req\":\n  output.md:4: REQ message that fetches their recent activity.\n  output.md:10: \"REQ\",\n  output.md:45: You could also combine these into fewer filters if you want. The REQ message is"
+    },
+    {
+      "text": "The text mentions f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca\":\n  output.md:14: \"f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca\"\n  output.md:21: \"f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca\"\n  output.md:28: \"f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca\""
+    },
+    {
+      "text": "The text mentions authors",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"authors\":\n  output.md:13: \"authors\": [\n  output.md:20: \"authors\": [\n  output.md:27: \"authors\": ["
+    },
+    {
+      "text": "The text mentions limit",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"limit\":\n  output.md:17: \"limit\": 50\n  output.md:24: \"limit\": 50\n  output.md:31: \"limit\": 50"
+    },
+    {
+      "text": "The text mentions single filter",
+      "passed": false,
+      "evidence": "No matches for \"single filter\" found across 1 output file(s)"
+    },
+    {
+      "text": "The text mentions EOSE",
+      "passed": false,
+      "evidence": "No matches for \"eose\" found across 1 output file(s)"
+    },
+    {
+      "text": "The text mentions OR within",
+      "passed": false,
+      "evidence": "No matches for \"or within\" found across 1 output file(s)"
+    },
+    {
+      "text": "The text mentions AND",
+      "passed": false,
+      "evidence": "No matches for \"and\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 4,
+    "total": 8,
+    "pass_rate": 0.5
+  }
+}

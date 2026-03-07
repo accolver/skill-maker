@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "nip49-encryption",
+  "prompt": "Implement NIP-49 private key encryption in TypeScript. Create functions to: (1) encrypt a Nostr private key with a password, producing an ncryptsec bech32 string, and (2) decrypt an ncryptsec string back to the private key. The encryption should use scrypt for key derivation and XChaCha20-Poly1305 for encryption. Include the key security byte (0x00=insecure, 0x01=secure, 0x02=unknown). Test with the NIP-49 test vector: decrypt ncryptsec1qgg9947rlpvqu76pj5ecreduf9jxhselq2nae2kghhvd5g7dgjtcxfqtd67p9m0w57lspw8gsq6yphnm8623nsl8xn9j4jdzz84zm3frztj3z7s35vpzmqf6ksu8r89qk5z2zxfmu5gv8th8wclt0h4p with password 'nostr' and verify the output matches privkey 3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683. Save to outputs/nip49.ts",
+  "assertions": [
+    "Output contains 'NFKC' or 'normalize' for Unicode normalization of the password",
+    "Output contains 'scrypt' with parameters including salt, N or log_n, r=8, p=1",
+    "Output contains 'xchacha20' or 'XChaCha20' or 'xchacha20poly1305' for the AEAD cipher",
+    "Output contains '0x00' or '0x01' or '0x02' as the key security byte used as AAD",
+    "Output contains '0x02' as a version byte and describes the 91-byte payload structure",
+    "Output contains 'ncryptsec' as the bech32 human-readable prefix",
+    "Output contains '3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683' as the decrypted test vector result",
+    "Output contains both 'encrypt' and 'decrypt' functions that are inverse operations"
+  ]
+}

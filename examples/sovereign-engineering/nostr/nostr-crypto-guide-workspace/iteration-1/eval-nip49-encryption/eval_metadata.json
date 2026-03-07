@@ -1,0 +1,16 @@
+{
+  "eval_id": 3,
+  "eval_name": "nip49-encryption",
+  "prompt": "Implement NIP-49 private key encryption in TypeScript. Create functions to: (1) encrypt a Nostr private key with a password, producing an ncryptsec bech32 string, and (2) decrypt an ncryptsec string back to the private key. The encryption should use scrypt for key derivation and XChaCha20-Poly1305 for encryption. Include the key security byte (0x00=insecure, 0x01=secure, 0x02=unknown). Test with the NIP-49 test vector: decrypt ncryptsec1qgg9947rlpvqu76pj5ecreduf9jxhselq2nae2kghhvd5g7dgjtcxfqtd67p9m0w57lspw8gsq6yphnm8623nsl8xn9j4jdzz84zm3frztj3z7s35vpzmqf6ksu8r89qk5z2zxfmu5gv8th8wclt0h4p with password 'nostr' and verify the output matches privkey 3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683. Save to outputs/nip49.ts",
+  "expected_output": "A TypeScript implementation of NIP-49 private key encryption with scrypt key derivation, XChaCha20-Poly1305 encryption, bech32 encoding with 'ncryptsec' prefix, and successful verification against the NIP-49 test vector.",
+  "assertions": [
+    "The password is normalized to NFKC unicode form before use in scrypt (using String.prototype.normalize('NFKC') or equivalent)",
+    "scrypt is called with parameters: password (NFKC), salt (16 random bytes), log_n as cost parameter, r=8, p=1, producing a 32-byte key",
+    "XChaCha20-Poly1305 is used for encryption (not regular ChaCha20 or AES), with a 24-byte nonce",
+    "The key security byte is included as associated data (AAD) in the AEAD encryption, with valid values 0x00, 0x01, or 0x02",
+    "The encrypted output is structured as: version(0x02) || log_n(1) || salt(16) || nonce(24) || aad(1) || ciphertext(48), totaling 91 bytes before bech32",
+    "The output is bech32-encoded with the 'ncryptsec' human-readable prefix",
+    "The test vector decryption produces the expected private key 3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683 from the given ncryptsec with password 'nostr'",
+    "The implementation includes both encrypt and decrypt functions that are inverse operations (round-trip test)"
+  ]
+}

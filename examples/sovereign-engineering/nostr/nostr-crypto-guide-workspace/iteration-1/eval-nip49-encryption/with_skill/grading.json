@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The password is normalized to NFKC unicode form before use in scrypt (using String.prototype.normalize('NFKC') or equivalent)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"password\" (heuristic match):\n  nip49.ts:4: * Encrypts a Nostr private key with a password for safe backup/export.\n  nip49.ts:34: * Encrypt a Nostr private key with a password, producing an ncryptsec bech32 string.\n  nip49.ts:37: * 1. Normalize password to NFKC unicode form"
+    },
+    {
+      "text": "scrypt is called with parameters: password (NFKC), salt (16 random bytes), log_n as cost parameter, r=8, p=1, producing a 32-byte key",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"scrypt\" (heuristic match):\n  nip49.ts:5: * Uses scrypt for key derivation and XChaCha20-Poly1305 for encryption.\n  nip49.ts:9: import { scrypt } from \"@noble/hashes/scrypt\";\n  nip49.ts:39: * 3. Derive symmetric key with scrypt(password_nfkc, salt, log_n, r=8, p=1) -> 32 bytes"
+    },
+    {
+      "text": "XChaCha20-Poly1305 is used for encryption (not regular ChaCha20 or AES), with a 24-byte nonce",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"byte\" (heuristic match):\n  nip49.ts:11: import { bytesToHex, hexToBytes, utf8ToBytes, concatBytes } from \"@noble/hashes/utils\";\n  nip49.ts:38: * 2. Generate 16 random bytes for salt\n  nip49.ts:39: * 3. Derive symmetric key with scrypt(password_nfkc, salt, log_n, r=8, p=1) -> 32 bytes"
+    },
+    {
+      "text": "The key security byte is included as associated data (AAD) in the AEAD encryption, with valid values 0x00, 0x01, or 0x02",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"key\" (heuristic match):\n  nip49.ts:2: * NIP-49 Private Key Encryption (ncryptsec)\n  nip49.ts:4: * Encrypts a Nostr private key with a password for safe backup/export.\n  nip49.ts:5: * Uses scrypt for key derivation and XChaCha20-Poly1305 for encryption."
+    },
+    {
+      "text": "The encrypted output is structured as: version(0x02) || log_n(1) || salt(16) || nonce(24) || aad(1) || ciphertext(48), totaling 91 bytes before bech32",
+      "passed": false,
+      "evidence": "No matches for \"is structured as: version(0x02) || log_n(1) || salt(16) || nonce(24) || aad(1) || ciphertext(48), totaling 91 bytes before bech32\" found across 1 output file(s)"
+    },
+    {
+      "text": "The output is bech32-encoded with the 'ncryptsec' human-readable prefix",
+      "passed": false,
+      "evidence": "No matches for \"is bech32-encoded with the 'ncryptsec' human-readable prefix\" found across 1 output file(s)"
+    },
+    {
+      "text": "The test vector decryption produces the expected private key 3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683 from the given ncryptsec with password 'nostr'",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"test\" (heuristic match):\n  nip49.ts:11: import { bytesToHex, hexToBytes, utf8ToBytes, concatBytes } from \"@noble/hashes/utils\";\n  nip49.ts:167: privkey: bytesToHex(privkeyBytes),\n  nip49.ts:173: // Tests"
+    },
+    {
+      "text": "The implementation includes both encrypt and decrypt functions that are inverse operations (round-trip test)",
+      "passed": false,
+      "evidence": "No matches for \"both encrypt and decrypt functions that are inverse operations (round-trip test)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

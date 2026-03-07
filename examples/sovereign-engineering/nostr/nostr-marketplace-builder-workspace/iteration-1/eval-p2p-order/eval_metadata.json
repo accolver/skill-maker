@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "p2p-order",
+  "prompt": "Create a NIP-69 P2P order event for selling 500,000 satoshis for US dollars at a 3% premium over market rate. The seller accepts Zelle and Cash App as payment methods. The order should be on mainnet using the lightning network layer. Set the fiat amount to $175, use 'SatoshiSeller' as the display name, include a bond of 10000 sats, set the order to expire in 24 hours from Unix timestamp 1719391096, and use 'nostr-market' as the platform. The order should be in pending status.",
+  "assertions": [
+    "Output contains a kind:38383 event with tags array and empty string content",
+    "The event has a d tag with a unique order identifier",
+    "The k tag is set to 'sell' and the f tag is set to 'USD' (ISO 4217)",
+    "The s tag is set to 'pending' as the initial status",
+    "The amt tag is set to '500000' (satoshis as string) and fa tag is set to '175'",
+    "The pm tag includes both 'zelle' and 'cashapp' (or similar payment method values) as multiple values",
+    "The event includes premium tag set to '3', network tag set to 'mainnet', and layer tag set to 'lightning'",
+    "The event has y tag set to 'nostr-market' and z tag set to 'order'"
+  ]
+}

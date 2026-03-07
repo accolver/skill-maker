@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output adds events to local state with 'pending' status before sending to relays",
+      "passed": false,
+      "evidence": "No matches for \"adds events to local state with 'pending' status before sending to relays\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output tracks OK responses per-relay per-event (not a single global boolean)",
+      "passed": false,
+      "evidence": "No matches for \"tracks ok responses per-relay per-event (not a single global boolean)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output treats 'duplicate:' as a success prefix (not an error)",
+      "passed": false,
+      "evidence": "No matches for \"treats 'duplicate:' as a success prefix (not an error)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output distinguishes retriable errors ('rate-limited', 'auth-required') from permanent failures ('blocked', 'restricted')",
+      "passed": false,
+      "evidence": "No matches for \"distinguishes retriable errors ('rate-limited', 'auth-required') from permanent failures ('blocked', 'restricted')\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output transitions to 'confirmed' when at least one relay accepts the event",
+      "passed": false,
+      "evidence": "No matches for \"transitions to 'confirmed' when at least one relay accepts the event\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output transitions to 'failed' only when ALL relays have rejected or timed out",
+      "passed": false,
+      "evidence": "No matches for \"transitions to 'failed' only when all relays have rejected or timed out\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains a timeout mechanism (setTimeout) for relays that don't send OK",
+      "passed": false,
+      "evidence": "No matches for \"contains a timeout mechanism (settimeout) for relays that don't send ok\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output deduplicates replaceable events by keeping latest created_at, with lowest id as tiebreaker",
+      "passed": false,
+      "evidence": "No matches for \"deduplicates replaceable events by keeping latest created_at, with lowest id as tiebreaker\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

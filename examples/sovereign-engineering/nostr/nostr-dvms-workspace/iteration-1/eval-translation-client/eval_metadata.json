@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "translation-client",
+  "prompt": "Create a DVM job request client in TypeScript that publishes a kind:5002 translation request to translate a webpage at https://example.com/article from Spanish to English. The client should handle the full lifecycle: publish the request with a bid of 10000 millisats, subscribe to kind:7000 feedback, handle payment-required status by paying the bolt11 invoice, and receive the kind:6002 result. Use relay wss://relay.damus.io. My pubkey is def456def456def456def456def456def456def456def456def456def456def4 and the preferred service provider pubkey is aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa1. Show all event structures.",
+  "assertions": [
+    "Output publishes a kind:5002 job request event (translation kind)",
+    "Job request includes an i tag with input type 'url' and the webpage URL",
+    "Job request includes a bid tag with value '10000' (millisats)",
+    "Job request includes a param tag for language (e.g., ['param', 'lang', 'en'])",
+    "Client subscribes to kind:7000 feedback events filtered by customer pubkey",
+    "Client subscribes to kind:6002 result events (5002 + 1000 = 6002)",
+    "Client handles 'payment-required' status from kind:7000 feedback and extracts bolt11 from amount tag",
+    "Job request includes a p tag with the preferred service provider pubkey"
+  ]
+}

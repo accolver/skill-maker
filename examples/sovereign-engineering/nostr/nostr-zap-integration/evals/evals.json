@@ -1,0 +1,56 @@
+{
+  "skill_name": "nostr-zap-integration",
+  "evals": [
+    {
+      "id": 1,
+      "name": "send-lightning-zap",
+      "prompt": "I'm building a Nostr client and need to implement sending a zap to a user. The recipient's profile has lud16 set to 'alice@getalby.com'. I want to zap 21 sats on their latest note (event id: 'abc123def456...', kind 1). My pubkey is '97c70a44366a6535c145b333f973ea86dfdc2d7a99da618c40c64705ad98e322' and the recipient's pubkey is '32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245'. Show me the complete implementation including LNURL discovery, zap request construction, and sending to the callback.",
+      "expected_output": "A complete implementation showing: LNURL endpoint discovery from lud16, verification of allowsNostr and nostrPubkey, construction of a kind:9734 zap request with correct tags (relays, amount in millisats, p, e, lnurl), sending the signed event to the callback URL as a query parameter (NOT publishing to relays), and receiving the bolt11 invoice.",
+      "files": [],
+      "assertions": [
+        "Output contains 'kind: 9734' or 'kind:9734' or '9734' for the zap request event",
+        "Output contains 'allowsNostr' to check that the LNURL endpoint supports Nostr zaps",
+        "Output contains 'nostrPubkey' to verify the LNURL endpoint's signing key",
+        "Output contains '21000' (21 sats converted to millisats) in the amount tag",
+        "Output sends the zap request to the 'callback' URL (not publishing to relays)",
+        "The zap request event tags array has a 'relays' entry with relay URLs",
+        "Output sends zap request via HTTP GET to the callback URL with query parameters",
+        "Output constructs the LNURL discovery URL using '.well-known/lnurlp'"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "validate-zap-receipts",
+      "prompt": "I need to implement zap receipt validation for my Nostr client. When I fetch kind:9735 events, I need to verify they are legitimate. Write me a validation function that takes a zap receipt event and the expected LNURL nostrPubkey, and returns whether the zap is valid along with any errors. Cover all the validation checks from NIP-57 including pubkey matching, amount verification, and description hash checking. Also show me how to extract the sender pubkey and zap comment from a valid receipt.",
+      "expected_output": "A comprehensive validation function that checks: (1) receipt pubkey matches LNURL nostrPubkey, (2) parses the description tag as JSON to get the embedded zap request, (3) verifies the zap request is kind 9734, (4) checks invoice amount matches request amount, (5) verifies SHA256 of description matches bolt11 description hash. Also extracts sender pubkey from the embedded zap request's pubkey field and comment from its content field.",
+      "files": [],
+      "assertions": [
+        "Output works with 'kind: 9735' or 'kind:9735' zap receipt events",
+        "Output validates that the receipt pubkey matches the LNURL nostrPubkey",
+        "Output parses the 'description' tag as JSON to get the embedded zap request",
+        "Output checks the 'bolt11' tag for invoice amount verification",
+        "Output verifies amount in bolt11 matches amount in the zap request",
+        "Output contains 'SHA256' or 'sha256' for hashing the description to verify against bolt11 description hash",
+        "Output verifies the embedded zap request is kind 9734",
+        "Output extracts the sender pubkey from the embedded zap request event"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "nutzap-sending",
+      "prompt": "I want to implement Nutzap (NIP-61) sending in my Nostr client as an alternative to Lightning zaps. The recipient has published a kind:10019 event. Show me the complete flow: fetching their nutzap config, minting P2PK-locked Cashu tokens at one of their trusted mints, and publishing the kind:9321 nutzap event. Also explain how the recipient would verify and redeem the nutzap. Make sure to handle the P2PK pubkey correctly for nostr-cashu compatibility.",
+      "expected_output": "Complete implementation showing: (1) fetching and parsing kind:10019 with relay, mint, and pubkey tags, (2) verifying the P2PK pubkey is NOT the user's main Nostr key, (3) minting tokens P2PK-locked with '02' prefix on the pubkey, (4) constructing kind:9321 with proof, u, unit, p tags, (5) publishing to the relays from kind:10019, (6) recipient verification checking mint is trusted and proofs are locked to correct key, (7) redemption via token swap and kind:7376 event.",
+      "files": [],
+      "assertions": [
+        "Output fetches 'kind: 10019' or 'kind:10019' for the nutzap configuration",
+        "Output constructs 'kind: 9321' or 'kind:9321' nutzap events",
+        "Output contains 'P2PK' for locking the Cashu tokens",
+        "Output contains '02' prefix for the P2PK pubkey (compressed public key format)",
+        "Output warns that the P2PK pubkey must NOT be the user's main Nostr pubkey",
+        "The nutzap event has 'proof' tags carrying Cashu token data",
+        "The mint URL is fetched from the recipient's kind:10019 event",
+        "Output explains redemption including 'kind: 7376' or 'kind:7376' or token swap"
+      ]
+    }
+  ]
+}

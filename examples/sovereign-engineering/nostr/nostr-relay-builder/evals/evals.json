@@ -1,0 +1,152 @@
+{
+  "skill_name": "nostr-relay-builder",
+  "evals": [
+    {
+      "id": 1,
+      "name": "basic-nip01-relay",
+      "prompt": "Build me a basic NIP-01 compliant Nostr relay in TypeScript using Bun. It should handle WebSocket connections, accept EVENT messages (validate the event id and signature), handle REQ messages with filter matching (ids, authors, kinds, tag filters, since, until, limit), handle CLOSE messages, and send proper OK, EVENT, EOSE, and NOTICE responses. Store events in memory for now. Make sure replaceable events (kind 0, 3, 10000-19999) only keep the latest per pubkey+kind, and addressable events (kind 30000-39999) only keep the latest per pubkey+kind+d-tag. Don't store ephemeral events (kind 20000-29999), just broadcast them.",
+      "expected_output": "A working Nostr relay implementation with WebSocket server, event validation (id computation via SHA-256 of canonical serialization, Schnorr signature verification), filter matching with all NIP-01 filter fields, subscription management per connection, and correct kind-based storage rules.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "value": "JSON.stringify",
+          "description": "Uses JSON.stringify for canonical event serialization (no whitespace) when computing event ID"
+        },
+        {
+          "type": "output_contains",
+          "value": "sha256",
+          "description": "Uses SHA-256 to compute the event ID from the serialized array [0, pubkey, created_at, kind, tags, content]"
+        },
+        {
+          "type": "output_contains",
+          "value": "schnorr",
+          "description": "Uses Schnorr signature verification (secp256k1) to validate event signatures"
+        },
+        {
+          "type": "output_matches",
+          "value": "\\[\\s*0\\s*,",
+          "description": "The canonical serialization starts with [0, as the first element per NIP-01 spec"
+        },
+        {
+          "type": "output_matches",
+          "value": "(OK|\\[\"OK\")",
+          "description": "Sends OK responses to EVENT messages with event_id, boolean, and message"
+        },
+        {
+          "type": "output_matches",
+          "value": "(EOSE|\\[\"EOSE\")",
+          "description": "Sends EOSE after delivering stored events for a REQ subscription"
+        },
+        {
+          "type": "output_matches",
+          "value": "(filter|match|ids|authors|kinds|since|until)",
+          "description": "Implements filter matching logic covering NIP-01 filter fields"
+        },
+        {
+          "type": "output_matches",
+          "value": "(replaceable|10000|kind\\s*===?\\s*0|kind\\s*===?\\s*3)",
+          "description": "Handles replaceable event storage rules (kind 0, 3, 10000-19999)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "nip11-info-document",
+      "prompt": "I have an existing Nostr relay running with Bun.serve(). I need to add NIP-11 relay information document support. When the relay receives an HTTP GET request with Accept: application/nostr+json header, it should return a JSON document with the relay's name, description, pubkey, supported_nips list, software URL, version, and a limitation object with max_message_length, max_subscriptions, and auth_required fields. Make sure to include proper CORS headers (Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Allow-Methods). The relay should still handle WebSocket upgrades normally for non-NIP-11 requests.",
+      "expected_output": "Code that checks the Accept header for application/nostr+json, returns a JSON info document with all specified fields, includes CORS headers, and falls through to WebSocket upgrade for normal connections.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "value": "application/nostr+json",
+          "description": "Checks for the application/nostr+json Accept header to identify NIP-11 requests"
+        },
+        {
+          "type": "output_contains",
+          "value": "Access-Control-Allow-Origin",
+          "description": "Includes CORS Access-Control-Allow-Origin header in the NIP-11 response"
+        },
+        {
+          "type": "output_contains",
+          "value": "supported_nips",
+          "description": "The info document includes the supported_nips field listing implemented NIPs"
+        },
+        {
+          "type": "output_contains",
+          "value": "limitation",
+          "description": "The info document includes a limitation object with relay constraints"
+        },
+        {
+          "type": "output_contains",
+          "value": "max_message_length",
+          "description": "The limitation object includes max_message_length field"
+        },
+        {
+          "type": "output_matches",
+          "value": "(upgrade|websocket|WebSocket)",
+          "description": "Still handles WebSocket upgrade for non-NIP-11 requests"
+        },
+        {
+          "type": "output_matches",
+          "value": "(name|description|pubkey|software|version)",
+          "description": "Info document includes standard NIP-11 metadata fields"
+        },
+        {
+          "type": "output_contains",
+          "value": "Access-Control-Allow-Headers",
+          "description": "Includes CORS Access-Control-Allow-Headers in the response"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "nip42-authentication",
+      "prompt": "Add NIP-42 client authentication to my Nostr relay. The relay should: (1) send an AUTH challenge to clients when they connect, (2) handle AUTH messages from clients containing a signed kind:22242 event, (3) verify the auth event has correct relay and challenge tags, verify created_at is within 10 minutes, and verify the signature, (4) track which pubkeys are authenticated per connection, (5) use auth-required: prefix in OK and CLOSED messages when authentication is needed but not provided. Show me the complete AUTH flow including challenge generation, verification, and how to gate EVENT writes and REQ subscriptions behind authentication.",
+      "expected_output": "Implementation of NIP-42 authentication with challenge generation, AUTH message handling, kind 22242 event verification (relay tag, challenge tag, created_at window, signature), per-connection auth state tracking, and auth-required: prefixed responses.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "value": "22242",
+          "description": "Uses kind 22242 for the authentication event as specified by NIP-42"
+        },
+        {
+          "type": "output_contains",
+          "value": "challenge",
+          "description": "Implements challenge-based authentication with a challenge tag in the auth event"
+        },
+        {
+          "type": "output_matches",
+          "value": "(relay.*tag|\\[\"relay\"|tag.*relay)",
+          "description": "Verifies the relay tag in the auth event matches the relay URL"
+        },
+        {
+          "type": "output_contains",
+          "value": "auth-required",
+          "description": "Uses auth-required: prefix in OK or CLOSED messages when auth is needed"
+        },
+        {
+          "type": "output_matches",
+          "value": "(10.*min|600.*sec|created_at|timestamp.*valid|time.*window)",
+          "description": "Validates that the auth event created_at is within approximately 10 minutes"
+        },
+        {
+          "type": "output_matches",
+          "value": "(AUTH.*challenge|\\[\"AUTH\".*challenge|send.*AUTH)",
+          "description": "Relay sends AUTH challenge message to clients"
+        },
+        {
+          "type": "output_matches",
+          "value": "(authenticated|auth.*state|auth.*pubkey|ws\\.data)",
+          "description": "Tracks authentication state per WebSocket connection"
+        },
+        {
+          "type": "output_matches",
+          "value": "(verify|schnorr|signature)",
+          "description": "Verifies the signature on the auth event"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "The text mentions REQ",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"req\":\n  output.md:3: ## REQ Message\n  output.md:6: single REQ message.\n  output.md:10: \"REQ\","
+    },
+    {
+      "text": "The text mentions ids",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"ids\":\n  output.md:13: \"ids\": [\n  output.md:29: **Filter 1** contains the ids field with the root event ID\n  output.md:34: \"ids\": [\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"]"
+    },
+    {
+      "text": "The text mentions aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\":\n  output.md:14: \"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"\n  output.md:19: \"#e\": [\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"]\n  output.md:30: aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd:"
+    },
+    {
+      "text": "The response references #e",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"#e\":\n  output.md:19: \"#e\": [\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"]\n  output.md:38: **Filter 2** is a separate filter with kinds containing 1 AND #e containing the\n  output.md:44: \"#e\": [\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"]"
+    },
+    {
+      "text": "The response references two filters",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"two filters\":\n  output.md:5: To fetch a full thread (root event + all replies), you need two filters in a\n  output.md:48: This uses exactly two filters (OR between them) to combine root fetch and reply"
+    },
+    {
+      "text": "The response references recursive",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"recursive\":\n  output.md:61: Nested/deep replies require recursive or iterative client-side fetching because"
+    },
+    {
+      "text": "The response does not contain {\"ids\":[\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"],\"#e\":",
+      "passed": true,
+      "evidence": "No occurrences of \"{\"ids\":[\"aabb1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd\"],\"#e\":\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  }
+}

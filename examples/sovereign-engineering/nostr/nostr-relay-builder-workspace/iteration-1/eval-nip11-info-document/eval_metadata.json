@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "nip11-info-document",
+  "prompt": "I have an existing Nostr relay running with Bun.serve(). I need to add NIP-11 relay information document support. When the relay receives an HTTP GET request with Accept: application/nostr+json header, it should return a JSON document with the relay's name, description, pubkey, supported_nips list, software URL, version, and a limitation object with max_message_length, max_subscriptions, and auth_required fields. Make sure to include proper CORS headers (Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Allow-Methods). The relay should still handle WebSocket upgrades normally for non-NIP-11 requests.",
+  "assertions": [
+    "application/nostr+json header checked for NIP-11",
+    "Access-Control-Allow-Origin header present in response",
+    "supported_nips field in relay info document",
+    "limitation object with relay constraints",
+    "max_message_length field in limitation",
+    "WebSocket upgrade still handled for non-NIP-11",
+    "Access-Control-Allow-Headers present in CORS",
+    "Access-Control-Allow-Methods present in response"
+  ]
+}

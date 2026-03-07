@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "relay-auth",
+  "prompt": "I'm building a Nostr relay and need to implement user authentication so I can restrict who can publish events and read DMs. What NIPs do I need and how does the auth flow work?",
+  "assertions": [
+    "Response discusses NIP-42 for relay authentication",
+    "Response covers kind:22242 authentication event",
+    "Response explains the relay sends a challenge string that the client must sign",
+    "Response discusses NIP-11 relay information document",
+    "Response covers auth_required in the limitation field",
+    "Response explains the AUTH WebSocket message format",
+    "Response explains auth can be required for specific actions like reading DMs or publishing",
+    "Response covers auth-required as an OK or CLOSED message reason prefix"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response discusses NIP-57 for Lightning zaps",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"lightning\" (heuristic match):\n  response.md:3: ## Lightning Zaps (NIP-57)\n  response.md:5: Zaps are the primary tipping mechanism on Nostr, built on top of the Lightning\n  response.md:12: 1. **Check the recipient's profile** for a Lightning address (like"
+    },
+    {
+      "text": "Response covers kind:9734 zap request",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Adding Zaps and Nutzaps to Your Nostr Client\n  response.md:3: ## Lightning Zaps (NIP-57)\n  response.md:5: Zaps are the primary tipping mechanism on Nostr, built on top of the Lightning"
+    },
+    {
+      "text": "Response covers kind:9735 zap receipt",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Adding Zaps and Nutzaps to Your Nostr Client\n  response.md:3: ## Lightning Zaps (NIP-57)\n  response.md:5: Zaps are the primary tipping mechanism on Nostr, built on top of the Lightning"
+    },
+    {
+      "text": "Response explains the LNURL callback for sending zap requests",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Adding Zaps and Nutzaps to Your Nostr Client\n  response.md:3: ## Lightning Zaps (NIP-57)\n  response.md:5: Zaps are the primary tipping mechanism on Nostr, built on top of the Lightning"
+    },
+    {
+      "text": "Response discusses lud16 or LNURL or allowsNostr for LNURL integration",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"lnurl\" (heuristic match):\n  response.md:33: ### LNURL Integration\n  response.md:35: The zap flow relies on LNURL — specifically the lnurl-pay protocol. The\n  response.md:36: recipient needs to have a LNURL-compatible Lightning wallet that supports Nostr"
+    },
+    {
+      "text": "Response covers NIP-61 for nutzaps or Cashu-based zaps",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zaps\" (heuristic match):\n  response.md:1: # Adding Zaps and Nutzaps to Your Nostr Client\n  response.md:3: ## Lightning Zaps (NIP-57)\n  response.md:5: Zaps are the primary tipping mechanism on Nostr, built on top of the Lightning"
+    },
+    {
+      "text": "Response discusses kind:9321 nutzap event",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"nutzap\" (heuristic match):\n  response.md:1: # Adding Zaps and Nutzaps to Your Nostr Client\n  response.md:43: ## Nutzaps — Cashu-Based Tipping\n  response.md:45: Nutzaps are a newer alternative to Lightning zaps that use Cashu ecash tokens."
+    },
+    {
+      "text": "Response covers kind:10019 nutzap mint recommendation",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"nutzap\" (heuristic match):\n  response.md:1: # Adding Zaps and Nutzaps to Your Nostr Client\n  response.md:43: ## Nutzaps — Cashu-Based Tipping\n  response.md:45: Nutzaps are a newer alternative to Lightning zaps that use Cashu ecash tokens."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

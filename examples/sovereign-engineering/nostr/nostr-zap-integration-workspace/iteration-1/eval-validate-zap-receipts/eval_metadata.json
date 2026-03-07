@@ -1,0 +1,16 @@
+{
+  "eval_id": 2,
+  "eval_name": "validate-zap-receipts",
+  "prompt": "I need to implement zap receipt validation for my Nostr client. When I fetch kind:9735 events, I need to verify they are legitimate. Write me a validation function that takes a zap receipt event and the expected LNURL nostrPubkey, and returns whether the zap is valid along with any errors. Cover all the validation checks from NIP-57 including pubkey matching, amount verification, and description hash checking. Also show me how to extract the sender pubkey and zap comment from a valid receipt.",
+  "expected_output": "A comprehensive validation function that checks: (1) receipt pubkey matches LNURL nostrPubkey, (2) parses the description tag as JSON to get the embedded zap request, (3) verifies the zap request is kind 9734, (4) checks invoice amount matches request amount, (5) verifies SHA256 of description matches bolt11 description hash. Also extracts sender pubkey from the embedded zap request's pubkey field and comment from its content field.",
+  "assertions": [
+    "Works with kind 9735 zap receipt events",
+    "Validates that receipt pubkey matches the LNURL nostrPubkey",
+    "Parses the description tag containing the JSON-encoded zap request",
+    "Checks the bolt11 tag for invoice amount verification",
+    "Verifies that invoice amount matches the zap request amount",
+    "Checks SHA256 of description against bolt11 description hash",
+    "Verifies the embedded event in description tag is kind 9734",
+    "Extracts the sender pubkey from the zap request pubkey field or P tag"
+  ]
+}

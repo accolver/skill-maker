@@ -1,0 +1,53 @@
+{
+  "skill_name": "nostr-nip05-setup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a personal website at example.com hosted on Nginx. My Nostr public key is b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9. I want to set up NIP-05 verification so people can find me as bob@example.com. Walk me through the complete setup — the nostr.json file, the Nginx config, and what I need to update in my Nostr profile.",
+      "expected_output": "A complete guide with: 1) The nostr.json file content with the correct hex pubkey in the names object, 2) Nginx configuration with exact-match location block and CORS headers, 3) Instructions to update the kind:0 profile with the nip05 field, 4) Testing commands to verify the setup works.",
+      "files": [],
+      "assertions": [
+        "The hex pubkey b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9 is present in the output",
+        "The word hex appears in the context of pubkey format requirements",
+        "Access-Control-Allow-Origin is set in the server configuration",
+        "The path /.well-known/nostr.json appears in a server location block",
+        "HTTPS is stated as a requirement for the nostr.json endpoint",
+        "The nip05 field value bob@example.com appears in a profile update",
+        "A curl command is used to test or verify the endpoint",
+        "Redirects are warned against or prohibited for the nostr.json endpoint"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I'm building a NIP-05 identity provider service. I need a dynamic Node.js server that handles the /.well-known/nostr.json endpoint for multiple users. It should support the ?name= query parameter, include relay hints in the response, validate the local-part format, and handle the root identifier (_@domain). Give me the complete server code and explain the nostr.json response format.",
+      "expected_output": "A complete Node.js/Express (or similar) server with: 1) GET handler for /.well-known/nostr.json with ?name= query support, 2) CORS headers on all responses, 3) Relay hints in the relays object keyed by hex pubkey, 4) Input validation for local-part characters, 5) Support for the _ root identifier, 6) Proper JSON response format.",
+      "files": [],
+      "assertions": [
+        "The path /.well-known/nostr.json appears in a route handler",
+        "The name query parameter is extracted from the request",
+        "The JSON response has a names object and a relays object",
+        "Relay values are arrays with wss:// WebSocket URLs",
+        "Access-Control-Allow-Origin header is set on responses",
+        "Input validation restricts the local-part to allowed characters",
+        "The underscore _ is handled as the root or domain identifier",
+        "Example pubkeys are 64-character lowercase hex strings"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "My NIP-05 verification isn't working. I set nip05 to 'Alice@MyDomain.com' in my profile. My nostr.json file at https://mydomain.com/.well-known/nostr.json contains: {\"names\":{\"Alice\":\"npub1dp4rcz7ufm4rrequena8s8nh5aykdw9t7e2dj0gya9j9sskjhk0qdjd0lv\"}}. When I curl the endpoint, I get a 301 redirect to https://www.mydomain.com/.well-known/nostr.json. What's wrong and how do I fix everything?",
+      "expected_output": "Diagnosis identifying ALL three issues: 1) The local-part 'Alice' has uppercase characters — must be lowercase 'alice', 2) The pubkey is in npub format instead of hex — must convert to 64-char hex, 3) The 301 redirect violates NIP-05 spec — must serve directly without redirects. Plus the corrected nostr.json and profile update.",
+      "files": [],
+      "assertions": [
+        "Alice must be changed to lowercase alice",
+        "The npub format is identified as incorrect and hex format is required",
+        "The 301 redirect is identified as a NIP-05 spec violation",
+        "A corrected nostr.json with alice in lowercase and a hex pubkey is provided",
+        "The corrected nip05 profile value alice@mydomain.com appears in lowercase",
+        "Server configuration guidance for eliminating the redirect is given",
+        "CORS headers (Access-Control-Allow-Origin) are mentioned as required",
+        "Hex pubkeys are described as 64 characters long"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "kind 22242 used for authentication event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  auth.ts:7: interface Event {\n  auth.ts:29: function handleAuth(ws: any, event: Event): void {\n  auth.ts:34: if (event.kind !== 22242) {"
+    },
+    {
+      "text": "challenge tag verified in auth event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"challenge\" (heuristic match):\n  auth.ts:18: challenge: string;\n  auth.ts:25: function generateChallenge(): string {\n  auth.ts:39: // Check challenge tag"
+    },
+    {
+      "text": "relay tag verified matching relay URL",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"tag\" (heuristic match):\n  auth.ts:12: tags: string[][];\n  auth.ts:39: // Check challenge tag\n  auth.ts:40: const challengeTag = event.tags.find(t => t[0] === \"challenge\");"
+    },
+    {
+      "text": "auth-required prefix in OK or CLOSED messages",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  auth.ts:2: * NIP-42 Authentication for Nostr Relay\n  auth.ts:17: interface AuthState {\n  auth.ts:19: authed: boolean;"
+    },
+    {
+      "text": "created_at validated within 600 seconds or 10 minutes",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"created\" (heuristic match):\n  auth.ts:10: created_at: number;"
+    },
+    {
+      "text": "AUTH challenge sent to clients on connection",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  auth.ts:2: * NIP-42 Authentication for Nostr Relay\n  auth.ts:17: interface AuthState {\n  auth.ts:19: authed: boolean;"
+    },
+    {
+      "text": "authenticated state tracked per WebSocket connection",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"state\" (heuristic match):\n  auth.ts:17: interface AuthState {\n  auth.ts:23: const authStates = new Map<any, AuthState>();\n  auth.ts:30: const state = authStates.get(ws);"
+    },
+    {
+      "text": "schnorr or verifySignature for signature verification",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"signature\" (heuristic match):\n  auth.ts:46: // TODO: verify signature properly"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

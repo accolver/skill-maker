@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output subscribes to kind:5001 events (the summarization job request kind)",
+      "passed": false,
+      "evidence": "No matches for \"subscribes to kind:5001 events (the summarization job request kind)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output publishes kind:7000 feedback events with status tag set to 'processing'",
+      "passed": false,
+      "evidence": "No matches for \"publishes kind:7000 feedback events with status tag set to 'processing'\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output publishes kind:7000 feedback events with status tag set to 'error' for failure cases",
+      "passed": false,
+      "evidence": "No matches for \"publishes kind:7000 feedback events with status tag set to 'error' for failure cases\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output publishes kind:6001 result events (exactly 5001 + 1000 = 6001, not any other kind)",
+      "passed": false,
+      "evidence": "No matches for \"publishes kind:6001 result events (exactly 5001 + 1000 = 6001, not any other kind)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Result events include a 'request' tag containing the stringified original job request event (not just the event ID)",
+      "passed": false,
+      "evidence": "No matches for \"'request' tag containing the stringified original job request event (not just the event id)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Result events include an 'e' tag referencing the job request event ID",
+      "passed": false,
+      "evidence": "No matches for \"'e' tag referencing the job request event id\" found across 1 output file(s)"
+    },
+    {
+      "text": "Result events include a 'p' tag with the customer's pubkey",
+      "passed": false,
+      "evidence": "No matches for \"'p' tag with the customer's pubkey\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output handles at least two input types from the i tag (text and url)",
+      "passed": false,
+      "evidence": "No matches for \"handles at least two input types from the i tag (text and url)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

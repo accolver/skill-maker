@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "troubleshooting",
+  "prompt": "My NIP-05 verification isn't working. I set nip05 to 'Alice@MyDomain.com' in my profile. My nostr.json file at https://mydomain.com/.well-known/nostr.json contains: {\"names\":{\"Alice\":\"npub1dp4rcz7ufm4rrequena8s8nh5aykdw9t7e2dj0gya9j9sskjhk0qdjd0lv\"}}. When I curl the endpoint, I get a 301 redirect to https://www.mydomain.com/.well-known/nostr.json. What's wrong and how do I fix everything?",
+  "assertions": [
+    "Output identifies that 'Alice' must be lowercase — only a-z0-9-_. are allowed",
+    "Output identifies that 'npub' format is wrong and must be converted to 64-character hex",
+    "Output identifies the 301 redirect as a problem — NIP-05 prohibits HTTP redirects",
+    "Output provides a corrected nostr.json with lowercase 'alice' and hex pubkey",
+    "Output fixes the nip05 profile field to 'alice@mydomain.com' (all lowercase)",
+    "Output provides guidance on fixing the redirect in the server configuration",
+    "Output contains 'Access-Control-Allow-Origin' or 'CORS' as a required header",
+    "Output does NOT just say 'convert npub to hex' — it explains hex means 64 lowercase characters"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output produces events with 'kind: 10000' or 'kind:10000' for the mute list",
+      "passed": false,
+      "evidence": "No matches for \"produces events with 'kind: 10000' or 'kind:10000' for the mute list\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output supports all four tag types: p tags, t tags, word tags, and e tags",
+      "passed": false,
+      "evidence": "No matches for \"supports all four tag types: p tags, t tags, word tags, and e tags\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output encrypts private mute entries into the event content field",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"encrypts private mute entries into the event content field\":\n  response.md:12: It encrypts private mute entries into the event content field using an"
+    },
+    {
+      "text": "Output uses NIP-44 encryption with the user's own keypair (encrypts to self)",
+      "passed": false,
+      "evidence": "No matches for \"uses nip-44 encryption with the user's own keypair (encrypts to self)\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output detects NIP-04 format by checking for '?iv=' in the ciphertext string",
+      "passed": false,
+      "evidence": "No matches for \"detects nip-04 format by checking for '?iv=' in the ciphertext string\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output contains backward-compatible decryption handling both NIP-44 and NIP-04",
+      "passed": false,
+      "evidence": "No matches for \"contains backward-compatible decryption handling both nip-44 and nip-04\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output uses word tags with lowercase strings for case-insensitive matching",
+      "passed": false,
+      "evidence": "No matches for \"uses word tags with lowercase strings for case-insensitive matching\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output publishes as a replaceable event (complete replacement, not appending)",
+      "passed": false,
+      "evidence": "No matches for \"publishes as a replaceable event (complete replacement, not appending)\" found across 2 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

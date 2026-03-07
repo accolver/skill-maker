@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "eval-personal-site",
+  "prompt": "I have a personal website at example.com hosted on Nginx. My Nostr public key is b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9. I want to set up NIP-05 verification so people can find me as bob@example.com. Walk me through the complete setup — the nostr.json file, the Nginx config, and what I need to update in my Nostr profile.",
+  "assertions": [
+    "The string b0635d6a9851d3aed0cd6c495b282167acf761729078d975fc341b22650b07b9 appears in the output",
+    "The word 'hex' appears in the output — pubkey must be in hex format not npub",
+    "The string 'Access-Control-Allow-Origin' appears in the output",
+    "The path '/.well-known/nostr.json' appears in the output Nginx configuration",
+    "The word 'HTTPS' or 'https' appears as a requirement for serving nostr.json",
+    "The string 'nip05' and 'bob@example.com' both appear in the output",
+    "The word 'curl' appears in the output for testing the endpoint",
+    "The word 'redirect' appears in the output as something that must be avoided"
+  ]
+}

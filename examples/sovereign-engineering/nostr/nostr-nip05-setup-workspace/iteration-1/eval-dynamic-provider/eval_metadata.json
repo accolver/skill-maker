@@ -1,0 +1,16 @@
+{
+  "eval_id": 2,
+  "eval_name": "dynamic-provider",
+  "prompt": "I'm building a NIP-05 identity provider service. I need a dynamic Node.js server that handles the /.well-known/nostr.json endpoint for multiple users. It should support the ?name= query parameter, include relay hints in the response, validate the local-part format, and handle the root identifier (_@domain). Give me the complete server code and explain the nostr.json response format.",
+  "assertions": [
+    "Output includes a server implementation that handles GET requests to /.well-known/nostr.json",
+    "Server reads the 'name' query parameter from the request URL",
+    "Response includes both a 'names' object and a 'relays' object in the JSON output",
+    "The 'relays' object is keyed by hex pubkey (not by username), with arrays of relay WebSocket URLs as values",
+    "Server sets Access-Control-Allow-Origin header to * on responses",
+    "Server includes input validation that restricts local-part to a-z0-9-_. characters only",
+    "Output demonstrates or explains the root identifier _ (underscore) and how it maps to the domain itself",
+    "All pubkeys in the example output are 64-character lowercase hex, not npub format"
+  ],
+  "files": []
+}

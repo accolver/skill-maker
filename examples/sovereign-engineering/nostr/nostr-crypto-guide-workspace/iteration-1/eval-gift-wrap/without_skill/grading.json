@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The rumor event is created WITHOUT a signature (no sig field) — it has an id and pubkey but is intentionally unsigned for deniability",
+      "passed": true,
+      "evidence": "No occurrences of \"a signature (no sig field) — it has an id and pubkey but\" found across 1 output file(s)"
+    },
+    {
+      "text": "The seal event uses kind 13 and has tags set to an empty array (tags: [])",
+      "passed": false,
+      "evidence": "No matches for \"tags set to an empty array (tags: [])\" found across 1 output file(s)"
+    },
+    {
+      "text": "The seal's content is the rumor JSON-stringified and encrypted with NIP-44 using the author's private key and recipient's public key",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rumor\" (heuristic match):\n  gift-wrap.ts:24: // Step 1: Create the rumor event (the actual message)\n  gift-wrap.ts:25: const rumorUnsigned: UnsignedEvent = {\n  gift-wrap.ts:33: // Sign the rumor to get an id"
+    },
+    {
+      "text": "The gift wrap uses kind 1059 and includes a p-tag with the recipient's public key for routing",
+      "passed": false,
+      "evidence": "No matches for \"p-tag with the recipient's public key for routing\" found across 1 output file(s)"
+    },
+    {
+      "text": "The gift wrap is signed by a randomly generated ephemeral key (not the author's key)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"wrap\" (heuristic match):\n  gift-wrap.ts:2: * NIP-59 Gift Wrap - Private DM Protocol\n  gift-wrap.ts:3: * Implements wrapping and unwrapping of private messages.\n  gift-wrap.ts:16: // Create and wrap a private message"
+    },
+    {
+      "text": "The created_at timestamps on both the seal and gift wrap are randomized (not the current time), with randomization up to 2 days in the past",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"wrap\" (heuristic match):\n  gift-wrap.ts:2: * NIP-59 Gift Wrap - Private DM Protocol\n  gift-wrap.ts:3: * Implements wrapping and unwrapping of private messages.\n  gift-wrap.ts:16: // Create and wrap a private message"
+    },
+    {
+      "text": "The unwrapping function decrypts the gift wrap first, then verifies the seal signature, then decrypts the seal to get the rumor",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"wrap\" (heuristic match):\n  gift-wrap.ts:2: * NIP-59 Gift Wrap - Private DM Protocol\n  gift-wrap.ts:3: * Implements wrapping and unwrapping of private messages.\n  gift-wrap.ts:16: // Create and wrap a private message"
+    },
+    {
+      "text": "The unwrapping function verifies that rumor.pubkey matches seal.pubkey (author consistency check)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rumor\" (heuristic match):\n  gift-wrap.ts:24: // Step 1: Create the rumor event (the actual message)\n  gift-wrap.ts:25: const rumorUnsigned: UnsignedEvent = {\n  gift-wrap.ts:33: // Sign the rumor to get an id"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output file outbox-feed.ts exists and contains valid TypeScript",
+      "passed": false,
+      "evidence": "No matches for \"file outbox-feed.ts exists and contains valid typescript\" found across 1 output file(s)"
+    },
+    {
+      "text": "The code fetches kind:10002 events to discover relay preferences",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  outbox-feed.ts:4: * Implements the outbox model for fetching a user's feed. Uses kind:10002\n  outbox-feed.ts:20: kind: number;\n  outbox-feed.ts:33: kinds?: number[];"
+    },
+    {
+      "text": "Write relays are correctly identified: r tags with 'write' marker OR no marker",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"write\" (heuristic match):\n  outbox-feed.ts:8: * - Fetch events FROM a user → use that user's WRITE relays\n  outbox-feed.ts:10: * - r tags with no marker = both read AND write\n  outbox-feed.ts:12: * - r tags with \"write\" marker = write only"
+    },
+    {
+      "text": "Read relays are correctly identified: r tags with 'read' marker OR no marker",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"read\" (heuristic match):\n  outbox-feed.ts:9: * - Fetch events ABOUT a user (mentions) → use that user's READ relays\n  outbox-feed.ts:10: * - r tags with no marker = both read AND write\n  outbox-feed.ts:11: * - r tags with \"read\" marker = read only"
+    },
+    {
+      "text": "The code groups followed users by their write relays to create per-relay subscriptions",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"followed\" (heuristic match):\n  outbox-feed.ts:185: * 1. Extract followed pubkeys from the user's kind:3 event\n  outbox-feed.ts:186: * 2. Fetch kind:10002 for each followed user to discover their relays\n  outbox-feed.ts:187: * 3. Group followed users by their WRITE relays (where they publish)"
+    },
+    {
+      "text": "Subscription filters use the authors field to filter by pubkey on each relay",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"subscription\" (heuristic match):\n  outbox-feed.ts:5: * relay list metadata to route subscriptions to the correct relays.\n  outbox-feed.ts:32: interface SubscriptionFilter {\n  outbox-feed.ts:39: interface RelaySubscription {"
+    },
+    {
+      "text": "The code handles the case where a user has no kind:10002 event (fallback strategy)",
+      "passed": false,
+      "evidence": "No matches for \"no kind:10002 event (fallback strategy)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.714
+  }
+}

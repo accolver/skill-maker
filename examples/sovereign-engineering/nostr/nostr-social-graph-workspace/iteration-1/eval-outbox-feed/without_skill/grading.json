@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output file outbox-feed.ts exists and contains valid TypeScript",
+      "passed": false,
+      "evidence": "No matches for \"file outbox-feed.ts exists and contains valid typescript\" found across 1 output file(s)"
+    },
+    {
+      "text": "The code fetches kind:10002 events to discover relay preferences",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  outbox-feed.ts:13: interface RelayPool {\n  outbox-feed.ts:14: query(relays: string[], filter: Record<string, unknown>): Promise<NostrEvent[]>;\n  outbox-feed.ts:15: subscribe(relay: string, filter: Record<string, unknown>): void;"
+    },
+    {
+      "text": "Write relays are correctly identified: r tags with 'write' marker OR no marker",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"relays\" (heuristic match):\n  outbox-feed.ts:14: query(relays: string[], filter: Record<string, unknown>): Promise<NostrEvent[]>;\n  outbox-feed.ts:29: const relays: { url: string; type: string }[] = [];\n  outbox-feed.ts:32: relays.push({"
+    },
+    {
+      "text": "Read relays are correctly identified: r tags with 'read' marker OR no marker",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"relays\" (heuristic match):\n  outbox-feed.ts:14: query(relays: string[], filter: Record<string, unknown>): Promise<NostrEvent[]>;\n  outbox-feed.ts:29: const relays: { url: string; type: string }[] = [];\n  outbox-feed.ts:32: relays.push({"
+    },
+    {
+      "text": "The code groups followed users by their write relays to create per-relay subscriptions",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  outbox-feed.ts:13: interface RelayPool {\n  outbox-feed.ts:14: query(relays: string[], filter: Record<string, unknown>): Promise<NostrEvent[]>;\n  outbox-feed.ts:15: subscribe(relay: string, filter: Record<string, unknown>): void;"
+    },
+    {
+      "text": "Subscription filters use the authors field to filter by pubkey on each relay",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  outbox-feed.ts:13: interface RelayPool {\n  outbox-feed.ts:14: query(relays: string[], filter: Record<string, unknown>): Promise<NostrEvent[]>;\n  outbox-feed.ts:15: subscribe(relay: string, filter: Record<string, unknown>): void;"
+    },
+    {
+      "text": "The code handles the case where a user has no kind:10002 event (fallback strategy)",
+      "passed": false,
+      "evidence": "No matches for \"no kind:10002 event (fallback strategy)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.714
+  }
+}

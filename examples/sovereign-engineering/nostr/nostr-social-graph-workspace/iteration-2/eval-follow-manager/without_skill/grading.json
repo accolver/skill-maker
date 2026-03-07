@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output produces events with 'kind: 3' or 'kind:3' for the follow list",
+      "passed": false,
+      "evidence": "No matches for \"produces events with 'kind: 3' or 'kind:3' for the follow list\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output uses p tags with format ['p', pubkey, relay, petname] or similar multi-element array",
+      "passed": false,
+      "evidence": "No matches for \"uses p tags with format ['p', pubkey, relay, petname] or similar multi-element array\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output sets content to empty string ('') — not used for relay preferences",
+      "passed": false,
+      "evidence": "No matches for \"sets content to empty string ('') — not used for relay preferences\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output creates a COMPLETE follow list on add (full replacement, not a diff or patch)",
+      "passed": false,
+      "evidence": "No matches for \"creates a complete follow list on add (full replacement, not a diff or patch)\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output creates a COMPLETE follow list on remove (full replacement without the removed pubkey)",
+      "passed": true,
+      "evidence": "No occurrences of \"the removed pubkey)\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output contains a createFollowList or equivalent function that builds a kind:3 from an array",
+      "passed": false,
+      "evidence": "No matches for \"contains a createfollowlist or equivalent function that builds a kind:3 from an array\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output contains an addFollow or equivalent function that appends to existing tags",
+      "passed": false,
+      "evidence": "No matches for \"contains an addfollow or equivalent function that appends to existing tags\" found across 2 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 6,
+    "total": 7,
+    "pass_rate": 0.143
+  }
+}

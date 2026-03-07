@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response discusses NIP-42 for relay authentication",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  response.md:1: # Implementing User Authentication for Your Nostr Relay\n  response.md:6: relays. Here's how the auth flow works:\n  response.md:10: 1. **Relay sends a challenge** — when a client connects, your relay can send a"
+    },
+    {
+      "text": "Response covers kind:22242 authentication event",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"authentication\" (heuristic match):\n  response.md:1: # Implementing User Authentication for Your Nostr Relay\n  response.md:3: ## NIP-42: Client Authentication\n  response.md:8: ### The Authentication Flow"
+    },
+    {
+      "text": "Response explains the relay sends a challenge string that the client must sign",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  response.md:1: # Implementing User Authentication for Your Nostr Relay\n  response.md:6: relays. Here's how the auth flow works:\n  response.md:10: 1. **Relay sends a challenge** — when a client connects, your relay can send a"
+    },
+    {
+      "text": "Response discusses NIP-11 relay information document",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  response.md:1: # Implementing User Authentication for Your Nostr Relay\n  response.md:6: relays. Here's how the auth flow works:\n  response.md:10: 1. **Relay sends a challenge** — when a client connects, your relay can send a"
+    },
+    {
+      "text": "Response covers auth_required in the limitation field",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  response.md:1: # Implementing User Authentication for Your Nostr Relay\n  response.md:3: ## NIP-42: Client Authentication\n  response.md:5: The main NIP you need is NIP-42, which defines how clients can authenticate with"
+    },
+    {
+      "text": "Response explains the AUTH WebSocket message format",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  response.md:1: # Implementing User Authentication for Your Nostr Relay\n  response.md:3: ## NIP-42: Client Authentication\n  response.md:5: The main NIP you need is NIP-42, which defines how clients can authenticate with"
+    },
+    {
+      "text": "Response explains auth can be required for specific actions like reading DMs or publishing",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  response.md:1: # Implementing User Authentication for Your Nostr Relay\n  response.md:3: ## NIP-42: Client Authentication\n  response.md:5: The main NIP you need is NIP-42, which defines how clients can authenticate with"
+    },
+    {
+      "text": "Response covers auth-required as an OK or CLOSED message reason prefix",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  response.md:1: # Implementing User Authentication for Your Nostr Relay\n  response.md:3: ## NIP-42: Client Authentication\n  response.md:5: The main NIP you need is NIP-42, which defines how clients can authenticate with"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output adds events to local state with 'pending' status before sending to relays",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"adds events to local state with 'pending' status before sending to relays\":\n  response.md:147: * Adds events to local state with 'pending' status before sending to relays,\n  response.md:361: - Adds events to local state with 'pending' status before sending to relays"
+    },
+    {
+      "text": "Output tracks OK responses per-relay per-event (not a single global boolean)",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"tracks ok responses per-relay per-event (not a single global boolean)\":\n  response.md:38: // Tracks OK responses per-relay per-event (not a single global boolean)\n  response.md:362: - Tracks OK responses per-relay per-event (not a single global boolean)"
+    },
+    {
+      "text": "Output treats 'duplicate:' as a success prefix (not an error)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"treats 'duplicate:' as a success prefix (not an error)\":\n  response.md:363: - Treats 'duplicate:' as a success prefix (not an error)"
+    },
+    {
+      "text": "Output distinguishes retriable errors ('rate-limited', 'auth-required') from permanent failures ('blocked', 'restricted')",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"distinguishes retriable errors ('rate-limited', 'auth-required') from permanent failures ('blocked', 'restricted')\":\n  response.md:61: // Distinguishes retriable errors ('rate-limited', 'auth-required') from permanent failures ('blocked', 'restricted')"
+    },
+    {
+      "text": "Output transitions to 'confirmed' when at least one relay accepts the event",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"transitions to 'confirmed' when at least one relay accepts the event\":\n  response.md:197: * Transitions to 'confirmed' when at least one relay accepts the event.\n  response.md:366: - Transitions to 'confirmed' when at least one relay accepts the event"
+    },
+    {
+      "text": "Output transitions to 'failed' only when ALL relays have rejected or timed out",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"transitions to 'failed' only when all relays have rejected or timed out\":\n  response.md:198: * Transitions to 'failed' only when ALL relays have rejected or timed out.\n  response.md:367: - Transitions to 'failed' only when ALL relays have rejected or timed out"
+    },
+    {
+      "text": "Output contains a timeout mechanism (setTimeout) for relays that don't send OK",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"contains a timeout mechanism (settimeout) for relays that don't send ok\":\n  response.md:186: // Contains a timeout mechanism (setTimeout) for relays that don't send OK\n  response.md:368: - Contains a timeout mechanism (setTimeout) for relays that don't send OK"
+    },
+    {
+      "text": "Output deduplicates replaceable events by keeping latest created_at, with lowest id as tiebreaker",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"deduplicates replaceable events by keeping latest created_at, with lowest id as tiebreaker\":\n  response.md:94: * Deduplicates replaceable events by keeping latest created_at, with lowest id as tiebreaker."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

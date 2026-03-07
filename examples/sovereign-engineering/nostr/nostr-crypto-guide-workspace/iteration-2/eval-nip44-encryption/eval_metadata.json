@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "nip44-encryption",
+  "prompt": "Implement NIP-44 encryption between two Nostr users in TypeScript. I need functions to: (1) derive a conversation key from a private key and public key, (2) encrypt a plaintext message, and (3) decrypt a payload back to plaintext. Use the @noble/hashes and @noble/curves libraries. Include proper padding, HMAC verification, and base64 encoding. Add a test that encrypts 'Hello, Nostr!' and decrypts it back, verifying round-trip correctness. Save the implementation to outputs/nip44.ts",
+  "assertions": [
+    "Output contains 'nip44-v2' as the HKDF salt string for conversation key derivation",
+    "Output contains 'secp256k1' or 'getSharedSecret' or 'ECDH' for the shared point computation",
+    "Output contains 'hkdf' or 'HKDF' with expand and the number 76 for per-message key derivation",
+    "Output contains 'getRandomValues' or 'randomBytes' for generating a 32-byte nonce",
+    "Output contains a padding function that calculates power-of-2 sizes and writes a 2-byte big-endian length prefix",
+    "Output contains 'hmac' or 'HMAC' with SHA-256 for computing the MAC over nonce+ciphertext",
+    "Output contains base64 encoding of the concatenated version byte (0x02) + nonce + ciphertext + mac",
+    "Output verifies the MAC before decrypting (MAC check appears before decryption call)"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "social-feed",
+  "prompt": "Build a subscription for a user's social feed. Their pubkey is f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca. I want to see their notes (kind 1), reposts (kind 6), and reactions (kind 7). Limit to the 50 most recent. Format as a complete REQ message.",
+  "assertions": [
+    "The text mentions REQ",
+    "The text mentions f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca",
+    "The text mentions authors",
+    "The text mentions limit",
+    "The text mentions single filter",
+    "The text mentions EOSE",
+    "The text mentions OR within",
+    "The text mentions AND"
+  ]
+}

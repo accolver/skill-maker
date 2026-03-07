@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "JSON.stringify used for canonical serialization",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"json\" (heuristic match):\n  relay.ts:33: const data = JSON.stringify([\n  relay.ts:73: const msg = JSON.parse(raw as string);\n  relay.ts:80: ws.send(JSON.stringify([\"OK\", event.id, false, \"invalid event\"]));"
+    },
+    {
+      "text": "sha256 used for computing event ID",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  relay.ts:3: * Handles WebSocket connections and Nostr events\n  relay.ts:8: interface Event {\n  relay.ts:27: // In-memory event store"
+    },
+    {
+      "text": "schnorr used for signature verification on secp256k1",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"verification\" (heuristic match):\n  relay.ts:47: // Note: Schnorr signature verification would require secp256k1 library\n  relay.ts:48: // For now we'll skip sig verification"
+    },
+    {
+      "text": "serialization array starts with [0, element per NIP-01",
+      "passed": false,
+      "evidence": "Could not verify assertion against 1 output file(s). Content preview: \"/**\n * Basic Nostr Relay — TypeScript / Bun\n * Handles WebSocket connections and Nostr events\n */\n\nimport { createHash } from \"crypto\";\n\ninterface Event {\n  id: string;\n  pubkey: string;\n  created_at:...\""
+    },
+    {
+      "text": "EOSE response sent after stored events delivered",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"events\" (heuristic match):\n  relay.ts:3: * Handles WebSocket connections and Nostr events\n  relay.ts:28: const eventStore: Event[] = [];\n  relay.ts:84: eventStore.push(event);"
+    },
+    {
+      "text": "filter matching with ids authors kinds since until",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"filter\" (heuristic match):\n  relay.ts:18: interface Filter {\n  relay.ts:29: const subscriptions = new Map<string, Filter[]>();\n  relay.ts:52: function matchFilter(event: Event, filter: Filter): boolean {"
+    },
+    {
+      "text": "replaceable events for kind 0 and kind 3 and 10000-19999",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"events\" (heuristic match):\n  relay.ts:3: * Handles WebSocket connections and Nostr events\n  relay.ts:28: const eventStore: Event[] = [];\n  relay.ts:84: eventStore.push(event);"
+    },
+    {
+      "text": "isEphemeral or ephemeral events for 20000 to 29999",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"events\" (heuristic match):\n  relay.ts:3: * Handles WebSocket connections and Nostr events\n  relay.ts:28: const eventStore: Event[] = [];\n  relay.ts:84: eventStore.push(event);"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

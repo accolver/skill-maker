@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "optimistic-publisher",
+  "prompt": "Implement an optimistic event publisher in TypeScript for a Nostr client. When a user creates an event: (1) show it immediately in the UI state with a 'pending' status, (2) publish to multiple relays, (3) track OK responses from each relay, (4) parse OK message reason prefixes to distinguish success (including 'duplicate:' as success), retriable errors (rate-limited, auth-required), and permanent failures (blocked, restricted), (5) update the event status to 'confirmed' on first success or 'failed' if all relays reject, (6) implement a timeout for relays that don't respond. Also implement event deduplication that handles both regular events (by id) and replaceable events (by pubkey+kind, keeping latest created_at with lowest id as tiebreaker). Save to outputs/optimistic-publisher.ts.",
+  "assertions": [
+    "Output adds events to local state with 'pending' status before sending to relays",
+    "Output tracks OK responses per-relay per-event (not a single global boolean)",
+    "Output treats 'duplicate:' as a success prefix (not an error)",
+    "Output distinguishes retriable errors ('rate-limited', 'auth-required') from permanent failures ('blocked', 'restricted')",
+    "Output transitions to 'confirmed' when at least one relay accepts the event",
+    "Output transitions to 'failed' only when ALL relays have rejected or timed out",
+    "Output contains a timeout mechanism (setTimeout) for relays that don't send OK",
+    "Output deduplicates replaceable events by keeping latest created_at, with lowest id as tiebreaker"
+  ]
+}

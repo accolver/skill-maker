@@ -1,0 +1,53 @@
+{
+  "skill_name": "nostr-client-patterns",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Implement a relay pool manager in TypeScript that handles connecting to multiple Nostr relays. It should track connection states (connecting, connected, disconnected), enforce one WebSocket per relay URL (with URL normalization), implement exponential backoff with jitter for reconnection, and handle NIP-42 authentication challenges. Include a method to gracefully disconnect from a relay. Save the implementation to outputs/relay-pool.ts.",
+      "expected_output": "A TypeScript relay pool implementation with proper connection state tracking, URL normalization, exponential backoff with jitter, NIP-42 auth handling, and graceful disconnect.",
+      "files": [],
+      "assertions": [
+        "Output contains a state type or enum with 'connecting', 'connected', and 'disconnected'",
+        "Output normalizes relay URLs (lowercase hostname, remove trailing slash, or default port handling)",
+        "Output deduplicates connections — checks if a relay URL already has an active connection before creating a new one",
+        "Output contains exponential backoff with a formula like 'Math.pow(2' or '2 **' or '<< retryCount'",
+        "Output adds random jitter to backoff delay using 'Math.random'",
+        "Output contains a maximum backoff cap (e.g., 60000 or 60 * 1000 or MAX_BACKOFF)",
+        "Output handles NIP-42 AUTH challenge messages from relays and signs a kind:22242 response",
+        "Output has a disconnect method that sends CLOSE messages for subscriptions before closing the WebSocket"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Build a subscription manager in TypeScript for a Nostr client that correctly handles the subscription lifecycle. It must: (1) track per-relay EOSE state so the overall subscription transitions from 'loading' to 'live' only when all relays have sent EOSE or timed out, (2) handle CLOSED messages from relays with different reason prefixes (auth-required, restricted, error), (3) support subscription replacement by sending a new REQ with the same sub-id, and (4) re-subscribe after relay reconnection using a 'since' parameter based on the last EOSE timestamp. Save to outputs/subscription-manager.ts.",
+      "expected_output": "A TypeScript subscription manager that tracks per-relay EOSE, handles CLOSED reasons, supports subscription replacement, and reconnects with since parameter.",
+      "files": [],
+      "assertions": [
+        "Output tracks EOSE state per-relay per-subscription using a Map or object structure",
+        "Output transitions to 'live' only after all relays have sent EOSE or a timeout fires",
+        "Output contains an EOSE timeout (setTimeout) that forces transition if relays are slow",
+        "Output parses CLOSED message reason prefixes — at least 'auth-required' and 'restricted'",
+        "Output attempts re-authentication on 'auth-required' CLOSED before re-subscribing",
+        "Output supports subscription replacement by reusing the same subscription ID in a new REQ",
+        "Output re-subscribes after reconnection with a 'since' filter set to the last EOSE timestamp",
+        "Output can close subscriptions by sending CLOSE messages to relays"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Implement an optimistic event publisher in TypeScript for a Nostr client. When a user creates an event: (1) show it immediately in the UI state with a 'pending' status, (2) publish to multiple relays, (3) track OK responses from each relay, (4) parse OK message reason prefixes to distinguish success (including 'duplicate:' as success), retriable errors (rate-limited, auth-required), and permanent failures (blocked, restricted), (5) update the event status to 'confirmed' on first success or 'failed' if all relays reject, (6) implement a timeout for relays that don't respond. Also implement event deduplication that handles both regular events (by id) and replaceable events (by pubkey+kind, keeping latest created_at with lowest id as tiebreaker). Save to outputs/optimistic-publisher.ts.",
+      "expected_output": "A TypeScript optimistic publisher with pending/confirmed/failed states, OK message parsing with reason prefixes, retry logic, timeout, and event deduplication for regular and replaceable events.",
+      "files": [],
+      "assertions": [
+        "Output adds events to local state with 'pending' status before sending to relays",
+        "Output tracks OK responses per-relay per-event (not a single global boolean)",
+        "Output treats 'duplicate:' as a success prefix (not an error)",
+        "Output distinguishes retriable errors ('rate-limited', 'auth-required') from permanent failures ('blocked', 'restricted')",
+        "Output transitions to 'confirmed' when at least one relay accepts the event",
+        "Output transitions to 'failed' only when ALL relays have rejected or timed out",
+        "Output contains a timeout mechanism (setTimeout) for relays that don't send OK",
+        "Output deduplicates replaceable events by keeping latest created_at, with lowest id as tiebreaker"
+      ]
+    }
+  ]
+}

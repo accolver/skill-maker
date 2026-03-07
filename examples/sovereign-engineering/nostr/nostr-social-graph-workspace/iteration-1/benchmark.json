@@ -1,0 +1,75 @@
+{
+  "skill_name": "nostr-social-graph",
+  "iteration": 1,
+  "timestamp": "2026-03-07T18:43:28.296Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.6783,
+        "stddev": 0.0773
+      },
+      "time_seconds": {
+        "mean": null,
+        "stddev": null
+      },
+      "tokens": {
+        "mean": null,
+        "stddev": null
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.6843,
+        "stddev": 0.042
+      },
+      "time_seconds": {
+        "mean": null,
+        "stddev": null
+      },
+      "tokens": {
+        "mean": null,
+        "stddev": null
+      }
+    },
+    "delta": {
+      "pass_rate": -0.006,
+      "time_seconds": null,
+      "tokens": null
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "follow-manager",
+      "with_skill": {
+        "pass_rate": 0.571,
+        "time_seconds": null
+      },
+      "without_skill": {
+        "pass_rate": 0.714,
+        "time_seconds": null
+      }
+    },
+    {
+      "eval_name": "mute-list",
+      "with_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": null
+      },
+      "without_skill": {
+        "pass_rate": 0.625,
+        "time_seconds": null
+      }
+    },
+    {
+      "eval_name": "outbox-feed",
+      "with_skill": {
+        "pass_rate": 0.714,
+        "time_seconds": null
+      },
+      "without_skill": {
+        "pass_rate": 0.714,
+        "time_seconds": null
+      }
+    }
+  ]
+}

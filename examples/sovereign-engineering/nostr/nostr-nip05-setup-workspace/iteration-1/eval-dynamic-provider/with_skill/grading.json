@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a server implementation that handles GET requests to /.well-known/nostr.json",
+      "passed": false,
+      "evidence": "No matches for \"includes a server implementation that handles get requests to /.well-known/nostr.json\" found across 2 output file(s)"
+    },
+    {
+      "text": "Server reads the 'name' query parameter from the request URL",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"name\" (heuristic match):\n  output.md:13: \"names\": {\n  output.md:25: - **`names`** (required): Maps local-part identifiers to hex public keys\n  output.md:30: username. This is because multiple names could map to the same pubkey, and"
+    },
+    {
+      "text": "Response includes both a 'names' object and a 'relays' object in the JSON output",
+      "passed": false,
+      "evidence": "No matches for \"both a 'names' object and a 'relays' object in the json output\" found across 2 output file(s)"
+    },
+    {
+      "text": "The 'relays' object is keyed by hex pubkey (not by username), with arrays of relay WebSocket URLs as values",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relays\" (heuristic match):\n  output.md:16: \"relays\": {\n  output.md:26: - **`relays`** (recommended): Maps hex public keys to arrays of relay WebSocket\n  output.md:29: **Important:** The `relays` object is keyed by the hex pubkey, NOT by the"
+    },
+    {
+      "text": "Server sets Access-Control-Allow-Origin header to * on responses",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"allow\" (heuristic match):\n  output.md:65: // Local-part validation regex — NIP-05 only allows a-z0-9-_.\n  output.md:70: res.set(\"Access-Control-Allow-Origin\", \"*\");\n  output.md:71: res.set(\"Access-Control-Allow-Methods\", \"GET\");"
+    },
+    {
+      "text": "Server includes input validation that restricts local-part to a-z0-9-_. characters only",
+      "passed": false,
+      "evidence": "No matches for \"input validation that restricts local-part to a-z0-9-_. characters only\" found across 2 output file(s)"
+    },
+    {
+      "text": "Output demonstrates or explains the root identifier _ (underscore) and how it maps to the domain itself",
+      "passed": false,
+      "evidence": "No matches for \"demonstrates or explains the root identifier _ (underscore) and how it maps to the domain itself\" found across 2 output file(s)"
+    },
+    {
+      "text": "All pubkeys in the example output are 64-character lowercase hex, not npub format",
+      "passed": false,
+      "evidence": "No matches for \"are 64-character lowercase hex, not npub format\" found across 2 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

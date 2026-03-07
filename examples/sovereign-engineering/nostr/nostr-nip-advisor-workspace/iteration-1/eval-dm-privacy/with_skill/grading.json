@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly warns that NIP-04 (kind:4) is deprecated or unrecommended",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: ## ⚠️ Warning: Do NOT Use NIP-04\n  response.md:5: **NIP-04 (kind:4) is deprecated and unrecommended.** While it may seem\n  response.md:15: Any client implementing NIP-04 today will be incompatible with modern Nostr"
+    },
+    {
+      "text": "Response explains that NIP-04 leaks metadata such as sender, receiver, or timestamps",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: ## ⚠️ Warning: Do NOT Use NIP-04\n  response.md:5: **NIP-04 (kind:4) is deprecated and unrecommended.** While it may seem\n  response.md:15: Any client implementing NIP-04 today will be incompatible with modern Nostr"
+    },
+    {
+      "text": "Response recommends NIP-17 as the replacement for private DMs",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  response.md:3: ## ⚠️ Warning: Do NOT Use NIP-04\n  response.md:5: **NIP-04 (kind:4) is deprecated and unrecommended.** While it may seem\n  response.md:15: Any client implementing NIP-04 today will be incompatible with modern Nostr"
+    },
+    {
+      "text": "Response mentions kind:14 as the event kind for DM messages under NIP-17",
+      "passed": false,
+      "evidence": "No matches for \"kind:14 as the event kind for dm messages under nip-17\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response explains the gift wrap chain: kind:14 (rumor) → kind:13 (seal) → kind:1059 (gift wrap)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"wrap\" (heuristic match):\n  response.md:21: events for messages, combined with a multi-layer encryption and wrapping chain\n  response.md:30: | NIP-59 | Gift Wrap protocol (kind:13 seal + kind:1059 gift wrap) |\n  response.md:33: ### The Gift Wrap Chain"
+    },
+    {
+      "text": "Response states that the kind:14 message must NOT be signed (for deniability)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:5: **NIP-04 (kind:4) is deprecated and unrecommended.** While it may seem\n  response.md:20: **NIP-17** is the recommended replacement for private DMs. It uses **kind:14**\n  response.md:28: | NIP-17 | Private Direct Messages (kind:14)                       |"
+    },
+    {
+      "text": "Response mentions NIP-44 as the encryption standard to use",
+      "passed": false,
+      "evidence": "No matches for \"nip-44 as the encryption standard to use\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response mentions kind:10050 or NIP-51 DM relay list for publishing gift wraps to the recipient's preferred relays",
+      "passed": false,
+      "evidence": "No matches for \"kind:10050 or nip-51 dm relay list for publishing gift wraps to the recipient's preferred relays\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "skill_name": "nostr-marketplace-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a Nostr marketplace stall for a coffee shop called 'Bitcoin Beans' that sells coffee products. The stall should use USD currency and have two shipping zones: US domestic ($4.99) and International ($14.99, covering EU and CA regions). Then create two products in that stall: 1) 'Ethiopian Yirgacheffe' single-origin coffee, $18.99, 50 bags in stock, with tags for 'coffee' and 'single-origin', specs for roast level (medium) and weight (12oz), and $2.00 extra shipping per unit for both zones. 2) 'Brewing Guide PDF' digital download, $4.99, unlimited quantity, tagged as 'digital' and 'guide', no shipping costs. Output the complete event JSON for the stall and both products.",
+      "expected_output": "Three complete Nostr events: a kind:30017 stall event with two shipping zones, a kind:30018 product for physical coffee with quantity, specs, category tags, and per-product shipping costs, and a kind:30018 product for a digital item with null quantity and no shipping costs.",
+      "files": [],
+      "assertions": [
+        "Output contains a kind:30017 event with d tag matching the stall id in the content JSON",
+        "The stall content JSON includes a shipping array with exactly two zones, one for US and one for International",
+        "The US shipping zone has a cost of 4.99 and the International zone has a cost of 14.99",
+        "Output contains two kind:30018 events, each with a d tag matching their respective content id",
+        "The coffee product has stall_id referencing the stall's id, quantity set to an integer (50), and t tags for 'coffee' and 'single-origin'",
+        "The coffee product content includes a specs array with roast level and weight key-value pairs",
+        "The coffee product has a shipping array with zone IDs that match the stall's shipping zone IDs",
+        "The digital product has quantity set to null (not 0, not omitted) and no shipping array or an empty shipping array"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Build a Nostr auction system for selling a rare vintage Bitcoin hardware wallet. The auction should belong to an existing stall with id 'crypto-collectibles-stall'. The item is called 'Original Trezor One #0042' with a starting bid of 500000 sats, starting on January 15 2025 at midnight UTC, running for 3 days (259200 seconds). Include specs for serial number (0042) and condition (mint, sealed). Then show me: 1) A bid event from a buyer bidding 750000 sats, 2) A bid confirmation from the merchant accepting the bid and extending the auction by 10 minutes, 3) A final bid confirmation marking a different bid as the winner.",
+      "expected_output": "Four events: a kind:30020 auction with correct timing fields, a kind:1021 bid referencing the auction event ID, a kind:1022 acceptance with duration_extended, and a kind:1022 winner confirmation.",
+      "files": [],
+      "assertions": [
+        "Output contains a kind:30020 event with d tag matching the auction id in content, and stall_id set to 'crypto-collectibles-stall'",
+        "The auction content has starting_bid as an integer (500000), duration as 259200, and start_date as a Unix timestamp",
+        "Output contains a kind:1021 bid event where the content is the bid amount and tags include an e tag referencing the auction event ID",
+        "The bid's e tag references an event ID (64-char hex or placeholder), NOT a product UUID or d-tag value",
+        "Output contains a kind:1022 bid confirmation with status 'accepted' and duration_extended set to 600 (10 minutes in seconds)",
+        "The accepted bid confirmation has two e tags: one for the bid event ID and one for the auction event ID",
+        "Output contains a kind:1022 event with status 'winner' for the winning bid",
+        "The winner confirmation also has two e tags referencing both the winning bid and the auction"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Create a NIP-69 P2P order event for selling 500,000 satoshis for US dollars at a 3% premium over market rate. The seller accepts Zelle and Cash App as payment methods. The order should be on mainnet using the lightning network layer. Set the fiat amount to $175, use 'SatoshiSeller' as the display name, include a bond of 10000 sats, set the order to expire in 24 hours from Unix timestamp 1719391096, and use 'nostr-market' as the platform. The order should be in pending status.",
+      "expected_output": "A complete kind:38383 event with all required NIP-69 tags, correct status, payment methods, and empty content.",
+      "files": [],
+      "assertions": [
+        "Output contains a kind:38383 event with tags array and empty string content",
+        "The event has a d tag with a unique order identifier",
+        "The k tag is set to 'sell' and the f tag is set to 'USD' (ISO 4217)",
+        "The s tag is set to 'pending' as the initial status",
+        "The amt tag is set to '500000' (satoshis as string) and fa tag is set to '175'",
+        "The pm tag includes both 'zelle' and 'cashapp' (or similar payment method values) as multiple values",
+        "The event includes premium tag set to '3', network tag set to 'mainnet', and layer tag set to 'lightning'",
+        "The event has y tag set to 'nostr-market' and z tag set to 'order'"
+      ]
+    }
+  ]
+}

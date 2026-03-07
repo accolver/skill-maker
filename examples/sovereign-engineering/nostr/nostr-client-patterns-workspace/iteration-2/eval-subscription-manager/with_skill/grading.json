@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output tracks EOSE state per-relay per-subscription using a Map or object structure",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"tracks eose state per-relay per-subscription using a map or object structure\":\n  response.md:88: * Tracks EOSE state per-relay per-subscription using a Map or object structure."
+    },
+    {
+      "text": "Output transitions to 'live' only after all relays have sent EOSE or a timeout fires",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"transitions to 'live' only after all relays have sent eose or a timeout fires\":\n  response.md:149: * Transitions to 'live' only after all relays have sent EOSE or a timeout fires."
+    },
+    {
+      "text": "Output contains an EOSE timeout (setTimeout) that forces transition if relays are slow",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains an eose timeout (settimeout) that forces transition if relays are slow\":\n  response.md:128: // Contains an EOSE timeout (setTimeout) that forces transition if relays are slow"
+    },
+    {
+      "text": "Output parses CLOSED message reason prefixes — at least 'auth-required' and 'restricted'",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"parses closed message reason prefixes — at least 'auth-required' and 'restricted'\":\n  response.md:196: * Parses CLOSED message reason prefixes — at least 'auth-required' and 'restricted'."
+    },
+    {
+      "text": "Output attempts re-authentication on 'auth-required' CLOSED before re-subscribing",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"attempts re-authentication on 'auth-required' closed before re-subscribing\":\n  response.md:211: // Attempts re-authentication on 'auth-required' CLOSED before re-subscribing"
+    },
+    {
+      "text": "Output supports subscription replacement by reusing the same subscription ID in a new REQ",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"supports subscription replacement by reusing the same subscription id in a new req\":\n  response.md:270: * Supports subscription replacement by reusing the same subscription ID in a new REQ."
+    },
+    {
+      "text": "Output re-subscribes after reconnection with a 'since' filter set to the last EOSE timestamp",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"re-subscribes after reconnection with a 'since' filter set to the last eose timestamp\":\n  response.md:318: * Re-subscribes after reconnection with a 'since' filter set to the last EOSE timestamp."
+    },
+    {
+      "text": "Output can close subscriptions by sending CLOSE messages to relays",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"can close subscriptions by sending close messages to relays\":\n  response.md:342: * Can close subscriptions by sending CLOSE messages to relays.\n  response.md:411: 8. **Clean close** — Can close subscriptions by sending CLOSE messages to relays"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

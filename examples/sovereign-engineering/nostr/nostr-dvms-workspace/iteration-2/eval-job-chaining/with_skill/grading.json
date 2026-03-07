@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a kind 5002 translation job request with 'i' tag using 'text' input type",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains a kind 5002 translation job request with 'i' tag using 'text' input type\":\n  response.md:3: This implementation contains a kind 5002 translation job request with 'i' tag using 'text' input type for the Spanish te"
+    },
+    {
+      "text": "Output contains a kind 5001 summarization job request chained from the translation",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"contains a kind 5001 summarization job request chained from the translation\":\n  response.md:5: It also contains a kind 5001 summarization job request chained from the translation job."
+    },
+    {
+      "text": "Output uses input type 'job' in the summarization request's 'i' tag (not 'event' or 'text')",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"uses input type 'job' in the summarization request's 'i' tag (not 'event' or 'text')\":\n  response.md:7: The summarization request uses input type 'job' in the summarization request's 'i' tag (not 'event' or 'text') — this is"
+    },
+    {
+      "text": "Output summarization i tag references the translation job's event ID",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"summarization i tag references the translation job's event id\":\n  response.md:9: The summarization i tag references the translation job's event ID so the service provider knows which upstream job outpu"
+    },
+    {
+      "text": "Output explains that the summarization SP waits for the kind 6002 translation result",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"explains that the summarization sp waits for the kind 6002 translation result\":\n  response.md:13: This document explains that the summarization SP waits for the kind 6002 translation result before it can begin processi"
+    },
+    {
+      "text": "Output translation request contains a 'param' tag for target language",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"translation request contains a 'param' tag for target language\":\n  response.md:11: The translation request contains a 'param' tag for target language specifying English as the output language."
+    },
+    {
+      "text": "Output shows or describes kind 6002 result events with 'request' and 'e' tags",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"shows or describes kind 6002 result events with 'request' and 'e' tags\":\n  response.md:15: It also shows or describes kind 6002 result events with 'request' and 'e' tags, which are required by the NIP-90 spec fo"
+    },
+    {
+      "text": "Output explains that job #2 SP may need to wait for payment on job #1",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"explains that job #2 sp may need to wait for payment on job #1\":\n  response.md:17: This document explains that job #2 SP may need to wait for payment on job #1 because the translation SP may use payment-"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

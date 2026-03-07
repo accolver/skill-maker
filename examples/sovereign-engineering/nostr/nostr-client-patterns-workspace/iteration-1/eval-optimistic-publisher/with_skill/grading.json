@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Events are added to local state with a 'pending' status before being sent to relays",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"events\" (heuristic match):\n  optimistic-publisher.ts:5: * - Optimistic UI: events shown immediately with 'pending' status\n  optimistic-publisher.ts:10: * - Event deduplication for regular and replaceable events\n  optimistic-publisher.ts:65: *   - \"rate-limited:\" — too many events, backoff and retry"
+    },
+    {
+      "text": "OK responses are tracked per-relay per-event (not just a single boolean)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"responses\" (heuristic match):\n  optimistic-publisher.ts:39: relayResponses: Map<string, RelayOkResponse>;\n  optimistic-publisher.ts:232: private okTimeoutMs: number = 10000; // 10 second timeout for OK responses\n  optimistic-publisher.ts:246: * 3. Track OK responses per relay"
+    },
+    {
+      "text": "The 'duplicate:' OK reason prefix is treated as success (not failure)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"reason\" (heuristic match):\n  optimistic-publisher.ts:7: * - OK reason prefix parsing (duplicate as success, retriable vs permanent errors)\n  optimistic-publisher.ts:32: reason: string;\n  optimistic-publisher.ts:45: type OkReasonCategory = \"success\" | \"retriable\" | \"permanent\";"
+    },
+    {
+      "text": "Retriable error prefixes (rate-limited, auth-required) are distinguished from permanent failures (blocked, restricted)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"permanent\" (heuristic match):\n  optimistic-publisher.ts:7: * - OK reason prefix parsing (duplicate as success, retriable vs permanent errors)\n  optimistic-publisher.ts:45: type OkReasonCategory = \"success\" | \"retriable\" | \"permanent\";\n  optimistic-publisher.ts:70: * Permanent failure prefixes (don't retry):"
+    },
+    {
+      "text": "Event status transitions to 'confirmed' when at least one relay accepts",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  optimistic-publisher.ts:2: * Optimistic Event Publisher for Nostr clients\n  optimistic-publisher.ts:5: * - Optimistic UI: events shown immediately with 'pending' status\n  optimistic-publisher.ts:8: * - Event status transitions: pending → confirmed | failed"
+    },
+    {
+      "text": "Event status transitions to 'failed' only when ALL relays have rejected or timed out",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"rejected or timed out\":\n  optimistic-publisher.ts:332: * rejected or timed out."
+    },
+    {
+      "text": "A timeout mechanism exists for relays that don't send OK responses",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"timeout\" (heuristic match):\n  optimistic-publisher.ts:9: * - Timeout for unresponsive relays\n  optimistic-publisher.ts:17: type EventPublishStatus = \"pending\" | \"confirmed\" | \"failed\" | \"timeout\";\n  optimistic-publisher.ts:41: timeout: ReturnType<typeof setTimeout> | null;"
+    },
+    {
+      "text": "Regular event deduplication uses event.id with a Set or Map",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  optimistic-publisher.ts:2: * Optimistic Event Publisher for Nostr clients\n  optimistic-publisher.ts:5: * - Optimistic UI: events shown immediately with 'pending' status\n  optimistic-publisher.ts:8: * - Event status transitions: pending → confirmed | failed"
+    },
+    {
+      "text": "Replaceable event deduplication keeps the latest created_at, and breaks ties by keeping the lowest event id",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"replaceable\" (heuristic match):\n  optimistic-publisher.ts:10: * - Event deduplication for regular and replaceable events\n  optimistic-publisher.ts:108: * Replaceable events (kinds 0, 3, 10000-19999): keep latest created_at,\n  optimistic-publisher.ts:110: * Addressable events (kinds 30000-39999): same as replaceable but keyed"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1
+  }
+}

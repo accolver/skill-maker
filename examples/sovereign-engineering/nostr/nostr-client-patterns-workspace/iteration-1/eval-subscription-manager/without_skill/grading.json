@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "EOSE state is tracked per-relay per-subscription (not globally) using a map or similar structure",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  subscription-manager.ts:42: relays: { url: string; ws: WebSocket | null; state: string }[],\n  subscription-manager.ts:54: for (const relay of relays) {\n  subscription-manager.ts:55: if (relay.state === \"connected\" && relay.ws) {"
+    },
+    {
+      "text": "The overall subscription transitions to 'live' only after all relays have sent EOSE or a timeout has elapsed",
+      "passed": false,
+      "evidence": "No matches for \"sent eose or a timeout has elapsed\" found across 1 output file(s)"
+    },
+    {
+      "text": "An EOSE timeout mechanism exists (e.g., setTimeout) that forces transition to live if relays are slow",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"relays\" (heuristic match):\n  subscription-manager.ts:42: relays: { url: string; ws: WebSocket | null; state: string }[],\n  subscription-manager.ts:54: for (const relay of relays) {\n  subscription-manager.ts:97: relays: { url: string; ws: WebSocket | null; state: string }[]"
+    },
+    {
+      "text": "CLOSED messages are parsed and handled differently based on reason prefix (at least auth-required and restricted)",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"closed\" (heuristic match):\n  subscription-manager.ts:82: * Handle CLOSED message\n  subscription-manager.ts:84: handleClosed(subId: string, reason: string): void {\n  subscription-manager.ts:85: console.log(`Subscription ${subId} closed: ${reason}`);"
+    },
+    {
+      "text": "For auth-required CLOSED, the code attempts re-authentication before re-subscribing",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"closed\" (heuristic match):\n  subscription-manager.ts:82: * Handle CLOSED message\n  subscription-manager.ts:84: handleClosed(subId: string, reason: string): void {\n  subscription-manager.ts:85: console.log(`Subscription ${subId} closed: ${reason}`);"
+    },
+    {
+      "text": "Subscription replacement is supported by sending a new REQ with the same subscription ID and resetting EOSE tracking",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"subscription\" (heuristic match):\n  subscription-manager.ts:2: * Basic Subscription Manager for Nostr\n  subscription-manager.ts:25: interface Subscription {\n  subscription-manager.ts:32: class SubscriptionManager {"
+    },
+    {
+      "text": "After relay reconnection, subscriptions are re-sent with a 'since' filter parameter based on the last EOSE timestamp",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  subscription-manager.ts:42: relays: { url: string; ws: WebSocket | null; state: string }[],\n  subscription-manager.ts:54: for (const relay of relays) {\n  subscription-manager.ts:55: if (relay.state === \"connected\" && relay.ws) {"
+    },
+    {
+      "text": "Subscriptions can be closed by sending CLOSE messages to all connected relays",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"subscriptions\" (heuristic match):\n  subscription-manager.ts:33: private subscriptions: Map<string, Subscription> = new Map();\n  subscription-manager.ts:52: this.subscriptions.set(subId, sub);\n  subscription-manager.ts:75: const sub = this.subscriptions.get(subId);"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The path /.well-known/nostr.json appears in a route handler",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"json\" (heuristic match):\n  response.md:23: app.get(\"/.well-known/nostr.json\", (req, res) => {\n  response.md:37: res.json(result);\n  response.md:47: The nostr.json response contains a `names` object mapping usernames to their"
+    },
+    {
+      "text": "The name query parameter is extracted from the request",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"name\" (heuristic match):\n  response.md:24: const name = req.query.name;\n  response.md:26: const result = { names: {} };\n  response.md:28: if (name && users[name]) {"
+    },
+    {
+      "text": "The JSON response has a names object and a relays object",
+      "passed": false,
+      "evidence": "No matches for \"names object and a relays object\" found across 1 output file(s)"
+    },
+    {
+      "text": "Relay values are arrays with wss:// WebSocket URLs",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"relay\" (heuristic match):\n  response.md:15: relays: [\"wss://relay.damus.io\"],\n  response.md:19: relays: [\"wss://nos.lol\"],"
+    },
+    {
+      "text": "Access-Control-Allow-Origin header is set on responses",
+      "passed": false,
+      "evidence": "Could not verify assertion against 1 output file(s). Content preview: \"# Dynamic NIP-05 Server in Node.js\n\n## Server Code\n\nHere's a Node.js Express server that handles NIP-05 lookups:\n\n```javascript\nconst express = require(\"express\");\nconst app = express();\n\n// User data...\""
+    },
+    {
+      "text": "Input validation restricts the local-part to allowed characters",
+      "passed": false,
+      "evidence": "Could not verify assertion against 1 output file(s). Content preview: \"# Dynamic NIP-05 Server in Node.js\n\n## Server Code\n\nHere's a Node.js Express server that handles NIP-05 lookups:\n\n```javascript\nconst express = require(\"express\");\nconst app = express();\n\n// User data...\""
+    },
+    {
+      "text": "The underscore _ is handled as the root or domain identifier",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"domain\" (heuristic match):\n  response.md:66: Put this behind Nginx or another reverse proxy for HTTPS. Make sure your domain"
+    },
+    {
+      "text": "Example pubkeys are 64-character lowercase hex strings",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"example\" (heuristic match):\n  response.md:60: 1. A client sees a NIP-05 identifier like `bob@example.com`\n  response.md:61: 2. It fetches `https://example.com/.well-known/nostr.json?name=bob`"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "subscription-manager",
+  "prompt": "Build a subscription manager in TypeScript for a Nostr client that correctly handles the subscription lifecycle. It must: (1) track per-relay EOSE state so the overall subscription transitions from 'loading' to 'live' only when all relays have sent EOSE or timed out, (2) handle CLOSED messages from relays with different reason prefixes (auth-required, restricted, error), (3) support subscription replacement by sending a new REQ with the same sub-id, and (4) re-subscribe after relay reconnection using a 'since' parameter based on the last EOSE timestamp. Save to outputs/subscription-manager.ts.",
+  "assertions": [
+    "EOSE state is tracked per-relay per-subscription (not globally) using a map or similar structure",
+    "The overall subscription transitions to 'live' only after all relays have sent EOSE or a timeout has elapsed",
+    "An EOSE timeout mechanism exists (e.g., setTimeout) that forces transition to live if relays are slow",
+    "CLOSED messages are parsed and handled differently based on reason prefix (at least auth-required and restricted)",
+    "For auth-required CLOSED, the code attempts re-authentication before re-subscribing",
+    "Subscription replacement is supported by sending a new REQ with the same subscription ID and resetting EOSE tracking",
+    "After relay reconnection, subscriptions are re-sent with a 'since' filter parameter based on the last EOSE timestamp",
+    "Subscriptions can be closed by sending CLOSE messages to all connected relays"
+  ]
+}

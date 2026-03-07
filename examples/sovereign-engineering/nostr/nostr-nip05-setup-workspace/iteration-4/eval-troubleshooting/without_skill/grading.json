@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Alice must be changed to lowercase alice",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"alice\" (heuristic match):\n  response.md:7: Your nostr.json has `\"Alice\"` with a capital A. NIP-05 identifiers should be\n  response.md:8: case-insensitive, but it's best practice to use lowercase. Change `Alice` to\n  response.md:9: `alice` in your nostr.json file and update your profile to use"
+    },
+    {
+      "text": "The npub format is identified as incorrect and hex format is required",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"npub\" (heuristic match):\n  response.md:37: \"alice\": \"npub1dp4rcz7ufm4rrequena8s8nh5aykdw9t7e2dj0gya9j9sskjhk0qdjd0lv\""
+    },
+    {
+      "text": "The 301 redirect is identified as a NIP-05 spec violation",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"redirect\" (heuristic match):\n  response.md:12: ## Issue 2: The Redirect Problem\n  response.md:14: You're getting a 301 redirect from `mydomain.com` to `www.mydomain.com`. This\n  response.md:15: means your server is redirecting requests. NIP-05 clients may not follow"
+    },
+    {
+      "text": "A corrected nostr.json with alice in lowercase and a hex pubkey is provided",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"json\" (heuristic match):\n  response.md:7: Your nostr.json has `\"Alice\"` with a capital A. NIP-05 identifiers should be\n  response.md:9: `alice` in your nostr.json file and update your profile to use\n  response.md:18: To fix this in your web server, make sure `mydomain.com` serves the nostr.json"
+    },
+    {
+      "text": "The corrected nip05 profile value alice@mydomain.com appears in lowercase",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"mydomain\" (heuristic match):\n  response.md:10: `alice@mydomain.com`.\n  response.md:14: You're getting a 301 redirect from `mydomain.com` to `www.mydomain.com`. This\n  response.md:18: To fix this in your web server, make sure `mydomain.com` serves the nostr.json"
+    },
+    {
+      "text": "Server configuration guidance for eliminating the redirect is given",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"redirect\" (heuristic match):\n  response.md:12: ## Issue 2: The Redirect Problem\n  response.md:14: You're getting a 301 redirect from `mydomain.com` to `www.mydomain.com`. This\n  response.md:15: means your server is redirecting requests. NIP-05 clients may not follow"
+    },
+    {
+      "text": "CORS headers (Access-Control-Allow-Origin) are mentioned as required",
+      "passed": false,
+      "evidence": "Could not verify assertion against 1 output file(s). Content preview: \"# NIP-05 Troubleshooting\n\nLooking at your setup, I can see a couple of issues.\n\n## Issue 1: Case Sensitivity\n\nYour nostr.json has `\"Alice\"` with a capital A. NIP-05 identifiers should be\ncase-insensit...\""
+    },
+    {
+      "text": "Hex pubkeys are described as 64 characters long",
+      "passed": false,
+      "evidence": "Could not verify assertion against 1 output file(s). Content preview: \"# NIP-05 Troubleshooting\n\nLooking at your setup, I can see a couple of issues.\n\n## Issue 1: Case Sensitivity\n\nYour nostr.json has `\"Alice\"` with a capital A. NIP-05 identifiers should be\ncase-insensit...\""
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

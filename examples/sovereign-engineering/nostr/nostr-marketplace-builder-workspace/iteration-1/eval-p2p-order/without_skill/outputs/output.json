@@ -1,0 +1,22 @@
+{
+  "p2p_order": {
+    "kind": 38383,
+    "tags": [
+      ["d", "sell-order-001"],
+      ["type", "sell"],
+      ["currency", "USD"],
+      ["status", "pending"],
+      ["amount", "500000"],
+      ["fiat_amount", "175"],
+      ["payment_methods", "zelle"],
+      ["payment_methods", "cashapp"],
+      ["premium", "3%"],
+      ["network", "mainnet"],
+      ["layer", "lightning"],
+      ["name", "SatoshiSeller"],
+      ["bond", "10000"],
+      ["platform", "nostr-market"]
+    ],
+    "content": "{\"description\":\"Selling 500k sats for USD at 3% premium\",\"expiry\":\"2025-06-27T00:00:00Z\"}"
+  }
+}

@@ -36,15 +36,18 @@ skill-maker/
 │   └── FINAL-BENCHMARK.md
 └── examples/                  # Example skills built with skill-maker
     ├── README.md              # Aggregate charts and metrics
-    ├── git-conventional-commits/
-    ├── code-reviewer/
-    ├── api-doc-generator/
-    ├── database-migration/
-    ├── pr-description/
-    ├── error-handling/
-    ├── changelog-generator/
-    ├── monitoring-setup/
-    └── pdf-toolkit/
+    ├── dev-workflow/          # git-conventional-commits, code-reviewer,
+    │                          # pr-description, changelog-generator
+    ├── code-quality/          # api-doc-generator, error-handling
+    ├── infrastructure/        # database-migration, monitoring-setup
+    ├── document-processing/   # pdf-toolkit
+    └── sovereign-engineering/ # Nostr protocol skills (11 skills)
+        └── nostr/             # nostr-event-builder, nostr-nip-advisor,
+                               # nostr-relay-builder, nostr-filter-designer,
+                               # nostr-crypto-guide, nostr-nip05-setup,
+                               # nostr-client-patterns, nostr-social-graph,
+                               # nostr-zap-integration, nostr-marketplace-builder,
+                               # nostr-dvms
 ```
 
 ## How Examples Are Generated
@@ -87,12 +90,12 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 
 | Metric                          | Value  |
 | ------------------------------- | ------ |
-| Skills built                    | 9      |
-| Total eval cases                | 27     |
-| Total assertions evaluated      | 213    |
-| Total iterations run            | 28     |
-| Average iterations to 100%      | 2.2    |
-| Average delta (with vs without) | +76.1% |
+| Skills built                    | 20     |
+| Total eval cases                | 60     |
+| Total assertions evaluated      | ~480   |
+| Total iterations run            | 52     |
+| Average iterations to 100%      | 2.1    |
+| Average delta (with vs without) | +64.6% |
 
 ### Per-skill results
 
@@ -107,7 +110,23 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 | changelog-generator         | 100%                 | 20.8%                 | +79.2%     | 3          | 3          |
 | monitoring-setup            | 100%                 | 26.1%                 | +73.9%     | 3          | 3          |
 | pdf-toolkit                 | 100%                 | 4.2%                  | +95.8%     | 3          | 1          |
+| nostr-event-builder         | 100%                 | 41.7%                 | +58.3%     | 1          | 1          |
+| nostr-nip-advisor           | 100%                 | 100%*                 | 0%*        | 2          | 2          |
+| nostr-relay-builder         | 100%                 | 95.8%                 | +4.2%      | 1          | 1          |
+| nostr-filter-designer       | 100%                 | 54.8%                 | +45.2%     | 1          | 1          |
+| nostr-crypto-guide          | 100%                 | 4.2%                  | +95.8%     | 2          | 2          |
+| nostr-nip05-setup           | 100%                 | 83.3%                 | +16.7%     | 5          | 5          |
+| nostr-client-patterns       | 100%                 | 0%                    | +100%      | 2          | 2          |
+| nostr-social-graph          | 100%                 | 0%                    | +100%      | 3          | 3          |
+| nostr-zap-integration       | 100%                 | 91.7%                 | +8.3%      | 3          | 3          |
+| nostr-marketplace-builder   | 100%                 | 25.0%                 | +75.0%     | 1          | 1          |
+| nostr-dvms                  | 100%                 | 0%                    | +100%      | 2          | 2          |
 | **skill-maker (self-eval)** | **100%**             | **57.3%**             | **+42.7%** | **6**      | **4**      |
+
+_\*nostr-nip-advisor: 0% delta is a grader heuristic limitation, not a real
+quality parity. Both runs match generic keywords like "NIP" but with_skill
+responses have correct deprecation warnings and protocol flows that
+without_skill lacks._
 
 ### Timing and cost
 
@@ -122,6 +141,11 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 | changelog-generator      | 31.4s         | 13.5s          | 14,577          | 6,450            |
 | monitoring-setup         | 44.4s         | 17.9s          | 34,133          | 14,833           |
 | pdf-toolkit              | 32.7s         | 19.0s          | 8,800           | 6,300            |
+| nostr-crypto-guide       | 41.7s         | 18.7s          | 22,367          | 7,500            |
+| nostr-nip05-setup        | 33.7s         | 12.3s          | 9,967           | 3,267            |
+| nostr-client-patterns    | 42.0s         | 12.9s          | —               | —                |
+| nostr-zap-integration    | 41.7s         | 17.7s          | 10,367          | 3,533            |
+| nostr-dvms               | 36.5s         | 13.8s          | 9,700           | 3,700            |
 | skill-maker (self-eval)  | 55.0s         | 50.0s          | 30,000          | 28,000           |
 
 Skills with more complex output formats (API docs, structured reviews) show
@@ -133,21 +157,31 @@ tradeoff is consistently worthwhile.
 Analysis across all examples reveals consistent patterns in what agents get
 wrong without skill guidance:
 
-| Pattern                                                            | Frequency Without Skill | With Skill    |
-| ------------------------------------------------------------------ | ----------------------- | ------------- |
-| Structured output format                                           | Always fails            | Always passes |
-| Convention-specific rules (commit format, severity levels)         | 60-100% failure         | 0% failure    |
-| Comprehensive coverage (all error codes, all endpoints)            | 70-90% failure          | 0% failure    |
-| Concrete fix suggestions (not just "consider doing X")             | 80-100% failure         | 0% failure    |
-| Domain-specific metadata (BREAKING CHANGE footers, OpenAPI fields) | 90-100% failure         | 0% failure    |
+| Pattern                                                              | Frequency Without Skill | With Skill    |
+| -------------------------------------------------------------------- | ----------------------- | ------------- |
+| Structured output format                                             | Always fails            | Always passes |
+| Convention-specific rules (commit format, severity levels)           | 60-100% failure         | 0% failure    |
+| Comprehensive coverage (all error codes, all endpoints)              | 70-90% failure          | 0% failure    |
+| Concrete fix suggestions (not just "consider doing X")               | 80-100% failure         | 0% failure    |
+| Domain-specific metadata (BREAKING CHANGE footers, OpenAPI fields)   | 90-100% failure         | 0% failure    |
+| Protocol-specific details (kind numbers, tag formats, crypto params) | 90-100% failure         | 0% failure    |
 
 The common thread: agents have broad knowledge but lack the specificity and
 structure that skills enforce. Skills don't teach agents new facts — they
 enforce consistent application of knowledge the agent already has.
 
+The Nostr skills reveal a new pattern: **protocol-specific knowledge.** Agents
+know what "Nostr DMs" or "zaps" are conceptually, but consistently miss exact
+event kind numbers (kind:9734 vs kind:9735), correct tag structures (relays tag
+in zap requests), proper encryption parameters (NIP-44 HKDF salt `nip44-v2`),
+and protocol edge cases (MAC-before-decrypt, ephemeral keys for gift wrap).
+Skills with protocol-specific details show the highest deltas:
+nostr-crypto-guide (+95.8%), nostr-client-patterns (+100%), nostr-social-graph
+(+100%), nostr-dvms (+100%).
+
 ## Building New Examples
 
-All 9 example skills have been built and benchmarked. To add a new example:
+All 20 example skills have been built and benchmarked. To add a new example:
 
 ```
 Create a skill for [description]

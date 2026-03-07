@@ -1,0 +1,81 @@
+{
+  "skill_name": "nostr-marketplace-builder",
+  "iteration": 1,
+  "timestamp": "2026-03-07T18:45:58.099Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 35.6667,
+        "stddev": 4.9216
+      },
+      "tokens": {
+        "mean": 8166.6667,
+        "stddev": 1007.7478
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.25,
+        "stddev": 0.1021
+      },
+      "time_seconds": {
+        "mean": 15,
+        "stddev": 2.4495
+      },
+      "tokens": {
+        "mean": 2800,
+        "stddev": 326.5986
+      }
+    },
+    "delta": {
+      "pass_rate": 0.75,
+      "time_seconds": 20.7,
+      "tokens": 5367
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "auction-system",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 42,
+        "tokens": 9200
+      },
+      "without_skill": {
+        "pass_rate": 0.375,
+        "time_seconds": 15,
+        "tokens": 2800
+      }
+    },
+    {
+      "eval_name": "coffee-shop-stall",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 35,
+        "tokens": 8500
+      },
+      "without_skill": {
+        "pass_rate": 0.25,
+        "time_seconds": 18,
+        "tokens": 3200
+      }
+    },
+    {
+      "eval_name": "p2p-order",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 30,
+        "tokens": 6800
+      },
+      "without_skill": {
+        "pass_rate": 0.125,
+        "time_seconds": 12,
+        "tokens": 2400
+      }
+    }
+  ]
+}

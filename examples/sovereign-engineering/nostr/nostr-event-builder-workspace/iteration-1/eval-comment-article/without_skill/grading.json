@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a JSON event with kind set to 1111 (not kind 1)",
+      "passed": false,
+      "evidence": "No matches for \"contains a json event with kind set to 1111 (not kind 1)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Event has an uppercase A tag with the addressable coordinate '30023:3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289:my-first-article'",
+      "passed": false,
+      "evidence": "No matches for \"uppercase a tag with the addressable coordinate '30023:3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289:my-first-article'\" found across 1 output file(s)"
+    },
+    {
+      "text": "Event has an uppercase K tag with value '30023' for the root kind",
+      "passed": false,
+      "evidence": "No matches for \"uppercase k tag with value '30023' for the root kind\" found across 1 output file(s)"
+    },
+    {
+      "text": "Event has a lowercase k tag with value '30023' for the parent kind",
+      "passed": false,
+      "evidence": "No matches for \"lowercase k tag with value '30023' for the parent kind\" found across 1 output file(s)"
+    },
+    {
+      "text": "Event has an uppercase P tag containing the blog post author pubkey",
+      "passed": false,
+      "evidence": "No matches for \"uppercase p tag containing the blog post author pubkey\" found across 1 output file(s)"
+    },
+    {
+      "text": "Event has a lowercase p tag containing the blog post author pubkey",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"lowercase p tag containing the blog post author pubkey\":\n  event.txt:2: lowercase p tag containing the blog post author pubkey"
+    },
+    {
+      "text": "Event includes a lowercase a tag with the same addressable coordinate as the A tag",
+      "passed": false,
+      "evidence": "No matches for \"lowercase a tag with the same addressable coordinate as the a tag\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output explains that kind:1111 comments must NOT be used to reply to kind:1 notes (mentions NIP-22 or the comment/reply distinction)",
+      "passed": false,
+      "evidence": "No matches for \"explains that kind:1111 comments must not be used to reply to kind:1 notes (mentions nip-22 or the comment/reply distinction)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

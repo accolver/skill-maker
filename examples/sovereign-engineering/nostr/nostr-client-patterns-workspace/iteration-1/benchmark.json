@@ -1,0 +1,75 @@
+{
+  "skill_name": "nostr-client-patterns",
+  "iteration": 1,
+  "timestamp": "2026-03-07T18:44:04.739Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9167,
+        "stddev": 0.0589
+      },
+      "time_seconds": {
+        "mean": 41.9667,
+        "stddev": 3.0225
+      },
+      "tokens": {
+        "mean": null,
+        "stddev": null
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.7963,
+        "stddev": 0.1213
+      },
+      "time_seconds": {
+        "mean": 12.8667,
+        "stddev": 1.1728
+      },
+      "tokens": {
+        "mean": null,
+        "stddev": null
+      }
+    },
+    "delta": {
+      "pass_rate": 0.1204,
+      "time_seconds": 29.1,
+      "tokens": null
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "optimistic-publisher",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 45.6
+      },
+      "without_skill": {
+        "pass_rate": 0.889,
+        "time_seconds": 11.8
+      }
+    },
+    {
+      "eval_name": "relay-pool",
+      "with_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 38.2
+      },
+      "without_skill": {
+        "pass_rate": 0.625,
+        "time_seconds": 14.5
+      }
+    },
+    {
+      "eval_name": "subscription-manager",
+      "with_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 42.1
+      },
+      "without_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 12.3
+      }
+    }
+  ]
+}

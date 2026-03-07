@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Uses kind 9734 for the zap request event",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Sending a Lightning Zap on Nostr\n  response.md:3: Here's how to implement sending a zap in your Nostr client.\n  response.md:19: ## Step 2: Check if Zaps are Supported"
+    },
+    {
+      "text": "Checks allowsNostr to verify the LNURL endpoint supports Nostr zaps",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"nostr\" (heuristic match):\n  response.md:1: # Sending a Lightning Zap on Nostr\n  response.md:3: Here's how to implement sending a zap in your Nostr client.\n  response.md:22: if (!payData.allowsNostr) {"
+    },
+    {
+      "text": "Verifies the LNURL endpoint nostrPubkey is valid",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"lnurl\" (heuristic match):\n  response.md:13: const lnurlUrl = `https://${domain}/.well-known/lnurlp/${name}`;\n  response.md:15: const response = await fetch(lnurlUrl);"
+    },
+    {
+      "text": "Converts 21 sats to 21000 millisats for the amount tag",
+      "passed": true,
+      "evidence": "Found 2 match(es) for keyword \"21000\" (heuristic match):\n  response.md:38: [\"amount\", \"21000\"],\n  response.md:54: const invoiceUrl = `${payData.callback}?amount=21000&nostr=${encoded}`;"
+    },
+    {
+      "text": "Sends the zap request to the callback URL not publishing to relays",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Sending a Lightning Zap on Nostr\n  response.md:3: Here's how to implement sending a zap in your Nostr client.\n  response.md:19: ## Step 2: Check if Zaps are Supported"
+    },
+    {
+      "text": "The zap request event tags array has a relays entry with relay URLs",
+      "passed": false,
+      "evidence": "No matches for \"relays entry with relay urls\" found across 1 output file(s)"
+    },
+    {
+      "text": "Sends the zap request via HTTP GET to the callback URL with query parameters",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"zap\" (heuristic match):\n  response.md:1: # Sending a Lightning Zap on Nostr\n  response.md:3: Here's how to implement sending a zap in your Nostr client.\n  response.md:19: ## Step 2: Check if Zaps are Supported"
+    },
+    {
+      "text": "Constructs the LNURL discovery URL using .well-known/lnurlp",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"url\" (heuristic match):\n  response.md:13: const lnurlUrl = `https://${domain}/.well-known/lnurlp/${name}`;\n  response.md:15: const response = await fetch(lnurlUrl);\n  response.md:54: const invoiceUrl = `${payData.callback}?amount=21000&nostr=${encoded}`;"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

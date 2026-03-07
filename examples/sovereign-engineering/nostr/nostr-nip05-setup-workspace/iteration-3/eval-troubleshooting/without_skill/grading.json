@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The word 'lowercase' appears — 'Alice' must be converted to 'alice'",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"alice\" (heuristic match):\n  response.md:7: Your nostr.json has `\"Alice\"` as the key, but NIP-05 identifiers should\n  response.md:8: generally be lowercase. Change it to `\"alice\"` in both your nostr.json file and\n  response.md:52: \"alice\": \"npub1dp4rcz7ufm4rrequena8s8nh5aykdw9t7e2dj0gya9j9sskjhk0qdjd0lv\""
+    },
+    {
+      "text": "The word 'npub' is identified as the wrong format — must be 64-character hex",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"format\" (heuristic match):\n  response.md:41: ## Problem 3: Public Key Format\n  response.md:43: I notice your public key is in npub format. You may want to double-check that\n  response.md:44: this is the correct format for the nostr.json file. Some implementations expect"
+    },
+    {
+      "text": "The word 'redirect' and '301' are identified as violations of the NIP-05 spec",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"redirect\" (heuristic match):\n  response.md:11: ## Problem 2: Redirect Issue\n  response.md:13: You're getting a 301 redirect from `mydomain.com` to `www.mydomain.com`. This\n  response.md:18: redirecting"
+    },
+    {
+      "text": "A corrected nostr.json with 'alice' in lowercase and hex pubkey is provided",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"json\" (heuristic match):\n  response.md:7: Your nostr.json has `\"Alice\"` as the key, but NIP-05 identifiers should\n  response.md:8: generally be lowercase. Change it to `\"alice\"` in both your nostr.json file and\n  response.md:14: means the nostr.json file is being served from the www subdomain instead of"
+    },
+    {
+      "text": "The corrected nip05 profile value 'alice@mydomain.com' in all lowercase appears",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"mydomain\" (heuristic match):\n  response.md:13: You're getting a 301 redirect from `mydomain.com` to `www.mydomain.com`. This\n  response.md:28: server_name mydomain.com;\n  response.md:31: root /var/www/mydomain.com;"
+    },
+    {
+      "text": "Server configuration guidance for fixing the redirect is provided",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"redirect\" (heuristic match):\n  response.md:11: ## Problem 2: Redirect Issue\n  response.md:13: You're getting a 301 redirect from `mydomain.com` to `www.mydomain.com`. This\n  response.md:18: redirecting"
+    },
+    {
+      "text": "The string 'Access-Control-Allow-Origin' or 'CORS' appears as a required header",
+      "passed": false,
+      "evidence": "Could not verify assertion against 1 output file(s). Content preview: \"# Fixing NIP-05 Verification Issues\n\nLooking at your setup, I can see a couple of problems.\n\n## Problem 1: Case Sensitivity\n\nYour nostr.json has `\"Alice\"` as the key, but NIP-05 identifiers should\ngen...\""
+    },
+    {
+      "text": "The number '64' appears in the context of hex pubkey character length",
+      "passed": true,
+      "evidence": "Found 1 match(es) for keyword \"hex\" (heuristic match):\n  response.md:45: the hex format instead."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

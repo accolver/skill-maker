@@ -1,0 +1,14 @@
+{
+  "eval_id": 2,
+  "eval_name": "outbox-feed",
+  "prompt": "Implement the outbox model for fetching a user's feed in a Nostr client. Given a user's follow list (kind:3), I need code that: (1) fetches kind:10002 relay list metadata for each followed user, (2) extracts their write relays (for fetching their posts) and read relays (for fetching mentions), (3) groups followed users by their write relays to minimize connections, and (4) creates subscription filters per relay. Handle the case where a relay tag has no marker (meaning both read and write). Save to outputs/outbox-feed.ts",
+  "assertions": [
+    "Output file outbox-feed.ts exists and contains valid TypeScript",
+    "The code fetches kind:10002 events to discover relay preferences",
+    "Write relays are correctly identified: r tags with 'write' marker OR no marker",
+    "Read relays are correctly identified: r tags with 'read' marker OR no marker",
+    "The code groups followed users by their write relays to create per-relay subscriptions",
+    "Subscription filters use the authors field to filter by pubkey on each relay",
+    "The code handles the case where a user has no kind:10002 event (fallback strategy)"
+  ]
+}

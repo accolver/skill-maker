@@ -1,0 +1,14 @@
+{
+  "eval_id": 1,
+  "eval_name": "eval-follow-manager",
+  "prompt": "Build a follow list manager for a Nostr client. I need functions to: (1) create a kind:3 follow list event from an array of pubkeys, (2) add a follow to an existing follow list (given the current kind:3 event), and (3) remove a follow. Each p tag should include an optional relay hint and petname. Make sure the follow list is always published as a complete replacement. Save the code to outputs/follow-manager.ts",
+  "assertions": [
+    "Output produces events with 'kind: 3' or 'kind:3' for the follow list",
+    "Output uses p tags with format ['p', pubkey, relay, petname] or similar multi-element array",
+    "Output sets content to empty string ('') — not used for relay preferences",
+    "Output creates a COMPLETE follow list on add (full replacement, not a diff or patch)",
+    "The remove function builds a COMPLETE replacement follow list that excludes the removed pubkey",
+    "Output contains a createFollowList or equivalent function that builds a kind:3 from an array",
+    "Output contains an addFollow or equivalent function that appends to existing tags"
+  ]
+}

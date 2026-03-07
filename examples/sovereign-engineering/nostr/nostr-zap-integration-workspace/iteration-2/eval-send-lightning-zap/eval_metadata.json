@@ -1,0 +1,16 @@
+{
+  "eval_id": 1,
+  "eval_name": "send-lightning-zap",
+  "prompt": "I'm building a Nostr client and need to implement sending a zap to a user. The recipient's profile has lud16 set to 'alice@getalby.com'. I want to zap 21 sats on their latest note (event id: 'abc123def456...', kind 1). My pubkey is '97c70a44366a6535c145b333f973ea86dfdc2d7a99da618c40c64705ad98e322' and the recipient's pubkey is '32e1827635450ebb3c5a7d12c1f8e7b2b514439ac10a67eef3d9fd9c5c68e245'. Show me the complete implementation including LNURL discovery, zap request construction, and sending to the callback.",
+  "expected_output": "A complete implementation showing: LNURL endpoint discovery from lud16, verification of allowsNostr and nostrPubkey, construction of a kind:9734 zap request with correct tags (relays, amount in millisats, p, e, lnurl), sending the signed event to the callback URL as a query parameter (NOT publishing to relays), and receiving the bolt11 invoice.",
+  "assertions": [
+    "Uses kind 9734 for the zap request event",
+    "Checks allowsNostr to verify the LNURL endpoint supports Nostr zaps",
+    "Verifies the LNURL endpoint nostrPubkey is valid",
+    "Converts 21 sats to 21000 millisats for the amount tag",
+    "Sends the zap request to the callback URL not publishing to relays",
+    "Includes a relays tag in the zap request event",
+    "Sends the zap request via HTTP GET to the callback URL with query parameters",
+    "Constructs the LNURL discovery URL using .well-known/lnurlp"
+  ]
+}

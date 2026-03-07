@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains 'nip44-v2' as the HKDF salt string for conversation key derivation",
+      "passed": false,
+      "evidence": "No matches for \"contains 'nip44-v2' as the hkdf salt string for conversation key derivation\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'secp256k1' or 'getSharedSecret' or 'ECDH' for the shared point computation",
+      "passed": false,
+      "evidence": "No matches for \"contains 'secp256k1' or 'getsharedsecret' or 'ecdh' for the shared point computation\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'hkdf' or 'HKDF' with expand and the number 76 for per-message key derivation",
+      "passed": false,
+      "evidence": "No matches for \"contains 'hkdf' or 'hkdf' with expand and the number 76 for per-message key derivation\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'getRandomValues' or 'randomBytes' for generating a 32-byte nonce",
+      "passed": false,
+      "evidence": "No matches for \"contains 'getrandomvalues' or 'randombytes' for generating a 32-byte nonce\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains a padding function that calculates power-of-2 sizes and writes a 2-byte big-endian length prefix",
+      "passed": false,
+      "evidence": "No matches for \"contains a padding function that calculates power-of-2 sizes and writes a 2-byte big-endian length prefix\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains 'hmac' or 'HMAC' with SHA-256 for computing the MAC over nonce+ciphertext",
+      "passed": false,
+      "evidence": "No matches for \"contains 'hmac' or 'hmac' with sha-256 for computing the mac over nonce+ciphertext\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains base64 encoding of the concatenated version byte (0x02) + nonce + ciphertext + mac",
+      "passed": false,
+      "evidence": "No matches for \"contains base64 encoding of the concatenated version byte (0x02) + nonce + ciphertext + mac\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output verifies the MAC before decrypting (MAC check appears before decryption call)",
+      "passed": false,
+      "evidence": "No matches for \"verifies the mac before decrypting (mac check appears before decryption call)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

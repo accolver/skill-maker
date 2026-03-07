@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a kind 5002 translation job request with 'i' tag using 'text' input type",
+      "passed": false,
+      "evidence": "No matches for \"contains a kind 5002 translation job request with 'i' tag using 'text' input type\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output contains a kind 5001 summarization job request chained from the translation",
+      "passed": false,
+      "evidence": "No matches for \"contains a kind 5001 summarization job request chained from the translation\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output uses input type 'job' in the summarization request's 'i' tag (not 'event' or 'text')",
+      "passed": false,
+      "evidence": "No matches for \"uses input type 'job' in the summarization request's 'i' tag (not 'event' or 'text')\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output summarization i tag references the translation job's event ID",
+      "passed": false,
+      "evidence": "No matches for \"summarization i tag references the translation job's event id\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output explains that the summarization SP waits for the kind 6002 translation result",
+      "passed": false,
+      "evidence": "No matches for \"explains that the summarization sp waits for the kind 6002 translation result\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output translation request contains a 'param' tag for target language",
+      "passed": false,
+      "evidence": "No matches for \"translation request contains a 'param' tag for target language\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output shows or describes kind 6002 result events with 'request' and 'e' tags",
+      "passed": false,
+      "evidence": "No matches for \"shows or describes kind 6002 result events with 'request' and 'e' tags\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output explains that job #2 SP may need to wait for payment on job #1",
+      "passed": false,
+      "evidence": "No matches for \"explains that job #2 sp may need to wait for payment on job #1\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 8,
+    "total": 8,
+    "pass_rate": 0
+  }
+}

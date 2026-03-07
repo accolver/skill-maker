@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "nip42-authentication",
+  "prompt": "Add NIP-42 client authentication to my Nostr relay. The relay should: (1) send an AUTH challenge to clients when they connect, (2) handle AUTH messages from clients containing a signed kind:22242 event, (3) verify the auth event has correct relay and challenge tags, verify created_at is within 10 minutes, and verify the signature, (4) track which pubkeys are authenticated per connection, (5) use auth-required: prefix in OK and CLOSED messages when authentication is needed but not provided. Show me the complete AUTH flow including challenge generation, verification, and how to gate EVENT writes and REQ subscriptions behind authentication.",
+  "assertions": [
+    "kind 22242 used for authentication event",
+    "challenge tag verified in auth event",
+    "relay tag verified matching relay URL",
+    "auth-required prefix in OK or CLOSED messages",
+    "created_at validated within 600 seconds or 10 minutes",
+    "AUTH challenge sent to clients on connection",
+    "authenticated state tracked per WebSocket connection",
+    "schnorr or verifySignature for signature verification"
+  ]
+}

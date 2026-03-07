@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Fetches the recipient kind 10019 nutzap configuration event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"recipient\" (heuristic match):\n  response.md:6: ## Step 1: Fetch Recipient's Nutzap Configuration (kind: 10019)\n  response.md:8: First, query for the recipient's kind:10019 nutzap informational event to\n  response.md:15: const recipientPubkey = \"recipient-nostr-pubkey-hex\";"
+    },
+    {
+      "text": "Constructs a kind 9321 nutzap event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:6: ## Step 1: Fetch Recipient's Nutzap Configuration (kind: 10019)\n  response.md:8: First, query for the recipient's kind:10019 nutzap informational event to\n  response.md:17: // Fetch the recipient's nutzap config (kind: 10019 — a replaceable event)"
+    },
+    {
+      "text": "Uses P2PK locking for the Cashu tokens",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"p2pk\" (heuristic match):\n  response.md:9: discover their trusted mints, preferred relays, and P2PK pubkey:\n  response.md:42: p2pkPubkey: string;\n  response.md:59: // Extract the P2PK pubkey for token locking"
+    },
+    {
+      "text": "Prefixes the P2PK pubkey with 02 for compressed public key format",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"p2pk\" (heuristic match):\n  response.md:9: discover their trusted mints, preferred relays, and P2PK pubkey:\n  response.md:42: p2pkPubkey: string;\n  response.md:59: // Extract the P2PK pubkey for token locking"
+    },
+    {
+      "text": "Warns that the P2PK pubkey must NOT be the user main Nostr pubkey",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"p2pk\" (heuristic match):\n  response.md:9: discover their trusted mints, preferred relays, and P2PK pubkey:\n  response.md:42: p2pkPubkey: string;\n  response.md:59: // Extract the P2PK pubkey for token locking"
+    },
+    {
+      "text": "Includes proof tags with Cashu token proofs in the nutzap event",
+      "passed": false,
+      "evidence": "No matches for \"proof tags with cashu token proofs in the nutzap event\" found across 1 output file(s)"
+    },
+    {
+      "text": "References the mint URL from the recipient kind 10019 event",
+      "passed": false,
+      "evidence": "No matches for \"mint url from the recipient kind 10019 event\" found across 1 output file(s)"
+    },
+    {
+      "text": "Explains the redemption process including kind 7376 or token swap",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:6: ## Step 1: Fetch Recipient's Nutzap Configuration (kind: 10019)\n  response.md:8: First, query for the recipient's kind:10019 nutzap informational event to\n  response.md:17: // Fetch the recipient's nutzap config (kind: 10019 — a replaceable event)"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

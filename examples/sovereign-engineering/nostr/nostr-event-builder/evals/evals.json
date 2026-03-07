@@ -1,0 +1,50 @@
+{
+  "skill_name": "nostr-event-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to reply to a note in an existing thread. The root note has event ID aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa1 by pubkey f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca. The note I'm directly replying to has event ID bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb222bbb2 by pubkey 93ef2ebaaf9554661f33e79949007900bbc535d239a4c801c33a4d67d3e7f546. Both are kind:1 text notes. My reply text is 'Great point, I totally agree!' Please construct the complete unsigned Nostr event JSON I need to publish.",
+      "expected_output": "A complete kind:1 event JSON with two marked e tags (one with 'root' marker pointing to the root event, one with 'reply' marker pointing to the parent event), p tags for both the root author and the parent author, and the reply text as plaintext content. The event should follow NIP-10 threading conventions with proper markers.",
+      "assertions": [
+        "Output contains a JSON event with kind set to 1 (not 1111 or any other kind)",
+        "Event has an e tag with the root event ID and marker 'root'",
+        "Event has a separate e tag with the parent event ID and marker 'reply'",
+        "Event includes a p tag containing the root author pubkey f7234bd4c1394dda46d09f35bd384dd30cc552ad5541990f98844fb06676e9ca",
+        "Event includes a p tag containing the parent author pubkey 93ef2ebaaf9554661f33e79949007900bbc535d239a4c801c33a4d67d3e7f546",
+        "The content field contains the reply text as plaintext (not markdown or HTML)",
+        "The e tags include relay URL hints (even if placeholder empty strings)",
+        "Output explains that kind:1 replies must only target other kind:1 events (mentions NIP-10 or the threading rule)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I want to comment on a long-form blog post (kind:30023) published by pubkey 3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289 with d-tag 'my-first-article'. The specific event ID is 5b4fc7fed15672fefe65d2426f67197b71ccc82aa0cc8a9e94f683eb78e07651. The relay is wss://relay.example.com. My comment is 'This article changed my perspective on decentralization.' Construct the complete unsigned Nostr event JSON.",
+      "expected_output": "A kind:1111 comment event with uppercase tags (A, K, P) for the root blog post scope and lowercase tags (a, e, k, p) for the parent item. Since this is a top-level comment, root and parent reference the same blog post. Must include both K and k tags with value '30023'. Should use A/a tags with the addressable coordinate format kind:pubkey:d-tag.",
+      "assertions": [
+        "Output contains a JSON event with kind set to 1111 (not kind 1)",
+        "Event has an uppercase A tag with the addressable coordinate '30023:3c9849383bdea883b0bd16fece1ed36d37e37cdde3ce43b17ea4e9192ec11289:my-first-article'",
+        "Event has an uppercase K tag with value '30023' for the root kind",
+        "Event has a lowercase k tag with value '30023' for the parent kind",
+        "Event has an uppercase P tag containing the blog post author pubkey",
+        "Event has a lowercase p tag containing the blog post author pubkey",
+        "Event includes a lowercase a tag with the same addressable coordinate as the A tag",
+        "Output explains that kind:1111 comments must NOT be used to reply to kind:1 notes (mentions NIP-22 or the comment/reply distinction)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I want to create a user profile update for my Nostr identity. My name is 'satoshi', display name is 'Satoshi Nakamoto', bio is 'Building the future of money', profile picture is at https://example.com/satoshi.jpg, website is https://bitcoin.org, NIP-05 identifier is satoshi@bitcoin.org, and my Lightning address is satoshi@getalby.com. Construct the complete unsigned Nostr event JSON.",
+      "expected_output": "A kind:0 replaceable event with an empty tags array and a content field containing a stringified JSON object with all the profile fields: name, display_name, about, picture, website, nip05, and lud16. The content must be a JSON string (not a raw object).",
+      "assertions": [
+        "Output contains a JSON event with kind set to 0",
+        "The content field is a string (stringified JSON), not a raw JSON object",
+        "The stringified content JSON includes a 'name' field set to 'satoshi'",
+        "The stringified content JSON includes a 'display_name' field set to 'Satoshi Nakamoto'",
+        "The stringified content JSON includes an 'about' field with the bio text",
+        "The stringified content JSON includes 'nip05' set to 'satoshi@bitcoin.org'",
+        "The stringified content JSON includes 'lud16' set to 'satoshi@getalby.com'",
+        "Output mentions that kind:0 is a replaceable event (latest version per pubkey replaces previous)"
+      ]
+    }
+  ]
+}

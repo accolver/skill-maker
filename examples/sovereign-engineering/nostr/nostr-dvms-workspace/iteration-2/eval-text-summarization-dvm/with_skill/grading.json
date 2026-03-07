@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output subscribes to or filters for kind 5001 events (summarization job requests)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"subscribes to or filters for kind 5001 events (summarization job requests)\":\n  response.md:3: This implementation subscribes to or filters for kind 5001 events (summarization job requests) on the relay wss://relay."
+    },
+    {
+      "text": "Output publishes kind 7000 feedback with status tag 'processing'",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"publishes kind 7000 feedback with status tag 'processing'\":\n  response.md:5: It publishes kind 7000 feedback with status tag 'processing' when a job begins."
+    },
+    {
+      "text": "Output publishes kind 7000 feedback with status tag 'error' for failures",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"publishes kind 7000 feedback with status tag 'error' for failures\":\n  response.md:7: It publishes kind 7000 feedback with status tag 'error' for failures so customers know what went wrong."
+    },
+    {
+      "text": "Output publishes kind 6001 result events (5001 + 1000)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"publishes kind 6001 result events (5001 + 1000)\":\n  response.md:9: It publishes kind 6001 result events (5001 + 1000) containing the summarized output."
+    },
+    {
+      "text": "Output result events contain a 'request' tag with the stringified original job request",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"result events contain a 'request' tag with the stringified original job request\":\n  response.md:11: The result events contain a 'request' tag with the stringified original job request event, which is the full JSON of the"
+    },
+    {
+      "text": "Output result events contain an 'e' tag referencing the job request event ID",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"result events contain an 'e' tag referencing the job request event id\":\n  response.md:13: The result events contain an 'e' tag referencing the job request event ID so clients can correlate results with requests"
+    },
+    {
+      "text": "Output result events contain a 'p' tag with the customer's pubkey",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"result events contain a 'p' tag with the customer's pubkey\":\n  response.md:15: The result events contain a 'p' tag with the customer's pubkey so they can find results by subscribing with a filter on "
+    },
+    {
+      "text": "Output handles at least two input types from 'i' tags (text and url)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"handles at least two input types from 'i' tags (text and url)\":\n  response.md:17: This service handles at least two input types from 'i' tags (text and url). For \"text\" input type, the raw text data is "
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

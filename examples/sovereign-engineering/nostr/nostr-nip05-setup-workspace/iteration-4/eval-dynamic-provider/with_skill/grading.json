@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The path /.well-known/nostr.json appears in a route handler",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nostr\" (heuristic match):\n  response.md:6: ## The nostr.json Response Format\n  response.md:8: Per NIP-05, the response from `/.well-known/nostr.json?name=<local-part>` must\n  response.md:46: relays: [\"wss://relay.damus.io\", \"wss://relay.nostr.band\"],"
+    },
+    {
+      "text": "The name query parameter is extracted from the request",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"name\" (heuristic match):\n  response.md:8: Per NIP-05, the response from `/.well-known/nostr.json?name=<local-part>` must\n  response.md:13: \"names\": {\n  response.md:25: - **`names`** (REQUIRED): Maps local-part strings to 64-character lowercase hex"
+    },
+    {
+      "text": "The JSON response structure has both names and relays keys",
+      "passed": false,
+      "evidence": "No matches for \"both names and relays keys\" found across 1 output file(s)"
+    },
+    {
+      "text": "Relay values are arrays with wss:// WebSocket URLs",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  response.md:16: \"relays\": {\n  response.md:18: \"wss://relay.example.com\",\n  response.md:19: \"wss://relay2.example.com\""
+    },
+    {
+      "text": "Access-Control-Allow-Origin header is set on responses",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"access\" (heuristic match):\n  response.md:63: // Without Access-Control-Allow-Origin: *, browser-based Nostr clients\n  response.md:65: res.set(\"Access-Control-Allow-Origin\", \"*\");\n  response.md:66: res.set(\"Access-Control-Allow-Methods\", \"GET\");"
+    },
+    {
+      "text": "Input validation restricts the local-part to allowed characters",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"local\" (heuristic match):\n  response.md:8: Per NIP-05, the response from `/.well-known/nostr.json?name=<local-part>` must\n  response.md:14: \"<local-part>\": \"<64-char-lowercase-hex-pubkey>\"\n  response.md:25: - **`names`** (REQUIRED): Maps local-part strings to 64-character lowercase hex"
+    },
+    {
+      "text": "The underscore _ is handled as the root or domain identifier",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"underscore\" (heuristic match):\n  response.md:30: digits, hyphen, underscore, period).\n  response.md:31: - **Root identifier**: The underscore `_` is a special local-part.\n  response.md:52: // The underscore _ is the root identifier."
+    },
+    {
+      "text": "Example pubkeys are 64-character lowercase hex strings",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"example\" (heuristic match):\n  response.md:18: \"wss://relay.example.com\",\n  response.md:19: \"wss://relay2.example.com\"\n  response.md:32: `_@example.com` displays as just `example.com` in clients. This lets a domain"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

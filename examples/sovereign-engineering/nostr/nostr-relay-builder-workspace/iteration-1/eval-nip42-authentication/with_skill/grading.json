@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "kind 22242 used for authentication event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  nip42-auth.ts:6: * 2. Client responds with AUTH containing signed kind:22242 event\n  nip42-auth.ts:21: interface NostrEvent {\n  nip42-auth.ts:59: // Event Validation (shared with NIP-01)"
+    },
+    {
+      "text": "challenge tag verified in auth event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"challenge\" (heuristic match):\n  nip42-auth.ts:5: * 1. Relay sends AUTH challenge on connection open\n  nip42-auth.ts:7: * 3. Relay verifies relay tag, challenge tag, created_at window, signature\n  nip42-auth.ts:33: challenge: string;"
+    },
+    {
+      "text": "relay tag verified matching relay URL",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"relay\" (heuristic match):\n  nip42-auth.ts:2: * NIP-42 Client Authentication for Nostr Relay\n  nip42-auth.ts:5: * 1. Relay sends AUTH challenge on connection open\n  nip42-auth.ts:7: * 3. Relay verifies relay tag, challenge tag, created_at window, signature"
+    },
+    {
+      "text": "auth-required prefix in OK or CLOSED messages",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  nip42-auth.ts:2: * NIP-42 Client Authentication for Nostr Relay\n  nip42-auth.ts:4: * Implements the full AUTH flow:\n  nip42-auth.ts:5: * 1. Relay sends AUTH challenge on connection open"
+    },
+    {
+      "text": "created_at validated within 600 seconds or 10 minutes",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"created\" (heuristic match):\n  nip42-auth.ts:7: * 3. Relay verifies relay tag, challenge tag, created_at window, signature\n  nip42-auth.ts:24: created_at: number;\n  nip42-auth.ts:66: event.created_at,"
+    },
+    {
+      "text": "AUTH challenge sent to clients on connection",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"auth\" (heuristic match):\n  nip42-auth.ts:2: * NIP-42 Client Authentication for Nostr Relay\n  nip42-auth.ts:4: * Implements the full AUTH flow:\n  nip42-auth.ts:5: * 1. Relay sends AUTH challenge on connection open"
+    },
+    {
+      "text": "authenticated state tracked per WebSocket connection",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"connection\" (heuristic match):\n  nip42-auth.ts:5: * 1. Relay sends AUTH challenge on connection open\n  nip42-auth.ts:8: * 4. Per-connection auth state tracking\n  nip42-auth.ts:31: interface ConnectionData {"
+    },
+    {
+      "text": "schnorr or verifySignature for signature verification",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"signature\" (heuristic match):\n  nip42-auth.ts:7: * 3. Relay verifies relay tag, challenge tag, created_at window, signature\n  nip42-auth.ts:74: function verifySignature(event: NostrEvent): boolean {\n  nip42-auth.ts:94: * 5. Event id and signature are valid (Schnorr verification)"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

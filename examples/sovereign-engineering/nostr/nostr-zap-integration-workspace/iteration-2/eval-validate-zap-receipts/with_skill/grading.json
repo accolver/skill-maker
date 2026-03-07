@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Works with kind 9735 zap receipt events",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:3: Here's a comprehensive validation function for kind:9735 zap receipt events that\n  response.md:24: kind: number;\n  response.md:34: * Validates a kind:9735 zap receipt event according to NIP-57."
+    },
+    {
+      "text": "Validates that receipt pubkey matches the LNURL nostrPubkey",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"receipt\" (heuristic match):\n  response.md:1: # Zap Receipt Validation Implementation (NIP-57)\n  response.md:3: Here's a comprehensive validation function for kind:9735 zap receipt events that\n  response.md:34: * Validates a kind:9735 zap receipt event according to NIP-57."
+    },
+    {
+      "text": "Parses the description tag as JSON to get the embedded zap request",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"description\" (heuristic match):\n  response.md:63: // === Check 3: Parse the description tag to extract the embedded zap request ===\n  response.md:64: // The \"description\" tag contains the original kind:9734 zap request as JSON\n  response.md:65: const descriptionTag = receipt.tags.find((t) => t[0] === \"description\");"
+    },
+    {
+      "text": "Checks the bolt11 tag for invoice amount verification",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"bolt11\" (heuristic match):\n  response.md:11: import { decode as decodeBolt11 } from \"light-bolt11-decoder\";\n  response.md:91: // === Check 5: Verify bolt11 invoice amount matches zap request amount ===\n  response.md:92: const bolt11Tag = receipt.tags.find((t) => t[0] === \"bolt11\");"
+    },
+    {
+      "text": "Verifies that the bolt11 invoice amount matches the zap request amount",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"bolt11\" (heuristic match):\n  response.md:11: import { decode as decodeBolt11 } from \"light-bolt11-decoder\";\n  response.md:91: // === Check 5: Verify bolt11 invoice amount matches zap request amount ===\n  response.md:92: const bolt11Tag = receipt.tags.find((t) => t[0] === \"bolt11\");"
+    },
+    {
+      "text": "Uses SHA256 hashing of the description to verify against bolt11 description hash",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"description\" (heuristic match):\n  response.md:63: // === Check 3: Parse the description tag to extract the embedded zap request ===\n  response.md:64: // The \"description\" tag contains the original kind:9734 zap request as JSON\n  response.md:65: const descriptionTag = receipt.tags.find((t) => t[0] === \"description\");"
+    },
+    {
+      "text": "Verifies the embedded zap request is kind 9734",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"embedded\" (heuristic match):\n  response.md:63: // === Check 3: Parse the description tag to extract the embedded zap request ===\n  response.md:73: // Parse the description tag value as JSON to get the embedded zap request\n  response.md:84: // === Check 4: Verify the embedded zap request is kind 9734 ==="
+    },
+    {
+      "text": "Extracts the sender pubkey from the embedded zap request event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"sender\" (heuristic match):\n  response.md:16: senderPubkey?: string;\n  response.md:135: // === Extract sender pubkey and comment from the embedded zap request ===\n  response.md:136: // The sender's pubkey is the .pubkey field of the embedded kind:9734 event"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

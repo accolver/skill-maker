@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Works with kind 9735 zap receipt events",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  output.md:3: Here's a comprehensive validation function for kind:9735 zap receipt events,\n  output.md:27: // Check that this is a kind 9735 event\n  output.md:28: if (receipt.kind !== 9735) {"
+    },
+    {
+      "text": "Validates that receipt pubkey matches the LNURL nostrPubkey",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"receipt\" (heuristic match):\n  output.md:1: # Zap Receipt Validation Implementation\n  output.md:3: Here's a comprehensive validation function for kind:9735 zap receipt events,\n  output.md:21: function validateZapReceipt("
+    },
+    {
+      "text": "Parses the description tag containing the JSON-encoded zap request",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"description\" (heuristic match):\n  output.md:43: // ─── Check 2: Parse the description tag ───\n  output.md:44: // The description tag contains the JSON-serialized zap request (kind 9734).\n  output.md:46: const descriptionTag = receipt.tags.find((t) => t[0] === \"description\");"
+    },
+    {
+      "text": "Checks the bolt11 tag for invoice amount verification",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"bolt11\" (heuristic match):\n  output.md:68: // The invoice amount in the bolt11 tag MUST match the amount in the\n  output.md:70: const bolt11Tag = receipt.tags.find((t) => t[0] === \"bolt11\");\n  output.md:73: if (bolt11Tag && requestAmount) {"
+    },
+    {
+      "text": "Verifies that invoice amount matches the zap request amount",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"amount\" (heuristic match):\n  output.md:16: amountMsats?: number;\n  output.md:67: // ─── Check 4: Verify amount matches ───\n  output.md:68: // The invoice amount in the bolt11 tag MUST match the amount in the"
+    },
+    {
+      "text": "Checks SHA256 of description against bolt11 description hash",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"description\" (heuristic match):\n  output.md:43: // ─── Check 2: Parse the description tag ───\n  output.md:44: // The description tag contains the JSON-serialized zap request (kind 9734).\n  output.md:46: const descriptionTag = receipt.tags.find((t) => t[0] === \"description\");"
+    },
+    {
+      "text": "Verifies the embedded event in description tag is kind 9734",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  output.md:3: Here's a comprehensive validation function for kind:9735 zap receipt events,\n  output.md:15: zapRequest?: NostrEvent;\n  output.md:22: receipt: NostrEvent,"
+    },
+    {
+      "text": "Extracts the sender pubkey from the zap request pubkey field or P tag",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"sender\" (heuristic match):\n  output.md:17: senderPubkey?: string;\n  output.md:100: // ─── Extract sender pubkey and comment ───\n  output.md:101: // The sender's pubkey is the pubkey field of the embedded zap request."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

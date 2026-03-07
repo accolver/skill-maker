@@ -1,0 +1,16 @@
+{
+  "eval_id": 3,
+  "eval_name": "nutzap-sending",
+  "prompt": "I want to implement Nutzap (NIP-61) sending in my Nostr client as an alternative to Lightning zaps. The recipient has published a kind:10019 event. Show me the complete flow: fetching their nutzap config, minting P2PK-locked Cashu tokens at one of their trusted mints, and publishing the kind:9321 nutzap event. Also explain how the recipient would verify and redeem the nutzap. Make sure to handle the P2PK pubkey correctly for nostr-cashu compatibility.",
+  "expected_output": "Complete implementation showing: (1) fetching and parsing kind:10019 with relay, mint, and pubkey tags, (2) verifying the P2PK pubkey is NOT the user's main Nostr key, (3) minting tokens P2PK-locked with '02' prefix on the pubkey, (4) constructing kind:9321 with proof, u, unit, p tags, (5) publishing to the relays from kind:10019, (6) recipient verification checking mint is trusted and proofs are locked to correct key, (7) redemption via token swap and kind:7376 event.",
+  "assertions": [
+    "Fetches the recipient's kind 10019 nutzap configuration event",
+    "Constructs a kind 9321 nutzap event",
+    "Uses P2PK locking for the Cashu tokens",
+    "Prefixes the P2PK pubkey with 02 for nostr-cashu compatibility",
+    "Warns that the P2PK pubkey must NOT be the user's main Nostr pubkey and must be a separate key",
+    "Includes proof tags with Cashu token proofs in the nutzap event",
+    "References the mint URL and uses only mints from the recipient's kind 10019",
+    "Explains the redemption process including kind 7376 or token swapping"
+  ]
+}

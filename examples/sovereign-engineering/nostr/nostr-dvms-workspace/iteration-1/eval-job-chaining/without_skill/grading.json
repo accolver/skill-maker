@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a kind:5002 translation job request with i tag using 'text' input type",
+      "passed": false,
+      "evidence": "No matches for \"includes a kind:5002 translation job request with i tag using 'text' input type\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output includes a kind:5001 summarization job request that chains from the translation job",
+      "passed": false,
+      "evidence": "No matches for \"includes a kind:5001 summarization job request that chains from the translation job\" found across 1 output file(s)"
+    },
+    {
+      "text": "The summarization request uses input type 'job' in its i tag (not 'event' or 'text')",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"request\" (heuristic match):\n  output.md:6: ## Step 1: Translation Request\n  output.md:13: // Publish translation request (kind:5002)\n  output.md:14: const translationRequest = {"
+    },
+    {
+      "text": "The summarization request's i tag references the translation job's event ID",
+      "passed": false,
+      "evidence": "No matches for \"translation job's event id\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output explains that the summarization SP waits for the kind:6002 translation result before processing",
+      "passed": false,
+      "evidence": "No matches for \"explains that the summarization sp waits for the kind:6002 translation result before processing\" found across 1 output file(s)"
+    },
+    {
+      "text": "Translation request includes a param tag for target language",
+      "passed": false,
+      "evidence": "No matches for \"param tag for target language\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output shows or describes the kind:6002 translation result event structure with request and e tags",
+      "passed": false,
+      "evidence": "No matches for \"shows or describes the kind:6002 translation result event structure with request and e tags\" found across 1 output file(s)"
+    },
+    {
+      "text": "Output explains that the SP for job #2 may wait for payment on job #1 before starting",
+      "passed": false,
+      "evidence": "No matches for \"explains that the sp for job #2 may wait for payment on job #1 before starting\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  }
+}

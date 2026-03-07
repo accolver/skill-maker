@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Fetches kind 10019 for the nutzap configuration",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:6: ## Step 1: Fetch Recipient's Nutzap Configuration (kind:10019)\n  response.md:8: First, query for the recipient's kind:10019 nutzap informational event to\n  response.md:17: // Fetch the recipient's nutzap config (kind:10019 — a replaceable event)"
+    },
+    {
+      "text": "Constructs kind 9321 nutzap events",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:6: ## Step 1: Fetch Recipient's Nutzap Configuration (kind:10019)\n  response.md:8: First, query for the recipient's kind:10019 nutzap informational event to\n  response.md:17: // Fetch the recipient's nutzap config (kind:10019 — a replaceable event)"
+    },
+    {
+      "text": "Uses P2PK for locking the Cashu tokens",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"p2pk\" (heuristic match):\n  response.md:9: discover their trusted mints, preferred relays, and P2PK pubkey:\n  response.md:39: [\"pubkey\", \"a1b2c3d4e5f6...separate-p2pk-key...\"]\n  response.md:50: p2pkPubkey: string;"
+    },
+    {
+      "text": "Prefixes the P2PK pubkey with 02 for compressed public key format",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"p2pk\" (heuristic match):\n  response.md:9: discover their trusted mints, preferred relays, and P2PK pubkey:\n  response.md:39: [\"pubkey\", \"a1b2c3d4e5f6...separate-p2pk-key...\"]\n  response.md:50: p2pkPubkey: string;"
+    },
+    {
+      "text": "Warns that the P2PK pubkey must NOT be the main Nostr pubkey",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"p2pk\" (heuristic match):\n  response.md:9: discover their trusted mints, preferred relays, and P2PK pubkey:\n  response.md:39: [\"pubkey\", \"a1b2c3d4e5f6...separate-p2pk-key...\"]\n  response.md:50: p2pkPubkey: string;"
+    },
+    {
+      "text": "The nutzap event has proof tags carrying Cashu token data",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"proof tags carrying cashu token data\":\n  response.md:157: // The nutzap event has proof tags carrying Cashu token data."
+    },
+    {
+      "text": "The mint URL is fetched from the recipient kind 10019 event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"mint\" (heuristic match):\n  response.md:9: discover their trusted mints, preferred relays, and P2PK pubkey:\n  response.md:37: [\"mint\", \"https://mint.minibits.cash/Bitcoin\", \"sat\"],\n  response.md:38: [\"mint\", \"https://stablenut.umint.cash\", \"usd\", \"sat\"],"
+    },
+    {
+      "text": "Explains redemption including kind 7376 or token swap",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"kind\" (heuristic match):\n  response.md:6: ## Step 1: Fetch Recipient's Nutzap Configuration (kind:10019)\n  response.md:8: First, query for the recipient's kind:10019 nutzap informational event to\n  response.md:17: // Fetch the recipient's nutzap config (kind:10019 — a replaceable event)"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

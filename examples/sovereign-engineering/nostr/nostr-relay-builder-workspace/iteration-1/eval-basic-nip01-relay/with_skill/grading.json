@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "JSON.stringify used for canonical serialization",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"json\" (heuristic match):\n  relay.ts:62: * SHA-256 of JSON.stringify([0, pubkey, created_at, kind, tags, content])\n  relay.ts:65: * Uses JSON.stringify with no spacer argument (zero whitespace).\n  relay.ts:68: const serialized = JSON.stringify(["
+    },
+    {
+      "text": "sha256 used for computing event ID",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"event\" (heuristic match):\n  relay.ts:5: *   Client → Relay: EVENT, REQ, CLOSE\n  relay.ts:6: *   Relay → Client: OK, EVENT, EOSE, CLOSED, NOTICE\n  relay.ts:8: * Event validation: SHA-256 id computation + Schnorr signature verification"
+    },
+    {
+      "text": "schnorr used for signature verification on secp256k1",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"signature\" (heuristic match):\n  relay.ts:8: * Event validation: SHA-256 id computation + Schnorr signature verification\n  relay.ts:80: * Verify the Schnorr signature (BIP-340 / secp256k1) over the event id.\n  relay.ts:82: function verifySignature(event: NostrEvent): boolean {"
+    },
+    {
+      "text": "serialization array starts with [0, element per NIP-01",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"array\" (heuristic match):\n  relay.ts:104: if (!Array.isArray(event.tags))\n  relay.ts:105: return [false, \"invalid: tags must be array\"];\n  relay.ts:233: if (key.startsWith(\"#\") && key.length === 2 && Array.isArray(values)) {"
+    },
+    {
+      "text": "EOSE response sent after stored events delivered",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"events\" (heuristic match):\n  relay.ts:49: const events = new Map<string, NostrEvent>();\n  relay.ts:152: if (events.has(event.id)) {\n  relay.ts:156: // Ephemeral events: do NOT store, just broadcast"
+    },
+    {
+      "text": "filter matching with ids authors kinds since until",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"filter\" (heuristic match):\n  relay.ts:9: * Filter matching: ids, authors, kinds, #tag filters, since, until, limit\n  relay.ts:31: interface NostrFilter {\n  relay.ts:38: [key: string]: unknown; // tag filters like #e, #p, etc."
+    },
+    {
+      "text": "replaceable events for kind 0 and kind 3 and 10000-19999",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"events\" (heuristic match):\n  relay.ts:49: const events = new Map<string, NostrEvent>();\n  relay.ts:152: if (events.has(event.id)) {\n  relay.ts:156: // Ephemeral events: do NOT store, just broadcast"
+    },
+    {
+      "text": "isEphemeral or ephemeral events for 20000 to 29999",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"events\" (heuristic match):\n  relay.ts:49: const events = new Map<string, NostrEvent>();\n  relay.ts:152: if (events.has(event.id)) {\n  relay.ts:156: // Ephemeral events: do NOT store, just broadcast"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

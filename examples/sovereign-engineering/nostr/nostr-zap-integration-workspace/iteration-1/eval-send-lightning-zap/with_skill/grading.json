@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Uses kind 9734 for the zap request event",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  output.md:1: # Complete Lightning Zap Implementation\n  output.md:3: Here's the complete implementation for sending a zap to alice@getalby.com for 21\n  output.md:33: ## Step 2: Verify Nostr Zap Support"
+    },
+    {
+      "text": "Checks that the LNURL endpoint supports Nostr zaps by verifying allowsNostr",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"lnurl\" (heuristic match):\n  output.md:6: ## Step 1: Discover the LNURL Endpoint\n  output.md:8: Convert the `lud16` Lightning Address to an LNURL-pay endpoint URL:\n  output.md:13: const lnurlPayUrl = `https://${domain}/.well-known/lnurlp/${name}`;"
+    },
+    {
+      "text": "Verifies the LNURL endpoint has a valid nostrPubkey",
+      "passed": false,
+      "evidence": "No matches for \"valid nostrpubkey\" found across 1 output file(s)"
+    },
+    {
+      "text": "Converts 21 sats to 21000 millisats for the amount tag",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"amount\" (heuristic match):\n  output.md:52: The zap request is a kind 9734 event. The amount MUST be in millisatoshis — 21\n  output.md:56: const amountMsats = 21 * 1000; // 21 sats = 21000 millisats\n  output.md:58: // Verify amount is within bounds"
+    },
+    {
+      "text": "Sends the zap request to the LNURL callback URL",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  output.md:1: # Complete Lightning Zap Implementation\n  output.md:3: Here's the complete implementation for sending a zap to alice@getalby.com for 21\n  output.md:33: ## Step 2: Verify Nostr Zap Support"
+    },
+    {
+      "text": "Includes a relays tag in the zap request with relay URLs",
+      "passed": false,
+      "evidence": "No matches for \"relays tag in the zap request with relay urls\" found across 1 output file(s)"
+    },
+    {
+      "text": "Makes clear the zap request is sent via HTTP to callback, not published to relays",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"zap\" (heuristic match):\n  output.md:1: # Complete Lightning Zap Implementation\n  output.md:3: Here's the complete implementation for sending a zap to alice@getalby.com for 21\n  output.md:33: ## Step 2: Verify Nostr Zap Support"
+    },
+    {
+      "text": "Constructs the correct LNURL discovery URL using .well-known/lnurlp",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"lnurl\" (heuristic match):\n  output.md:6: ## Step 1: Discover the LNURL Endpoint\n  output.md:8: Convert the `lud16` Lightning Address to an LNURL-pay endpoint URL:\n  output.md:13: const lnurlPayUrl = `https://${domain}/.well-known/lnurlp/${name}`;"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

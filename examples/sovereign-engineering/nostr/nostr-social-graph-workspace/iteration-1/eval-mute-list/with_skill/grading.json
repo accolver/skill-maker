@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output file mute-list.ts exists and contains valid TypeScript",
+      "passed": false,
+      "evidence": "No matches for \"file mute-list.ts exists and contains valid typescript\" found across 1 output file(s)"
+    },
+    {
+      "text": "The code produces kind:10000 events for mute lists",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"mute\" (heuristic match):\n  mute-list.ts:2: * Mute List Manager for Nostr (NIP-51)\n  mute-list.ts:4: * Manages kind:10000 mute lists with both public and private entries.\n  mute-list.ts:12: * - p: mute a pubkey"
+    },
+    {
+      "text": "Public mute entries support all four tag types: p (pubkeys), t (hashtags), word (strings), and e (threads)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"public\" (heuristic match):\n  mute-list.ts:4: * Manages kind:10000 mute lists with both public and private entries.\n  mute-list.ts:6: * COMPLETE list (public tags + encrypted private content).\n  mute-list.ts:8: * Public items: stored in tags"
+    },
+    {
+      "text": "Private mute entries are encrypted and stored in the event content field",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"private\" (heuristic match):\n  mute-list.ts:4: * Manages kind:10000 mute lists with both public and private entries.\n  mute-list.ts:6: * COMPLETE list (public tags + encrypted private content).\n  mute-list.ts:9: * Private items: encrypted with NIP-44 and stored in content"
+    },
+    {
+      "text": "Encryption uses NIP-44 with the author's own key pair (not a conversation partner's key)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"nip\" (heuristic match):\n  mute-list.ts:2: * Mute List Manager for Nostr (NIP-51)\n  mute-list.ts:9: * Private items: encrypted with NIP-44 and stored in content\n  mute-list.ts:39: // NIP-44 encryption interface"
+    },
+    {
+      "text": "Decryption includes backward compatibility: detects NIP-04 format by checking for '?iv=' in the ciphertext",
+      "passed": false,
+      "evidence": "No matches for \"backward compatibility: detects nip-04 format by checking for '?iv=' in the ciphertext\" found across 1 output file(s)"
+    },
+    {
+      "text": "Word tags use lowercase strings for case-insensitive matching",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"word\" (heuristic match):\n  mute-list.ts:14: * - word: mute a word/phrase (always lowercase for case-insensitive matching)\n  mute-list.ts:30: type: \"p\" | \"t\" | \"word\" | \"e\";\n  mute-list.ts:64: * - [\"word\", \"<lowercase-string>\"] — mute a word/phrase"
+    },
+    {
+      "text": "The mute list is published as a complete replacement event (replaceable event semantics)",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"is published as a complete replacement event (replaceable event semantics)\":\n  mute-list.ts:189: * The mute list is published as a complete replacement event (replaceable event semantics)."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

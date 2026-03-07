@@ -1,0 +1,53 @@
+{
+  "skill_name": "nostr-dvms",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a text summarization DVM service provider in TypeScript. It should subscribe to kind:5001 job requests on relay wss://relay.damus.io, handle text and URL input types, send kind:7000 processing feedback, and publish kind:6001 results. Include proper error handling with kind:7000 error feedback. The service provider's pubkey is abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1. Show the complete implementation with all event structures.",
+      "expected_output": "A TypeScript implementation of a DVM service provider that subscribes to kind:5001 requests, sends kind:7000 feedback events with processing/error statuses, and publishes kind:6001 results. Events must have correct tag structures including request, e, p, i, and amount tags. The result kind must be 6001 (5001 + 1000).",
+      "files": [],
+      "assertions": [
+        "Output subscribes to or filters for kind 5001 events (summarization job requests)",
+        "Output publishes kind 7000 feedback with status tag 'processing'",
+        "Output publishes kind 7000 feedback with status tag 'error' for failures",
+        "Output publishes kind 6001 result events (5001 + 1000)",
+        "Output result events contain a 'request' tag with the stringified original job request",
+        "Output result events contain an 'e' tag referencing the job request event ID",
+        "Output result events contain a 'p' tag with the customer's pubkey",
+        "Output handles at least two input types from 'i' tags (text and url)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create a DVM job request client in TypeScript that publishes a kind:5002 translation request to translate a webpage at https://example.com/article from Spanish to English. The client should handle the full lifecycle: publish the request with a bid of 10000 millisats, subscribe to kind:7000 feedback, handle payment-required status by paying the bolt11 invoice, and receive the kind:6002 result. Use relay wss://relay.damus.io. My pubkey is def456def456def456def456def456def456def456def456def456def456def4 and the preferred service provider pubkey is aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa111aaa1. Show all event structures.",
+      "expected_output": "A TypeScript client that publishes a kind:5002 translation job request with proper i tag (url input type), bid tag, param tag for language, and p tag for preferred SP. It subscribes to kind:7000 feedback and kind:6002 results filtered by the customer's pubkey. It handles payment-required feedback by extracting the bolt11 invoice from the amount tag. All event structures follow NIP-90 conventions.",
+      "files": [],
+      "assertions": [
+        "Output publishes a kind 5002 job request event (translation)",
+        "Output job request contains an 'i' tag with input type 'url' and the webpage URL",
+        "Output job request contains a 'bid' tag with value '10000' (millisats)",
+        "Output job request contains a 'param' tag for language (e.g., 'lang', 'en')",
+        "Output subscribes to kind 7000 feedback events filtered by customer pubkey",
+        "Output subscribes to kind 6002 result events (5002 + 1000)",
+        "Output handles 'payment-required' status and extracts bolt11 from the amount tag",
+        "Output job request contains a 'p' tag with the preferred service provider pubkey"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Implement job chaining for a translate-then-summarize workflow using Nostr DVMs. First, publish a kind:5002 translation request to translate text input 'Nostr es un protocolo de comunicacion descentralizado basado en relays' to English. Then chain a kind:5001 summarization request that takes the translation output as input. Show both job request events with correct tags, explain how the chaining works with the 'job' input type, and show how a service provider for the summarization job would wait for and consume the translation result. Use relay wss://relay.damus.io.",
+      "expected_output": "Two job request events: a kind:5002 translation request with text input and lang param, and a kind:5001 summarization request that uses the job input type referencing the translation job's event ID. The implementation explains that the summarization SP watches for the kind:6002 result of the translation job before processing. Both events have proper NIP-90 tag structures.",
+      "files": [],
+      "assertions": [
+        "Output contains a kind 5002 translation job request with 'i' tag using 'text' input type",
+        "Output contains a kind 5001 summarization job request chained from the translation",
+        "Output uses input type 'job' in the summarization request's 'i' tag (not 'event' or 'text')",
+        "Output summarization i tag references the translation job's event ID",
+        "Output explains that the summarization SP waits for the kind 6002 translation result",
+        "Output translation request contains a 'param' tag for target language",
+        "Output shows or describes kind 6002 result events with 'request' and 'e' tags",
+        "Output explains that job #2 SP may need to wait for payment on job #1"
+      ]
+    }
+  ]
+}

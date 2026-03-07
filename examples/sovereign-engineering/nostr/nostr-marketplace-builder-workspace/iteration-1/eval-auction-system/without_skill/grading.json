@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output contains a kind:30020 event with d tag matching the auction id in content, and stall_id set to 'crypto-collectibles-stall'",
+      "passed": false,
+      "evidence": "kind:30020 present, d tag \"trezor-auction\" matches content id, but stall_id is MISSING from content — no stall reference"
+    },
+    {
+      "text": "The auction content has starting_bid as an integer (500000), duration as 259200, and start_date as a Unix timestamp",
+      "passed": false,
+      "evidence": "starting_bid: 500000 (OK), duration: 259200 (OK), but start_date: \"2025-01-15T00:00:00Z\" is ISO 8601 string, NOT a Unix timestamp"
+    },
+    {
+      "text": "Output contains a kind:1021 bid event where the content is the bid amount and tags include an e tag referencing the auction event ID",
+      "passed": true,
+      "evidence": "kind:1021 event with content \"750000\" and e tag present"
+    },
+    {
+      "text": "The bid's e tag references an event ID (64-char hex or placeholder), NOT a product UUID or d-tag value",
+      "passed": false,
+      "evidence": "e tag value is \"trezor-auction\" which is the d-tag value, NOT an event ID (should be 64-char hex)"
+    },
+    {
+      "text": "Output contains a kind:1022 bid confirmation with status 'accepted' and duration_extended set to 600 (10 minutes in seconds)",
+      "passed": true,
+      "evidence": "kind:1022 with status \"accepted\" and duration_extended: 600"
+    },
+    {
+      "text": "The accepted bid confirmation has two e tags: one for the bid event ID and one for the auction event ID",
+      "passed": false,
+      "evidence": "Accepted confirmation has only ONE e tag [\"e\",\"trezor-auction\"], missing the bid event ID e tag"
+    },
+    {
+      "text": "Output contains a kind:1022 event with status 'winner' for the winning bid",
+      "passed": true,
+      "evidence": "kind:1022 event with status \"winner\" present"
+    },
+    {
+      "text": "The winner confirmation also has two e tags referencing both the winning bid and the auction",
+      "passed": false,
+      "evidence": "Winner confirmation has only ONE e tag [\"e\",\"winning-bid-id\"] — missing auction e tag, and value is not valid hex"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

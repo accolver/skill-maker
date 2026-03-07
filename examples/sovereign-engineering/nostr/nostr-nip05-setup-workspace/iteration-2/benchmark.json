@@ -1,0 +1,81 @@
+{
+  "skill_name": "nostr-nip05-setup",
+  "iteration": 2,
+  "timestamp": "2026-03-07T19:00:55.329Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 37.3333,
+        "stddev": 4.1096
+      },
+      "tokens": {
+        "mean": 11266.6667,
+        "stddev": 1281.4922
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 12.3333,
+        "stddev": 1.2472
+      },
+      "tokens": {
+        "mean": 3333.3333,
+        "stddev": 410.9609
+      }
+    },
+    "delta": {
+      "pass_rate": 0,
+      "time_seconds": 25,
+      "tokens": 7933
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "dynamic-provider",
+      "with_skill": {
+        "pass_rate": 0,
+        "time_seconds": 38,
+        "tokens": 11800
+      },
+      "without_skill": {
+        "pass_rate": 0,
+        "time_seconds": 14,
+        "tokens": 3800
+      }
+    },
+    {
+      "eval_name": "personal-site",
+      "with_skill": {
+        "pass_rate": 0,
+        "time_seconds": 32,
+        "tokens": 9500
+      },
+      "without_skill": {
+        "pass_rate": 0,
+        "time_seconds": 12,
+        "tokens": 3400
+      }
+    },
+    {
+      "eval_name": "troubleshooting",
+      "with_skill": {
+        "pass_rate": 0,
+        "time_seconds": 42,
+        "tokens": 12500
+      },
+      "without_skill": {
+        "pass_rate": 0,
+        "time_seconds": 11,
+        "tokens": 2800
+      }
+    }
+  ]
+}

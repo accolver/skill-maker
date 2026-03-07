@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "dm-privacy",
+  "prompt": "I need to implement private DMs in my Nostr client. I was looking at NIP-04 since it seems straightforward — just encrypt with the recipient's pubkey and publish a kind:4 event. What do I need to do?",
+  "assertions": [
+    "Response warns that NIP-04 is deprecated or unrecommended",
+    "Response explains NIP-04 metadata leakage",
+    "Response recommends NIP-17 as the standard for private DMs",
+    "Response discusses kind:14 for the DM message event",
+    "Response covers kind:13 seal and kind:1059 gift wrap",
+    "Response states kind:14 must be unsigned for deniability",
+    "Response discusses NIP-44 encryption algorithm",
+    "Response covers kind:10050 DM relay list"
+  ]
+}
