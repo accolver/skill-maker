@@ -1,0 +1,68 @@
+# =============================================================================
+# Standard Application Project: Frontend Web Application
+# =============================================================================
+# This YAML defines a standard application project for a frontend web service.
+# It demonstrates: parent folder, services, IAM, labels, service accounts,
+# Shared VPC attachment, and billing budgets.
+# =============================================================================
+
+billing_account: 012345-67890A-BCDEF0
+
+# Place this project under the production folder
+parent: $folder_ids:production
+
+labels:
+  app: frontend
+  team: platform
+  environment: production
+  cost_center: cc-1234
+
+services:
+  - compute.googleapis.com
+  - container.googleapis.com
+  - run.googleapis.com
+  - artifactregistry.googleapis.com
+  - secretmanager.googleapis.com
+  - storage.googleapis.com
+  - redis.googleapis.com
+  - vpcaccess.googleapis.com
+
+# IAM bindings
+iam:
+  roles/viewer:
+    - $iam_principals:gcp-viewers
+  roles/editor:
+    - $iam_principals:gcp-devops
+
+iam_by_principals:
+  $iam_principals:gcp-admins:
+    - roles/owner
+
+# Service accounts for workloads
+service_accounts:
+  app-frontend:
+    display_name: "Frontend application service account."
+    iam_self_roles:
+      - roles/logging.logWriter
+      - roles/monitoring.metricWriter
+      - roles/cloudtrace.agent
+  cloud-run-deployer:
+    display_name: "Cloud Run deployment service account."
+    iam_self_roles:
+      - roles/run.developer
+      - roles/artifactregistry.reader
+
+# Shared VPC attachment
+shared_vpc_service_config:
+  host_project: $vpc_host_projects:prod-spoke-0
+  network_users:
+    - $iam_principals:gcp-devops
+  service_agent_iam:
+    "roles/compute.networkUser":
+      - $service_agents:run
+    "roles/vpcaccess.user":
+      - $service_agents:run
+
+# Tag bindings
+tag_bindings:
+  environment: $tag_values:environment/production

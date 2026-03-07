@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/net-vpc",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"modules/net-vpc\":\n  hub-vpc.tf:8: source     = \"./modules/net-vpc\"\n  spoke-vpcs.tf:8: source     = \"./modules/net-vpc\"\n  spoke-vpcs.tf:22: source     = \"./modules/net-vpc\""
+    },
+    {
+      "text": "The result mentions enable_private_access",
+      "passed": true,
+      "evidence": "Found 9 match(es) for \"enable_private_access\":\n  hub-vpc.tf:16: enable_private_access = true\n  hub-vpc.tf:22: enable_private_access = true\n  hub-vpc.tf:28: enable_private_access = true"
+    },
+    {
+      "text": "The result mentions 35.235.240.0/20",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"35.235.240.0/20\":\n  firewall-policy.tf:5: * Google's IAP source range (35.235.240.0/20) to all VMs in the org.\n  firewall-policy.tf:21: src_ip_ranges  = [\"35.235.240.0/20\"]"
+    },
+    {
+      "text": "The result mentions secondary_ip_ranges",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"secondary_ip_ranges\":\n  variables.tf:30: secondary_ip_ranges   = optional(map(object({ ip_cidr_range = string })), {})"
+    },
+    {
+      "text": "The result mentions router_network",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"router_network\":\n  nat.tf:13: router_network = module.hub-vpc.self_link\n  nat.tf:21: router_network = module.hub-vpc.self_link\n  nat.tf:29: router_network = module.hub-vpc.self_link"
+    },
+    {
+      "text": "The result mentions layer4_configs",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"layer4_configs\":\n  firewall-policy.tf:22: layer4_configs = [{ protocol = \"tcp\", ports = [\"22\"] }]"
+    },
+    {
+      "text": "The result mentions modules/net-cloudnat",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"modules/net-cloudnat\":\n  nat.tf:9: source         = \"./modules/net-cloudnat\"\n  nat.tf:17: source         = \"./modules/net-cloudnat\"\n  nat.tf:25: source         = \"./modules/net-cloudnat\""
+    },
+    {
+      "text": "The result mentions modules/net-vpc-peering",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"modules/net-vpc-peering\":\n  peering.tf:12: source = \"./modules/net-vpc-peering\"\n  peering.tf:23: source = \"./modules/net-vpc-peering\""
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

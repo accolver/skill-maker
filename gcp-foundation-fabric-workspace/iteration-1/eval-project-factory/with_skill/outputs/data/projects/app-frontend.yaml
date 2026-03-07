@@ -1,0 +1,54 @@
+# Standard application project — frontend web service
+#
+# This project hosts a containerised frontend application running on Cloud Run
+# behind an external Application Load Balancer. It attaches to the Shared VPC
+# host project for networking.
+
+# billing_account and parent are inherited from data_defaults — only override
+# if this project needs a different billing account or folder.
+
+# Project name: combined with prefix → myco-app-frontend
+# (prefix is inherited from data_defaults)
+
+labels:
+  team: frontend
+  cost-center: cc-1234
+  env: prod
+
+services:
+  - compute.googleapis.com
+  - run.googleapis.com
+  - vpcaccess.googleapis.com
+  - certificatemanager.googleapis.com
+  - secretmanager.googleapis.com
+  - artifactregistry.googleapis.com
+  - iap.googleapis.com
+
+iam:
+  roles/run.admin:
+    - group:frontend-devs@example.com
+  roles/secretmanager.secretAccessor:
+    - serviceAccount:frontend-sa@myco-app-frontend.iam.gserviceaccount.com
+  roles/viewer:
+    - group:platform-viewers@example.com
+
+iam_additive:
+  roles/monitoring.viewer:
+    - group:sre-team@example.com
+
+shared_vpc_service_config:
+  host_project: myco-prod-net-host-0
+  service_identity_iam:
+    roles/compute.networkUser:
+      - cloudservices
+      - run
+    roles/vpcaccess.user:
+      - run
+
+org_policies:
+  compute.disableSerialPortAccess:
+    rules:
+      - enforce: true
+  iam.disableServiceAccountKeyCreation:
+    rules:
+      - enforce: true

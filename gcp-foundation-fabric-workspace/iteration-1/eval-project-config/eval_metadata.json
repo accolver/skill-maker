@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "project-config",
+  "prompt": "I need to create a Terraform configuration for a new GCP project that will host a containerized application. The project needs: GKE and Cloud SQL APIs enabled, IAM bindings for a dev team group and a CI/CD service account, Shared VPC attachment to an existing host project, CMEK encryption for compute and storage, and org policies to disable serial port access and external IPs on VMs. Use Cloud Foundation Fabric modules. Save the output to outputs/project.tf",
+  "assertions": [
+    "The result mentions modules/project",
+    "The result mentions iam",
+    "The result mentions container.googleapis.com",
+    "The result mentions shared_vpc_service_config",
+    "The result mentions service_encryption_key_ids",
+    "The result mentions disableSerialPortAccess",
+    "The result mentions prefix",
+    "The result mentions source"
+  ]
+}

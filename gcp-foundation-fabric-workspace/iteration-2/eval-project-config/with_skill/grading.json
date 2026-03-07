@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/project",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"modules/project\":\n  project.tf:77: # Project — CFF modules/project\n  project.tf:85: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/project?ref=v54.0.0\""
+    },
+    {
+      "text": "The result mentions service_encryption_key_ids",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"service_encryption_key_ids\":\n  project.tf:162: service_encryption_key_ids = {"
+    },
+    {
+      "text": "The result mentions service_agent_iam",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"service_agent_iam\":\n  project.tf:138: # service_agent_iam grants the service project's robot accounts\n  project.tf:144: service_agent_iam = {"
+    },
+    {
+      "text": "The result mentions shared_vpc_service_config",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"shared_vpc_service_config\":\n  project.tf:142: shared_vpc_service_config = {"
+    },
+    {
+      "text": "The result mentions org_policies",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"org_policies\":\n  project.tf:170: # Uses the CFF org_policies interface: map of policy constraint names to\n  project.tf:174: org_policies = {"
+    },
+    {
+      "text": "The result mentions disableSerialPortAccess",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"disableserialportaccess\":\n  project.tf:175: \"compute.disableSerialPortAccess\" = {"
+    },
+    {
+      "text": "The result mentions vmExternalIpAccess",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"vmexternalipaccess\":\n  project.tf:178: \"compute.vmExternalIpAccess\" = {"
+    },
+    {
+      "text": "The result mentions prefix",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"prefix\":\n  project.tf:21: variable \"prefix\" {\n  project.tf:22: description = \"Optional prefix used for resource names.\"\n  project.tf:26: condition     = var.prefix != \"\""
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

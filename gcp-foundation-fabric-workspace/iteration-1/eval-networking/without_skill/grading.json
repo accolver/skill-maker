@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/net-vpc",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"modules/net-vpc\":\n  main.tf:23: source     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc?ref=v34.1.0\"\n  main.tf:41: source     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc?ref=v34.1.0\"\n  main.tf:59: source     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions europe-west1",
+      "passed": true,
+      "evidence": "Found 8 match(es) for \"europe-west1\":\n  main.tf:6: *   - Hub VPC with 3 subnets (europe-west1, us-central1, asia-southeast1)\n  main.tf:113: region         = \"europe-west1\"\n  variables.tf:39: region        = \"europe-west1\""
+    },
+    {
+      "text": "The result mentions us-central1",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"us-central1\":\n  main.tf:6: *   - Hub VPC with 3 subnets (europe-west1, us-central1, asia-southeast1)\n  main.tf:122: region         = \"us-central1\"\n  variables.tf:44: region        = \"us-central1\""
+    },
+    {
+      "text": "The result mentions asia-southeast1",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"asia-southeast1\":\n  main.tf:6: *   - Hub VPC with 3 subnets (europe-west1, us-central1, asia-southeast1)\n  main.tf:131: region         = \"asia-southeast1\"\n  variables.tf:49: region        = \"asia-southeast1\""
+    },
+    {
+      "text": "The result mentions modules/net-vpc-peering",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"modules/net-vpc-peering\":\n  main.tf:77: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.0\"\n  main.tf:93: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions modules/net-cloudnat",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"modules/net-cloudnat\":\n  main.tf:111: source         = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-cloudnat?ref=v34.1.0\"\n  main.tf:120: source         = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-cloudnat?ref=v34.1.0\"\n  main.tf:129: source         = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-cloudnat?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions net-firewall-policy",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"net-firewall-policy\":\n  firewall.tf:8: source    = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-firewall-policy?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions 35.235.240.0/20",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"35.235.240.0/20\":\n  variables.tf:89: default     = \"35.235.240.0/20\""
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

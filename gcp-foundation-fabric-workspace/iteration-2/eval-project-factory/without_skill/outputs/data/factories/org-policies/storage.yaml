@@ -1,0 +1,13 @@
+# =============================================================================
+# Organization Policies: Cloud Storage constraints
+# =============================================================================
+
+# Enforce uniform bucket-level access
+storage.uniformBucketLevelAccess:
+  rules:
+    - enforce: true
+
+# Enforce public access prevention
+storage.publicAccessPrevention:
+  rules:
+    - enforce: true

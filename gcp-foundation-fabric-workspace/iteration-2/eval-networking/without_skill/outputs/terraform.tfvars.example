@@ -1,0 +1,4 @@
+# Example variable values — copy to terraform.tfvars and fill in
+project_id      = "my-networking-project"
+organization_id = "organizations/123456789012"
+prefix          = "myorg"

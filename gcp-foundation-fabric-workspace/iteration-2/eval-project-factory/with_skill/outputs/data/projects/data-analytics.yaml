@@ -1,0 +1,69 @@
+# Data analytics project — BigQuery, Dataflow, and Cloud Storage
+#
+# Inherits from data_defaults:
+#   billing_account, parent, prefix, base services, shared_vpc_service_config
+# Merges with data_merges:
+#   labels (managed-by, org), services (billingbudgets)
+
+labels:
+  team: data-engineering
+  env: dev
+  cost-center: cc-5678
+  data-classification: confidential
+
+services:
+  - bigquery.googleapis.com
+  - bigquerystorage.googleapis.com
+  - bigquerydatatransfer.googleapis.com
+  - dataflow.googleapis.com
+  - storage.googleapis.com
+  - pubsub.googleapis.com
+  - datacatalog.googleapis.com
+  - dlp.googleapis.com
+  - composer.googleapis.com
+
+iam:
+  roles/bigquery.dataEditor:
+    - group:data-engineers@example.com
+  roles/bigquery.jobUser:
+    - group:data-engineers@example.com
+    - group:data-analysts@example.com
+  roles/bigquery.dataViewer:
+    - group:data-analysts@example.com
+    - group:bi-team@example.com
+  roles/storage.objectAdmin:
+    - group:data-engineers@example.com
+  roles/dataflow.developer:
+    - group:data-engineers@example.com
+  roles/pubsub.editor:
+    - group:data-engineers@example.com
+
+shared_vpc_service_config:
+  host_project: myco-prod-net-host-0
+  service_identity_iam:
+    roles/compute.networkUser:
+      - cloudservices
+      - dataflow
+
+# Org policies applied at the project level
+org_policies:
+  compute.vmExternalIpAccess:
+    rules:
+      - enforce: true   # No external IPs on VMs
+  sql.restrictPublicIp:
+    rules:
+      - enforce: true   # No public IPs on Cloud SQL
+  storage.uniformBucketLevelAccess:
+    rules:
+      - enforce: true   # Enforce uniform bucket-level access
+  compute.restrictLoadBalancerCreationForTypes:
+    rules:
+      - allow:
+          values:
+            - INTERNAL   # Only allow internal load balancers
+  bigquery.disableBQOmniAWS:
+    rules:
+      - enforce: true   # Prevent cross-cloud BigQuery Omni
+  bigquery.disableBQOmniAzure:
+    rules:
+      - enforce: true   # Prevent cross-cloud BigQuery Omni

@@ -1,0 +1,28 @@
+# Org policy factory YAML — compute security constraints
+#
+# Each file in this directory defines one or more org policy constraints.
+# These are consumed by modules that set factories_config.org_policies
+# to this directory.
+#
+# File name is descriptive only — the constraint ID inside is what matters.
+
+compute.disableNestedVirtualization:
+  rules:
+    - enforce: true
+
+compute.disableSerialPortAccess:
+  rules:
+    - enforce: true
+
+compute.requireOsLogin:
+  rules:
+    - enforce: true
+
+compute.requireShieldedVm:
+  rules:
+    - enforce: true
+
+compute.vmExternalIpAccess:
+  rules:
+    - deny:
+        all: true

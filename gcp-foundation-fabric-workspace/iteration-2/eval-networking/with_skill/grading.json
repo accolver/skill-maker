@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/net-vpc",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"modules/net-vpc\":\n  vpc-peering.tf:7: source = \"./modules/net-vpc-peering\"\n  vpc-peering.tf:26: source = \"./modules/net-vpc-peering\"\n  vpc-hub.tf:7: source     = \"./modules/net-vpc\""
+    },
+    {
+      "text": "The result mentions modules/net-vpc-peering",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"modules/net-vpc-peering\":\n  vpc-peering.tf:7: source = \"./modules/net-vpc-peering\"\n  vpc-peering.tf:26: source = \"./modules/net-vpc-peering\""
+    },
+    {
+      "text": "The result mentions modules/net-cloudnat",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"modules/net-cloudnat\":\n  cloud-nat.tf:7: source         = \"./modules/net-cloudnat\"\n  cloud-nat.tf:29: source         = \"./modules/net-cloudnat\"\n  cloud-nat.tf:51: source         = \"./modules/net-cloudnat\""
+    },
+    {
+      "text": "The result mentions net-firewall-policy",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"net-firewall-policy\":\n  firewall-policy.tf:3: * Uses CFF net-firewall-policy module at the organization level.\n  firewall-policy.tf:7: source    = \"./modules/net-firewall-policy\""
+    },
+    {
+      "text": "The result mentions 35.235.240.0/20",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"35.235.240.0/20\":\n  variables.tf:62: default     = [\"35.235.240.0/20\"]"
+    },
+    {
+      "text": "The result mentions ip_cidr_range",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"ip_cidr_range\":\n  vpc-hub.tf:15: ip_cidr_range         = var.region_config[\"europe-west1\"].ip_cidr_range\n  vpc-hub.tf:21: ip_cidr_range         = var.region_config[\"us-central1\"].ip_cidr_range\n  vpc-hub.tf:27: ip_cidr_range         = var.region_config[\"asia-southeast1\"].ip_cidr_range"
+    },
+    {
+      "text": "The result mentions enable_private_access",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"enable_private_access\":\n  vpc-hub.tf:17: enable_private_access = true\n  vpc-hub.tf:23: enable_private_access = true\n  vpc-hub.tf:29: enable_private_access = true"
+    },
+    {
+      "text": "The result mentions subnets",
+      "passed": true,
+      "evidence": "Found 8 match(es) for \"subnets\":\n  vpc-hub.tf:2: * Hub VPC — central network with subnets across 3 regions.\n  vpc-hub.tf:3: * Uses CFF net-vpc module with subnets list pattern.\n  vpc-hub.tf:12: subnets = ["
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

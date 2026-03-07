@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions service_agent_iam",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"service_agent_iam\":\n  project.tf:134: service_agent_iam = {"
+    },
+    {
+      "text": "The result mentions shared_vpc_service_config",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"shared_vpc_service_config\":\n  project.tf:132: shared_vpc_service_config = {"
+    },
+    {
+      "text": "The result mentions vmExternalIpAccess",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"vmexternalipaccess\":\n  project.tf:162: \"compute.vmExternalIpAccess\" = {"
+    },
+    {
+      "text": "The result mentions service_encryption_key_ids",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"service_encryption_key_ids\":\n  project.tf:148: service_encryption_key_ids = {"
+    },
+    {
+      "text": "The result mentions depends_on",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"depends_on\":\n  project.tf:175: depends_on  = [module.project]\n  project.tf:181: depends_on  = [module.project]\n  project.tf:187: depends_on  = [module.project]"
+    },
+    {
+      "text": "The result mentions group_iam",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"group_iam\":\n  project.tf:106: group_iam = {"
+    },
+    {
+      "text": "The result mentions container-engine",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"container-engine\":\n  project.tf:137: \"container-engine\",\n  project.tf:140: \"container-engine\","
+    },
+    {
+      "text": "The result mentions cloudservices",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"cloudservices\":\n  project.tf:136: \"cloudservices\","
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

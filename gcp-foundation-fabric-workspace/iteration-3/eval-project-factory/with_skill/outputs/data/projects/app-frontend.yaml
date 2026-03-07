@@ -1,0 +1,54 @@
+# Standard application project — frontend web application
+# Inherits: billing_account, parent, prefix from data_defaults
+# Merges:   managed-by/terraform labels and logging/monitoring APIs from data_merges
+# Overrides: billing_account forced by data_overrides
+
+# Project-specific labels (merged with data_merges labels)
+labels:
+  team: frontend
+  cost-center: product-engineering
+  application: web-storefront
+
+# Additional services beyond the defaults
+# data_merges ensures logging + monitoring are always present
+services:
+  - run.googleapis.com
+  - vpcaccess.googleapis.com
+  - redis.googleapis.com
+  - secretmanager.googleapis.com
+  - artifactregistry.googleapis.com
+  - cloudbuild.googleapis.com
+
+# Attach to shared VPC with specific subnets
+shared_vpc_service_config:
+  host_project: myco-dev-shared-vpc-0
+  network_users:
+    - group:gcp-frontend-devs@myco.com
+  subnets:
+    - projects/myco-dev-shared-vpc-0/regions/us-central1/subnetworks/frontend-subnet
+
+# IAM bindings for the project
+iam:
+  roles/viewer:
+    - group:gcp-frontend-devs@myco.com
+  roles/run.admin:
+    - group:gcp-frontend-devs@myco.com
+  roles/secretmanager.secretAccessor:
+    - serviceAccount:frontend-sa@myco-dev-app-frontend.iam.gserviceaccount.com
+
+# Service accounts to create in this project
+service_accounts:
+  frontend-sa:
+    display_name: Frontend Cloud Run Service Account
+    description: Used by Cloud Run services for the frontend application
+
+# Project-specific org policies (merged with data_merges org policies)
+# The deny-all external IP and uniform bucket access from data_merges
+# are automatically included via additive merge.
+org_policies:
+  # Allow only Cloud Run and GKE for serverless VPC access
+  "run.allowedIngress":
+    rules:
+      - allow:
+          values:
+            - internal-and-cloud-load-balancing

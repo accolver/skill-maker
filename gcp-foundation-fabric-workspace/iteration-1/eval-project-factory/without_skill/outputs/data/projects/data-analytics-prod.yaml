@@ -1,0 +1,112 @@
+# Data analytics project — BigQuery-centric workload
+#
+# This YAML file is consumed by the CFF project-factory module.
+# Includes BigQuery datasets, Dataflow, and Composer services.
+
+# Project descriptor
+project_id: myorg-data-analytics-prod
+descriptive_name: "Data Analytics Platform - Production"
+
+# Labels (merged with defaults)
+labels:
+  application: data-analytics
+  environment: production
+  cost_center: cc-5678
+  team: data-engineering
+  data_classification: confidential
+
+# APIs required for a BigQuery / analytics workload
+services:
+  - bigquery.googleapis.com
+  - bigquerystorage.googleapis.com
+  - bigquerydatatransfer.googleapis.com
+  - dataflow.googleapis.com
+  - composer.googleapis.com
+  - datacatalog.googleapis.com
+  - datalineage.googleapis.com
+  - storage.googleapis.com
+  - pubsub.googleapis.com
+  - cloudkms.googleapis.com
+  - dlp.googleapis.com
+  - notebooks.googleapis.com
+  - aiplatform.googleapis.com
+
+# IAM bindings
+iam:
+  "roles/bigquery.admin":
+    - group:data-engineers@example.com
+  "roles/bigquery.dataViewer":
+    - group:data-analysts@example.com
+    - group:bi-team@example.com
+  "roles/bigquery.jobUser":
+    - group:data-analysts@example.com
+    - group:data-engineers@example.com
+  "roles/dataflow.admin":
+    - group:data-engineers@example.com
+  "roles/composer.admin":
+    - group:data-engineers@example.com
+  "roles/storage.admin":
+    - group:data-engineers@example.com
+  "roles/datacatalog.viewer":
+    - group:data-analysts@example.com
+    - group:data-governance@example.com
+  "roles/dlp.admin":
+    - group:data-governance@example.com
+
+# IAM additive bindings
+iam_additive:
+  "roles/viewer":
+    - group:security-auditors@example.com
+  "roles/bigquery.dataViewer":
+    - serviceAccount:etl-pipeline-sa@myorg-data-analytics-prod.iam.gserviceaccount.com
+
+# Service accounts
+service_accounts:
+  etl-pipeline-sa:
+    display_name: "ETL Pipeline Service Account"
+    description: "Used by Dataflow and Composer for ETL jobs"
+  bq-scheduled-queries-sa:
+    display_name: "BigQuery Scheduled Queries SA"
+    description: "Runs scheduled BigQuery queries and data transfers"
+
+# Shared VPC service project configuration
+shared_vpc_service_config:
+  host_project: myorg-shared-vpc-host
+  service_identity_iam:
+    "roles/compute.networkUser":
+      - cloudservices
+      - dataflow
+
+# Org policies specific to this data project
+org_policies:
+  # Restrict BigQuery export to only approved destinations
+  "constraints/bigquery.restrictExportConfig":
+    rules:
+      - enforce: true
+  # Require CMEK for BigQuery
+  "constraints/gcp.restrictNonCmekServices":
+    rules:
+      - deny:
+          values:
+            - bigquery.googleapis.com
+  # Restrict resource locations to specific regions for data residency
+  "constraints/gcp.resourceLocations":
+    rules:
+      - allow:
+          values:
+            - in:us-locations
+            - in:eu-locations
+
+# Budget alert — data projects tend to be expensive
+billing_budgets:
+  monthly-budget:
+    amount: 25000
+    thresholds:
+      current:
+        - 0.5
+        - 0.75
+        - 0.9
+        - 1.0
+      forecasted:
+        - 0.8
+        - 1.0

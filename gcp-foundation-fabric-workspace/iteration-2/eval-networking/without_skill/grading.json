@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/net-vpc",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"modules/net-vpc\":\n  main.tf:62: source     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc?ref=v34.1.0\"\n  main.tf:90: source     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc?ref=v34.1.0\"\n  main.tf:104: source     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions modules/net-vpc-peering",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"modules/net-vpc-peering\":\n  main.tf:122: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.0\"\n  main.tf:136: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions modules/net-cloudnat",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"modules/net-cloudnat\":\n  main.tf:152: source         = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-cloudnat?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions net-firewall-policy",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"net-firewall-policy\":\n  main.tf:164: source    = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-firewall-policy?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions 35.235.240.0/20",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"35.235.240.0/20\":\n  main.tf:175: src_ip_ranges  = [\"35.235.240.0/20\"]"
+    },
+    {
+      "text": "The result mentions ip_cidr_range",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"ip_cidr_range\":\n  main.tf:19: ip_cidr_range       = \"10.0.0.0/24\"\n  main.tf:25: ip_cidr_range       = \"10.0.1.0/24\"\n  main.tf:31: ip_cidr_range       = \"10.0.2.0/24\""
+    },
+    {
+      "text": "The result mentions enable_private_access",
+      "passed": false,
+      "evidence": "No matches for \"enable_private_access\" found across 5 output file(s)"
+    },
+    {
+      "text": "The result mentions subnets",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"subnets\":\n  main.tf:5: *   - Hub VPC with 3 subnets (europe-west1, us-central1, asia-southeast1)\n  main.tf:17: hub_subnets = [\n  main.tf:38: spoke_dev_subnets = ["
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

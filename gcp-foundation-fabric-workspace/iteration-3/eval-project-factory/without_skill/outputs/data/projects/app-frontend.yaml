@@ -1,0 +1,50 @@
+# Standard application project – frontend service
+# File: data/projects/app-frontend.yaml
+
+# The project ID is derived from the filename by default.
+# You can override it with the `project_id` key.
+
+# Labels (merged with defaults and data_merges labels)
+labels:
+  environment: production
+  team: frontend
+  app: web-storefront
+
+# Additional services beyond the defaults
+services:
+  - run.googleapis.com
+  - artifactregistry.googleapis.com
+  - secretmanager.googleapis.com
+  - vpcaccess.googleapis.com
+  - redis.googleapis.com
+
+# IAM bindings specific to this project
+iam:
+  roles/run.admin:
+    - group:frontend-devs@example.com
+  roles/secretmanager.secretAccessor:
+    - serviceAccount:app-frontend-sa@app-frontend.iam.gserviceaccount.com
+  roles/viewer:
+    - group:frontend-devs@example.com
+
+# Service accounts to create in this project
+service_accounts:
+  app-frontend-sa:
+    display_name: Frontend App Service Account
+    description: Used by Cloud Run frontend service
+
+# Shared VPC service project config (uses host from defaults)
+shared_vpc_service_config:
+  host_project: prj-shared-vpc-prod
+  network_users:
+    - group:frontend-devs@example.com
+  subnets:
+    - region: us-central1
+      subnet: subnet-frontend-prod
+
+# Project-level org policy overrides
+org_policies:
+  # Allow external IPs only for Cloud Run (override the deny-all from data_merges)
+  compute.vmExternalIpAccess:
+    rules:
+      - enforce: false

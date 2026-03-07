@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions service_agent_iam",
+      "passed": false,
+      "evidence": "No matches for \"service_agent_iam\" found across 1 output file(s)"
+    },
+    {
+      "text": "The result mentions shared_vpc_service_config",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"shared_vpc_service_config\":\n  project.tf:128: shared_vpc_service_config = {"
+    },
+    {
+      "text": "The result mentions vmExternalIpAccess",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"vmexternalipaccess\":\n  project.tf:193: \"compute.vmExternalIpAccess\" = {"
+    },
+    {
+      "text": "The result mentions service_encryption_key_ids",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"service_encryption_key_ids\":\n  project.tf:211: service_encryption_key_ids = {"
+    },
+    {
+      "text": "The result mentions depends_on",
+      "passed": false,
+      "evidence": "No matches for \"depends_on\" found across 1 output file(s)"
+    },
+    {
+      "text": "The result mentions group_iam",
+      "passed": false,
+      "evidence": "No matches for \"group_iam\" found across 1 output file(s)"
+    },
+    {
+      "text": "The result mentions container-engine",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"container-engine\":\n  project.tf:133: \"container-engine\",\n  project.tf:136: \"container-engine\",\n  project.tf:252: \"serviceAccount:service-${module.project.number}@container-engine-robot.iam.gserviceaccount.com\","
+    },
+    {
+      "text": "The result mentions cloudservices",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"cloudservices\":\n  project.tf:132: \"cloudservices\","
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

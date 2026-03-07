@@ -1,0 +1,94 @@
+# Data analytics project — BigQuery-centric analytics workload
+#
+# This project hosts BigQuery datasets, Dataflow pipelines, and Cloud Storage
+# buckets for a data analytics team. It uses CMEK encryption for BigQuery and
+# GCS, and attaches to the Shared VPC for private connectivity to on-prem data
+# sources.
+
+# billing_account and parent inherited from data_defaults
+
+labels:
+  team: data-engineering
+  cost-center: cc-5678
+  env: prod
+  data-classification: confidential
+
+services:
+  - bigquery.googleapis.com
+  - bigquerystorage.googleapis.com
+  - bigquerydatatransfer.googleapis.com
+  - dataflow.googleapis.com
+  - storage.googleapis.com
+  - storage-component.googleapis.com
+  - dataproc.googleapis.com
+  - composer.googleapis.com
+  - pubsub.googleapis.com
+  - datacatalog.googleapis.com
+  - dlp.googleapis.com
+  - notebooks.googleapis.com
+  - aiplatform.googleapis.com
+
+iam:
+  roles/bigquery.admin:
+    - group:data-engineers@example.com
+  roles/bigquery.dataViewer:
+    - group:data-analysts@example.com
+  roles/bigquery.jobUser:
+    - group:data-analysts@example.com
+    - group:data-engineers@example.com
+  roles/dataflow.admin:
+    - group:data-engineers@example.com
+  roles/storage.admin:
+    - group:data-engineers@example.com
+  roles/viewer:
+    - group:platform-viewers@example.com
+
+iam_additive:
+  roles/monitoring.viewer:
+    - group:sre-team@example.com
+  roles/datacatalog.viewer:
+    - group:data-governance@example.com
+
+group_iam:
+  group:data-engineers@example.com:
+    - roles/pubsub.admin
+    - roles/composer.admin
+    - roles/dataproc.admin
+
+shared_vpc_service_config:
+  host_project: myco-prod-net-host-0
+  service_identity_iam:
+    roles/compute.networkUser:
+      - cloudservices
+      - dataflow
+      - dataproc
+      - composer
+
+service_encryption_key_ids:
+  bigquery.googleapis.com:
+    - projects/myco-prod-sec-0/locations/us/keyRings/data-analytics/cryptoKeys/bigquery
+  storage.googleapis.com:
+    - projects/myco-prod-sec-0/locations/us/keyRings/data-analytics/cryptoKeys/gcs
+
+org_policies:
+  compute.disableSerialPortAccess:
+    rules:
+      - enforce: true
+  iam.disableServiceAccountKeyCreation:
+    rules:
+      - enforce: true
+  sql.restrictPublicIp:
+    rules:
+      - enforce: true
+  storage.uniformBucketLevelAccess:
+    rules:
+      - enforce: true
+  compute.requireShieldedVm:
+    rules:
+      - enforce: true
+  bigquery.disableBQOmniAWS:
+    rules:
+      - enforce: true
+  bigquery.disableBQOmniAzure:
+    rules:
+      - enforce: true

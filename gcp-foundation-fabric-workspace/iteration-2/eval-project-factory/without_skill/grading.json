@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/project-factory",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"modules/project-factory\":\n  main.tf:13: source = \"./fabric/modules/project-factory\""
+    },
+    {
+      "text": "The result mentions basepath",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"basepath\":\n  main.tf:100: basepath = var.data_path"
+    },
+    {
+      "text": "The result mentions data_defaults",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"data_defaults\":\n  main.tf:47: # data_defaults: fallback values when YAML files omit an attribute\n  main.tf:49: data_defaults = {"
+    },
+    {
+      "text": "The result mentions data_merges",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"data_merges\":\n  main.tf:72: # data_merges: values merged (additive) with YAML file data\n  main.tf:74: data_merges = {"
+    },
+    {
+      "text": "The result mentions billing_account",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"billing_account\":\n  main.tf:9: billing_account = var.billing_account_id\n  main.tf:50: billing_account = local.billing_account\n  main.tf:102: billing_account = local.billing_account"
+    },
+    {
+      "text": "The result mentions org_policies",
+      "passed": true,
+      "evidence": "Found 9 match(es) for \"org_policies\":\n  org-policies-via-factory.md:8: ## Method 1: Inline `org_policies` in Project YAML\n  org-policies-via-factory.md:10: Define org policies directly in any project YAML file under the `org_policies`\n  org-policies-via-factory.md:15: org_policies:"
+    },
+    {
+      "text": "The result mentions factories_config",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"factories_config\":\n  main.tf:97: # factories_config: paths to YAML data files\n  main.tf:99: factories_config = {\n  org-policies-via-factory.md:25: ## Method 2: Lower-Level Factory via `factories_config.org_policies`"
+    },
+    {
+      "text": "The result mentions service_agent_iam",
+      "passed": false,
+      "evidence": "No matches for \"service_agent_iam\" found across 4 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

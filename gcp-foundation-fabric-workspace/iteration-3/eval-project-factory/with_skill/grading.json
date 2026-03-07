@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/project-factory",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"modules/project-factory\":\n  project-factory.tf:5: source = \"./modules/project-factory\""
+    },
+    {
+      "text": "The result mentions basepath",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"basepath\":\n  project-factory.tf:9: basepath = \"data/projects\""
+    },
+    {
+      "text": "The result mentions data_defaults",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"data_defaults\":\n  project-factory.tf:2: # Uses three-tier precedence: data_defaults → YAML → data_overrides\n  project-factory.tf:14: data_defaults = {"
+    },
+    {
+      "text": "The result mentions data_merges",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"data_merges\":\n  project-factory.tf:43: data_merges = {"
+    },
+    {
+      "text": "The result mentions data_overrides",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"data_overrides\":\n  project-factory.tf:2: # Uses three-tier precedence: data_defaults → YAML → data_overrides\n  project-factory.tf:112: data_overrides = {"
+    },
+    {
+      "text": "The result mentions factories_config",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"factories_config\":\n  project-factory.tf:8: factories_config = {"
+    },
+    {
+      "text": "The result mentions org_policies",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"org_policies\":\n  project-factory.tf:57: org_policies = {"
+    },
+    {
+      "text": "The result mentions billing_account",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"billing_account\":\n  variables.tf:4: variable \"billing_account\" {\n  project-factory.tf:15: billing_account = \"012345-ABCDEF-012345\"\n  project-factory.tf:114: billing_account = \"012345-ABCDEF-012345\""
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

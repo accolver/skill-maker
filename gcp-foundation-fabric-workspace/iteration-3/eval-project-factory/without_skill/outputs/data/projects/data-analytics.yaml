@@ -1,0 +1,86 @@
+# Data analytics project with BigQuery, Dataflow, and related services
+# File: data/projects/data-analytics.yaml
+
+labels:
+  environment: production
+  team: data-engineering
+  app: analytics-platform
+  data_classification: confidential
+
+# BigQuery and analytics services
+services:
+  - bigquery.googleapis.com
+  - bigquerystorage.googleapis.com
+  - bigquerydatatransfer.googleapis.com
+  - dataflow.googleapis.com
+  - dataproc.googleapis.com
+  - composer.googleapis.com
+  - storage.googleapis.com
+  - pubsub.googleapis.com
+  - datacatalog.googleapis.com
+  - dlp.googleapis.com
+  - secretmanager.googleapis.com
+
+# IAM bindings for data team
+iam:
+  roles/bigquery.admin:
+    - group:data-engineers@example.com
+  roles/bigquery.dataViewer:
+    - group:data-analysts@example.com
+    - group:bi-team@example.com
+  roles/bigquery.jobUser:
+    - group:data-analysts@example.com
+    - serviceAccount:data-pipeline-sa@data-analytics.iam.gserviceaccount.com
+  roles/dataflow.admin:
+    - group:data-engineers@example.com
+  roles/dataflow.worker:
+    - serviceAccount:data-pipeline-sa@data-analytics.iam.gserviceaccount.com
+  roles/composer.admin:
+    - group:data-engineers@example.com
+  roles/storage.admin:
+    - group:data-engineers@example.com
+  roles/pubsub.admin:
+    - group:data-engineers@example.com
+  roles/datacatalog.admin:
+    - group:data-engineers@example.com
+  roles/dlp.admin:
+    - group:data-engineers@example.com
+  roles/viewer:
+    - group:data-analysts@example.com
+
+# Service accounts
+service_accounts:
+  data-pipeline-sa:
+    display_name: Data Pipeline Service Account
+    description: Used by Dataflow and BigQuery scheduled queries
+  composer-sa:
+    display_name: Cloud Composer Service Account
+    description: Used by Cloud Composer / Airflow DAGs
+
+# Shared VPC
+shared_vpc_service_config:
+  host_project: prj-shared-vpc-prod
+  network_users:
+    - group:data-engineers@example.com
+    - serviceAccount:data-pipeline-sa@data-analytics.iam.gserviceaccount.com
+  subnets:
+    - region: us-central1
+      subnet: subnet-data-prod
+    - region: europe-west1
+      subnet: subnet-data-eu
+
+# Org policies specific to data analytics
+org_policies:
+  # Allow BigQuery to use US and EU multi-regions
+  gcp.resourceLocations:
+    rules:
+      - allow:
+          values:
+            - in:us-locations
+            - in:eu-locations
+            - us
+            - eu
+  # Require CMEK for BigQuery
+  compute.requireShieldedVm:
+    rules:
+      - enforce: true

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/project",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"modules/project\":\n  project.tf:85: # Project — CFF modules/project\n  project.tf:93: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/project?ref=v54.0.0\""
+    },
+    {
+      "text": "The result mentions iam",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"iam\":\n  project.tf:71: default     = \"serviceAccount:cicd-sa@cicd-project.iam.gserviceaccount.com\"\n  project.tf:88: # IAM bindings, Shared VPC attachment, CMEK, and org policies.\n  project.tf:109: \"iam.googleapis.com\","
+    },
+    {
+      "text": "The result mentions container.googleapis.com",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"container.googleapis.com\":\n  project.tf:108: \"container.googleapis.com\","
+    },
+    {
+      "text": "The result mentions shared_vpc_service_config",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"shared_vpc_service_config\":\n  project.tf:152: shared_vpc_service_config = {"
+    },
+    {
+      "text": "The result mentions service_encryption_key_ids",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"service_encryption_key_ids\":\n  project.tf:180: service_encryption_key_ids = {"
+    },
+    {
+      "text": "The result mentions disableSerialPortAccess",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"disableserialportaccess\":\n  project.tf:193: \"compute.disableSerialPortAccess\" = {"
+    },
+    {
+      "text": "The result mentions prefix",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"prefix\":\n  project.tf:46: variable \"prefix\" {\n  project.tf:47: description = \"Optional prefix used for resource names.\"\n  project.tf:51: condition     = var.prefix != \"\""
+    },
+    {
+      "text": "The result mentions source",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"source\":\n  project.tf:47: description = \"Optional prefix used for resource names.\"\n  project.tf:75: description = \"Resource labels applied to the project.\"\n  project.tf:93: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/project?ref=v54.0.0\""
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

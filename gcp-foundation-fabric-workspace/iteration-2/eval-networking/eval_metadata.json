@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "networking",
+  "prompt": "Help me set up a hub-and-spoke networking topology for my GCP organization using Cloud Foundation Fabric. I need: a hub VPC with 3 subnets across europe-west1, us-central1, and asia-southeast1; two spoke VPCs (dev and prod) each with 1 subnet; VPC peering between hub and each spoke; Cloud NAT on the hub VPC; and a hierarchical firewall policy allowing IAP SSH access. Write the Terraform configurations using CFF modules. Save all output files to outputs/",
+  "assertions": [
+    "The result mentions modules/net-vpc",
+    "The result mentions modules/net-vpc-peering",
+    "The result mentions modules/net-cloudnat",
+    "The result mentions net-firewall-policy",
+    "The result mentions 35.235.240.0/20",
+    "The result mentions ip_cidr_range",
+    "The result mentions enable_private_access",
+    "The result mentions subnets"
+  ]
+}

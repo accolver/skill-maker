@@ -1,0 +1,6 @@
+# Example variable values — copy to terraform.tfvars and fill in real values
+
+billing_account         = "01ABCD-234EFG-567HIJ"
+folder_id               = "folders/123456789012"
+shared_vpc_host_project = "my-shared-vpc-host-001"
+projects_data_path      = "data/projects"

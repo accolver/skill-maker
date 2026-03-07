@@ -1,0 +1,32 @@
+project_id      = "my-networking-project"
+prefix          = "myco-gcp"
+organization_id = "organizations/123456789012"
+
+region_config = {
+  europe-west1 = {
+    ip_cidr_range = "10.0.0.0/24"
+  }
+  us-central1 = {
+    ip_cidr_range = "10.0.1.0/24"
+  }
+  asia-southeast1 = {
+    ip_cidr_range = "10.0.2.0/24"
+  }
+}
+
+spoke_config = {
+  dev = {
+    region        = "europe-west1"
+    ip_cidr_range = "10.1.0.0/24"
+  }
+  prod = {
+    region        = "europe-west1"
+    ip_cidr_range = "10.2.0.0/24"
+  }
+}
+
+labels = {
+  managed-by = "terraform"
+  topology   = "hub-and-spoke"
+  team       = "platform"
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/net-vpc",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"modules/net-vpc\":\n  vpc-peering.tf:17: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.0\"\n  vpc-peering.tf:32: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.0\"\n  hub-vpc.tf:13: source     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions enable_private_access",
+      "passed": false,
+      "evidence": "No matches for \"enable_private_access\" found across 9 output file(s)"
+    },
+    {
+      "text": "The result mentions 35.235.240.0/20",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"35.235.240.0/20\":\n  hierarchical-firewall.tf:6: * (35.235.240.0/20). This policy is attached to the organization so it\n  variables.tf:92: default     = [\"35.235.240.0/20\"]"
+    },
+    {
+      "text": "The result mentions secondary_ip_ranges",
+      "passed": false,
+      "evidence": "No matches for \"secondary_ip_ranges\" found across 9 output file(s)"
+    },
+    {
+      "text": "The result mentions router_network",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"router_network\":\n  cloud-nat.tf:20: router_network = module.hub_vpc.self_link"
+    },
+    {
+      "text": "The result mentions layer4_configs",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"layer4_configs\":\n  hierarchical-firewall.tf:31: layer4_configs = ["
+    },
+    {
+      "text": "The result mentions modules/net-cloudnat",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"modules/net-cloudnat\":\n  cloud-nat.tf:15: source     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-cloudnat?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions modules/net-vpc-peering",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"modules/net-vpc-peering\":\n  vpc-peering.tf:17: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.0\"\n  vpc-peering.tf:32: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.0\""
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

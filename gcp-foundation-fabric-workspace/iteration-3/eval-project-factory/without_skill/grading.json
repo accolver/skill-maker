@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/project-factory",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"modules/project-factory\":\n  main.tf:10: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/project-factory?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions basepath",
+      "passed": false,
+      "evidence": "No matches for \"basepath\" found across 4 output file(s)"
+    },
+    {
+      "text": "The result mentions data_defaults",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"data_defaults\":\n  main.tf:18: # data_defaults – applied to EVERY project unless overridden in the YAML\n  main.tf:20: data_defaults = {"
+    },
+    {
+      "text": "The result mentions data_merges",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"data_merges\":\n  main.tf:6: * per-project overrides, and data_merges for org policies.\n  main.tf:79: # data_merges – merged INTO each project's YAML definition (additive)\n  main.tf:83: data_merges = {"
+    },
+    {
+      "text": "The result mentions data_overrides",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"data_overrides\":\n  main.tf:68: # data_overrides – force these values regardless of YAML definitions\n  main.tf:70: data_overrides = {"
+    },
+    {
+      "text": "The result mentions factories_config",
+      "passed": false,
+      "evidence": "No matches for \"factories_config\" found across 4 output file(s)"
+    },
+    {
+      "text": "The result mentions org_policies",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"org_policies\":\n  main.tf:54: org_policies = {\n  main.tf:97: org_policies = {"
+    },
+    {
+      "text": "The result mentions billing_account",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"billing_account\":\n  main.tf:21: billing_account = var.billing_account\n  main.tf:72: billing_account = var.billing_account\n  variables.tf:1: variable \"billing_account\" {"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

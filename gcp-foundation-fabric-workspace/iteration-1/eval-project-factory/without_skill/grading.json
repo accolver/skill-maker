@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/project-factory",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"modules/project-factory\":\n  main.tf:57: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/project-factory?ref=v34.1.0\"\n  org-policies.tf:84: #     source         = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/project-factory?ref=v34.1.0\"\n  org-policies.tf:121: #     source         = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/project-factory?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions factories_config",
+      "passed": false,
+      "evidence": "No matches for \"factories_config\" found across 4 output file(s)"
+    },
+    {
+      "text": "The result mentions billing_account",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"billing_account\":\n  main.tf:14: billing_account = var.billing_account\n  main.tf:75: variable \"billing_account\" {\n  terraform.tfvars.example:3: billing_account         = \"01ABCD-234EFG-567HIJ\""
+    },
+    {
+      "text": "The result mentions services",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"services\":\n  main.tf:30: services = [\n  org-policies.tf:104: #     \"constraints/gcp.restrictNonCmekServices\":\n  org-policies.tf:151: # | constraints/gcp.restrictNonCmekServices                 | Require CMEK for services            |"
+    },
+    {
+      "text": "The result mentions iam",
+      "passed": true,
+      "evidence": "Found 8 match(es) for \"iam\":\n  main.tf:8: * configuration (billing, APIs, IAM, networking, org policies, etc.).\n  main.tf:32: \"iam.googleapis.com\",\n  org-policies.tf:23: \"constraints/iam.automaticIamGrantsForDefaultServiceAccounts\" = {"
+    },
+    {
+      "text": "The result mentions bigquery.googleapis.com",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"bigquery.googleapis.com\":\n  org-policies.tf:108: #               - bigquery.googleapis.com"
+    },
+    {
+      "text": "The result mentions org_policies",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"org_policies\":\n  main.tf:46: org_policies = {}\n  org-policies.tf:17: # policies, update the `org_policies` key:\n  org-policies.tf:21: default_org_policies = {"
+    },
+    {
+      "text": "The result mentions data_defaults",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"data_defaults\":\n  main.tf:60: data_defaults = local.defaults\n  org-policies.tf:6: * 1. In `data_defaults` — applied to ALL projects unless overridden\n  org-policies.tf:85: #     data_defaults  = local.defaults_with_org_policies"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

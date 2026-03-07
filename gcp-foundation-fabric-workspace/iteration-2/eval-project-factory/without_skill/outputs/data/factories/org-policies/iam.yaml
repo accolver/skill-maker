@@ -1,0 +1,13 @@
+# =============================================================================
+# Organization Policies: IAM constraints
+# =============================================================================
+
+# Disable service account key creation
+iam.disableServiceAccountKeyCreation:
+  rules:
+    - enforce: true
+
+# Disable service account key upload
+iam.disableServiceAccountKeyUpload:
+  rules:
+    - enforce: true

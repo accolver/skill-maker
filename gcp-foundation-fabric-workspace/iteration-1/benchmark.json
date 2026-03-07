@@ -1,0 +1,81 @@
+{
+  "skill_name": "gcp-foundation-fabric",
+  "iteration": 1,
+  "timestamp": "2026-03-07T22:17:36.901Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9583,
+        "stddev": 0.0589
+      },
+      "time_seconds": {
+        "mean": 38.3333,
+        "stddev": 2.8674
+      },
+      "tokens": {
+        "mean": 15000,
+        "stddev": 2449.4897
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.9167,
+        "stddev": 0.0589
+      },
+      "time_seconds": {
+        "mean": 29.3333,
+        "stddev": 4.1899
+      },
+      "tokens": {
+        "mean": 10666.6667,
+        "stddev": 2494.4383
+      }
+    },
+    "delta": {
+      "pass_rate": 0.0416,
+      "time_seconds": 9,
+      "tokens": 4333
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "networking",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 42,
+        "tokens": 18000
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 35,
+        "tokens": 14000
+      }
+    },
+    {
+      "eval_name": "project-config",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 35,
+        "tokens": 12000
+      },
+      "without_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 25,
+        "tokens": 8000
+      }
+    },
+    {
+      "eval_name": "project-factory",
+      "with_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 38,
+        "tokens": 15000
+      },
+      "without_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 28,
+        "tokens": 10000
+      }
+    }
+  ]
+}

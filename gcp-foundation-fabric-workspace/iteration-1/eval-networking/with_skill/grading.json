@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/net-vpc",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"modules/net-vpc\":\n  peering.tf:13: source                     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.\n  peering.tf:29: source                     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.\n  vpc.tf:14: source     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions europe-west1",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"europe-west1\":\n  nat.tf:9: # Cloud NAT — europe-west1\n  variables.tf:45: default     = \"europe-west1\"\n  terraform.tfvars.example:9: region_primary   = \"europe-west1\""
+    },
+    {
+      "text": "The result mentions us-central1",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"us-central1\":\n  nat.tf:32: # Cloud NAT — us-central1\n  variables.tf:51: default     = \"us-central1\"\n  terraform.tfvars.example:10: region_secondary = \"us-central1\""
+    },
+    {
+      "text": "The result mentions asia-southeast1",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"asia-southeast1\":\n  nat.tf:55: # Cloud NAT — asia-southeast1\n  variables.tf:57: default     = \"asia-southeast1\"\n  terraform.tfvars.example:11: region_tertiary  = \"asia-southeast1\""
+    },
+    {
+      "text": "The result mentions modules/net-vpc-peering",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"modules/net-vpc-peering\":\n  peering.tf:13: source                     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1.\n  peering.tf:29: source                     = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-vpc-peering?ref=v34.1."
+    },
+    {
+      "text": "The result mentions modules/net-cloudnat",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"modules/net-cloudnat\":\n  nat.tf:13: source         = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-cloudnat?ref=v34.1.0\"\n  nat.tf:36: source         = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-cloudnat?ref=v34.1.0\"\n  nat.tf:59: source         = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-cloudnat?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions net-firewall-policy",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"net-firewall-policy\":\n  firewall.tf:4: * Hierarchical firewall policy using CFF `net-firewall-policy` module.\n  firewall.tf:10: source    = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/net-firewall-policy?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions 35.235.240.0/20",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"35.235.240.0/20\":\n  firewall.tf:5: * Applied at the organization level to allow IAP SSH access (35.235.240.0/20)\n  firewall.tf:23: src_ip_ranges  = [\"35.235.240.0/20\"]"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

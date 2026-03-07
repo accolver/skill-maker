@@ -1,0 +1,42 @@
+# =============================================================================
+# Organization Policies: Compute Engine constraints
+# =============================================================================
+# These org policies are applied via the lower-level factory mechanism.
+# Reference this directory from a project or folder YAML using:
+#   factories_config:
+#     org_policies: factories/org-policies
+# =============================================================================
+
+# Disable serial port access for security
+compute.disableSerialPortAccess:
+  rules:
+    - enforce: true
+
+# Disable VM nested virtualization
+compute.disableNestedVirtualization:
+  rules:
+    - enforce: true
+
+# Restrict external IP addresses on VMs
+compute.vmExternalIpAccess:
+  rules:
+    - deny:
+        all: true
+
+# Require OS Login for SSH access
+compute.requireOsLogin:
+  rules:
+    - enforce: true
+
+# Require Shielded VMs
+compute.requireShieldedVm:
+  rules:
+    - enforce: true
+
+# Restrict VM machine types to cost-effective options (example)
+# compute.restrictMachineTypes:
+#   rules:
+#     - allow:
+#         values:
+#           - "zones/europe-west1-b/machineTypes/e2-*"
+#           - "zones/europe-west1-b/machineTypes/n2-*"

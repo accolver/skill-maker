@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "project-factory",
+  "prompt": "I want to use the CFF project factory to create 50+ projects from YAML definitions. Show me: 1) The Terraform configuration for the project-factory module with appropriate defaults, 2) Two example YAML project definitions (one for a standard app project and one for a data analytics project with BigQuery), and 3) How to add org policies via the factory. Save all outputs to outputs/",
+  "assertions": [
+    "The result mentions modules/project-factory",
+    "The result mentions factories_config",
+    "The result mentions billing_account",
+    "The result mentions services",
+    "The result mentions iam",
+    "The result mentions bigquery.googleapis.com",
+    "The result mentions org_policies",
+    "The result mentions data_defaults"
+  ]
+}

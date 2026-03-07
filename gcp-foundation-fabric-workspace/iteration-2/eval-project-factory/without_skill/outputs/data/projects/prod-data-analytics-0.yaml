@@ -1,0 +1,155 @@
+# =============================================================================
+# Data Analytics Project: BigQuery & Data Pipeline
+# =============================================================================
+# This YAML defines a data analytics project with BigQuery datasets,
+# Pub/Sub topics, GCS buckets for data lake storage, and appropriate
+# IAM for data engineering and data science teams.
+# =============================================================================
+
+billing_account: 012345-67890A-BCDEF0
+
+# Place under the production folder
+parent: $folder_ids:production
+
+labels:
+  app: data-analytics
+  team: data-engineering
+  environment: production
+  cost_center: cc-5678
+  data_classification: confidential
+
+services:
+  - bigquery.googleapis.com
+  - bigquerystorage.googleapis.com
+  - bigquerydatatransfer.googleapis.com
+  - dataflow.googleapis.com
+  - dataproc.googleapis.com
+  - composer.googleapis.com
+  - pubsub.googleapis.com
+  - storage.googleapis.com
+  - compute.googleapis.com
+  - datacatalog.googleapis.com
+  - dlp.googleapis.com
+  - secretmanager.googleapis.com
+  - cloudkms.googleapis.com
+
+# IAM bindings
+iam:
+  roles/viewer:
+    - $iam_principals:gcp-viewers
+  roles/bigquery.admin:
+    - $iam_principals:gcp-data-team
+  roles/bigquery.dataViewer:
+    - $iam_principals:gcp-viewers
+  roles/bigquery.jobUser:
+    - $iam_principals:gcp-data-team
+  roles/storage.admin:
+    - $iam_principals:gcp-data-team
+
+iam_by_principals:
+  $iam_principals:gcp-admins:
+    - roles/owner
+
+# Service accounts for data workloads
+service_accounts:
+  dataflow-worker:
+    display_name: "Dataflow pipeline worker service account."
+    iam_self_roles:
+      - roles/dataflow.worker
+      - roles/bigquery.dataEditor
+      - roles/storage.objectAdmin
+      - roles/logging.logWriter
+      - roles/monitoring.metricWriter
+  composer-worker:
+    display_name: "Cloud Composer worker service account."
+    iam_self_roles:
+      - roles/composer.worker
+      - roles/bigquery.dataEditor
+      - roles/bigquery.jobUser
+      - roles/storage.objectViewer
+      - roles/logging.logWriter
+  data-catalog-admin:
+    display_name: "Data Catalog administration service account."
+    iam_self_roles:
+      - roles/datacatalog.admin
+      - roles/dlp.user
+
+# BigQuery datasets
+datasets:
+  raw_data:
+    friendly_name: "Raw Data Landing Zone"
+    iam:
+      roles/bigquery.dataEditor:
+        - $iam_principals:gcp-data-team
+  curated_data:
+    friendly_name: "Curated/Transformed Data"
+    iam:
+      roles/bigquery.dataViewer:
+        - $iam_principals:gcp-viewers
+      roles/bigquery.dataEditor:
+        - $iam_principals:gcp-data-team
+  analytics_reporting:
+    friendly_name: "Analytics & Reporting"
+    iam:
+      roles/bigquery.dataViewer:
+        - $iam_principals:gcp-viewers
+        - $iam_principals:gcp-data-team
+
+# Pub/Sub topics for streaming data ingestion
+pubsub_topics:
+  raw-events:
+    iam:
+      roles/pubsub.publisher:
+        - $iam_principals:gcp-data-team
+    subscriptions:
+      raw-events-bq-sub: {}
+      raw-events-dataflow-sub: {}
+  processed-events:
+    subscriptions:
+      processed-events-sub: {}
+
+# GCS buckets for data lake
+buckets:
+  data-lake-raw:
+    location: EU
+    storage_class: STANDARD
+    lifecycle_rules:
+      archive-after-90d:
+        action:
+          type: SetStorageClass
+          storage_class: NEARLINE
+        condition:
+          age: 90
+  data-lake-curated:
+    location: EU
+    storage_class: STANDARD
+  dataflow-temp:
+    location: EU
+    storage_class: STANDARD
+    lifecycle_rules:
+      delete-after-7d:
+        action:
+          type: Delete
+        condition:
+          age: 7
+
+# Shared VPC attachment for Dataflow
+shared_vpc_service_config:
+  host_project: $vpc_host_projects:prod-spoke-0
+  service_agent_iam:
+    "roles/compute.networkUser":
+      - $service_agents:dataflow
+
+# Org policies specific to this project
+org_policies:
+  compute.requireOsLogin:
+    rules:
+      - enforce: true
+  compute.vmExternalIpAccess:
+    rules:
+      - deny:
+          all: true
+
+# Tag bindings
+tag_bindings:
+  environment: $tag_values:environment/production

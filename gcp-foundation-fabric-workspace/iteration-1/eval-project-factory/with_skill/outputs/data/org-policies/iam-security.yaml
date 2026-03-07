@@ -1,0 +1,15 @@
+# Org policy factory YAML — IAM security constraints
+
+iam.disableServiceAccountKeyCreation:
+  rules:
+    - enforce: true
+
+iam.disableServiceAccountKeyUpload:
+  rules:
+    - enforce: true
+
+iam.allowedPolicyMemberDomains:
+  rules:
+    - allow:
+        values:
+          - C0xxxxxxx  # Replace with your Cloud Identity customer ID

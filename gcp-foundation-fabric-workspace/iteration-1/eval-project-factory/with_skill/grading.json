@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The result mentions modules/project-factory",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"modules/project-factory\":\n  project-factory.tf:24: source = \"github.com/GoogleCloudPlatform/cloud-foundation-fabric//modules/project-factory?ref=v34.1.0\""
+    },
+    {
+      "text": "The result mentions factories_config",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"factories_config\":\n  org-policies-via-factory.tf:6: #   2. Via the project module's factories_config.org_policies directory\n  org-policies-via-factory.tf:7: #   3. Via the folder or organization module's factories_config.org_policies\n  org-policies-via-factory.tf:18: # with factories_config.org_policies pointing to a YAML directory."
+    },
+    {
+      "text": "The result mentions billing_account",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"billing_account\":\n  org-policies-via-factory.tf:25: billing_account = \"012345-ABCDEF-012345\"\n  project-factory.tf:14: billing_account = \"012345-ABCDEF-012345\"\n  project-factory.tf:37: billing_account = local.billing_account"
+    },
+    {
+      "text": "The result mentions services",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"services\":\n  org-policies-via-factory.tf:28: services = [\n  project-factory.tf:48: services = [\n  project-factory.tf:62: \"cloudservices\","
+    },
+    {
+      "text": "The result mentions iam",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"iam\":\n  org-policies-via-factory.tf:36: \"iam.disableServiceAccountKeyCreation\" = {\n  org-policies-via-factory.tf:72: \"iam.disableServiceAccountKeyCreation\" = {\n  project-factory.tf:52: \"iam.googleapis.com\","
+    },
+    {
+      "text": "The result mentions bigquery.googleapis.com",
+      "passed": false,
+      "evidence": "No matches for \"bigquery.googleapis.com\" found across 2 output file(s)"
+    },
+    {
+      "text": "The result mentions org_policies",
+      "passed": true,
+      "evidence": "Found 8 match(es) for \"org_policies\":\n  org-policies-via-factory.tf:5: #   1. Inline in project YAML files (see data/projects/*.yaml — org_policies key)\n  org-policies-via-factory.tf:6: #   2. Via the project module's factories_config.org_policies directory\n  org-policies-via-factory.tf:7: #   3. Via the folder or organization module's factories_config.org_policies"
+    },
+    {
+      "text": "The result mentions data_defaults",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"data_defaults\":\n  project-factory.tf:36: data_defaults = {"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}
