@@ -35,10 +35,76 @@ skill-maker/
 
 ## Prerequisites
 
-- [Bun](https://bun.sh) — all bundled scripts require Bun
-  (`bun run scripts/<name>.ts`)
+- [Bun](https://bun.sh) — required for `bunx` and all bundled scripts
 
 ## Quick install
+
+```bash
+bunx skill-maker install
+```
+
+This installs the skill-maker skill to `~/.agents/skills/` and auto-detects any
+AI coding clients (Claude Code, OpenCode) to install there too.
+
+### Install example skills
+
+skill-maker includes 9 example skills built with the eval loop. Install specific
+ones alongside skill-maker:
+
+```bash
+bunx skill-maker install pdf-toolkit code-reviewer
+```
+
+Or install everything:
+
+```bash
+bunx skill-maker install --all
+```
+
+### Available skills
+
+| Skill                    | What it does                                         |
+| ------------------------ | ---------------------------------------------------- |
+| **skill-maker**          | Creates other agent skills with eval-driven dev      |
+| api-doc-generator        | Generates API documentation from code                |
+| changelog-generator      | Creates changelogs from git history                  |
+| code-reviewer            | Reviews code for quality, bugs, and best practices   |
+| database-migration       | Creates safe database migration scripts              |
+| error-handling           | Adds comprehensive error handling patterns           |
+| git-conventional-commits | Writes conventional commit messages                  |
+| monitoring-setup         | Sets up application monitoring and alerting          |
+| pdf-toolkit              | Extracts text, tables, and images from PDFs with OCR |
+| pr-description           | Writes detailed pull request descriptions            |
+
+Run `bunx skill-maker list` to see all available skills.
+
+### Install options
+
+```bash
+# Force install to a specific client
+bunx skill-maker install --client claude
+
+# Also install to the current project (./agents/skills/)
+bunx skill-maker install --local
+
+# Combine flags
+bunx skill-maker install pdf-toolkit --client opencode --local
+```
+
+### Where skills are installed
+
+Skills are always installed to `~/.agents/skills/`. The CLI also auto-detects
+and installs to any client directories that exist on your system:
+
+| Client      | Directory                    | Detected by                  |
+| ----------- | ---------------------------- | ---------------------------- |
+| Generic     | `~/.agents/skills/`          | Always                       |
+| Claude Code | `~/.claude/skills/`          | `~/.claude/` exists          |
+| OpenCode    | `~/.config/opencode/skills/` | `~/.config/opencode/` exists |
+
+### Manual installation
+
+If you prefer not to use `bunx`, clone and copy manually:
 
 ```bash
 git clone https://github.com/accolver/skill-maker.git
@@ -46,62 +112,6 @@ cd skill-maker
 mkdir -p ~/.agents/skills
 cp -r skill-maker ~/.agents/skills/skill-maker
 ```
-
-## Installation details
-
-The skill follows the
-[Agent Skills specification](https://agentskills.io/specification). Install it
-**globally** (available to all projects) or **locally** (scoped to one project).
-
-All commands below assume you have cloned the repo and are inside it
-(`cd skill-maker`).
-
-### Global installation
-
-Global skills are available across all your projects. Copy the inner
-`skill-maker/` directory (the skill) to your global skills location.
-
-**Generic (any Agent Skills-compatible client):**
-
-```bash
-mkdir -p ~/.agents/skills
-cp -r skill-maker ~/.agents/skills/skill-maker
-```
-
-**Claude Code:**
-
-```bash
-mkdir -p ~/.claude/skills
-cp -r skill-maker ~/.claude/skills/skill-maker
-```
-
-**OpenCode:**
-
-```bash
-mkdir -p ~/.config/opencode/skills
-cp -r skill-maker ~/.config/opencode/skills/skill-maker
-```
-
-**Codex:**
-
-```bash
-mkdir -p ~/.agents/skills
-cp -r skill-maker ~/.agents/skills/skill-maker
-```
-
-### Local installation (per-project)
-
-Local skills are scoped to a single project. Place the skill directory in your
-project's `.agents/skills/` folder.
-
-```bash
-cd /path/to/your/project
-mkdir -p .agents/skills
-cp -r /path/to/skill-maker/skill-maker .agents/skills/skill-maker
-```
-
-> **Note:** Some clients scan `.agents/skills/` at the project root for local
-> skills. Check your client's documentation for the exact path it expects.
 
 ### Verify installation
 

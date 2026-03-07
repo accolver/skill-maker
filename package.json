@@ -1,0 +1,33 @@
+{
+  "name": "skill-maker",
+  "version": "1.0.0",
+  "description": "Install Agent Skills built with skill-maker. Includes skill-maker itself and 9 example skills covering code review, PDF processing, error handling, and more.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/accolver/skill-maker.git"
+  },
+  "bin": {
+    "skill-maker": "./bin/cli.ts"
+  },
+  "files": [
+    "bin/",
+    "skill-maker/",
+    "examples/*/SKILL.md",
+    "examples/*/scripts/",
+    "examples/*/references/",
+    "examples/*/assets/",
+    "examples/*/package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "agent-skills",
+    "ai",
+    "coding-agent",
+    "skill",
+    "claude",
+    "opencode",
+    "codex"
+  ]
+}
