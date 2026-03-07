@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "skill-maker": {
+      "source": "accolver/skill-maker",
+      "sourceType": "github",
+      "computedHash": "efb4253bae27a94ef8245e59b139389a9afa6881a66b309fbb019554bbba7a9c"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "skill-maker",
   "version": "1.0.0",
-  "description": "Install Agent Skills built with skill-maker. Includes skill-maker itself and 9 example skills covering code review, PDF processing, error handling, and more.",
+  "description": "Install Agent Skills built with skill-maker. Includes 22 skills covering Nostr protocol, GCP infrastructure, code review, PDF processing, error handling, and more.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,11 +13,10 @@
   "files": [
     "bin/",
     "skill-maker/",
-    "examples/*/SKILL.md",
-    "examples/*/scripts/",
-    "examples/*/references/",
-    "examples/*/assets/",
-    "examples/*/package.json",
+    "*/SKILL.md",
+    "*/scripts/",
+    "*/references/",
+    "*/assets/",
     "LICENSE",
     "README.md"
   ],

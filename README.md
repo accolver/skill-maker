@@ -103,39 +103,53 @@ The agent will follow the 5-phase workflow automatically:
 
 ## Benchmark results
 
-Skills built with skill-maker were evaluated against unguided agents across 9
+Skills built with skill-maker were evaluated against unguided agents across 22
 domains. Each skill went through the full eval loop: isolated subagent pairs
 (with-skill vs without-skill), assertion grading, and iteration until plateau.
 
 | Metric                     | Value      |
 | -------------------------- | ---------- |
-| Skills evaluated           | 9          |
-| Total eval assertions      | 213        |
+| Skills evaluated           | 21         |
+| Total eval assertions      | ~504       |
 | With-skill pass rate       | 100%       |
-| Average without-skill rate | 23.9%      |
-| **Average improvement**    | **+76.1%** |
-| Average iterations to 100% | 2.2        |
+| Average without-skill rate | 37.1%      |
+| **Average improvement**    | **+62.9%** |
+| Average iterations to 100% | 2.1        |
 
 ### Per-skill results
 
-| Skill                    | With Skill | Without | Delta      |
-| ------------------------ | ---------- | ------- | ---------- |
-| database-migration       | 100%       | 4.2%    | **+95.8%** |
-| pdf-toolkit              | 100%       | 4.2%    | **+95.8%** |
-| error-handling           | 100%       | 8.3%    | **+91.7%** |
-| api-doc-generator        | 100%       | 16.7%   | **+83.3%** |
-| pr-description           | 100%       | 20.8%   | **+79.2%** |
-| changelog-generator      | 100%       | 20.8%   | **+79.2%** |
-| monitoring-setup         | 100%       | 26.1%   | **+73.9%** |
-| code-reviewer            | 100%       | 41.7%   | **+58.3%** |
-| git-conventional-commits | 100%       | 72.3%   | **+27.7%** |
+| Skill                     | With Skill | Without | Delta      |
+| ------------------------- | ---------- | ------- | ---------- |
+| nostr-client-patterns     | 100%       | 0%      | **+100%**  |
+| nostr-social-graph        | 100%       | 0%      | **+100%**  |
+| nostr-dvms                | 100%       | 0%      | **+100%**  |
+| database-migration        | 100%       | 4.2%    | **+95.8%** |
+| nostr-crypto-guide        | 100%       | 4.2%    | **+95.8%** |
+| pdf-toolkit               | 100%       | 4.2%    | **+95.8%** |
+| error-handling            | 100%       | 8.3%    | **+91.7%** |
+| api-doc-generator         | 100%       | 16.7%   | **+83.3%** |
+| pr-description            | 100%       | 20.8%   | **+79.2%** |
+| changelog-generator       | 100%       | 20.8%   | **+79.2%** |
+| nostr-marketplace-builder | 100%       | 25.0%   | **+75.0%** |
+| monitoring-setup          | 100%       | 26.1%   | **+73.9%** |
+| nostr-event-builder       | 100%       | 41.7%   | **+58.3%** |
+| code-reviewer             | 100%       | 41.7%   | **+58.3%** |
+| nostr-filter-designer     | 100%       | 54.8%   | **+45.2%** |
+| gcp-foundation-fabric     | 100%       | 70.8%   | **+29.2%** |
+| git-conventional-commits  | 100%       | 72.3%   | **+27.7%** |
+| nostr-nip05-setup         | 100%       | 83.3%   | **+16.7%** |
+| nostr-zap-integration     | 100%       | 91.7%   | **+8.3%**  |
+| nostr-relay-builder       | 100%       | 95.8%   | **+4.2%**  |
+| nostr-nip-advisor         | 100%       | 100%*   | 0%*        |
+
+_*Grader heuristic limitation — see AGENTS.md for details._
 
 Skills add the most value where agents have knowledge but lack structure: output
 formatting, safety checklists, comprehensive coverage, and convention-specific
 rules consistently fail without skill guidance.
 
-See [examples/README.md](examples/README.md) for detailed per-skill breakdowns,
-convergence charts, and guidance on choosing high-delta skill use cases.
+See [AGENTS.md](AGENTS.md) for detailed per-skill breakdowns, convergence data,
+and guidance on choosing high-delta skill use cases.
 
 ### Self-evaluation
 
@@ -148,7 +162,8 @@ skill-maker was also tested on itself (meta-evaluation):
 | Delta                | +42.7% |
 | Plateau reached at   | Iter 6 |
 
-See `skill-maker-workspace/FINAL-BENCHMARK.md` for the full iteration history.
+See `workspaces/skill-maker-workspace/FINAL-BENCHMARK.md` for the full iteration
+history.
 
 ## License
 

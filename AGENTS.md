@@ -25,35 +25,44 @@ skill-maker/
 ├── AGENTS.md                  # This file
 ├── README.md                  # Project overview and installation
 ├── LICENSE                    # MIT
-├── skill-maker/               # The skill itself
-│   ├── SKILL.md               # Main instructions (follows Agent Skills spec)
-│   ├── scripts/               # Bun TypeScript tools for grading/benchmarking
-│   ├── references/            # Schemas, spec summary
-│   ├── assets/                # SKILL.md template
-│   └── evals/                 # Self-eval test cases
-├── skill-maker-workspace/     # Self-evaluation workspace (6 iterations)
-│   ├── iteration-1/ through iteration-6/
-│   └── FINAL-BENCHMARK.md
-└── examples/                  # Example skills built with skill-maker
-    ├── README.md              # Aggregate charts and metrics
-    ├── dev-workflow/          # git-conventional-commits, code-reviewer,
-    │                          # pr-description, changelog-generator
-    ├── code-quality/          # api-doc-generator, error-handling
-    ├── infrastructure/        # database-migration, monitoring-setup
-    ├── document-processing/   # pdf-toolkit
-    └── sovereign-engineering/ # Nostr protocol skills (11 skills)
-        └── nostr/             # nostr-event-builder, nostr-nip-advisor,
-                               # nostr-relay-builder, nostr-filter-designer,
-                               # nostr-crypto-guide, nostr-nip05-setup,
-                               # nostr-client-patterns, nostr-social-graph,
-                               # nostr-zap-integration, nostr-marketplace-builder,
-                               # nostr-dvms
+├── skill-maker/               # The skill-maker skill itself
+│   ├── SKILL.md
+│   ├── scripts/
+│   ├── references/
+│   ├── assets/
+│   └── evals/
+├── api-doc-generator/         # 21 additional skills, all at root level
+├── changelog-generator/
+├── code-reviewer/
+├── database-migration/
+├── error-handling/
+├── gcp-foundation-fabric/
+├── git-conventional-commits/
+├── monitoring-setup/
+├── nostr-client-patterns/
+├── nostr-crypto-guide/
+├── nostr-dvms/
+├── nostr-event-builder/
+├── nostr-filter-designer/
+├── nostr-marketplace-builder/
+├── nostr-nip-advisor/
+├── nostr-nip05-setup/
+├── nostr-relay-builder/
+├── nostr-social-graph/
+├── nostr-zap-integration/
+├── pdf-toolkit/
+├── pr-description/
+└── workspaces/                # Eval loop artifacts for all skills
+    ├── skill-maker-workspace/
+    ├── api-doc-generator-workspace/
+    ├── ...
+    └── nostr-dvms-workspace/
 ```
 
 ## How Examples Are Generated
 
-Each example skill in `examples/` was built by running the full skill-maker
-process. This means each skill went through:
+Each skill was built by running the full skill-maker process. This means each
+skill went through:
 
 1. **Intent capture** — defining what the skill should do, its triggers, and
    success criteria
@@ -90,18 +99,19 @@ benchmark.json, timing.json, eval_metadata.json, and output files.
 
 | Metric                          | Value  |
 | ------------------------------- | ------ |
-| Skills built                    | 20     |
-| Total eval cases                | 60     |
-| Total assertions evaluated      | ~480   |
-| Total iterations run            | 52     |
+| Skills built                    | 21     |
+| Total eval cases                | 63     |
+| Total assertions evaluated      | ~504   |
+| Total iterations run            | 55     |
 | Average iterations to 100%      | 2.1    |
-| Average delta (with vs without) | +64.6% |
+| Average delta (with vs without) | +62.9% |
 
 ### Per-skill results
 
 | Skill                       | Pass Rate (w/ skill) | Pass Rate (w/o skill) | Delta      | Iterations | Plateau At |
 | --------------------------- | -------------------- | --------------------- | ---------- | ---------- | ---------- |
 | git-conventional-commits    | 100%                 | 72.3%                 | +27.7%     | 3          | 1          |
+| gcp-foundation-fabric       | 100%                 | 70.8%                 | +29.2%     | 3          | 3          |
 | code-reviewer               | 100%                 | 41.7%                 | +58.3%     | 4          | 2          |
 | api-doc-generator           | 100%                 | 16.7%                 | +83.3%     | 3          | 3          |
 | database-migration          | 100%                 | 4.2%                  | +95.8%     | 3          | 2          |
@@ -181,15 +191,15 @@ nostr-crypto-guide (+95.8%), nostr-client-patterns (+100%), nostr-social-graph
 
 ## Building New Examples
 
-All 20 example skills have been built and benchmarked. To add a new example:
+All 21 skills have been built and benchmarked. To add a new skill:
 
 ```
 Create a skill for [description]
 ```
 
 The skill-maker eval loop will produce benchmark artifacts in the corresponding
-workspace directory. Results can be aggregated into the examples/README.md
-charts. See the [Contributing](#contributing) section for the full checklist.
+workspace directory. Results can be aggregated into the metrics tables in this
+file. See the [Contributing](#contributing) section for the full checklist.
 
 ## Markdown Formatting Guidelines
 
@@ -273,42 +283,29 @@ All scripts require [Bun](https://bun.sh) and live in `skill-maker/scripts/`:
 | `detect-plateau.ts`      | Detect pass_rate plateau              | `bun run scripts/detect-plateau.ts <workspace>`                      |
 | `validate-skill.ts`      | Validate SKILL.md against spec        | `bun run scripts/validate-skill.ts <skill-dir>`                      |
 
-## Subdirectory README Standard
+## Skill Directory Layout
 
-Every category directory under `examples/` **must** have its own `README.md`
-that follows the same standard as `examples/README.md`. This includes:
+All skills are at the repo root, each with its own directory containing at
+minimum a `SKILL.md`. Eval workspace artifacts are consolidated in
+`workspaces/`.
 
-1. **Summary table** — all skills in the category with pass rates, deltas,
-   iteration counts, and descriptions
-2. **Mermaid chart** — `xychart-beta` bar chart comparing with-skill vs
-   without-skill pass rates, with a color legend below
-3. **Convergence table** — iteration-by-iteration pass rates and plateau points
-4. **Timing table** — execution time and token usage for both conditions
-5. **Skill details** — individual skill descriptions with links to skill
-   directories and benchmark files
+Each skill directory follows this structure:
 
-Current category directories with READMEs:
-
-- `examples/dev-workflow/README.md`
-- `examples/code-quality/README.md`
-- `examples/infrastructure/README.md`
-- `examples/document-processing/README.md`
-- `examples/sovereign-engineering/README.md` (parent category landing page)
-- `examples/sovereign-engineering/nostr/README.md` (full eval reports)
-
-When adding a new category or subcategory, create its README following this
-standard. When adding a new skill to an existing category, update the category's
-README with the new skill's metrics.
+```
+<skill-name>/
+├── SKILL.md               # Main instructions (follows Agent Skills spec)
+├── scripts/               # Optional: bundled scripts
+├── references/            # Optional: reference docs
+├── assets/                # Optional: templates
+└── evals/                 # Eval test cases (evals.json)
+```
 
 ## Contributing
 
-To add a new example skill:
+To add a new skill:
 
-1. Create a directory under `examples/<category>/<skill-name>/`
+1. Create a directory at the repo root: `<skill-name>/`
 2. Run skill-maker to build it (goes through the full eval loop)
-3. Verify the FINAL-BENCHMARK.md is generated in the workspace
-4. Update the category's `README.md` with the new skill's metrics
-5. Update `examples/README.md` charts with the new skill's metrics
-6. Update the aggregate metrics table in this file
-7. If creating a new category, add a `README.md` following the
-   [Subdirectory README Standard](#subdirectory-readme-standard)
+3. Verify eval artifacts are generated in `workspaces/<skill-name>-workspace/`
+4. Update the aggregate metrics table in this file
+5. Update `README.md` with the new skill
