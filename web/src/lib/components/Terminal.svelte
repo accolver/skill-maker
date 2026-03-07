@@ -1,5 +1,5 @@
 <script lang="ts">
-	const copyCommand = 'npx skill-maker install';
+	const copyCommand = 'npx skills add accolver/skill-maker';
 
 	let copied = $state(false);
 
@@ -53,22 +53,16 @@
 			<span class="text-syn-cyan">~</span>
 			<span class="text-ide-text-muted"> $ </span>
 			<span class="text-syn-yellow">npx</span>
-			<span class="text-ide-text"> skill-maker install</span>
+			<span class="text-ide-text"> skills add accolver/skill-maker</span>
 		</div>
 		<div class="mt-3">
-			<span class="text-syn-comment"># Or use your preferred package runner</span>
+			<span class="text-syn-comment"># Install globally (available in all projects)</span>
 		</div>
 		<div>
 			<span class="text-syn-cyan">~</span>
 			<span class="text-ide-text-muted"> $ </span>
-			<span class="text-syn-yellow">pnpx</span>
-			<span class="text-ide-text"> skill-maker install</span>
-		</div>
-		<div>
-			<span class="text-syn-cyan">~</span>
-			<span class="text-ide-text-muted"> $ </span>
-			<span class="text-syn-yellow">bunx</span>
-			<span class="text-ide-text"> skill-maker install</span>
+			<span class="text-syn-yellow">npx</span>
+			<span class="text-ide-text"> skills add accolver/skill-maker -g</span>
 		</div>
 		<div class="mt-3">
 			<span class="text-syn-cyan">~</span>

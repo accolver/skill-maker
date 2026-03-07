@@ -35,78 +35,33 @@ skill-maker/
 
 ## Prerequisites
 
-- [Bun](https://bun.sh) — required for `bunx` and all bundled scripts
+- [Bun](https://bun.sh) — required for all bundled scripts
 
 ## Quick install
 
 ```bash
-npx skill-maker install    # npm
-pnpx skill-maker install   # pnpm
-bunx skill-maker install   # bun
+npx skills add accolver/skill-maker
 ```
 
-This installs the skill-maker skill to `~/.agents/skills/` and auto-detects any
-AI coding clients (Claude Code, OpenCode) to install there too.
-
-### Install example skills
-
-skill-maker includes 9 example skills built with the eval loop. Install specific
-ones alongside skill-maker:
-
-```bash
-bunx skill-maker install pdf-toolkit code-reviewer
-```
-
-Or install everything:
-
-```bash
-bunx skill-maker install --all
-```
-
-### Available skills
-
-| Skill                    | What it does                                         |
-| ------------------------ | ---------------------------------------------------- |
-| **skill-maker**          | Creates other agent skills with eval-driven dev      |
-| api-doc-generator        | Generates API documentation from code                |
-| changelog-generator      | Creates changelogs from git history                  |
-| code-reviewer            | Reviews code for quality, bugs, and best practices   |
-| database-migration       | Creates safe database migration scripts              |
-| error-handling           | Adds comprehensive error handling patterns           |
-| git-conventional-commits | Writes conventional commit messages                  |
-| monitoring-setup         | Sets up application monitoring and alerting          |
-| pdf-toolkit              | Extracts text, tables, and images from PDFs with OCR |
-| pr-description           | Writes detailed pull request descriptions            |
-
-Run `bunx skill-maker list` to see all available skills.
+This auto-detects your AI coding agents (Claude Code, Cursor, Windsurf,
+OpenCode, etc.) and installs skill-maker to each one.
 
 ### Install options
 
 ```bash
-# Force install to a specific client
-bunx skill-maker install --client claude
+# Install globally (user-level, available in all projects)
+npx skills add accolver/skill-maker -g
 
-# Also install to the current project (./agents/skills/)
-bunx skill-maker install --local
+# Install to specific agents only
+npx skills add accolver/skill-maker --agent claude-code opencode
 
-# Combine flags
-bunx skill-maker install pdf-toolkit --client opencode --local
+# List available skills without installing
+npx skills add accolver/skill-maker --list
 ```
-
-### Where skills are installed
-
-Skills are always installed to `~/.agents/skills/`. The CLI also auto-detects
-and installs to any client directories that exist on your system:
-
-| Client      | Directory                    | Detected by                  |
-| ----------- | ---------------------------- | ---------------------------- |
-| Generic     | `~/.agents/skills/`          | Always                       |
-| Claude Code | `~/.claude/skills/`          | `~/.claude/` exists          |
-| OpenCode    | `~/.config/opencode/skills/` | `~/.config/opencode/` exists |
 
 ### Manual installation
 
-If you prefer not to use `bunx`, clone and copy manually:
+If you prefer not to use the skills CLI:
 
 ```bash
 git clone https://github.com/accolver/skill-maker.git
@@ -117,13 +72,15 @@ cp -r skill-maker ~/.agents/skills/skill-maker
 
 ### Verify installation
 
-Run the bundled validator to confirm the skill is correctly structured:
+```bash
+npx skills list
+```
+
+Or run the bundled validator:
 
 ```bash
 bun run skill-maker/scripts/validate-skill.ts skill-maker
 ```
-
-Expected output includes `"valid": true` with zero errors.
 
 ## Usage
 
