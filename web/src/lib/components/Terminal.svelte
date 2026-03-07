@@ -1,11 +1,10 @@
 <script lang="ts">
-	const REPO = 'https://github.com/accolver/skill-maker.git';
+	const commands = `# Install skill-maker
+npx skill-maker install
 
-	const commands = `# Clone the repo and install the skill
-git clone ${REPO}
-cd skill-maker
-mkdir -p ~/.agents/skills
-cp -r skill-maker ~/.agents/skills/skill-maker`;
+# Or use your preferred package runner
+pnpx skill-maker install
+bunx skill-maker install`;
 
 	let copied = $state(false);
 
@@ -53,36 +52,31 @@ cp -r skill-maker ~/.agents/skills/skill-maker`;
 	</div>
 	<div class="flex-1 overflow-y-auto p-4 font-mono text-[13px] leading-relaxed">
 		<div>
-			<span class="text-syn-comment"># Clone the repo and install the skill</span>
+			<span class="text-syn-comment"># Install skill-maker</span>
 		</div>
 		<div>
 			<span class="text-syn-cyan">~</span>
 			<span class="text-ide-text-muted"> $ </span>
-			<span class="text-syn-yellow">git clone</span>
-			<span class="text-ide-text"> {REPO}</span>
-		</div>
-		<div>
-			<span class="text-syn-cyan">~</span>
-			<span class="text-ide-text-muted"> $ </span>
-			<span class="text-syn-yellow">cd</span>
-			<span class="text-ide-text"> skill-maker</span>
-		</div>
-		<div>
-			<span class="text-syn-cyan">~/skill-maker</span>
-			<span class="text-ide-text-muted"> $ </span>
-			<span class="text-syn-yellow">mkdir</span>
-			<span class="text-syn-string"> -p</span>
-			<span class="text-ide-text"> ~/.agents/skills</span>
-		</div>
-		<div>
-			<span class="text-syn-cyan">~/skill-maker</span>
-			<span class="text-ide-text-muted"> $ </span>
-			<span class="text-syn-yellow">cp</span>
-			<span class="text-syn-string"> -r</span>
-			<span class="text-ide-text"> skill-maker ~/.agents/skills/skill-maker</span>
+			<span class="text-syn-yellow">npx</span>
+			<span class="text-ide-text"> skill-maker install</span>
 		</div>
 		<div class="mt-3">
-			<span class="text-syn-cyan">~/skill-maker</span>
+			<span class="text-syn-comment"># Or use your preferred package runner</span>
+		</div>
+		<div>
+			<span class="text-syn-cyan">~</span>
+			<span class="text-ide-text-muted"> $ </span>
+			<span class="text-syn-yellow">pnpx</span>
+			<span class="text-ide-text"> skill-maker install</span>
+		</div>
+		<div>
+			<span class="text-syn-cyan">~</span>
+			<span class="text-ide-text-muted"> $ </span>
+			<span class="text-syn-yellow">bunx</span>
+			<span class="text-ide-text"> skill-maker install</span>
+		</div>
+		<div class="mt-3">
+			<span class="text-syn-cyan">~</span>
 			<span class="text-ide-text-muted"> $ </span>
 			<span
 				class="inline-block h-[15px] w-[8px] bg-ide-text"

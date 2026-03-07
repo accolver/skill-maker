@@ -40,7 +40,9 @@ skill-maker/
 ## Quick install
 
 ```bash
-bunx skill-maker install
+npx skill-maker install    # npm
+pnpx skill-maker install   # pnpm
+bunx skill-maker install   # bun
 ```
 
 This installs the skill-maker skill to `~/.agents/skills/` and auto-detects any

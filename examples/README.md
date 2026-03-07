@@ -3,6 +3,29 @@
 Skills built with [skill-maker](../README.md), each with full eval-loop
 benchmarks demonstrating measurable improvement over unguided agents.
 
+## Install
+
+Install skill-maker and any example skills with a single command:
+
+```bash
+# npx
+npx skill-maker install --all
+
+# pnpm
+pnpx skill-maker install --all
+
+# bun
+bunx skill-maker install --all
+```
+
+Or install specific example skills:
+
+```bash
+npx skill-maker install pdf-toolkit code-reviewer
+```
+
+Run `npx skill-maker list` to see all available skills.
+
 ## Quality: Skill-Maker vs No Skill
 
 How much better do agents perform when following a skill-maker-generated skill
