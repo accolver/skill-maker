@@ -2,3 +2,11 @@ node_modules
 bun.lock
 .DS_Store
 agents/
+
+# Installed agent skills (created by npx skills add)
+.agents/
+.claude/
+.continue/
+.goose/
+skills-lock.json
+skills/
