@@ -1,6 +1,6 @@
 ---
 name: skill-maker
-description: Create new agent skills from scratch and iteratively improve them using eval-driven subagent loops. Use when users want to create a skill, build a SKILL.md, test skill quality with evaluations, benchmark skill performance, or optimize a skill's description for triggering accuracy. Also use when users mention making reusable agent workflows, capturing repeatable processes as skills, or packaging agent knowledge.
+description: Create agent skills and improve them via eval-driven subagent loops. Use when creating a skill, building a SKILL.md, testing with evaluations, benchmarking skill performance, or optimizing trigger accuracy. Also use for reusable agent workflows or packaging agent knowledge.
 ---
 
 # Skill Maker
@@ -64,15 +64,10 @@ Understand what the user wants the skill to do before writing anything.
 
 ### Research
 
-Before drafting, research the problem domain:
-
-- Check if existing tools or packages solve part of the problem
-- Look for similar skills or patterns
-- Identify edge cases and failure modes
-- Understand what context the agent will NOT have without this skill
-
-Do not proceed to Phase 2 until you understand the skill's purpose, triggering
-conditions, and success criteria.
+Before drafting, research the domain: check for existing tools, identify edge
+cases, and understand what context the agent will NOT have without this skill.
+Do not proceed to Phase 2 until you understand purpose, triggers, and success
+criteria.
 
 ---
 
@@ -176,15 +171,6 @@ and run with `uv run`:
 # dependencies = ["beautifulsoup4"]
 # ///
 ```
-
-**Script design checklist:**
-
-- `--help` flag with usage examples and flag descriptions
-- JSON output to stdout (agents can parse it)
-- Diagnostics/progress to stderr (keeps stdout clean)
-- Meaningful exit codes (0 = success, non-zero = specific failure)
-- Idempotent operations (safe to retry)
-- No interactive prompts (agents can't respond to TTY input)
 
 ### Step 6: Create initial eval test cases
 
@@ -450,25 +436,6 @@ Use all three to improve the skill. Key principles:
 
 Apply improvements to the skill. Go to Step 1 with a new iteration directory.
 
-### The loop visualized
-
-```
-iteration = 1
-LOOP:
-  spawn subagents (with_skill + baseline) per eval case
-  draft/refine assertions
-  capture timing
-  grade outputs          -> grading.json per run
-  aggregate benchmark    -> benchmark.json + benchmark.md
-  detect plateau         -> CONTINUE | PLATEAU | MAX_REACHED
-  if PLATEAU or MAX_REACHED: break
-  analyze patterns
-  human review           -> feedback.json
-  improve skill from signals
-  iteration += 1
-  goto LOOP
-```
-
 ---
 
 ## Phase 5: Finalize
@@ -498,17 +465,9 @@ accuracy.
 
 ### Install the skill
 
-Copy the skill directory to the appropriate location:
-
 ```bash
-# Cross-client (recommended):
-cp -r <skill-name> ~/.agents/skills/<skill-name>
-
-# Claude Code specific:
-cp -r <skill-name> ~/.claude/skills/<skill-name>
-
-# Project-level:
-cp -r <skill-name> .agents/skills/<skill-name>
+cp -r <skill-name> ~/.agents/skills/<skill-name>   # cross-client
+cp -r <skill-name> .agents/skills/<skill-name>      # project-level
 ```
 
 ### Final checklist
@@ -527,23 +486,13 @@ cp -r <skill-name> .agents/skills/<skill-name>
 
 ## Quick Reference
 
-| Phase         | What                                     | Key Output                   |
-| ------------- | ---------------------------------------- | ---------------------------- |
-| 1. Intent     | Interview user, research domain          | Requirements                 |
-| 2. Draft      | Write SKILL.md + scripts                 | Skill directory              |
-| 3. Test cases | Write eval prompts                       | evals/evals.json             |
-| 4. Eval loop  | Subagent runs, grade, benchmark, iterate | benchmark.json per iteration |
-| 5. Finalize   | Validate, optimize description, install  | Production skill             |
+| Phase         | What                        | Output           |
+| ------------- | --------------------------- | ---------------- |
+| 1. Intent     | Interview, research         | Requirements     |
+| 2. Draft      | SKILL.md + scripts          | Skill directory  |
+| 3. Test cases | Write eval prompts          | evals.json       |
+| 4. Eval loop  | Subagents, grade, iterate   | benchmark.json   |
+| 5. Finalize   | Validate, optimize, install | Production skill |
 
-| Script                 | Purpose                      | Run                                                                  |
-| ---------------------- | ---------------------------- | -------------------------------------------------------------------- |
-| grade.ts               | Grade assertions vs outputs  | `bun run scripts/grade.ts <run-dir>`                                 |
-| aggregate-benchmark.ts | Aggregate to benchmark.json  | `bun run scripts/aggregate-benchmark.ts <iter-dir> --skill-name <n>` |
-| detect-plateau.ts      | Check if pass_rate plateaued | `bun run scripts/detect-plateau.ts <workspace>`                      |
-| validate-skill.ts      | Validate SKILL.md            | `bun run scripts/validate-skill.ts <skill-dir>`                      |
-
-| Stop condition | Trigger                                                            |
-| -------------- | ------------------------------------------------------------------ |
-| Plateau        | pass_rate delta < 2% for 2 consecutive iterations, or 100% reached |
-| Max iterations | 20 iterations reached                                              |
-| User satisfied | Feedback is empty across all evals                                 |
+**Stop conditions:** Plateau (delta < 2% for 2 iterations, or 100%), max
+iterations (20), or user satisfied (empty feedback).
