@@ -309,3 +309,10 @@ To add a new skill:
 3. Verify eval artifacts are generated in `workspaces/<skill-name>-workspace/`
 4. Update the aggregate metrics table in this file
 5. Update `README.md` with the new skill
+6. Commit, push, then install the skill to trigger skills.sh indexing:
+   ```bash
+   npx skills add accolver/skill-maker --skill <skill-name> --yes
+   ```
+   skills.sh indexes skills when they are installed via the CLI. Without this
+   step, the skill will exist in the repo but won't appear on skills.sh or be
+   discoverable via `npx skills find`.
