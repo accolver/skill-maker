@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output uses NDKNip46Signer (or equivalent NDK NIP-46 signer class) for the connection",
+      "passed": true,
+      "evidence": "import NDK, { NDKEvent, NDKNip46Signer, NDKPrivateKeySigner } from \"@nostr-dev-kit/ndk\"; — then: const bunkerSigner = new NDKNip46Signer(ndk, undefined, localSigner);"
+    },
+    {
+      "text": "Output generates a nostrconnect:// URI containing the client pubkey, relays, a required secret, and app name",
+      "passed": true,
+      "evidence": "const nostrconnectURI = await bunkerSigner.createNostrConnectURI({ name: \"My Nostr App\", perms: \"sign_event:1,...\" }); — URI format shown: nostrconnect://<client-pubkey>?relay=wss%3A%2F%2Frelay.damus.io&relay=...&secret=<random>&name=My+Nostr+App"
+    },
+    {
+      "text": "Output includes requested permissions in the nostrconnect URI (perms parameter with method:kind format)",
+      "passed": true,
+      "evidence": "perms: \"sign_event:1,sign_event:0,nip44_encrypt,nip44_decrypt\" — shown in createNostrConnectURI call and in the URI example: &perms=sign_event%3A1%2Csign_event%3A0%2Cnip44_encrypt%2Cnip44_decrypt"
+    },
+    {
+      "text": "Output shows waiting for the signer to connect before using the signer (blockUntilReady or equivalent)",
+      "passed": true,
+      "evidence": "await bunkerSigner.blockUntilReady(); — called before using the signer, with comment: 'blockUntilReady() subscribes to kind:24133 events on the specified relays... This call blocks until that response arrives.'"
+    },
+    {
+      "text": "Output explains that the client MUST validate the secret returned in the connect response to prevent spoofing",
+      "passed": true,
+      "evidence": "Common Mistakes table: 'Skipping secret validation in nostrconnect:// flow — Client MUST validate that the secret in the connect response matches the one it sent. NDK does this automatically.' Also: 'NDK validates the secret matches what was in the URI'"
+    },
+    {
+      "text": "Output explains switch_relays: the signer controls which relays are used, client must call switch_relays after connecting and update local relay state accordingly",
+      "passed": true,
+      "evidence": "Dedicated section 'How switch_relays Works and Why It Matters' explains: 'the signer controls which relays are used for ongoing communication', 'the client MUST update its local state and send all further requests on these new relays', 'compliant clients SHOULD send a switch_relays request immediately after establishing a connection', 'If you don't support switch_relays: The signer can't migrate away from unreliable relays...'"
+    },
+    {
+      "text": "Output uses kind 24133 (or references it) as the NIP-46 event kind",
+      "passed": true,
+      "evidence": "Multiple references: 'kind:24133 events encrypted with NIP-44', 'kind:24133 (NIP-44 encrypted)', table row: 'Event kind | 24133', 'All NIP-46 request/response messages. Content is NIP-44 encrypted (never NIP-04).'"
+    },
+    {
+      "text": "Output mentions that all kind:24133 content is encrypted with NIP-44 (not NIP-04)",
+      "passed": true,
+      "evidence": "Table: 'kind:24133 | The event kind used for all NIP-46 request/response messages. Content is NIP-44 encrypted (never NIP-04).' Also: 'Content encryption | NIP-44 (version 2) — never NIP-04' and Common Mistakes: 'Using NIP-04 for kind:24133 content encryption — NIP-46 requires NIP-44 encryption. NIP-04 is deprecated and insecure.'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

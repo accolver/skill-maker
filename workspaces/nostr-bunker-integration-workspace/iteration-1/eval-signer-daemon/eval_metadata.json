@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "signer-daemon",
+  "prompt": "I need to build a NIP-46 remote signer service (bunker daemon) in TypeScript. It should hold a user's private key, listen for incoming signing requests over Nostr relays, enforce permissions (only allow sign_event for kind 1 and kind 0, plus nip44_encrypt and nip44_decrypt), handle the connect flow, and generate a bunker:// URI that clients can use. Show the complete implementation with proper NIP-44 encryption for the kind:24133 transport.",
+  "assertions": [
+    "Output subscribes to kind:24133 events filtered by p-tag matching the signer pubkey",
+    "Output uses NIP-44 (not NIP-04) for decrypting request content and encrypting response content",
+    "Output implements a connect handler that validates secrets and stores client sessions with permissions",
+    "Output implements get_public_key that returns the user pubkey (not the signer transport pubkey)",
+    "Output implements sign_event that signs with the user's private key",
+    "Output enforces permission checking — rejects sign_event requests for kinds other than 0 and 1",
+    "Output generates a bunker:// URI containing the signer pubkey, relay URLs, and optional secret",
+    "Output matches request IDs in responses to enable proper request-response correlation"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output subscribes to kind:24133 events filtered by p-tag matching the signer pubkey",
+      "passed": true,
+      "evidence": "In bunker-daemon.ts: this.pool.subscribeMany(this.relays, [{ kinds: [24133], \"#p\": [this.signerPubkey], since: Math.floor(Date.now() / 1000) - 30 }], ...)"
+    },
+    {
+      "text": "Output uses NIP-44 (not NIP-04) for decrypting request content and encrypting response content",
+      "passed": true,
+      "evidence": "Decryption: const conversationKey = nip44.v2.utils.getConversationKey(this.signerPrivkey, clientPubkey); decryptedContent = nip44.v2.decrypt(event.content, conversationKey); Encryption: const encryptedContent = nip44.v2.encrypt(responseJson, conversationKey); — NIP-04 is never used."
+    },
+    {
+      "text": "Output implements a connect handler that validates secrets and stores client sessions with permissions",
+      "passed": true,
+      "evidence": "handleConnect() validates secret: if (this.usedSecrets.has(secret)) throw Error('...already been used...'); if (secret !== this.connectionSecret) throw Error('Invalid connection secret'); this.usedSecrets.add(secret); Parses permissions: const permissions = parsePermissions(permsStr); Creates session: this.sessions.set(clientPubkey, { clientPubkey, permissions, connectedAt: now, lastActivity: now });"
+    },
+    {
+      "text": "Output implements get_public_key that returns the user pubkey (not the signer transport pubkey)",
+      "passed": true,
+      "evidence": "handleGetPublicKey(): string { return this.userPubkey; } — with comment: 'Return the USER's public key (NOT the signer's transport pubkey).'"
+    },
+    {
+      "text": "Output implements sign_event that signs with the user's private key",
+      "passed": true,
+      "evidence": "handleSignEvent: const signedEvent = finalizeEvent(unsignedEvent, this.userPrivkey); — with comment: 'Sign with the USER's private key (NOT the signer's transport key)'"
+    },
+    {
+      "text": "Output enforces permission checking — rejects sign_event requests for kinds other than 0 and 1",
+      "passed": true,
+      "evidence": "isPermitted() checks sign_event kind against session permissions. bunker-daemon-restricted.ts defines DAEMON_POLICY: [{ method: 'sign_event', kind: 0 }, { method: 'sign_event', kind: 1 }, ...]. Main daemon enforces: if (session && !isPermitted(session.permissions, request.method, request.params ?? [])) { ... error: 'Permission denied' }"
+    },
+    {
+      "text": "Output generates a bunker:// URI containing the signer pubkey, relay URLs, and optional secret",
+      "passed": true,
+      "evidence": "generateBunkerURI(): params.append('relay', relay); if (sec) { params.set('secret', sec); } return `bunker://${this.signerPubkey}?${params.toString()}`;"
+    },
+    {
+      "text": "Output matches request IDs in responses to enable proper request-response correlation",
+      "passed": true,
+      "evidence": "Response always includes the request id: sendResponse(clientPubkey, { id: request.id, result, }); and { id: request.id, result: null, error: errorMsg }"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

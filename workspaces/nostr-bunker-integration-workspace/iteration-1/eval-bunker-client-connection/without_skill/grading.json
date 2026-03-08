@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output imports BunkerSigner and parseBunkerInput from @nostr/tools/nip46 (or nostr-tools/nip46)",
+      "passed": true,
+      "evidence": "import { BunkerSigner, parseBunkerInput } from \"@nostr/tools/nip46\";"
+    },
+    {
+      "text": "Output calls parseBunkerInput to parse the bunker:// URI",
+      "passed": true,
+      "evidence": "const bunkerPointer = await parseBunkerInput(bunkerUri);"
+    },
+    {
+      "text": "Output uses BunkerSigner.fromBunker() factory method (not constructor directly)",
+      "passed": true,
+      "evidence": "this.signer = BunkerSigner.fromBunker(localSecretKey, bunkerPointer, { pool: this.pool });"
+    },
+    {
+      "text": "Output calls await bunker.connect() for the initial connection",
+      "passed": true,
+      "evidence": "await this.signer.connect();"
+    },
+    {
+      "text": "Output calls await bunker.getPublicKey() after connecting and uses the returned value as the user identity",
+      "passed": true,
+      "evidence": "this.userPubkey = await this.signer.getPublicKey(); — called after connect(), stored as the user identity"
+    },
+    {
+      "text": "Output includes an onauth callback in BunkerSignerParams that handles auth challenge URLs",
+      "passed": true,
+      "evidence": "onauth: (authUrl: string) => { const popup = window.open(authUrl, \"nostr-auth\", \"width=600,height=700\"); ... } — shown in the enhanced version with auth challenge support"
+    },
+    {
+      "text": "Output demonstrates session persistence by storing BunkerPointer and client secret key, and shows reconnection without calling connect() again",
+      "passed": false,
+      "evidence": "Session persistence stores localSecretKeyHex and bunkerUri in localStorage. However, restoreSession() DOES call connect() again: 'await this.signer.connect();' — the assertion requires reconnection WITHOUT calling connect() again, which this output fails to do."
+    },
+    {
+      "text": "Output correctly distinguishes between remote-signer-pubkey (transport) and user-pubkey (identity)",
+      "passed": true,
+      "evidence": "IMPORTANT: The remote-signer-pubkey from the URI may differ from the user's pubkey. Always call getPublicKey() after connecting. Also: 'The pubkey in the bunker:// URI is the remote signer's pubkey, which may differ from the user's pubkey.'"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

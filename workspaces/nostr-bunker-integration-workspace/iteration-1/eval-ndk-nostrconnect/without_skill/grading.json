@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output uses NDKNip46Signer (or equivalent NDK NIP-46 signer class) for the connection",
+      "passed": true,
+      "evidence": "import NDK, { NDKNip46Signer } from \"@nostr-dev-kit/ndk\"; — then: const signer = NDKNip46Signer.nostrconnect(ndk, nip46Relay, savedLocalNsec, { name: \"My Nostr App\", ... });"
+    },
+    {
+      "text": "Output generates a nostrconnect:// URI containing the client pubkey, relays, a required secret, and app name",
+      "passed": true,
+      "evidence": "const connectUri = signer.nostrConnectUri; — URI example shown: nostrconnect://83f3b2ae...?relay=wss%3A%2F%2Frelay.primal.net&perms=...&name=My+Nostr+App&secret=a1b2c3d4"
+    },
+    {
+      "text": "Output includes requested permissions in the nostrconnect URI (perms parameter with method:kind format)",
+      "passed": true,
+      "evidence": "perms: [\"sign_event:1\", \"sign_event:30023\", \"nip44_encrypt\", \"nip44_decrypt\"] — shown in NDKNip46Signer.nostrconnect() call and in the URI example: &perms=sign_event%3A1%2Csign_event%3A30023%2Cnip44_encrypt%2Cnip44_decrypt"
+    },
+    {
+      "text": "Output shows waiting for the signer to connect before using the signer (blockUntilReady or equivalent)",
+      "passed": true,
+      "evidence": "const user = await signer.blockUntilReady(); — with comment: 'This blocks until the remote signer scans the QR and responds'"
+    },
+    {
+      "text": "Output explains that the client MUST validate the secret returned in the connect response to prevent spoofing",
+      "passed": true,
+      "evidence": "Security Considerations section: 'Always validate the secret: When using nostrconnect://, include a secret parameter and validate that the connect response returns the same secret. This prevents connection spoofing.'"
+    },
+    {
+      "text": "Output explains switch_relays: the signer controls which relays are used, client must call switch_relays after connecting and update local relay state accordingly",
+      "passed": true,
+      "evidence": "Dedicated section 'How switch_relays Works and Why It Matters' explains: 'allows the remote signer to tell the client to change which relays are used', 'Relay Sovereignty: The remote signer should always control which relays are used', 'Immediately update its local relay state when it receives a non-null response', 'Send all subsequent NIP-46 requests on the new relays', 'call switch_relays right after the connect handshake completes'"
+    },
+    {
+      "text": "Output uses kind 24133 (or references it) as the NIP-46 event kind",
+      "passed": true,
+      "evidence": "NIP-46 Protocol Details section: 'All NIP-46 communication uses kind 24133 events. Both requests and responses use this same kind.' Also referenced throughout: 'kind:24133 events', 'kind 24133'"
+    },
+    {
+      "text": "Output mentions that all kind:24133 content is encrypted with NIP-44 (not NIP-04)",
+      "passed": true,
+      "evidence": "Encryption section: 'All message content is encrypted using NIP-44 encryption. The client encrypts to the remote-signer-pubkey, and the signer encrypts to the client-pubkey.'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

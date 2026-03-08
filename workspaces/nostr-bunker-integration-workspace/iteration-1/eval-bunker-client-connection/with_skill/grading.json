@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output imports BunkerSigner and parseBunkerInput from @nostr/tools/nip46 (or nostr-tools/nip46)",
+      "passed": true,
+      "evidence": "import { type BunkerPointer, BunkerSigner, parseBunkerInput } from \"@nostr/tools/nip46\";"
+    },
+    {
+      "text": "Output calls parseBunkerInput to parse the bunker:// URI",
+      "passed": true,
+      "evidence": "const bunkerPointer = await parseBunkerInput(bunkerUri);"
+    },
+    {
+      "text": "Output uses BunkerSigner.fromBunker() factory method (not constructor directly)",
+      "passed": true,
+      "evidence": "const signer = BunkerSigner.fromBunker(clientSecretKey, bunkerPointer, { pool, onauth: ... });"
+    },
+    {
+      "text": "Output calls await bunker.connect() for the initial connection",
+      "passed": true,
+      "evidence": "await signer.connect();"
+    },
+    {
+      "text": "Output calls await bunker.getPublicKey() after connecting and uses the returned value as the user identity",
+      "passed": true,
+      "evidence": "const userPubkey = await signer.getPublicKey(); — called after connect(), returned as part of BunkerConnection and stored in session as userPubkey"
+    },
+    {
+      "text": "Output includes an onauth callback in BunkerSignerParams that handles auth challenge URLs",
+      "passed": true,
+      "evidence": "onauth: (url: string) => { if (onAuth) { onAuth(url); } else { window.open(url, \"bunker-auth\", \"width=600,height=400\"); } }"
+    },
+    {
+      "text": "Output demonstrates session persistence by storing BunkerPointer and client secret key, and shows reconnection without calling connect() again",
+      "passed": true,
+      "evidence": "saveSession stores clientSecretKeyHex, bunkerPointer, and userPubkey to localStorage. reconnectFromSession() recreates BunkerSigner with stored data and comment says: '// No connect() call needed — the signer already recognizes this client.'"
+    },
+    {
+      "text": "Output correctly distinguishes between remote-signer-pubkey (transport) and user-pubkey (identity)",
+      "passed": true,
+      "evidence": "CRITICAL: The remote-signer-pubkey (from the bunker:// URI) is the transport key. The user's actual identity pubkey may be DIFFERENT. Always call get_public_key after connecting to learn the real identity."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

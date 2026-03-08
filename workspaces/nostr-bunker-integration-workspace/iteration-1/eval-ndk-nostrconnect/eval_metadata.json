@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "ndk-nostrconnect",
+  "prompt": "I'm adding NIP-46 remote signing support to my existing Nostr app that currently uses NDK. I want to support the nostrconnect:// flow where the user scans a QR code with their signer app. Show me how to implement this with NDK, generate the QR code URI, wait for the signer to connect, and then use it for signing. Also explain how switch_relays works and why it matters.",
+  "assertions": [
+    "Output uses NDKNip46Signer (or equivalent NDK NIP-46 signer class) for the connection",
+    "Output generates a nostrconnect:// URI containing the client pubkey, relays, a required secret, and app name",
+    "Output includes requested permissions in the nostrconnect URI (perms parameter with method:kind format)",
+    "Output shows waiting for the signer to connect before using the signer (blockUntilReady or equivalent)",
+    "Output explains that the client MUST validate the secret returned in the connect response to prevent spoofing",
+    "Output explains switch_relays: the signer controls which relays are used, client must call switch_relays after connecting and update local relay state accordingly",
+    "Output uses kind 24133 (or references it) as the NIP-46 event kind",
+    "Output mentions that all kind:24133 content is encrypted with NIP-44 (not NIP-04)"
+  ]
+}

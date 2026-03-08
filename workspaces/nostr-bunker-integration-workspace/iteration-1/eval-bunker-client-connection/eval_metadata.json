@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "bunker-client-connection",
+  "prompt": "I'm building a Nostr social client in TypeScript. I want users to be able to log in by pasting a bunker:// URI from their remote signer. Write the complete connection flow using @nostr/tools — handle the initial connection, get the user's pubkey, handle auth challenges, and sign a kind:1 note. Also show how to persist the session so users stay logged in across page reloads.",
+  "assertions": [
+    "Output imports BunkerSigner and parseBunkerInput from @nostr/tools/nip46 (or nostr-tools/nip46)",
+    "Output calls parseBunkerInput to parse the bunker:// URI",
+    "Output uses BunkerSigner.fromBunker() factory method (not constructor directly)",
+    "Output calls await bunker.connect() for the initial connection",
+    "Output calls await bunker.getPublicKey() after connecting and uses the returned value as the user identity",
+    "Output includes an onauth callback in BunkerSignerParams that handles auth challenge URLs",
+    "Output demonstrates session persistence by storing BunkerPointer and client secret key, and shows reconnection without calling connect() again",
+    "Output correctly distinguishes between remote-signer-pubkey (transport) and user-pubkey (identity)"
+  ]
+}

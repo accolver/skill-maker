@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output subscribes to kind:24133 events filtered by p-tag matching the signer pubkey",
+      "passed": true,
+      "evidence": "In relay.ts: const filter = { kinds: [24133], \"#p\": [subscribeToPubkey], since: Math.floor(Date.now() / 1000) - 60 }; — subscribeToPubkey is the signer pubkey passed from bunker.ts via this.relayPool.connectAll(this.relays, this.signerPubkey)"
+    },
+    {
+      "text": "Output uses NIP-44 (not NIP-04) for decrypting request content and encrypting response content",
+      "passed": true,
+      "evidence": "In nip44.ts: full NIP-44 v2 implementation with getConversationKey, nip44Encrypt, nip44Decrypt. In bunker.ts: decryptNIP44(event.content, this.signerPrivateKey, clientPubkey) for decryption and encryptNIP44(responseJson, this.signerPrivateKey, clientPubkey) for encryption. NIP-04 is explicitly rejected: 'Method nip04_encrypt/nip04_decrypt is not supported by this bunker.'"
+    },
+    {
+      "text": "Output implements a connect handler that validates secrets and stores client sessions with permissions",
+      "passed": true,
+      "evidence": "handleConnect() validates secret: if (providedSecret !== this.secret) return error; if (this.consumedSecrets.has(providedSecret)) return error 'Secret has already been used'; this.consumedSecrets.add(providedSecret); Negotiates permissions: const grantedPerms = negotiatePermissions(requestedPerms, DEFAULT_PERMISSIONS); Creates session: this.sessions.set(clientPubkey, session);"
+    },
+    {
+      "text": "Output implements get_public_key that returns the user pubkey (not the signer transport pubkey)",
+      "passed": true,
+      "evidence": "handleGetPublicKey(): returns { id: requestId, result: this.userPubkey } — with comment: 'Returns the user's public key (not the signer transport key).'"
+    },
+    {
+      "text": "Output implements sign_event that signs with the user's private key",
+      "passed": true,
+      "evidence": "handleSignEvent(): const signed = signEvent(this.userPrivateKey, unsignedEvent); — uses userPrivateKey, not signerPrivateKey"
+    },
+    {
+      "text": "Output enforces permission checking — rejects sign_event requests for kinds other than 0 and 1",
+      "passed": true,
+      "evidence": "In permissions.ts: isAllowed() checks sign_event kind against permissions. DEFAULT_PERMISSIONS = [{ method: 'sign_event', kind: 0 }, { method: 'sign_event', kind: 1 }, ...]. handleSignEvent checks: if (!isAllowed('sign_event', session.permissions, unsignedEvent.kind)) return error 'Permission denied: sign_event for kind:X is not allowed.'"
+    },
+    {
+      "text": "Output generates a bunker:// URI containing the signer pubkey, relay URLs, and optional secret",
+      "passed": true,
+      "evidence": "getBunkerURI(): params.append('relay', relay); if (this.secret) { params.set('secret', this.secret); } return `bunker://${this.signerPubkey}?${params.toString()}`;"
+    },
+    {
+      "text": "Output matches request IDs in responses to enable proper request-response correlation",
+      "passed": true,
+      "evidence": "All response objects include the request id: { id: requestId, result: 'ack' }, { id: requestId, result: this.userPubkey }, { id: requestId, result: JSON.stringify(signed) }, etc. NIP46Response type requires id field."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}
