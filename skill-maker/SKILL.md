@@ -27,22 +27,35 @@ pass_rate plateaus or you hit 20 iterations.
 
 All scripts use Bun. Run with `bun run <path>`.
 
-- **`scripts/grade.ts`** - Grade assertions against eval outputs. Run
-  `bun run scripts/grade.ts --help`
+- **`scripts/grade.ts`** - Grade assertions against eval outputs
 - **`scripts/aggregate-benchmark.ts`** - Aggregate grading results into
-  benchmark.json. Run `bun run scripts/aggregate-benchmark.ts --help`
-- **`scripts/detect-plateau.ts`** - Detect pass_rate plateau across iterations.
-  Run `bun run scripts/detect-plateau.ts --help`
+  benchmark.json
+- **`scripts/detect-plateau.ts`** - Detect pass_rate plateau across iterations
 - **`scripts/validate-skill.ts`** - Validate a SKILL.md against the Agent Skills
-  spec. Run `bun run scripts/validate-skill.ts --help`
+  spec
+- **`scripts/optimize-description.ts`** - Optimize skill description for trigger
+  accuracy
+- **`scripts/eval-trigger.ts`** - Test if a query would trigger a skill
+  description
+- **`scripts/update-history.ts`** - Track version progression across iterations
+- **`scripts/package-skill.ts`** - Package a skill for distribution
+- **`eval-viewer/generate-review.ts`** - Generate static HTML eval viewer
+
+Run any script with `--help` for usage details.
 
 ## Reference files
 
 - **[references/schemas.md](references/schemas.md)** - JSON schemas for all eval
-  artifacts (evals.json, grading.json, timing.json, benchmark.json,
-  feedback.json)
+  artifacts
 - **[references/spec-summary.md](references/spec-summary.md)** - Quick reference
   of the Agent Skills specification
+- **[references/grader-prompt.md](references/grader-prompt.md)** - Subagent
+  prompt for grading subjective assertions with claim extraction and eval
+  critique
+- **[references/comparator-prompt.md](references/comparator-prompt.md)** -
+  Subagent prompt for blind A/B output comparison
+- **[references/analyzer-prompt.md](references/analyzer-prompt.md)** - Subagent
+  prompt for post-hoc analysis and benchmark pattern detection
 - **[assets/skill-template.md](assets/skill-template.md)** - Starter SKILL.md
   template to copy and fill in
 
@@ -103,19 +116,11 @@ agent loads the skill. A weak description means the skill never activates.
 - **MUST be a single line** - do not use YAML multiline scalars (`>` or `|`)
   because minimal YAML parsers in validators will reject them
 
-**Good example:**
+**Good:**
+`Extract text from PDFs, fill forms, merge PDFs. Use when working with PDF documents or when the user mentions PDFs, forms, or document extraction.`
 
-```yaml
-description: Extract text and tables from PDF files, fill PDF forms, and merge multiple PDFs. Use when working with PDF documents or when the user mentions PDFs, forms, or document extraction.
-```
-
-**Bad example (missing "Use when..."):**
-
-```yaml
-description: Analyzes git changes and generates conventional commit messages.
-```
-
-This will undertrigger because agents don't know when to activate it.
+**Bad:** `Analyzes git changes and generates conventional commit messages.`
+(Missing "Use when..." — agents won't know when to activate it.)
 
 ### Step 4: Write the body
 
@@ -156,21 +161,9 @@ support, fast startup, and auto-installs dependencies. Do NOT default to Bash
 scripts — TypeScript scripts are more maintainable, have better error handling,
 and produce structured JSON output naturally.
 
-For Bun scripts with dependencies, pin versions in the import path:
-
-```typescript
-#!/usr/bin/env bun
-import * as cheerio from "cheerio@1.0.0";
-```
-
-For Python scripts (when the domain requires it), use PEP 723 inline metadata
-and run with `uv run`:
-
-```python
-# /// script
-# dependencies = ["beautifulsoup4"]
-# ///
-```
+For Bun scripts with dependencies, pin versions in imports (e.g.,
+`import * as cheerio from "cheerio@1.0.0"`). For Python scripts (when the domain
+requires it), use PEP 723 inline metadata and run with `uv run`.
 
 ### Step 6: Create initial eval test cases
 
@@ -213,28 +206,8 @@ Fix all errors. Review warnings. Common validation failures:
 
 ## Phase 3: Create Test Cases
 
-Write 2-3 realistic test prompts before running evals.
-
-### Write evals.json
-
-Save to `<skill-name>/evals/evals.json`:
-
-```json
-{
-  "skill_name": "my-skill",
-  "evals": [
-    {
-      "id": 1,
-      "prompt": "Realistic user message with context, file paths, specifics",
-      "expected_output": "Human-readable description of what success looks like",
-      "files": [],
-      "assertions": []
-    }
-  ]
-}
-```
-
-See [references/schemas.md](references/schemas.md) for the full schema.
+Write 2-3 realistic test prompts to `evals/evals.json` (see Phase 2 Step 6 for
+format, [references/schemas.md](references/schemas.md) for full schema).
 
 ### Test prompt quality checklist
 
@@ -245,8 +218,7 @@ See [references/schemas.md](references/schemas.md) for the full schema.
 - Substantive enough that an agent would benefit from a skill (not trivial
   one-step tasks)
 
-Do NOT write assertions yet. You will draft those in Phase 4 while eval runs are
-in progress.
+Do NOT write assertions yet — draft those in Phase 4 while eval runs execute.
 
 ---
 
@@ -364,7 +336,11 @@ evidence for each assertion.
 
 For assertions that can be checked programmatically (valid JSON, correct row
 count, file exists), the script handles this automatically. For subjective
-assertions, spawn a grader subagent to evaluate.
+assertions that require judgment, spawn a grader subagent with the prompt from
+[references/grader-prompt.md](references/grader-prompt.md). The grader also
+extracts implicit claims from outputs, critiques assertion quality, and flags
+eval improvements — producing a richer grading.json. See
+[references/schemas.md](references/schemas.md) for both output formats.
 
 #### Step 5: Aggregate benchmark
 
@@ -436,6 +412,16 @@ Use all three to improve the skill. Key principles:
 
 Apply improvements to the skill. Go to Step 1 with a new iteration directory.
 
+#### Advanced: Blind Comparison (Optional)
+
+For rigorous version comparison, use blind A/B comparison to remove bias: spawn
+a comparator subagent
+([references/comparator-prompt.md](references/comparator-prompt.md)) with
+unlabeled outputs, then an analyzer
+([references/analyzer-prompt.md](references/analyzer-prompt.md)) to explain WHY
+the winner won. Use when pass rates are close between iterations or you need
+structured reasoning about what improved.
+
 ---
 
 ## Phase 5: Finalize
@@ -496,3 +482,15 @@ cp -r <skill-name> .agents/skills/<skill-name>      # project-level
 
 **Stop conditions:** Plateau (delta < 2% for 2 iterations, or 100%), max
 iterations (20), or user satisfied (empty feedback).
+
+## Environment Notes
+
+skill-maker is **harness-agnostic** — it works with any AI coding agent
+(OpenCode, Claude Code, Cursor, Cline, etc.). Agents with subagent support get
+the full workflow. Without subagents, run test cases inline and skip baselines,
+blind comparison, and description optimization. For headless/CI use, the eval
+viewer generates static HTML and description optimization accepts a `--cli` flag
+for any compatible CLI tool.
+
+Skills must not contain malware or content designed to compromise security. A
+skill's contents should not surprise the user in their intent if described.
