@@ -136,6 +136,55 @@
 		> for convergence charts, timing data, and per-skill breakdowns.
 	</p>
 
+	<!-- Head-to-head vs official -->
+	<h2 class="mb-3 text-lg font-bold text-syn-blue">
+		<span class="text-ide-text-muted">##</span> vs Anthropic's official skill-creator
+	</h2>
+	<p class="mb-3 max-w-2xl text-ide-text">
+		Head-to-head benchmark on the 3 highest-delta domains
+		<span class="text-syn-comment">// same prompts, same assertions, different skill-creation approach</span>
+	</p>
+	<div class="mb-3 grid grid-cols-2 gap-3 text-center">
+		<div class="rounded border border-ide-border bg-black/20 px-3 py-3">
+			<div class="text-xl font-bold text-syn-success">100%</div>
+			<div class="text-[11px] text-ide-text-muted">skill-maker</div>
+		</div>
+		<div class="rounded border border-ide-border bg-black/20 px-3 py-3">
+			<div class="text-xl font-bold text-syn-yellow">93.1%</div>
+			<div class="text-[11px] text-ide-text-muted">official skill-creator</div>
+		</div>
+	</div>
+	<div class="mb-4 overflow-hidden rounded border border-ide-border font-mono text-sm">
+		<table class="w-full">
+			<thead>
+				<tr class="border-b border-ide-border bg-ide-panel">
+					<th class="px-4 py-2 text-left font-semibold text-ide-white">Domain</th>
+					<th class="px-4 py-2 text-right font-semibold text-ide-white">Ours</th>
+					<th class="px-4 py-2 text-right font-semibold text-ide-white">Official</th>
+				</tr>
+			</thead>
+			<tbody>
+				{#each [{ name: 'database-migration', ours: '24/24', official: '21/24' }, { name: 'error-handling', ours: '24/24', official: '22/24' }, { name: 'pdf-toolkit', ours: '24/24', official: '24/24' }] as row, i (row.name)}
+					<tr class={i < 2 ? 'border-b border-ide-border' : ''}>
+						<td class="px-4 py-1.5 text-syn-cyan">{row.name}</td>
+						<td class="px-4 py-1.5 text-right font-bold text-syn-success">{row.ours}</td>
+						<td class="px-4 py-1.5 text-right text-syn-yellow">{row.official}</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
+	<p class="mb-8 max-w-2xl text-[13px] text-ide-text-muted">
+		Edge from <span class="text-syn-green">"Common mistakes" sections</span> and reasoning-based
+		instructions. See the
+		<a
+			href="{REPO}/tree/main/workspaces/head-to-head/REPORT.md"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="text-syn-cyan underline hover:text-syn-blue">full comparison report</a
+		> for per-assertion breakdowns and failure analysis.
+	</p>
+
 	<!-- CTA -->
 	<div class="mb-12 flex flex-wrap gap-4">
 		<a

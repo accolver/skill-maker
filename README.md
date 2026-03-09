@@ -151,6 +151,36 @@ rules consistently fail without skill guidance.
 See [AGENTS.md](AGENTS.md) for detailed per-skill breakdowns, convergence data,
 and guidance on choosing high-delta skill use cases.
 
+### Head-to-head: skill-maker vs Anthropic's official skill-creator
+
+We benchmarked skill-maker against
+[Anthropic's official skill-creator](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/skill-creator)
+to see which approach produces better skills. Both were given the same domain
+briefs for our 3 highest-delta domains (database-migration, error-handling,
+pdf-toolkit), asked to draft a SKILL.md, then tested against identical eval
+prompts and assertions (72 total).
+
+| Approach        | Passed | Total | Pass Rate |
+| --------------- | ------ | ----- | --------- |
+| **skill-maker** | 72     | 72    | **100%**  |
+| **official**    | 67     | 72    | **93.1%** |
+
+| Domain             | skill-maker  | official      | Delta  |
+| ------------------ | ------------ | ------------- | ------ |
+| database-migration | 24/24 (100%) | 21/24 (87.5%) | +12.5% |
+| error-handling     | 24/24 (100%) | 22/24 (91.7%) | +8.3%  |
+| pdf-toolkit        | 24/24 (100%) | 24/24 (100%)  | 0%     |
+
+skill-maker's edge comes from **"Common mistakes" sections** (defensive
+guardrails that catch edge cases) and **reasoning-based instructions** ("Do X
+because Y" vs imperative "Do X"). The official approach sometimes produces
+better engineering advice (e.g., PG15-specific optimizations) that fails
+conservative assertions. Both approaches are strong — the 5 assertion gap is
+narrow and arguable.
+
+See the [full comparison report](workspaces/head-to-head/REPORT.md) for
+per-assertion breakdowns, failure analysis, and methodology details.
+
 ### Self-evaluation
 
 skill-maker was also tested on itself (meta-evaluation):
