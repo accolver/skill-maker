@@ -142,7 +142,9 @@
 	</h2>
 	<p class="mb-3 max-w-2xl text-ide-text">
 		Head-to-head benchmark on the 3 highest-delta domains
-		<span class="text-syn-comment">// same prompts, same assertions, different skill-creation approach</span>
+		<span class="text-syn-comment"
+			>// same prompts, same assertions, different skill-creation approach</span
+		>
 	</p>
 	<div class="mb-3 grid grid-cols-2 gap-3 text-center">
 		<div class="rounded border border-ide-border bg-black/20 px-3 py-3">
