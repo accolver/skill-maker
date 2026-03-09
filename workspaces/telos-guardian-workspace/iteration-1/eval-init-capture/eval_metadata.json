@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "init-capture",
+  "prompt": "I'm starting a new project — a CLI tool that helps small dev teams manage their database migrations across multiple environments (dev, staging, prod). There's no TELOS.md yet. Help me define the project's purpose and capture it. When you ask me questions, here are my answers: Purpose: small teams (2-10 devs) waste hours debugging failed migrations in staging/prod because they tested only in dev. We want zero-surprise deployments. Beneficiaries: primary is backend developers, secondary is DevOps/SRE who get paged when migrations break prod. Success metrics: zero failed migrations in prod within 60 days of adoption, migration authoring time under 5 minutes. Constraints: must be database-agnostic (Postgres, MySQL, SQLite at minimum), must work in CI/CD pipelines without interactive prompts, MIT licensed. Key journeys: (1) developer creates a migration locally, tests it, pushes to CI (2) CI validates migration against staging schema snapshot (3) DevOps reviews and applies to prod. Experience principles: safety over speed, explicit over implicit, no magic. Feedback loops: migration success/failure logs, schema drift detection alerts. Interfaces: CLI with subcommands (create, validate, apply, rollback, status), config file (.migrations.yml), migration file format (SQL + metadata header). Integrations: connects to database via standard connection strings, optional Slack notifications for failures. Data contracts: migration files have a YAML header with id, author, depends-on, description followed by SQL body. Core modules: parser (reads migration files), validator (checks dependencies and schema compatibility), executor (applies/rolls back), reporter (outputs results). Patterns: Node.js, functional style, no classes, comprehensive unit tests with Vitest. Testing strategy: unit tests for parser and validator, integration tests against Docker-based databases, E2E tests for full migration workflows.",
+  "assertions": [
+    "Output includes a file named TELOS.md",
+    "TELOS.md contains an L4 Purpose section with a specific purpose statement about preventing failed database migrations in production",
+    "TELOS.md contains beneficiaries listing backend developers as primary and DevOps/SRE as secondary",
+    "TELOS.md contains success metrics with measurable targets (zero failed migrations in prod, migration authoring under 5 minutes)",
+    "TELOS.md contains an L3 Experience section with at least 2 user journeys described step by step",
+    "TELOS.md contains an L2 Contract section mentioning CLI subcommands (create, validate, apply, rollback, status) and the migration file format with YAML header",
+    "TELOS.md contains an L1 Function section listing core modules (parser, validator, executor, reporter) and mentioning Node.js and Vitest",
+    "TELOS.md contains constraints mentioning database-agnostic support (Postgres, MySQL, SQLite)"
+  ]
+}

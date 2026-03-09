@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Assessment identifies that webhooks directly support the L4 success metric of detecting build regressions in under 5 minutes (faster than polling)",
+      "passed": true,
+      "evidence": "Lines 22-24: 'This serves the < 5 minutes to detect build regression success metric by enabling more delivery channels beyond just Slack.'"
+    },
+    {
+      "text": "Assessment references the L3 experience principle 'proactive alerts over passive dashboards' as supporting webhook-driven event ingestion",
+      "passed": true,
+      "evidence": "Lines 87-88: 'Proactive alerts over passive dashboards: Webhooks are the purest form of proactive alerting — push events to wherever the user needs them.'"
+    },
+    {
+      "text": "Assessment addresses L2 compatibility — the existing REST API and event-driven architecture naturally accommodate incoming webhook endpoints",
+      "passed": true,
+      "evidence": "Lines 100-101: 'Natural extension of existing contracts, requires well-scoped additions.' Lines 105-114 detail how REST API and existing contracts accommodate webhooks."
+    },
+    {
+      "text": "Assessment evaluates L1 feasibility — the Node.js/Express backend and adapter pattern can naturally extend to receive webhooks alongside polling",
+      "passed": true,
+      "evidence": "Lines 175-184: Event-driven alert pipeline existing pattern described. Adapter pattern (SlackNotifier, WebhookNotifier) noted as natural extension. Node.js/Express standard route work."
+    },
+    {
+      "text": "Assessment mentions the read-only constraint from L4 and clarifies that receiving webhooks (inbound) does not violate the 'never modifies pipelines' constraint",
+      "passed": true,
+      "evidence": "Lines 39-40: 'Read-only access to CI systems: Webhooks are an output mechanism from BuildPulse, not an input to CI systems. No constraint violation.'"
+    },
+    {
+      "text": "Assessment delivers a clear recommendation of 'proceed' or 'proceed with caveats' — recognizing this is a well-aligned feature",
+      "passed": true,
+      "evidence": "Line 226: '## Recommendation: **Proceed**' Line 228: 'Webhook support is strongly aligned with BuildPulse's purpose at all four levels'"
+    },
+    {
+      "text": "Assessment addresses at least one practical consideration (e.g., webhook verification/security, retry handling, or self-hosted deployment implications)",
+      "passed": true,
+      "evidence": "Lines 188-222: Risk factors section covers retry storms, HMAC signing, self-hosted complexity (pg-boss vs Redis), payload size. Line 247: 'Implement HMAC payload signing from day one.'"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

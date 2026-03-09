@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a file named TELOS.md",
+      "passed": true,
+      "evidence": "File TELOS.md exists in outputs/ directory (179 lines, 8318 bytes)"
+    },
+    {
+      "text": "TELOS.md contains an L4 Purpose section with a specific purpose statement about preventing failed database migrations in production",
+      "passed": false,
+      "evidence": "File has '## Purpose' (line 4) but NOT '## L4: Purpose'. The hierarchical L4 labeling required by the skill is missing."
+    },
+    {
+      "text": "TELOS.md contains beneficiaries listing backend developers as primary and DevOps/SRE as secondary",
+      "passed": true,
+      "evidence": "Lines 12-15: Table with 'Backend Developers (primary)' and 'DevOps / SRE (secondary)'"
+    },
+    {
+      "text": "TELOS.md contains success metrics with measurable targets (zero failed migrations in prod, migration authoring under 5 minutes)",
+      "passed": true,
+      "evidence": "Lines 19-22: Table with 'Zero' and 'Under 5 minutes' targets"
+    },
+    {
+      "text": "TELOS.md contains an L3 Experience section with at least 2 user journeys described step by step",
+      "passed": false,
+      "evidence": "File has '## Key User Journeys' but NOT '## L3: Experience'. The hierarchical L3 labeling required by the skill is missing."
+    },
+    {
+      "text": "TELOS.md contains an L2 Contract section mentioning CLI subcommands (create, validate, apply, rollback, status) and the migration file format with YAML header",
+      "passed": false,
+      "evidence": "File has '## Interfaces' but NOT '## L2: Contract'. CLI subcommands and migration file format present but not under L2 label."
+    },
+    {
+      "text": "TELOS.md contains an L1 Function section listing core modules (parser, validator, executor, reporter) and mentioning Node.js and Vitest",
+      "passed": false,
+      "evidence": "File has '## Architecture' but NOT '## L1: Function'. Modules listed but not under L1 label."
+    },
+    {
+      "text": "TELOS.md contains constraints mentioning database-agnostic support (Postgres, MySQL, SQLite)",
+      "passed": true,
+      "evidence": "Line 26: 'Database-agnostic: Must support PostgreSQL, MySQL, and SQLite at minimum'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 4,
+    "total": 8,
+    "pass_rate": 0.5
+  }
+}

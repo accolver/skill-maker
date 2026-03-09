@@ -1,0 +1,81 @@
+{
+  "skill_name": "telos-guardian",
+  "iteration": 1,
+  "timestamp": "2026-03-09T17:34:20.691Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 32.3333,
+        "stddev": 2.0548
+      },
+      "tokens": {
+        "mean": 11000,
+        "stddev": 1224.7449
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.8333,
+        "stddev": 0.2357
+      },
+      "time_seconds": {
+        "mean": 26.6667,
+        "stddev": 1.2472
+      },
+      "tokens": {
+        "mean": 9000,
+        "stddev": 816.4966
+      }
+    },
+    "delta": {
+      "pass_rate": 0.1667,
+      "time_seconds": 5.7,
+      "tokens": 2000
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "aligned-feature",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 32,
+        "tokens": 11000
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 27,
+        "tokens": 9000
+      }
+    },
+    {
+      "eval_name": "init-capture",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 35,
+        "tokens": 12500
+      },
+      "without_skill": {
+        "pass_rate": 0.5,
+        "time_seconds": 28,
+        "tokens": 10000
+      }
+    },
+    {
+      "eval_name": "misaligned-feature",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 30,
+        "tokens": 9500
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 25,
+        "tokens": 8000
+      }
+    }
+  ]
+}

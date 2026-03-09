@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Assessment identifies that webhooks directly support the L4 success metric of detecting build regressions in under 5 minutes (faster than polling)",
+      "passed": true,
+      "evidence": "Lines 22-23: 'Time to detect build regression (< 5 minutes): Webhooks enable instant programmatic notification to any system'"
+    },
+    {
+      "text": "Assessment references the L3 experience principle 'proactive alerts over passive dashboards' as supporting webhook-driven event ingestion",
+      "passed": true,
+      "evidence": "Lines 55-56: 'Proactive alerts over passive dashboards: Webhooks are the most proactive notification mechanism — they push data to any system immediately.'"
+    },
+    {
+      "text": "Assessment addresses L2 compatibility — the existing REST API and event-driven architecture naturally accommodate incoming webhook endpoints",
+      "passed": true,
+      "evidence": "Lines 68-87: 'Aligned — natural extension of existing contracts.' Webhook subscription/delivery contracts described as fitting naturally."
+    },
+    {
+      "text": "Assessment evaluates L1 feasibility — the Node.js/Express backend and adapter pattern can naturally extend to receive webhooks alongside polling",
+      "passed": true,
+      "evidence": "Lines 93-101: Event-driven alert pipeline, Express webhook management endpoints, event-driven pattern already produces events."
+    },
+    {
+      "text": "Assessment mentions the read-only constraint from L4 and clarifies that receiving webhooks (inbound) does not violate the 'never modifies pipelines' constraint",
+      "passed": true,
+      "evidence": "Lines 34-35: 'Read-only access to CI systems: Webhooks are outbound from BuildPulse, so this constraint is unaffected.'"
+    },
+    {
+      "text": "Assessment delivers a clear recommendation of 'proceed' or 'proceed with caveats' — recognizing this is a well-aligned feature",
+      "passed": true,
+      "evidence": "Line 142: 'Proceed with webhook support.' Lines 144-151 list 4 alignment reasons."
+    },
+    {
+      "text": "Assessment addresses at least one practical consideration (e.g., webhook verification/security, retry handling, or self-hosted deployment implications)",
+      "passed": true,
+      "evidence": "Lines 117-125: Risk assessment table with 5 risks (delivery failures, backpressure, SSRF, database load, scope creep) and specific mitigations."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

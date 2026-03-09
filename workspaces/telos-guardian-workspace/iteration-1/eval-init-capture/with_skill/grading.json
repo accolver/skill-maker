@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a file named TELOS.md",
+      "passed": true,
+      "evidence": "File TELOS.md exists in outputs/ directory (172 lines, 7078 bytes)"
+    },
+    {
+      "text": "TELOS.md contains an L4 Purpose section with a specific purpose statement about preventing failed database migrations in production",
+      "passed": true,
+      "evidence": "Line 6: '## L4: Purpose', Lines 8-13: 'Small dev teams (2-10 developers) waste hours debugging failed database migrations in staging and production... MigrateGuard is a CLI tool that validates migrations against real environment schemas before they're applied, achieving zero-surprise deployments.'"
+    },
+    {
+      "text": "TELOS.md contains beneficiaries listing backend developers as primary and DevOps/SRE as secondary",
+      "passed": true,
+      "evidence": "Line 17: 'Primary: Backend developers who author and test migrations daily.' Line 20: 'Secondary: DevOps/SRE engineers who get paged at 2am when a migration breaks production.'"
+    },
+    {
+      "text": "TELOS.md contains success metrics with measurable targets (zero failed migrations in prod, migration authoring under 5 minutes)",
+      "passed": true,
+      "evidence": "Line 26: 'Zero failed migrations in production within 60 days of adoption' Line 27: 'Migration authoring time under 5 minutes'"
+    },
+    {
+      "text": "TELOS.md contains an L3 Experience section with at least 2 user journeys described step by step",
+      "passed": true,
+      "evidence": "Line 36: '## L3: Experience' with 3 step-by-step journeys: Journey 1 (lines 40-46), Journey 2 (lines 48-57), Journey 3 (lines 59-68)"
+    },
+    {
+      "text": "TELOS.md contains an L2 Contract section mentioning CLI subcommands (create, validate, apply, rollback, status) and the migration file format with YAML header",
+      "passed": true,
+      "evidence": "Line 91: '## L2: Contract'. Line 95: 'CLI with subcommands: create, validate, apply, rollback, status'. Lines 100-101: 'Migration file format: SQL file with a YAML metadata header'"
+    },
+    {
+      "text": "TELOS.md contains an L1 Function section listing core modules (parser, validator, executor, reporter) and mentioning Node.js and Vitest",
+      "passed": true,
+      "evidence": "Line 139: '## L1: Function'. Lines 143-151: Parser, Validator, Executor, Reporter listed. Line 155: 'Node.js CLI application'. Line 164: 'Unit tests (Vitest)'"
+    },
+    {
+      "text": "TELOS.md contains constraints mentioning database-agnostic support (Postgres, MySQL, SQLite)",
+      "passed": true,
+      "evidence": "Line 31: 'Must be database-agnostic: PostgreSQL, MySQL, and SQLite at minimum'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}
