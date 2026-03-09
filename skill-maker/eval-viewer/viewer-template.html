@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eval Review — /*__SKILL_NAME__*/</title>
+<style>
+  :root {
+    --bg: #1a1b26;
+    --bg-card: #24283b;
+    --bg-input: #1a1b26;
+    --bg-hover: #2f3349;
+    --border: #3b3f5c;
+    --text: #c0caf5;
+    --text-dim: #565f89;
+    --text-bright: #e0e6ff;
+    --accent: #7aa2f7;
+    --green: #9ece6a;
+    --green-bg: rgba(158, 206, 106, 0.12);
+    --red: #f7768e;
+    --red-bg: rgba(247, 118, 142, 0.12);
+    --yellow: #e0af68;
+    --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    color: var(--text-bright);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+
+  .tab {
+    padding: 10px 24px;
+    cursor: pointer;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    user-select: none;
+  }
+
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; animation: fadeIn 0.2s ease; }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Navigation */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 12px;
+  }
+
+  .nav-counter {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .nav-buttons { display: flex; gap: 8px; }
+
+  .nav-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .nav-btn:hover:not(:disabled) { background: var(--bg-hover); border-color: var(--accent); }
+  .nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* Cards */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .card-header {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  /* Prompt */
+  .prompt {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--text-bright);
+    line-height: 1.7;
+  }
+
+  /* Output files */
+  .output-file { margin-bottom: 16px; }
+  .output-file:last-child { margin-bottom: 0; }
+
+  .output-filename {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    background: var(--bg);
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid var(--border);
+    border-bottom: none;
+  }
+
+  .output-content {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 0 6px 6px 6px;
+    padding: 14px;
+    max-height: 500px;
+    overflow-y: auto;
+    color: var(--text);
+  }
+
+  /* Grading */
+  .collapsible-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .collapsible-header .toggle {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    transition: transform 0.2s;
+  }
+
+  .collapsible-header.open .toggle { transform: rotate(90deg); }
+  .collapsible-body { display: none; margin-top: 12px; }
+  .collapsible-body.open { display: block; }
+
+  .assertion {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .assertion:last-child { border-bottom: none; }
+
+  .badge {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .badge.pass { background: var(--green-bg); color: var(--green); }
+  .badge.fail { background: var(--red-bg); color: var(--red); }
+
+  .assertion-text { flex: 1; }
+  .assertion-text .text { color: var(--text); }
+
+  .assertion-text .evidence {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+    font-family: var(--mono);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .grade-summary {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-left: 8px;
+  }
+
+  .grade-summary .rate { font-weight: 600; }
+  .grade-summary .rate.high { color: var(--green); }
+  .grade-summary .rate.low { color: var(--red); }
+  .grade-summary .rate.mid { color: var(--yellow); }
+
+  /* Feedback */
+  .feedback-area {
+    width: 100%;
+    min-height: 80px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    padding: 10px 12px;
+    resize: vertical;
+    line-height: 1.5;
+    transition: border-color 0.15s;
+  }
+
+  .feedback-area:focus { outline: none; border-color: var(--accent); }
+
+  .feedback-area::placeholder { color: var(--text-dim); }
+
+  .prev-feedback {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 4px;
+    border-left: 3px solid var(--border);
+  }
+
+  .prev-feedback-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  /* Previous output collapsible */
+  .prev-section {
+    margin-top: 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .prev-section-header {
+    padding: 10px 14px;
+    background: var(--bg);
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+  }
+
+  .prev-section-header:hover { color: var(--text); }
+  .prev-section-body { display: none; padding: 14px; }
+  .prev-section-body.open { display: block; }
+
+  /* Benchmark tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--border);
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    font-variant-numeric: tabular-nums;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-hover); }
+
+  .delta-positive { color: var(--green); }
+  .delta-negative { color: var(--red); }
+  .delta-neutral { color: var(--text-dim); }
+
+  /* Analyst notes */
+  .notes {
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* Submit */
+  .submit-section {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .submit-btn {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 10px 28px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .submit-btn:hover { opacity: 0.85; }
+
+  .submit-status {
+    font-size: 0.8rem;
+    color: var(--green);
+    display: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .container { padding: 16px 12px 60px; }
+    .card { padding: 14px; }
+    .tab { padding: 8px 16px; font-size: 0.85rem; }
+    .output-content { max-height: 350px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Eval Review</h1>
+  <p class="subtitle">Skill: <strong>/*__SKILL_NAME__*/</strong></p>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="outputs">Outputs</div>
+    <div class="tab" data-tab="benchmark">Benchmark</div>
+  </div>
+
+  <!-- Outputs Tab -->
+  <div id="tab-outputs" class="tab-content active">
+    <div class="nav">
+      <span class="nav-counter" id="eval-counter">Eval 1 of 1</span>
+      <div class="nav-buttons">
+        <button class="nav-btn" id="btn-prev" disabled>← Prev</button>
+        <button class="nav-btn" id="btn-next" disabled>Next →</button>
+      </div>
+    </div>
+    <div id="eval-display"></div>
+  </div>
+
+  <!-- Benchmark Tab -->
+  <div id="tab-benchmark" class="tab-content">
+    <div id="benchmark-display"></div>
+  </div>
+
+  <!-- Submit -->
+  <div class="submit-section">
+    <span class="submit-status" id="submit-status">✓ Downloaded</span>
+    <button class="submit-btn" id="btn-submit">Submit All Reviews</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  "use strict";
+
+  // ---- Data injected by generator ----
+  var EVAL_DATA = /*__EVAL_DATA__*/[];
+  var BENCHMARK_DATA = /*__BENCHMARK_DATA__*/null;
+  var SKILL_NAME = "/*__SKILL_NAME__*/";
+  var PREVIOUS_DATA = /*__PREVIOUS_DATA__*/null;
+
+  // ---- State ----
+  var currentIndex = 0;
+  var feedbackStore = loadFeedback();
+
+  // ---- LocalStorage ----
+  function storageKey() { return "eval-review-" + SKILL_NAME; }
+
+  function loadFeedback() {
+    try {
+      var raw = localStorage.getItem(storageKey());
+      return raw ? JSON.parse(raw) : {};
+    } catch(e) { return {}; }
+  }
+
+  function saveFeedback() {
+    try { localStorage.setItem(storageKey(), JSON.stringify(feedbackStore)); } catch(e) {}
+  }
+
+  // ---- Helpers ----
+  function esc(s) {
+    if (typeof s !== "string") return "";
+    var d = document.createElement("div");
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function detectLang(filename) {
+    var ext = (filename || "").split(".").pop().toLowerCase();
+    var map = {
+      json: "json", js: "javascript", ts: "typescript", py: "python",
+      md: "markdown", yaml: "yaml", yml: "yaml", html: "html",
+      css: "css", sql: "sql", sh: "bash", bash: "bash",
+      xml: "xml", toml: "toml", csv: "csv", txt: "text"
+    };
+    return map[ext] || "text";
+  }
+
+  function syntaxHighlight(content, lang) {
+    var escaped = esc(content);
+    if (lang === "json") {
+      return escaped
+        .replace(/("(?:[^"\\]|\\.)*")\s*:/g, '<span style="color:#7aa2f7">$1</span>:')
+        .replace(/:\s*("(?:[^"\\]|\\.)*")/g, ': <span style="color:#9ece6a">$1</span>')
+        .replace(/:\s*(true|false|null)\b/g, ': <span style="color:#ff9e64">$1</span>')
+        .replace(/:\s*(-?\d+\.?\d*)/g, ': <span style="color:#ff9e64">$1</span>');
+    }
+    return escaped;
+  }
+
+  function formatDelta(a, b, suffix, higherIsBetter) {
+    if (a == null || b == null) return '<span class="delta-neutral">—</span>';
+    var d = a - b;
+    var sign = d > 0 ? "+" : "";
+    var cls;
+    if (d === 0) cls = "delta-neutral";
+    else if ((d > 0 && higherIsBetter) || (d < 0 && !higherIsBetter)) cls = "delta-positive";
+    else cls = "delta-negative";
+    var val = typeof a === "number" && a % 1 !== 0 ? d.toFixed(2) : d;
+    return '<span class="' + cls + '">' + sign + val + (suffix || "") + '</span>';
+  }
+
+  // ---- Render eval ----
+  function renderEval(idx) {
+    if (!EVAL_DATA.length) {
+      document.getElementById("eval-display").innerHTML =
+        '<div class="card"><div class="card-header">No eval data</div><p style="color:var(--text-dim)">No eval cases found.</p></div>';
+      return;
+    }
+
+    var ev = EVAL_DATA[idx];
+    var prevEv = PREVIOUS_DATA && PREVIOUS_DATA[idx] ? PREVIOUS_DATA[idx] : null;
+    var html = "";
+
+    // Prompt
+    html += '<div class="card"><div class="card-header">Prompt</div>';
+    html += '<div class="prompt">' + esc(ev.prompt || "") + '</div></div>';
+
+    // With-skill outputs
+    if (ev.with_skill && ev.with_skill.outputs && ev.with_skill.outputs.length) {
+      html += '<div class="card"><div class="card-header">With Skill — Outputs</div>';
+      ev.with_skill.outputs.forEach(function(f) {
+        var lang = detectLang(f.name);
+        html += '<div class="output-file">';
+        html += '<span class="output-filename">' + esc(f.name) + '</span>';
+        html += '<div class="output-content">' + syntaxHighlight(f.content || "", lang) + '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+
+    // Without-skill outputs
+    if (ev.without_skill && ev.without_skill.outputs && ev.without_skill.outputs.length) {
+      html += '<div class="card"><div class="card-header">Without Skill — Outputs</div>';
+      ev.without_skill.outputs.forEach(function(f) {
+        var lang = detectLang(f.name);
+        html += '<div class="output-file">';
+        html += '<span class="output-filename">' + esc(f.name) + '</span>';
+        html += '<div class="output-content">' + syntaxHighlight(f.content || "", lang) + '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+
+    // Grading — with_skill
+    if (ev.with_skill && ev.with_skill.grading) {
+      html += renderGrading(ev.with_skill.grading, "With Skill — Grading");
+    }
+
+    // Grading — without_skill
+    if (ev.without_skill && ev.without_skill.grading) {
+      html += renderGrading(ev.without_skill.grading, "Without Skill — Grading");
+    }
+
+    // Previous output (collapsed)
+    if (prevEv) {
+      html += '<div class="prev-section">';
+      html += '<div class="prev-section-header" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'open\');">';
+      html += '<span class="toggle">▶</span> Previous Iteration Output</div>';
+      html += '<div class="prev-section-body">';
+      if (prevEv.with_skill && prevEv.with_skill.outputs) {
+        prevEv.with_skill.outputs.forEach(function(f) {
+          var lang = detectLang(f.name);
+          html += '<div class="output-file">';
+          html += '<span class="output-filename">' + esc(f.name) + '</span>';
+          html += '<div class="output-content">' + syntaxHighlight(f.content || "", lang) + '</div>';
+          html += '</div>';
+        });
+      }
+      html += '</div></div>';
+    }
+
+    // Feedback
+    html += '<div class="card" style="margin-top:16px"><div class="card-header">Feedback</div>';
+    var fbKey = ev.eval_name || ("eval-" + idx);
+    var existingFb = feedbackStore[fbKey] || "";
+    html += '<textarea class="feedback-area" id="feedback-' + idx + '" placeholder="Enter feedback for this eval case…" data-key="' + esc(fbKey) + '">' + esc(existingFb) + '</textarea>';
+
+    // Previous feedback
+    if (prevEv && prevEv._feedback) {
+      html += '<div class="prev-feedback"><div class="prev-feedback-label">Previous Feedback</div>';
+      html += esc(prevEv._feedback) + '</div>';
+    }
+    html += '</div>';
+
+    document.getElementById("eval-display").innerHTML = html;
+
+    // Bind feedback auto-save
+    var ta = document.getElementById("feedback-" + idx);
+    if (ta) {
+      ta.addEventListener("input", function() {
+        feedbackStore[this.getAttribute("data-key")] = this.value;
+        saveFeedback();
+      });
+    }
+
+    // Update nav
+    document.getElementById("eval-counter").textContent = "Eval " + (idx + 1) + " of " + EVAL_DATA.length;
+    document.getElementById("btn-prev").disabled = idx === 0;
+    document.getElementById("btn-next").disabled = idx >= EVAL_DATA.length - 1;
+  }
+
+  function renderGrading(grading, title) {
+    var results = grading.assertion_results || [];
+    var summary = grading.summary || {};
+    var rate = summary.pass_rate != null ? (summary.pass_rate * 100).toFixed(1) : "?";
+    var rateNum = summary.pass_rate != null ? summary.pass_rate : 0;
+    var rateCls = rateNum >= 0.8 ? "high" : rateNum >= 0.5 ? "mid" : "low";
+
+    var html = '<div class="card">';
+    html += '<div class="collapsible-header" onclick="this.classList.toggle(\'open\');this.nextElementSibling.classList.toggle(\'open\');">';
+    html += '<div><span class="card-header" style="margin-bottom:0;display:inline">' + esc(title) + '</span>';
+    html += '<span class="grade-summary"> — <span class="rate ' + rateCls + '">' + rate + '%</span>';
+    html += ' (' + (summary.passed || 0) + '/' + (summary.total || 0) + ')</span></div>';
+    html += '<span class="toggle">▶</span></div>';
+    html += '<div class="collapsible-body">';
+
+    results.forEach(function(r) {
+      var cls = r.passed ? "pass" : "fail";
+      html += '<div class="assertion">';
+      html += '<span class="badge ' + cls + '">' + (r.passed ? "PASS" : "FAIL") + '</span>';
+      html += '<div class="assertion-text"><div class="text">' + esc(r.text) + '</div>';
+      if (r.evidence) html += '<div class="evidence">' + esc(r.evidence) + '</div>';
+      html += '</div></div>';
+    });
+
+    html += '</div></div>';
+    return html;
+  }
+
+  // ---- Render benchmark ----
+  function renderBenchmark() {
+    var el = document.getElementById("benchmark-display");
+    if (!BENCHMARK_DATA) {
+      el.innerHTML = '<div class="card"><div class="card-header">Benchmark</div><p style="color:var(--text-dim)">No benchmark data available.</p></div>';
+      return;
+    }
+
+    var b = BENCHMARK_DATA;
+    var html = "";
+
+    // Aggregate stats
+    html += '<div class="card"><div class="card-header">Aggregate Stats</div>';
+    html += '<table><thead><tr><th>Metric</th><th>With Skill</th><th>Without Skill</th><th>Delta</th></tr></thead><tbody>';
+
+    var agg = b.aggregate || {};
+    var ws = agg.with_skill || {};
+    var wos = agg.without_skill || {};
+
+    function row(label, wsVal, wosVal, suffix, higherIsBetter) {
+      var wsStr = wsVal != null ? (typeof wsVal === "number" && wsVal % 1 !== 0 ? wsVal.toFixed(2) : wsVal) + (suffix || "") : "—";
+      var wosStr = wosVal != null ? (typeof wosVal === "number" && wosVal % 1 !== 0 ? wosVal.toFixed(2) : wosVal) + (suffix || "") : "—";
+      return '<tr><td>' + esc(label) + '</td><td>' + wsStr + '</td><td>' + wosStr + '</td><td>' + formatDelta(wsVal, wosVal, suffix, higherIsBetter) + '</td></tr>';
+    }
+
+    html += row("Pass Rate", ws.pass_rate, wos.pass_rate, "", true);
+    html += row("Avg Time (s)", ws.avg_time, wos.avg_time, "s", false);
+    html += row("Avg Tokens", ws.avg_tokens, wos.avg_tokens, "", false);
+
+    html += '</tbody></table></div>';
+
+    // Per-eval breakdown
+    if (b.evals && b.evals.length) {
+      html += '<div class="card"><div class="card-header">Per-Eval Breakdown</div>';
+      html += '<table><thead><tr><th>Eval</th><th>With Skill</th><th>Without Skill</th><th>Delta</th></tr></thead><tbody>';
+      b.evals.forEach(function(ev) {
+        var wsRate = ev.with_skill && ev.with_skill.pass_rate != null ? (ev.with_skill.pass_rate * 100).toFixed(1) + "%" : "—";
+        var wosRate = ev.without_skill && ev.without_skill.pass_rate != null ? (ev.without_skill.pass_rate * 100).toFixed(1) + "%" : "—";
+        var wsVal = ev.with_skill ? ev.with_skill.pass_rate : null;
+        var wosVal = ev.without_skill ? ev.without_skill.pass_rate : null;
+        html += '<tr><td>' + esc(ev.eval_name || ev.eval_id || "—") + '</td>';
+        html += '<td>' + wsRate + '</td><td>' + wosRate + '</td>';
+        html += '<td>' + formatDelta(wsVal, wosVal, "", true) + '</td></tr>';
+      });
+      html += '</tbody></table></div>';
+    }
+
+    // Analyst notes
+    if (b.analyst_notes || b.notes) {
+      html += '<div class="card"><div class="card-header">Analyst Notes</div>';
+      html += '<div class="notes">' + esc(b.analyst_notes || b.notes) + '</div></div>';
+    }
+
+    el.innerHTML = html;
+  }
+
+  // ---- Tab switching ----
+  document.querySelectorAll(".tab").forEach(function(tab) {
+    tab.addEventListener("click", function() {
+      document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
+      document.querySelectorAll(".tab-content").forEach(function(c) { c.classList.remove("active"); });
+      this.classList.add("active");
+      document.getElementById("tab-" + this.getAttribute("data-tab")).classList.add("active");
+    });
+  });
+
+  // ---- Navigation ----
+  function goTo(idx) {
+    if (idx < 0 || idx >= EVAL_DATA.length) return;
+    currentIndex = idx;
+    renderEval(idx);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.getElementById("btn-prev").addEventListener("click", function() { goTo(currentIndex - 1); });
+  document.getElementById("btn-next").addEventListener("click", function() { goTo(currentIndex + 1); });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.target.tagName === "TEXTAREA" || e.target.tagName === "INPUT") return;
+    if (e.key === "ArrowLeft") { e.preventDefault(); goTo(currentIndex - 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); goTo(currentIndex + 1); }
+  });
+
+  // ---- Submit ----
+  document.getElementById("btn-submit").addEventListener("click", function() {
+    var reviews = [];
+    EVAL_DATA.forEach(function(ev, i) {
+      var key = ev.eval_name || ("eval-" + i);
+      var fb = feedbackStore[key] || "";
+      reviews.push({
+        run_id: key + "-with_skill",
+        feedback: fb,
+        timestamp: new Date().toISOString()
+      });
+    });
+
+    var payload = { reviews: reviews, status: "complete" };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "feedback.json";
+    a.click();
+    URL.revokeObjectURL(url);
+
+    var status = document.getElementById("submit-status");
+    status.style.display = "inline";
+    setTimeout(function() { status.style.display = "none"; }, 3000);
+  });
+
+  // ---- Init ----
+  renderEval(0);
+  renderBenchmark();
+})();
+</script>
+</body>
+</html>

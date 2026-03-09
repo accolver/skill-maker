@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trigger Eval Review</title>
+<style>
+  :root {
+    --bg: #1a1a2e;
+    --surface: #16213e;
+    --surface-hover: #1a2745;
+    --border: #2a3a5c;
+    --text: #e0e0e0;
+    --text-muted: #8892a4;
+    --accent: #4fc3f7;
+    --green: #66bb6a;
+    --green-bg: #1b3a1b;
+    --green-border: #2e7d32;
+    --red: #ef5350;
+    --red-bg: #3a1b1b;
+    --red-border: #c62828;
+    --danger: #ef5350;
+    --danger-hover: #f44336;
+    --btn-bg: #2a3a5c;
+    --btn-hover: #3a4a6c;
+    --input-bg: #0f1629;
+    --input-border: #2a3a5c;
+    --input-focus: #4fc3f7;
+    --radius: 8px;
+    --shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  /* Header */
+  .header {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .header .skill-name {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .header .description-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .header .description {
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--input-bg);
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    font-style: italic;
+  }
+
+  /* Stats bar */
+  .stats {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .stat .label {
+    color: var(--text-muted);
+    margin-right: 6px;
+  }
+
+  .stat .value {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .stat .value.green { color: var(--green); }
+  .stat .value.red { color: var(--red); }
+
+  /* Query list */
+  .query-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .query-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .query-item:hover {
+    background: var(--surface-hover);
+  }
+
+  .query-item.trigger-yes {
+    border-left: 3px solid var(--green);
+  }
+
+  .query-item.trigger-no {
+    border-left: 3px solid var(--red);
+  }
+
+  .query-item .index {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    min-width: 24px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .query-item input[type="text"] {
+    flex: 1;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .query-item input[type="text"]:focus {
+    border-color: var(--input-focus);
+  }
+
+  /* Toggle switch */
+  .toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+    justify-content: center;
+  }
+
+  .toggle {
+    position: relative;
+    width: 48px;
+    height: 26px;
+    cursor: pointer;
+  }
+
+  .toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  .toggle .slider {
+    position: absolute;
+    inset: 0;
+    background: var(--red-bg);
+    border: 1px solid var(--red-border);
+    border-radius: 13px;
+    transition: all 0.2s;
+  }
+
+  .toggle .slider::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    top: 2px;
+    background: var(--red);
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+
+  .toggle input:checked + .slider {
+    background: var(--green-bg);
+    border-color: var(--green-border);
+  }
+
+  .toggle input:checked + .slider::before {
+    transform: translateX(22px);
+    background: var(--green);
+  }
+
+  .toggle-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 24px;
+  }
+
+  .toggle-label.yes { color: var(--green); }
+  .toggle-label.no { color: var(--red); }
+
+  /* Delete button */
+  .btn-delete {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 6px 8px;
+    font-size: 1rem;
+    line-height: 1;
+    transition: all 0.15s;
+  }
+
+  .btn-delete:hover {
+    color: var(--danger);
+    border-color: var(--danger);
+    background: var(--red-bg);
+  }
+
+  /* Action buttons */
+  .actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--btn-bg);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn:hover {
+    background: var(--btn-hover);
+    border-color: var(--accent);
+  }
+
+  .btn-primary {
+    background: #1565c0;
+    border-color: #1976d2;
+  }
+
+  .btn-primary:hover {
+    background: #1976d2;
+    border-color: #2196f3;
+  }
+
+  .btn .icon {
+    font-size: 1.1rem;
+  }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+  }
+
+  .empty-state p {
+    margin-bottom: 16px;
+  }
+
+  /* Toast notification */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    color: var(--green);
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    box-shadow: var(--shadow);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 100;
+  }
+
+  .toast.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Trigger Eval Review</h1>
+    <div class="skill-name" id="skillName">__SKILL_NAME_PLACEHOLDER__</div>
+    <div class="description-label">Current Description</div>
+    <div class="description" id="skillDescription">__SKILL_DESCRIPTION_PLACEHOLDER__</div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="query-list" id="queryList"></div>
+
+  <div class="actions">
+    <button class="btn" onclick="addQuery()">
+      <span class="icon">+</span> Add Query
+    </button>
+    <button class="btn btn-primary" onclick="exportEvalSet()">
+      <span class="icon">&#8615;</span> Export Eval Set
+    </button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── Data ──────────────────────────────────────────────────────────
+  let evalData = __EVAL_DATA_PLACEHOLDER__;
+
+  // ── Rendering ────────────────────────────────────────────────────
+  function render() {
+    renderStats();
+    renderList();
+  }
+
+  function renderStats() {
+    const total = evalData.length;
+    const yesCount = evalData.filter(function(d) { return d.should_trigger; }).length;
+    const noCount = total - yesCount;
+
+    document.getElementById("stats").innerHTML =
+      '<div class="stat"><span class="label">Total:</span><span class="value">' + total + '</span></div>' +
+      '<div class="stat"><span class="label">Should Trigger:</span><span class="value green">' + yesCount + '</span></div>' +
+      '<div class="stat"><span class="label">Should Not:</span><span class="value red">' + noCount + '</span></div>';
+  }
+
+  function renderList() {
+    var list = document.getElementById("queryList");
+
+    if (evalData.length === 0) {
+      list.innerHTML = '<div class="empty-state"><p>No queries yet.</p><p>Click "Add Query" to get started.</p></div>';
+      return;
+    }
+
+    var html = "";
+    for (var i = 0; i < evalData.length; i++) {
+      var item = evalData[i];
+      var triggerClass = item.should_trigger ? "trigger-yes" : "trigger-no";
+      var labelClass = item.should_trigger ? "yes" : "no";
+      var labelText = item.should_trigger ? "YES" : "NO";
+      var checked = item.should_trigger ? " checked" : "";
+
+      html += '<div class="query-item ' + triggerClass + '" data-index="' + i + '">' +
+        '<span class="index">' + (i + 1) + '</span>' +
+        '<input type="text" value="' + escapeAttr(item.query) + '" onchange="updateQuery(' + i + ', this.value)" placeholder="Enter user query...">' +
+        '<div class="toggle-wrapper">' +
+          '<label class="toggle">' +
+            '<input type="checkbox"' + checked + ' onchange="toggleTrigger(' + i + ', this.checked)">' +
+            '<span class="slider"></span>' +
+          '</label>' +
+          '<span class="toggle-label ' + labelClass + '">' + labelText + '</span>' +
+        '</div>' +
+        '<button class="btn-delete" onclick="deleteQuery(' + i + ')" title="Delete query">&#10005;</button>' +
+      '</div>';
+    }
+
+    list.innerHTML = html;
+  }
+
+  function escapeAttr(str) {
+    return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  // ── Actions ──────────────────────────────────────────────────────
+
+  function updateQuery(index, value) {
+    evalData[index].query = value;
+    // No full re-render needed for text changes
+  }
+
+  function toggleTrigger(index, checked) {
+    evalData[index].should_trigger = checked;
+    render();
+  }
+
+  function deleteQuery(index) {
+    evalData.splice(index, 1);
+    render();
+  }
+
+  function addQuery() {
+    evalData.push({ query: "", should_trigger: true });
+    render();
+
+    // Focus the new input
+    setTimeout(function() {
+      var inputs = document.querySelectorAll(".query-item input[type='text']");
+      if (inputs.length > 0) {
+        inputs[inputs.length - 1].focus();
+      }
+    }, 50);
+  }
+
+  function exportEvalSet() {
+    // Filter out empty queries
+    var exportData = evalData.filter(function(d) { return d.query.trim().length > 0; });
+
+    if (exportData.length === 0) {
+      showToast("No queries to export", true);
+      return;
+    }
+
+    var json = JSON.stringify(exportData, null, 2);
+    var blob = new Blob([json + "\n"], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "trigger-eval.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showToast("Exported " + exportData.length + " queries to trigger-eval.json");
+  }
+
+  function showToast(message, isError) {
+    var toast = document.getElementById("toast");
+    toast.textContent = message;
+
+    if (isError) {
+      toast.style.background = "var(--red-bg)";
+      toast.style.borderColor = "var(--red-border)";
+      toast.style.color = "var(--red)";
+    } else {
+      toast.style.background = "var(--green-bg)";
+      toast.style.borderColor = "var(--green-border)";
+      toast.style.color = "var(--green)";
+    }
+
+    toast.classList.add("visible");
+    setTimeout(function() {
+      toast.classList.remove("visible");
+    }, 3000);
+  }
+
+  // ── Init ─────────────────────────────────────────────────────────
+  render();
+</script>
+
+</body>
+</html>
