@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Up migration adds the column as nullable first (without NOT NULL in the initial ALTER TABLE)",
+      "passed": false,
+      "evidence": "Found 10 occurrence(s) of \"not null\":\n  response.md:10: | Column type      | `VARCHAR(50) NOT NULL DEFAULT 'pending'` — non-nullable with default                 |\n  response.md:13: | Lock concern     | Adding NOT NULL column naively causes full table rewrite under ACCESS EXCLUSIVE lock |\n  response.md:18: existing rows, (2) adding the NOT NULL constraint requires validation across all"
+    },
+    {
+      "text": "Up migration includes a batched backfill strategy (multiple UPDATE statements with WHERE clauses limiting rows per batch, or explicit batch size guidance)",
+      "passed": false,
+      "evidence": "No matches for \"batched backfill strategy (multiple update statements with where clauses limiting rows per batch, or explicit batch size guidance)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Up migration adds the NOT NULL constraint as a separate step after backfill",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:1: # Database Migration: Add `status` Column to `orders` Table\n  response.md:27: ## 2. Migration SQL (UP) — Multi-Step Sequence\n  response.md:32: -- Migration 001: Add nullable status column with default"
+    },
+    {
+      "text": "A complete rollback migration is provided that drops the status column",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rollback\" (heuristic match):\n  response.md:128: ## 3. Rollback SQL (DOWN)\n  response.md:133: -- Rollback for Migration 001: Remove the status column entirely\n  response.md:137: --            Ensure backup is taken before executing rollback."
+    },
+    {
+      "text": "Data backup commands are included (CREATE TABLE AS, pg_dump, or equivalent)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"data\" (heuristic match):\n  response.md:1: # Database Migration: Add `status` Column to `orders` Table\n  response.md:12: | Database         | PostgreSQL 15                                                                        |\n  response.md:17: metadata, we still need a multi-step approach because: (1) we must backfill 50M"
+    },
+    {
+      "text": "Lock impact analysis is present, mentioning ACCESS EXCLUSIVE lock or table-level locking concerns for the 50M row table",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"lock\" (heuristic match):\n  response.md:13: | Lock concern     | Adding NOT NULL column naively causes full table rewrite under ACCESS EXCLUSIVE lock |\n  response.md:14: | Backfill concern | 50M rows must be populated — single UPDATE would bloat WAL and hold locks            |\n  response.md:20: approach risks extended lock hold times during constraint validation on 50M"
+    },
+    {
+      "text": "Verification queries are included that check the column exists with correct type and constraints",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"check\" (heuristic match):\n  response.md:98: -- Phase A: Add CHECK constraint as NOT VALID\n  response.md:108: CHECK (status IS NOT NULL) NOT VALID;\n  response.md:115: -- On PG 12+, this is instant if a valid CHECK (IS NOT NULL) constraint exists"
+    },
+    {
+      "text": "A deployment runbook is provided with pre-flight checks, execution steps, and rollback instructions",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rollback\" (heuristic match):\n  response.md:128: ## 3. Rollback SQL (DOWN)\n  response.md:133: -- Rollback for Migration 001: Remove the status column entirely\n  response.md:137: --            Ensure backup is taken before executing rollback."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

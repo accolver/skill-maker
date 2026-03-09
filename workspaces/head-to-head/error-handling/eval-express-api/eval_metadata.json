@@ -1,0 +1,15 @@
+{
+  "eval_id": 4,
+  "eval_name": "eval-express-api",
+  "prompt": "Add standardized error handling to this Express.js API that has 5 routes...",
+  "assertions": [
+    "A base error class (AppError or similar) exists with properties: code, message, statusCode, category, and cause",
+    "At least 5 error subclasses are defined covering: validation (400), authentication (401), authorization (403), not-found (404), and conflict (409)",
+    "Each error class has a stable string error code (e.g., ERR_NOT_FOUND_USER) not just an HTTP status number",
+    "A centralized error middleware function handles all errors and produces a consistent JSON response format",
+    "Error responses include a requestId or correlationId field for debugging",
+    "User-facing error responses do not contain stack traces, file paths, or internal implementation details",
+    "Structured error logging includes at minimum: error code, message, stack trace, correlation ID, and request path",
+    "The error response JSON schema is consistent across all endpoints with at least code and message fields"
+  ]
+}

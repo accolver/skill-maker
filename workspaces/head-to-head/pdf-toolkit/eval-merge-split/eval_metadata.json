@@ -1,0 +1,15 @@
+{
+  "eval_id": 8,
+  "eval_name": "eval-merge-split",
+  "prompt": "I have three PDF chapters...",
+  "assertions": [
+    "Agent uses the merge-pdf.ts script for merging",
+    "Agent specifies output path for merged PDF (--output)",
+    "Agent uses page-ranges flag for selective merging (--page-ranges)",
+    "Agent specifies correct page ranges: 1-5 for ch1, all for ch2, 3-10 for ch3",
+    "Agent uses the split-pdf.ts script for splitting",
+    "Agent uses chunks mode for splitting (--mode chunks)",
+    "Agent sets chunk size to 5 pages (--chunk-size 5)",
+    "Agent specifies output directory for split files (--output-dir)"
+  ]
+}

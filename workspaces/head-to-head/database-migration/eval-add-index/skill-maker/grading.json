@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration uses CREATE INDEX CONCURRENTLY (not a regular CREATE INDEX)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:1: # Database Migration: Composite Index on `events(customer_id, created_at)`\n  response.md:24: ## Step 2: UP Migration (`up.sql`)\n  response.md:28: -- Migration: Add composite index on (customer_id, created_at) to events table"
+    },
+    {
+      "text": "Migration includes an estimate or discussion of how long the index creation will take on 100M rows",
+      "passed": false,
+      "evidence": "No matches for \"estimate or discussion of how long the index creation will take on 100m rows\" found across 1 output file(s)"
+    },
+    {
+      "text": "Impact analysis discusses the effect on write performance (insert overhead from maintaining the new index)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"write\" (heuristic match):\n  response.md:15: lock, blocking all writes for the duration of the build (potentially 10–30+\n  response.md:17: - Using `CREATE INDEX CONCURRENTLY` mitigates the write-blocking risk but\n  response.md:40: -- Create the index concurrently to avoid blocking writes."
+    },
+    {
+      "text": "A rollback is provided that drops the index (DROP INDEX or DROP INDEX CONCURRENTLY)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rollback\" (heuristic match):\n  response.md:74: -- Rollback: Remove the composite index on events(customer_id, created_at)\n  response.md:86: ### Rollback characteristics\n  response.md:93: - **Post-rollback impact:** Queries that were optimized by this index will"
+    },
+    {
+      "text": "Verification queries confirm the index exists and is valid (not in an invalid state from a failed CONCURRENTLY build)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"queries\" (heuristic match):\n  response.md:29: -- Purpose: Optimize queries that filter by customer_id and sort/filter by created_at\n  response.md:57: - **Column order `(customer_id, created_at)`** is correct for queries like\n  response.md:77: -- No data is lost. Queries that relied on this index will fall back to sequential"
+    },
+    {
+      "text": "The migration notes that CONCURRENTLY cannot run inside a transaction block",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:1: # Database Migration: Composite Index on `events(customer_id, created_at)`\n  response.md:24: ## Step 2: UP Migration (`up.sql`)\n  response.md:28: -- Migration: Add composite index on (customer_id, created_at) to events table"
+    },
+    {
+      "text": "A deployment runbook recommends running during off-peak hours or low-traffic periods",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"deployment\" (heuristic match):\n  response.md:20: - **Review needed:** Peer review required before deployment.\n  response.md:287: ## Step 7: Deployment Runbook (`runbook.md`)\n  response.md:297: ### Pre-deployment checklist"
+    },
+    {
+      "text": "Lock impact analysis mentions that CONCURRENTLY avoids blocking writes (SHARE UPDATE EXCLUSIVE vs SHARE lock)",
+      "passed": false,
+      "evidence": "No matches for \"that concurrently avoids blocking writes (share update exclusive vs share lock)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

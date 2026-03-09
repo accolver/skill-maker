@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration does NOT use a bare ALTER TABLE RENAME COLUMN as the primary strategy (may mention it as unsafe alternative)",
+      "passed": false,
+      "evidence": "No matches for \"it as unsafe alternative)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Migration uses a dual-write or copy-column strategy: adds new column, backfills, migrates application code, then drops old column",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:22: - **What is the rollback path if something goes wrong mid-migration?** Each\n  response.md:38: ## Migration Plan: Three-Phase Expand-Contract\n  response.md:40: This rename is split into **three separate migrations**, each deployed with a"
+    },
+    {
+      "text": "A complete rollback migration is provided that reverses the changes",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rollback\" (heuristic match):\n  response.md:22: - **What is the rollback path if something goes wrong mid-migration?** Each\n  response.md:23: phase has its own independent rollback. Phase 1 (add column + backfill) rolls\n  response.md:43: | Phase   | Migration                                                                     | Application Change          "
+    },
+    {
+      "text": "The migration addresses zero-downtime by ensuring both old and new columns coexist during transition",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:22: - **What is the rollback path if something goes wrong mid-migration?** Each\n  response.md:38: ## Migration Plan: Three-Phase Expand-Contract\n  response.md:40: This rename is split into **three separate migrations**, each deployed with a"
+    },
+    {
+      "text": "Verification queries are included that confirm data was correctly copied from email to email_address",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"confirm\" (heuristic match):\n  response.md:66: -- Verify the table exists and confirm row count\n  response.md:287: -- Clean up backup table (only after confirming rollback is complete)\n  response.md:527: - [ ] Confirm table row count: `SELECT count(*) FROM users;` — expected"
+    },
+    {
+      "text": "Data backup commands are included before any destructive operations",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"data\" (heuristic match):\n  response.md:10: metadata-only operations will be instant, but any full table scan or rewrite\n  response.md:31: non-blocking at the database level, but it **immediately breaks every query\n  response.md:58: -- Lock impact: AccessExclusiveLock for ADD COLUMN — held for milliseconds (metadata-only)."
+    },
+    {
+      "text": "A deployment runbook is provided with phased steps (add column, backfill, deploy app changes, drop old column)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"add\" (heuristic match):\n  response.md:1: # Renaming `email` to `email_address` on `users` Table\n  response.md:12: - **Is this additive or destructive?** This is a **destructive rename**. A\n  response.md:19: transition, both the old name (`email`) and the new name (`email_address`)"
+    },
+    {
+      "text": "The migration mentions or addresses the need to update application code, background jobs, or queries that reference the old column name",
+      "passed": false,
+      "evidence": "No matches for \"or addresses the need to update application code, background jobs, or queries that reference the old column name\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration does NOT use a bare ALTER TABLE RENAME COLUMN as the primary strategy (may mention it as unsafe alternative)",
+      "passed": false,
+      "evidence": "No matches for \"it as unsafe alternative)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Migration uses a dual-write or copy-column strategy: adds new column, backfills, migrates application code, then drops old column",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:1: # Migration: Rename `email` to `email_address` on `users` table\n  response.md:32: | Phase 1 | Add new `email_address` column                      | Migration deploy             |\n  response.md:35: | Phase 4 | Drop old `email` column (after bake period)         | Migration deploy             |"
+    },
+    {
+      "text": "A complete rollback migration is provided that reverses the changes",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rollback\" (heuristic match):\n  response.md:37: Each phase is a separate deployment with its own migration and rollback.\n  response.md:61: ### `001_add_column_down.sql` — Phase 1 Rollback\n  response.md:64: -- Rollback Phase 1: Remove the new column"
+    },
+    {
+      "text": "The migration addresses zero-downtime by ensuring both old and new columns coexist during transition",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:1: # Migration: Rename `email` to `email_address` on `users` table\n  response.md:32: | Phase 1 | Add new `email_address` column                      | Migration deploy             |\n  response.md:35: | Phase 4 | Drop old `email` column (after bake period)         | Migration deploy             |"
+    },
+    {
+      "text": "Verification queries are included that confirm data was correctly copied from email to email_address",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"queries\" (heuristic match):\n  response.md:10: code, queries, and background jobs that reference `users.email` instantly.\n  response.md:168: --   Knex: use raw queries outside transaction\n  response.md:288: ## 5. Verification Queries — `verify.sql`"
+    },
+    {
+      "text": "Data backup commands are included before any destructive operations",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"data\" (heuristic match):\n  response.md:33: | Phase 2 | Deploy dual-write app code + backfill existing data | App deploy + backfill script |\n  response.md:47: -- Lock: ACCESS EXCLUSIVE — but instant (metadata-only change, no table rewrite)\n  response.md:65: -- Safe: no data loss since email_address was just added and may only have"
+    },
+    {
+      "text": "A deployment runbook is provided with phased steps (add column, backfill, deploy app changes, drop old column)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"add\" (heuristic match):\n  response.md:1: # Migration: Rename `email` to `email_address` on `users` table\n  response.md:26: `ALTER TABLE users RENAME COLUMN email TO email_address` would cause every query\n  response.md:32: | Phase 1 | Add new `email_address` column                      | Migration deploy             |"
+    },
+    {
+      "text": "The migration mentions or addresses the need to update application code, background jobs, or queries that reference the old column name",
+      "passed": false,
+      "evidence": "No matches for \"or addresses the need to update application code, background jobs, or queries that reference the old column name\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

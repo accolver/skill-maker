@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base error class (AppError or similar) exists with properties: code, message, statusCode, category, and cause",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"error\" (heuristic match):\n  response.md:1: # Error Handling Implementation for Express.js User API\n  response.md:9: - **Bare `throw new Error(\"...\")`** — routes throw generic `Error` instances\n  response.md:14: - **Inconsistent response shapes** — some routes return `{ error: \"message\" }`,"
+    },
+    {
+      "text": "At least 5 error subclasses are defined covering: validation (400), authentication (401), authorization (403), not-found (404), and conflict (409)",
+      "passed": false,
+      "evidence": "Found 0 occurrence(s) of \"error subclasses are defined covering: validation (400), authentication (401), authorization (403), not-found (404), and conflict (409)\" (required: 5)"
+    },
+    {
+      "text": "Each error class has a stable string error code (e.g., ERR_NOT_FOUND_USER) not just an HTTP status number",
+      "passed": false,
+      "evidence": "No matches for \"stable string error code (e.g., err_not_found_user) not just an http status number\" found across 1 output file(s)"
+    },
+    {
+      "text": "A centralized error middleware function handles all errors and produces a consistent JSON response format",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"error\" (heuristic match):\n  response.md:1: # Error Handling Implementation for Express.js User API\n  response.md:9: - **Bare `throw new Error(\"...\")`** — routes throw generic `Error` instances\n  response.md:14: - **Inconsistent response shapes** — some routes return `{ error: \"message\" }`,"
+    },
+    {
+      "text": "Error responses include a requestId or correlationId field for debugging",
+      "passed": false,
+      "evidence": "No matches for \"requestid or correlationid field for debugging\" found across 1 output file(s)"
+    },
+    {
+      "text": "User-facing error responses do not contain stack traces, file paths, or internal implementation details",
+      "passed": false,
+      "evidence": "No matches for \"stack traces, file paths, or internal implementation details\" found across 1 output file(s)"
+    },
+    {
+      "text": "Structured error logging includes at minimum: error code, message, stack trace, correlation ID, and request path",
+      "passed": false,
+      "evidence": "No matches for \"at minimum: error code, message, stack trace, correlation id, and request path\" found across 1 output file(s)"
+    },
+    {
+      "text": "The error response JSON schema is consistent across all endpoints with at least code and message fields",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"error\" (heuristic match):\n  response.md:1: # Error Handling Implementation for Express.js User API\n  response.md:9: - **Bare `throw new Error(\"...\")`** — routes throw generic `Error` instances\n  response.md:14: - **Inconsistent response shapes** — some routes return `{ error: \"message\" }`,"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

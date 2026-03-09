@@ -1,0 +1,15 @@
+{
+  "eval_id": 6,
+  "eval_name": "eval-error-response",
+  "prompt": "Design a comprehensive error response format for a public REST API...",
+  "assertions": [
+    "An error response JSON schema is defined with required fields: error.code, error.message, and requestId",
+    "The schema supports optional fields for: error.details (structured), error.target (field name), and error.docUrl (documentation link)",
+    "An error code registry lists at least 15 distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)",
+    "Example responses are provided for at least 5 different error scenarios: validation, authentication, not-found, rate-limit, and internal",
+    "Validation error examples show field-level detail with the specific field name, constraint violated, and value received",
+    "Rate limit error response includes Retry-After header guidance or a retryAfter field in the response body",
+    "Internal server errors use a generic safe message and never expose implementation details in the example",
+    "A developer-facing error reference document explains how clients should programmatically handle each error category"
+  ]
+}

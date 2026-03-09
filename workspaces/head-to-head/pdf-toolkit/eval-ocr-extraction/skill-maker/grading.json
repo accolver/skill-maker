@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Agent tries extract-text.ts first before OCR (text-before-OCR principle)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"extract\" (heuristic match):\n  response.md:1: # PDF OCR & Image Extraction: `./scans/old-contract.pdf`\n  response.md:6: try `extract-text.ts` first, then fall back to `ocr-pdf.ts` only if the result\n  response.md:7: is empty or garbled. This matters because native text extraction is instant and"
+    },
+    {
+      "text": "Agent uses ocr-pdf.ts for the scanned document",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"ocr\" (heuristic match):\n  response.md:1: # PDF OCR & Image Extraction: `./scans/old-contract.pdf`\n  response.md:5: Following the **Text Before OCR** principle from the PDF Toolkit skill: always\n  response.md:6: try `extract-text.ts` first, then fall back to `ocr-pdf.ts` only if the result"
+    },
+    {
+      "text": "Agent sets DPI to 600 as requested for better accuracy (--dpi 600)",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"dpi\" (heuristic match):\n  response.md:57: ## Step 2: OCR the Scanned Document (600 DPI, JSON with Confidence Scores)\n  response.md:60: Using `--dpi 600` as requested because the scan quality might be poor — higher\n  response.md:61: DPI improves accuracy on small text and degraded scans (the default is 300; 600"
+    },
+    {
+      "text": "Agent uses JSON format for structured OCR output with confidence scores (--format json)",
+      "passed": false,
+      "evidence": "No matches for \"with confidence scores (--format json)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Agent uses extract-images.ts for image extraction",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"extract\" (heuristic match):\n  response.md:1: # PDF OCR & Image Extraction: `./scans/old-contract.pdf`\n  response.md:6: try `extract-text.ts` first, then fall back to `ocr-pdf.ts` only if the result\n  response.md:7: is empty or garbled. This matters because native text extraction is instant and"
+    },
+    {
+      "text": "Agent extracts images as JPEG format (--format jpeg)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"images\" (heuristic match):\n  response.md:16: 3. **Extract images** — save embedded images as JPEGs\n  response.md:105: ## Step 3: Extract Images from the Document\n  response.md:107: Extract all embedded images from the PDF and save them as JPEG files in the"
+    },
+    {
+      "text": "Agent specifies output directory for extracted images (--output-dir)",
+      "passed": false,
+      "evidence": "No matches for \"directory for extracted images (--output-dir)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Agent mentions or references confidence scores from OCR output",
+      "passed": false,
+      "evidence": "No matches for \"or references confidence scores from ocr output\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

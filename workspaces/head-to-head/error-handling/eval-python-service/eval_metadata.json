@@ -1,0 +1,15 @@
+{
+  "eval_id": 5,
+  "eval_name": "eval-python-service",
+  "prompt": "Add comprehensive error handling to a Python service...",
+  "assertions": [
+    "A base exception class (AppError or similar) is defined with attributes: code, message, status_code, category, and support for __cause__ chaining",
+    "At least 4 domain-specific exception subclasses exist (e.g., NotFoundError, ValidationError, ServiceUnavailableError, PaymentError)",
+    "Exception wrapping uses 'raise NewError(...) from original_error' syntax to preserve the causal chain",
+    "No bare 'except:' or 'except Exception:' clauses that swallow errors without re-raising or wrapping",
+    "Structured logging outputs JSON-formatted log entries with at minimum: code, message, correlation_id, and timestamp",
+    "Database errors (SQLAlchemy exceptions) are caught and wrapped in domain-specific errors with context",
+    "External API errors (httpx/HTTP errors) are caught and wrapped with the upstream service name and response details",
+    "Each error includes a stable string error code (e.g., ERR_ORDER_NOT_FOUND) not just a status number"
+  ]
+}

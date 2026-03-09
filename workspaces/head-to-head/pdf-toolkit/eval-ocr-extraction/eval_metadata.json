@@ -1,0 +1,15 @@
+{
+  "eval_id": 9,
+  "eval_name": "eval-ocr-extraction",
+  "prompt": "I have a scanned PDF document...",
+  "assertions": [
+    "Agent tries extract-text.ts first before OCR (text-before-OCR principle)",
+    "Agent uses ocr-pdf.ts for the scanned document",
+    "Agent sets DPI to 600 as requested for better accuracy (--dpi 600)",
+    "Agent uses JSON format for structured OCR output with confidence scores (--format json)",
+    "Agent uses extract-images.ts for image extraction",
+    "Agent extracts images as JPEG format (--format jpeg)",
+    "Agent specifies output directory for extracted images (--output-dir)",
+    "Agent mentions or references confidence scores from OCR output"
+  ]
+}

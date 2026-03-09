@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "A base exception class (AppError or similar) is defined with attributes: code, message, status_code, category, and support for __cause__ chaining",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"base\" (heuristic match):\n  response.md:11: 1. [Base Error Class (`AppError`)](#1-base-error-class-apperror)\n  response.md:23: ## 1. Base Error Class (`AppError`)\n  response.md:29: # app/errors/base.py"
+    },
+    {
+      "text": "At least 4 domain-specific exception subclasses exist (e.g., NotFoundError, ValidationError, ServiceUnavailableError, PaymentError)",
+      "passed": false,
+      "evidence": "Found 0 occurrence(s) of \"domain-specific exception subclasses exist (e.g., notfounderror, validationerror, serviceunavailableerror, paymenterror)\" (required: 4)"
+    },
+    {
+      "text": "Exception wrapping uses 'raise NewError(...) from original_error' syntax to preserve the causal chain",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"exception\" (heuristic match):\n  response.md:39: - __cause__: the original exception (Python's native chaining)\n  response.md:44: class AppError(Exception):\n  response.md:66: cause: Exception | None = None,"
+    },
+    {
+      "text": "No bare 'except:' or 'except Exception:' clauses that swallow errors without re-raising or wrapping",
+      "passed": true,
+      "evidence": "No occurrences of \"bare 'except:' or 'except exception:' clauses that swallow errors without re-raising or wrapping\" found across 1 output file(s)"
+    },
+    {
+      "text": "Structured logging outputs JSON-formatted log entries with at minimum: code, message, correlation_id, and timestamp",
+      "passed": false,
+      "evidence": "No matches for \"json-formatted log entries with at minimum: code, message, correlation_id, and timestamp\" found across 1 output file(s)"
+    },
+    {
+      "text": "Database errors (SQLAlchemy exceptions) are caught and wrapped in domain-specific errors with context",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"database\" (heuristic match):\n  response.md:800: - Wrap database errors with appropriate AppError subclasses\n  response.md:830: InternalError: If the database query fails unexpectedly.\n  response.md:831: ServiceUnavailableError: If the database is unreachable."
+    },
+    {
+      "text": "External API errors (httpx/HTTP errors) are caught and wrapped with the upstream service name and response details",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"external\" (heuristic match):\n  response.md:4: a Python service that interacts with PostgreSQL (via SQLAlchemy) and external\n  response.md:253: class ExternalServiceError(AppError):\n  response.md:254: \"\"\"502 — An external service (API, payment gateway) returned an error."
+    },
+    {
+      "text": "Each error includes a stable string error code (e.g., ERR_ORDER_NOT_FOUND) not just a status number",
+      "passed": false,
+      "evidence": "No matches for \"stable string error code (e.g., err_order_not_found) not just a status number\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

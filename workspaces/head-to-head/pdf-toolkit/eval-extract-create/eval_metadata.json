@@ -1,0 +1,15 @@
+{
+  "eval_id": 7,
+  "eval_name": "eval-extract-create",
+  "prompt": "hey, i've got a quarterly report pdf...",
+  "assertions": [
+    "Agent uses the extract-text.ts script for text extraction",
+    "Agent uses JSON format flag for structured output (--format json)",
+    "Agent uses the extract-tables.ts script for table extraction",
+    "Agent specifies page range for table extraction (--pages)",
+    "Agent uses the create-pdf.ts script for PDF creation",
+    "Agent uses markdown input mode for PDF creation (--from-markdown)",
+    "Agent sets A4 page size as requested (--page-size a4 or --page-size A4)",
+    "Agent runs scripts with bun runtime (bun run)"
+  ]
+}

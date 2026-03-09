@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Migration uses CREATE INDEX CONCURRENTLY (not a regular CREATE INDEX)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:1: # Database Migration: Composite Index on events(customer_id, created_at)\n  response.md:30: ## 2. Migration SQL\n  response.md:33: -- Migration: Add composite index on events(customer_id, created_at)"
+    },
+    {
+      "text": "Migration includes an estimate or discussion of how long the index creation will take on 100M rows",
+      "passed": false,
+      "evidence": "No matches for \"estimate or discussion of how long the index creation will take on 100m rows\" found across 1 output file(s)"
+    },
+    {
+      "text": "Impact analysis discusses the effect on write performance (insert overhead from maintaining the new index)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"write\" (heuristic match):\n  response.md:9: | **Write throughput**          | ~5,000 inserts/second at peak                                                         \n  response.md:18: which **blocks all writes** (INSERT, UPDATE, DELETE) for the entire duration of\n  response.md:20: queue 1.5 million write operations, causing cascading timeouts, connection pool"
+    },
+    {
+      "text": "A rollback is provided that drops the index (DROP INDEX or DROP INDEX CONCURRENTLY)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rollback\" (heuristic match):\n  response.md:12: | **Rollback path**             | `DROP INDEX CONCURRENTLY` — instant metadata operation, non-blocking.                 \n  response.md:38: -- Rollback: DROP INDEX CONCURRENTLY idx_events_customer_id_created_at;\n  response.md:105: -- is required. The rollback is simply dropping the index."
+    },
+    {
+      "text": "Verification queries confirm the index exists and is valid (not in an invalid state from a failed CONCURRENTLY build)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"confirm\" (heuristic match):\n  response.md:44: -- 1. Confirm table exists and check row count (approximate, fast)\n  response.md:49: -- 2. Confirm the index does not already exist\n  response.md:56: -- 3. Confirm the columns exist and check their types"
+    },
+    {
+      "text": "The migration notes that CONCURRENTLY cannot run inside a transaction block",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:1: # Database Migration: Composite Index on events(customer_id, created_at)\n  response.md:30: ## 2. Migration SQL\n  response.md:33: -- Migration: Add composite index on events(customer_id, created_at)"
+    },
+    {
+      "text": "A deployment runbook recommends running during off-peak hours or low-traffic periods",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"low\" (heuristic match):\n  response.md:140: --    created_at second because it's the range predicate. This order allows the\n  response.md:228: - **Build time estimate:** 10–30 minutes (two scans, slower)\n  response.md:390: `created_at`. **Estimated duration:** 10–30 minutes **Risk level:** Low"
+    },
+    {
+      "text": "Lock impact analysis mentions that CONCURRENTLY avoids blocking writes (SHARE UPDATE EXCLUSIVE vs SHARE lock)",
+      "passed": false,
+      "evidence": "No matches for \"that concurrently avoids blocking writes (share update exclusive vs share lock)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Agent uses the extract-text.ts script for text extraction",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"extract\" (heuristic match):\n  response.md:1: # PDF Toolkit — Extract Text, Extract Tables, and Create PDF\n  response.md:9: | 1 | \"pull out all the text as json\"                 | `extract-text.ts`   | `--format json`                           \n  response.md:10: | 2 | \"grab the tables from the first 3 pages\"        | `extract-tables.ts` | `--pages 1-3`                             "
+    },
+    {
+      "text": "Agent uses JSON format flag for structured output (--format json)",
+      "passed": false,
+      "evidence": "No matches for \"(--format json)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Agent uses the extract-tables.ts script for table extraction",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"extract\" (heuristic match):\n  response.md:1: # PDF Toolkit — Extract Text, Extract Tables, and Create PDF\n  response.md:9: | 1 | \"pull out all the text as json\"                 | `extract-text.ts`   | `--format json`                           \n  response.md:10: | 2 | \"grab the tables from the first 3 pages\"        | `extract-tables.ts` | `--pages 1-3`                             "
+    },
+    {
+      "text": "Agent specifies page range for table extraction (--pages)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"page\" (heuristic match):\n  response.md:10: | 2 | \"grab the tables from the first 3 pages\"        | `extract-tables.ts` | `--pages 1-3`                             \n  response.md:11: | 3 | \"generate a new pdf from summary.md in A4 size\" | `create-pdf.ts`     | `--from-markdown`, `--page-size A4`, `--ou\n  response.md:37: \"pages\": ["
+    },
+    {
+      "text": "Agent uses the create-pdf.ts script for PDF creation",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"pdf\" (heuristic match):\n  response.md:1: # PDF Toolkit — Extract Text, Extract Tables, and Create PDF\n  response.md:11: | 3 | \"generate a new pdf from summary.md in A4 size\" | `create-pdf.ts`     | `--from-markdown`, `--page-size A4`, `--ou\n  response.md:20: bun run pdf-toolkit/scripts/extract-text.ts \\"
+    },
+    {
+      "text": "Agent uses markdown input mode for PDF creation (--from-markdown)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"pdf\" (heuristic match):\n  response.md:1: # PDF Toolkit — Extract Text, Extract Tables, and Create PDF\n  response.md:11: | 3 | \"generate a new pdf from summary.md in A4 size\" | `create-pdf.ts`     | `--from-markdown`, `--page-size A4`, `--ou\n  response.md:20: bun run pdf-toolkit/scripts/extract-text.ts \\"
+    },
+    {
+      "text": "Agent sets A4 page size as requested (--page-size a4 or --page-size A4)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"page\" (heuristic match):\n  response.md:10: | 2 | \"grab the tables from the first 3 pages\"        | `extract-tables.ts` | `--pages 1-3`                             \n  response.md:11: | 3 | \"generate a new pdf from summary.md in A4 size\" | `create-pdf.ts`     | `--from-markdown`, `--page-size A4`, `--ou\n  response.md:37: \"pages\": ["
+    },
+    {
+      "text": "Agent runs scripts with bun runtime (bun run)",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"scripts\" (heuristic match):\n  response.md:20: bun run pdf-toolkit/scripts/extract-text.ts \\\n  response.md:77: bun run pdf-toolkit/scripts/extract-tables.ts \\\n  response.md:147: bun run pdf-toolkit/scripts/create-pdf.ts \\"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

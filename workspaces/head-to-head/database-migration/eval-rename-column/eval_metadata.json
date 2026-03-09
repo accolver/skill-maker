@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "eval-rename-column",
+  "prompt": "I need to rename the `email` column to `email_address` on the `users` table. This column is referenced throughout our application code and in several background jobs. The table has about 5 million rows. We're on PostgreSQL 14. This is a production system with zero-downtime requirements.",
+  "assertions": [
+    "Migration does NOT use a bare ALTER TABLE RENAME COLUMN as the primary strategy (may mention it as unsafe alternative)",
+    "Migration uses a dual-write or copy-column strategy: adds new column, backfills, migrates application code, then drops old column",
+    "A complete rollback migration is provided that reverses the changes",
+    "The migration addresses zero-downtime by ensuring both old and new columns coexist during transition",
+    "Verification queries are included that confirm data was correctly copied from email to email_address",
+    "Data backup commands are included before any destructive operations",
+    "A deployment runbook is provided with phased steps (add column, backfill, deploy app changes, drop old column)",
+    "The migration mentions or addresses the need to update application code, background jobs, or queries that reference the old column name"
+  ]
+}

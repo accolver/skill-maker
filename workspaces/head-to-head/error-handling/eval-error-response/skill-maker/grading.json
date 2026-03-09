@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "An error response JSON schema is defined with required fields: error.code, error.message, and requestId",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"error\" (heuristic match):\n  response.md:1: # Comprehensive Error Response System for a Public REST API\n  response.md:3: This document defines a complete, production-grade error handling system for a\n  response.md:4: public REST API serving mobile and web clients. It includes the base error"
+    },
+    {
+      "text": "The schema supports optional fields for: error.details (structured), error.target (field name), and error.docUrl (documentation link)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"fields\" (heuristic match):\n  response.md:13: required fields and supports error wrapping via `cause`.\n  response.md:46: **Required fields on every AppError:**\n  response.md:281: \"description\": \"JSON path to the invalid field (e.g., 'email', 'address.zipCode', 'items[0].quantity'). Clients use this"
+    },
+    {
+      "text": "An error code registry lists at least 15 distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)",
+      "passed": false,
+      "evidence": "Found 0 occurrence(s) of \"distinct error codes organized by category (validation, auth, not-found, conflict, rate-limit, internal)\" (required: 15)"
+    },
+    {
+      "text": "Example responses are provided for at least 5 different error scenarios: validation, authentication, not-found, rate-limit, and internal",
+      "passed": false,
+      "evidence": "Found 0 occurrence(s) of \"different error scenarios: validation, authentication, not-found, rate-limit, and internal\" (required: 5)"
+    },
+    {
+      "text": "Validation error examples show field-level detail with the specific field name, constraint violated, and value received",
+      "passed": false,
+      "evidence": "No matches for \"field-level detail with the specific field name, constraint violated, and value received\" found across 1 output file(s)"
+    },
+    {
+      "text": "Rate limit error response includes Retry-After header guidance or a retryAfter field in the response body",
+      "passed": false,
+      "evidence": "No matches for \"retry-after header guidance or a retryafter field in the response body\" found across 1 output file(s)"
+    },
+    {
+      "text": "Internal server errors use a generic safe message and never expose implementation details in the example",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"internal\" (heuristic match):\n  response.md:51: | `message`       | string        | Human-readable, user-safe description. Never contains stack traces, SQL, or internal\n  response.md:129: class InternalError extends AppError {\n  response.md:149: | `InternalError`       | 500    | Unexpected failures — always set `isOperational: false`                              "
+    },
+    {
+      "text": "A developer-facing error reference document explains how clients should programmatically handle each error category",
+      "passed": false,
+      "evidence": "No matches for \"document explains how clients should programmatically handle each error category\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

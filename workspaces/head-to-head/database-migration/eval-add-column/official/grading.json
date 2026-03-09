@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Up migration adds the column as nullable first (without NOT NULL in the initial ALTER TABLE)",
+      "passed": false,
+      "evidence": "Found 10 occurrence(s) of \"not null\":\n  response.md:20: - **PG 11+ behavior:** `ALTER TABLE ... ADD COLUMN ... DEFAULT 'value' NOT NULL`\n  response.md:23: - This means we can safely add a `NOT NULL` column with a `DEFAULT` in a\n  response.md:30: nullable → backfill → set NOT NULL) is unnecessary on PG 15 and would actually"
+    },
+    {
+      "text": "Up migration includes a batched backfill strategy (multiple UPDATE statements with WHERE clauses limiting rows per batch, or explicit batch size guidance)",
+      "passed": false,
+      "evidence": "No matches for \"batched backfill strategy (multiple update statements with where clauses limiting rows per batch, or explicit batch size guidance)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Up migration adds the NOT NULL constraint as a separate step after backfill",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"migration\" (heuristic match):\n  response.md:1: # Database Migration: Add `status` Column to `orders` Table\n  response.md:37: ## 2. Migration SQL\n  response.md:40: -- Migration: Add status column to orders table"
+    },
+    {
+      "text": "A complete rollback migration is provided that drops the status column",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rollback\" (heuristic match):\n  response.md:14: | **What is the rollback path?**                                                     | Drop the column. Since this is a \n  response.md:45: -- Rollback: ALTER TABLE orders DROP COLUMN status;\n  response.md:92: -- 2. The rollback (DROP COLUMN) is instant and safe."
+    },
+    {
+      "text": "Data backup commands are included (CREATE TABLE AS, pg_dump, or equivalent)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"data\" (heuristic match):\n  response.md:1: # Database Migration: Add `status` Column to `orders` Table\n  response.md:12: | **Is this additive or destructive?**                                               | Additive. We are adding a new col\n  response.md:13: | **Does the application need to work with both old and new schema simultaneously?** | Yes. During the deployment window"
+    },
+    {
+      "text": "Lock impact analysis is present, mentioning ACCESS EXCLUSIVE lock or table-level locking concerns for the 50M row table",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"lock\" (heuristic match):\n  response.md:11: | **What tables are affected and how large are they?**                               | `orders` — approximately 50 milli\n  response.md:26: - The `AccessExclusiveLock` is held only for the brief catalog update, not for a\n  response.md:32: scan to verify no NULLs exist, which would hold `AccessExclusiveLock` for the"
+    },
+    {
+      "text": "Verification queries are included that check the column exists with correct type and constraints",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"check\" (heuristic match):\n  response.md:48: -- PRE-MIGRATION CHECKS\n  response.md:51: -- 1. Confirm the orders table exists and check row count estimate\n  response.md:63: -- 3. Check current disk space"
+    },
+    {
+      "text": "A deployment runbook is provided with pre-flight checks, execution steps, and rollback instructions",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"pre\" (heuristic match):\n  response.md:14: | **What is the rollback path?**                                                     | Drop the column. Since this is a \n  response.md:48: -- PRE-MIGRATION CHECKS\n  response.md:64: SELECT pg_size_pretty(pg_database_size(current_database())) AS database_size;"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "benchmark_type": "head-to-head",
+  "description": "skill-maker vs official skill-creator: which produces better skills?",
+  "date": "2026-03-09",
+  "domains_tested": ["database-migration", "error-handling", "pdf-toolkit"],
+  "methodology": "Each skill-creation approach drafted a SKILL.md for 3 domains. Subagents then used each drafted skill to complete 3 eval prompts per domain. Outputs graded against 8 assertions per eval (72 total).",
+  "results": {
+    "skill_maker": {
+      "total_passed": 72,
+      "total_assertions": 72,
+      "pass_rate": 1.0
+    },
+    "official_skill_creator": {
+      "total_passed": 67,
+      "total_assertions": 72,
+      "pass_rate": 0.931
+    },
+    "delta": 0.069
+  },
+  "per_domain": {
+    "database-migration": {
+      "skill_maker": { "passed": 24, "total": 24, "pass_rate": 1.0 },
+      "official": { "passed": 21, "total": 24, "pass_rate": 0.875 }
+    },
+    "error-handling": {
+      "skill_maker": { "passed": 24, "total": 24, "pass_rate": 1.0 },
+      "official": { "passed": 22, "total": 24, "pass_rate": 0.917 }
+    },
+    "pdf-toolkit": {
+      "skill_maker": { "passed": 24, "total": 24, "pass_rate": 1.0 },
+      "official": { "passed": 24, "total": 24, "pass_rate": 1.0 }
+    }
+  },
+  "per_eval": [
+    { "eval": "eval-add-column", "domain": "database-migration", "skill_maker": 8, "official": 5, "total": 8 },
+    { "eval": "eval-rename-column", "domain": "database-migration", "skill_maker": 8, "official": 8, "total": 8 },
+    { "eval": "eval-add-index", "domain": "database-migration", "skill_maker": 8, "official": 8, "total": 8 },
+    { "eval": "eval-express-api", "domain": "error-handling", "skill_maker": 8, "official": 7, "total": 8 },
+    { "eval": "eval-python-service", "domain": "error-handling", "skill_maker": 8, "official": 7, "total": 8 },
+    { "eval": "eval-error-response", "domain": "error-handling", "skill_maker": 8, "official": 8, "total": 8 },
+    { "eval": "eval-extract-create", "domain": "pdf-toolkit", "skill_maker": 8, "official": 8, "total": 8 },
+    { "eval": "eval-merge-split", "domain": "pdf-toolkit", "skill_maker": 8, "official": 8, "total": 8 },
+    { "eval": "eval-ocr-extraction", "domain": "pdf-toolkit", "skill_maker": 8, "official": 8, "total": 8 }
+  ],
+  "official_failures": [
+    {
+      "eval": "eval-add-column",
+      "assertion": "Up migration adds the column as nullable first",
+      "reason": "Official skill produced a PG15-optimized single-statement approach with NOT NULL inline, arguing instant default makes 3-step unnecessary"
+    },
+    {
+      "eval": "eval-add-column",
+      "assertion": "Up migration includes a batched backfill strategy",
+      "reason": "No backfill needed with PG15 instant default — technically valid but fails the conservative assertion"
+    },
+    {
+      "eval": "eval-add-column",
+      "assertion": "Up migration adds NOT NULL as separate step after backfill",
+      "reason": "NOT NULL set in initial ADD COLUMN statement, not separate"
+    },
+    {
+      "eval": "eval-express-api",
+      "assertion": "Base AppError has category and cause properties",
+      "reason": "Official uses internalMessage pattern instead of explicit isOperational boolean on AppError base class"
+    },
+    {
+      "eval": "eval-python-service",
+      "assertion": "Base AppError has is_operational and __cause__ support",
+      "reason": "Same pattern — uses InternalError with internal_message instead of is_operational field"
+    }
+  ]
+}
