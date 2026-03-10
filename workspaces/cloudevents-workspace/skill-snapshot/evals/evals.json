@@ -1,0 +1,53 @@
+{
+  "skill_name": "cloudevents",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm building an order processing service in TypeScript. Create a CloudEvent producer function that emits 'order.created' events. The events should be sent over HTTP in structured mode to a webhook endpoint. Include the event type, source, and proper data payload with order details (orderId, customerId, items array, totalAmount). Show me the complete implementation including the CloudEvent interface and the HTTP send function.",
+      "expected_output": "A TypeScript implementation with a CloudEvent interface/type, a factory function that produces spec-compliant CloudEvents, and an HTTP sender that uses structured content mode with the correct Content-Type header. The event must include specversion '1.0' as a string, a UUID id, reverse-DNS type prefix, URI-reference source, RFC 3339 time, and the data as a native JSON object (not stringified).",
+      "files": [],
+      "assertions": [
+        "The code contains the string 'application/cloudevents+json' as the Content-Type for structured mode",
+        "The code contains 'specversion' set to the literal string '1.0' (the string value, not a numeric 1.0)",
+        "The type field uses a reverse-DNS dotted format like 'com.example.order.created' or similar multi-segment dotted name",
+        "The code validates that data and data_base64 are mutually exclusive (cannot both be set)",
+        "Extension attribute names are validated against lowercase alphanumeric only (regex like /^[a-z0-9]+$/)",
+        "The code includes a wire size or payload size check against 64KB (64 * 1024 or 65536)",
+        "The source attribute uses a URI or URL path (contains '/' or 'https://')",
+        "The code generates a UUID for the id field (uses randomUUID, uuid, or crypto)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write a CloudEvent consumer/parser in Python that can handle both HTTP binary mode and structured mode CloudEvents. It should detect which mode was used by inspecting the Content-Type header, extract all context attributes, and return a parsed CloudEvent dict. Handle both JSON data and binary (base64) data payloads. Include error handling for invalid events.",
+      "expected_output": "A Python function/class that: (1) checks Content-Type to distinguish binary vs structured mode, (2) in structured mode parses the JSON body for all attributes, (3) in binary mode extracts ce- prefixed headers and uses Content-Type for datacontenttype, (4) handles data_base64 for binary payloads, (5) validates required attributes are present.",
+      "files": [],
+      "assertions": [
+        "Content mode detection checks for 'application/cloudevents-batch' prefix BEFORE or separately from 'application/cloudevents' prefix (to avoid batch being misdetected as structured)",
+        "Binary mode reads ce- prefixed headers to extract attributes (contains code that strips 'ce-' prefix from header names)",
+        "In binary mode the Content-Type header value becomes the datacontenttype (no ce-datacontenttype header used)",
+        "The code handles data_base64 by performing base64 decoding (imports base64 module or uses b64decode)",
+        "Validates all four required attributes are present: specversion, id, source, type (checks for each one)",
+        "The code performs percent-decoding (urllib.parse.unquote or equivalent) on ce- header values",
+        "Extension attributes from unknown ce- headers are preserved in the parsed output (not discarded)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Create a CloudEvent validation function in Go that checks whether a given event struct conforms to the CloudEvents v1.0 spec. It should validate all required attributes, check attribute naming rules for extensions, verify that data and data_base64 are not both set, validate the time format, and check that the wire size doesn't exceed 64KB. Return a list of validation errors.",
+      "expected_output": "A Go function that validates a CloudEvent struct against the v1.0 spec, returning a slice of validation error messages. It must check: specversion equals '1.0', id/source/type are non-empty, extension names are lowercase alphanumeric with max 20 chars, time is RFC 3339, data and data_base64 mutual exclusivity, and wire size limit.",
+      "files": [],
+      "assertions": [
+        "Validates specversion equals '1.0' (checks the string value, not just non-empty)",
+        "Validates id is non-empty",
+        "Validates source is non-empty and is a valid URI-reference (uses url.Parse or net/url)",
+        "Validates type is non-empty",
+        "Extension attribute name validation uses a regex like ^[a-z0-9]+$ (lowercase alphanumeric only, no hyphens/underscores)",
+        "Extension attribute name length is checked against a maximum of 20 characters",
+        "Data and data_base64 mutual exclusivity is validated (both cannot be set simultaneously)",
+        "Time field is validated as RFC 3339 format (uses time.Parse with time.RFC3339 or equivalent)",
+        "Wire size is checked against 64KB limit (uses 64 * 1024 or 65536 as the threshold)"
+      ]
+    }
+  ]
+}

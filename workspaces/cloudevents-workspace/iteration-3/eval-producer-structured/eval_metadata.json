@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "producer-structured",
+  "prompt": "I'm building an order processing service in TypeScript. Create a CloudEvent producer function that emits 'order.created' events. The events should be sent over HTTP in structured mode to a webhook endpoint. Include the event type, source, and proper data payload with order details (orderId, customerId, items array, totalAmount). Show me the complete implementation including the CloudEvent interface and the HTTP send function.",
+  "assertions": [
+    "The code contains the string 'application/cloudevents+json' as the Content-Type for structured mode",
+    "The code contains 'specversion' set to the literal string '1.0' (the string value, not a numeric 1.0)",
+    "The type field uses a reverse-DNS dotted format like 'com.example.order.created' or similar multi-segment dotted name",
+    "The code validates that data and data_base64 are mutually exclusive (cannot both be set)",
+    "Extension attribute names are validated against lowercase alphanumeric only (regex like /^[a-z0-9]+$/)",
+    "The code includes a wire size or payload size check against 64KB (64 * 1024 or 65536)",
+    "The source attribute uses a URI or URL path (contains '/' or 'https://')",
+    "The code generates a UUID for the id field (uses randomUUID, uuid, or crypto)"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "eval_id": 2,
+  "eval_name": "consumer-parser",
+  "prompt": "Write a CloudEvent consumer/parser in Python that can handle both HTTP binary mode and structured mode CloudEvents. It should detect which mode was used by inspecting the Content-Type header, extract all context attributes, and return a parsed CloudEvent dict. Handle both JSON data and binary (base64) data payloads. Include error handling for invalid events.",
+  "assertions": [
+    "Content mode detection checks for 'application/cloudevents-batch' prefix BEFORE or separately from 'application/cloudevents' prefix (to avoid batch being misdetected as structured)",
+    "Binary mode reads ce- prefixed headers to extract attributes (contains code that strips 'ce-' prefix from header names)",
+    "In binary mode the Content-Type header value becomes the datacontenttype (no ce-datacontenttype header used)",
+    "The code handles data_base64 by performing base64 decoding (imports base64 module or uses b64decode)",
+    "Validates all four required attributes are present: specversion, id, source, type (checks for each one)",
+    "The code performs percent-decoding (urllib.parse.unquote or equivalent) on ce- header values",
+    "Extension attributes from unknown ce- headers are preserved in the parsed output (not discarded)"
+  ]
+}

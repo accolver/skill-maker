@@ -1,0 +1,16 @@
+{
+  "eval_id": 3,
+  "eval_name": "validator",
+  "prompt": "Create a CloudEvent validation function in Go that checks whether a given event struct conforms to the CloudEvents v1.0 spec. It should validate all required attributes, check attribute naming rules for extensions, verify that data and data_base64 are not both set, validate the time format, and check that the wire size doesn't exceed 64KB. Return a list of validation errors.",
+  "assertions": [
+    "Validates specversion equals '1.0' (checks the string value, not just non-empty)",
+    "Validates id is non-empty",
+    "Validates source is non-empty and is a valid URI-reference (uses url.Parse or net/url)",
+    "Validates type is non-empty",
+    "Extension attribute name validation uses a regex like ^[a-z0-9]+$ (lowercase alphanumeric only, no hyphens/underscores)",
+    "Extension attribute name length is checked against a maximum of 20 characters",
+    "Data and data_base64 mutual exclusivity is validated (both cannot be set simultaneously)",
+    "Time field is validated as RFC 3339 format (uses time.Parse with time.RFC3339 or equivalent)",
+    "Wire size is checked against 64KB limit (uses 64 * 1024 or 65536 as the threshold)"
+  ]
+}

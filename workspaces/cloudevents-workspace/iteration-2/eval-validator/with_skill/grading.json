@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Validates specversion equals '1.0' (checks the string value, not just non-empty)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"specversion\" (heuristic match):\n  cloudevent_validator.go:21: SpecVersion string `json:\"specversion\"`\n  cloudevent_validator.go:42: // Field is the attribute name that failed validation (e.g. \"specversion\",\n  cloudevent_validator.go:57: \"specversion\":     true,"
+    },
+    {
+      "text": "Validates id is non-empty",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"empty\" (heuristic match):\n  cloudevent_validator.go:27: DataContentType string `json:\"datacontenttype,omitempty\"`\n  cloudevent_validator.go:28: DataSchema      string `json:\"dataschema,omitempty\"`\n  cloudevent_validator.go:29: Subject         string `json:\"subject,omitempty\"`"
+    },
+    {
+      "text": "Validates source is non-empty and is a valid URI-reference (uses url.Parse or net/url)",
+      "passed": false,
+      "evidence": "No matches for \"(uses url.parse or net/url)\" found across 1 output file(s)"
+    },
+    {
+      "text": "Validates type is non-empty",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"type\" (heuristic match):\n  cloudevent_validator.go:19: type CloudEvent struct {\n  cloudevent_validator.go:24: Type        string `json:\"type\"`\n  cloudevent_validator.go:27: DataContentType string `json:\"datacontenttype,omitempty\"`"
+    },
+    {
+      "text": "Extension attribute name validation uses a regex like ^[a-z0-9]+$ (lowercase alphanumeric only, no hyphens/underscores)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"extension\" (heuristic match):\n  cloudevent_validator.go:36: // Extension attributes (lowercase alphanumeric, max 20 chars)\n  cloudevent_validator.go:37: Extensions map[string]interface{} `json:\"-\"`\n  cloudevent_validator.go:43: // \"id\", \"extensions.myext\")."
+    },
+    {
+      "text": "Extension attribute name length is checked against a maximum of 20 characters",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"extension\" (heuristic match):\n  cloudevent_validator.go:36: // Extension attributes (lowercase alphanumeric, max 20 chars)\n  cloudevent_validator.go:37: Extensions map[string]interface{} `json:\"-\"`\n  cloudevent_validator.go:43: // \"id\", \"extensions.myext\")."
+    },
+    {
+      "text": "Data and data_base64 mutual exclusivity is validated (both cannot be set simultaneously)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"data\" (heuristic match):\n  cloudevent_validator.go:18: // All context attributes and data are stored in a single JSON object.\n  cloudevent_validator.go:27: DataContentType string `json:\"datacontenttype,omitempty\"`\n  cloudevent_validator.go:28: DataSchema      string `json:\"dataschema,omitempty\"`"
+    },
+    {
+      "text": "Time field is validated as RFC 3339 format (uses time.Parse with time.RFC3339 or equivalent)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"time\" (heuristic match):\n  cloudevent_validator.go:9: \"time\"\n  cloudevent_validator.go:30: Time            string `json:\"time,omitempty\"`\n  cloudevent_validator.go:64: \"time\":            true,"
+    },
+    {
+      "text": "Wire size is checked against 64KB limit (uses 64 * 1024 or 65536 as the threshold)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"wire\" (heuristic match):\n  cloudevent_validator.go:13: // MaxWireSize is the maximum recommended wire size for safe intermediary\n  cloudevent_validator.go:15: const MaxWireSize = 64 * 1024\n  cloudevent_validator.go:92: //   - Estimated wire size does not exceed 64 KB"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 1,
+    "total": 9,
+    "pass_rate": 0.889
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "assertion_results": [
+    {
+      "text": "Content mode detection checks for 'application/cloudevents-batch' prefix BEFORE or separately from 'application/cloudevents' prefix (to avoid batch being misdetected as structured)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"content\" (heuristic match):\n  cloudevent_parser.py:10: in the HTTP body as JSON (Content-Type: application/cloudevents+json).\n  cloudevent_parser.py:28: CLOUDEVENTS_CONTENT_TYPE = \"application/cloudevents+json\"\n  cloudevent_parser.py:29: CLOUDEVENTS_BATCH_CONTENT_TYPE = \"application/cloudevents-batch+json\""
+    },
+    {
+      "text": "Binary mode reads ce- prefixed headers to extract attributes (contains code that strips 'ce-' prefix from header names)",
+      "passed": false,
+      "evidence": "No matches for \"code that strips 'ce-' prefix from header names)\" found across 1 output file(s)"
+    },
+    {
+      "text": "In binary mode the Content-Type header value becomes the datacontenttype (no ce-datacontenttype header used)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"binary\" (heuristic match):\n  cloudevent_parser.py:4: Parses CloudEvents from HTTP requests in both binary mode and structured mode\n  cloudevent_parser.py:7: Binary mode: context attributes are in HTTP headers (ce-* prefixed),\n  cloudevent_parser.py:46: # HTTP header prefix for binary-mode context attributes"
+    },
+    {
+      "text": "The code handles data_base64 by performing base64 decoding (imports base64 module or uses b64decode)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"code\" (heuristic match):\n  cloudevent_parser.py:9: Structured mode: the entire CloudEvent (attributes + data) is encoded\n  cloudevent_parser.py:67: \"\"\"Raised when the event payload cannot be decoded.\"\"\"\n  cloudevent_parser.py:97: def _decode_data("
+    },
+    {
+      "text": "Validates all four required attributes are present: specversion, id, source, type (checks for each one)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"required\" (heuristic match):\n  cloudevent_parser.py:31: # Required context attributes (CloudEvents v1.0)\n  cloudevent_parser.py:32: REQUIRED_ATTRIBUTES = {\"specversion\", \"id\", \"source\", \"type\"}\n  cloudevent_parser.py:34: # All recognised context attributes (required + optional)"
+    },
+    {
+      "text": "The code performs percent-decoding (urllib.parse.unquote or equivalent) on ce- header values",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"code\" (heuristic match):\n  cloudevent_parser.py:9: Structured mode: the entire CloudEvent (attributes + data) is encoded\n  cloudevent_parser.py:67: \"\"\"Raised when the event payload cannot be decoded.\"\"\"\n  cloudevent_parser.py:97: def _decode_data("
+    },
+    {
+      "text": "Extension attributes from unknown ce- headers are preserved in the parsed output (not discarded)",
+      "passed": false,
+      "evidence": "No matches for \"(not discarded)\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.714
+  }
+}

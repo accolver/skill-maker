@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The code contains the string 'application/cloudevents+json' as the Content-Type for structured mode",
+      "passed": false,
+      "evidence": "No matches for \"string 'application/cloudevents+json' as the content-type for structured mode\" found across 1 output file(s)"
+    },
+    {
+      "text": "The code contains 'specversion' set to the literal string '1.0' (the string value, not a numeric 1.0)",
+      "passed": false,
+      "evidence": "No matches for \"'specversion' set to the literal string '1.0' (the string value, not a numeric 1.0)\" found across 1 output file(s)"
+    },
+    {
+      "text": "The type field uses a reverse-DNS dotted format like 'com.example.order.created' or similar multi-segment dotted name",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"type\" (heuristic match):\n  cloudevent-producer.ts:14: * REQUIRED attributes: specversion, id, source, type\n  cloudevent-producer.ts:15: * OPTIONAL attributes: datacontenttype, dataschema, subject, time\n  cloudevent-producer.ts:32: * Describes the type of event."
+    },
+    {
+      "text": "The code validates that data and data_base64 are mutually exclusive (cannot both be set)",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"data\" (heuristic match):\n  cloudevent-producer.ts:15: * OPTIONAL attributes: datacontenttype, dataschema, subject, time\n  cloudevent-producer.ts:16: * The `data` field carries the domain payload.\n  cloudevent-producer.ts:40: /** Content type of the `data` field. */"
+    },
+    {
+      "text": "Extension attribute names are validated against lowercase alphanumeric only (regex like /^[a-z0-9]+$/)",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"attribute\" (heuristic match):\n  cloudevent-producer.ts:14: * REQUIRED attributes: specversion, id, source, type\n  cloudevent-producer.ts:15: * OPTIONAL attributes: datacontenttype, dataschema, subject, time\n  cloudevent-producer.ts:79: * Structured mode means the entire CloudEvent (attributes + data) is"
+    },
+    {
+      "text": "The code includes a wire size or payload size check against 64KB (64 * 1024 or 65536)",
+      "passed": false,
+      "evidence": "No matches for \"wire size or payload size check against 64kb (64 * 1024 or 65536)\" found across 1 output file(s)"
+    },
+    {
+      "text": "The source attribute uses a URI or URL path (contains '/' or 'https://')",
+      "passed": false,
+      "evidence": "No matches for \"'/' or 'https://')\" found across 1 output file(s)"
+    },
+    {
+      "text": "The code generates a UUID for the id field (uses randomUUID, uuid, or crypto)",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"uuid\" (heuristic match):\n  cloudevent-producer.ts:1: import { randomUUID } from \"crypto\";\n  cloudevent-producer.ts:22: /** Unique identifier for this event instance (UUID v4). */\n  cloudevent-producer.ts:88: id: randomUUID(),"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 4,
+    "total": 8,
+    "pass_rate": 0.5
+  }
+}

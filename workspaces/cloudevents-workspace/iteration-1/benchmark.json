@@ -1,0 +1,81 @@
+{
+  "skill_name": "cloudevents",
+  "iteration": 1,
+  "timestamp": "2026-03-10T20:38:33.196Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.701,
+        "stddev": 0.1591
+      },
+      "time_seconds": {
+        "mean": 29,
+        "stddev": 2.9439
+      },
+      "tokens": {
+        "mean": 6253.3333,
+        "stddev": 890.8922
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.701,
+        "stddev": 0.1591
+      },
+      "time_seconds": {
+        "mean": 17.6667,
+        "stddev": 2.0548
+      },
+      "tokens": {
+        "mean": 4066.6667,
+        "stddev": 659.9663
+      }
+    },
+    "delta": {
+      "pass_rate": 0,
+      "time_seconds": 11.3,
+      "tokens": 2187
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "consumer-parser",
+      "with_skill": {
+        "pass_rate": 0.714,
+        "time_seconds": 30,
+        "tokens": 6500
+      },
+      "without_skill": {
+        "pass_rate": 0.714,
+        "time_seconds": 18,
+        "tokens": 4200
+      }
+    },
+    {
+      "eval_name": "producer-structured",
+      "with_skill": {
+        "pass_rate": 0.5,
+        "time_seconds": 25,
+        "tokens": 5060
+      },
+      "without_skill": {
+        "pass_rate": 0.5,
+        "time_seconds": 15,
+        "tokens": 3200
+      }
+    },
+    {
+      "eval_name": "validator",
+      "with_skill": {
+        "pass_rate": 0.889,
+        "time_seconds": 32,
+        "tokens": 7200
+      },
+      "without_skill": {
+        "pass_rate": 0.889,
+        "time_seconds": 20,
+        "tokens": 4800
+      }
+    }
+  ]
+}
