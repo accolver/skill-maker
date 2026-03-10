@@ -31,7 +31,7 @@ skill-maker/
 │   ├── references/
 │   ├── assets/
 │   └── evals/
-├── api-doc-generator/         # 21 additional skills, all at root level
+├── api-doc-generator/         # 22 additional skills, all at root level
 ├── changelog-generator/
 ├── code-reviewer/
 ├── database-migration/
@@ -52,6 +52,7 @@ skill-maker/
 ├── nostr-zap-integration/
 ├── pdf-toolkit/
 ├── pr-description/
+├── terraform-github-actions-deploy/
 └── workspaces/                # Eval loop artifacts for all skills
     ├── skill-maker-workspace/
     ├── api-doc-generator-workspace/
@@ -191,7 +192,7 @@ nostr-crypto-guide (+95.8%), nostr-client-patterns (+100%), nostr-social-graph
 
 ## Building New Examples
 
-All 21 skills have been built and benchmarked. To add a new skill:
+All 22 skills have been built. To add a new skill:
 
 ```
 Create a skill for [description]

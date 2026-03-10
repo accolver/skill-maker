@@ -103,7 +103,7 @@ The agent will follow the 5-phase workflow automatically:
 
 ## Benchmark results
 
-Skills built with skill-maker were evaluated against unguided agents across 22
+Skills built with skill-maker were evaluated against unguided agents across 23
 domains. Each skill went through the full eval loop: isolated subagent pairs
 (with-skill vs without-skill), assertion grading, and iteration until plateau.
 

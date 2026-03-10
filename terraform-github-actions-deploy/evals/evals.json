@@ -1,0 +1,52 @@
+{
+  "skill_name": "terraform-github-actions-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to set up GitHub Actions to run terraform plan on PRs and terraform apply when they merge to main. We use GCP and our Terraform is in the infrastructure/ directory. Make sure it's secure.",
+      "expected_output": "Two workflow files: terraform-plan.yml triggered on pull_request with path filter, and terraform-apply.yml triggered on push to main. Both use GCP Workload Identity Federation via google-github-actions/auth (not service account keys). Actions pinned by SHA. Plan workflow has cancel-in-progress: true, apply has cancel-in-progress: false. Both use -input=false. Plan output posted as PR comment using env vars (not direct interpolation). Permissions block restricts GITHUB_TOKEN scope with id-token: write.",
+      "files": [],
+      "assertions": [
+        "Plan workflow triggers on pull_request with paths filter for infrastructure/",
+        "Apply workflow triggers on push to main with paths filter for infrastructure/",
+        "Authentication uses google-github-actions/auth with workload_identity_provider (not service account key)",
+        "id-token: write permission is present",
+        "All actions are pinned by commit SHA, not by tag",
+        "Apply workflow concurrency has cancel-in-progress: false",
+        "All terraform commands include -input=false flag",
+        "PR comment uses env variable for plan output, not direct interpolation in run block",
+        "permissions block is present and restrictive (contents: read at minimum)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We have a monorepo with Terragrunt. Our environments are in infrastructure/terragrunt/us-central1/dev/ and infrastructure/terragrunt/us-central1/prod/. I want dev to auto-apply on merge but prod to require manual approval. Set up the GitHub Actions workflows.",
+      "expected_output": "Workflows that handle multi-environment Terragrunt deployments. Dev applies automatically on merge to main. Prod requires GitHub Environment protection with required reviewers. Uses reusable workflow pattern or separate jobs with needs: dependency. Terragrunt-specific setup (gruntwork-io/setup-terragrunt or manual install). Caches terragrunt and terraform plugins. Each environment has its own concurrency group.",
+      "files": [],
+      "assertions": [
+        "Workflow handles both dev and prod environments",
+        "Dev environment applies automatically (no manual gate)",
+        "Prod environment uses GitHub Environment protection with required reviewers or explicit approval step",
+        "Prod job depends on dev job (needs: or sequential)",
+        "Terragrunt is installed (setup action or manual)",
+        "Each environment has a separate concurrency group",
+        "Caching is configured for terraform plugins and/or terragrunt cache"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add drift detection for our Terraform infrastructure. It should run on a schedule, check if real infrastructure has drifted from the code, and open a GitHub issue if drift is found.",
+      "expected_output": "A scheduled workflow that runs terraform plan -detailed-exitcode. Exit code 2 indicates drift. On drift, creates a GitHub issue with the plan output. Uses WIF for auth. Includes the plan output in the issue body (truncated if needed). Labels the issue appropriately.",
+      "files": [],
+      "assertions": [
+        "Workflow uses schedule trigger with cron expression",
+        "Uses terraform plan -detailed-exitcode to detect drift",
+        "Checks exit code 2 specifically (not just non-zero)",
+        "Creates a GitHub issue when drift is detected",
+        "Issue body includes plan output",
+        "Authentication uses OIDC/WIF (not static credentials)",
+        "issues: write permission is present"
+      ]
+    }
+  ]
+}
