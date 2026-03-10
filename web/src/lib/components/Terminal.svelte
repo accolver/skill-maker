@@ -1,5 +1,5 @@
 <script lang="ts">
-	const copyCommand = 'npx skills add accolver/skill-maker';
+	const copyCommand = 'npx skills add accolver/skill-maker --skill skill-maker';
 
 	let copied = $state(false);
 
@@ -53,7 +53,7 @@
 			<span class="text-syn-cyan">~</span>
 			<span class="text-ide-text-muted"> $ </span>
 			<span class="text-syn-yellow">npx</span>
-			<span class="text-ide-text"> skills add accolver/skill-maker</span>
+			<span class="text-ide-text"> skills add accolver/skill-maker --skill skill-maker</span>
 		</div>
 		<div class="mt-3">
 			<span class="text-syn-comment"># Install globally (available in all projects)</span>
@@ -62,7 +62,7 @@
 			<span class="text-syn-cyan">~</span>
 			<span class="text-ide-text-muted"> $ </span>
 			<span class="text-syn-yellow">npx</span>
-			<span class="text-ide-text"> skills add accolver/skill-maker -g</span>
+			<span class="text-ide-text"> skills add accolver/skill-maker --skill skill-maker -g</span>
 		</div>
 		<div class="mt-3">
 			<span class="text-syn-cyan">~</span>
