@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Agent uses --format=json or --format='json(name,zone.basename())' or similar JSON projection syntax",
+      "passed": true,
+      "evidence": "Line 27: --format=\"json\" and line 44: --format=\"json(name.basename(), location, project)\" — both raw JSON and JSON with field projection."
+    },
+    {
+      "text": "Agent uses --filter to filter by machine type containing n1-standard-1",
+      "passed": true,
+      "evidence": "Line 101: --filter=\"machineType:n1-standard-1\" — server-side filter on machine type."
+    },
+    {
+      "text": "Agent mentions the cross-project challenge and suggests gcloud asset search-all-resources or iterating over projects with gcloud projects list",
+      "passed": true,
+      "evidence": "Lines 8-10: both approaches mentioned upfront. Lines 23-27: 'gcloud asset search-all-resources'. Lines 82-105: iterating with 'gcloud projects list'."
+    },
+    {
+      "text": "Agent shows how to use --format='value(field)' or --format='table(field)' for extracting specific fields",
+      "passed": true,
+      "evidence": "Line 90: --format=\"value(projectId)\" for raw extraction. Lines 189-191: explicitly documents 'value(field)' and 'table(field1, field2)' format patterns."
+    },
+    {
+      "text": "Agent mentions jq as a post-processing tool for transforming or filtering gcloud JSON output",
+      "passed": true,
+      "evidence": "Lines 47-61 and 112-135: extensive jq usage for reshaping and merging JSON output from gcloud commands."
+    },
+    {
+      "text": "Agent demonstrates at least one concrete --format example with field projection (not just --format=json which dumps everything)",
+      "passed": true,
+      "evidence": "Line 44: --format=\"json(name.basename(), location, project)\" — concrete field projection with basename() transform."
+    },
+    {
+      "text": "All commands shown are read-only (list, describe, search) and agent runs them without asking for confirmation",
+      "passed": true,
+      "evidence": "All commands are 'list', 'projects list', or 'asset search-all-resources'. No write operations appear anywhere."
+    },
+    {
+      "text": "Agent does NOT suggest creating or modifying any resources",
+      "passed": true,
+      "evidence": "No create, update, delete, or modify commands appear anywhere in the response. All operations are purely read-only queries."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

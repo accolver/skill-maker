@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Agent checks current auth status with gcloud auth list",
+      "passed": true,
+      "evidence": "Line 21 (Step 2): 'gcloud auth list' — used to check current authentication status before authenticating."
+    },
+    {
+      "text": "Agent recommends gcloud auth login for local interactive development",
+      "passed": true,
+      "evidence": "Line 33 (Step 3): 'gcloud auth login' — recommended as the primary login command with browser-based flow explanation (lines 37-42)."
+    },
+    {
+      "text": "Agent mentions gcloud auth application-default login for application default credentials",
+      "passed": true,
+      "evidence": "Line 50 (Step 4): 'gcloud auth application-default login' — presented as a separate step titled 'Set Up Application Default Credentials (ADC)' with explanation of credentials file location (line 59)."
+    },
+    {
+      "text": "Agent explains what ADC is and why it's needed in addition to regular auth",
+      "passed": true,
+      "evidence": "Lines 63-65: '`gcloud auth login` authenticates the `gcloud` CLI tool itself. `gcloud auth application-default login` provides credentials for your application code. They serve different purposes.'"
+    },
+    {
+      "text": "Agent shows gcloud projects list to discover available projects",
+      "passed": true,
+      "evidence": "Line 72 (Step 5): 'gcloud projects list' — used to list available projects with explanation of output columns (lines 75-79)."
+    },
+    {
+      "text": "Agent recommends setting a default project with gcloud config set project",
+      "passed": true,
+      "evidence": "Line 90 (Step 6): 'gcloud config set project PROJECT_ID' — recommended as default project configuration."
+    },
+    {
+      "text": "Output distinguishes between user auth (gcloud auth login) and application auth (gcloud auth application-default login)",
+      "passed": true,
+      "evidence": "Lines 63-65 explicitly distinguish: 'gcloud auth login authenticates the gcloud CLI tool itself. gcloud auth application-default login provides credentials for your application code. They serve different purposes.'"
+    },
+    {
+      "text": "Agent does NOT recommend service account keys for local development",
+      "passed": true,
+      "evidence": "No mention of service account keys, JSON key files, or GOOGLE_APPLICATION_CREDENTIALS pointing to a downloaded key file anywhere in the output. The recommended approach is user-based auth via gcloud auth login and gcloud auth application-default login."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

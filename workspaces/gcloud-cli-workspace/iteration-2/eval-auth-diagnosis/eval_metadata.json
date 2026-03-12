@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "auth-diagnosis",
+  "prompt": "I'm getting 'ERROR: (gcloud.compute.instances.list) Your current active account [ci-bot@old-project.iam.gserviceaccount.com] does not have any valid credentials. Please run: gcloud auth login to obtain new credentials.' when I try to list my VMs. I'm working on the 'payments-prod' project but I think I might be authenticated as the wrong account. My email is alice@company.com. Help me sort this out.",
+  "assertions": [
+    "Agent runs gcloud auth list to see all configured accounts and which is active",
+    "Agent identifies that ci-bot@old-project.iam.gserviceaccount.com is a service account and likely wrong for interactive use",
+    "Agent checks gcloud config get-value project to see if the active project matches payments-prod",
+    "Agent recommends gcloud auth login to authenticate as alice@company.com (the user's actual identity)",
+    "Agent recommends gcloud config set account alice@company.com or similar to switch the active account",
+    "Agent mentions gcloud config configurations as a way to manage multiple account/project combos (e.g. separate configs for CI vs personal)",
+    "Agent recommends verifying with gcloud compute instances list --project=payments-prod after fixing auth",
+    "Agent does NOT just say 'run gcloud auth login' without first diagnosing why the wrong account is active"
+  ]
+}

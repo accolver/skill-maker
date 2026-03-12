@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "cross-project-formatting",
+  "prompt": "I need to find all Compute Engine instances across my org that are using the n1-standard-1 machine type, extract just their names, zones, and project IDs, and output it as clean JSON I can pipe into a script. Some instances might be in different projects. Show me how to get this data efficiently.",
+  "assertions": [
+    "Agent uses --format=json or --format='json(name,zone.basename())' or similar JSON projection syntax",
+    "Agent uses --filter to filter by machine type containing n1-standard-1",
+    "Agent mentions the cross-project challenge and suggests gcloud asset search-all-resources or iterating over projects with gcloud projects list",
+    "Agent shows how to use --format='value(field)' or --format='table(field)' for extracting specific fields",
+    "Agent mentions jq as a post-processing tool for transforming or filtering gcloud JSON output",
+    "Agent demonstrates at least one concrete --format example with field projection (not just --format=json which dumps everything)",
+    "All commands shown are read-only (list, describe, search) and agent runs them without asking for confirmation",
+    "Agent does NOT suggest creating or modifying any resources"
+  ]
+}

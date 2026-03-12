@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Agent uses --format=json or --format='json(name,zone.basename())' or similar JSON projection syntax",
+      "passed": true,
+      "evidence": "Line 48: --format=\"json(name,zone.basename(),project)\" — JSON output with field projection using basename() transform."
+    },
+    {
+      "text": "Agent uses --filter to filter by machine type containing n1-standard-1",
+      "passed": true,
+      "evidence": "Line 47: --filter=\"machineType:n1-standard-1\" — server-side filter using substring match operator."
+    },
+    {
+      "text": "Agent mentions the cross-project challenge and suggests gcloud asset search-all-resources or iterating over projects with gcloud projects list",
+      "passed": true,
+      "evidence": "Lines 59-91: iterating over projects via 'gcloud projects list --format=\"value(projectId)\"'. Lines 134-153: 'gcloud asset search-all-resources' as alternative for large orgs."
+    },
+    {
+      "text": "Agent shows how to use --format='value(field)' or --format='table(field)' for extracting specific fields",
+      "passed": true,
+      "evidence": "Line 29: --format=\"value(projectId)\" used to extract raw project IDs for scripting. Key flags table (lines 173-179) documents both value() and json() format patterns."
+    },
+    {
+      "text": "Agent mentions jq as a post-processing tool for transforming or filtering gcloud JSON output",
+      "passed": true,
+      "evidence": "Lines 79-108: extensive use of jq — 'jq --arg proj \"$PROJECT\" [.[] | {name, zone, project: $proj}]' and 'jq -s add // []' with detailed explanation of the pipeline."
+    },
+    {
+      "text": "Agent demonstrates at least one concrete --format example with field projection (not just --format=json which dumps everything)",
+      "passed": true,
+      "evidence": "Line 48: --format=\"json(name,zone.basename(),project)\" — concrete field projection with basename() transform, not a raw json dump."
+    },
+    {
+      "text": "All commands shown are read-only (list, describe, search) and agent runs them without asking for confirmation",
+      "passed": true,
+      "evidence": "All commands use 'list', 'projects list', or 'asset search-all-resources'. Lines 19-20: 'Every command below is read-only. No confirmation is needed. Execute freely.'"
+    },
+    {
+      "text": "Agent does NOT suggest creating or modifying any resources",
+      "passed": true,
+      "evidence": "No create, update, delete, or modify commands appear anywhere in the response. All operations are purely read-only queries."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

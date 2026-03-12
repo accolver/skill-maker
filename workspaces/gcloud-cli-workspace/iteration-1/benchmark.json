@@ -1,0 +1,81 @@
+{
+  "skill_name": "gcloud-cli",
+  "iteration": 1,
+  "timestamp": "2026-03-12T18:32:44.322Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 32.3333,
+        "stddev": 2.0548
+      },
+      "tokens": {
+        "mean": 11500,
+        "stddev": 725.718
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.875,
+        "stddev": 0.1768
+      },
+      "time_seconds": {
+        "mean": 25,
+        "stddev": 2.4495
+      },
+      "tokens": {
+        "mean": 8500,
+        "stddev": 1061.4456
+      }
+    },
+    "delta": {
+      "pass_rate": 0.125,
+      "time_seconds": 7.3,
+      "tokens": 3000
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "auth-setup",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 30,
+        "tokens": 10800
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 22,
+        "tokens": 7200
+      }
+    },
+    {
+      "eval_name": "create-gke-cluster",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 32,
+        "tokens": 11200
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 25,
+        "tokens": 8500
+      }
+    },
+    {
+      "eval_name": "debug-cloud-run",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 35,
+        "tokens": 12500
+      },
+      "without_skill": {
+        "pass_rate": 0.625,
+        "time_seconds": 28,
+        "tokens": 9800
+      }
+    }
+  ]
+}

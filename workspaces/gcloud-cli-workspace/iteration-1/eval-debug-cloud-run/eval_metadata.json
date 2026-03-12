@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "debug-cloud-run",
+  "prompt": "My Cloud Run service 'payment-api' in us-central1 is returning 503 errors since this morning. Help me figure out what's going on.",
+  "assertions": [
+    "Output includes a gcloud run services describe command for payment-api in us-central1",
+    "Output includes a gcloud logging read command filtered for the payment-api service",
+    "Output includes severity filtering (ERROR or severity>=ERROR) in the logging command",
+    "Agent does NOT ask for confirmation before running read-only commands like describe, list, or logging read",
+    "Output includes a gcloud run revisions list command to check revision status",
+    "Agent verifies project context (gcloud config get-value project or gcloud auth list) before running commands",
+    "Agent does NOT attempt to redeploy, update, or delete the service without asking the user first",
+    "Output uses --format flag for readable or structured output on at least one command"
+  ]
+}

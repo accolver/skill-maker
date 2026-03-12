@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "auth-setup",
+  "prompt": "I'm new to GCP. I just installed gcloud but I'm not sure if I'm authenticated. Can you help me get set up for local development and also check what projects I have access to?",
+  "assertions": [
+    "Agent checks current auth status with gcloud auth list",
+    "Agent recommends gcloud auth login for local interactive development",
+    "Agent mentions gcloud auth application-default login for application default credentials",
+    "Agent explains what ADC is and why it's needed in addition to regular auth",
+    "Agent shows gcloud projects list to discover available projects",
+    "Agent recommends setting a default project with gcloud config set project",
+    "Output distinguishes between user auth (gcloud auth login) and application auth (gcloud auth application-default login)",
+    "Agent does NOT recommend service account keys for local development"
+  ]
+}

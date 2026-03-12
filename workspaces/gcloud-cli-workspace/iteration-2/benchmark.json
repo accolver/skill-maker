@@ -1,0 +1,81 @@
+{
+  "skill_name": "gcloud-cli",
+  "iteration": 2,
+  "timestamp": "2026-03-12T18:44:52.005Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 40,
+        "stddev": 1.633
+      },
+      "tokens": {
+        "mean": 14266.6667,
+        "stddev": 793.0252
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.875,
+        "stddev": 0.1021
+      },
+      "time_seconds": {
+        "mean": 30.6667,
+        "stddev": 3.2998
+      },
+      "tokens": {
+        "mean": 10500,
+        "stddev": 962.6353
+      }
+    },
+    "delta": {
+      "pass_rate": 0.125,
+      "time_seconds": 9.3,
+      "tokens": 3767
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "auth-diagnosis",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 38,
+        "tokens": 13200
+      },
+      "without_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 27,
+        "tokens": 9500
+      }
+    },
+    {
+      "eval_name": "cross-project-formatting",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 40,
+        "tokens": 14500
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 30,
+        "tokens": 10200
+      }
+    },
+    {
+      "eval_name": "mixed-read-write",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 42,
+        "tokens": 15100
+      },
+      "without_skill": {
+        "pass_rate": 0.875,
+        "time_seconds": 35,
+        "tokens": 11800
+      }
+    }
+  ]
+}

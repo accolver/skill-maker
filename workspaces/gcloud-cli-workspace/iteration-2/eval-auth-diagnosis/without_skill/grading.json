@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Agent runs gcloud auth list to see all configured accounts and which is active",
+      "passed": true,
+      "evidence": "Line 29: 'gcloud auth list' with explanation 'All accounts that have been authenticated on this machine, and which one is currently active (marked with *)'"
+    },
+    {
+      "text": "Agent identifies that ci-bot@old-project.iam.gserviceaccount.com is a service account and likely wrong for interactive use",
+      "passed": true,
+      "evidence": "Lines 13-15: 'Wrong account: You\u2019re authenticated as ci-bot@old-project.iam.gserviceaccount.com (a service account), but you want to use alice@company.com.'"
+    },
+    {
+      "text": "Agent checks gcloud config get-value project to see if the active project matches payments-prod",
+      "passed": true,
+      "evidence": "Line 39: uses 'gcloud config list' in diagnosis (shows project among other config). Line 115: 'gcloud config get-value project' used in verification. Both serve to check the project, though the diagnostic step uses the broader 'config list' command."
+    },
+    {
+      "text": "Agent recommends gcloud auth login to authenticate as alice@company.com (the user's actual identity)",
+      "passed": true,
+      "evidence": "Line 63: 'gcloud auth login alice@company.com'"
+    },
+    {
+      "text": "Agent recommends gcloud config set account alice@company.com or similar to switch the active account",
+      "passed": false,
+      "evidence": "The main fix (Step 2) only recommends 'gcloud auth login alice@company.com' — not 'gcloud config set account'. The command 'gcloud config set account alice@company.com' appears only at line 154 inside the optional named-configuration setup (Step 5), not as a standalone recommendation for switching the active account."
+    },
+    {
+      "text": "Agent mentions gcloud config configurations as a way to manage multiple account/project combos (e.g. separate configs for CI vs personal)",
+      "passed": true,
+      "evidence": "Lines 48-54: 'gcloud config configurations list' in diagnosis. Lines 146-167: full walkthrough of creating a named configuration for payments-prod and switching between configurations."
+    },
+    {
+      "text": "Agent recommends verifying with gcloud compute instances list --project=payments-prod after fixing auth",
+      "passed": false,
+      "evidence": "Line 123: 'gcloud compute instances list' is shown for verification, but WITHOUT the --project=payments-prod flag. The agent relies on the previously-set default project rather than explicitly targeting payments-prod in the verification command."
+    },
+    {
+      "text": "Agent does NOT just say 'run gcloud auth login' without first diagnosing why the wrong account is active",
+      "passed": true,
+      "evidence": "Step 1 (lines 24-55) performs diagnosis with 'gcloud auth list', 'gcloud config list', and 'gcloud config configurations list' before the fix in Step 2 (line 58+)."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

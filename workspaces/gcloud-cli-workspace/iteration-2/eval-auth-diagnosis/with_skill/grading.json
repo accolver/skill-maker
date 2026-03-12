@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Agent runs gcloud auth list to see all configured accounts and which is active",
+      "passed": true,
+      "evidence": "Line 37: 'gcloud auth list' shown explicitly with explanation 'This shows every account that has been authenticated on this machine, and marks the active one with *'"
+    },
+    {
+      "text": "Agent identifies that ci-bot@old-project.iam.gserviceaccount.com is a service account and likely wrong for interactive use",
+      "passed": true,
+      "evidence": "Lines 15-18: 'Wrong account -- the active account is ci-bot@old-project.iam.gserviceaccount.com, a service account from a different project (old-project). You need to be authenticated as alice@company.com.'"
+    },
+    {
+      "text": "Agent checks gcloud config get-value project to see if the active project matches payments-prod",
+      "passed": true,
+      "evidence": "Lines 63-69: 'gcloud config get-value project' with explanation 'This should return payments-prod. If it returns something else (like old-project), that\u2019s another thing we need to fix.'"
+    },
+    {
+      "text": "Agent recommends gcloud auth login to authenticate as alice@company.com (the user's actual identity)",
+      "passed": true,
+      "evidence": "Lines 153-154: 'gcloud auth login alice@company.com' under Scenario B fix, and line 305 in the command summary."
+    },
+    {
+      "text": "Agent recommends gcloud config set account alice@company.com or similar to switch the active account",
+      "passed": true,
+      "evidence": "Line 139: 'gcloud config set account alice@company.com' under Scenario A fix (when alice is already authenticated but not active)."
+    },
+    {
+      "text": "Agent mentions gcloud config configurations as a way to manage multiple account/project combos (e.g. separate configs for CI vs personal)",
+      "passed": true,
+      "evidence": "Lines 75-89: 'gcloud config configurations list' in diagnosis. Lines 256-269: creating a named config 'payments-prod-config' with separate account/project and switching between 'payments-prod-config' and 'default'."
+    },
+    {
+      "text": "Agent recommends verifying with gcloud compute instances list --project=payments-prod after fixing auth",
+      "passed": true,
+      "evidence": "Lines 230-234: runs 'gcloud compute instances list' in verification. Line 277: 'gcloud compute instances list --project=payments-prod' shown as explicit verification with project flag."
+    },
+    {
+      "text": "Agent does NOT just say 'run gcloud auth login' without first diagnosing why the wrong account is active",
+      "passed": true,
+      "evidence": "Steps 1-2 (lines 27-126) perform thorough diagnosis including auth list, config values, configurations, and environment variable checks before any fix is applied in Step 3 (line 129+)."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}
