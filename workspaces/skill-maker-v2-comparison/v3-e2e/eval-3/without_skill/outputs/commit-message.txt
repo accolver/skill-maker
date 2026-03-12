@@ -1,0 +1,7 @@
+fix(auth): add refresh window validation and rotate refresh tokens; format utils
+
+- Add expiration check against REFRESH_WINDOW to reject stale refresh tokens
+- Include user role in access token claims
+- Issue new refresh token on each refresh instead of reusing the old one
+- Use separate REFRESH_SECRET for refresh tokens
+- Apply prettier formatting to formatCurrency and formatDate utilities

@@ -1,0 +1,57 @@
+{
+  "assertions": [
+    {
+      "assertion": "A SKILL.md file exists in the output skill directory",
+      "result": "PASS",
+      "evidence": "SKILL.md exists at outputs/pandas-cleaning/SKILL.md (423 lines)"
+    },
+    {
+      "assertion": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "result": "PASS",
+      "evidence": "Lines 1-4 contain valid YAML frontmatter delimited by --- with name: pandas-cleaning and a description field"
+    },
+    {
+      "assertion": "The description includes 'Use when' trigger conditions mentioning data cleaning or pandas",
+      "result": "PASS",
+      "evidence": "Description ends with 'Use when cleaning data, handling missing values, deduplicating rows, normalizing columns, converting dtypes, reading CSV or Parquet files, or when the user mentions pandas data cleaning, data wrangling, data preprocessing, NaN handling, or messy data.'"
+    },
+    {
+      "assertion": "The SKILL.md body covers handling missing values with code examples",
+      "result": "PASS",
+      "evidence": "Section '### 4. Handle Missing Values' (lines 156-228) includes a full handle_missing() function with code examples for fill_median, fill_mode, fill_value, drop, ffill, and interpolate strategies, plus a strategy selection guide table"
+    },
+    {
+      "assertion": "The SKILL.md body covers deduplication with code examples",
+      "result": "PASS",
+      "evidence": "Section '### 3. Deduplicate Rows' (lines 116-153) includes a deduplicate() function with code examples showing composite key dedup (subset=['customer_id', 'order_date']), logging of removed rows, and guidance on choosing dedup keys"
+    },
+    {
+      "assertion": "The SKILL.md body covers column name normalization or type conversion",
+      "result": "PASS",
+      "evidence": "Section '### 2. Normalize Column Names' (lines 79-113) covers snake_case normalization with regex handling of camelCase/PascalCase/kebab-case. Section '### 5. Convert Types' (lines 230-291) covers type conversion with errors='coerce' for int, float, datetime, category, bool, and string types"
+    },
+    {
+      "assertion": "The SKILL.md body uses progressive disclosure by referencing separate files for detailed patterns",
+      "result": "FAIL",
+      "evidence": "While references/ directory contains strategy-guide.md and type-conversion-guide.md, the SKILL.md body never references or links to these files anywhere in its 423 lines. No progressive disclosure pattern is used — all content is inline in the SKILL.md itself"
+    },
+    {
+      "assertion": "An evals/evals.json file exists with at least 2 test cases",
+      "result": "PASS",
+      "evidence": "evals/evals.json exists with 3 test cases (ids 1, 2, 3): sales CSV cleaning, Parquet user events cleaning, and reusable survey cleaning pipeline"
+    },
+    {
+      "assertion": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "result": "PASS",
+      "evidence": "Section '## Common Mistakes' (lines 369-382) contains a 10-row table of mistakes and fixes covering dropna misuse, numpy int64 with NaN, column name ordering, mean vs median, dedup ordering, na_values, inplace=True, errors='coerce', index=False, and logging"
+    },
+    {
+      "assertion": "The SKILL.md body contains a workflow or ordered checklist for the cleaning pipeline",
+      "result": "PASS",
+      "evidence": "Both present: '## Workflow' section with 6 ordered steps (1. Load and Profile, 2. Normalize Column Names, 3. Deduplicate Rows, 4. Handle Missing Values, 5. Convert Types, 6. Validate and Save), AND '## Checklist' section (lines 357-367) with 10 checkbox items covering the full pipeline"
+    }
+  ],
+  "pass_count": 9,
+  "fail_count": 1,
+  "pass_rate": 0.9
+}

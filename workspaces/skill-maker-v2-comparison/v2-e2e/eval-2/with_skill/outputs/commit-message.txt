@@ -1,0 +1,9 @@
+feat: add rate-limit retry handling
+
+Return Retry-After header from the rate limiter and surface it
+to the web client via a dedicated RateLimitError. Add useRetry
+hook so UI components can display retry countdowns.
+
+- Replace || with ?? for nullish-safe config defaults
+- Lower default maxRequests from 100 to 50
+- Parse Retry-After header in API client on 429 responses

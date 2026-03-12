@@ -1,0 +1,6 @@
+feat(auth): add OAuth provider with PKCE
+
+Implement OAuth 2.0 authorization code flow with PKCE support
+for third-party authentication. Includes OAuthConfig and
+TokenResponse types, provider class with authorize and
+exchangeCode methods, and unit tests.

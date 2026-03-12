@@ -1,0 +1,53 @@
+{
+  "skill_name": "git-commit-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a conventional commit message for the following staged diff:\n\n```diff\ndiff --git a/src/utils/string-helpers.ts b/src/utils/string-helpers.ts\nindex a1b2c3d..e4f5g6h 100644\n--- a/src/utils/string-helpers.ts\n+++ b/src/utils/string-helpers.ts\n@@ -22,6 +22,24 @@ export function capitalize(str: string): string {\n   return str.charAt(0).toUpperCase() + str.slice(1);\n }\n \n+/**\n+ * Truncate a string to a maximum length, appending an ellipsis if truncated.\n+ * @param str - The input string\n+ * @param maxLength - Maximum allowed length (default: 100)\n+ * @returns The truncated string with ellipsis, or original if within limit\n+ */\n+export function truncate(str: string, maxLength: number = 100): string {\n+  if (!str) return '';\n+  if (str.length <= maxLength) return str;\n+  return str.slice(0, maxLength - 3) + '...';\n+}\n+\n+/**\n+ * Check if a string is a valid URL.\n+ */\n+export function isValidUrl(str: string): boolean {\n+  try {\n+    new URL(str);\n+    return true;\n+  } catch {\n+    return false;\n+  }\n+}\n```",
+      "expected_output": "A conventional commit message with type 'feat', scope 'string-helpers' or 'utils', imperative mood subject line under 50 chars, and optionally a body describing the two new functions.",
+      "files": [],
+      "assertions": [
+        "Output starts with 'feat' as the commit type since new functions are being added",
+        "Output includes a scope in parentheses (e.g., 'string-helpers' or 'utils')",
+        "Subject line (first line) is 50 characters or fewer in total",
+        "Subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+        "First letter after the colon-space is lowercase",
+        "Subject line does not end with a period",
+        "Output mentions both truncate and URL validation functionality",
+        "The commit message format follows type(scope): description pattern"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate a commit message for these staged changes in a monorepo. The repo has a pnpm-workspace.yaml with packages/* and apps/* workspaces:\n\n```diff\ndiff --git a/packages/auth/src/middleware.ts b/packages/auth/src/middleware.ts\nnew file mode 100644\nindex 0000000..1234567\n--- /dev/null\n+++ b/packages/auth/src/middleware.ts\n@@ -0,0 +1,25 @@\n+import { verify } from 'jsonwebtoken';\n+import { Request, Response, NextFunction } from 'express';\n+\n+export interface AuthRequest extends Request {\n+  userId?: string;\n+  permissions?: string[];\n+}\n+\n+export function requireAuth(req: AuthRequest, res: Response, next: NextFunction) {\n+  const token = req.headers.authorization?.split(' ')[1];\n+  if (!token) {\n+    return res.status(401).json({ error: 'Missing token' });\n+  }\n+  try {\n+    const decoded = verify(token, process.env.JWT_SECRET!) as { sub: string; permissions: string[] };\n+    req.userId = decoded.sub;\n+    req.permissions = decoded.permissions;\n+    next();\n+  } catch {\n+    return res.status(401).json({ error: 'Invalid token' });\n+  }\n+}\n\ndiff --git a/packages/auth/src/index.ts b/packages/auth/src/index.ts\nindex 7777777..8888888 100644\n--- a/packages/auth/src/index.ts\n+++ b/packages/auth/src/index.ts\n@@ -1,3 +1,4 @@\n export { generateToken } from './token';\n export { validateCredentials } from './credentials';\n+export { requireAuth, type AuthRequest } from './middleware';\n```",
+      "expected_output": "A 'feat' type commit message with scope 'auth' (the monorepo package name), describing the new JWT authentication middleware.",
+      "files": [],
+      "assertions": [
+        "Output starts with 'feat' as the commit type since a new middleware is being added",
+        "Output includes 'auth' as the scope in parentheses (the monorepo package name, not a file path)",
+        "Subject line (first line) is 50 characters or fewer in total",
+        "Subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+        "First letter after the colon-space is lowercase",
+        "Subject line does not end with a period",
+        "The scope is NOT a file path like 'packages/auth' — it should be just 'auth'",
+        "Output mentions JWT or authentication middleware functionality"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a commit message for these staged changes:\n\n```diff\ndiff --git a/src/api/auth.ts b/src/api/auth.ts\nindex 9a8b7c6..3d2e1f0 100644\n--- a/src/api/auth.ts\n+++ b/src/api/auth.ts\n@@ -1,5 +1,6 @@\n import { Request, Response } from 'express';\n import { verifyToken } from '../utils/jwt';\n+import { UnauthorizedError } from '../errors';\n \n interface AuthResult {\n-  userId: string;\n-  role: string;\n+  userId: string;\n+  permissions: string[];\n }\n \n-export function authenticate(req: Request): AuthResult | null {\n-  const token = req.headers.authorization?.split(' ')[1];\n-  if (!token) return null;\n+export function authenticate(req: Request): AuthResult {\n+  const token = req.headers.authorization?.split(' ')[1];\n+  if (!token) throw new UnauthorizedError('Missing authorization token');\n   const decoded = verifyToken(token);\n-  if (!decoded) return null;\n-  return { userId: decoded.sub, role: decoded.role };\n+  if (!decoded) throw new UnauthorizedError('Invalid token');\n+  return { userId: decoded.sub, permissions: decoded.permissions ?? [] };\n }\n```",
+      "expected_output": "A 'fix' type commit message with scope 'auth' or 'api', noting the change from returning null to throwing errors, with a BREAKING CHANGE footer because the return type changed and the 'role' field was replaced with 'permissions'.",
+      "files": [],
+      "assertions": [
+        "Output starts with 'fix' as the commit type since the null-return bug is being corrected",
+        "Output includes a scope in parentheses (e.g., 'auth' or 'api')",
+        "Subject line (first line) is 50 characters or fewer in total",
+        "Subject line uses imperative mood (e.g., 'throw' or 'replace' not 'threw' or 'replaced')",
+        "Output contains a 'BREAKING CHANGE:' footer (uppercase) because the function signature and return type changed",
+        "The BREAKING CHANGE footer describes what breaks (null return removed, role replaced with permissions)",
+        "First letter after the colon-space in the subject is lowercase",
+        "Subject line does not end with a period"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+# buildspec.yml - CodeBuild spec for Next.js builds
+#
+# This file is used by CodePipeline's build stage. Environment-specific
+# NEXT_PUBLIC_* variables are injected by the CodeBuild project configuration,
+# NOT hardcoded here.
+#
+# Usage: Referenced by the pipeline stack's CodeBuild project.
+
+version: 0.2
+
+env:
+  variables:
+    NODE_ENV: "production"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo "Installing dependencies..."
+      - npm ci --prefer-offline
+      # Install Bun for scripts
+      - curl -fsSL https://bun.sh/install | bash
+      - export PATH=$HOME/.bun/bin:$PATH
+
+  pre_build:
+    commands:
+      - echo "Pre-build checks..."
+      # Verify next.config.js has standalone output
+      - |
+        if ! grep -q "standalone" next.config.js 2>/dev/null && ! grep -q "standalone" next.config.mjs 2>/dev/null; then
+          echo "WARNING: next.config.js may not have output: 'standalone' configured"
+          echo "Lambda deployment requires standalone output mode"
+        fi
+      # Show environment (without secrets)
+      - echo "NEXT_PUBLIC vars:"
+      - env | grep NEXT_PUBLIC_ || echo "No NEXT_PUBLIC_ vars set"
+
+  build:
+    commands:
+      - echo "Building Next.js application..."
+      - npm run build
+      # Verify standalone output was produced
+      - |
+        if [ ! -d ".next/standalone" ]; then
+          echo "ERROR: .next/standalone directory not found"
+          echo "Ensure next.config.js has: output: 'standalone'"
+          exit 1
+        fi
+      - echo "Build completed successfully"
+      # Show build output size
+      - du -sh .next/standalone/ .next/static/ 2>/dev/null || true
+
+  post_build:
+    commands:
+      - echo "Post-build packaging..."
+      # Copy static assets into standalone for Lambda
+      - cp -r .next/static .next/standalone/.next/static 2>/dev/null || true
+      - cp -r public .next/standalone/public 2>/dev/null || true
+      - echo "Build artifacts ready"
+
+artifacts:
+  base-directory: "."
+  files:
+    - ".next/**/*"
+    - "public/**/*"
+    - "package.json"
+    - "next.config.js"
+    - "next.config.mjs"
+    - "cdk.json"
+    - "lib/**/*"
+    - "config/**/*"
+    - "scripts/**/*"
+  discard-paths: no
+
+cache:
+  paths:
+    - "node_modules/**/*"
+    - ".next/cache/**/*"

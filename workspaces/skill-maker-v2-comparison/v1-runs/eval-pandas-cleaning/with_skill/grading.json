@@ -1,0 +1,57 @@
+{
+  "assertions": [
+    {
+      "assertion": "A SKILL.md file exists in the output skill directory",
+      "result": "PASS",
+      "evidence": "SKILL.md exists at outputs/pandas-data-cleaning/SKILL.md (326 lines)"
+    },
+    {
+      "assertion": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "result": "PASS",
+      "evidence": "Lines 1-4 contain --- delimited YAML frontmatter with name: pandas-data-cleaning and description: 'Clean, normalize, and transform tabular data using pandas...'"
+    },
+    {
+      "assertion": "The description includes 'Use when' trigger conditions mentioning data cleaning or pandas",
+      "result": "PASS",
+      "evidence": "Description contains 'Use when cleaning data, wrangling DataFrames, handling NaN values, deduplicating rows, normalizing column names, converting column types, reading messy CSVs, or preparing data for analysis. Also use when the user mentions pandas, data cleaning, data wrangling, or data preprocessing.'"
+    },
+    {
+      "assertion": "The SKILL.md body covers handling missing values with code examples",
+      "result": "PASS",
+      "evidence": "Section '### 3. Handle missing values' (lines 86-115) includes a strategy table by data type and code examples using fillna(median), fillna(0), fillna('unknown'), dropna(subset=...), and sentinel value replacement"
+    },
+    {
+      "assertion": "The SKILL.md body covers deduplication with code examples",
+      "result": "PASS",
+      "evidence": "Section '### 5. Deduplicate' (lines 148-171) covers exact duplicates (drop_duplicates()), business key duplicates (subset=['email'], keep='last'), and near-duplicates with normalization, all with code examples"
+    },
+    {
+      "assertion": "The SKILL.md body covers column name normalization or type conversion",
+      "result": "PASS",
+      "evidence": "Section '### 2. Normalize column names' (lines 63-83) shows snake_case normalization with code. Section '### 4. Convert types' (lines 117-144) covers pd.to_numeric, pd.to_datetime, categorical, boolean mapping, and nullable Int64 with code examples"
+    },
+    {
+      "assertion": "The SKILL.md body uses progressive disclosure by referencing separate files for detailed patterns",
+      "result": "FAIL",
+      "evidence": "While separate files exist (references/pandas-patterns.md, scripts/inspect-csv.ts, scripts/validate-cleaned.ts, assets/cleaning-template.py), the SKILL.md body never references or links to any of them. No progressive disclosure pattern is used — all content is inline in the SKILL.md"
+    },
+    {
+      "assertion": "An evals/evals.json file exists with at least 2 test cases",
+      "result": "PASS",
+      "evidence": "evals/evals.json exists with 3 test cases (ids 1, 2, 3) covering sales data CSV cleaning, user data CSV cleaning, and IoT sensor Parquet cleaning, each with 8 assertions"
+    },
+    {
+      "assertion": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "result": "PASS",
+      "evidence": "Section '## Common mistakes' (lines 273-284) contains a table with 8 mistakes and fixes covering blanket fillna, errors='ignore', dedup without subset, sentinel values, type conversion order, inplace=True, missing row count logging, and CSV vs Parquet"
+    },
+    {
+      "assertion": "The SKILL.md body contains a workflow or ordered checklist for the cleaning pipeline",
+      "result": "PASS",
+      "evidence": "Section '## Workflow' (lines 37-189) provides a numbered 6-step pipeline: 1. Load and inspect, 2. Normalize column names, 3. Handle missing values, 4. Convert types, 5. Deduplicate, 6. Validate and export. Additionally, '## Checklist' (lines 195-205) provides a 9-item checkbox checklist"
+    }
+  ],
+  "pass_count": 9,
+  "fail_count": 1,
+  "pass_rate": 0.9
+}

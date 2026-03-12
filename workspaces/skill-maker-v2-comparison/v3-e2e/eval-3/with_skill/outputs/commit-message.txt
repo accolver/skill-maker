@@ -1,0 +1,23 @@
+I recommend splitting this into 2 commits:
+
+1. `fix(auth): validate refresh token expiry` — changes to src/auth/token-refresh.ts
+2. `style(utils): apply prettier formatting` — changes to src/utils/format.ts, src/utils/date.ts
+
+---
+
+Commit 1:
+
+fix(auth): validate refresh token expiry
+
+Add refresh window check to reject tokens that are too far past
+expiry. Include user role in the access token claims and generate
+a new refresh token instead of reusing the original.
+
+---
+
+Commit 2:
+
+style(utils): apply prettier formatting
+
+Reformat formatCurrency and formatDate with multi-line parameter
+lists and trailing commas per prettier config.

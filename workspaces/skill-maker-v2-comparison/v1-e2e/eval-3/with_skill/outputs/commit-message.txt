@@ -1,0 +1,5 @@
+feat(cache): add has method and default capacity
+
+Add LRUCache.has() for key existence checks without
+affecting access order. Set default capacity to 100
+and simplify get() with direct undefined comparison.

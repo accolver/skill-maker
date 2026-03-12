@@ -1,0 +1,4 @@
+fix: improve LRU cache with default capacity, safer get, and has() method
+
+Add default capacity of 100, use undefined check instead of has()+get()
+in get method to avoid double lookup, and add has() convenience method.

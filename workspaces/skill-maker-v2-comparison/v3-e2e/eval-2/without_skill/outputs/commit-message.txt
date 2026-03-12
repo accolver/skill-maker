@@ -1,0 +1,5 @@
+fix(shared,api): add error codes and status codes to AppError class
+
+Extend AppError with `code` and `statusCode` properties, add NotFoundError
+subclass, and update error handler to return proper HTTP status codes and
+error codes in responses.

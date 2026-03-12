@@ -1,0 +1,52 @@
+{
+  "skill_name": "git-commit-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just staged some changes in my monorepo. Here's the diff:\n\n```diff\ndiff --git a/packages/auth-service/src/oauth.ts b/packages/auth-service/src/oauth.ts\nnew file mode 100644\nindex 0000000..abc1234\n--- /dev/null\n+++ b/packages/auth-service/src/oauth.ts\n@@ -0,0 +1,45 @@\n+import { OAuthConfig } from '../config';\n+import { TokenStore } from '../stores/token-store';\n+\n+export interface OAuthTokens {\n+  accessToken: string;\n+  refreshToken: string;\n+  expiresAt: Date;\n+}\n+\n+export async function initiateOAuthFlow(config: OAuthConfig): Promise<string> {\n+  const state = crypto.randomUUID();\n+  const codeVerifier = generateCodeVerifier();\n+  const codeChallenge = await generateCodeChallenge(codeVerifier);\n+  \n+  await TokenStore.saveState(state, { codeVerifier });\n+  \n+  const params = new URLSearchParams({\n+    client_id: config.clientId,\n+    redirect_uri: config.redirectUri,\n+    response_type: 'code',\n+    scope: config.scopes.join(' '),\n+    state,\n+    code_challenge: codeChallenge,\n+    code_challenge_method: 'S256',\n+  });\n+  \n+  return `${config.authorizationEndpoint}?${params.toString()}`;\n+}\n+\n+export async function exchangeCode(code: string, state: string): Promise<OAuthTokens> {\n+  const saved = await TokenStore.getState(state);\n+  if (!saved) throw new Error('Invalid OAuth state');\n+  // ... token exchange implementation\n+}\n+\n+function generateCodeVerifier(): string {\n+  const array = new Uint8Array(32);\n+  crypto.getRandomValues(array);\n+  return btoa(String.fromCharCode(...array)).replace(/[+/=]/g, '');\n+}\n+\n+async function generateCodeChallenge(verifier: string): Promise<string> {\n+  const encoder = new TextEncoder();\n+  const data = encoder.encode(verifier);\n+  const hash = await crypto.subtle.digest('SHA-256', data);\n+  return btoa(String.fromCharCode(...new Uint8Array(hash))).replace(/[+/=]/g, '');\n+}\n\ndiff --git a/packages/auth-service/src/routes/callback.ts b/packages/auth-service/src/routes/callback.ts\nnew file mode 100644\nindex 0000000..def5678\n--- /dev/null\n+++ b/packages/auth-service/src/routes/callback.ts\n@@ -0,0 +1,22 @@\n+import { Router } from 'express';\n+import { exchangeCode } from '../oauth';\n+\n+const router = Router();\n+\n+router.get('/auth/callback', async (req, res) => {\n+  const { code, state } = req.query;\n+  if (!code || !state) {\n+    return res.status(400).json({ error: 'Missing code or state parameter' });\n+  }\n+  \n+  try {\n+    const tokens = await exchangeCode(code as string, state as string);\n+    req.session.tokens = tokens;\n+    res.redirect('/dashboard');\n+  } catch (err) {\n+    res.status(401).json({ error: 'OAuth authentication failed' });\n+  }\n+});\n+\n+export default router;\n```\n\nWrite me a commit message for this.",
+      "expected_output": "A conventional commit message with type 'feat', scope 'auth-service' (detected from monorepo packages/ structure), imperative subject line under 50 chars, and a body describing the OAuth2 implementation with PKCE.",
+      "files": [],
+      "assertions": [
+        "Output starts with 'feat' as the commit type since new files with new functionality are being added",
+        "Output includes 'auth-service' as the scope (detected from packages/auth-service/ monorepo path)",
+        "Subject line (first line including type and scope) is 50 characters or fewer",
+        "Subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+        "First letter after the colon-space is lowercase",
+        "Subject line does not end with a period",
+        "Output mentions OAuth or authentication functionality in the subject or body",
+        "Output includes a body (text after a blank line) since this is a non-trivial multi-file change"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate a commit message for these staged changes. This is a cross-package change in a monorepo:\n\n```diff\ndiff --git a/packages/shared-types/src/user.ts b/packages/shared-types/src/user.ts\nindex aaa1111..bbb2222 100644\n--- a/packages/shared-types/src/user.ts\n+++ b/packages/shared-types/src/user.ts\n@@ -1,8 +1,12 @@\n-export interface User {\n+export interface BaseUser {\n   id: string;\n-  name: string;\n   email: string;\n-  role: 'admin' | 'user';\n+  createdAt: Date;\n+}\n+\n+export interface User extends BaseUser {\n+  displayName: string;\n+  permissions: string[];\n }\n \n export type UserId = string;\n\ndiff --git a/packages/api-gateway/src/middleware/auth.ts b/packages/api-gateway/src/middleware/auth.ts\nindex ccc3333..ddd4444 100644\n--- a/packages/api-gateway/src/middleware/auth.ts\n+++ b/packages/api-gateway/src/middleware/auth.ts\n@@ -1,9 +1,9 @@\n-import { User } from '../../shared-types';\n+import { User, BaseUser } from '@monorepo/shared-types';\n \n-export function extractUser(token: string): User | null {\n+export function extractUser(token: string): User {\n   const decoded = verifyJwt(token);\n-  if (!decoded) return null;\n-  return { id: decoded.sub, name: decoded.name, email: decoded.email, role: decoded.role };\n+  if (!decoded) throw new AuthError('Invalid token');\n+  return { id: decoded.sub, email: decoded.email, createdAt: new Date(decoded.iat * 1000), displayName: decoded.name, permissions: decoded.permissions ?? [] };\n }\n\ndiff --git a/packages/user-service/src/repository.ts b/packages/user-service/src/repository.ts\nindex eee5555..fff6666 100644\n--- a/packages/user-service/src/repository.ts\n+++ b/packages/user-service/src/repository.ts\n@@ -1,7 +1,7 @@\n-import { User } from '../types';\n+import { User, BaseUser } from '@monorepo/shared-types';\n \n-export async function findUser(id: string): Promise<User | null> {\n-  return db.users.findOne({ id });\n+export async function findUser(id: string): Promise<User> {\n+  const user = await db.users.findUnique({ where: { id } });\n+  if (!user) throw new NotFoundError(`User ${id} not found`);\n+  return user;\n }\n```\n\nPlease write a conventional commit message for this.",
+      "expected_output": "A 'refactor' type commit message (since the User interface is being restructured) with either no scope or a feature-level scope like 'user-types', noting the cross-package nature. Should include a BREAKING CHANGE footer because the User interface changed (name→displayName, role→permissions) and functions no longer return null.",
+      "files": [],
+      "assertions": [
+        "Output uses 'refactor' as the commit type since the User interface is being restructured across packages",
+        "Subject line (first line including type and scope) is 50 characters or fewer",
+        "Subject line uses imperative mood",
+        "First letter after the colon-space is lowercase",
+        "Subject line does not end with a period",
+        "Output contains a 'BREAKING CHANGE:' footer (uppercase) because the User interface signature changed and null returns were removed",
+        "The BREAKING CHANGE footer mentions what specifically breaks (interface shape change, null removal, or field renames)",
+        "Output includes a body explaining the cross-package nature of the change (mentions multiple packages or shared types)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a commit message for this diff. It's a simple single-repo change:\n\n```diff\ndiff --git a/src/utils/cache.ts b/src/utils/cache.ts\nindex 1234567..89abcde 100644\n--- a/src/utils/cache.ts\n+++ b/src/utils/cache.ts\n@@ -15,10 +15,15 @@ export class LRUCache<K, V> {\n   private capacity: number;\n   private cache: Map<K, V>;\n \n-  constructor(capacity: number) {\n+  constructor(capacity: number = 100) {\n     this.capacity = capacity;\n     this.cache = new Map();\n   }\n \n   get(key: K): V | undefined {\n-    if (!this.cache.has(key)) return undefined;\n-    const value = this.cache.get(key)!;\n-    this.cache.delete(key);\n-    this.cache.set(key, value);\n-    return value;\n+    const value = this.cache.get(key);\n+    if (value === undefined) return undefined;\n+    // Move to end (most recently used)\n+    this.cache.delete(key);\n+    this.cache.set(key, value);\n+    return value;\n+  }\n+\n+  has(key: K): boolean {\n+    return this.cache.has(key);\n   }\n \n   set(key: K, value: V): void {\n```\n\nCommit message please!",
+      "expected_output": "A commit message with type 'feat' or 'refactor' (feat because of the new has() method, or refactor because the get() logic was improved), scope 'cache' or 'utils', imperative subject under 50 chars.",
+      "files": [],
+      "assertions": [
+        "Output uses either 'feat' or 'refactor' as the commit type (feat for new has() method, or refactor for improved get() logic)",
+        "Output includes a scope in parentheses (e.g., 'cache' or 'utils')",
+        "Subject line (first line including type and scope) is 50 characters or fewer",
+        "Subject line uses imperative mood (e.g., 'add', 'improve', 'refactor' not past tense)",
+        "First letter after the colon-space is lowercase",
+        "Subject line does not end with a period",
+        "Output mentions the new has() method or the cache improvements in subject or body"
+      ]
+    }
+  ]
+}

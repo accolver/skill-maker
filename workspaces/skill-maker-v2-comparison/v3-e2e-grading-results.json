@@ -1,0 +1,113 @@
+{
+  "version": "v3",
+  "grading_method": "semantic (manual)",
+  "eval_results": {
+    "eval_1": {
+      "with_skill": {
+        "pass": 8,
+        "fail": 0,
+        "total": 8,
+        "rate": 1.0,
+        "details": [
+          {"assertion": "Starts with feat", "result": "PASS", "evidence": "feat(auth): add GitHub OAuth provider"},
+          {"assertion": "Scope is auth", "result": "PASS", "evidence": "(auth)"},
+          {"assertion": "Subject ≤ 50 chars", "result": "PASS", "evidence": "38 chars"},
+          {"assertion": "Imperative mood", "result": "PASS", "evidence": "add"},
+          {"assertion": "First letter lowercase after colon-space", "result": "PASS", "evidence": ": add"},
+          {"assertion": "No trailing period", "result": "PASS", "evidence": "ends with 'provider'"},
+          {"assertion": "Body mentions GitHub OAuth", "result": "PASS", "evidence": "GitHubProvider with authorization URL generation"},
+          {"assertion": "No BREAKING CHANGE footer", "result": "PASS", "evidence": "none present"}
+        ]
+      },
+      "without_skill": {
+        "pass": 5,
+        "fail": 3,
+        "total": 8,
+        "rate": 0.625,
+        "details": [
+          {"assertion": "Starts with feat", "result": "FAIL", "evidence": "Starts with 'Add' — no conventional commit type"},
+          {"assertion": "Scope is auth", "result": "FAIL", "evidence": "No parenthesized scope"},
+          {"assertion": "Subject ≤ 50 chars", "result": "PASS", "evidence": "42 chars"},
+          {"assertion": "Imperative mood", "result": "PASS", "evidence": "Add"},
+          {"assertion": "First letter lowercase after colon-space", "result": "FAIL", "evidence": "No colon-space; starts with capital A"},
+          {"assertion": "No trailing period", "result": "PASS", "evidence": "ends with 'package'"},
+          {"assertion": "Body mentions GitHub OAuth", "result": "PASS", "evidence": "GitHubProvider class"},
+          {"assertion": "No BREAKING CHANGE footer", "result": "PASS", "evidence": "none present"}
+        ]
+      }
+    },
+    "eval_2": {
+      "with_skill": {
+        "pass": 7,
+        "fail": 1,
+        "total": 8,
+        "rate": 0.875,
+        "details": [
+          {"assertion": "Valid type fix or refactor", "result": "FAIL", "evidence": "Uses 'feat', not fix/refactor. Assertion specifies fix or refactor."},
+          {"assertion": "Scope is package name", "result": "PASS", "evidence": "(shared)"},
+          {"assertion": "Subject ≤ 50 chars", "result": "PASS", "evidence": "49 chars"},
+          {"assertion": "Imperative mood", "result": "PASS", "evidence": "add"},
+          {"assertion": "BREAKING CHANGE footer", "result": "PASS", "evidence": "BREAKING CHANGE: AppError constructor now requires a second argument"},
+          {"assertion": "Migration path in BREAKING CHANGE", "result": "PASS", "evidence": "Update all new AppError(msg) calls to new AppError(msg, 'ERROR_CODE')"},
+          {"assertion": "First letter lowercase after colon-space", "result": "PASS", "evidence": ": add"},
+          {"assertion": "Body explains cross-package changes", "result": "PASS", "evidence": "Mentions API error handler and shared package changes"}
+        ]
+      },
+      "without_skill": {
+        "pass": 5,
+        "fail": 3,
+        "total": 8,
+        "rate": 0.625,
+        "details": [
+          {"assertion": "Valid type fix or refactor", "result": "PASS", "evidence": "Uses 'fix'"},
+          {"assertion": "Scope is package name", "result": "PASS", "evidence": "(shared,api)"},
+          {"assertion": "Subject ≤ 50 chars", "result": "FAIL", "evidence": "68 chars"},
+          {"assertion": "Imperative mood", "result": "PASS", "evidence": "add"},
+          {"assertion": "BREAKING CHANGE footer", "result": "FAIL", "evidence": "No BREAKING CHANGE footer"},
+          {"assertion": "Migration path in BREAKING CHANGE", "result": "FAIL", "evidence": "No BREAKING CHANGE footer at all"},
+          {"assertion": "First letter lowercase after colon-space", "result": "PASS", "evidence": ": add"},
+          {"assertion": "Body explains cross-package changes", "result": "PASS", "evidence": "Mentions both shared and api changes"}
+        ]
+      }
+    },
+    "eval_3": {
+      "with_skill": {
+        "pass": 8,
+        "fail": 0,
+        "total": 8,
+        "rate": 1.0,
+        "details": [
+          {"assertion": "Recommends splitting", "result": "PASS", "evidence": "I recommend splitting this into 2 commits"},
+          {"assertion": "Auth change is fix type", "result": "PASS", "evidence": "fix(auth): validate refresh token expiry"},
+          {"assertion": "Formatting is style type", "result": "PASS", "evidence": "style(utils): apply prettier formatting"},
+          {"assertion": "Subject ≤ 50 chars (if single)", "result": "PASS", "evidence": "Split; both subjects under 50 chars"},
+          {"assertion": "Imperative mood (if single)", "result": "PASS", "evidence": "validate, apply"},
+          {"assertion": "Mentions both concerns distinctly", "result": "PASS", "evidence": "Separate commits with distinct bodies"},
+          {"assertion": "First letter lowercase after colon-space", "result": "PASS", "evidence": ": validate, : apply"},
+          {"assertion": "No file paths as scope", "result": "PASS", "evidence": "auth, utils (not file paths)"}
+        ]
+      },
+      "without_skill": {
+        "pass": 4,
+        "fail": 4,
+        "total": 8,
+        "rate": 0.5,
+        "details": [
+          {"assertion": "Recommends splitting", "result": "FAIL", "evidence": "Single combined commit"},
+          {"assertion": "Auth change is fix type", "result": "PASS", "evidence": "fix(auth)"},
+          {"assertion": "Formatting is style type", "result": "FAIL", "evidence": "No style type; formatting lumped into fix"},
+          {"assertion": "Subject ≤ 50 chars (if single)", "result": "FAIL", "evidence": "82 chars"},
+          {"assertion": "Imperative mood (if single)", "result": "PASS", "evidence": "add"},
+          {"assertion": "Mentions both concerns distinctly", "result": "PASS", "evidence": "Subject mentions format utils, body has separate bullet"},
+          {"assertion": "First letter lowercase after colon-space", "result": "PASS", "evidence": ": add"},
+          {"assertion": "No file paths as scope", "result": "PASS", "evidence": "auth (not file path)"}
+        ]
+      }
+    }
+  },
+  "aggregate": {
+    "with_skill": {"pass": 23, "total": 24, "rate": 0.958},
+    "without_skill": {"pass": 14, "total": 24, "rate": 0.583},
+    "delta": 0.375
+  }
+}

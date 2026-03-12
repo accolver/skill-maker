@@ -1,0 +1,147 @@
+{
+  "skill": "pandas-data-cleaning",
+  "version": "1.0.0",
+  "evals": [
+    {
+      "id": "eval-001-messy-sales-csv",
+      "name": "Clean a messy sales CSV with mixed issues",
+      "prompt": "I have a CSV file called sales_data.csv with these issues: column names like 'Order ID', 'Customer Name', 'Order Date', 'Total Amount', 'Product Category' (spaces and mixed case), about 15% missing values in Total Amount and Customer Name, 50 duplicate rows based on Order ID, and the Total Amount column is stored as strings with dollar signs like '$49.99'. The file has 10,000 rows. Write me a complete Python script using pandas to clean this data and export it as a cleaned CSV. I want a cleaning report at the end.",
+      "assertions": [
+        {
+          "id": "a1",
+          "type": "contains",
+          "description": "Normalizes column names to snake_case",
+          "expected": "Column names are converted to snake_case (e.g., order_id, customer_name, order_date, total_amount, product_category)"
+        },
+        {
+          "id": "a2",
+          "type": "contains",
+          "description": "Handles missing values with appropriate strategies",
+          "expected": "Missing values in numeric columns (total_amount) use median or mean fill, and string columns (customer_name) use a placeholder like 'Unknown'"
+        },
+        {
+          "id": "a3",
+          "type": "contains",
+          "description": "Deduplicates using the correct subset column",
+          "expected": "Uses drop_duplicates with subset=['order_id'] or equivalent, not dropping all columns"
+        },
+        {
+          "id": "a4",
+          "type": "contains",
+          "description": "Strips dollar signs before numeric conversion",
+          "expected": "Removes '$' characters from total_amount before converting to numeric type using str.replace or similar"
+        },
+        {
+          "id": "a5",
+          "type": "contains",
+          "description": "Uses errors='coerce' for safe type conversion",
+          "expected": "Uses pd.to_numeric with errors='coerce' or equivalent safe conversion"
+        },
+        {
+          "id": "a6",
+          "type": "contains",
+          "description": "Resets index after deduplication",
+          "expected": "Calls reset_index(drop=True) after dropping duplicates"
+        },
+        {
+          "id": "a7",
+          "type": "contains",
+          "description": "Generates a cleaning report with before/after stats",
+          "expected": "Produces a summary showing original vs cleaned row counts, null counts, and duplicate counts"
+        },
+        {
+          "id": "a8",
+          "type": "contains",
+          "description": "Exports cleaned data to CSV without index",
+          "expected": "Uses to_csv with index=False"
+        }
+      ]
+    },
+    {
+      "id": "eval-002-parquet-with-types",
+      "name": "Clean a Parquet file with type issues and high nulls",
+      "prompt": "I have a Parquet file called user_events.parquet with columns: user_id (int), event_type (string), timestamp (stored as string like '2024-01-15T10:30:00'), is_premium (string values 'true'/'false'), session_duration_seconds (object type but actually integers), page_url (string), referrer (70% null), device_type (string with 5 unique values). I need to: 1) convert timestamp to datetime, 2) convert is_premium to boolean, 3) convert session_duration_seconds to integer, 4) decide what to do with the 70% null referrer column, 5) make device_type a category. Write the cleaning code.",
+      "assertions": [
+        {
+          "id": "a1",
+          "type": "contains",
+          "description": "Converts timestamp string to datetime",
+          "expected": "Uses pd.to_datetime() to convert the timestamp column"
+        },
+        {
+          "id": "a2",
+          "type": "contains",
+          "description": "Converts is_premium to boolean type",
+          "expected": "Maps 'true'/'false' strings to boolean values and converts to bool or boolean dtype"
+        },
+        {
+          "id": "a3",
+          "type": "contains",
+          "description": "Converts session_duration to integer with null handling",
+          "expected": "Uses pd.to_numeric or astype with Int64 (nullable) since there may be nulls"
+        },
+        {
+          "id": "a4",
+          "type": "contains",
+          "description": "Addresses the 70% null referrer column appropriately",
+          "expected": "Either drops the referrer column due to >50% nulls, or fills with 'Unknown'/'direct' with explicit justification"
+        },
+        {
+          "id": "a5",
+          "type": "contains",
+          "description": "Converts device_type to category",
+          "expected": "Converts device_type to category dtype for memory efficiency"
+        },
+        {
+          "id": "a6",
+          "type": "contains",
+          "description": "Reads from Parquet format",
+          "expected": "Uses pd.read_parquet() to load the file"
+        }
+      ]
+    },
+    {
+      "id": "eval-003-column-collision-edge-case",
+      "name": "Handle column name collisions and complex dedup",
+      "prompt": "I have a CSV with these column names: 'User Name', 'user-name', 'userName', 'Email Address', 'email_address', 'Created At', 'Updated At', 'is_Active'. When I normalize these to snake_case, 'User Name', 'user-name', and 'userName' will all become 'user_name', and 'Email Address' and 'email_address' will both become 'email_address'. How should I handle these collisions? Also, I need to deduplicate but keep the row with the most recent 'Updated At' timestamp. Write the code.",
+      "assertions": [
+        {
+          "id": "a1",
+          "type": "contains",
+          "description": "Detects and handles column name collisions",
+          "expected": "Identifies that multiple columns will map to the same snake_case name and appends suffixes like _1, _2 or otherwise disambiguates"
+        },
+        {
+          "id": "a2",
+          "type": "contains",
+          "description": "Preserves all data during collision resolution",
+          "expected": "Does not silently drop columns that collide; all original columns are preserved with unique names"
+        },
+        {
+          "id": "a3",
+          "type": "contains",
+          "description": "Sorts by timestamp before dedup to keep latest",
+          "expected": "Sorts by updated_at (or equivalent) in descending order before calling drop_duplicates with keep='first', or uses keep='last' with ascending sort"
+        },
+        {
+          "id": "a4",
+          "type": "contains",
+          "description": "Converts timestamp column before sorting",
+          "expected": "Converts 'Updated At'/'Created At' to datetime before using them for sort-based deduplication"
+        },
+        {
+          "id": "a5",
+          "type": "contains",
+          "description": "Normalizes all column names to snake_case",
+          "expected": "All final column names follow snake_case convention (lowercase, underscores)"
+        },
+        {
+          "id": "a6",
+          "type": "contains",
+          "description": "Handles the is_Active column correctly",
+          "expected": "Normalizes is_Active to is_active and recognizes it as a boolean column"
+        }
+      ]
+    }
+  ]
+}

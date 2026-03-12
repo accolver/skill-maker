@@ -1,0 +1,55 @@
+{
+  "skill_name": "pandas-cleaning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a CSV file at data/sales_export.csv with columns like 'Customer ID', 'Order Date', 'Total Amount', 'Product Category', 'Ship-To State', and 'Is Active'. Some amounts have dollar signs and commas ($1,234.56), dates are mixed formats (both MM/DD/YYYY and YYYY-MM-DD), there are duplicate orders (same customer + same date), and about 15% of Ship-To State is missing. The 'Is Active' column has values like 'Yes', 'No', 'Y', 'N', 'true', 'false'. I need to clean this up for analysis. Can you write me a cleaning script?",
+      "expected_output": "A complete Python cleaning script that: normalizes column names to snake_case first, profiles the data before cleaning, handles the dollar-sign amounts by stripping currency symbols before numeric conversion, parses mixed date formats, deduplicates on customer_id + order_date, fills missing states with a sensible strategy, converts is_active to boolean, uses nullable dtypes, validates the output, and logs what changed at each step.",
+      "files": [],
+      "assertions": [
+        "Column names are normalized to snake_case before any other cleaning operations (normalize_columns or equivalent is called/defined before dedup, missing value handling, or type conversion)",
+        "The script uses pd.read_csv with explicit na_values parameter that includes sentinel values like 'N/A', 'NULL', or similar",
+        "Dollar signs and commas are stripped from the amount column before numeric conversion (uses str.replace for '$' and ',' or equivalent regex)",
+        "Date parsing uses errors='coerce' to handle mixed formats without crashing",
+        "Deduplication uses a composite key of customer_id and order_date (or their original names), not just drop_duplicates() on all columns",
+        "Missing state values are handled with a per-column strategy (fill_value, fill_mode, or similar) — not blanket dropna() on the entire DataFrame",
+        "The is_active column is converted to boolean type handling 'Yes'/'No'/'Y'/'N'/'true'/'false' variants",
+        "Nullable dtypes are used (Int64, Float64, or boolean with capital letters) instead of numpy int64/float64 for at least one column",
+        "The script prints or logs the number of rows removed during deduplication and/or the number of missing values filled",
+        "Output is saved with index=False"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I'm working with a Parquet file (user_events.parquet) that has columns: userId, eventType, eventTimestamp, sessionDuration, pageUrl, deviceType, isNewUser. The data has camelCase column names, sessionDuration has some negative values and strings like 'N/A' mixed in, eventTimestamp is a Unix epoch integer, there are exact duplicate rows from a logging bug, and about 8% of deviceType is null. I need to clean this for a retention analysis. The cleaned output should also be Parquet.",
+      "expected_output": "A cleaning pipeline that: reads Parquet, normalizes camelCase to snake_case, removes exact duplicate rows, converts Unix timestamps to datetime, handles the mixed sessionDuration by coercing non-numeric to NaN then filling with median, fills missing deviceType with 'unknown', uses nullable dtypes, validates no nulls in required fields, and saves as Parquet.",
+      "files": [],
+      "assertions": [
+        "The script reads from Parquet format (pd.read_parquet) and saves output as Parquet (to_parquet)",
+        "camelCase column names (userId, eventType, etc.) are converted to snake_case (user_id, event_type, etc.)",
+        "Exact duplicate rows are detected and removed (drop_duplicates with no subset or explicit full-row dedup)",
+        "Unix epoch timestamps are converted to datetime using pd.to_datetime with unit='s' or equivalent epoch conversion",
+        "session_duration uses pd.to_numeric with errors='coerce' to handle the mixed string/'N/A' values",
+        "Missing device_type values are filled with a specific value like 'unknown' rather than dropped or left as NaN",
+        "Negative session_duration values are addressed (filtered out, set to NaN, or clipped to 0)",
+        "The script includes validation checks after cleaning (checking for remaining nulls, duplicates, or value ranges)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I have a messy CSV (survey_responses.csv) with 50+ columns. The column names are a disaster — mix of 'Question 1: How satisfied are you?', 'Q2_satisfaction_score', 'respondent email', 'Response Date/Time', etc. About 40% of the free-text columns are empty, numeric rating columns (1-5 scale) have some entries like '6', '0', and 'N/A', and there are respondents who submitted multiple times (same email, keep the latest by timestamp). I need a cleaning function I can reuse — not just a one-off script. Show me how to build a reusable cleaning pipeline.",
+      "expected_output": "A reusable cleaning pipeline (function or class) that: normalizes the messy column names to clean snake_case, handles the long question-style names, deduplicates by email keeping the latest response, drops columns with >40% missing, validates rating columns are in 1-5 range (coercing out-of-range to NaN), uses per-column missing strategies, and is structured for reuse with configurable parameters.",
+      "files": [],
+      "assertions": [
+        "The solution is structured as reusable functions or a class with configurable parameters — not just a linear script with hardcoded values",
+        "Column normalization handles long question-style names (e.g., 'Question 1: How satisfied are you?' becomes something like 'question_1_how_satisfied_are_you' or a shortened snake_case form)",
+        "Deduplication keeps the latest response per email by sorting on the timestamp column before dedup with keep='last'",
+        "Columns with >40% missing values are identified and either dropped or flagged (the threshold is configurable or explicitly set)",
+        "Rating columns with out-of-range values (0, 6, etc. on a 1-5 scale) are coerced to NaN or clipped, not left as-is",
+        "The pipeline follows the correct order: normalize columns first, then deduplicate, then handle missing values, then convert types",
+        "The cleaning function accepts parameters for customization (e.g., dedup key columns, missing value strategies, or threshold for dropping columns)",
+        "A profiling or summary step is included that reports data shape, missing value counts, or duplicate counts before and/or after cleaning"
+      ]
+    }
+  ]
+}

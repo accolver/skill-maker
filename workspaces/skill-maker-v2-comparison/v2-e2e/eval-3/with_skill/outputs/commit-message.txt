@@ -1,0 +1,12 @@
+feat(api)!: add cursor-based pagination to search
+
+Replace offset-based pagination with cursor-based approach. The
+search function now accepts a single SearchQuery object with
+filters and cursor support, and returns a PaginatedSearchResult
+with nextCursor and hasMore fields.
+
+BREAKING CHANGE: search() signature changed from (query: string,
+options?: SearchOptions) to (query: SearchQuery). Return type
+changed from SearchResult[] to PaginatedSearchResult. Update all
+callers to pass a SearchQuery object and handle the wrapped
+response.

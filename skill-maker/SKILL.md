@@ -1,6 +1,6 @@
 ---
 name: skill-maker
-description: Create agent skills and improve them via eval-driven subagent loops. Use when creating a skill, building a SKILL.md, testing with evaluations, benchmarking skill performance, or optimizing trigger accuracy. Also use for reusable agent workflows or packaging agent knowledge.
+description: Create new agent skills from scratch and iteratively improve them using eval-driven subagent loops. Use when users want to create a skill, build a SKILL.md, test skill quality with evaluations, benchmark skill performance, or optimize a skill's description for triggering accuracy. Also use when users mention making reusable agent workflows, capturing repeatable processes as skills, or packaging agent knowledge.
 ---
 
 # Skill Maker
@@ -25,7 +25,7 @@ pass_rate plateaus or you hit 20 iterations.
 
 ## Available scripts
 
-All scripts use Bun. Run with `bun run <path>`.
+All scripts use Bun. Run any script with `--help` for usage details.
 
 - **`scripts/grade.ts`** - Grade assertions against eval outputs
 - **`scripts/aggregate-benchmark.ts`** - Aggregate grading results into
@@ -41,12 +41,11 @@ All scripts use Bun. Run with `bun run <path>`.
 - **`scripts/package-skill.ts`** - Package a skill for distribution
 - **`eval-viewer/generate-review.ts`** - Generate static HTML eval viewer
 
-Run any script with `--help` for usage details.
-
 ## Reference files
 
 - **[references/schemas.md](references/schemas.md)** - JSON schemas for all eval
-  artifacts
+  artifacts (evals.json, grading.json, timing.json, benchmark.json,
+  feedback.json)
 - **[references/spec-summary.md](references/spec-summary.md)** - Quick reference
   of the Agent Skills specification
 - **[references/grader-prompt.md](references/grader-prompt.md)** - Subagent
@@ -77,10 +76,15 @@ Understand what the user wants the skill to do before writing anything.
 
 ### Research
 
-Before drafting, research the domain: check for existing tools, identify edge
-cases, and understand what context the agent will NOT have without this skill.
-Do not proceed to Phase 2 until you understand purpose, triggers, and success
-criteria.
+Before drafting, research the problem domain:
+
+- Check if existing tools or packages solve part of the problem
+- Look for similar skills or patterns
+- Identify edge cases and failure modes
+- Understand what context the agent will NOT have without this skill
+
+Do not proceed to Phase 2 until you understand the skill's purpose, triggering
+conditions, and success criteria.
 
 ---
 
@@ -116,11 +120,19 @@ agent loads the skill. A weak description means the skill never activates.
 - **MUST be a single line** - do not use YAML multiline scalars (`>` or `|`)
   because minimal YAML parsers in validators will reject them
 
-**Good:**
-`Extract text from PDFs, fill forms, merge PDFs. Use when working with PDF documents or when the user mentions PDFs, forms, or document extraction.`
+**Good example:**
 
-**Bad:** `Analyzes git changes and generates conventional commit messages.`
-(Missing "Use when..." — agents won't know when to activate it.)
+```yaml
+description: Extract text and tables from PDF files, fill PDF forms, and merge multiple PDFs. Use when working with PDF documents or when the user mentions PDFs, forms, or document extraction.
+```
+
+**Bad example (missing "Use when..."):**
+
+```yaml
+description: Analyzes git changes and generates conventional commit messages.
+```
+
+This will undertrigger because agents don't know when to activate it.
 
 ### Step 4: Write the body
 
@@ -146,24 +158,18 @@ Follow these principles:
 ### Step 5: Add scripts if needed
 
 If the skill involves deterministic operations (validation, data processing,
-file transforms), bundle scripts in `scripts/`. Scripts should:
+file transforms), bundle scripts in `scripts/`.
 
-- Be self-contained or declare dependencies inline
-- Use Bun as the preferred runtime (with `#!/usr/bin/env bun` shebang)
-- Include `--help` output
-- Use structured output (JSON to stdout, diagnostics to stderr)
-- Be idempotent where possible
-- Avoid interactive prompts
+**ALWAYS use Bun TypeScript (.ts)** unless the domain requires Python. Pin
+dependency versions in imports (`import * as cheerio from "cheerio@1.0.0"`). For
+Python, use PEP 723 inline metadata and run with `uv run`.
 
-**ALWAYS use Bun TypeScript (.ts) for scripts** unless the skill's domain
-specifically requires Python or another runtime. Bun has native TypeScript
-support, fast startup, and auto-installs dependencies. Do NOT default to Bash
-scripts — TypeScript scripts are more maintainable, have better error handling,
-and produce structured JSON output naturally.
+**Script design checklist:**
 
-For Bun scripts with dependencies, pin versions in imports (e.g.,
-`import * as cheerio from "cheerio@1.0.0"`). For Python scripts (when the domain
-requires it), use PEP 723 inline metadata and run with `uv run`.
+- `--help` flag with usage examples
+- JSON output to stdout, diagnostics to stderr
+- Meaningful exit codes (0 = success, non-zero = specific failure)
+- Idempotent, no interactive prompts
 
 ### Step 6: Create initial eval test cases
 
@@ -217,6 +223,43 @@ format, [references/schemas.md](references/schemas.md) for full schema).
 - Realistic context (file paths, column names, personal context)
 - Substantive enough that an agent would benefit from a skill (not trivial
   one-step tasks)
+
+### Test case difficulty (CRITICAL)
+
+Your initial test cases WILL be too easy. This is the most common skill-maker
+failure mode. Before proceeding, pressure-test every eval against this
+checklist:
+
+- **Would a competent agent pass this without the skill?** If yes, the test is
+  too easy. Agents already know common CLI commands, standard API patterns, and
+  popular framework conventions. Your test must target what agents get WRONG
+  without structured guidance.
+- **Does the test require the skill's specific discipline?** Good tests require
+  the skill's workflow, safety model, output format, or domain-specific
+  conventions — things agents skip or get inconsistent without explicit
+  instruction.
+- **Does the test have multiple interacting concerns?** Simple single-task
+  prompts (e.g., "create a VM") are too easy. Combine concerns: "create a VM,
+  but also check quotas, and the user mentioned they're in the wrong project."
+- **Does the test expose failure modes?** Include at least one test where the
+  naive approach (no skill) would produce subtly wrong output — not obviously
+  broken, but missing safety checks, wrong conventions, or incomplete coverage.
+
+**Red flags that your tests are too easy:**
+
+- All tests are "do X" single-action prompts
+- Tests use textbook examples from official docs
+- Tests don't require any skill-specific workflow steps
+- A senior engineer could answer the prompt correctly from memory
+- The prompt basically tells the agent exactly what to do
+
+**Better test patterns:**
+
+- Error diagnosis with misleading symptoms
+- Multi-step operations where order and safety gates matter
+- Requests that mix safe and dangerous operations in one prompt
+- Edge cases the skill specifically addresses in its "common mistakes" section
+- Scenarios requiring output formatting or conventions the skill enforces
 
 Do NOT write assertions yet — draft those in Phase 4 while eval runs execute.
 
@@ -296,6 +339,8 @@ are:
 - Testing what the **skill** adds, not what the **prompt** provides (if the
   prompt mentions "600 DPI", checking for "600" tests the agent's reading
   comprehension, not the skill's value)
+- **Discriminating** — should FAIL without the skill and PASS with it. If an
+  assertion would pass regardless, it's testing the agent, not the skill.
 
 Bad assertions:
 
@@ -303,6 +348,14 @@ Bad assertions:
 - Too brittle ("The output uses exactly the phrase 'Total Revenue: $X'")
 - Derived from the prompt itself (keywords the agent would echo regardless of
   the skill — these always pass in both configurations)
+- Testing common knowledge any agent already has ("uses `gcloud auth login` to
+  authenticate") — agents know this without your skill
+
+**Aim for 50%+ assertion failure rate in without_skill runs.** If your
+without_skill baseline passes most assertions, your assertions are testing
+general agent competence, not skill value. Rewrite them to target the specific
+behaviors, conventions, safety patterns, or structural requirements that only
+the skill teaches.
 
 Update `eval_metadata.json` and `evals/evals.json` with the assertions.
 
@@ -342,6 +395,12 @@ extracts implicit claims from outputs, critiques assertion quality, and flags
 eval improvements — producing a richer grading.json. See
 [references/schemas.md](references/schemas.md) for both output formats.
 
+**Note:** The `grade.ts` script uses keyword matching which systematically
+under-scores outputs that satisfy assertions semantically but don't contain
+exact keyword matches. If you see assertions marked FAIL with evidence like "No
+matches for [assertion text]", those need semantic grading via a grader
+subagent.
+
 #### Step 5: Aggregate benchmark
 
 ```bash
@@ -366,9 +425,10 @@ Exit codes:
 
 If status is PLATEAU or MAX_REACHED, skip to Phase 5.
 
-#### Step 7: Analyze patterns
+#### Step 7: Analyze patterns (HARD GATE)
 
-Before showing results to the user, analyze the benchmark data:
+Before showing results to the user, analyze the benchmark data. **Do NOT present
+results until you have completed this analysis.**
 
 - **Non-discriminating assertions**: Always pass in both configs. Remove or
   replace them.
@@ -379,6 +439,22 @@ Before showing results to the user, analyze the benchmark data:
   instructions or fix flaky assertions.
 - **Token/time outliers**: If one eval costs 3x more, read its transcript to
   find the bottleneck.
+
+**Mandatory self-critique when delta is below +25%:**
+
+If the aggregate delta (with_skill pass_rate - without_skill pass_rate) is below
++25%, your evals or assertions are almost certainly too easy. Before proceeding:
+
+1. Read each without_skill output. For every assertion it passed, ask: "Would
+   this assertion also pass if the agent had never seen this skill?" If yes, the
+   assertion is non-discriminating — replace it.
+2. Check if test prompts are simple single-action tasks that any agent handles
+   well. Replace with multi-concern scenarios, error diagnosis, or edge cases.
+3. Look at what the skill specifically teaches (safety gates, output formats,
+   domain conventions, workflow steps) and write assertions that directly test
+   those behaviors.
+4. **Rewrite evals and assertions, then re-run the iteration.** Do not accept a
+   low delta and move on — iterate on the tests themselves, not just the skill.
 
 #### Step 8: Human review
 
@@ -411,6 +487,8 @@ Use all three to improve the skill. Key principles:
   helper script, bundle it in `scripts/`.
 
 Apply improvements to the skill. Go to Step 1 with a new iteration directory.
+
+`spawn runs → grade → benchmark → plateau? → analyze → review → improve → repeat`
 
 #### Advanced: Blind Comparison (Optional)
 
@@ -479,6 +557,13 @@ cp -r <skill-name> .agents/skills/<skill-name>      # project-level
 | 3. Test cases | Write eval prompts          | evals.json       |
 | 4. Eval loop  | Subagents, grade, iterate   | benchmark.json   |
 | 5. Finalize   | Validate, optimize, install | Production skill |
+
+| Script                 | Purpose                      | Run                                                                  |
+| ---------------------- | ---------------------------- | -------------------------------------------------------------------- |
+| grade.ts               | Grade assertions vs outputs  | `bun run scripts/grade.ts <run-dir>`                                 |
+| aggregate-benchmark.ts | Aggregate to benchmark.json  | `bun run scripts/aggregate-benchmark.ts <iter-dir> --skill-name <n>` |
+| detect-plateau.ts      | Check if pass_rate plateaued | `bun run scripts/detect-plateau.ts <workspace>`                      |
+| validate-skill.ts      | Validate SKILL.md            | `bun run scripts/validate-skill.ts <skill-dir>`                      |
 
 **Stop conditions:** Plateau (delta < 2% for 2 iterations, or 100%), max
 iterations (20), or user satisfied (empty feedback).

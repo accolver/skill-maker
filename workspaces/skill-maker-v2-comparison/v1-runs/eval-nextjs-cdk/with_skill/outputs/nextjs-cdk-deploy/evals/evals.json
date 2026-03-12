@@ -1,0 +1,50 @@
+{
+  "skill_name": "nextjs-cdk-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a Next.js app that uses SSR and API routes. I need to deploy it to AWS using CDK. The app should go to staging first at staging.example.com, then production at example.com after I approve. Set up the CDK stack and deployment pipeline with environment-specific configs.",
+      "expected_output": "A CDK stack that deploys Next.js with Lambda for SSR, S3 for static assets, CloudFront distribution, and Route53 DNS. Environment configuration file with separate staging and production settings. Build script that handles per-environment NEXT_PUBLIC_* variables. Deploy script with staging-first pipeline and manual approval gate before production. next.config.js must use output: 'standalone'.",
+      "files": [],
+      "assertions": [
+        "CDK stack includes an S3 bucket for static assets",
+        "CDK stack includes a CloudFront distribution",
+        "CDK stack includes a Lambda function for SSR",
+        "Environment configuration separates staging and production settings",
+        "NEXT_PUBLIC_* variables are handled per-environment (separate builds, not shared)",
+        "Deployment pipeline deploys to staging before production",
+        "Manual approval gate exists between staging and production deployment",
+        "next.config.js output is set to 'standalone'"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our Next.js production deployment on AWS is broken — users are seeing errors. We deployed 30 minutes ago via CDK. I need to roll back immediately. We use Lambda with versioning and CloudFront. Show me how to roll back and what the rollback procedure looks like.",
+      "expected_output": "A rollback procedure that uses Lambda alias versioning for quick rollback (~30 seconds) rather than full CDK redeployment (~10 minutes). Steps: find previous Lambda version from deployment log, update Lambda alias to previous version, invalidate CloudFront cache, validate the rollback. Also includes a full rollback option via CDK for when quick rollback isn't sufficient.",
+      "files": [],
+      "assertions": [
+        "Quick rollback uses Lambda alias/version switching (not full CDK redeploy)",
+        "CloudFront cache invalidation is included in the rollback procedure",
+        "Rollback references a deployment log or history to find the previous version",
+        "Full rollback option via CDK redeployment is documented as a fallback",
+        "Rollback includes a validation step to confirm the rollback worked",
+        "Time estimates are provided (quick ~30s vs full ~10min)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm migrating our Next.js app from Vercel to AWS. The app uses next/image, has middleware for auth redirects, and uses NEXT_PUBLIC_API_URL which differs between staging and production. Set up the CDK infrastructure and explain what I need to watch out for.",
+      "expected_output": "CDK infrastructure covering: Lambda@Edge or CloudFront Functions for middleware (must be in us-east-1), image optimization Lambda for next/image, S3 + CloudFront for static assets, separate builds per environment for NEXT_PUBLIC_API_URL. Warnings about: ACM certificates must be in us-east-1, Lambda@Edge must be in us-east-1, NEXT_PUBLIC_* vars are compile-time not runtime, standalone output mode is required.",
+      "files": [],
+      "assertions": [
+        "Middleware handling uses Lambda@Edge or CloudFront Functions",
+        "Lambda@Edge or CloudFront Functions are noted as requiring us-east-1",
+        "Image optimization is addressed (Lambda function or loader config)",
+        "ACM certificate for CloudFront must be in us-east-1 is mentioned",
+        "NEXT_PUBLIC_API_URL requires separate builds per environment (compile-time, not runtime)",
+        "output: 'standalone' is specified in next.config.js",
+        "Assessment or analysis of the app's requirements is performed before CDK setup"
+      ]
+    }
+  ]
+}

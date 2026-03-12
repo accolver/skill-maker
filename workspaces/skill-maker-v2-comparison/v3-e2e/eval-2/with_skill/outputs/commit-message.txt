@@ -1,0 +1,10 @@
+feat(shared): add error codes and NotFoundError
+
+Add `code` and `statusCode` properties to AppError for structured
+error responses. Introduce NotFoundError subclass for 404 cases.
+Update API error handler to return status codes and error codes
+instead of hardcoded 500. Update user route to use NotFoundError.
+
+BREAKING CHANGE: AppError constructor now requires a second
+argument (code: string). Update all `new AppError(msg)` calls
+to `new AppError(msg, 'ERROR_CODE')`.

@@ -1,0 +1,62 @@
+{
+  "assertions": [
+    {
+      "assertion": "A SKILL.md file exists in the output skill directory",
+      "result": "PASS",
+      "evidence": "SKILL.md exists in outputs/ directory"
+    },
+    {
+      "assertion": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "result": "PASS",
+      "evidence": "Lines 1-4 contain valid YAML frontmatter with name: nextjs-cdk-deploy and description field"
+    },
+    {
+      "assertion": "The description includes 'Use when' trigger conditions mentioning Next.js and deployment",
+      "result": "FAIL",
+      "evidence": "The frontmatter description field does not contain 'Use when' trigger language. It reads 'Deploy Next.js applications to AWS using CDK...' which describes the skill but lacks explicit 'Use when' trigger conditions. The body has a 'When to Use' section but the description field itself lacks this pattern."
+    },
+    {
+      "assertion": "The SKILL.md body contains a multi-step numbered deployment workflow",
+      "result": "PASS",
+      "evidence": "Steps 1-8 are clearly numbered: Validate Prerequisites, Configure Environments, Build, Synthesize, Deploy to Staging, Manual Approval Gate, Deploy to Production, Rollback"
+    },
+    {
+      "assertion": "The SKILL.md body mentions staging and production environments",
+      "result": "PASS",
+      "evidence": "Both 'staging' and 'production' are mentioned extensively throughout the document including dedicated config files, deployment steps, and environment-specific settings"
+    },
+    {
+      "assertion": "The SKILL.md body includes rollback procedures with specific steps",
+      "result": "PASS",
+      "evidence": "Step 8 (lines 281-306) provides detailed rollback procedures with 5 numbered steps and a table of rollback strategies by failure type (Lambda error, infrastructure, config, database, CDN)"
+    },
+    {
+      "assertion": "A scripts/ directory exists with at least 2 deployment-related scripts",
+      "result": "PASS",
+      "evidence": "scripts/ directory contains 7 deployment-related scripts: approve.ts, build.ts, deploy.ts, history.ts, rollback.ts, smoke-test.ts, synth.ts"
+    },
+    {
+      "assertion": "The scripts use Bun TypeScript (.ts files) as the preferred runtime",
+      "result": "PASS",
+      "evidence": "All 7 scripts are .ts files and the SKILL.md references them with 'bun run scripts/...' commands throughout"
+    },
+    {
+      "assertion": "An evals/evals.json file exists with at least 2 test cases",
+      "result": "PASS",
+      "evidence": "evals/evals.json exists with 3 test cases: eval-initial-setup (8 assertions), eval-deploy-pipeline (8 assertions), eval-rollback-scenario (8 assertions)"
+    },
+    {
+      "assertion": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "result": "PASS",
+      "evidence": "Line 418: '## Common Mistakes' section with a 10-row table covering mistakes like missing standalone output, skipping staging, hardcoding env vars, etc."
+    },
+    {
+      "assertion": "The SKILL.md body is under 500 lines",
+      "result": "PASS",
+      "evidence": "File is 477 lines total, under the 500-line limit"
+    }
+  ],
+  "pass_count": 10,
+  "fail_count": 1,
+  "pass_rate": 0.91
+}

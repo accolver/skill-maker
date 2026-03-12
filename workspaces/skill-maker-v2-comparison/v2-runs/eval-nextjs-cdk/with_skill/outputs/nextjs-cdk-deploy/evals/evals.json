@@ -1,0 +1,51 @@
+{
+  "skill_name": "nextjs-cdk-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to deploy our Next.js e-commerce app to AWS using CDK. The app uses SSR for product pages and category listings, has API routes under /api/cart and /api/checkout, and uses next/image for product photos. We have two AWS accounts: 111111111111 for staging and 222222222222 for production. The staging domain is staging.shop.example.com and production is shop.example.com. We need a full deployment pipeline where changes go to staging first, get smoke tested, then require manual approval before going to production. Our secrets (DATABASE_URL, STRIPE_SECRET_KEY, SESSION_SECRET) are in SSM Parameter Store. Generate the CDK stacks, pipeline, environment configs, and deployment scripts.",
+      "expected_output": "Complete CDK infrastructure including: environment config file with staging and production settings referencing SSM paths for secrets, a CDK stack with S3 for static assets, CloudFront distribution with separate cache behaviors for hashed assets vs HTML, Lambda functions for SSR, Route 53 DNS records. A pipeline stack with CodePipeline stages: source, build (separate builds per env for NEXT_PUBLIC vars), deploy staging, smoke test, manual approval with SNS notification, deploy production. Deployment and rollback scripts. CloudWatch alarms for 5xx errors and latency.",
+      "files": [],
+      "assertions": [
+        "Environment config defines both staging (account 111111111111) and production (account 222222222222) with distinct domain names, scaling parameters, and SSM parameter paths for secrets",
+        "Server-side secrets (DATABASE_URL, STRIPE_SECRET_KEY, SESSION_SECRET) reference SSM Parameter Store paths, not plaintext values",
+        "CDK stack includes an S3 bucket for static assets with a CloudFront distribution that has separate cache behaviors: immutable caching for _next/static/* and must-revalidate for HTML/data routes",
+        "Pipeline includes a manual approval stage (ManualApprovalAction or equivalent) between staging deployment and production deployment that sends an SNS notification",
+        "The build stage produces separate builds for staging and production to handle different NEXT_PUBLIC_* environment variables baked at build time",
+        "Rollback procedure is documented or scripted with at least a CloudFront-based fast rollback strategy that can restore service in under 5 minutes",
+        "CloudWatch alarms are configured for at least 5xx error rate and origin latency on the CloudFront distribution",
+        "Output mentions or configures next.config.js with output: 'standalone' for Lambda deployment compatibility"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our Next.js marketing site was deployed to production via CDK 30 minutes ago and we're seeing elevated 5xx errors — about 3% of requests are failing. The CloudFront distribution ID is E1A2B3C4D5E6F7. The Lambda function is returning 502 errors on some SSR pages. We need to roll back immediately. Walk me through the rollback process and give me the commands to execute. After rollback, tell me how to investigate what went wrong.",
+      "expected_output": "Immediate rollback using CloudFront strategy: update the distribution to point to the previous Lambda function version alias or previous origin. Commands to invalidate CloudFront cache after rollback. Verification steps to confirm rollback succeeded (check 5xx rate dropping, smoke test the site). Post-rollback investigation steps: check Lambda logs in CloudWatch, look at the deployment diff, compare the current and previous Lambda function code. Clear decision tree for choosing between CloudFront rollback, CDK rollback, and full rollback based on the symptoms.",
+      "files": [],
+      "assertions": [
+        "Recommends CloudFront-based rollback as the first action since the site is partially down with 5xx errors, not a CDK or full rollback",
+        "Includes a command or script invocation to perform the rollback (e.g., rollback.ts --env production --strategy cloudfront or equivalent AWS CLI commands)",
+        "Includes CloudFront cache invalidation step after rollback with the distribution ID E1A2B3C4D5E6F7 (aws cloudfront create-invalidation or script)",
+        "Provides post-rollback verification steps: check that 5xx error rate drops, run smoke tests against the production URL",
+        "Includes investigation steps: check CloudWatch Logs for the Lambda function, review the deployment changeset or diff, compare previous and current function versions",
+        "Presents a rollback decision tree or criteria for choosing between cloudfront, cdk, and full rollback strategies based on failure symptoms",
+        "Does NOT suggest redeploying the old version as the first action — rollback should be faster than a full redeploy"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We're setting up a new Next.js app that uses ISR (Incremental Static Regeneration) with a revalidation period of 60 seconds. The app also has Next.js middleware that does geo-based redirects and A/B testing cookie assignment. We need to deploy this to AWS with CDK. The tricky parts: ISR needs a way to store and serve cached pages that get regenerated in the background, and the middleware needs to run at the edge. We're using a single AWS account (333333333333) with staging and production in the same account but different resource prefixes. How should we architect this and what are the gotchas?",
+      "expected_output": "Architecture that handles ISR with S3 or DynamoDB for the page cache, a Lambda function that serves cached pages and triggers background regeneration when stale, and CloudFront configured to respect the ISR cache headers. Middleware deployed as Lambda@Edge or CloudFront Functions in us-east-1. Environment isolation via resource prefixes/tags in the same account. Discussion of ISR-specific gotchas: cache invalidation complexity, Lambda cold starts affecting regeneration, CloudFront TTL interaction with ISR revalidation period. Middleware gotchas: Lambda@Edge size limits, no environment variables in Lambda@Edge (use SSM or bake into code), must deploy in us-east-1.",
+      "files": [],
+      "assertions": [
+        "Addresses ISR caching architecture: describes a mechanism for storing regenerated pages (S3, DynamoDB, or equivalent) and serving stale content while regeneration happens in the background",
+        "Configures CloudFront cache TTL to work with ISR revalidation — either using s-maxage/stale-while-revalidate headers or CloudFront cache policies that respect origin cache headers rather than overriding them",
+        "Deploys Next.js middleware as Lambda@Edge or CloudFront Functions and explicitly states it must be deployed in us-east-1 regardless of the primary region",
+        "Warns about Lambda@Edge limitations: no environment variables (must bake config or read from SSM at cold start), size limits (1MB for viewer request, 50MB for origin request), and cold start latency",
+        "Describes environment isolation strategy for single-account setup using resource prefixes, separate CloudFront distributions, or stack naming conventions — not just different env vars",
+        "Identifies the interaction between CloudFront caching and ISR revalidation as a potential gotcha — stale CloudFront cache can prevent users from seeing regenerated pages if TTLs are misconfigured",
+        "Includes or references a rollback consideration specific to ISR: cached pages in S3/DynamoDB may need to be invalidated or cleared during rollback, not just CloudFront cache"
+      ]
+    }
+  ]
+}

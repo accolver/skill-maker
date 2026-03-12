@@ -1,0 +1,5 @@
+feat(auth): add GitHub OAuth provider
+
+Implement GitHubProvider with authorization URL generation and
+callback handling. Supports read:user and user:email scopes.
+Follows the same OAuthProvider interface as GoogleProvider.

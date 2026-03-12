@@ -1,0 +1,53 @@
+{
+  "skill_name": "git-commit-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just staged some changes in my monorepo. Here's the diff:\n\n```diff\ndiff --git a/packages/auth/src/providers/github.ts b/packages/auth/src/providers/github.ts\nnew file mode 100644\n--- /dev/null\n+++ b/packages/auth/src/providers/github.ts\n@@ -0,0 +1,38 @@\n+import { OAuthProvider, UserProfile } from '../types';\n+import { httpClient } from '@myapp/shared';\n+\n+export class GitHubProvider implements OAuthProvider {\n+  readonly name = 'github';\n+\n+  async getAuthUrl(state: string): Promise<string> {\n+    const params = new URLSearchParams({\n+      client_id: process.env.GITHUB_CLIENT_ID!,\n+      redirect_uri: process.env.GITHUB_REDIRECT_URI!,\n+      scope: 'read:user user:email',\n+      state,\n+    });\n+    return `https://github.com/login/oauth/authorize?${params}`;\n+  }\n+\n+  async handleCallback(code: string): Promise<UserProfile> {\n+    const tokenRes = await httpClient.post('https://github.com/login/oauth/access_token', {\n+      client_id: process.env.GITHUB_CLIENT_ID,\n+      client_secret: process.env.GITHUB_CLIENT_SECRET,\n+      code,\n+    });\n+    const { access_token } = tokenRes.data;\n+    const userRes = await httpClient.get('https://api.github.com/user', {\n+      headers: { Authorization: `Bearer ${access_token}` },\n+    });\n+    return {\n+      id: userRes.data.id.toString(),\n+      email: userRes.data.email,\n+      name: userRes.data.name,\n+      avatarUrl: userRes.data.avatar_url,\n+    };\n+  }\n+}\n\ndiff --git a/packages/auth/src/providers/index.ts b/packages/auth/src/providers/index.ts\n--- a/packages/auth/src/providers/index.ts\n+++ b/packages/auth/src/providers/index.ts\n@@ -1,3 +1,4 @@\n export { GoogleProvider } from './google';\n+export { GitHubProvider } from './github';\n export type { OAuthProvider } from '../types';\n```\n\nWrite a commit message for this.",
+      "expected_output": "A conventional commit message with type 'feat', scope 'auth' (the monorepo package name, not the full path), imperative mood subject under 50 chars, and a body describing the GitHub OAuth provider addition.",
+      "files": [],
+      "assertions": [
+        "Output starts with 'feat' as the commit type since a new OAuth provider class is being added",
+        "Output uses 'auth' as the scope (the monorepo package name), NOT 'packages/auth' or 'providers'",
+        "Subject line (full first line including type and scope) is 50 characters or fewer",
+        "Subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+        "First letter after the colon-space is lowercase",
+        "Subject line does not end with a period",
+        "Output includes a body (text after a blank line) mentioning GitHub OAuth or the provider",
+        "Output does NOT include a BREAKING CHANGE footer since this is a pure addition"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate a commit message for these staged changes. This is a monorepo with packages/shared and packages/api:\n\n```diff\ndiff --git a/packages/shared/src/errors.ts b/packages/shared/src/errors.ts\n--- a/packages/shared/src/errors.ts\n+++ b/packages/shared/src/errors.ts\n@@ -1,8 +1,15 @@\n-export class AppError extends Error {\n-  constructor(message: string) {\n+export class AppError extends Error {\n+  constructor(\n+    message: string,\n+    public readonly code: string,\n+    public readonly statusCode: number = 500\n+  ) {\n     super(message);\n+    this.name = 'AppError';\n   }\n }\n+\n+export class NotFoundError extends AppError {\n+  constructor(resource: string, id: string) {\n+    super(`${resource} with id '${id}' not found`, 'NOT_FOUND', 404);\n+  }\n+}\n\ndiff --git a/packages/api/src/middleware/error-handler.ts b/packages/api/src/middleware/error-handler.ts\n--- a/packages/api/src/middleware/error-handler.ts\n+++ b/packages/api/src/middleware/error-handler.ts\n@@ -1,8 +1,11 @@\n import { AppError } from '@myapp/shared';\n \n export function errorHandler(err: Error, req: any, res: any, next: any) {\n   if (err instanceof AppError) {\n-    res.status(500).json({ error: err.message });\n+    res.status(err.statusCode).json({\n+      error: err.message,\n+      code: err.code,\n+    });\n   } else {\n     res.status(500).json({ error: 'Internal server error' });\n   }\n }\n\ndiff --git a/packages/api/src/routes/users.ts b/packages/api/src/routes/users.ts\n--- a/packages/api/src/routes/users.ts\n+++ b/packages/api/src/routes/users.ts\n@@ -1,9 +1,9 @@\n-import { AppError } from '@myapp/shared';\n+import { NotFoundError } from '@myapp/shared';\n \n router.get('/users/:id', async (req, res) => {\n   const user = await db.users.findById(req.params.id);\n   if (!user) {\n-    throw new AppError('User not found');\n+    throw new NotFoundError('User', req.params.id);\n   }\n   res.json(user);\n });\n```\n\nPlease write a conventional commit message for this.",
+      "expected_output": "A commit message with type 'fix' or 'refactor', scope 'shared' (primary package where the breaking change occurs), a BREAKING CHANGE footer because AppError's constructor signature changed, and a body explaining the cross-package error handling improvement.",
+      "files": [],
+      "assertions": [
+        "Output uses a valid conventional commit type (fix or refactor) as the first word",
+        "Output includes a scope in parentheses that is a package name (e.g., 'shared' or 'errors'), NOT a file path",
+        "Subject line (full first line) is 50 characters or fewer",
+        "Subject line uses imperative mood",
+        "Output contains a 'BREAKING CHANGE:' footer (uppercase) because AppError's constructor signature changed from (message) to (message, code, statusCode?)",
+        "The BREAKING CHANGE footer describes the migration path (how to update existing AppError constructor calls)",
+        "First letter after the colon-space in the subject is lowercase",
+        "Output includes a body explaining the changes span shared and api packages"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I have these staged changes that I need a commit message for. The changes include a bug fix in the auth module AND some unrelated prettier formatting in the utils module:\n\n```diff\ndiff --git a/src/auth/token-refresh.ts b/src/auth/token-refresh.ts\n--- a/src/auth/token-refresh.ts\n+++ b/src/auth/token-refresh.ts\n@@ -12,8 +12,12 @@ export async function refreshToken(token: string): Promise<TokenPair> {\n   const decoded = jwt.verify(token, SECRET);\n-  const newAccess = jwt.sign({ sub: decoded.sub }, SECRET, { expiresIn: '15m' });\n-  return { accessToken: newAccess, refreshToken: token };\n+  if (decoded.exp && decoded.exp < Date.now() / 1000 - REFRESH_WINDOW) {\n+    throw new TokenExpiredError('Refresh token is beyond the refresh window');\n+  }\n+  const newAccess = jwt.sign({ sub: decoded.sub, role: decoded.role }, SECRET, { expiresIn: '15m' });\n+  const newRefresh = jwt.sign({ sub: decoded.sub }, REFRESH_SECRET, { expiresIn: '7d' });\n+  return { accessToken: newAccess, refreshToken: newRefresh };\n }\n\ndiff --git a/src/utils/format.ts b/src/utils/format.ts\n--- a/src/utils/format.ts\n+++ b/src/utils/format.ts\n@@ -1,10 +1,10 @@\n-export function formatCurrency(amount: number, currency: string = 'USD'): string {\n-  return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount)\n+export function formatCurrency(\n+  amount: number,\n+  currency: string = 'USD',\n+): string {\n+  return new Intl.NumberFormat('en-US', {\n+    style: 'currency',\n+    currency,\n+  }).format(amount);\n }\n\ndiff --git a/src/utils/date.ts b/src/utils/date.ts\n--- a/src/utils/date.ts\n+++ b/src/utils/date.ts\n@@ -1,5 +1,8 @@\n-export function formatDate(date: Date, locale: string = 'en-US'): string {\n-  return new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(date)\n+export function formatDate(\n+  date: Date,\n+  locale: string = 'en-US',\n+): string {\n+  return new Intl.DateTimeFormat(locale, {\n+    dateStyle: 'medium',\n+  }).format(date);\n }\n```\n\nWrite a commit message for this.",
+      "expected_output": "The skill should recommend splitting this into two commits: one for the auth bug fix and one for the formatting changes. If writing a single message, it should note the mixed concerns.",
+      "files": [],
+      "assertions": [
+        "Output recommends splitting the changes into separate commits because the auth fix and formatting changes are unrelated",
+        "Output identifies the auth change as a 'fix' type (bug fix for token refresh logic)",
+        "Output identifies the formatting changes as 'style' type (prettier/formatting only)",
+        "If a single commit message is provided, the subject line is 50 characters or fewer",
+        "If a single commit message is provided, it uses imperative mood",
+        "Output mentions both the token refresh fix and the formatting changes as distinct concerns",
+        "First letter after any colon-space in commit messages is lowercase",
+        "Output does not use file paths as scope (e.g., not 'src/auth/token-refresh.ts')"
+      ]
+    }
+  ]
+}

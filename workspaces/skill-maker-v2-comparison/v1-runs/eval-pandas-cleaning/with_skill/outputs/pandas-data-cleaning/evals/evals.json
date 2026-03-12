@@ -1,0 +1,53 @@
+{
+  "skill_name": "pandas-data-cleaning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a CSV file called sales_data.csv with columns: 'Product Name', 'Sale Price', 'Quantity Sold', 'Date of Sale', 'Customer Email', 'Region'. Some prices have dollar signs and commas ($1,234.56), some quantities are 'N/A', dates are in mixed formats (2023-01-15 and 01/15/2023), and there are duplicate rows where the same customer bought the same product on the same date. Clean this data and save it as a Parquet file.",
+      "expected_output": "A Python script that loads the CSV, normalizes column names to snake_case, replaces sentinel values, handles missing values per-column, strips currency formatting from prices, converts types (numeric, datetime), deduplicates on business key, validates the result, and exports to Parquet.",
+      "files": [],
+      "assertions": [
+        "Output script normalizes column names to snake_case (e.g., product_name, sale_price, quantity_sold, date_of_sale, customer_email, region)",
+        "Output script replaces sentinel values like 'N/A' with pd.NA or NaN before other cleaning steps",
+        "Output script uses pd.to_numeric with errors='coerce' for the price/quantity columns",
+        "Output script strips dollar signs and/or commas from the price column before numeric conversion",
+        "Output script uses pd.to_datetime with errors='coerce' for the date column",
+        "Output script applies per-column missing value strategies (not a single blanket fillna on the entire DataFrame)",
+        "Output script deduplicates using a subset of columns (not just drop_duplicates() with no arguments)",
+        "Output script exports to Parquet format (to_parquet call is present)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Clean this messy user data CSV. The file users_export.csv has columns like 'First Name', 'Last Name', 'EMAIL ADDRESS', 'Age', 'Sign-Up Date', 'Is Active', 'Account Balance'. Problems: some ages are strings like 'twenty-five' or negative numbers, email has mixed case and whitespace, 'Is Active' uses yes/no/Y/N/true/false inconsistently, some balances are blank meaning zero, and there are users with duplicate email addresses (keep the most recent sign-up). Give me a complete cleaning script with validation.",
+      "expected_output": "A complete Python script that handles all the described issues: normalizes columns, cleans emails, coerces ages to numeric, standardizes boolean values, fills missing balances with 0, deduplicates by email keeping most recent, and includes validation assertions.",
+      "files": [],
+      "assertions": [
+        "Output script normalizes column names (handles spaces, mixed case, hyphens)",
+        "Output script converts age to numeric using errors='coerce' (handling non-numeric strings like 'twenty-five')",
+        "Output script handles the boolean is_active column by mapping multiple string representations (yes/no/Y/N/true/false) to True/False",
+        "Output script normalizes email addresses (lowercasing and stripping whitespace)",
+        "Output script fills missing account_balance with 0 (treating absence as zero balance)",
+        "Output script deduplicates on email, keeping the most recent sign-up (sorts by date then uses keep='last' or equivalent)",
+        "Output script includes at least 2 validation assertions (e.g., no null emails, no duplicate emails, correct dtypes)",
+        "Output script logs or prints row counts showing how many rows were removed during cleaning"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I have a large Parquet file (sensor_readings.parquet) with IoT sensor data: sensor_id, timestamp, temperature, humidity, battery_level, status. Issues: some temperature readings are clearly outliers (like 999 or -999 which are sensor error codes), humidity values above 100 should be capped, battery_level has nulls that should be forward-filled within each sensor's time series, and status column has values like 'OK', 'ok', 'Ok', 'ERROR', 'error', 'WARN' that need standardization. Clean it and save back to Parquet.",
+      "expected_output": "A Python script that reads Parquet, handles sensor-specific cleaning (outlier removal, capping, forward-fill within groups, status standardization), validates, and exports to Parquet.",
+      "files": [],
+      "assertions": [
+        "Output script reads from Parquet format (pd.read_parquet call is present)",
+        "Output script handles temperature outliers by replacing sentinel error values (999, -999) with NaN or filtering them out",
+        "Output script caps humidity values at 100 (using clip, where, or conditional assignment)",
+        "Output script forward-fills battery_level within each sensor group (uses groupby with ffill or equivalent per-sensor logic)",
+        "Output script standardizes the status column to consistent casing (e.g., all lowercase or all uppercase)",
+        "Output script includes an inspection or summary step showing data shape, types, or null counts",
+        "Output script exports the cleaned data to Parquet format",
+        "Output script includes at least one validation check or assertion on the cleaned data"
+      ]
+    }
+  ]
+}

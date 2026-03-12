@@ -1,0 +1,7 @@
+Add Retry-After support to rate limiter and handle 429 responses in web client
+
+The rate limiter middleware now includes a Retry-After header and retryAfter
+field in 429 responses. The web API client parses this header and throws a
+dedicated RateLimitError, and a new useRetry hook exposes the retry delay to
+React components. Default max requests reduced from 100 to 50. Nullish
+coalescing operators replace logical OR for safer fallback handling.

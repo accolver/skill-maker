@@ -1,0 +1,14 @@
+refactor: extract BaseUser and update user types
+
+Split User interface into BaseUser and User (extends BaseUser)
+in shared-types. Replace name/role fields with displayName and
+permissions array. Update api-gateway and user-service to import
+from @monorepo/shared-types and throw errors instead of returning
+null.
+
+Affected packages: shared-types, api-gateway, user-service
+
+BREAKING CHANGE: User interface now extends BaseUser; `name` field
+renamed to `displayName`, `role` replaced with `permissions` array,
+and functions now throw instead of returning null. Consumers must
+update field references and add error handling for thrown exceptions.

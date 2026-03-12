@@ -1,0 +1,7 @@
+refactor(search): replace offset pagination with cursor-based pagination
+
+The search API now accepts a single SearchQuery object instead of
+separate query string and SearchOptions parameters, and returns a
+PaginatedSearchResult with cursor-based navigation instead of a raw
+array of SearchResult items. This enables more efficient pagination
+for large result sets.

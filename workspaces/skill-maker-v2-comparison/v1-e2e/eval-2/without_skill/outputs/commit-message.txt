@@ -1,0 +1,6 @@
+refactor(shared-types, api-gateway, user-service): extract BaseUser interface and enforce strict error handling
+
+Split User into BaseUser and User extends BaseUser across shared-types,
+update imports in api-gateway and user-service to use @monorepo/shared-types,
+replace null returns with thrown errors for invalid tokens and missing users,
+and rename name to displayName with new permissions array.

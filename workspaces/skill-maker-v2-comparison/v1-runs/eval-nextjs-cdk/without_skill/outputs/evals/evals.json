@@ -1,0 +1,174 @@
+{
+  "skill": "nextjs-cdk-deploy",
+  "version": "1.0.0",
+  "evals": [
+    {
+      "id": "eval-staging-deploy",
+      "name": "Staging Deployment Setup",
+      "description": "Test that the skill guides setting up a complete staging deployment pipeline for a Next.js app using CDK",
+      "prompt": "I have a Next.js 14 app using the App Router. I need to deploy it to AWS using CDK. Set up the infrastructure for a staging environment with S3 for static assets, CloudFront for CDN, and Lambda for SSR. Include environment-specific configuration for the staging API URL (https://api.staging.myapp.com) and show me how to build and deploy.",
+      "assertions": [
+        {
+          "id": "a1",
+          "type": "contains",
+          "description": "Includes CDK stack definition with S3 bucket construct",
+          "expected": "Output contains an S3 bucket construct in the CDK stack (e.g., new s3.Bucket or aws-s3)"
+        },
+        {
+          "id": "a2",
+          "type": "contains",
+          "description": "Includes CloudFront distribution construct",
+          "expected": "Output contains a CloudFront distribution construct (e.g., new cloudfront.Distribution or aws-cloudfront)"
+        },
+        {
+          "id": "a3",
+          "type": "contains",
+          "description": "Includes Lambda function for SSR",
+          "expected": "Output contains a Lambda function construct for server-side rendering"
+        },
+        {
+          "id": "a4",
+          "type": "contains",
+          "description": "Environment-specific configuration with staging API URL",
+          "expected": "Output includes environment configuration with the staging API URL (https://api.staging.myapp.com)"
+        },
+        {
+          "id": "a5",
+          "type": "contains",
+          "description": "Build step before deployment",
+          "expected": "Output includes a build step (npm run build or next build) before CDK deployment"
+        },
+        {
+          "id": "a6",
+          "type": "contains",
+          "description": "CDK synth command for staging",
+          "expected": "Output includes cdk synth command with staging environment context"
+        },
+        {
+          "id": "a7",
+          "type": "contains",
+          "description": "CDK deploy command for staging",
+          "expected": "Output includes cdk deploy command targeting the staging stack"
+        },
+        {
+          "id": "a8",
+          "type": "contains",
+          "description": "Uses standalone output mode for Next.js",
+          "expected": "Output mentions or configures output: 'standalone' in next.config.js for Lambda deployment"
+        }
+      ]
+    },
+    {
+      "id": "eval-prod-approval-gate",
+      "name": "Production Deployment with Approval Gate",
+      "description": "Test that the skill enforces a manual approval gate between staging and production deployments",
+      "prompt": "I've deployed my Next.js app to staging and it looks good. Now I want to deploy to production. Walk me through the production deployment process including any approval steps, the actual deployment, and post-deployment validation. My production domain is app.example.com and the AWS account is 999888777666.",
+      "assertions": [
+        {
+          "id": "b1",
+          "type": "contains",
+          "description": "Includes manual approval gate before production deploy",
+          "expected": "Output includes a manual approval step or gate that must be completed before production deployment"
+        },
+        {
+          "id": "b2",
+          "type": "contains",
+          "description": "Staging validation as prerequisite",
+          "expected": "Output requires staging deployment to be validated/verified before proceeding to production"
+        },
+        {
+          "id": "b3",
+          "type": "contains",
+          "description": "Production-specific CDK deploy command",
+          "expected": "Output includes cdk deploy command with production environment context"
+        },
+        {
+          "id": "b4",
+          "type": "contains",
+          "description": "Post-deployment health check or smoke test",
+          "expected": "Output includes post-deployment validation such as health checks, smoke tests, or curl commands"
+        },
+        {
+          "id": "b5",
+          "type": "contains",
+          "description": "Production domain configuration",
+          "expected": "Output references the production domain (app.example.com) in the configuration"
+        },
+        {
+          "id": "b6",
+          "type": "contains",
+          "description": "CDK diff before production deploy",
+          "expected": "Output includes running cdk diff before deploying to production to review changes"
+        },
+        {
+          "id": "b7",
+          "type": "contains",
+          "description": "Separate environment config for production",
+          "expected": "Output shows production environment configuration separate from staging"
+        },
+        {
+          "id": "b8",
+          "type": "contains",
+          "description": "Approval checklist or criteria",
+          "expected": "Output includes specific criteria or checklist items that must be verified before approving production deployment"
+        }
+      ]
+    },
+    {
+      "id": "eval-rollback",
+      "name": "Rollback Procedures",
+      "description": "Test that the skill provides comprehensive rollback procedures for different failure scenarios",
+      "prompt": "My production deployment of the Next.js app just went out and users are reporting 500 errors on some pages. The SSR Lambda seems to be failing. Walk me through how to diagnose the issue and roll back if needed. I need to know my options for different types of failures.",
+      "assertions": [
+        {
+          "id": "c1",
+          "type": "contains",
+          "description": "Multiple rollback strategies presented",
+          "expected": "Output presents at least 2 different rollback strategies (e.g., full CDK rollback, Lambda version rollback, CloudFront rollback)"
+        },
+        {
+          "id": "c2",
+          "type": "contains",
+          "description": "Lambda-specific rollback for SSR issues",
+          "expected": "Output includes a Lambda-specific rollback approach (e.g., updating alias to previous version) since the issue is SSR-related"
+        },
+        {
+          "id": "c3",
+          "type": "contains",
+          "description": "CloudWatch logs for diagnosis",
+          "expected": "Output mentions checking CloudWatch logs to diagnose the Lambda/SSR errors"
+        },
+        {
+          "id": "c4",
+          "type": "contains",
+          "description": "CloudFormation rollback option",
+          "expected": "Output includes CloudFormation stack rollback as an option (e.g., aws cloudformation rollback-stack)"
+        },
+        {
+          "id": "c5",
+          "type": "contains",
+          "description": "CloudFront cache invalidation",
+          "expected": "Output mentions CloudFront cache invalidation as part of the rollback or recovery process"
+        },
+        {
+          "id": "c6",
+          "type": "contains",
+          "description": "Decision tree or guidance for choosing rollback strategy",
+          "expected": "Output provides guidance on when to use which rollback strategy based on the type of failure"
+        },
+        {
+          "id": "c7",
+          "type": "contains",
+          "description": "Verification after rollback",
+          "expected": "Output includes steps to verify the rollback was successful (e.g., smoke tests, health checks)"
+        },
+        {
+          "id": "c8",
+          "type": "contains",
+          "description": "Specific AWS CLI commands for rollback",
+          "expected": "Output includes specific AWS CLI commands (not just descriptions) for executing the rollback"
+        }
+      ]
+    }
+  ]
+}

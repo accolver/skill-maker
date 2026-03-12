@@ -1,0 +1,171 @@
+{
+  "skill": "nextjs-cdk-deploy",
+  "version": "1.0.0",
+  "evals": [
+    {
+      "id": "eval-initial-setup",
+      "name": "Initial CDK setup for Next.js app",
+      "prompt": "I have a Next.js 14 app using the App Router. I want to deploy it to AWS using CDK. Set up the initial CDK infrastructure with CloudFront, S3 for static assets, and Lambda for SSR. Include staging and production environments with separate configs.",
+      "assertions": [
+        {
+          "id": "a1",
+          "type": "contains",
+          "description": "Must configure next.config with output: standalone",
+          "expected": "output.*standalone"
+        },
+        {
+          "id": "a2",
+          "type": "contains",
+          "description": "Must create separate environment config files for staging and production",
+          "expected": "config.*(staging|production).*env"
+        },
+        {
+          "id": "a3",
+          "type": "contains",
+          "description": "Must include CloudFront distribution in CDK stack",
+          "expected": "cloudfront.*Distribution"
+        },
+        {
+          "id": "a4",
+          "type": "contains",
+          "description": "Must include S3 bucket for static assets",
+          "expected": "s3.*Bucket"
+        },
+        {
+          "id": "a5",
+          "type": "contains",
+          "description": "Must include Lambda function for SSR",
+          "expected": "lambda.*Function"
+        },
+        {
+          "id": "a6",
+          "type": "contains",
+          "description": "Must handle NEXT_PUBLIC_ env vars at build time",
+          "expected": "NEXT_PUBLIC_"
+        },
+        {
+          "id": "a7",
+          "type": "contains",
+          "description": "Must set different removal policies for staging vs production",
+          "expected": "RemovalPolicy.*(RETAIN|DESTROY)"
+        },
+        {
+          "id": "a8",
+          "type": "contains",
+          "description": "Must include cdk.json configuration",
+          "expected": "cdk\\.json"
+        }
+      ]
+    },
+    {
+      "id": "eval-deploy-pipeline",
+      "name": "Staged deployment with approval gate",
+      "prompt": "Walk me through deploying my Next.js CDK app to production. I've already got the CDK stack set up. I need to deploy to staging first, verify it works, get approval, then deploy to production. Show me the exact commands and what each step does.",
+      "assertions": [
+        {
+          "id": "b1",
+          "type": "contains",
+          "description": "Must show staging deployment before production",
+          "expected": "staging.*before.*production|deploy.*staging.*first"
+        },
+        {
+          "id": "b2",
+          "type": "contains",
+          "description": "Must include cdk synth step",
+          "expected": "cdk synth"
+        },
+        {
+          "id": "b3",
+          "type": "contains",
+          "description": "Must include cdk diff to review changes",
+          "expected": "cdk diff"
+        },
+        {
+          "id": "b4",
+          "type": "contains",
+          "description": "Must include manual approval gate between staging and production",
+          "expected": "approv"
+        },
+        {
+          "id": "b5",
+          "type": "contains",
+          "description": "Must include smoke tests after deployment",
+          "expected": "smoke.*test"
+        },
+        {
+          "id": "b6",
+          "type": "contains",
+          "description": "Must mention rollback procedure if something goes wrong",
+          "expected": "rollback"
+        },
+        {
+          "id": "b7",
+          "type": "contains",
+          "description": "Must include the build step with correct environment",
+          "expected": "next build|build.*stag"
+        },
+        {
+          "id": "b8",
+          "type": "contains",
+          "description": "Must mention verifying staging before promoting to production",
+          "expected": "verif.*stag|test.*stag|check.*stag"
+        }
+      ]
+    },
+    {
+      "id": "eval-rollback-scenario",
+      "name": "Production rollback after failed deployment",
+      "prompt": "My production deployment just failed — the Lambda function is returning 500 errors after we deployed a new version. I need to rollback immediately. What are my options and how do I execute the rollback? Also, how do I prevent this in the future?",
+      "assertions": [
+        {
+          "id": "c1",
+          "type": "contains",
+          "description": "Must provide a rollback command or procedure",
+          "expected": "rollback"
+        },
+        {
+          "id": "c2",
+          "type": "contains",
+          "description": "Must mention CloudFormation rollback as an option",
+          "expected": "CloudFormation.*rollback|cfn.*rollback|stack.*rollback"
+        },
+        {
+          "id": "c3",
+          "type": "contains",
+          "description": "Must mention redeploying previous version as an option",
+          "expected": "previous.*version|redeploy.*previous|prior.*deploy"
+        },
+        {
+          "id": "c4",
+          "type": "contains",
+          "description": "Must include smoke tests after rollback to verify",
+          "expected": "smoke.*test.*after|verify.*rollback|test.*after.*rollback"
+        },
+        {
+          "id": "c5",
+          "type": "contains",
+          "description": "Must mention staging-first deployment as prevention",
+          "expected": "staging.*first|deploy.*staging.*before|test.*staging"
+        },
+        {
+          "id": "c6",
+          "type": "contains",
+          "description": "Must mention monitoring or error rate checking",
+          "expected": "monitor|error.*rate|CloudWatch|metric"
+        },
+        {
+          "id": "c7",
+          "type": "contains",
+          "description": "Must address the Lambda 500 error specifically",
+          "expected": "Lambda|function|500|server.*error"
+        },
+        {
+          "id": "c8",
+          "type": "contains",
+          "description": "Must mention progressive rollout or canary deployment as prevention",
+          "expected": "progressive|canary|gradual|weighted|traffic.*shift"
+        }
+      ]
+    }
+  ]
+}

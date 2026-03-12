@@ -1,0 +1,5 @@
+feat(auth-service): add OAuth2 PKCE auth flow
+
+Implement OAuth2 authorization code flow with PKCE support
+including code verifier/challenge generation, state management
+via TokenStore, and /callback route for token exchange.

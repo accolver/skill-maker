@@ -1,0 +1,62 @@
+{
+  "assertions": [
+    {
+      "assertion": "A SKILL.md file exists in the output skill directory",
+      "result": "PASS",
+      "evidence": "SKILL.md exists at outputs/git-commit-writer/SKILL.md (334 lines)"
+    },
+    {
+      "assertion": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "result": "PASS",
+      "evidence": "Lines 1-4 contain --- delimited YAML frontmatter with 'name: git-commit-writer' and a 'description:' field"
+    },
+    {
+      "assertion": "The name field uses only lowercase letters, numbers, and hyphens",
+      "result": "PASS",
+      "evidence": "name is 'git-commit-writer' — contains only lowercase letters and hyphens, no uppercase, spaces, or special characters"
+    },
+    {
+      "assertion": "The description includes 'Use when' trigger conditions",
+      "result": "PASS",
+      "evidence": "Description contains 'Use when committing code, writing commit messages, preparing git commits, reviewing staged changes, or when the user asks for help with commit messages'"
+    },
+    {
+      "assertion": "The SKILL.md body contains a numbered workflow or step-by-step instructions",
+      "result": "PASS",
+      "evidence": "Body contains 8 numbered workflow steps: '### 1. Read the staged diff' through '### 8. Present the commit message'"
+    },
+    {
+      "assertion": "A scripts/ directory exists with at least one Bun TypeScript script (.ts file)",
+      "result": "PASS",
+      "evidence": "scripts/parse-diff.ts exists (582 lines), starts with #!/usr/bin/env bun shebang and uses Bun.stdin.text() API"
+    },
+    {
+      "assertion": "The script includes a --help flag or usage documentation",
+      "result": "PASS",
+      "evidence": "Script defines a HELP string (lines 76-100) with USAGE, OPTIONS, OUTPUT, and EXAMPLES sections. Parses --help/-h flags (lines 116-117) and prints help then exits"
+    },
+    {
+      "assertion": "An evals/evals.json file exists with at least 2 test cases",
+      "result": "PASS",
+      "evidence": "evals/evals.json exists with 3 test cases (ids 1, 2, 3): simple feature diff, monorepo breaking change, and multi-package refactor"
+    },
+    {
+      "assertion": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "result": "PASS",
+      "evidence": "Lines 289-301 contain '## Common mistakes' section with a 10-row table covering past tense, subject length, wrong type, file paths as scope, missing BREAKING CHANGE, vague subjects, capitalization, periods, directory vs package names, and combining unrelated changes"
+    },
+    {
+      "assertion": "The SKILL.md body is under 500 lines",
+      "result": "PASS",
+      "evidence": "SKILL.md is 334 lines total, well under the 500-line limit"
+    },
+    {
+      "assertion": "The script uses structured JSON output to stdout",
+      "result": "PASS",
+      "evidence": "Script outputs via console.log(JSON.stringify(result)) for json format and console.log(JSON.stringify(result, null, 2)) for pretty format (lines 572-576). Output is a structured ParseResult object with files, summary, suggested_type, suggested_scope, is_breaking_change, breaking_indicators, and monorepo fields"
+    }
+  ],
+  "pass_count": 11,
+  "fail_count": 0,
+  "pass_rate": 1.0
+}

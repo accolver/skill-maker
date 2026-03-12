@@ -1,0 +1,763 @@
+{
+  "grading_metadata": {
+    "graded_at": "2026-03-12T00:00:00Z",
+    "grader": "claude-opus-4-6 (strict mode)",
+    "total_cases": 12,
+    "total_assertions": 92
+  },
+  "results": {
+    "v1-e2e-1-with": {
+      "skill_version": "v1",
+      "eval_case": 1,
+      "run_type": "with_skill",
+      "commit_message": "feat(auth-service): add OAuth2 PKCE auth flow\n\nImplement OAuth2 authorization code flow with PKCE support\nincluding code verifier/challenge generation, state management\nvia TokenStore, and /callback route for token exchange.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output starts with 'feat' as the commit type",
+          "result": "PASS",
+          "evidence": "First line starts with 'feat(auth-service):' — begins with 'feat'"
+        },
+        {
+          "id": 2,
+          "text": "Output includes 'auth-service' as the scope (detected from packages/auth-service/ monorepo path)",
+          "result": "PASS",
+          "evidence": "Scope is '(auth-service)' in 'feat(auth-service):'"
+        },
+        {
+          "id": 3,
+          "text": "Subject line (first line including type and scope) is 50 characters or fewer",
+          "result": "PASS",
+          "evidence": "Subject line is 45 characters: 'feat(auth-service): add OAuth2 PKCE auth flow'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'add' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After ': ' the text is 'add' — lowercase 'a'"
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'flow' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output mentions OAuth or authentication functionality",
+          "result": "PASS",
+          "evidence": "Subject mentions 'OAuth2', body mentions 'OAuth2 authorization code flow'"
+        },
+        {
+          "id": 8,
+          "text": "Output includes a body (text after a blank line)",
+          "result": "PASS",
+          "evidence": "Body present after blank line: 'Implement OAuth2 authorization code flow...'"
+        }
+      ],
+      "pass_count": 8,
+      "fail_count": 0,
+      "pass_rate": 1.0
+    },
+    "v1-e2e-1-without": {
+      "skill_version": "v1",
+      "eval_case": 1,
+      "run_type": "without_skill",
+      "commit_message": "Add OAuth 2.0 PKCE authentication flow to auth-service\n\nImplement the authorization code flow with PKCE for secure OAuth 2.0\nauthentication. This includes authorization URL generation with state\nand code challenge parameters, a code exchange function for obtaining\ntokens, and an Express callback route handler.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output starts with 'feat' as the commit type",
+          "result": "FAIL",
+          "evidence": "Output starts with 'Add' — not the conventional commit type 'feat'"
+        },
+        {
+          "id": 2,
+          "text": "Output includes 'auth-service' as the scope (detected from packages/auth-service/ monorepo path)",
+          "result": "FAIL",
+          "evidence": "No scope in parentheses. 'auth-service' appears in the subject text but not as a conventional commit scope like '(auth-service)'"
+        },
+        {
+          "id": 3,
+          "text": "Subject line (first line including type and scope) is 50 characters or fewer",
+          "result": "FAIL",
+          "evidence": "Subject line is 54 characters: 'Add OAuth 2.0 PKCE authentication flow to auth-service'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'Add' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "FAIL",
+          "evidence": "No colon-space present — this is not a conventional commit format. The subject starts with uppercase 'Add'"
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'auth-service' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output mentions OAuth or authentication functionality",
+          "result": "PASS",
+          "evidence": "Subject mentions 'OAuth 2.0 PKCE authentication', body mentions 'OAuth 2.0 authentication'"
+        },
+        {
+          "id": 8,
+          "text": "Output includes a body (text after a blank line)",
+          "result": "PASS",
+          "evidence": "Body present after blank line: 'Implement the authorization code flow...'"
+        }
+      ],
+      "pass_count": 4,
+      "fail_count": 4,
+      "pass_rate": 0.5
+    },
+    "v1-e2e-2-with": {
+      "skill_version": "v1",
+      "eval_case": 2,
+      "run_type": "with_skill",
+      "commit_message": "refactor: extract BaseUser and update user types\n\nSplit User interface into BaseUser and User (extends BaseUser)\nin shared-types. Replace name/role fields with displayName and\npermissions array. Update api-gateway and user-service to import\nfrom @monorepo/shared-types and throw errors instead of returning\nnull.\n\nAffected packages: shared-types, api-gateway, user-service\n\nBREAKING CHANGE: User interface now extends BaseUser; `name` field\nrenamed to `displayName`, `role` replaced with `permissions` array,\nand functions now throw instead of returning null. Consumers must\nupdate field references and add error handling for thrown exceptions.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output uses 'refactor' as the commit type",
+          "result": "PASS",
+          "evidence": "First line starts with 'refactor:'"
+        },
+        {
+          "id": 2,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "PASS",
+          "evidence": "Subject line is 48 characters: 'refactor: extract BaseUser and update user types'"
+        },
+        {
+          "id": 3,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'extract' — imperative mood"
+        },
+        {
+          "id": 4,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After ': ' the text is 'extract' — lowercase 'e'"
+        },
+        {
+          "id": 5,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'types' — no period"
+        },
+        {
+          "id": 6,
+          "text": "Output contains a 'BREAKING CHANGE:' footer (uppercase)",
+          "result": "PASS",
+          "evidence": "Footer present: 'BREAKING CHANGE: User interface now extends BaseUser...'"
+        },
+        {
+          "id": 7,
+          "text": "The BREAKING CHANGE footer mentions what specifically breaks",
+          "result": "PASS",
+          "evidence": "Footer specifies: name→displayName rename, role→permissions replacement, null returns→thrown errors"
+        },
+        {
+          "id": 8,
+          "text": "Output includes a body explaining the cross-package nature of the change",
+          "result": "PASS",
+          "evidence": "Body mentions shared-types, api-gateway, user-service, and 'Affected packages' line lists all three"
+        }
+      ],
+      "pass_count": 8,
+      "fail_count": 0,
+      "pass_rate": 1.0
+    },
+    "v1-e2e-2-without": {
+      "skill_version": "v1",
+      "eval_case": 2,
+      "run_type": "without_skill",
+      "commit_message": "refactor(shared-types, api-gateway, user-service): extract BaseUser interface and enforce strict error handling\n\nSplit User into BaseUser and User extends BaseUser across shared-types,\nupdate imports in api-gateway and user-service to use @monorepo/shared-types,\nreplace null returns with thrown errors for invalid tokens and missing users,\nand rename name to displayName with new permissions array.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output uses 'refactor' as the commit type",
+          "result": "PASS",
+          "evidence": "First line starts with 'refactor('"
+        },
+        {
+          "id": 2,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "FAIL",
+          "evidence": "Subject line is 111 characters: 'refactor(shared-types, api-gateway, user-service): extract BaseUser interface and enforce strict error handling'"
+        },
+        {
+          "id": 3,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'extract' — imperative mood"
+        },
+        {
+          "id": 4,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After '): ' the text is 'extract' — lowercase 'e'"
+        },
+        {
+          "id": 5,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'handling' — no period"
+        },
+        {
+          "id": 6,
+          "text": "Output contains a 'BREAKING CHANGE:' footer (uppercase)",
+          "result": "FAIL",
+          "evidence": "No 'BREAKING CHANGE:' footer present anywhere in the commit message"
+        },
+        {
+          "id": 7,
+          "text": "The BREAKING CHANGE footer mentions what specifically breaks",
+          "result": "FAIL",
+          "evidence": "No BREAKING CHANGE footer exists, so nothing is mentioned"
+        },
+        {
+          "id": 8,
+          "text": "Output includes a body explaining the cross-package nature of the change",
+          "result": "PASS",
+          "evidence": "Body mentions shared-types, api-gateway, user-service, and cross-package imports"
+        }
+      ],
+      "pass_count": 5,
+      "fail_count": 3,
+      "pass_rate": 0.625
+    },
+    "v1-e2e-3-with": {
+      "skill_version": "v1",
+      "eval_case": 3,
+      "run_type": "with_skill",
+      "commit_message": "feat(cache): add has method and default capacity\n\nAdd LRUCache.has() for key existence checks without\naffecting access order. Set default capacity to 100\nand simplify get() with direct undefined comparison.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output uses either 'feat' or 'refactor'",
+          "result": "PASS",
+          "evidence": "Uses 'feat' as the commit type"
+        },
+        {
+          "id": 2,
+          "text": "Output includes a scope in parentheses",
+          "result": "PASS",
+          "evidence": "Scope is '(cache)'"
+        },
+        {
+          "id": 3,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "PASS",
+          "evidence": "Subject line is 48 characters: 'feat(cache): add has method and default capacity'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'add' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After ': ' the text is 'add' — lowercase 'a'"
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'capacity' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output mentions the new has() method or the cache improvements",
+          "result": "PASS",
+          "evidence": "Subject mentions 'has method', body mentions 'LRUCache.has()' and 'default capacity'"
+        }
+      ],
+      "pass_count": 7,
+      "fail_count": 0,
+      "pass_rate": 1.0
+    },
+    "v1-e2e-3-without": {
+      "skill_version": "v1",
+      "eval_case": 3,
+      "run_type": "without_skill",
+      "commit_message": "fix: improve LRU cache with default capacity, safer get, and has() method\n\nAdd default capacity of 100, use undefined check instead of has()+get()\nin get method to avoid double lookup, and add has() convenience method.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output uses either 'feat' or 'refactor'",
+          "result": "FAIL",
+          "evidence": "Uses 'fix' — neither 'feat' nor 'refactor'"
+        },
+        {
+          "id": 2,
+          "text": "Output includes a scope in parentheses",
+          "result": "FAIL",
+          "evidence": "No scope in parentheses — format is 'fix: ...' with no scope"
+        },
+        {
+          "id": 3,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "FAIL",
+          "evidence": "Subject line is 73 characters: 'fix: improve LRU cache with default capacity, safer get, and has() method'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'improve' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After ': ' the text is 'improve' — lowercase 'i'"
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'method' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output mentions the new has() method or the cache improvements",
+          "result": "PASS",
+          "evidence": "Subject mentions 'has() method', body mentions 'has() convenience method' and 'default capacity'"
+        }
+      ],
+      "pass_count": 4,
+      "fail_count": 3,
+      "pass_rate": 0.5714285714285714
+    },
+    "v2-e2e-1-with": {
+      "skill_version": "v2",
+      "eval_case": 1,
+      "run_type": "with_skill",
+      "commit_message": "feat(auth): add OAuth provider with PKCE\n\nImplement OAuth 2.0 authorization code flow with PKCE support\nfor third-party authentication. Includes OAuthConfig and\nTokenResponse types, provider class with authorize and\nexchangeCode methods, and unit tests.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output starts with 'feat'",
+          "result": "PASS",
+          "evidence": "First line starts with 'feat(auth):'"
+        },
+        {
+          "id": 2,
+          "text": "Output includes scope 'auth' in parentheses (not 'providers' or 'packages/auth')",
+          "result": "PASS",
+          "evidence": "Scope is '(auth)' — exactly 'auth'"
+        },
+        {
+          "id": 3,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "PASS",
+          "evidence": "Subject line is 40 characters: 'feat(auth): add OAuth provider with PKCE'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'add' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After ': ' the text is 'add' — lowercase 'a'"
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'PKCE' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output includes a commit body mentioning OAuth or PKCE",
+          "result": "PASS",
+          "evidence": "Body mentions 'OAuth 2.0 authorization code flow with PKCE support'"
+        },
+        {
+          "id": 8,
+          "text": "Output does NOT include a BREAKING CHANGE footer since this is purely additive",
+          "result": "PASS",
+          "evidence": "No 'BREAKING CHANGE' text present anywhere in the commit message"
+        }
+      ],
+      "pass_count": 8,
+      "fail_count": 0,
+      "pass_rate": 1.0
+    },
+    "v2-e2e-1-without": {
+      "skill_version": "v2",
+      "eval_case": 1,
+      "run_type": "without_skill",
+      "commit_message": "feat(auth): add OAuth provider with PKCE support\n\nImplement OAuthProvider class supporting the authorization code flow\nwith S256 PKCE code challenge. Adds OAuth config and token response\ntypes, exports the new provider, and includes initial tests.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output starts with 'feat'",
+          "result": "PASS",
+          "evidence": "First line starts with 'feat(auth):'"
+        },
+        {
+          "id": 2,
+          "text": "Output includes scope 'auth' in parentheses (not 'providers' or 'packages/auth')",
+          "result": "PASS",
+          "evidence": "Scope is '(auth)' — exactly 'auth'"
+        },
+        {
+          "id": 3,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "PASS",
+          "evidence": "Subject line is 48 characters: 'feat(auth): add OAuth provider with PKCE support'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'add' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After ': ' the text is 'add' — lowercase 'a'"
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'support' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output includes a commit body mentioning OAuth or PKCE",
+          "result": "PASS",
+          "evidence": "Body mentions 'PKCE code challenge' and 'OAuth config'"
+        },
+        {
+          "id": 8,
+          "text": "Output does NOT include a BREAKING CHANGE footer since this is purely additive",
+          "result": "PASS",
+          "evidence": "No 'BREAKING CHANGE' text present anywhere in the commit message"
+        }
+      ],
+      "pass_count": 8,
+      "fail_count": 0,
+      "pass_rate": 1.0
+    },
+    "v2-e2e-2-with": {
+      "skill_version": "v2",
+      "eval_case": 2,
+      "run_type": "with_skill",
+      "commit_message": "feat: add rate-limit retry handling\n\nReturn Retry-After header from the rate limiter and surface it\nto the web client via a dedicated RateLimitError. Add useRetry\nhook so UI components can display retry countdowns.\n\n- Replace || with ?? for nullish-safe config defaults\n- Lower default maxRequests from 100 to 50\n- Parse Retry-After header in API client on 429 responses",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output starts with 'fix' as the commit type",
+          "result": "FAIL",
+          "evidence": "Output starts with 'feat' — not 'fix'. The assertion requires 'fix' as the commit type."
+        },
+        {
+          "id": 2,
+          "text": "Output either omits scope entirely or uses a general scope — NOT 'api' or 'web' alone",
+          "result": "PASS",
+          "evidence": "No scope present — format is 'feat: ...' with no parenthesized scope"
+        },
+        {
+          "id": 3,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "PASS",
+          "evidence": "Subject line is 35 characters: 'feat: add rate-limit retry handling'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'add' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After ': ' the text is 'add' — lowercase 'a'"
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'handling' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output includes a commit body explaining that changes span multiple packages",
+          "result": "PASS",
+          "evidence": "Body mentions 'rate limiter' (api package), 'web client' (web package), 'RateLimitError', 'useRetry hook', and 'API client' — spanning multiple packages"
+        },
+        {
+          "id": 8,
+          "text": "The commit message mentions the Retry-After header",
+          "result": "PASS",
+          "evidence": "Body mentions 'Retry-After header' twice (in body paragraph and bullet list)"
+        }
+      ],
+      "pass_count": 7,
+      "fail_count": 1,
+      "pass_rate": 0.875
+    },
+    "v2-e2e-2-without": {
+      "skill_version": "v2",
+      "eval_case": 2,
+      "run_type": "without_skill",
+      "commit_message": "Add Retry-After support to rate limiter and handle 429 responses in web client\n\nThe rate limiter middleware now includes a Retry-After header and retryAfter\nfield in 429 responses. The web API client parses this header and throws a\ndedicated RateLimitError, and a new useRetry hook exposes the retry delay to\nReact components. Default max requests reduced from 100 to 50. Nullish\ncoalescing operators replace logical OR for safer fallback handling.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output starts with 'fix' as the commit type",
+          "result": "FAIL",
+          "evidence": "Output starts with 'Add' — not a conventional commit type at all, let alone 'fix'"
+        },
+        {
+          "id": 2,
+          "text": "Output either omits scope entirely or uses a general scope — NOT 'api' or 'web' alone",
+          "result": "PASS",
+          "evidence": "No conventional commit scope present (no parenthesized scope). While 'web client' appears in the text, it's not a scope."
+        },
+        {
+          "id": 3,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "FAIL",
+          "evidence": "Subject line is 78 characters: 'Add Retry-After support to rate limiter and handle 429 responses in web client'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'Add' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "FAIL",
+          "evidence": "No colon-space present — not a conventional commit format. Cannot evaluate this assertion as passing."
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'client' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output includes a commit body explaining that changes span multiple packages",
+          "result": "PASS",
+          "evidence": "Body mentions 'rate limiter middleware' (api), 'web API client' (web), 'useRetry hook' and 'React components' (web) — cross-package"
+        },
+        {
+          "id": 8,
+          "text": "The commit message mentions the Retry-After header",
+          "result": "PASS",
+          "evidence": "Subject mentions 'Retry-After support', body mentions 'Retry-After header'"
+        }
+      ],
+      "pass_count": 5,
+      "fail_count": 3,
+      "pass_rate": 0.625
+    },
+    "v2-e2e-3-with": {
+      "skill_version": "v2",
+      "eval_case": 3,
+      "run_type": "with_skill",
+      "commit_message": "feat(api)!: add cursor-based pagination to search\n\nReplace offset-based pagination with cursor-based approach. The\nsearch function now accepts a single SearchQuery object with\nfilters and cursor support, and returns a PaginatedSearchResult\nwith nextCursor and hasMore fields.\n\nBREAKING CHANGE: search() signature changed from (query: string,\noptions?: SearchOptions) to (query: SearchQuery). Return type\nchanged from SearchResult[] to PaginatedSearchResult. Update all\ncallers to pass a SearchQuery object and handle the wrapped\nresponse.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output starts with 'feat'",
+          "result": "PASS",
+          "evidence": "First line starts with 'feat(api)!:'"
+        },
+        {
+          "id": 2,
+          "text": "Output includes a scope in parentheses",
+          "result": "PASS",
+          "evidence": "Scope is '(api)' in 'feat(api)!:'"
+        },
+        {
+          "id": 3,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "PASS",
+          "evidence": "Subject line is 49 characters: 'feat(api)!: add cursor-based pagination to search'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'add' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After '!: ' the text is 'add' — lowercase 'a'"
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'search' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output contains a 'BREAKING CHANGE:' footer (uppercase)",
+          "result": "PASS",
+          "evidence": "Footer present: 'BREAKING CHANGE: search() signature changed from...'"
+        },
+        {
+          "id": 8,
+          "text": "The BREAKING CHANGE footer describes what breaks AND provides migration guidance",
+          "result": "PASS",
+          "evidence": "What breaks: signature changed, return type changed. Migration guidance: 'Update all callers to pass a SearchQuery object and handle the wrapped response.'"
+        }
+      ],
+      "pass_count": 8,
+      "fail_count": 0,
+      "pass_rate": 1.0
+    },
+    "v2-e2e-3-without": {
+      "skill_version": "v2",
+      "eval_case": 3,
+      "run_type": "without_skill",
+      "commit_message": "refactor(search): replace offset pagination with cursor-based pagination\n\nThe search API now accepts a single SearchQuery object instead of\nseparate query string and SearchOptions parameters, and returns a\nPaginatedSearchResult with cursor-based navigation instead of a raw\narray of SearchResult items. This enables more efficient pagination\nfor large result sets.",
+      "assertions": [
+        {
+          "id": 1,
+          "text": "Output starts with 'feat'",
+          "result": "FAIL",
+          "evidence": "Output starts with 'refactor' — not 'feat'"
+        },
+        {
+          "id": 2,
+          "text": "Output includes a scope in parentheses",
+          "result": "PASS",
+          "evidence": "Scope is '(search)'"
+        },
+        {
+          "id": 3,
+          "text": "Subject line is 50 characters or fewer",
+          "result": "FAIL",
+          "evidence": "Subject line is 72 characters: 'refactor(search): replace offset pagination with cursor-based pagination'"
+        },
+        {
+          "id": 4,
+          "text": "Subject line uses imperative mood",
+          "result": "PASS",
+          "evidence": "Verb is 'replace' — imperative mood"
+        },
+        {
+          "id": 5,
+          "text": "First letter after the colon-space is lowercase",
+          "result": "PASS",
+          "evidence": "After ': ' the text is 'replace' — lowercase 'r'"
+        },
+        {
+          "id": 6,
+          "text": "Subject line does not end with a period",
+          "result": "PASS",
+          "evidence": "Subject ends with 'pagination' — no period"
+        },
+        {
+          "id": 7,
+          "text": "Output contains a 'BREAKING CHANGE:' footer (uppercase)",
+          "result": "FAIL",
+          "evidence": "No 'BREAKING CHANGE:' footer present anywhere in the commit message"
+        },
+        {
+          "id": 8,
+          "text": "The BREAKING CHANGE footer describes what breaks AND provides migration guidance",
+          "result": "FAIL",
+          "evidence": "No BREAKING CHANGE footer exists — cannot describe what breaks or provide migration guidance"
+        }
+      ],
+      "pass_count": 4,
+      "fail_count": 4,
+      "pass_rate": 0.5
+    }
+  },
+  "aggregates": {
+    "v1_produced_skill": {
+      "description": "Eval cases written by v1 of the skill, graded against v1 assertions",
+      "with_skill": {
+        "cases": ["v1-e2e-1-with", "v1-e2e-2-with", "v1-e2e-3-with"],
+        "pass_rates": [1.0, 1.0, 1.0],
+        "avg_pass_rate": 1.0,
+        "total_pass": 23,
+        "total_fail": 0,
+        "total_assertions": 23
+      },
+      "without_skill": {
+        "cases": ["v1-e2e-1-without", "v1-e2e-2-without", "v1-e2e-3-without"],
+        "pass_rates": [0.5, 0.625, 0.5714285714285714],
+        "avg_pass_rate": 0.5654761904761905,
+        "total_pass": 13,
+        "total_fail": 10,
+        "total_assertions": 23
+      },
+      "delta": 0.4345238095238095
+    },
+    "v2_produced_skill": {
+      "description": "Eval cases written by v2 of the skill, graded against v2 assertions",
+      "with_skill": {
+        "cases": ["v2-e2e-1-with", "v2-e2e-2-with", "v2-e2e-3-with"],
+        "pass_rates": [1.0, 0.875, 1.0],
+        "avg_pass_rate": 0.9583333333333334,
+        "total_pass": 23,
+        "total_fail": 1,
+        "total_assertions": 24
+      },
+      "without_skill": {
+        "cases": ["v2-e2e-1-without", "v2-e2e-2-without", "v2-e2e-3-without"],
+        "pass_rates": [1.0, 0.625, 0.5],
+        "avg_pass_rate": 0.7083333333333334,
+        "total_pass": 17,
+        "total_fail": 7,
+        "total_assertions": 24
+      },
+      "delta": 0.25
+    },
+    "overall": {
+      "all_with_skill": {
+        "total_pass": 46,
+        "total_fail": 1,
+        "total_assertions": 47,
+        "avg_pass_rate": 0.9791666666666667
+      },
+      "all_without_skill": {
+        "total_pass": 30,
+        "total_fail": 17,
+        "total_assertions": 47,
+        "avg_pass_rate": 0.6369047619047619
+      },
+      "overall_delta": 0.3422619047619048
+    }
+  }
+}

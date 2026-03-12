@@ -1,0 +1,13 @@
+Order ID,Customer Name,Order Date,Total Amount,Product Category,Email Address,is_Active
+1001,John Smith,2024-01-15,$49.99,Electronics,john@example.com,true
+1002,,2024-01-16,$129.50,Clothing,,false
+1003,Jane Doe,2024-01-17,,Electronics,jane@example.com,true
+1001,John Smith,2024-01-15,$49.99,Electronics,john@example.com,true
+1004,Bob Wilson,,$75.00,Home & Garden,bob@example.com,yes
+1005,Alice Brown,2024-01-19,$199.99,,alice@example.com,true
+1006,Charlie Davis,2024-01-20,$25.00,Electronics,charlie@example.com,
+1007,,2024-01-21,$89.99,Clothing,,false
+1008,Eve Johnson,2024-01-22,,Home & Garden,eve@example.com,true
+1002,,2024-01-16,$129.50,Clothing,,false
+1009,Frank Miller,2024-01-23,$349.99,Electronics,frank@example.com,true
+1010,Grace Lee,2024-01-24,$15.99,Clothing,grace@example.com,no

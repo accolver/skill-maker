@@ -1,0 +1,5 @@
+feat(auth): add OAuth provider with PKCE support
+
+Implement OAuthProvider class supporting the authorization code flow
+with S256 PKCE code challenge. Adds OAuth config and token response
+types, exports the new provider, and includes initial tests.

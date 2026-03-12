@@ -1,0 +1,6 @@
+Add OAuth 2.0 PKCE authentication flow to auth-service
+
+Implement the authorization code flow with PKCE for secure OAuth 2.0
+authentication. This includes authorization URL generation with state
+and code challenge parameters, a code exchange function for obtaining
+tokens, and an Express callback route handler.

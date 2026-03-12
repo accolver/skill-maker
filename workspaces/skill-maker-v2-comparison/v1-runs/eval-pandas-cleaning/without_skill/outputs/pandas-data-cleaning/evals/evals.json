@@ -1,0 +1,152 @@
+{
+  "skill_name": "pandas-data-cleaning",
+  "evals": [
+    {
+      "id": 1,
+      "name": "csv-full-pipeline",
+      "prompt": "I have a messy CSV file at ./data/customers.csv with these issues: column names like 'First Name', 'Last Name', 'E-Mail Address', 'Phone Number', 'Signup Date', 'Total Purchases', 'Is Active'. There are about 5000 rows with missing emails, duplicate entries (same email different capitalization), dates in mixed formats, 'Total Purchases' has dollar signs and commas, and 'Is Active' has values like 'yes', 'no', 'Y', 'N', 'true'. Clean this file: normalize column names to snake_case, handle missing emails by dropping those rows, fill missing phone numbers with 'Unknown', deduplicate on email, convert types properly, and export to both CSV and Parquet. Show me the cleaning report.",
+      "expected_output": "Agent should normalize columns to snake_case, replace sentinels with pd.NA, drop rows with missing email, fill phone with Unknown, deduplicate on email column, convert total_purchases by stripping $ and commas, parse signup_date as datetime, map is_active to boolean, export to CSV and Parquet, and generate a cleaning report with before/after stats.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "value": "snake_case",
+          "description": "Agent normalizes column names to snake_case format"
+        },
+        {
+          "type": "output_matches",
+          "value": "(re\\.sub|replace|lower|strip)",
+          "description": "Agent uses regex or string methods to normalize column names"
+        },
+        {
+          "type": "output_contains",
+          "value": "dropna",
+          "description": "Agent drops rows with missing email values"
+        },
+        {
+          "type": "output_contains",
+          "value": "drop_duplicates",
+          "description": "Agent deduplicates rows using drop_duplicates"
+        },
+        {
+          "type": "output_matches",
+          "value": "(to_datetime|pd\\.to_datetime)",
+          "description": "Agent converts date strings to datetime type"
+        },
+        {
+          "type": "output_matches",
+          "value": "(to_numeric|pd\\.to_numeric|astype.*float|astype.*Int64)",
+          "description": "Agent converts purchase amounts to numeric type"
+        },
+        {
+          "type": "output_matches",
+          "value": "(to_csv|to_parquet)",
+          "description": "Agent exports cleaned data to CSV or Parquet"
+        },
+        {
+          "type": "output_matches",
+          "value": "(report|summary|before.*after|shape)",
+          "description": "Agent generates a cleaning report with before/after statistics"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "parquet-missing-values-strategy",
+      "prompt": "I have a Parquet file at ./data/sensor_readings.parquet with columns: sensor_id, timestamp, temperature, humidity, pressure, battery_level, status. The data has these problems: temperature has 3% missing values, humidity has 45% missing, pressure has 2% missing, battery_level has 8% missing, status has values like 'OK', 'ok', 'Ok', 'WARNING', 'warn', 'ERROR', 'err'. I need you to: read the parquet file, profile the missing data percentages, apply appropriate missing value strategies based on the percentage (median for low-missing numeric columns, drop the humidity column since it's too sparse, forward-fill battery_level since it's a time series), standardize the status values to canonical forms, and save as parquet. Don't forget to handle sentinel values like 'N/A' and 'null' strings.",
+      "expected_output": "Agent should use read_parquet, profile missing percentages, replace sentinel values with pd.NA, apply median fill for temperature and pressure, drop humidity column, forward-fill battery_level, standardize status categories, and export to parquet.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "value": "read_parquet",
+          "description": "Agent reads the Parquet file using pd.read_parquet"
+        },
+        {
+          "type": "output_matches",
+          "value": "(isnull|isna|missing)",
+          "description": "Agent profiles missing values before cleaning"
+        },
+        {
+          "type": "output_matches",
+          "value": "(N/A|null|sentinel|replace)",
+          "description": "Agent handles sentinel values like N/A and null strings"
+        },
+        {
+          "type": "output_matches",
+          "value": "(median|fillna.*median)",
+          "description": "Agent uses median imputation for low-missing numeric columns"
+        },
+        {
+          "type": "output_matches",
+          "value": "(drop.*humidity|humidity.*drop)",
+          "description": "Agent drops the humidity column due to high missing percentage"
+        },
+        {
+          "type": "output_matches",
+          "value": "(ffill|forward.fill|pad)",
+          "description": "Agent uses forward fill for battery_level time series data"
+        },
+        {
+          "type": "output_matches",
+          "value": "(map|replace|standardiz)",
+          "description": "Agent standardizes status values to canonical forms"
+        },
+        {
+          "type": "output_contains",
+          "value": "to_parquet",
+          "description": "Agent exports cleaned data back to Parquet format"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "type-conversion-edge-cases",
+      "prompt": "I have a CSV at ./data/transactions.csv with these columns and problems: 'Transaction ID' (should be integer but has NaN gaps), 'Amount' (has values like '$1,234.56' and '($500.00)' for negatives), 'Date' (mixed formats: '2024-01-15', '01/15/2024', 'January 15, 2024'), 'Quantity' (integers stored as floats like 5.0, 3.0 because of NaN), 'Is Refund' (has 'yes', 'no', 'Y', 'N', 'true', 'false', '1', '0'), 'Category' (low cardinality, should be categorical). Clean this up: normalize column names, convert all types properly using nullable Int64 for integers with gaps, strip currency symbols from Amount, parse all date formats, map boolean values explicitly, make Category a pandas Categorical type. Export to both formats and show the dtype changes.",
+      "expected_output": "Agent should normalize columns, use Int64 nullable integer for transaction_id and quantity, strip $ and commas and handle parenthetical negatives for amount, use pd.to_datetime with errors='coerce' for mixed dates, explicitly map boolean strings for is_refund, convert category to Categorical, and show dtype comparison.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "value": "Int64",
+          "description": "Agent uses nullable Int64 type for integer columns with NaN values"
+        },
+        {
+          "type": "output_matches",
+          "value": "(\\$|currency|str\\.replace.*\\$|replace.*\\$)",
+          "description": "Agent strips currency symbols from Amount column"
+        },
+        {
+          "type": "output_matches",
+          "value": "(to_datetime.*coerce|errors.*coerce)",
+          "description": "Agent uses pd.to_datetime with errors='coerce' for mixed date formats"
+        },
+        {
+          "type": "output_matches",
+          "value": "(map|true.*false|yes.*no|bool)",
+          "description": "Agent explicitly maps boolean string values instead of using astype(bool)"
+        },
+        {
+          "type": "output_matches",
+          "value": "(category|Categorical|astype.*category)",
+          "description": "Agent converts low-cardinality column to Categorical type"
+        },
+        {
+          "type": "output_matches",
+          "value": "(dtype|type.*change|before.*after)",
+          "description": "Agent shows dtype changes or before/after comparison"
+        },
+        {
+          "type": "output_contains",
+          "value": "to_csv",
+          "description": "Agent exports to CSV format"
+        },
+        {
+          "type": "output_contains",
+          "value": "to_parquet",
+          "description": "Agent exports to Parquet format to preserve types"
+        }
+      ]
+    }
+  ]
+}

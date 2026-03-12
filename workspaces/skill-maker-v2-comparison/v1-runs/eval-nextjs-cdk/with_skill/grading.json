@@ -1,0 +1,62 @@
+{
+  "assertions": [
+    {
+      "assertion": "A SKILL.md file exists in the output skill directory",
+      "result": "PASS",
+      "evidence": "SKILL.md exists at outputs/nextjs-cdk-deploy/SKILL.md (321 lines)"
+    },
+    {
+      "assertion": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "result": "PASS",
+      "evidence": "Lines 1-4 contain valid YAML frontmatter with name: nextjs-cdk-deploy and description field"
+    },
+    {
+      "assertion": "The description includes 'Use when' trigger conditions mentioning Next.js and deployment",
+      "result": "PASS",
+      "evidence": "Description contains 'Use when deploying Next.js to AWS, setting up CDK stacks for Next.js, creating staging-to-production pipelines'"
+    },
+    {
+      "assertion": "The SKILL.md body contains a multi-step numbered deployment workflow",
+      "result": "PASS",
+      "evidence": "6 numbered workflow steps: 1. Assess the Next.js application, 2. Configure environment-specific settings, 3. Build the Next.js application, 4. Synthesize and deploy the CDK stack, 5. Rollback procedures, 6. Post-deployment"
+    },
+    {
+      "assertion": "The SKILL.md body mentions staging and production environments",
+      "result": "PASS",
+      "evidence": "Extensively referenced: environment config with staging/production blocks (lines 84-115), deploy to staging section, deploy to production section, manual approval gate between them"
+    },
+    {
+      "assertion": "The SKILL.md body includes rollback procedures with specific steps",
+      "result": "PASS",
+      "evidence": "Section '### 5. Rollback procedures' (lines 205-242) with quick rollback (5 numbered steps: read deployment log, update Lambda alias, CloudFront invalidation, wait, validate) and full rollback (3 numbered steps: checkout previous commit, rebuild, cdk deploy)"
+    },
+    {
+      "assertion": "A scripts/ directory exists with at least 2 deployment-related scripts",
+      "result": "PASS",
+      "evidence": "scripts/ contains 6 files: assess-nextjs-app.ts, build-nextjs.ts, deploy-history.ts, deploy.ts, rollback.ts, validate-deployment.ts"
+    },
+    {
+      "assertion": "The scripts use Bun TypeScript (.ts files) as the preferred runtime",
+      "result": "PASS",
+      "evidence": "All 6 scripts are .ts files and SKILL.md references them with 'bun run scripts/...' throughout"
+    },
+    {
+      "assertion": "An evals/evals.json file exists with at least 2 test cases",
+      "result": "PASS",
+      "evidence": "evals/evals.json exists with 3 test cases (ids 1, 2, 3) covering deployment setup, rollback, and Vercel migration scenarios"
+    },
+    {
+      "assertion": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "result": "PASS",
+      "evidence": "## Common mistakes section at lines 269-282 with a 10-row table covering: single build for all environments, missing standalone output, wrong certificate region, no Lambda versioning, skipping CloudFront invalidation, auto-deploying to production, Lambda@Edge region, hardcoded values, no rollback plan, deploying node_modules"
+    },
+    {
+      "assertion": "The SKILL.md body is under 500 lines",
+      "result": "PASS",
+      "evidence": "File is 321 lines total, well under the 500-line limit"
+    }
+  ],
+  "pass_count": 11,
+  "fail_count": 0,
+  "pass_rate": 1.0
+}

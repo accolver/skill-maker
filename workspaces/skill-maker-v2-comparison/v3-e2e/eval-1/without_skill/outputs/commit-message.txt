@@ -1,0 +1,6 @@
+Add GitHub OAuth provider to auth package
+
+Implement GitHubProvider class that handles the OAuth authorization flow
+and callback for GitHub login, including fetching user profile details
+(id, email, name, avatar). Export it from the providers barrel file
+alongside the existing GoogleProvider.

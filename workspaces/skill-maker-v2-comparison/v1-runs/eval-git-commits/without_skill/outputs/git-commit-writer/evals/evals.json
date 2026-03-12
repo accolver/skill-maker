@@ -1,0 +1,51 @@
+{
+  "skill_name": "git-commit-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a conventional commit message for the following staged diff:\n\n```diff\ndiff --git a/src/utils/string-helpers.ts b/src/utils/string-helpers.ts\nindex a1b2c3d..e4f5g6h 100644\n--- a/src/utils/string-helpers.ts\n+++ b/src/utils/string-helpers.ts\n@@ -22,6 +22,24 @@ export function capitalize(str: string): string {\n   return str.charAt(0).toUpperCase() + str.slice(1);\n }\n \n+/**\n+ * Truncate a string to a maximum length, appending an ellipsis if truncated.\n+ * @param str - The input string\n+ * @param maxLength - Maximum allowed length (default: 100)\n+ * @returns The truncated string with ellipsis, or original if within limit\n+ */\n+export function truncate(str: string, maxLength: number = 100): string {\n+  if (!str) return '';\n+  if (str.length <= maxLength) return str;\n+  return str.slice(0, maxLength - 3) + '...';\n+}\n+\n+/**\n+ * Check if a string is a valid URL.\n+ */\n+export function isValidUrl(str: string): boolean {\n+  try {\n+    new URL(str);\n+    return true;\n+  } catch {\n+    return false;\n+  }\n+}\n```",
+      "expected_output": "A conventional commit message with type 'feat', scope 'string-helpers' or 'utils', imperative mood subject line under 50 chars, and optionally a body describing the two new functions.",
+      "files": [],
+      "assertions": [
+        "Output starts with 'feat' as the commit type since new functions are being added",
+        "Output includes a scope in parentheses (e.g., 'string-helpers' or 'utils')",
+        "Subject line (first line) is 50 characters or fewer in total",
+        "Subject line uses imperative mood (e.g., 'add' not 'added' or 'adds')",
+        "First letter after the colon-space is lowercase",
+        "Subject line does not end with a period",
+        "Output mentions both truncate and URL validation functionality"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate a commit message for these staged changes in a monorepo:\n\n```diff\ndiff --git a/packages/auth/src/middleware.ts b/packages/auth/src/middleware.ts\nindex 9a8b7c6..3d2e1f0 100644\n--- a/packages/auth/src/middleware.ts\n+++ b/packages/auth/src/middleware.ts\n@@ -1,5 +1,6 @@\n import { Request, Response, NextFunction } from 'express';\n import { verifyToken } from '../utils/jwt';\n+import { RateLimitError } from '../errors';\n \n interface AuthResult {\n-  userId: string;\n-  role: string;\n+  userId: string;\n+  permissions: string[];\n }\n \n-export function authenticate(req: Request): AuthResult | null {\n-  const token = req.headers.authorization?.split(' ')[1];\n-  if (!token) return null;\n+export function authenticate(req: Request): AuthResult {\n+  const token = req.headers.authorization?.split(' ')[1];\n+  if (!token) throw new RateLimitError('Missing authorization token');\n   const decoded = verifyToken(token);\n-  if (!decoded) return null;\n-  return { userId: decoded.sub, role: decoded.role };\n+  if (!decoded) throw new RateLimitError('Invalid token');\n+  return { userId: decoded.sub, permissions: decoded.permissions ?? [] };\n }\n```",
+      "expected_output": "A 'fix' type commit message with scope 'auth' (the monorepo package name), noting the change from returning null to throwing errors, with a BREAKING CHANGE footer because the return type changed and the 'role' field was replaced with 'permissions'.",
+      "files": [],
+      "assertions": [
+        "Output starts with 'fix' as the commit type since the null-return bug is being corrected",
+        "Output includes scope 'auth' in parentheses (detecting the monorepo package from packages/auth/)",
+        "Subject line (first line) is 50 characters or fewer in total",
+        "Subject line uses imperative mood (e.g., 'throw' or 'replace' not 'threw' or 'replaced')",
+        "Output contains a 'BREAKING CHANGE:' footer (uppercase) because the function signature and return type changed",
+        "The BREAKING CHANGE footer describes what breaks (null return removed, role replaced with permissions)",
+        "First letter after the colon-space in the subject is lowercase",
+        "Subject line does not end with a period"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a commit message for the following staged changes that touch multiple files across a monorepo:\n\n```diff\ndiff --git a/packages/core/src/logger.ts b/packages/core/src/logger.ts\nindex 1111111..2222222 100644\n--- a/packages/core/src/logger.ts\n+++ b/packages/core/src/logger.ts\n@@ -5,15 +5,10 @@ import { LogLevel } from './types';\n \n export class Logger {\n-  private level: string;\n-  private prefix: string;\n+  private readonly level: LogLevel;\n \n-  constructor(level: string = 'info', prefix: string = '') {\n-    this.level = level;\n-    this.prefix = prefix;\n+  constructor(level: LogLevel = LogLevel.INFO) {\n+    this.level = level;\n   }\n \n-  log(msg: string) {\n-    console.log(`[${this.prefix}] ${msg}`);\n+  log(msg: string, context?: Record<string, unknown>) {\n+    console.log(JSON.stringify({ level: this.level, msg, ...context }));\n   }\n\ndiff --git a/packages/api/src/middleware/logging.ts b/packages/api/src/middleware/logging.ts\nindex 3333333..4444444 100644\n--- a/packages/api/src/middleware/logging.ts\n+++ b/packages/api/src/middleware/logging.ts\n@@ -1,8 +1,6 @@\n-import { Logger } from '@myorg/core';\n+import { Logger } from '@myorg/core';\n \n-const logger = new Logger('info', 'api');\n+const logger = new Logger();\n \n export function loggingMiddleware(req, res, next) {\n-  logger.log(`${req.method} ${req.url}`);\n+  logger.log(`${req.method} ${req.url}`, { ip: req.ip });\n   next();\n }\n\ndiff --git a/packages/worker/src/index.ts b/packages/worker/src/index.ts\nindex 5555555..6666666 100644\n--- a/packages/worker/src/index.ts\n+++ b/packages/worker/src/index.ts\n@@ -1,5 +1,5 @@\n-import { Logger } from '@myorg/core';\n-const logger = new Logger('debug', 'worker');\n+import { Logger, LogLevel } from '@myorg/core';\n+const logger = new Logger(LogLevel.DEBUG);\n \n async function processJob(job: Job) {\n   logger.log(`Processing job ${job.id}`);\n```",
+      "expected_output": "A 'refactor' type commit message with scope 'core' (the primary package being changed), describing the logger simplification across the monorepo. Should have a body explaining the cross-package impact.",
+      "files": [],
+      "assertions": [
+        "Output starts with 'refactor' as the commit type since this is restructuring without behavior change",
+        "Output includes a scope in parentheses (e.g., 'core' or 'logger') reflecting the primary package",
+        "Subject line (first line) is 50 characters or fewer in total",
+        "Subject line uses imperative mood (e.g., 'simplify', 'restructure', 'improve' not past tense)",
+        "Output includes a commit body (text after a blank line following the subject) explaining the changes across multiple packages",
+        "First letter after the colon-space in the subject is lowercase",
+        "Subject line does not end with a period"
+      ]
+    }
+  ]
+}

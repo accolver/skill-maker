@@ -1,0 +1,57 @@
+{
+  "assertions": [
+    {
+      "assertion": "A SKILL.md file exists in the output skill directory",
+      "result": "PASS",
+      "evidence": "SKILL.md exists at outputs/pandas-data-cleaning/SKILL.md (481 lines)"
+    },
+    {
+      "assertion": "The SKILL.md has valid YAML frontmatter with name and description fields",
+      "result": "PASS",
+      "evidence": "Lines 1-4 contain valid YAML frontmatter with 'name: pandas-data-cleaning' and a description field"
+    },
+    {
+      "assertion": "The description includes 'Use when' trigger conditions mentioning data cleaning or pandas",
+      "result": "PASS",
+      "evidence": "Description contains 'Use when the user mentions data cleaning, data wrangling, missing values, duplicates, column renaming, type casting, or preparing messy data for analysis'"
+    },
+    {
+      "assertion": "The SKILL.md body covers handling missing values with code examples",
+      "result": "PASS",
+      "evidence": "Section '### 3. Handle Missing Values' (lines 117-193) includes a full handle_missing() function with per-column strategies, sentinel value normalization, and a strategy selection guide table"
+    },
+    {
+      "assertion": "The SKILL.md body covers deduplication with code examples",
+      "result": "PASS",
+      "evidence": "Section '### 4. Deduplicate Rows' (lines 195-228) includes a deduplicate() function with subset and keep parameters, plus examples of full-row and key-based dedup"
+    },
+    {
+      "assertion": "The SKILL.md body covers column name normalization or type conversion",
+      "result": "PASS",
+      "evidence": "Both covered: '### 2. Normalize Column Names' (lines 74-116) with normalize_columns() function using regex, and '### 5. Convert Types' (lines 229-295) with convert_types() function supporting int, float, datetime, bool, category"
+    },
+    {
+      "assertion": "The SKILL.md body uses progressive disclosure by referencing separate files for detailed patterns",
+      "result": "FAIL",
+      "evidence": "While references/ directory contains missing-value-strategies.md and type-conversion-guide.md, the SKILL.md body never references or links to these files. No 'see references/', 'see scripts/', or similar directives appear anywhere in the 481-line document. The files exist but are not used for progressive disclosure."
+    },
+    {
+      "assertion": "An evals/evals.json file exists with at least 2 test cases",
+      "result": "PASS",
+      "evidence": "evals/evals.json exists with 3 test cases: 'csv-full-pipeline' (id 1), 'parquet-missing-values-strategy' (id 2), 'type-conversion-edge-cases' (id 3), each with 8 assertions"
+    },
+    {
+      "assertion": "The SKILL.md body includes a Common mistakes or pitfalls section",
+      "result": "PASS",
+      "evidence": "Section '## Common Mistakes' (lines 426-439) contains a table with 10 entries covering mistakes like cleaning before profiling, using .astype(int) with NaN, forgetting sentinels, and more"
+    },
+    {
+      "assertion": "The SKILL.md body contains a workflow or ordered checklist for the cleaning pipeline",
+      "result": "PASS",
+      "evidence": "The '## Workflow' section (lines 38-417) provides 8 numbered steps: 1. Load and Profile, 2. Normalize Column Names, 3. Handle Missing Values, 4. Deduplicate Rows, 5. Convert Types, 6. Additional Cleaning, 7. Generate Cleaning Report, 8. Export Clean Data. Plus a '### Full pipeline template' (lines 443-481) with a condensed ordered script."
+    }
+  ],
+  "pass_count": 9,
+  "fail_count": 1,
+  "pass_rate": 0.9
+}
