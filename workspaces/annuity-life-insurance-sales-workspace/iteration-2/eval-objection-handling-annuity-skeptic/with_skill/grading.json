@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output explicitly names and uses the A-E-R (Acknowledge-Empathize-Redirect) framework by name for structuring each objection response, not just a generic 'empathize then respond' approach",
+      "passed": true,
+      "evidence": "The A-E-R framework is explicitly named at line 27 ('The A-E-R framework (Acknowledge, Empathize, Redirect)'), referenced again at line 478 ('Use A-E-R for each objection'), and a full table at lines 489-495 maps each of the four objections through the Acknowledge/Empathize/Redirect steps with specific language for each."
+    },
+    {
+      "text": "Output responds to the 'keeps your money when you die' objection by specifically naming period-certain options (10-year certain, 20-year certain), cash refund options, and installment refund options as death benefit protections — not just saying 'there are death benefits'",
+      "passed": false,
+      "evidence": "The output addresses the death benefit concern but only states 'every remaining dollar in this contract goes to your beneficiaries' (line 118-119) and 'full death benefit equal to the remaining account value' (line 125). It distinguishes the FIA from a 'life only SPIA' (line 122-123) but never names period-certain options (10-year certain, 20-year certain), cash refund options, or installment refund options. The response is a general death benefit explanation, not a specific enumeration of the required payout structure options."
+    },
+    {
+      "text": "Output counters the Suze Orman objection by specifically distinguishing variable annuities (which have 2-3% annual fees) from fixed indexed annuities (which have zero base fees) and noting that media critics typically reference variable annuity problems",
+      "passed": true,
+      "evidence": "Lines 103-105: 'variable annuities, which can have high fees — sometimes 3% or more per year.' Lines 108-109: 'fixed indexed annuity we discussed has zero annual fees on the base contract.' Lines 152-153: 'variable annuities — the ones with 2-3% annual fees.' Lines 158-159: 'fixed indexed annuity has zero annual fees on the base contract.' The output explicitly notes Suze Orman's criticism is 'primarily aimed at variable annuities' (line 152), directly stating media critics reference variable annuity problems."
+    },
+    {
+      "text": "Output challenges the 4% withdrawal rule by referencing the concept of 'sequence of returns risk' by name and provides a specific numerical example showing how a 30-40% market drop in year 1 of retirement devastates a 4% withdrawal strategy even if markets recover",
+      "passed": true,
+      "evidence": "Line 217: 'That's called sequence of returns risk, and it's the number one destroyer of retirement plans.' Lines 211-216 provide a specific numerical example: $500,000 portfolio, $20,000 withdrawal (4%), 30% market drop yields $350,000 minus $20,000 = $330,000, and even a 30% recovery only brings it to $429,000 — not back to $500,000. The term is named explicitly and the numerical example demonstrates devastation of the strategy."
+    },
+    {
+      "text": "Output coaches on using 'trial closes' or 'check-in questions' during the presentation to build incremental agreement and prevent objection avalanches — testing for buy-in after each concept before moving to the next",
+      "passed": false,
+      "evidence": "The output coaches on getting confirmation after each objection (line 479: 'Handle one at a time, get confirmation before moving to the next') and uses pre-commitment questions (lines 399-410) and micro-commitments. However, the specific terms 'trial closes' and 'check-in questions' never appear in the output. The closest is 'pre-commitment question' and 'micro-commitment,' which are related but distinct sales concepts. The assertion requires the named techniques 'trial closes' or 'check-in questions' and neither is used."
+    },
+    {
+      "text": "Output diagnoses the root cause as insufficient discovery — the agent likely didn't uncover who influences the couple's financial decisions (the daughter, media personalities, friends) during fact-finding, which would have allowed pre-emptive inoculation",
+      "passed": true,
+      "evidence": "Lines 373-376 state the agent should have 'identified during the first meeting's discovery phase' the anti-annuity bias and then 'inoculated before presenting.' Lines 387-396 explicitly list discovery questions that should have been asked: 'Who else have you spoken with about your retirement plans?', 'Have you worked with a financial advisor before?', 'Do you have family members in finance who might weigh in?', 'What have you read or heard about annuities?' Line 396: 'This surfaces the objections before the presentation, when they're easier to address.' This clearly diagnoses insufficient discovery about influencers as the root cause and names pre-emptive inoculation as the remedy."
+    },
+    {
+      "text": "Output provides a specific recovery strategy: recommends a handwritten note or personal follow-up within 48 hours, offers to include the daughter in finance in the next meeting, and provides a specific call script or email template",
+      "passed": true,
+      "evidence": "Lines 322-324: 'Wait 48 hours (not more).' Lines 327-340: 'Send a handwritten note + one-page summary' with exact handwritten note text provided. Lines 347-354: specific Thursday call script ('Hi John, this is [name]. I'm just following up...'). Lines 273-276 and 353: offer to include the daughter ('Would you be comfortable giving me her contact information?' and 'if your daughter wants to join'). All three elements are present with specific templates/scripts."
+    },
+    {
+      "text": "Output references the concept that 'objections are buying signals' — meaning the couple is engaged and interested, not disinterested, and this is actually a recoverable situation",
+      "passed": false,
+      "evidence": "The output frames the situation as recoverable (lines 507-510: 'If you get them back, use the word-for-word scripts above') and says the loss was due to being overwhelmed, not bad product fit (lines 500-501). However, the specific concept 'objections are buying signals' — that objections indicate engagement and interest rather than disinterest — is never stated. The output never reframes the objections as positive indicators of interest or buying intent. The closest is acknowledging objections were 'really important questions' (line 80), but this is politeness, not the sales concept that objections signal buying interest."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

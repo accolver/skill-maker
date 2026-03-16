@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output explicitly names and uses the A-E-R (Acknowledge-Empathize-Redirect) framework by name for structuring each objection response, not just a generic 'empathize then respond' approach",
+      "passed": true,
+      "evidence": "The A-E-R framework is explicitly named throughout: 'using the **A-E-R (Acknowledge-Empathize-Redirect)** framework' (line 18), and each of the four objection responses is structured with labeled [Acknowledge], [Empathize], [Redirect] sections (lines 39-56, 97-112, 139-150, 219-233). A summary table on lines 436-441 maps all four objections to A-E-R columns. Line 453 says 'Use the A-E-R framework by name'."
+    },
+    {
+      "text": "Output responds to the 'keeps your money when you die' objection by specifically naming period-certain options (10-year certain, 20-year certain), cash refund options, and installment refund options as death benefit protections — not just saying 'there are death benefits'",
+      "passed": false,
+      "evidence": "The response addresses the 'keeps your money' objection (lines 23-78) by explaining that the FIA passes remaining account value to beneficiaries and mentioning a 'death benefit enhancement' (line 73). However, it does NOT specifically name 'period-certain options' (10-year certain, 20-year certain), 'cash refund options', or 'installment refund options'. These specific payout guarantee structures are never mentioned anywhere in the document."
+    },
+    {
+      "text": "Output counters the Suze Orman objection by specifically distinguishing variable annuities (which have 2-3% annual fees) from fixed indexed annuities (which have zero base fees) and noting that media critics typically reference variable annuity problems",
+      "passed": true,
+      "evidence": "Lines 87-89: 'What they're actually criticizing are **variable annuities** with 2-3% annual fees... They rarely distinguish between variable annuities and fixed/fixed indexed annuities'. Lines 104-109: 'she's specifically talking about variable annuities — the kind with 2-3% annual fees... what I'm recommending is a _fixed indexed_ annuity, which has _zero_ annual fees on the base contract'. The distinction is explicit and specific."
+    },
+    {
+      "text": "Output challenges the 4% withdrawal rule by referencing the concept of 'sequence of returns risk' by name and provides a specific numerical example showing how a 30-40% market drop in year 1 of retirement devastates a 4% withdrawal strategy even if markets recover",
+      "passed": true,
+      "evidence": "Lines 152-162: Explicit walkthrough with $500,000 portfolio, 30% market drop in year one to $350,000, 30% recovery to $455,000, minus $20,000 withdrawal = $435,000, losing $65,000 even with recovery. Line 161: 'That's called **sequence of returns risk**' — named explicitly. The numerical example clearly demonstrates how a 30% drop in year 1 devastates the 4% strategy even with market recovery."
+    },
+    {
+      "text": "Output coaches on using 'trial closes' or 'check-in questions' during the presentation to build incremental agreement and prevent objection avalanches — testing for buy-in after each concept before moving to the next",
+      "passed": true,
+      "evidence": "Lines 13-15: 'you didn't use **trial closes** during the presentation to surface and resolve concerns incrementally.' Lines 258-277: Detailed section 'Mistake #1: No Trial Closes During the Presentation' with four specific examples of trial close questions after each presentation section (income gap, FIA explanation, illustration, beneficiaries). Line 276: 'Each yes builds momentum. Each concern surfaces immediately and gets resolved before the next topic. You never let objections pile up.'"
+    },
+    {
+      "text": "Output diagnoses the root cause as insufficient discovery — the agent likely didn't uncover who influences the couple's financial decisions (the daughter, media personalities, friends) during fact-finding, which would have allowed pre-emptive inoculation",
+      "passed": true,
+      "evidence": "Lines 279-300: 'Mistake #2: Not Pre-Qualifying Third-Party Influencers During Fact-Finding' — explicitly diagnoses missing discovery questions. Lines 283-289 list specific questions that should have been asked: 'is there anyone else who influences your financial decisions?', 'Do you have any family members in the financial industry?', 'Where do you typically get financial information?' Lines 291-292: 'If you had uncovered the daughter in finance, the work buddy's opinions, and the wife's reliance on Suze Orman during Meeting #1, you could have **inoculated against each of these objections**'. Line 450: 'Uncover influencers during fact-finding so you can inoculate during presentation'."
+    },
+    {
+      "text": "Output provides a specific recovery strategy: recommends a handwritten note or personal follow-up within 48 hours, offers to include the daughter in finance in the next meeting, and provides a specific call script or email template",
+      "passed": true,
+      "evidence": "Lines 330-335: 'Step 1: Send a Handwritten Note Within 48 Hours' with a complete sample note template (lines 339-359). Lines 374-385: 'Step 3: Call to Schedule Meeting #3 — Include the Daughter' with a specific call script (lines 378-384). Line 354: 'I'd also love the opportunity to meet your daughter'. All three elements are present: handwritten note within 48 hours, including daughter, and specific scripts/templates."
+    },
+    {
+      "text": "Output references the concept that 'objections are buying signals' — meaning the couple is engaged and interested, not disinterested, and this is actually a recoverable situation",
+      "passed": true,
+      "evidence": "Lines 7-11: '**objections are buying signals.** Every single objection they raised means they were _engaged_ and _thinking_ about this decision. A truly disinterested couple would have said \"no thanks\" and walked you out.' Line 454: '**Remember that objections are buying signals** — silence is the real danger sign'. Line 447: 'You didn't lose this client — you just got caught off-guard.'"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.875
+  }
+}

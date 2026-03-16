@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output identifies the $17,000 surrender charge as a major red flag and calculates whether the new product's benefits would overcome that cost over a reasonable time horizon",
+      "passed": true,
+      "evidence": "RED FLAG #1 (lines 80-91) identifies $17,000 surrender charge and states 'The new product must provide benefits that exceed this $17,000 cost over the client's expected time horizon.' Step 5 (lines 356-360) performs breakeven calculation: 'if the new cap rate is 2% higher and the account value is ~$198,000 (after surrender), it would take many years to recover $17,000 in additional returns — and that assumes the higher cap rate persists.'"
+    },
+    {
+      "text": "Output explicitly warns about the replacement regulations that apply (state replacement forms, notification to existing carrier, comparison documentation) rather than just processing the sale",
+      "passed": true,
+      "evidence": "Section 4.1 (lines 182-207) details NAIC Model Regulation requirements including: 'Replacement Notice to Applicant', 'Comparison Form / Replacement Comparison' for side-by-side comparison, 'Agent's Replacement Statement', and 'Notify the existing insurer — You must send copies of the replacement forms and the new application to the existing insurance company within the required timeframe (typically within 5 business days).'"
+    },
+    {
+      "text": "Output questions whether a 71-year-old should be entering a new 7-10 year surrender period and discusses age-appropriate surrender period considerations",
+      "passed": true,
+      "evidence": "RED FLAG #2 (lines 94-103): 'If Margaret moves into a new annuity, she will almost certainly face a new 10-year (or similar) surrender period. At age 71, she would be 81 before she has penalty-free access to the full account value.' Also notes 'Life expectancy for a 71-year-old female is approximately 15-16 additional years' and 'She may need access to these funds for healthcare, long-term care, or other needs well before age 81.'"
+    },
+    {
+      "text": "Output performs or recommends a suitability analysis comparing her income ($2,100 SS + RMD income) against expenses ($4,200) to determine if she actually needs a different product or if the current one is adequate",
+      "passed": true,
+      "evidence": "Section 2.1 (lines 37-52) performs detailed income/expense analysis: '$4,200 monthly expenses, $2,100/month SS, $25,200/year shortfall, IRA RMDs ~$12,400/year (~$1,033/month), Remaining shortfall after RMDs: ~$1,067/month ($12,800/year).' Concludes 'Margaret likely needs to draw from her annuity, savings, or other sources to cover approximately $12,800/year — liquidity is essential for this client.'"
+    },
+    {
+      "text": "Output addresses the 'neighbor recommended it' element as a red flag — the recommendation should come from professional analysis, not informal advice, and the agent must independently determine suitability",
+      "passed": true,
+      "evidence": "RED FLAG #3 (lines 105-117): 'Margaret's motivation is based on her neighbor's recommendation, not an identified financial need or a professional analysis. This is a classic indicator of: Unsuitable motivation — the client doesn't have a clear understanding of why the switch would benefit her; Potential for confusion; Susceptibility to influence — particularly concerning with a 71-year-old widowed client, this raises suitability and potentially elder financial exploitation concerns.'"
+    },
+    {
+      "text": "Output discusses the alternative of waiting until the surrender period expires on the existing annuity (6 more years) rather than taking the $17,000 loss now",
+      "passed": true,
+      "evidence": "Section 9 item 1 (line 530): 'Keep the existing FIA — Let the surrender period expire in 6 years; reassess then.' Step 5 item 4 (lines 369-374): 'Are there less costly alternatives? For example: Wait 6 more years for the existing surrender period to expire; Use the 10% annual free withdrawal to gradually move money.'"
+    },
+    {
+      "text": "Output mentions that 'isn't performing well' for an FIA may be a misunderstanding — the 0% floor means no loss years, and the client may not understand how index crediting works, requiring education rather than replacement",
+      "passed": true,
+      "evidence": "RED FLAG #4 (lines 119-137): 'Fixed Indexed Annuities are not direct market investments. They provide: Principal protection (floor of 0% in most cases); Participation in index gains up to a cap rate; Guaranteed minimum values.' Asks 'Does she understand how her current product works? Is it actually \"underperforming,\" or is it performing as designed? A product delivering 3-5% annually with principal protection may be entirely appropriate for her risk profile.'"
+    },
+    {
+      "text": "Output warns against moving 100% of assets into a new annuity and recommends maintaining her $50,000 savings as liquid emergency funds",
+      "passed": true,
+      "evidence": "RED FLAG #6 (lines 154-163): 'Margaret wants to consolidate all her assets into a single annuity. This is almost never suitable because: It eliminates diversification; It creates extreme illiquidity risk; She needs liquid assets for emergencies.' Section 9 item 5 (lines 548-549): 'Ensure the $50,000 savings remains liquid and is not committed to any annuity or long-term product.'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

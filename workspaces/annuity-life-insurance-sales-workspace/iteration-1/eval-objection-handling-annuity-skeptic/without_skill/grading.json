@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output addresses each of the four specific objections individually with distinct response strategies rather than a single generic 'how to handle objections' answer",
+      "passed": true,
+      "evidence": "Output has four clearly separate sections: 'Objection #1: My buddy at work told me annuities are a scam' (lines 47-101), 'Objection #2: I saw Suze Orman say never buy an annuity' (lines 105-153), 'Objection #3: Why would I lock my money up for 10 years' (lines 156-218), 'Objection #4: We need to think about it and talk to our daughter' (lines 221-267). Each has distinct word-for-word responses and tailored strategies."
+    },
+    {
+      "text": "Output uses an acknowledge-empathize-redirect (or similar named framework) structure for each objection response rather than just arguing back with facts",
+      "passed": true,
+      "evidence": "Output presents a named 4-step 'Validate-Clarify-Educate-Reconnect' framework (lines 407-414) and also references 'Feel, Felt, Found' framework (lines 297-303). Each individual objection response follows this pattern: validates the concern first ('I appreciate you bringing that up'), then educates with facts, then reconnects to their situation."
+    },
+    {
+      "text": "Output specifically counters the 'insurance company keeps your money when you die' myth by explaining death benefit provisions, beneficiary designations, and period-certain/cash-refund options",
+      "passed": false,
+      "evidence": "Output explains death benefit provisions (lines 77-81: 'your full account value goes directly to your beneficiary') and beneficiary designations (lines 79-80: '[Wife's name], that would be you, or your children, or whoever you designate'). However, the output does NOT mention period-certain or cash-refund options by name. These specific annuity payout structures are absent from the response."
+    },
+    {
+      "text": "Output addresses the Suze Orman reference by distinguishing between types of annuities (variable vs fixed indexed) and explaining that media critics often conflate different products",
+      "passed": false,
+      "evidence": "Output addresses the Suze Orman objection (lines 105-153) by contrasting general TV advice with personalized analysis and noting 'she's right that some annuities aren't great for some people.' However, the output does NOT explicitly distinguish between variable annuities and fixed indexed annuities, nor does it explain that media critics conflate different products. The distinction between annuity types is missing."
+    },
+    {
+      "text": "Output challenges the 4% withdrawal rule by explaining sequence of returns risk, explaining that 4% is not guaranteed, and contrasting it with guaranteed lifetime income from an annuity",
+      "passed": true,
+      "evidence": "All three elements present: (1) Sequence of returns risk at lines 181-186: 'the 4% rule has a fatal flaw called sequence of returns risk'; (2) 4% not guaranteed at lines 176-179: 'the safe withdrawal rate might actually be closer to 3% or even lower'; (3) Guaranteed lifetime income at lines 193-197: 'the income rider guarantees you a specific income amount for life...You literally cannot run out of money.'"
+    },
+    {
+      "text": "Output provides tactical advice for handling the 'need to talk to daughter in finance' objection including offering to speak with the daughter directly or providing educational materials",
+      "passed": true,
+      "evidence": "Lines 243-248 offer a one-page summary as educational material. Lines 249-250 offer direct contact: 'If your daughter has questions or wants to get on a call with us, I'd welcome that.' Lines 359-365 further detail: 'Would it be easiest to do a three-way call, or would she prefer to reach out directly? I'll send over the summary in advance.'"
+    },
+    {
+      "text": "Output diagnoses what went wrong in the meeting structure — likely insufficient discovery/fact-finding leading to weak emotional buy-in before the presentation",
+      "passed": true,
+      "evidence": "Lines 29-34: 'You May Not Have Anchored the Recommendation to Their Specific Problem — If the couple can't connect the annuity recommendation to the specific retirement income gap you identified in the first meeting, every objection sounds reasonable. The product needs to be positioned as the solution to their problem, not as a product you're selling.' Lines 289-295 reinforce: re-present the income gap analysis to re-anchor the conversation."
+    },
+    {
+      "text": "Output coaches on preventing objection avalanches through techniques like trial closes during the presentation, checking in after each concept, or building agreement incrementally",
+      "passed": false,
+      "evidence": "Output addresses managing objections after they arise (lines 305-308: isolating each objection; lines 310-316: concern list technique) and pre-framing objections before the meeting (lines 274-280). However, it does not coach on trial closes during the presentation, checking in after each concept, or building agreement incrementally. The techniques are reactive or pre-meeting, not mid-presentation incremental agreement-building."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 3,
+    "total": 8,
+    "pass_rate": 0.625
+  }
+}

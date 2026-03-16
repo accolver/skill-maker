@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output explicitly uses the 'Paychecks and Playchecks' framework or concept — distinguishing between guaranteed income (paychecks) for essential expenses and growth assets (playchecks) for discretionary spending",
+      "passed": true,
+      "evidence": "Framework used by name throughout. Line 354: '### The Paychecks & Playchecks Framework' with table mapping 'Paychecks (guaranteed income floor)' to FIA/SPIA and 'Playchecks (growth & discretionary)' to diversified portfolio. Line 314: 'This is the \"paycheck\" portion...what's left over for growth (\"playchecks\") and liquidity?' Line 694: 'textbook case for the Paychecks & Playchecks approach.'"
+    },
+    {
+      "text": "Output references the concept of 'mortality credits' when explaining why annuities can provide higher payout rates than self-managed withdrawal strategies",
+      "passed": true,
+      "evidence": "Line 448: 'The mortality credits make this mathematically optimal for maximizing income' in the SPIA section, directly explaining why annuity payout rates exceed self-managed withdrawals."
+    },
+    {
+      "text": "Output uses a specific product decision tree or matching framework that maps each client need to a specific product type (e.g., income gap → FIA with income rider, safe growth → MYGA, LTC concern → hybrid life/LTC) rather than listing products generically",
+      "passed": true,
+      "evidence": "Table at lines 356-361 maps four purposes to specific products with dollar allocations. Then detailed sections: income gap → FIA with GLWB (lines 365-395), safe money/bridge → MYGA (lines 396-412), LTC concern → Hybrid life/LTC (lines 413-439), supplemental income → SPIA (lines 441-449). Each maps a specific client need to a specific product with rationale."
+    },
+    {
+      "text": "Output explicitly warns to keep annuity allocation below 50-60% of liquid assets and identifies the $45K savings as an untouchable emergency/liquidity reserve",
+      "passed": true,
+      "evidence": "Line 358: Paychecks (annuity) allocation is '45-55% of investable assets' — within the 50-60% ceiling. Lines 140-141: '$45,000 in savings — is that your emergency fund? Do you consider that off-limits?' Line 360: Emergency/Liquidity bucket at '10-15% of investable assets' includes 'Savings + MYGA or short-term CDs' at '$100,000-$155,000', treating the $45K savings as part of the liquidity reserve separate from annuity allocation."
+    },
+    {
+      "text": "Output structures the meeting plan as a two-meeting process: first meeting for discovery/fact-finding only, second meeting for presentation — and explicitly warns against presenting products in the first meeting",
+      "passed": true,
+      "evidence": "Line 483: 'Meeting Agenda (First Visit — Discovery Only)'. Lines 351-352: 'Do NOT present products in the first meeting — use this to guide your thinking and preparation.' Line 519: 'Do NOT name any specific product or carrier in this meeting.' Line 521: 'Do NOT try to close on the first visit.' Lines 602-652: 'Phase 7: Second Meeting Preparation Framework' with full second meeting presentation structure."
+    },
+    {
+      "text": "Output uses the A-E-R (Acknowledge-Empathize-Redirect) framework or references it by name when coaching how to address Robert's 2008 market fear during the meeting",
+      "passed": false,
+      "evidence": "The output uses a Validate-Educate-Solve pattern (lines 538-543) and an Empathize-Quantify-Solve pattern (lines 547-553) for handling emotional objections, but never references 'A-E-R', 'Acknowledge-Empathize-Redirect', or that specific framework by name."
+    },
+    {
+      "text": "Output mentions 'Retirement Alpha' — the concept that using annuities optimally generates additional return beyond what a portfolio alone can achieve",
+      "passed": false,
+      "evidence": "No mention of 'Retirement Alpha' or the concept by that name anywhere in the 713-line output."
+    },
+    {
+      "text": "Output references the 'Happy Factor' — research showing retirees with guaranteed income are measurably happier and more confident in retirement",
+      "passed": false,
+      "evidence": "No mention of 'Happy Factor' or research about retiree happiness with guaranteed income anywhere in the output."
+    },
+    {
+      "text": "Output includes specific dollar amounts in the income gap calculation: identifies the monthly gap between $6,800 expenses and combined SS benefits (e.g., $3,300-$4,900 gap depending on claiming scenario), and recommends the FIA income rider amount needed to fill it",
+      "passed": true,
+      "evidence": "Three detailed income gap scenarios with specific dollar amounts: Current gap $4,717/mo (line 274), gap when Carol stops working $4,900/mo (line 290), gap with both SS $3,300/mo (line 304). FIA recommendation specifies $450K-$500K premium producing ~$2,667-$2,917/mo guaranteed income (lines 383-386), combined with SS for ~$6,300/mo vs $6,800 expenses (line 387)."
+    },
+    {
+      "text": "Output mentions the QLAC (Qualified Longevity Annuity Contract) option for Robert's 401(k) as a way to defer RMDs on a portion of qualified money while providing longevity insurance",
+      "passed": false,
+      "evidence": "No mention of 'QLAC' or 'Qualified Longevity Annuity Contract' anywhere in the output. RMDs are mentioned at line 226 and line 685, but only in the context of Roth conversions, not QLAC."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 4,
+    "total": 10,
+    "pass_rate": 0.6
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output explicitly names and uses the A-E-R (Acknowledge-Empathize-Redirect) framework by name for structuring each objection response",
+      "passed": true,
+      "evidence": "Line 46: 'The A-E-R (Acknowledge-Empathize-Redirect) framework is the standard method for handling every single objection.' Lines 66-67: 'word-for-word scripts using the A-E-R (Acknowledge-Empathize-Redirect) framework for each objection.' All four objection responses are explicitly structured with labeled [Acknowledge], [Empathize], [Redirect] steps (lines 79-117, 129-153, 170-218, 237-263). Line 362 provides a summary table with A-E-R columns."
+    },
+    {
+      "text": "Output responds to the 'keeps your money when you die' objection by specifically naming period-certain options (10-year certain, 20-year certain), cash refund options, and installment refund options as death benefit protections",
+      "passed": true,
+      "evidence": "Lines 92-95: 'period-certain option — for example, a 10-year certain or 20-year certain payout.' Lines 98-101: 'cash refund option. This guarantees that if you pass away before receiving back your full original premium, your beneficiary gets a lump-sum check for the difference.' Lines 103-105: 'installment refund option, which works the same way but pays the remaining amount to your beneficiary in installments rather than a lump sum.' All three named explicitly."
+    },
+    {
+      "text": "Output counters the Suze Orman objection by specifically distinguishing variable annuities (which have 2-3% annual fees) from fixed indexed annuities (which have zero base fees)",
+      "passed": true,
+      "evidence": "Lines 137-139: 'she's primarily talking about variable annuities — which are investment products that carry high fees, often 2-3% per year, and where you can actually lose money in the market.' Lines 141-143: 'What I'm recommending for you is a Fixed Indexed Annuity, which is a completely different product. It has zero annual fees on the base contract.' Both product types named with specific fee structures."
+    },
+    {
+      "text": "Output challenges the 4% withdrawal rule by referencing 'sequence of returns risk' by name and provides a specific numerical example",
+      "passed": true,
+      "evidence": "Lines 189-191: 'That's sequence of returns risk, and it has destroyed more retirement plans than any other single factor.' Specific numerical example at lines 184-191: starts with $500,000, market drops 30% to $350,000, withdraw $20,000 leaving $330,000, market recovers 30% to $429,000, withdraw another $20,000 leaving $409,000 — demonstrating the portfolio never recovers to $500,000."
+    },
+    {
+      "text": "Output coaches on using 'trial closes' or 'check-in questions' during the presentation to build incremental agreement",
+      "passed": true,
+      "evidence": "Lines 14-17: 'Trial closes are check-in questions you ask throughout your presentation to build incremental agreement and surface concerns one at a time.' Lines 18-20 provide specific examples: 'Does that make sense so far?', 'How does that sound to you?', 'Can you see how that would work in your situation?' Lines 290-308 provide a detailed cadence of trial closes after each presentation concept. Trial closes also appear after each objection response (lines 119-121, 155-158, 220-223)."
+    },
+    {
+      "text": "Output diagnoses the root cause as insufficient discovery — the agent likely didn't uncover who influences the couple's financial decisions during fact-finding",
+      "passed": true,
+      "evidence": "Lines 30-42: Section titled 'You Didn't Uncover Their Influencers During Fact-Finding' states these are 'third-party influencers that should have been identified in your first meeting during the discovery/fact-finding phase. Specifically, question #10 in the fact-finding framework: \"Who else influences your financial decisions?\"' Lines 274-279 reinforce: 'During your first meeting fact-find, you should have asked: \"Who else will be involved in this decision?\"'"
+    },
+    {
+      "text": "Output provides a specific recovery strategy: recommends a handwritten note or personal follow-up within 48 hours, offers to include the daughter in the next meeting",
+      "passed": true,
+      "evidence": "Lines 324-341: 'Send a handwritten note within 48 hours. Not an email — a physical, handwritten note. This is your 48-hour handwritten note recovery strategy.' Includes exact text of the note. Lines 335-337: 'I'd also welcome the opportunity to meet with your daughter — I think she'd appreciate seeing the specifics of what we're considering.' Lines 248-256 in the objection response also explicitly offer to include the daughter: 'I'd actually love to include your daughter in our next conversation... Would you be open to scheduling our next meeting and inviting her?'"
+    },
+    {
+      "text": "Output references that 'objections are buying signals'",
+      "passed": true,
+      "evidence": "Line 56: 'Objections are buying signals.' (bold, exact phrase). Lines 56-59 elaborate: 'Every one of those objections — every single one — means the couple is engaged and thinking about this seriously. A couple that isn't interested doesn't argue.' Line 375 repeats: 'Objections are buying signals — every objection this couple raised means they were engaged and seriously considering this.'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

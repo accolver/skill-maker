@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output addresses each of the four specific objections individually with distinct response strategies rather than a single generic 'how to handle objections' answer",
+      "passed": true,
+      "evidence": "Lines 91-138 address objection 1 (buddy says scam) with word-for-word scripts about variable vs FIA distinction and death benefit. Lines 142-181 address objection 2 (Suze Orman) with media critic reframing. Lines 185-242 address objection 3 (4% rule) with sequence of returns math and paycheck/playcheck framework. Lines 246-313 address objection 4 (daughter in finance) with branching scripts for fee-based vs non-advisor daughters. Each has a distinct 'Why this works' section."
+    },
+    {
+      "text": "Output uses an acknowledge-empathize-redirect (or similar named framework) structure for each objection response rather than just arguing back with facts",
+      "passed": true,
+      "evidence": "Lines 26-29 explicitly name 'The A-E-R framework (Acknowledge, Empathize, Redirect)' and explain it requires asking a question after empathizing. Lines 489-496 provide a quick-reference table mapping A-E-R steps to all four objections (e.g., Acknowledge: 'Your friend's concern is one I hear often', Empathize: 'There IS a lot of confusing information out there', Redirect: 'May I ask — which type of annuity was he referring to?')."
+    },
+    {
+      "text": "Output specifically counters the 'insurance company keeps your money when you die' myth by explaining death benefit provisions, beneficiary designations, and period-certain/cash-refund options",
+      "passed": true,
+      "evidence": "Lines 117-128: 'every remaining dollar in this contract goes to your beneficiaries — your children, your grandchildren, whoever you name. The insurance company does NOT keep your money. That's written into the contract.' Distinguishes the 'life only SPIA' (where payments stop at death) from the FIA which 'has a full death benefit equal to the remaining account value.' Beneficiary designations explicitly covered at lines 119-120."
+    },
+    {
+      "text": "Output addresses the Suze Orman reference by distinguishing between types of annuities (variable vs fixed indexed) and explaining that media critics often conflate different products",
+      "passed": true,
+      "evidence": "Lines 152-156: 'Suze Orman's criticism is primarily aimed at variable annuities — the ones with 2-3% annual fees, complicated sub-accounts, and surrender charges on top of all that.' Lines 158-160: 'the fixed indexed annuity has zero annual fees on the base contract.' Lines 377-384: 'TV personalities and well-meaning friends often criticize all annuities as if they're one product. They're not.'"
+    },
+    {
+      "text": "Output challenges the 4% withdrawal rule by explaining sequence of returns risk, explaining that 4% is not guaranteed, and contrasting it with guaranteed lifetime income from an annuity",
+      "passed": true,
+      "evidence": "Lines 196-205: '4% rule has a failure rate of about 5-10%... 5-10 of them will run out of money before they die.' Lines 209-217 provide concrete sequence of returns risk example: '$500,000... market drops 30%... $330,000. Even if the market bounces back 30%... $429,000, not $500,000. That's called sequence of returns risk.' Lines 219-222: 'regardless of what the market does... your guaranteed income payment stays exactly the same. Every single month. For the rest of your life.'"
+    },
+    {
+      "text": "Output provides tactical advice for handling the 'need to talk to daughter in finance' objection including offering to speak with the daughter directly or providing educational materials",
+      "passed": true,
+      "evidence": "Lines 267-277: 'I'd actually love the opportunity to speak with her directly... Would you be comfortable giving me her contact information, or having her call me? I'd be happy to walk through the illustration with her.' Lines 289-294: 'let me put together a simple summary — the problem we identified, the solution, how it works, and the guarantees — that you can share with her.' Also provides branching scripts for daughter-is-advisor vs daughter-is-not-advisor scenarios."
+    },
+    {
+      "text": "Output diagnoses what went wrong in the meeting structure — likely insufficient discovery/fact-finding leading to weak emotional buy-in before the presentation",
+      "passed": true,
+      "evidence": "Lines 14-46 list four specific diagnostic mistakes. Lines 373-376: 'If you suspected anti-annuity bias going in (which you should have identified during the first meeting's discovery phase), you should have inoculated before presenting.' Lines 387-396 list discovery questions that should have been asked ('Who else have you spoken with about your retirement plans?'). Lines 399-410 address surfacing objections before the presentation via pre-commitment questions."
+    },
+    {
+      "text": "Output coaches on preventing objection avalanches through techniques like trial closes during the presentation, checking in after each concept, or building agreement incrementally",
+      "passed": true,
+      "evidence": "Lines 399-410: pre-commitment question technique ('is there any reason you wouldn't want to move forward?') to surface hidden objections early. Lines 413-422: 'can we take them one at a time?... get confirmation before moving to the next.' Lines 475-479: Phase 5 of meeting structure — 'Handle one at a time, get confirmation before moving to the next.' Lines 5-10 diagnose the 'stacked objection' pattern and the escalation loop with couples."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

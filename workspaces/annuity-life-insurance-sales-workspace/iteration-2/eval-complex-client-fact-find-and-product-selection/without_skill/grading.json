@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output explicitly uses the 'Paychecks and Playchecks' framework or concept — distinguishing between guaranteed income (paychecks) for essential expenses and growth assets (playchecks) for discretionary spending",
+      "passed": false,
+      "evidence": "Output uses a 'Bucket Strategy' with 'Income Floor' and 'Growth Bucket' but never mentions or uses the 'Paychecks and Playchecks' framework by name or concept. The bucket strategy is a generic income floor approach, not the specific Paychecks/Playchecks distinction between essential vs discretionary spending."
+    },
+    {
+      "text": "Output references the concept of 'mortality credits' when explaining why annuities can provide higher payout rates than self-managed withdrawal strategies",
+      "passed": false,
+      "evidence": "No mention of 'mortality credits' anywhere in the output. The output explains annuity benefits in terms of guarantees and market protection but never explains the pooling/mortality credit mechanism that enables higher payout rates."
+    },
+    {
+      "text": "Output uses a specific product decision tree or matching framework that maps each client need to a specific product type (e.g., income gap → FIA with income rider, safe growth → MYGA, LTC concern → hybrid life/LTC) rather than listing products generically",
+      "passed": true,
+      "evidence": "Lines 208-214 provide a structured table mapping each layer/need to specific products: 'Guaranteed Lifetime Income' → FIA with GLWB, 'Emergency & Short-Term' → high-yield savings/money market/CDs, 'Growth Bucket' → diversified portfolio, 'Long-Term Care' → Hybrid Life/LTC, 'Survivor Income' → Term or IUL. Each product section (A through E) further details why that product maps to the specific client need."
+    },
+    {
+      "text": "Output explicitly warns to keep annuity allocation below 50-60% of liquid assets and identifies the $45K savings as an untouchable emergency/liquidity reserve",
+      "passed": false,
+      "evidence": "The output mentions '40-50%' in an objection handling response (line 467-470) but this is reactive, not a proactive allocation warning/rule. There is no explicit warning about a 50-60% cap. The $45K savings is listed as an asset (line 19) but is never explicitly identified as an untouchable emergency/liquidity reserve. The emergency bucket (line 211) suggests $80K-$100K but doesn't single out the $45K savings as untouchable."
+    },
+    {
+      "text": "Output structures the meeting plan as a two-meeting process: first meeting for discovery/fact-finding only, second meeting for presentation — and explicitly warns against presenting products in the first meeting",
+      "passed": false,
+      "evidence": "The output structures a SINGLE 90-minute meeting with four phases including 'Solution Overview' (Phase 3, lines 436-447) where conceptual solutions and bucket strategy details are presented. While it schedules a follow-up meeting (line 455-458) for 'specific product recommendations,' the first meeting already includes education and solution framing — it is NOT discovery/fact-finding only. Line 447 says 'Do NOT get into specific product names yet' but this is about avoiding product names in Phase 3, not about avoiding all solution presentation in the first meeting."
+    },
+    {
+      "text": "Output uses the A-E-R (Acknowledge-Empathize-Redirect) framework or references it by name when coaching how to address Robert's 2008 market fear during the meeting",
+      "passed": false,
+      "evidence": "No mention of A-E-R, Acknowledge-Empathize-Redirect, or any named objection-handling framework. The objection handling section (Part 5) provides scripted responses but does not reference or use the A-E-R framework by name or structure."
+    },
+    {
+      "text": "Output mentions 'Retirement Alpha' — the concept that using annuities optimally generates additional return beyond what a portfolio alone can achieve",
+      "passed": false,
+      "evidence": "No mention of 'Retirement Alpha' anywhere in the output. The output discusses annuity benefits in terms of guarantees and income but never references the academic concept of Retirement Alpha."
+    },
+    {
+      "text": "Output references the 'Happy Factor' — research showing retirees with guaranteed income are measurably happier and more confident in retirement",
+      "passed": false,
+      "evidence": "No mention of 'Happy Factor' or research about retiree happiness with guaranteed income anywhere in the output."
+    },
+    {
+      "text": "Output includes specific dollar amounts in the income gap calculation: identifies the monthly gap between $6,800 expenses and combined SS benefits (e.g., $3,300-$4,900 gap depending on claiming scenario), and recommends the FIA income rider amount needed to fill it",
+      "passed": true,
+      "evidence": "Lines 61-63 calculate combined SS at both FRA as $3,500/month with a $3,300/month gap ($39,600/year). Lines 46-48 show early claiming scenario with $2,817/month shortfall. Lines 57 shows $4,400/month gap at Robert's FRA only. Lines 240-243 calculate FIA income rider producing $2,167-$2,500/month from $400K-$500K premium, and lines 242-243 show combined guaranteed income of $5,667-$6,000/month vs $6,800 need."
+    },
+    {
+      "text": "Output mentions the QLAC (Qualified Longevity Annuity Contract) option for Robert's 401(k) as a way to defer RMDs on a portion of qualified money while providing longevity insurance",
+      "passed": false,
+      "evidence": "No mention of QLAC or Qualified Longevity Annuity Contract anywhere in the output. RMDs are mentioned (lines 107-108) but only in the context of Roth conversion strategy, not QLAC."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 8,
+    "total": 10,
+    "pass_rate": 0.2
+  }
+}

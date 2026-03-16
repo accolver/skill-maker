@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "objection-handling-annuity-skeptic",
+  "prompt": "I'm an insurance agent and I just had a really tough second meeting with a client couple. I presented a Fixed Indexed Annuity with an income rider to solve their retirement income gap, and they hit me with every objection in the book. Here's what happened: The husband said 'my buddy at work told me annuities are a scam and the insurance company keeps your money when you die.' The wife said 'I saw Suze Orman say never buy an annuity.' Then the husband followed up with 'why would I lock my money up for 10 years when I can just keep it in my brokerage account and withdraw 4% per year?' The wife ended by saying 'we need to think about it and talk to our daughter who works in finance.' I didn't know how to respond to all of these at once and I think I lost them. Help me understand what went wrong and give me specific word-for-word responses I can use if I get them back for a follow-up. Also tell me what I should have done differently in the meeting.",
+  "assertions": [
+    "Output addresses each of the four specific objections individually with distinct response strategies rather than a single generic 'how to handle objections' answer",
+    "Output uses an acknowledge-empathize-redirect (or similar named framework) structure for each objection response rather than just arguing back with facts",
+    "Output specifically counters the 'insurance company keeps your money when you die' myth by explaining death benefit provisions, beneficiary designations, and period-certain/cash-refund options",
+    "Output addresses the Suze Orman reference by distinguishing between types of annuities (variable vs fixed indexed) and explaining that media critics often conflate different products",
+    "Output challenges the 4% withdrawal rule by explaining sequence of returns risk, explaining that 4% is not guaranteed, and contrasting it with guaranteed lifetime income from an annuity",
+    "Output provides tactical advice for handling the 'need to talk to daughter in finance' objection including offering to speak with the daughter directly or providing educational materials",
+    "Output diagnoses what went wrong in the meeting structure — likely insufficient discovery/fact-finding leading to weak emotional buy-in before the presentation",
+    "Output coaches on preventing objection avalanches through techniques like trial closes during the presentation, checking in after each concept, or building agreement incrementally"
+  ]
+}

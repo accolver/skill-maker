@@ -1,0 +1,17 @@
+{
+  "eval_id": 1,
+  "eval_name": "complex-client-fact-find-and-product-selection",
+  "prompt": "I'm a licensed insurance agent preparing for a meeting tomorrow with a new prospect. Here's what I know so far: The client is a 62-year-old married man named Robert. His wife Carol is 59. He just retired from a corporate job with no pension. Carol still works part-time earning $25K/year and plans to stop at 62. They have $780,000 in his 401(k), $120,000 in her IRA, $85,000 in a joint brokerage account, and $45,000 in savings. Their home is worth $450K with $110K remaining on the mortgage. Monthly expenses are about $6,800. Robert can claim $2,400/month from Social Security at 66 or $1,900 now. Carol's SS benefit would be $1,100 at her full retirement age. He mentioned on the phone that he's 'nervous about the market' after losing 30% in 2008 and 'doesn't want to go through that again.' He also said his mother needed nursing home care for 4 years and it 'wiped out everything.' Help me prepare for this meeting — what questions should I ask, what's my initial analysis of their situation, and what products might be appropriate? I want a full game plan.",
+  "assertions": [
+    "Output includes specific fact-finding questions organized by category (personal, income, assets, expenses, risk tolerance, goals) rather than a generic list",
+    "Output calculates or frames an income gap analysis showing monthly expenses ($6,800) minus guaranteed income sources (Social Security amounts) to identify the gap that needs to be filled",
+    "Output recommends completing full fact-finding BEFORE discussing products and warns against jumping to solutions in the first meeting",
+    "Output addresses the long-term care concern explicitly with specific product suggestions (hybrid life/LTC policy, annuity with LTC rider, or standalone LTC) rather than ignoring it",
+    "Output recommends specific annuity types matched to needs (e.g., FIA with income rider for income gap, MYGA for safe accumulation) rather than generic 'consider an annuity'",
+    "Output discusses sequence of returns risk specifically in context of Robert's 2008 experience and why that matters now that he's retired with no pension",
+    "Output mentions suitability requirements and warns about not putting too much into annuities — maintaining liquidity with the $45K savings and not recommending 100% of assets go to annuities",
+    "Output addresses the Social Security timing decision (claiming at 62 now vs waiting until 66/67/70) as a key planning element",
+    "Output includes a presentation strategy or meeting structure (not just a list of products) with advice on how to run the second meeting",
+    "Output mentions the need to include Carol (the spouse) in the planning process and addresses her separate financial situation"
+  ]
+}

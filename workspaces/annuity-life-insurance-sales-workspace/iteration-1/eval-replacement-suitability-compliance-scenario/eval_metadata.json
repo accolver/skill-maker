@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "replacement-suitability-compliance-scenario",
+  "prompt": "I'm an insurance agent and a 71-year-old client named Margaret came to me wanting to move her money out of an existing annuity. She has a Fixed Indexed Annuity she bought 4 years ago with a 10-year surrender period. The current account value is $215,000 and the surrender value is about $198,000 (she'd lose roughly $17,000 in surrender charges). She says the annuity 'isn't performing well' and her neighbor told her about a new product with a higher cap rate. She also mentioned she has $340,000 in an IRA that she's taking RMDs from, a $50,000 savings account, and Social Security of $2,100/month. Her monthly expenses are about $4,200. She's single (widowed). She wants me to move everything into a new annuity. What should I do? Is this a suitable replacement? What are my compliance obligations? Walk me through the entire process and tell me what red flags I should watch for.",
+  "assertions": [
+    "Output identifies the $17,000 surrender charge as a major red flag and calculates whether the new product's benefits would overcome that cost over a reasonable time horizon",
+    "Output explicitly warns about the replacement regulations that apply (state replacement forms, notification to existing carrier, comparison documentation) rather than just processing the sale",
+    "Output questions whether a 71-year-old should be entering a new 7-10 year surrender period and discusses age-appropriate surrender period considerations",
+    "Output performs or recommends a suitability analysis comparing her income ($2,100 SS + RMD income) against expenses ($4,200) to determine if she actually needs a different product or if the current one is adequate",
+    "Output addresses the 'neighbor recommended it' element as a red flag — the recommendation should come from professional analysis, not informal advice, and the agent must independently determine suitability",
+    "Output discusses the alternative of waiting until the surrender period expires on the existing annuity (6 more years) rather than taking the $17,000 loss now",
+    "Output mentions that 'isn't performing well' for an FIA may be a misunderstanding — the 0% floor means no loss years, and the client may not understand how index crediting works, requiring education rather than replacement",
+    "Output warns against moving 100% of assets into a new annuity and recommends maintaining her $50,000 savings as liquid emergency funds"
+  ]
+}

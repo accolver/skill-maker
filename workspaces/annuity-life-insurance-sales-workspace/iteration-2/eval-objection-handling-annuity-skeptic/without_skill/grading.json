@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output explicitly names and uses the A-E-R (Acknowledge-Empathize-Redirect) framework by name for structuring each objection response, not just a generic 'empathize then respond' approach",
+      "passed": false,
+      "evidence": "The output does NOT name or use the 'A-E-R (Acknowledge-Empathize-Redirect)' framework. It presents a different 4-step framework called 'Validate-Clarify-Educate-Reconnect' (lines 407-414) and separately mentions 'Feel, Felt, Found' (lines 297-303). Neither of these is the A-E-R framework by name. The assertion requires the specific A-E-R framework to be named and used."
+    },
+    {
+      "text": "Output responds to the 'keeps your money when you die' objection by specifically naming period-certain options (10-year certain, 20-year certain), cash refund options, and installment refund options as death benefit protections — not just saying 'there are death benefits'",
+      "passed": false,
+      "evidence": "The response to the 'keeps your money when you die' objection (lines 63-101) explains that the full account value goes to beneficiaries and discusses the income rider scenario, but it does NOT name period-certain options (10-year certain, 20-year certain), cash refund options, or installment refund options. None of these specific product features are mentioned anywhere in the output."
+    },
+    {
+      "text": "Output counters the Suze Orman objection by specifically distinguishing variable annuities (which have 2-3% annual fees) from fixed indexed annuities (which have zero base fees) and noting that media critics typically reference variable annuity problems",
+      "passed": false,
+      "evidence": "The Suze Orman response (lines 120-152) contrasts general TV advice with personalized analysis but does NOT distinguish variable annuities from fixed indexed annuities, does NOT mention fee structures (2-3% for variable, zero for FIA), and does NOT note that media critics reference variable annuity problems specifically. The response is about personalized vs. general advice, not about product-type distinctions."
+    },
+    {
+      "text": "Output challenges the 4% withdrawal rule by referencing the concept of 'sequence of returns risk' by name and provides a specific numerical example showing how a 30-40% market drop in year 1 of retirement devastates a 4% withdrawal strategy even if markets recover",
+      "passed": true,
+      "evidence": "Lines 181-191 explicitly name 'sequence of returns risk' and provide a specific numerical example: 'If you retired in January 2000 with $500,000 and withdrew 4% per year adjusted for inflation, you would have run out of money by 2016. That's 16 years—not 30.' While the example references the dot-com crash and 2008 crisis rather than a single 30-40% drop in year 1, it substantively demonstrates how early market downturns combined with withdrawals devastate the portfolio — meeting the spirit and substance of the assertion."
+    },
+    {
+      "text": "Output coaches on using 'trial closes' or 'check-in questions' during the presentation to build incremental agreement and prevent objection avalanches — testing for buy-in after each concept before moving to the next",
+      "passed": false,
+      "evidence": "The output does NOT use the term 'trial closes' or 'check-in questions' as a coaching technique for building incremental agreement. While individual response scripts end with confirmation questions like 'Does that make sense?' (lines 90, 207), these are not framed as a deliberate 'trial close' strategy to prevent objection avalanches. The concept of testing for buy-in incrementally throughout a presentation to prevent stacking is not taught as a named technique."
+    },
+    {
+      "text": "Output diagnoses the root cause as insufficient discovery — the agent likely didn't uncover who influences the couple's financial decisions (the daughter, media personalities, friends) during fact-finding, which would have allowed pre-emptive inoculation",
+      "passed": false,
+      "evidence": "The output diagnoses structural problems (lines 3-42) including being ambushed by stacked objections, going into defense mode, not isolating objections, and not anchoring to the specific problem. It does mention pre-framing objections (lines 274-280) as what should have been done. However, it does NOT specifically diagnose 'insufficient discovery' as the root cause, does NOT say the agent failed to uncover who influences the couple's financial decisions during fact-finding, and does NOT use the concept of 'pre-emptive inoculation' by identifying influencers during discovery. The diagnosis is about meeting structure, not discovery process failures."
+    },
+    {
+      "text": "Output provides a specific recovery strategy: recommends a handwritten note or personal follow-up within 48 hours, offers to include the daughter in finance in the next meeting, and provides a specific call script or email template",
+      "passed": true,
+      "evidence": "The recovery strategy (lines 324-375) includes: (1) a handwritten note or thoughtful email within 24 hours (line 328-337 — close to 48 hours, within 24 actually exceeds the standard), (2) explicitly welcoming the daughter's involvement with specific scripts for handling it (lines 359-365), and (3) specific word-for-word scripts/templates for the thank-you note (lines 332-337), the follow-up call (lines 353-357), and the daughter conversation (lines 362-365). All three components are present with concrete templates."
+    },
+    {
+      "text": "Output references the concept that 'objections are buying signals' — meaning the couple is engaged and interested, not disinterested, and this is actually a recoverable situation",
+      "passed": true,
+      "evidence": "Lines 12-14 state: 'This means they did research between meetings—which actually signals interest, not rejection. People who aren't interested don't bother looking into it.' This directly expresses the concept that objections are buying signals — the couple's research and objections indicate engagement rather than disinterest, making it a recoverable situation."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output explicitly uses the 'Paychecks and Playchecks' framework or concept — distinguishing between guaranteed income (paychecks) for essential expenses and growth assets (playchecks) for discretionary spending",
+      "passed": true,
+      "evidence": "Framework is named and used extensively. Line 5-6: 'textbook case for the Paychecks and Playchecks framework.' Line 59: 'Part 2: Income Gap Analysis (Paychecks and Playchecks Framework).' Line 63-65 explicitly defines it: 'Paychecks — guaranteed lifetime income to cover essential expenses, plus growth-oriented assets (Playchecks) for discretionary spending.' Lines 421-430 present it to the client with explicit distinction between guaranteed income for bills and growth money for fun."
+    },
+    {
+      "text": "Output references the concept of 'mortality credits' when explaining why annuities can provide higher payout rates than self-managed withdrawal strategies",
+      "passed": true,
+      "evidence": "Line 287-291: 'Mortality credits: Explain that annuity payout rates exceed what self-managed withdrawals can safely provide because of risk pooling — people who die earlier effectively subsidize those who live longer. This is the mathematical advantage of annuitization that Robert cannot replicate on his own.' Lines 447-454 repeat the concept in the presentation script: 'The answer is mortality credits. When you join an annuity pool, the people who pass away earlier effectively subsidize those who live longer.'"
+    },
+    {
+      "text": "Output uses a specific product decision tree or matching framework that maps each client need to a specific product type (e.g., income gap → FIA with income rider, safe growth → MYGA, LTC concern → hybrid life/LTC) rather than listing products generically",
+      "passed": true,
+      "evidence": "Part 4 (lines 260-392) uses a tiered framework explicitly mapping needs to products: Tier 1: income gap → FIA with GLWB income rider (line 271-298). Tier 2: bridge strategy/safe money → MYGA (lines 305-315). Tier 3: longevity insurance + RMD reduction → QLAC (lines 317-341). Tier 4: LTC concern from family history → hybrid life/LTC (lines 345-364). Tier 5: remaining assets → Playchecks growth portfolio (lines 367-392). Each tier states the specific need (Purpose) and maps it to a specific product with rationale."
+    },
+    {
+      "text": "Output explicitly warns to keep annuity allocation below 50-60% of liquid assets and identifies the $45K savings as an untouchable emergency/liquidity reserve",
+      "passed": true,
+      "evidence": "Line 282-283: 'approximately 45-58% of his qualified assets — within the 50-60% maximum guideline.' Lines 688-689: 'Excluding the MYGA, long-term annuity allocation is ~$600,000 (58%), within the 50-60% guideline.' Line 379: 'Savings: $45,000 | Emergency fund — DO NOT TOUCH | $45,000.' Lines 390-392: 'The $45,000 in savings stays liquid as an emergency fund... Do NOT put this into any annuity or illiquid product.'"
+    },
+    {
+      "text": "Output structures the meeting plan as a two-meeting process: first meeting for discovery/fact-finding only, second meeting for presentation — and explicitly warns against presenting products in the first meeting",
+      "passed": true,
+      "evidence": "Lines 260-265: 'Important: Do NOT present these products at tomorrow's meeting. Tomorrow is fact-finding ONLY. Present the solution at the second meeting after you've analyzed everything and run illustrations. The cardinal rule: complete the full fact-find before mentioning ANY product name.' Line 594: 'Do NOT discuss specific products at this meeting — gather information only.' Lines 642-643 reinforce: 'Bring nothing product-related — no brochures, no illustrations. Tomorrow is about THEM.' The compliance checklist separates 'During Fact-Finding (Tomorrow)' from 'At Second Meeting (Presentation/Close).'"
+    },
+    {
+      "text": "Output uses the A-E-R (Acknowledge-Empathize-Redirect) framework or references it by name when coaching how to address Robert's 2008 market fear during the meeting",
+      "passed": true,
+      "evidence": "Lines 481-485: 'prepare for these objections using the A-E-R (Acknowledge-Empathize-Redirect) framework. A-E-R means: (1) Acknowledge — validate their concern, never dismiss; (2) Empathize — show you understand why they feel that way; (3) Redirect — use a question, story, or fact to reframe.' Lines 515-526 apply A-E-R specifically to Robert's 2008 fear under the 'I can get better returns in the market' objection, with Acknowledge/Empathize/Redirect steps addressing the 2008 loss scenario."
+    },
+    {
+      "text": "Output mentions 'Retirement Alpha' — the concept that using annuities optimally generates additional return beyond what a portfolio alone can achieve",
+      "passed": true,
+      "evidence": "Lines 145-149: 'This is the Retirement Alpha concept — research shows that by using annuities to cover essential expenses, the remaining portfolio can be allocated more aggressively, generating an estimated 1-2% of additional portfolio return. The annuity doesn't just provide income — it improves the ENTIRE retirement plan.' Lines 384-387 repeat: 'This is the Retirement Alpha at work — by securing the floor with annuities, the remaining portfolio can tolerate more equity exposure, potentially generating 1-2% more in annualized returns.' Lines 453-455 use it in the presentation script."
+    },
+    {
+      "text": "Output references the 'Happy Factor' — research showing retirees with guaranteed income are measurably happier and more confident in retirement",
+      "passed": true,
+      "evidence": "Line 52: 'The Happy Factor — research shows retirees with guaranteed income are measurably happier and more confident.' Lines 459-467: 'Research consistently shows that retirees who have guaranteed income — who know their bills are covered no matter what — are measurably happier, less stressed, and more confident in retirement. It's called the Happy Factor.' Line 707: 'Retirees with guaranteed income are measurably happier.'"
+    },
+    {
+      "text": "Output includes specific dollar amounts in the income gap calculation: identifies the monthly gap between $6,800 expenses and combined SS benefits (e.g., $3,300-$4,900 gap depending on claiming scenario), and recommends the FIA income rider amount needed to fill it",
+      "passed": true,
+      "evidence": "Line 78: 'Income gap = $6,800 - $1,900 = $4,900/month ($58,800/year).' Lines 108-109: 'Permanent income gap (both SS benefits active) = $6,800 - $3,500 = $3,300/month ($39,600/year).' Lines 125-129 summarize all scenarios with specific dollar amounts. Lines 274-298 recommend the FIA income rider: '$350,000-$450,000' premium, with detailed math showing '$400,000 premium → income base of $540,000 → guaranteed annual income: $28,350/year ($2,362/month)' to fill the gap."
+    },
+    {
+      "text": "Output mentions the QLAC (Qualified Longevity Annuity Contract) option for Robert's 401(k) as a way to defer RMDs on a portion of qualified money while providing longevity insurance",
+      "passed": true,
+      "evidence": "Lines 317-341: 'Tier 3: QLAC — Qualified Longevity Annuity Contract (Longevity Insurance). Product: QLAC purchased with IRA/401(k) money. Purpose: Provide guaranteed income starting at age 80-85 as longevity insurance, while excluding the premium from RMD calculations.' Line 326: 'Reduces his RMD tax burden starting at age 73 (the $200,000 is excluded from the RMD calculation).' Lines 338-341 show RMD math: 'Without QLAC: the $200,000 generates approximately $7,300/year in forced RMDs at age 73.'"
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  }
+}

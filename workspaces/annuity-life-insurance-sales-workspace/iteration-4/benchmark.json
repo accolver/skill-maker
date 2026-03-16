@@ -1,0 +1,57 @@
+{
+  "skill_name": "annuity-life-insurance-sales",
+  "iteration": 4,
+  "timestamp": "2026-03-16T17:30:00.000Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0
+      },
+      "time_seconds": {
+        "mean": 0,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.4417,
+        "stddev": 0.2294
+      },
+      "time_seconds": {
+        "mean": 0,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0
+      }
+    },
+    "delta": {
+      "pass_rate": 0.5583,
+      "time_seconds": 0,
+      "tokens": 0
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "complex-client-fact-find-and-product-selection",
+      "with_skill": { "pass_rate": 1.0 },
+      "without_skill": { "pass_rate": 0.2 }
+    },
+    {
+      "eval_name": "objection-handling-annuity-skeptic",
+      "with_skill": { "pass_rate": 1.0 },
+      "without_skill": { "pass_rate": 0.375 }
+    },
+    {
+      "eval_name": "replacement-suitability-compliance-scenario",
+      "with_skill": { "pass_rate": 1.0 },
+      "without_skill": { "pass_rate": 0.75 }
+    }
+  ]
+}

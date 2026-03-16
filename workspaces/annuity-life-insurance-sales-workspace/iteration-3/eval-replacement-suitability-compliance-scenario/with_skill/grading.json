@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output explicitly frames the analysis using the NAIC suitability requirements — listing specific factors that must be documented (age, income, financial situation, time horizon, liquidity needs, risk tolerance, existing products) rather than generic 'do a suitability analysis'",
+      "passed": true,
+      "evidence": "Section 4 (lines 140-240) provides a detailed factor-by-factor NAIC suitability analysis listing all 12 specific factors: Age (Factor 1), Annual Income (Factor 2), Financial Situation and Needs (Factor 3), Financial Experience (Factor 4), Financial Objectives (Factor 5), Intended Use (Factor 6), Financial Time Horizon (Factor 7), Existing Assets and Financial Products (Factor 8), Liquidity Needs (Factor 9), Liquid Net Worth (Factor 10), Risk Tolerance (Factor 11), and Tax Status (Factor 12). Each factor is individually assessed with a PASS/FAIL/MARGINAL/UNKNOWN verdict."
+    },
+    {
+      "text": "Output identifies the FIA 'not performing well' complaint as likely a client misunderstanding of index crediting methods — specifically explains that the 0% floor means she never lost principal, and that point-to-point crediting with caps means gains are limited but losses are zero, which may be confused with 'not performing'",
+      "passed": true,
+      "evidence": "Section 3 (lines 92-137) explicitly addresses this. Lines 109-119 explain the 0% floor guarantee: 'In 2022, when the S&P 500 dropped ~19%, Margaret's FIA credited 0%. She lost nothing.' Lines 121-136 explain why 'not performing well' is misleading, detailing point-to-point crediting with caps (6-8%), that average return of 3-5% may feel disappointing but she never lost money in down years. Line 103 shows the annual point-to-point with cap method explicitly."
+    },
+    {
+      "text": "Output explicitly recommends AGAINST the replacement as the primary recommendation, citing the $17,000 surrender charge, Margaret's age (71 entering a new 7-10 year surrender period means locked until age 78-81), and the fact that her current product may actually be adequate",
+      "passed": true,
+      "evidence": "Lines 5-6: 'Recommendation: Do NOT replace Margaret's existing Fixed Indexed Annuity (FIA).' Lines 150-155 cite age 71 with new 7-10 year surrender period meaning locked until 78-81. Lines 21-22 identify $17,000 surrender charge. Lines 84-87 explain existing FIA's free withdrawal provision provides $21,500/year which more than covers the $13,143 annual income gap, demonstrating current product adequacy."
+    },
+    {
+      "text": "Output lists specific replacement regulation requirements by name: state replacement forms, notice to existing carrier, side-by-side comparison documentation, written explanation of why replacement is in client's best interest, and agent attestation",
+      "passed": true,
+      "evidence": "Lines 370-393 list all five requirements explicitly: 'State replacement form' (line 372), 'Side-by-side comparison' (line 375), 'Written justification — A written statement documenting WHY the replacement is in Margaret's best interest' (lines 387-388), 'Notice to existing carrier' (lines 389-391), and 'Agent attestation — You must personally attest that you believe the replacement is suitable and in the client's best interest' (lines 392-393)."
+    },
+    {
+      "text": "Output calculates or frames Margaret's income adequacy: $2,100 SS + estimated RMD income from $340K IRA (roughly $13,500/year at age 71 RMD factor) = approximately $3,225/month total vs. $4,200 expenses, identifying a ~$975/month gap that should be solved with proper income planning rather than chasing higher cap rates",
+      "passed": true,
+      "evidence": "Lines 43-74 calculate income adequacy in detail: SS $2,100/month ($25,200/year), RMD from $340K IRA using divisor 28.2 = $12,057/year ($1,005/month), total income $37,257/year ($3,105/month) vs $50,400/year ($4,200/month) expenses, identifying a gap of $1,095/month ($13,143/year). The numbers differ slightly from the assertion ($12,057 vs $13,500, gap $1,095 vs $975) but the assertion says 'roughly' and 'approximately'. The output performs the exact calculation the assertion requires and explicitly recommends solving via income planning (lines 78-87) rather than replacement."
+    },
+    {
+      "text": "Output warns about churning — specifically using the word 'churning' or 'twisting' and explaining that replacing an annuity primarily to generate a new commission is illegal and a career-ending offense",
+      "passed": true,
+      "evidence": "Section 5 (lines 244-321) is titled 'Red Flags: Churning, Twisting, and Unsuitable Replacement.' Lines 248-249: 'Churning is the practice of replacing an existing insurance or annuity product with a new one primarily for the purpose of generating a new commission for the agent. It is illegal in all 50 states.' Lines 250-255 list consequences including 'License revocation' and 'Criminal charges'. Lines 279-280 define twisting separately. Line 292: 'twisting, which is also illegal and results in the same consequences as churning.'"
+    },
+    {
+      "text": "Output recommends a specific alternative path: wait 6 more years for the existing surrender period to expire, use the 10% annual free withdrawal if she needs liquidity, and potentially use her IRA assets for a separate income solution (SPIA or FIA with income rider) rather than replacing the existing product",
+      "passed": true,
+      "evidence": "Lines 84-87 recommend 10% free withdrawal ($21,500/year). Lines 519-521: 'you're 6 years closer to having full penalty-free access.' Lines 471-475 recommend a SPIA for a portion of the IRA ($100,000-$150,000) to create additional guaranteed lifetime income. Lines 468-470: 'If the FIA has an income rider, evaluate when to activate it for guaranteed lifetime income.' The output clearly recommends keeping the existing product and using IRA assets for separate income solutions rather than replacing."
+    },
+    {
+      "text": "Output addresses the $50,000 savings as a mandatory untouchable liquid reserve and warns against putting ALL of Margaret's assets ($215K annuity + $340K IRA + $50K savings = $605K) into a single new annuity product",
+      "passed": true,
+      "evidence": "Lines 166-169 calculate total liquid assets as $605,000 ($215K + $340K + $50K) and state putting 'everything' into a new annuity 'would violate the fundamental principle of never putting more than 50-60% of liquid assets in annuities and would leave her with inadequate emergency liquidity.' Lines 480-481: '$50,000 savings maintained as emergency fund (approximately 12 months of gap coverage).' Lines 299-304 reinforce: 'Putting 100% of assets into any single product — especially an annuity — is almost never suitable.'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

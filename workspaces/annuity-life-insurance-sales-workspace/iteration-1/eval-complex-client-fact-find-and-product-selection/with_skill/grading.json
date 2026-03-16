@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes specific fact-finding questions organized by category (personal, income, assets, expenses, risk tolerance, goals) rather than a generic list",
+      "passed": true,
+      "evidence": "Phase 2 organizes fact-finding questions into clearly labeled categories: 'Personal & Family Information' (lines 92-107), 'Income Deep Dive' (lines 109-128), 'Assets Deep Dive' (lines 130-143), 'Expenses Deep Dive' (lines 145-165), 'Risk Tolerance & Emotional Profile' (lines 167-185), 'Long-Term Care Concerns' (lines 187-202), 'Insurance & Protection' (lines 204-216), 'Tax Situation' (lines 218-229), and 'Decision-Making & Next Steps' (lines 231-238). Each category contains multiple specific, contextual questions tailored to Robert and Carol's situation."
+    },
+    {
+      "text": "Output calculates or frames an income gap analysis showing monthly expenses ($6,800) minus guaranteed income sources (Social Security amounts) to identify the gap that needs to be filled",
+      "passed": true,
+      "evidence": "Phase 3 (lines 257-314) provides three detailed income gap analyses in table format: Current situation shows $2,083 guaranteed income vs $6,800 expenses = $4,717/mo gap ($56,604/year); When Carol stops working shows $1,900 vs $6,800 = $4,900/mo gap; Both claiming SS at FRA shows $3,500 vs $6,800 = $3,300/mo permanent gap. Line 313: '$3,300/month is the minimum guaranteed income they need from their assets to cover essential expenses for life.'"
+    },
+    {
+      "text": "Output recommends completing full fact-finding BEFORE discussing products and warns against jumping to solutions in the first meeting",
+      "passed": true,
+      "evidence": "Line 73-75: 'CRITICAL RULE: Do NOT talk about any product until you complete the fact-find. Robert mentioned market fear and LTC on the phone — resist the urge to jump to a solution. Let the discovery process reveal the full picture first.' Lines 351-352: 'Do NOT present products in the first meeting.' Lines 519-520: 'Do NOT name any specific product or carrier in this meeting' and 'Do NOT try to close on the first visit — you'll lose credibility with this couple.'"
+    },
+    {
+      "text": "Output addresses the long-term care concern explicitly with specific product suggestions (hybrid life/LTC policy, annuity with LTC rider, or standalone LTC) rather than ignoring it",
+      "passed": true,
+      "evidence": "Lines 414-439 detail 'Hybrid Life Insurance with LTC Rider' as a specific recommendation with structure: single premium $75,000-$100,000, LTC monthly benefit ~$4,000-6,000/month for 3-6 years, death benefit $150,000-$200,000+ if LTC not used, return of premium option. Line 361 also lists 'annuity with LTC rider' in the allocation table. Specific carriers named at line 625 (OneAmerica, Lincoln, Nationwide, Securian). Lines 187-202 include dedicated LTC fact-finding questions."
+    },
+    {
+      "text": "Output recommends specific annuity types matched to needs (e.g., FIA with income rider for income gap, MYGA for safe accumulation) rather than generic 'consider an annuity'",
+      "passed": true,
+      "evidence": "Lines 365-395: FIA with GLWB recommended as primary product with $450K-$500K premium, 4-5 year deferral, expected guaranteed income ~$2,667-$2,917/month joint-life, matched to the $3,300/month income gap. Lines 396-412: MYGA recommended as bridge/safe money strategy with $100K-$150K premium, 3-5 year terms, matched to the transition period before both collect SS. Lines 441-449: SPIA suggested as supplement for $500-$700/month additional income."
+    },
+    {
+      "text": "Output discusses sequence of returns risk specifically in context of Robert's 2008 experience and why that matters now that he's retired with no pension",
+      "passed": true,
+      "evidence": "Lines 316-344: Dedicated section 'Sequence of Returns Risk — Robert's Worst Nightmare' with two concrete scenarios using Robert's $780K 401(k): Scenario A (no crash) ends at ~$757K; Scenario B (2008 repeats) drops to $546K then recovers to only ~$580K — a $200K difference. Lines 336-338: 'This is sequence of returns risk — the mathematical reality behind Robert's fear. A 30% drop in year 1 of retirement is devastating because you're selling shares at the bottom to fund living expenses.' Line 340: 'Robert already lived this.'"
+    },
+    {
+      "text": "Output mentions suitability requirements and warns about not putting too much into annuities — maintaining liquidity with the $45K savings and not recommending 100% of assets go to annuities",
+      "passed": true,
+      "evidence": "Lines 557-599: Full 'Suitability & Compliance Preparation' section referencing NAIC requirements with a 12-row documentation table. The allocation table (lines 356-361) reserves 10-15% ($100K-$155K) for 'Emergency/Liquidity' and 25-35% for 'Playchecks' (diversified portfolio remaining in market). Lines 140-141 ask about the $45K savings as emergency fund. Line 686 explicitly warns: 'Robert's 2008 trauma could push him to over-allocate to safety, leaving insufficient growth.'"
+    },
+    {
+      "text": "Output addresses the Social Security timing decision (claiming at 62 now vs waiting until 66/67/70) as a key planning element",
+      "passed": true,
+      "evidence": "Lines 452-478: Dedicated 'Social Security Optimization Strategy' section with comparison table showing monthly benefits and cumulative amounts at ages 62 ($1,900/mo), 66 ($2,400/mo), and 70 (~$3,168/mo). Break-even analysis: 66 vs 62 at age 78-79; 70 vs 62 at age 81-82. Recommendations include delaying if health is good, using FIA/MYGA to bridge, Carol waiting until FRA (67), and considering spousal benefit ($1,200 vs her own $1,100)."
+    },
+    {
+      "text": "Output includes a presentation strategy or meeting structure (not just a list of products) with advice on how to run the second meeting",
+      "passed": true,
+      "evidence": "Phase 5 (lines 483-495): Detailed first meeting agenda with 6 timed segments (0-10 min rapport, 10-35 fact-finding, 35-45 income gap reveal, 45-55 concept introduction, 55-65 concerns, 65-75 close for second meeting). Phase 7 (lines 603-652): Second meeting preparation with illustration requests from multiple carriers and an 8-step presentation structure (recap situation, reveal problem, introduce concept, show math, address risks, present plan, compare alternatives, ask for thoughts)."
+    },
+    {
+      "text": "Output mentions the need to include Carol (the spouse) in the planning process and addresses her separate financial situation",
+      "passed": true,
+      "evidence": "Line 500-501: 'Make sure Carol is present — she's a decision-maker and her income/SS is part of the plan.' Carol's separate financial details tracked: IRA $120K (line 38), part-time income $25K/yr (line 31), SS benefit $1,100/mo (line 50), retirement at 62 (line 31). Lines 170-171 and 175 ask Carol separately about her 2008 experience and risk tolerance. Lines 524-525: 'Do NOT forget to ask about Carol's perspective.' Line 432: 'Consider for both Robert AND Carol' for hybrid LTC. Line 687: 'Make sure she has equal voice in the meeting.'"
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  }
+}

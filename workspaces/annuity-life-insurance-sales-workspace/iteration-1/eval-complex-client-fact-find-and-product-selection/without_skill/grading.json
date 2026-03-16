@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes specific fact-finding questions organized by category (personal, income, assets, expenses, risk tolerance, goals) rather than a generic list",
+      "passed": true,
+      "evidence": "Part 2 (lines 115-198) organizes 35 discovery questions into six distinct categories: '2.1 Income & Expenses Deep Dive' (questions 1-8), '2.2 Social Security Strategy' (questions 9-13), '2.3 Risk Tolerance & Investment Experience' (questions 14-20), '2.4 Long-Term Care & Health' (questions 21-26), '2.5 Estate & Legacy' (questions 27-31), and '2.6 Existing Accounts & Beneficiaries' (questions 32-35). Each category contains specific, contextual questions tailored to the client scenario."
+    },
+    {
+      "text": "Output calculates or frames an income gap analysis showing monthly expenses ($6,800) minus guaranteed income sources (Social Security amounts) to identify the gap that needs to be filled",
+      "passed": true,
+      "evidence": "Section 1.1 'Income Gap Analysis' (lines 31-64) explicitly calculates the gap across multiple scenarios: 'At both FRA (Robert 66, Carol 66): Combined SS: $2,400 + $1,100 = $3,500/month. Monthly shortfall: $3,300/month = $39,600/year.' Also shows early claiming scenario: Robert at 62 ($1,900) + Carol's work ($2,083) = $3,983, shortfall $2,817/month."
+    },
+    {
+      "text": "Output recommends completing full fact-finding BEFORE discussing products and warns against jumping to solutions in the first meeting",
+      "passed": true,
+      "evidence": "The meeting flow in Part 4 (lines 399-459) structures Phase 1 as 'Rapport & Discovery' (30 min) before any solutions. Line 417: 'Before I make any recommendations, I need to really understand your situation.' Line 447 explicitly warns: 'Do NOT get into specific product names yet — keep it conceptual.' Phase 4 schedules a follow-up in 5-7 days for specific product recommendations (line 455)."
+    },
+    {
+      "text": "Output addresses the long-term care concern explicitly with specific product suggestions (hybrid life/LTC policy, annuity with LTC rider, or standalone LTC) rather than ignoring it",
+      "passed": true,
+      "evidence": "Section 3.2B 'Hybrid Life Insurance / Long-Term Care Product' (lines 268-304) provides extensive detail on hybrid/asset-based products with single premium of $100K-$150K leveraging 2-3x for LTC benefits. Names specific products: Lincoln MoneyGuard, OneAmerica Asset-Care, Nationwide CareMatters II, Securian SecureCare. Notes traditional LTC limitations: 'expensive at their ages and has rate increase risk' (line 273)."
+    },
+    {
+      "text": "Output recommends specific annuity types matched to needs (e.g., FIA with income rider for income gap, MYGA for safe accumulation) rather than generic 'consider an annuity'",
+      "passed": true,
+      "evidence": "Section 3.2A recommends 'Fixed Index Annuity (FIA) with Guaranteed Lifetime Withdrawal Benefit (GLWB)' for income gap ($400K-$500K allocation), naming Athene Agility, Nationwide Peak 10, Allianz Benefit Control, Lincoln MYGuarantee Plus. Section 3.2C recommends 'Multi-Year Guaranteed Annuity (MYGA)' for bridge income: '$80K-$100K for a 3-5 year guarantee period at 4.5-5.5%' (line 313)."
+    },
+    {
+      "text": "Output discusses sequence of returns risk specifically in context of Robert's 2008 experience and why that matters now that he's retired with no pension",
+      "passed": true,
+      "evidence": "Section 1.5 'Market Risk Assessment' (lines 95-101): 'Robert lost 30% in 2008 — on $780K today that would be a $234,000 loss. At 62 with no pension, he cannot afford to lose principal. A major downturn in the first 5 years of retirement (sequence-of-returns risk) could be catastrophic. His emotional reaction to 2008 suggests he would likely sell at the bottom, locking in losses.'"
+    },
+    {
+      "text": "Output mentions suitability requirements and warns about not putting too much into annuities — maintaining liquidity with the $45K savings and not recommending 100% of assets go to annuities",
+      "passed": true,
+      "evidence": "Part 6 line 524: 'Document why each recommendation is suitable for their specific situation — age, risk tolerance, income needs, time horizon, liquidity needs, existing resources.' The strategy allocates only ~40-50% to FIA, maintains $80K-$100K emergency fund (line 211), keeps $200K-$300K in growth bucket. Objection handling (line 467-471): 'I wouldn't want you to lock up ALL your money. What we're talking about is putting a portion — maybe 40-50% — into a guaranteed income vehicle. The rest stays fully liquid and invested.'"
+    },
+    {
+      "text": "Output addresses the Social Security timing decision (claiming at 62 now vs waiting until 66/67/70) as a key planning element",
+      "passed": true,
+      "evidence": "Section 3.3 (lines 352-375) provides a detailed comparison table: Robert at 62 ($1,900/mo), at 66 ($2,400/mo), at 70 ($3,168/mo) with lifetime benefit calculations to ages 85 and 90. Includes breakeven analysis: 'Claiming at 66 vs 62 breaks even around age 78. Claiming at 70 vs 66 breaks even around age 82.' Recommends delay based on family longevity. Also addresses Carol's spousal benefit strategy."
+    },
+    {
+      "text": "Output includes a presentation strategy or meeting structure (not just a list of products) with advice on how to run the second meeting",
+      "passed": true,
+      "evidence": "Part 4 (lines 399-459) provides a complete 90-minute meeting agenda: Phase 1 Rapport & Discovery (30 min), Phase 2 Education & Problem Framing (20 min), Phase 3 Solution Overview (25 min), Phase 4 Next Steps (15 min). Includes pre-meeting prep checklist (lines 402-409). Schedules follow-up in 5-7 days with scripted language: 'When we meet next, I'll show you exactly how much guaranteed income we can create, how we'll protect against long-term care costs' (lines 457-459)."
+    },
+    {
+      "text": "Output mentions the need to include Carol (the spouse) in the planning process and addresses her separate financial situation",
+      "passed": true,
+      "evidence": "Carol is addressed throughout: her IRA ($120K) analyzed separately for growth strategy (lines 328-329), her Social Security strategy including spousal benefits (lines 369-372), discovery questions directed specifically to Carol (line 127: 'Carol, when you stop working at 62...', line 154: 'Carol, how is your IRA invested?', line 173: 'Carol, what's your family health history like?'). Joint-life GLWB recommended 'so payments continue for the surviving spouse' (line 237). Survivor income analysis in Section 3.2E addresses what happens if Robert dies first."
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  }
+}

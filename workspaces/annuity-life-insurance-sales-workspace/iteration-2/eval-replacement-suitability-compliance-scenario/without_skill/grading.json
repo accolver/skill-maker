@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output explicitly frames the analysis using the NAIC suitability requirements — listing specific factors that must be documented (age, income, financial situation, time horizon, liquidity needs, risk tolerance, existing products) rather than generic 'do a suitability analysis'",
+      "passed": true,
+      "evidence": "Section 4.2 (lines 209-222) explicitly references the 'NAIC Suitability in Annuity Transactions Model Regulation' and lists specific factors: 'Age, income, financial situation, financial experience', 'Financial objectives', 'Risk tolerance', 'Existing insurance products', 'Liquidity needs', 'Tax status', 'Time horizon'. This is a substantive, specific enumeration directly tied to NAIC requirements."
+    },
+    {
+      "text": "Output identifies the FIA 'not performing well' complaint as likely a client misunderstanding of index crediting methods — specifically explains that the 0% floor means she never lost principal, and that point-to-point crediting with caps means gains are limited but losses are zero, which may be confused with 'not performing'",
+      "passed": false,
+      "evidence": "Section 3, Red Flag #4 (lines 119-137) identifies the complaint as a possible misunderstanding and mentions 'Principal protection (floor of 0% in most cases)' and 'Participation in index gains up to a cap rate'. However, it does NOT specifically explain point-to-point crediting by name or explain that gains are limited but losses are zero in a way that connects cap mechanics to her confusion. The explanation stays at a surface level — 'A product delivering 3-5% annually with principal protection may be entirely appropriate' — without explicitly connecting the 0% floor and capped gains to why she perceives underperformance."
+    },
+    {
+      "text": "Output explicitly recommends AGAINST the replacement as the primary recommendation, citing the $17,000 surrender charge, Margaret's age (71 entering a new 7-10 year surrender period means locked until age 78-81), and the fact that her current product may actually be adequate",
+      "passed": true,
+      "evidence": "Section 5 Step 6 (lines 376-386) presents 'Option A: Do NOT Replace (Most Likely Appropriate)' as the primary recommendation, citing '$17,000 surrender charge is a significant drag', 'A new 10-year surrender period is inappropriate for a 71-year-old', and 'higher cap rate alone rarely justifies the cost of replacement'. Section 11 (lines 579-589) reinforces: 'Almost certainly NO' with the same three factors. The age-to-81 lock-in is stated at lines 95-96."
+    },
+    {
+      "text": "Output lists specific replacement regulation requirements by name: state replacement forms, notice to existing carrier, side-by-side comparison documentation, written explanation of why replacement is in client's best interest, and agent attestation",
+      "passed": true,
+      "evidence": "Section 4.1 (lines 183-208) lists by name: 'Replacement Notice to Applicant' (line 192), 'Comparison Form / Replacement Comparison' — 'side-by-side comparison' (lines 194-197), 'Agent's Replacement Statement' (lines 198-200), 'Notify the existing insurer' (lines 202-204), and Section 4.2 documents 'Why is the recommended product suitable' (line 225). These are specific named requirements, not generic references."
+    },
+    {
+      "text": "Output calculates or frames Margaret's income adequacy: $2,100 SS + estimated RMD income from $340K IRA (roughly $13,500/year at age 71 RMD factor) = approximately $3,225/month total vs. $4,200 expenses, identifying a ~$975/month gap that should be solved with proper income planning rather than chasing higher cap rates",
+      "passed": false,
+      "evidence": "Section 2.1 (lines 38-52) calculates RMD as ~$12,400/year (~$1,033/month) from the $340K IRA, identifies the remaining shortfall as ~$1,067/month. However, the total monthly income is framed as $2,100 + $1,033 = $3,133/month (not ~$3,225), and the gap is stated as ~$1,067 (not ~$975). More critically, while the output identifies the gap, it does NOT explicitly connect it to 'should be solved with proper income planning rather than chasing higher cap rates' in the same analytical framing. The income adequacy calculation is present but uses different numbers and doesn't make the explicit connection the assertion requires between the gap and 'chasing cap rates' being the wrong solution."
+    },
+    {
+      "text": "Output warns about churning — specifically using the word 'churning' or 'twisting' and explaining that replacing an annuity primarily to generate a new commission is illegal and a career-ending offense",
+      "passed": true,
+      "evidence": "Section 3, Red Flag #7 (lines 166-176) is titled 'Potential Churning / Twisting' and uses both terms. It states replacing an annuity in its surrender period 'is a hallmark of churning or twisting'. Section 10 (lines 558-573) warns of 'license suspension, or revocation', 'Termination of your contract, commission chargebacks', and 'Criminal prosecution' — effectively conveying it as career-ending. The commission-generation concern is addressed at line 11 ('not merely a commission-generating transaction') and line 234 ('Compensation cannot be the primary motivating factor')."
+    },
+    {
+      "text": "Output recommends a specific alternative path: wait 6 more years for the existing surrender period to expire, use the 10% annual free withdrawal if she needs liquidity, and potentially use her IRA assets for a separate income solution (SPIA or FIA with income rider) rather than replacing the existing product",
+      "passed": true,
+      "evidence": "Section 9 (lines 529-554) recommends all three elements: (1) 'Keep the existing FIA — Let the surrender period expire in 6 years; reassess then' (line 532), (2) 'Use the free withdrawal provision — Withdraw 10% annually ($21,500) without penalty' (lines 535-536), (3) 'Consider a small SPIA with a portion of savings for guaranteed monthly income' (line 541). Section 6 (lines 468-476) also recommends a SPIA for the IRA. All three specific alternative paths are present."
+    },
+    {
+      "text": "Output addresses the $50,000 savings as a mandatory untouchable liquid reserve and warns against putting ALL of Margaret's assets ($215K annuity + $340K IRA + $50K savings = $605K) into a single new annuity product",
+      "passed": true,
+      "evidence": "Section 9, item 5 (line 549): 'Build an emergency fund: Ensure the $50,000 savings remains liquid and is not committed to any annuity or long-term product.' Red Flag #6 (lines 155-163) explicitly warns against consolidating 'all her assets into a single annuity' and states 'It eliminates diversification across product types' and 'It creates extreme illiquidity risk'. Section 2.2 (line 63) totals all assets at ~$605,000. The $50K is treated as an untouchable reserve and the all-assets-in-one-product warning is explicit."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}
