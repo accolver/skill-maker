@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The plan includes gitleaks",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"gitleaks\":\n  pr-qa-plan.md:101: ### Step 2.1 — Secrets Scanning with gitleaks\n  pr-qa-plan.md:104: gitleaks detect --source . --log-opts \"origin/main..HEAD\" --report-format json --report-path /tmp/gitleaks-report.json\n  pr-qa-plan.md:113: **If gitleaks is not installed:**"
+    },
+    {
+      "text": "The plan mentions HARD GATE",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"hard gate\":\n  pr-qa-plan.md:133: ### 🚨 HARD GATE: SECRETS FOUND — WORKFLOW BLOCKED\n  pr-qa-plan.md:138: > \"HARD GATE: If critical secrets are found (API keys, passwords, private keys,\n  pr-qa-plan.md:748: - [ ] **HARD GATE TRIGGERED** — secrets must be removed before PR creation"
+    },
+    {
+      "text": "The plan includes filter-repo",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"filter-repo\":\n  pr-qa-plan.md:192: **Option B: git filter-repo (if rebase is complex)**\n  pr-qa-plan.md:196: pip install git-filter-repo\n  pr-qa-plan.md:199: git filter-repo --invert-paths --path .env --force"
+    },
+    {
+      "text": "The plan includes pip audit",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"pip audit\":\n  pr-qa-plan.md:75: - CVE scanner: `pip audit --format json`\n  pr-qa-plan.md:271: pip audit --format json\n  pr-qa-plan.md:753: - [ ] CVE audit completed with `pip audit --format json`"
+    },
+    {
+      "text": "The plan mentions sessions invalidated",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"sessions invalidated\":\n  pr-qa-plan.md:328: | Session management           | Are sessions invalidated properly on logout/password change?                           "
+    },
+    {
+      "text": "The plan includes ARCHITECTURE.md",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"architecture.md\":\n  pr-qa-plan.md:300: ls -la README.md ARCHITECTURE.md PRD.md DESIGN.md docs/*.md docs/plans/*.md 2>/dev/null"
+    },
+    {
+      "text": "The plan includes gh pr create --draft",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"gh pr create --draft\":\n  pr-qa-plan.md:761: - [ ] Draft PR created via `gh pr create --draft`"
+    },
+    {
+      "text": "The plan includes @greptile",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"@greptile\":\n  pr-qa-plan.md:535: gh pr comment $PR_NUMBER --body \"@greptile\"\n  pr-qa-plan.md:541: # Get the comment ID of the @greptile trigger comment\n  pr-qa-plan.md:607: 1. `gh pr comment $PR_NUMBER --body \"@greptile\"`"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

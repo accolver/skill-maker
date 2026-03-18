@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The plan includes gh auth status",
+      "passed": false,
+      "evidence": "No matches for \"gh auth status\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan includes gitleaks detect",
+      "passed": false,
+      "evidence": "No matches for \"gitleaks detect\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan includes npm audit",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"npm audit\":\n  pr-qa-plan.md:160: - Check for vulnerability warnings from npm audit\n  pr-qa-plan.md:182: npm audit\n  pr-qa-plan.md:335: npm audit"
+    },
+    {
+      "text": "The plan mentions SQL injection",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"sql injection\":\n  pr-qa-plan.md:69: #### SQL Injection Prevention\n  pr-qa-plan.md:77: // BAD - SQL injection vulnerable\n  pr-qa-plan.md:144: - SQL injection attempts"
+    },
+    {
+      "text": "The plan includes gh pr create --draft",
+      "passed": false,
+      "evidence": "No matches for \"gh pr create --draft\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan includes @greptile",
+      "passed": false,
+      "evidence": "No matches for \"@greptile\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan includes parameterized queries",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"parameterized queries\":\n  pr-qa-plan.md:73: - Verify that parameterized queries or prepared statements are used\n  pr-qa-plan.md:215: - Endpoint queries PostgreSQL with parameterized queries\n  pr-qa-plan.md:286: | 1 | SQL Injection            | Critical | All user input must use parameterized queries         |"
+    },
+    {
+      "text": "The plan includes gh pr ready",
+      "passed": false,
+      "evidence": "No matches for \"gh pr ready\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.375
+  }
+}

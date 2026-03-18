@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "feature-pr",
+  "prompt": "I'm on branch feature/add-user-search with 4 commits that add a new search endpoint to our Express API. The endpoint queries PostgreSQL with user-provided search terms. I also added the `lodash` package for string utilities. Please submit my PR and do full QA. The base branch is main. The repo is myorg/myapi on GitHub.",
+  "assertions": [
+    "The plan includes gh auth status",
+    "The plan includes gitleaks detect",
+    "The plan includes npm audit",
+    "The plan mentions SQL injection",
+    "The plan includes gh pr create --draft",
+    "The plan includes @greptile",
+    "The plan includes parameterized queries",
+    "The plan includes gh pr ready"
+  ]
+}

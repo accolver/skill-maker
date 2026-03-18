@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "comment-resolution",
+  "prompt": "My PR #47 on myorg/webapp is already created as a draft. Greptile just finished reviewing and left 3 inline comments on the PR about missing error handling in the payment flow, a potential race condition in the cart update, and a suggestion to use the existing retry utility instead of a custom implementation. There are also 2 comments from a human reviewer asking about the testing strategy and suggesting we add an index for the new query. Please resolve all these comments and get the PR ready to merge.",
+  "assertions": [
+    "The plan mentions pulls/47/comments",
+    "The plan mentions issues/47/comments",
+    "The plan mentions error handling",
+    "The plan mentions race condition",
+    "The plan mentions retry utility",
+    "The plan mentions testing strategy",
+    "The plan includes @greptile",
+    "The plan includes gh pr ready"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The plan mentions pulls/47/comments",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"pulls/47/comments\":\n  pr-qa-plan.md:102: gh api repos/myorg/webapp/pulls/47/comments --jq '.[] | {id: .id, user: .user.login, path: .path, line: .line, body: .bo\n  pr-qa-plan.md:296: gh api repos/myorg/webapp/pulls/47/comments/$C1_ID/replies \\\n  pr-qa-plan.md:411: gh api repos/myorg/webapp/pulls/47/comments/$C2_ID/replies \\"
+    },
+    {
+      "text": "The plan mentions issues/47/comments",
+      "passed": true,
+      "evidence": "Found 6 match(es) for \"issues/47/comments\":\n  pr-qa-plan.md:114: gh api repos/myorg/webapp/issues/47/comments --jq '.[] | {id: .id, user: .user.login, body: .body, created_at: .created_\n  pr-qa-plan.md:560: gh api repos/myorg/webapp/issues/47/comments \\\n  pr-qa-plan.md:688: gh api repos/myorg/webapp/issues/47/comments \\"
+    },
+    {
+      "text": "The plan mentions error handling",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"error handling\":\n  pr-qa-plan.md:14: | 1 | Greptile       | Inline code suggestion | Missing error handling in the payment flow                  |\n  pr-qa-plan.md:136: | `$C1_ID`   | greptile-inc[bot] | `src/payments/handler.ts:L42` (example) | Code fix   | Add error handling            \n  pr-qa-plan.md:164: **What I check:** Any design docs that define error handling patterns, retry"
+    },
+    {
+      "text": "The plan mentions race condition",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"race condition\":\n  pr-qa-plan.md:15: | 2 | Greptile       | Inline code suggestion | Potential race condition in the cart update                 |\n  pr-qa-plan.md:137: | `$C2_ID`   | greptile-inc[bot] | `src/cart/update.ts:L78` (example)      | Code fix   | Fix race condition            \n  pr-qa-plan.md:302: ## Phase 5: Resolve Comment #2 — Race Condition in Cart Update"
+    },
+    {
+      "text": "The plan mentions retry utility",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"retry utility\":\n  pr-qa-plan.md:16: | 3 | Greptile       | Inline code suggestion | Use existing retry utility instead of custom implementation |\n  pr-qa-plan.md:169: # 3c. Find the existing retry utility (referenced by Greptile comment #3)\n  pr-qa-plan.md:174: **What I check:** Locate the existing retry utility that Greptile says should be"
+    },
+    {
+      "text": "The plan mentions testing strategy",
+      "passed": true,
+      "evidence": "Found 9 match(es) for \"testing strategy\":\n  pr-qa-plan.md:17: | 4 | Human reviewer | Question               | Asking about the testing strategy                           |\n  pr-qa-plan.md:139: | `$C4_ID`   | human-reviewer    | PR-level                                | Question   | Reply about testing strategy  \n  pr-qa-plan.md:193: conventions. This informs the reply to the human reviewer's testing strategy"
+    },
+    {
+      "text": "The plan includes @greptile",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"@greptile\":\n  pr-qa-plan.md:858: `gh pr comment 47 --body \"@greptile\"`\n  pr-qa-plan.md:994: - [x] Greptile review requested via `@greptile` comment — Already completed"
+    },
+    {
+      "text": "The plan includes gh pr ready",
+      "passed": true,
+      "evidence": "Found 3 match(es) for \"gh pr ready\":\n  pr-qa-plan.md:826: gh pr ready 47\n  pr-qa-plan.md:977: gh pr ready 47\n  pr-qa-plan.md:1000: - [x] PR marked ready via `gh pr ready` — Phase 11"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The plan includes gitleaks",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"gitleaks\":\n  pr-qa-plan.md:166: # e.g., trufflehog, gitleaks, detect-secrets\n  pr-qa-plan.md:168: gitleaks detect --source . 2>/dev/null || true"
+    },
+    {
+      "text": "The plan mentions HARD GATE",
+      "passed": false,
+      "evidence": "No matches for \"hard gate\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan includes filter-repo",
+      "passed": true,
+      "evidence": "Found 1 match(es) for \"filter-repo\":\n  pr-qa-plan.md:99: # Use git-filter-repo or BFG Repo Cleaner to remove .env from all commits"
+    },
+    {
+      "text": "The plan includes pip audit",
+      "passed": false,
+      "evidence": "No matches for \"pip audit\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan mentions sessions invalidated",
+      "passed": false,
+      "evidence": "No matches for \"sessions invalidated\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan includes ARCHITECTURE.md",
+      "passed": false,
+      "evidence": "No matches for \"architecture.md\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan includes gh pr create --draft",
+      "passed": false,
+      "evidence": "No matches for \"gh pr create --draft\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan includes @greptile",
+      "passed": false,
+      "evidence": "No matches for \"@greptile\" found across 1 output file(s)"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 6,
+    "total": 8,
+    "pass_rate": 0.25
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "secrets-blocking",
+  "prompt": "I need to submit a PR for my branch fix/auth-bypass. It fixes a critical authentication bypass but I accidentally committed a .env file with database credentials 3 commits ago. The project is a Python FastAPI app with requirements.txt. The repo is myorg/backend. Do the full PR QA process.",
+  "assertions": [
+    "The plan includes gitleaks",
+    "The plan mentions HARD GATE",
+    "The plan includes filter-repo",
+    "The plan includes pip audit",
+    "The plan mentions sessions invalidated",
+    "The plan includes ARCHITECTURE.md",
+    "The plan includes gh pr create --draft",
+    "The plan includes @greptile"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The plan includes gh auth status",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"gh auth status\":\n  pr-qa-plan.md:19: gh auth status\n  pr-qa-plan.md:890: - [x] `gh auth status` confirms authentication"
+    },
+    {
+      "text": "The plan includes gitleaks detect",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"gitleaks detect\":\n  pr-qa-plan.md:112: gitleaks detect --source . --log-opts \"origin/main..HEAD\" --report-format json --report-path /tmp/gitleaks-report.json\n  pr-qa-plan.md:759: gitleaks detect --source . --log-opts \"origin/main..HEAD\" --report-format json --report-path /tmp/gitleaks-final-report."
+    },
+    {
+      "text": "The plan includes npm audit",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"npm audit\":\n  pr-qa-plan.md:87: - This determines we use `npm audit` for CVE scanning in Phase 2\n  pr-qa-plan.md:148: npm audit --json"
+    },
+    {
+      "text": "The plan mentions SQL injection",
+      "passed": true,
+      "evidence": "Found 8 match(es) for \"sql injection\":\n  pr-qa-plan.md:210: #### SQL Injection (CRITICAL priority)\n  pr-qa-plan.md:215: // DANGEROUS — SQL injection\n  pr-qa-plan.md:409: | 1 | CRITICAL | Security | src/routes/search.ts:XX | SQL injection via string interpolation | Use parameterized queries"
+    },
+    {
+      "text": "The plan includes gh pr create --draft",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"gh pr create --draft\":\n  pr-qa-plan.md:546: gh pr create --draft \\\n  pr-qa-plan.md:897: - [x] Draft PR created via `gh pr create --draft`"
+    },
+    {
+      "text": "The plan includes @greptile",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"@greptile\":\n  pr-qa-plan.md:607: gh pr comment $PR_NUMBER --body \"@greptile\"\n  pr-qa-plan.md:613: # Get the comment ID of the @greptile comment\n  pr-qa-plan.md:696: 1. Comment `@greptile` on the PR"
+    },
+    {
+      "text": "The plan includes parameterized queries",
+      "passed": true,
+      "evidence": "Found 5 match(es) for \"parameterized queries\":\n  pr-qa-plan.md:409: | 1 | CRITICAL | Security | src/routes/search.ts:XX | SQL injection via string interpolation | Use parameterized queries\n  pr-qa-plan.md:432: - Switching from string interpolation to parameterized queries (changes query\n  pr-qa-plan.md:534: - Search uses [parameterized queries / ORM methods] to prevent SQL injection —"
+    },
+    {
+      "text": "The plan includes gh pr ready",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"gh pr ready\":\n  pr-qa-plan.md:827: gh pr ready $PR_NUMBER\n  pr-qa-plan.md:904: - [x] PR marked ready via `gh pr ready`"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1
+  }
+}

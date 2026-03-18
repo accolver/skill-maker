@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "The plan mentions pulls/47/comments",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"pulls/47/comments\":\n  pr-qa-plan.md:25: gh api repos/myorg/webapp/pulls/47/comments\n  pr-qa-plan.md:479: gh api repos/myorg/webapp/pulls/47/comments/{comment_id_1}/replies \\\n  pr-qa-plan.md:483: gh api repos/myorg/webapp/pulls/47/comments/{comment_id_2}/replies \\"
+    },
+    {
+      "text": "The plan mentions issues/47/comments",
+      "passed": false,
+      "evidence": "No matches for \"issues/47/comments\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan mentions error handling",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"error handling\":\n  pr-qa-plan.md:76: ### Comment 1 (Greptile): Missing error handling in payment flow\n  pr-qa-plan.md:82: without error handling\n  pr-qa-plan.md:84: - Look at existing error handling patterns in the codebase for consistency"
+    },
+    {
+      "text": "The plan mentions race condition",
+      "passed": true,
+      "evidence": "Found 7 match(es) for \"race condition\":\n  pr-qa-plan.md:104: ### Comment 2 (Greptile): Potential race condition in cart update\n  pr-qa-plan.md:190: cart update race condition fix, and the retry utility integration\n  pr-qa-plan.md:265: ### Fix 2: Resolve race condition in cart update"
+    },
+    {
+      "text": "The plan mentions retry utility",
+      "passed": true,
+      "evidence": "Found 10 match(es) for \"retry utility\":\n  pr-qa-plan.md:133: ### Comment 3 (Greptile): Use existing retry utility instead of custom implementation\n  pr-qa-plan.md:138: - Find the existing retry utility in the codebase\n  pr-qa-plan.md:147: # Find the existing retry utility"
+    },
+    {
+      "text": "The plan mentions testing strategy",
+      "passed": true,
+      "evidence": "Found 4 match(es) for \"testing strategy\":\n  pr-qa-plan.md:164: ### Comment 4 (Human): Testing strategy question\n  pr-qa-plan.md:192: - Reply to the comment explaining the testing strategy: unit tests for business\n  pr-qa-plan.md:309: ### Fix 4: Address testing strategy"
+    },
+    {
+      "text": "The plan includes @greptile",
+      "passed": false,
+      "evidence": "No matches for \"@greptile\" found across 1 output file(s)"
+    },
+    {
+      "text": "The plan includes gh pr ready",
+      "passed": true,
+      "evidence": "Found 2 match(es) for \"gh pr ready\":\n  pr-qa-plan.md:546: gh pr ready 47 --repo myorg/webapp\n  pr-qa-plan.md:626: | Mark ready          | `gh pr ready 47 --repo myorg/webapp`          |"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 2,
+    "total": 8,
+    "pass_rate": 0.75
+  }
+}

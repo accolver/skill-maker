@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-18T12:55:00.000Z"
+    },
+    {
+      "run_id": "eval-1-without_skill",
+      "feedback": "Missing gitleaks, @greptile, gh pr create --draft, gh pr ready, parameterized queries",
+      "timestamp": "2026-03-18T12:55:00.000Z"
+    },
+    {
+      "run_id": "eval-2-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-18T12:55:00.000Z"
+    },
+    {
+      "run_id": "eval-2-without_skill",
+      "feedback": "Missing gitleaks, HARD GATE, filter-repo, ARCHITECTURE.md, @greptile, sessions invalidated",
+      "timestamp": "2026-03-18T12:55:00.000Z"
+    },
+    {
+      "run_id": "eval-3-with_skill",
+      "feedback": "",
+      "timestamp": "2026-03-18T12:55:00.000Z"
+    },
+    {
+      "run_id": "eval-3-without_skill",
+      "feedback": "Missing pulls/47/comments and issues/47/comments (both API endpoints)",
+      "timestamp": "2026-03-18T12:55:00.000Z"
+    }
+  ],
+  "status": "complete"
+}

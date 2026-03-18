@@ -1,0 +1,81 @@
+{
+  "skill_name": "pr-qa",
+  "iteration": 1,
+  "timestamp": "2026-03-18T18:51:02.877Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 42.0667,
+        "stddev": 2.6587
+      },
+      "tokens": {
+        "mean": 25800,
+        "stddev": 2706.7816
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.4583,
+        "stddev": 0.2125
+      },
+      "time_seconds": {
+        "mean": 25.3333,
+        "stddev": 2.4143
+      },
+      "tokens": {
+        "mean": 14666.6667,
+        "stddev": 1755.6259
+      }
+    },
+    "delta": {
+      "pass_rate": 0.5417,
+      "time_seconds": 16.7,
+      "tokens": 11133
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "comment-resolution",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 38.7,
+        "tokens": 22100
+      },
+      "without_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 22.5,
+        "tokens": 12300
+      }
+    },
+    {
+      "eval_name": "feature-pr",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 45.2,
+        "tokens": 28500
+      },
+      "without_skill": {
+        "pass_rate": 0.375,
+        "time_seconds": 25.1,
+        "tokens": 15200
+      }
+    },
+    {
+      "eval_name": "secrets-blocking",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 42.3,
+        "tokens": 26800
+      },
+      "without_skill": {
+        "pass_rate": 0.25,
+        "time_seconds": 28.4,
+        "tokens": 16500
+      }
+    }
+  ]
+}
