@@ -1,0 +1,53 @@
+{
+  "skill_name": "pr-qa",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm on branch feature/add-user-search with 4 commits that add a new search endpoint to our Express API. The endpoint queries PostgreSQL with user-provided search terms. I also added the `lodash` package for string utilities. Please submit my PR and do full QA. The base branch is main. The repo is myorg/myapi on GitHub.",
+      "expected_output": "A complete PR QA workflow that checks gh auth, scans for secrets with gitleaks scoped to the PR diff, runs npm audit for CVE checking, performs multi-persona code review catching SQL injection risk, creates a draft PR, triggers Greptile review, describes polling, and marks the PR ready.",
+      "files": [],
+      "assertions": [
+        "The plan includes gh auth status",
+        "The plan includes gitleaks detect",
+        "The plan includes npm audit",
+        "The plan mentions SQL injection",
+        "The plan includes gh pr create --draft",
+        "The plan includes @greptile",
+        "The plan includes parameterized queries",
+        "The plan includes gh pr ready"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need to submit a PR for my branch fix/auth-bypass. It fixes a critical authentication bypass but I accidentally committed a .env file with database credentials 3 commits ago. The project is a Python FastAPI app with requirements.txt. The repo is myorg/backend. Do the full PR QA process.",
+      "expected_output": "The workflow should detect the .env file with credentials via gitleaks and BLOCK PR creation until the secret is removed. It should recommend removing the .env from git history, running pip audit for Python CVE checks, performing security-focused review of the auth bypass fix, and only proceeding to draft PR creation after the secrets issue is resolved.",
+      "files": [],
+      "assertions": [
+        "The plan includes gitleaks",
+        "The plan mentions HARD GATE",
+        "The plan includes filter-repo",
+        "The plan includes pip audit",
+        "The plan mentions sessions invalidated",
+        "The plan includes ARCHITECTURE.md",
+        "The plan includes gh pr create --draft",
+        "The plan includes @greptile"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "My PR #47 on myorg/webapp is already created as a draft. Greptile just finished reviewing and left 3 inline comments on the PR about missing error handling in the payment flow, a potential race condition in the cart update, and a suggestion to use the existing retry utility instead of a custom implementation. There are also 2 comments from a human reviewer asking about the testing strategy and suggesting we add an index for the new query. Please resolve all these comments and get the PR ready to merge.",
+      "files": [],
+      "expected_output": "The workflow fetches all PR comments using gh api for both issue-level and inline review comments, addresses each finding with concrete fixes, re-requests Greptile review, and runs final verification before marking ready.",
+      "assertions": [
+        "The plan mentions pulls/47/comments",
+        "The plan mentions issues/47/comments",
+        "The plan mentions error handling",
+        "The plan mentions race condition",
+        "The plan mentions retry utility",
+        "The plan mentions testing strategy",
+        "The plan includes @greptile",
+        "The plan includes gh pr ready"
+      ]
+    }
+  ]
+}
