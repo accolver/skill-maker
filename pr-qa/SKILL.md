@@ -254,13 +254,26 @@ When Greptile responds with findings:
    gh api repos/{owner}/{repo}/issues/<PR_NUMBER>/comments
    ```
 
-2. **Fetch inline code suggestions** (file-specific review comments):
+2. **Fetch ALL inline code comments** (file-specific review comments):
    ```bash
-   gh api repos/{owner}/{repo}/pulls/<PR_NUMBER>/comments
+   gh api repos/{owner}/{repo}/pulls/<PR_NUMBER>/comments --jq '[.[] | select(.user.login == "greptile-inc[bot]" or .user.login == "greptile[bot]")]'
    ```
 
-3. Categorize each finding by severity and addressability
-4. Address each finding:
+   **IMPORTANT:** Greptile often leaves multiple inline comments across different
+   files. You MUST iterate over every inline comment individually — do not stop
+   after reading the first one. Each comment targets a specific file and line
+   range, and each must be addressed on its own merits.
+
+3. **For EACH inline comment**, extract:
+   - `id` — the comment ID (needed for replying and resolving)
+   - `path` — the file the comment targets
+   - `line` / `original_line` — the line number
+   - `body` — the suggestion or finding text
+   - `diff_hunk` — surrounding diff context
+
+4. Categorize each finding by severity and addressability
+
+5. Address **every** finding individually:
    - **Code fix needed**: Make the change, commit with message referencing the
      finding
    - **Explanation needed**: Reply to the comment explaining why the current
@@ -268,13 +281,61 @@ When Greptile responds with findings:
    - **Dismiss with justification**: Reply explaining why the suggestion doesn't
      apply
 
-5. Push all fixes:
+6. **Reply to each inline comment** to create a paper trail:
+   ```bash
+   # Reply to an inline review comment
+   gh api repos/{owner}/{repo}/pulls/<PR_NUMBER>/comments/<COMMENT_ID>/replies \
+     -f body="Fixed — <brief description of what was changed>"
+   ```
+
+7. **Resolve each addressed comment thread** using GraphQL:
+   ```bash
+   # First, get the GraphQL node ID for the review thread
+   # Each pull request review comment belongs to a thread that can be resolved
+   gh api graphql -f query='
+     query($owner: String!, $repo: String!, $pr: Int!) {
+       repository(owner: $owner, name: $repo) {
+         pullRequest(number: $pr) {
+           reviewThreads(first: 100) {
+             nodes {
+               id
+               isResolved
+               comments(first: 1) {
+                 nodes {
+                   databaseId
+                 }
+               }
+             }
+           }
+         }
+       }
+     }
+   ' -f owner="{owner}" -f repo="{repo}" -F pr=<PR_NUMBER>
+
+   # Then resolve the thread by its GraphQL node ID
+   gh api graphql -f query='
+     mutation($threadId: ID!) {
+       resolveReviewThread(input: {threadId: $threadId}) {
+         thread {
+           isResolved
+         }
+       }
+     }
+   ' -f threadId="<THREAD_NODE_ID>"
+   ```
+
+   **Map comment IDs to thread IDs:** The GraphQL query returns threads with
+   their first comment's `databaseId`. Match this against the REST API comment
+   `id` to find the correct thread to resolve. Only resolve threads you have
+   actually addressed — do not bulk-resolve without processing each one.
+
+8. Push all fixes:
    ```bash
    git add -A && git commit -m "address Greptile review findings (cycle N)" && git push origin HEAD
    ```
 
-6. If this is cycle < 5 and there were code changes: go to Step 1 for next cycle
-7. If Greptile returned thumbs-up with no findings: Greptile loop is complete
+9. If this is cycle < 5 and there were code changes: go to Step 1 for next cycle
+10. If Greptile returned thumbs-up with no findings: Greptile loop is complete
 
 #### Step 4: Escalation (after 5 cycles)
 
@@ -288,22 +349,63 @@ If 5 cycles complete without a clean Greptile review:
 Fetch ALL open review conversations, not just Greptile:
 
 ```bash
-# Get all PR review comments
+# Get all PR review comments (inline)
 gh api repos/{owner}/{repo}/pulls/<PR_NUMBER>/comments
 
-# Get all issue-level comments
+# Get all issue-level comments (top-level)
 gh api repos/{owner}/{repo}/issues/<PR_NUMBER>/comments
 
-# Get review threads
-gh api repos/{owner}/{repo}/pulls/<PR_NUMBER>/reviews
+# Get review threads with resolution status via GraphQL
+gh api graphql -f query='
+  query($owner: String!, $repo: String!, $pr: Int!) {
+    repository(owner: $owner, name: $repo) {
+      pullRequest(number: $pr) {
+        reviewThreads(first: 100) {
+          nodes {
+            id
+            isResolved
+            comments(first: 10) {
+              nodes {
+                databaseId
+                body
+                author { login }
+                path
+                line
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+' -f owner="{owner}" -f repo="{repo}" -F pr=<PR_NUMBER>
 ```
 
-For each unresolved comment:
+**Use the GraphQL response as the source of truth** for which threads are still
+unresolved (`isResolved: false`). This catches threads from Greptile, human
+reviewers, and any other bot.
 
-1. Read the comment and any thread context
+For each **unresolved** thread:
+
+1. Read ALL comments in the thread (not just the first) to understand the full
+   conversation context
 2. If it requires a code change: make the fix, push, reply confirming the fix
 3. If it's a question: reply with the answer
 4. If it's resolved by a previous commit: reply linking to the commit
+5. **Mark the thread as resolved** after addressing it:
+   ```bash
+   gh api graphql -f query='
+     mutation($threadId: ID!) {
+       resolveReviewThread(input: {threadId: $threadId}) {
+         thread { isResolved }
+       }
+     }
+   ' -f threadId="<THREAD_NODE_ID>"
+   ```
+
+**Do NOT resolve threads you haven't addressed.** Each resolution must follow a
+reply that demonstrates the finding was handled — either by a code fix, an
+explanation, or a justified dismissal.
 
 ### Phase 7: Final Verification
 
@@ -316,8 +418,18 @@ gitleaks detect --source . --log-opts "origin/main..HEAD"
 # Check CI status
 gh pr checks <PR_NUMBER>
 
-# Verify no unresolved conversations
-gh api repos/{owner}/{repo}/pulls/<PR_NUMBER>/comments --jq '[.[] | select(.in_reply_to_id == null)] | length'
+# Verify no unresolved review threads
+gh api graphql -f query='
+  query($owner: String!, $repo: String!, $pr: Int!) {
+    repository(owner: $owner, name: $repo) {
+      pullRequest(number: $pr) {
+        reviewThreads(first: 100) {
+          nodes { isResolved }
+        }
+      }
+    }
+  }
+' -f owner="{owner}" -f repo="{repo}" -F pr=<PR_NUMBER> --jq '.data.repository.pullRequest.reviewThreads.nodes | map(select(.isResolved == false)) | length'
 
 # Verify branch is up to date
 git fetch origin && git log HEAD..origin/main --oneline
@@ -353,8 +465,9 @@ Present a summary to the user:
 - [ ] Auto-fixes committed and pushed
 - [ ] Draft PR created via `gh pr create --draft`
 - [ ] Greptile review requested via `@greptile` comment
-- [ ] Greptile findings addressed (or escalated after 5 cycles)
-- [ ] All PR comments and inline suggestions resolved
+- [ ] ALL Greptile inline comments individually addressed (not just the first)
+- [ ] Greptile findings fixed or escalated after 5 cycles
+- [ ] All PR comment threads resolved via GraphQL `resolveReviewThread`
 - [ ] Final secrets re-scan clean
 - [ ] CI checks passing
 - [ ] Branch up to date with base
@@ -423,7 +536,8 @@ Pushing fixes... requesting Greptile cycle 2...
 | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Creating PR as ready instead of draft           | Always use `--draft` flag. Only `gh pr ready` after all checks pass.                                                 |
 | Running gitleaks on full repo history           | Scope to PR diff: `--log-opts "origin/main..HEAD"`                                                                   |
-| Not checking inline code suggestions            | PR comments (`/pulls/N/comments`) and issue comments (`/issues/N/comments`) are different API endpoints. Check both. |
+| Only reading the first inline comment            | Greptile leaves multiple inline comments across files. Iterate over ALL of them — each has a distinct file, line, and finding. |
+| Not resolving comment threads after addressing   | After replying to a comment, use the GraphQL `resolveReviewThread` mutation to mark the thread resolved. Unresolved threads block merge readiness. |
 | Force-pushing without lease                     | Always use `--force-with-lease` to avoid overwriting others' changes.                                                |
 | Auto-fixing business logic                      | Only auto-fix formatting, linting, null checks. Present business logic changes for user approval.                    |
 | Polling too aggressively for Greptile           | Use 20-second intervals. More frequent polling wastes API calls and may hit rate limits.                             |
@@ -442,6 +556,7 @@ Pushing fixes... requesting Greptile cycle 2...
 | Check reactions      | `gh api repos/{owner}/{repo}/issues/comments/<ID>/reactions`                                 |
 | Check CI status      | `gh pr checks <N>`                                                                           |
 | Mark ready           | `gh pr ready <N>`                                                                            |
+| Resolve thread       | `gh api graphql -f query='mutation($id:ID!){resolveReviewThread(input:{threadId:$id}){thread{isResolved}}}' -f id="<THREAD_ID>"` |
 | Secrets scan         | `gitleaks detect --source . --log-opts "origin/main..HEAD"`                                  |
 | Rebase on base       | `git fetch origin main && git rebase origin/main && git push origin HEAD --force-with-lease` |
 
