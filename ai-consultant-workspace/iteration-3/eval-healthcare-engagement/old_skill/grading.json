@@ -1,0 +1,58 @@
+{
+  "eval_id": 1,
+  "eval_name": "healthcare-engagement",
+  "config": "old_skill",
+  "results": [
+    {
+      "assertion_id": 1,
+      "assertion": "Output includes an AI maturity assessment using exactly 5 dimensions: Data, Infrastructure, Talent, Governance, and Culture — each scored on a 1-5 scale",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md contains exactly 5 dimensions scored on a 1-5 scale: Data (1.5), Infrastructure (2.0), Talent (1.5), Governance (1.5), and Culture (2.5). Each dimension includes a detailed scoring table with indicators and evidence. The methodology states 'Each dimension is scored 1-5 using the 5-dimension weighted maturity model.'"
+    },
+    {
+      "assertion_id": 2,
+      "assertion": "Output produces a weighted aggregate maturity score mapped to a named stage (Foundation, Pilot-Ready, Scale-Ready, or Optimize)",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md includes a weighted aggregate calculation: 'Aggregate = (1.5 * 0.25) + (2.0 * 0.20) + (1.5 * 0.20) + (1.5 * 0.20) + (2.5 * 0.15) = 1.75' mapped to 'Overall Maturity: 1.75 / 5.0 -- Foundation Stage'. The named stage 'Foundation' is explicitly used with the range '1.0-1.9'."
+    },
+    {
+      "assertion_id": 3,
+      "assertion": "Output includes a bottleneck analysis identifying which maturity dimension scores lowest and how far it is below the aggregate",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md has a dedicated 'Bottleneck Analysis' section with a table showing each dimension's gap from the highest score (Culture: 2.5). It identifies Data, Talent, and Governance as emerging bottlenecks at 1.0 below the highest. It states 'Critical bottleneck: Data is the most heavily weighted dimension (25%) and scores lowest.' Note: gaps are measured from the highest dimension rather than the aggregate, but the analysis does identify which dimensions score lowest and quantifies the gaps."
+    },
+    {
+      "assertion_id": 4,
+      "assertion": "Output produces a dedicated red flags section or document with severity ratings (Critical, High, Medium) and specific mitigation plans for each flag",
+      "result": "PASS",
+      "evidence": "A dedicated red-flags.md document exists with 6 red flags, each with severity ratings (High, Medium, Medium-High) and detailed mitigation plans. Examples: 'Red Flag 1: Vague Budget - Severity: Medium' with 4 mitigation steps; 'Red Flag 3: No AI Governance in a HIPAA-Regulated Environment - Severity: High' with 5 mitigation steps. A summary risk matrix table is also included."
+    },
+    {
+      "assertion_id": 5,
+      "assertion": "Output classifies opportunities using the 2x2 Impact-Feasibility quadrant: Quick Wins, Strategic Bets, Fill-ins, and Deprioritize",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md uses all four quadrant labels: 'Quick Wins (High Impact, High Feasibility)' with opportunities 1-3, 'Strategic Bets (High Impact, Lower Feasibility)' with opportunities 4-6, 'Fill-ins (Lower Impact, High Feasibility)' with opportunities 7-8, and 'Deprioritize (Low Impact, Low Feasibility)' with opportunity 9. A visual ASCII quadrant diagram is also included."
+    },
+    {
+      "assertion_id": 6,
+      "assertion": "Output includes a Build vs Buy recommendation for each identified AI opportunity",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md includes a 'Build vs Buy vs Already Licensed' section for each of the 9 opportunities. Examples: Opportunity 1 'Recommendation: BUY' with specific vendor options; Opportunity 8 'Recommendation: BUILD or BUY (evaluate)' with build estimates; Opportunity 9 'Recommendation: BUY only if/when relevant'. The summary table also has a Build/Buy column for every opportunity."
+    },
+    {
+      "assertion_id": 7,
+      "assertion": "Output includes an Agent Potential assessment for each opportunity rating whether it could be an autonomous AI agent workflow",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md includes an 'Agent Potential' section for each of the 9 opportunities with ratings: Opportunity 1 'Agent Potential: Low-Medium', Opportunity 2 'Agent Potential: Medium', Opportunity 3 'Agent Potential: High', Opportunity 4 'Agent Potential: Medium-High', Opportunity 5 'Agent Potential: High' (described as 'One of the strongest agent use cases in healthcare'), through Opportunity 9 'Agent Potential: Low'. Each includes specific descriptions of potential agent workflows."
+    },
+    {
+      "assertion_id": 8,
+      "assertion": "Output explicitly connects the maturity score to the recommended engagement approach (e.g., a low score drives foundation-building, a mid score drives pilot-ready recommendations)",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md states: 'At a score of 1.75, MedTech Solutions is firmly in the Foundation stage (1.0-1.9). The recommended engagement approach is: Foundation-building engagement -- Focus on data strategy, infrastructure readiness, and executive education.' The roadmap.md reinforces: 'At maturity score 1.75 (Foundation stage), MedTech Solutions needs to digitize before they can truly leverage AI. Phase 1 addresses this by deploying buy-not-build solutions.' The discovery-report.md also has a 'Maturity-Engagement Alignment' section explicitly connecting the 1.75 score to 5 engagement approach principles."
+    }
+  ],
+  "pass_count": 8,
+  "fail_count": 0,
+  "pass_rate": 1.0
+}

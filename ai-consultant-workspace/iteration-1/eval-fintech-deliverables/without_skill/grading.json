@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes an executive summary document with specific ROI projections based on the fraud rate gap (2.1% vs 0.5% industry average)",
+      "passed": true,
+      "evidence": "Executive summary explicitly states 2.1% vs 0.5% fraud rate gap, calculates $14.6M-$58.4M/year in excess fraud losses, and projects 8x-25x Year 1 ROI with a detailed investment table showing $980K-$1.52M total investment."
+    },
+    {
+      "text": "Output produces a scored opportunity matrix with at least 3 opportunities rated on impact and feasibility dimensions",
+      "passed": true,
+      "evidence": "Opportunity matrix scores 6 opportunities across 5 weighted dimensions including Business Impact (30%) and Feasibility (25%). Each opportunity has individual dimension scores (1-5) and a composite score. Examples: Fraud Detection (Impact: 5, Feasibility: 4, Composite: 4.20), Support AI (Impact: 4, Feasibility: 5, Composite: 4.40), Transaction Risk Scoring (Impact: 4, Feasibility: 3, Composite: 3.30)."
+    },
+    {
+      "text": "Output identifies fraud detection as the highest-priority quick win given the data readiness (3 years in BigQuery) and clear ROI",
+      "passed": true,
+      "evidence": "Executive summary Section 1 is titled 'Fraud Detection Is the Highest-Impact Opportunity' and cites 3 years of BigQuery data as a 'genuine asset.' Fraud detection is sequenced as Phase 1 with a note: 'Fraud Detection is sequenced as Phase 1 because its business impact is an order of magnitude larger and it is foundational for downstream initiatives.' The feasibility score of 4 explicitly references '3 years of labeled transaction data in BigQuery.'"
+    },
+    {
+      "text": "Output flags the CEO's 'AI everywhere in 6 months' expectation as unrealistic and recommends a phased approach",
+      "passed": true,
+      "evidence": "Executive summary Section 3 is titled 'The Organization Is Not Ready for AI Everywhere' and states: 'The CEO's ambition to deploy AI broadly within 6 months is understandable given competitive pressure, but it introduces significant execution risk.' It lists talent gap, no AI governance, and maintenance burden as reasons. The strategic recommendation proposes a phased approach (Phase 0-3) spanning 12 months, with 'AI everywhere' becoming 'feasible -- built on a foundation rather than rushed' in Phase 3."
+    },
+    {
+      "text": "Output addresses the VP of Engineering's skepticism with a specific mitigation strategy (not just noting it as a risk)",
+      "passed": true,
+      "evidence": "Multiple specific mitigations address VP Engineering concerns: (1) Phase 0 governance provides 'operational guardrails needed to maintain new systems responsibly,' (2) stakeholder table shows 'Governance-first approach; MLOps infrastructure built into Phase 1; hire plan included,' (3) proposal recommends VP Engineering as executive sponsor, (4) detailed team transition plan shows existing fraud rule engineers transitioning rather than being displaced, (5) MLOps engineer hire specifically addresses maintenance burden, (6) automated retraining pipelines and monitoring dashboards reduce ongoing operational burden."
+    },
+    {
+      "text": "Output flags the missing AI governance policy as a risk that must be addressed before scaling",
+      "passed": true,
+      "evidence": "Phase 0 ('AI Governance Foundation, Weeks 1-4') is explicitly required before any model reaches production: 'Establish the AI governance framework, responsible AI principles, model risk management policy, and compliance review process before any model reaches production.' The executive summary states 'SOC2 compliance does not address model bias, explainability, data lineage for ML training, or AI-specific incident response.' Proposal Section 8 lists 6 required governance artifacts."
+    },
+    {
+      "text": "Output includes actual pricing estimates or ranges for the proposed initiative (not just 'TBD' or 'to be determined')",
+      "passed": true,
+      "evidence": "Detailed pricing throughout: Executive summary investment table ($80K-$120K governance, $400K-$600K fraud detection, $200K-$300K support AI, $300K-$500K expansion). Proposal Section 9 breaks down costs by category: Senior ML Engineer $180K-$220K, ML Engineer $150K-$180K, MLOps Engineer $160K-$200K, Vertex AI $40K-$60K/year, Redis $15K-$25K/year, Dataflow $20K-$30K/year, Monitoring $10K-$15K/year, Consulting $80K-$120K. Total Year 1: $775K-$1.0M."
+    },
+    {
+      "text": "Output produces a phased proposal or SOW structure with specific milestones, not just a list of recommendations",
+      "passed": true,
+      "evidence": "Proposal includes detailed phased plan: Phase 1A Foundation (Weeks 1-4) with weekly deliverables and exit criteria, Phase 1B Model Development (Weeks 5-10) with weekly deliverables and exit criteria, Phase 1C Production Deployment (Weeks 11-16) with weekly deliverables and exit criteria. Each phase has specific quantitative exit criteria (e.g., '>85% recall and <5% false positive rate'). Immediate actions table includes owners and timelines."
+    },
+    {
+      "text": "Output recommends customer service automation (chatbot/agent) as a second-priority opportunity given the 60% repetitive ticket rate",
+      "passed": true,
+      "evidence": "Executive summary Section 2 ('Customer Support Automation Offers Quick, Visible Wins') identifies 480/800 daily tickets (60%) as repetitive and recommends a 'conversational AI agent.' It is sequenced as Phase 2 (Months 2-5). The opportunity matrix scores it with a composite of 4.40 and notes '480 repetitive tickets/day eligible for automation' with projected savings of '$1.2M-$1.8M.'"
+    },
+    {
+      "text": "Output includes fintech-specific regulatory considerations beyond SOC2 (e.g., fair lending if applicable, model risk management)",
+      "passed": true,
+      "evidence": "Multiple fintech-specific regulatory considerations beyond SOC2: (1) Model Risk Management Policy listed as required governance artifact in Section 8, (2) Bias and fairness audit in Week 9 with 'demographic performance dashboards' addresses fair lending substance, (3) AML/KYC compliance monitoring is Opportunity 5, (4) Regulatory risk table includes 'Regulatory scrutiny of automated decisioning' and 'Bias in fraud scoring,' (5) Explainability requirements and audit trail requirements address model risk management, (6) Executive summary notes 'Regulators are increasingly scrutinizing AI in financial services.'"
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  }
+}

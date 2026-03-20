@@ -1,0 +1,17 @@
+{
+  "eval_id": 2,
+  "eval_name": "fintech-deliverables",
+  "prompt": "I've completed discovery for a fintech startup called PayFlow (Series B, 150 employees). Here's what I found:\n- They process 50,000 transactions/day with a 2.1% fraud rate (industry average is 0.5%)\n- Their fraud detection is rule-based, maintained by 2 engineers\n- Customer support gets 800 tickets/day, 60% are repetitive (balance inquiries, transaction status)\n- They have a data warehouse on BigQuery with 3 years of transaction data\n- Engineering team of 40, 3 have ML experience\n- No AI governance policy\n- CEO wants 'AI everywhere' within 6 months\n- VP of Engineering is skeptical and worried about maintaining new systems\n- They're SOC2 compliant but haven't considered AI-specific compliance\n\nGenerate the full set of deliverables for this engagement - executive summary, opportunity matrix, and a proposal for the top initiative.",
+  "assertions": [
+    "Output includes a 5-dimension AI maturity assessment (Data, Infrastructure, Talent, Governance, Culture) with numerical scores and a weighted aggregate classified into a maturity stage",
+    "Output identifies a bottleneck dimension (Governance at score 1) that is significantly below the aggregate and flags it as a constraint on scaling",
+    "Output classifies each opportunity as Quick Win, Strategic Bet, Fill-in, or Deprioritize using the impact-feasibility quadrant framework",
+    "Output includes a Build vs Buy recommendation for each scored opportunity in the matrix",
+    "Output rates each opportunity's Agent Potential (whether it could become an autonomous AI agent workflow)",
+    "Output produces a dedicated red flags section with severity ratings for each flag (the CEO timeline, VP skepticism, missing governance)",
+    "Output treats AI governance not just as a risk but as a scored opportunity or must-do prerequisite in the opportunity matrix",
+    "Output includes actual pricing estimates or ranges from the reference pricing guide for the proposed initiative",
+    "Output uses the maturity stage classification to determine the overall engagement approach (Pilot-Ready drives identifying quick wins and building proof points)",
+    "Output produces a phased proposal or SOW structure following the deliverable template format with scope, exclusions, assumptions, and acceptance criteria"
+  ]
+}

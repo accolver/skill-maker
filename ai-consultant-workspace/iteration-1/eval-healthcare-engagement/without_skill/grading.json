@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a company research section with instructions to web search MedTech Solutions for recent news, competitors, and industry context",
+      "passed": true,
+      "evidence": "File 01-cto-call-agenda.md contains a 'Pre-Call Research Checklist' with items: 'Review MedTech Solutions website and any public press releases', 'Research their specialty clinic types and patient demographics', 'Check for any public regulatory actions or accreditation info', 'Research competitor clinics and their digital capabilities', and 'Prepare 2-3 relevant case studies from similar healthcare engagements'. This is a company research section with instructions to research the company, competitors, and industry context."
+    },
+    {
+      "text": "Output explicitly mentions HIPAA compliance as a constraint for any AI initiative",
+      "passed": true,
+      "evidence": "HIPAA is mentioned extensively as a constraint. File 05-hipaa-compliance-checklist.md is an entire dedicated document on HIPAA compliance for AI modernization. File 03-preliminary-opportunity-assessment.md lists 'HIPAA compliance gaps in AI implementation' as High likelihood, Critical impact risk. File 10-risk-register.md has R-001 'HIPAA Compliance Gap in AI/Digital Systems' scored 15 (High). The engagement proposal (07) lists 'HIPAA-compliant digital and AI infrastructure' as a projected outcome and a dependency."
+    },
+    {
+      "text": "Output provides CTO-specific interview questions covering infrastructure, data architecture, and security requirements",
+      "passed": true,
+      "evidence": "File 01-cto-call-agenda.md is structured as a CTO discovery call with questions covering: Infrastructure ('Walk me through your current infrastructure -- what's on-prem vs. AWS today?', 'What's your data backup and disaster recovery posture?'), Data architecture ('How are patient records currently stored and accessed across clinic locations?', 'What EHR/EMR system are you using?'), and Security ('Are there compliance or regulatory requirements we need to be aware of? (HIPAA, state-specific)'). File 02-discovery-questionnaire.md Section B4 has detailed Security & Compliance questions including HIPAA risk assessments and BAA with AWS."
+    },
+    {
+      "text": "Output includes a preliminary AI maturity assessment hypothesis based on the information given (paper-based intake suggests low data maturity)",
+      "passed": true,
+      "evidence": "File 03-preliminary-opportunity-assessment.md describes MedTech as 'running paper-based patient intake across a chain of specialty clinics' and classifies it as 'a classic candidate for digital transformation'. It categorizes opportunities into High-Confidence, Medium-Confidence (requiring discovery validation), and Exploratory (requiring maturity), implying a low current maturity. UC-403 Population Health Analytics in file 04 gets Feasibility score of 2 noting 'Requires data integration maturity'. The phased roadmap in file 06 starts with digital foundations before AI, reflecting an implicit hypothesis of low data maturity. Risk R-006 in file 10 explicitly notes 'Existing paper-based records contain inconsistencies, missing data, or errors' as a data quality risk."
+    },
+    {
+      "text": "Output identifies healthcare-specific AI opportunities like clinical documentation, patient intake automation, or prior authorization",
+      "passed": true,
+      "evidence": "File 04-ai-use-case-catalog.md catalogs 18 healthcare-specific AI use cases including: UC-101 'Digital Patient Intake Forms', UC-204 'Clinical Documentation Assistance' (AI-assisted note generation from provider-patient conversations / ambient clinical intelligence), UC-102 'AI-Powered Insurance Verification', UC-302 'Revenue Cycle AI -- Coding Assistance'. File 06-technology-roadmap.md Phase 3 Workstream 3.2 explicitly includes 'Automate prior authorization workflows'."
+    },
+    {
+      "text": "Output flags the vague budget as a risk and recommends getting budget range signals early",
+      "passed": true,
+      "evidence": "File 10-risk-register.md R-007 'Budget Uncertainty' states: 'CEO has expressed interest but budget is vague. Actual approved budget may be insufficient for the full program scope.' Scored 12 (High). Mitigation includes building ROI model and framing Phase 0 as low-cost entry. File 01-cto-call-agenda.md Section 4 asks 'Has a budget range been discussed for this initiative?' during the first CTO call, and the Key Signals table flags 'Budget is TBD or we'll figure it out' as needing ROI framing. File 03 lists 'What is the realistic budget range the CEO is considering?' as a key question to resolve in discovery."
+    },
+    {
+      "text": "Output recommends a stakeholder interview sequence beyond just the CTO (exec sponsor, department heads, frontline clinicians)",
+      "passed": true,
+      "evidence": "File 09-stakeholder-map.md provides a detailed Phase 0 engagement plan with sequenced interviews: CEO (Week 1), CTO (Week 1), CMO (Week 2), COO (Week 2), CFO (Week 2), IT Team Leads (Week 2), Clinic Directors 2-3 (Weeks 2-3 on-site), Front Desk Staff 4-6 (Weeks 2-3 shadowing), Clinical Staff 4-6 (Weeks 2-3). File 06-technology-roadmap.md WS-0.1 also lists stakeholder discovery including CMO/Clinical leadership, COO, IT team leads, front desk staff observation, and clinical staff shadow sessions."
+    },
+    {
+      "text": "Output produces or outlines an actual document (company briefing, interview prep guide, or engagement plan) rather than just giving advice",
+      "passed": true,
+      "evidence": "The output consists of 10 complete, structured documents: CTO discovery call agenda with pre-call research checklist (01), comprehensive discovery questionnaire (02), preliminary opportunity assessment with ROI estimates (03), AI use case catalog with scoring framework (04), HIPAA compliance checklist (05), 18-month technology roadmap (06), engagement proposal draft (07), ROI model with sensitivity analysis (08), stakeholder map with engagement strategy (09), and risk register with heat map (10). These are actionable deliverables with tables, checklists, timelines, and frameworks."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

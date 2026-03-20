@@ -1,0 +1,17 @@
+{
+  "eval_id": 3,
+  "eval_name": "manufacturing-package",
+  "prompt": "A manufacturing company (TitanWorks, 2000 employees, $300M revenue, 4 factories) wants to reduce unplanned downtime which is costing them $2M/month. They have sensors on about 40% of critical equipment, the rest is monitored manually. Their IT team is 25 people, all enterprise IT (ERP, networking) with zero data science capability. They just migrated to Azure 6 months ago. The plant managers are enthusiastic but the CFO is concerned about ROI and wants hard numbers before committing. The previous 'digital transformation' initiative 18 months ago was considered a failure and the project lead left the company.\n\nI need the full engagement package: maturity assessment, opportunity analysis with build vs buy, a 3-tier proposal (essential/recommended/comprehensive), and a roadmap. The CFO specifically asked for a sensitivity analysis on ROI.",
+  "assertions": [
+    "Output includes an AI maturity assessment scoring exactly 5 dimensions (Data, Infrastructure, Talent, Governance, Culture) with Talent scoring lowest at 1 due to zero data science capability",
+    "Output produces a weighted aggregate maturity score in the 1-2 range classified as Foundation stage, driving a foundation-building engagement approach",
+    "Output includes a bottleneck analysis identifying Talent and/or Governance as critical gaps that are 0.5+ points below the aggregate",
+    "Output produces a dedicated company briefing or pre-engagement research document as a standalone file",
+    "Output includes a dedicated red flags document with severity ratings and mitigation plans, including a section for positive indicators (red flags NOT present)",
+    "Output classifies each opportunity using the Quick Wins / Strategic Bets / Fill-ins / Deprioritize quadrant framework based on impact and feasibility scores",
+    "Output includes Build vs Buy assessment and Agent Potential rating for each opportunity in the matrix",
+    "Output includes a sensitivity analysis with at least 3 scenarios showing different ROI outcomes anchored to the $2M/month downtime baseline",
+    "Output provides 3 pricing tiers (essential/recommended/comprehensive) with actual dollar ranges for each tier",
+    "Output explicitly connects the maturity score to the engagement strategy — a Foundation-stage classification drives the recommendation to lead with data foundations and a quick win before advanced AI"
+  ]
+}

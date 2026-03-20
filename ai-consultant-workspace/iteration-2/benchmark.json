@@ -1,0 +1,81 @@
+{
+  "skill_name": "ai-consultant",
+  "iteration": 2,
+  "timestamp": "2026-03-20T00:24:41.831Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9,
+        "stddev": 0.0816
+      },
+      "time_seconds": {
+        "mean": 180,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 90000,
+        "stddev": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.11,
+        "stddev": 0.0829
+      },
+      "time_seconds": {
+        "mean": 180,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 90000,
+        "stddev": 0
+      }
+    },
+    "delta": {
+      "pass_rate": 0.79,
+      "time_seconds": 0,
+      "tokens": 0
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "fintech-deliverables",
+      "with_skill": {
+        "pass_rate": 0.9,
+        "time_seconds": 180,
+        "tokens": 90000
+      },
+      "without_skill": {
+        "pass_rate": 0,
+        "time_seconds": 180,
+        "tokens": 90000
+      }
+    },
+    {
+      "eval_name": "healthcare-engagement",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 180,
+        "tokens": 90000
+      },
+      "without_skill": {
+        "pass_rate": 0.13,
+        "time_seconds": 180,
+        "tokens": 90000
+      }
+    },
+    {
+      "eval_name": "manufacturing-package",
+      "with_skill": {
+        "pass_rate": 0.8,
+        "time_seconds": 180,
+        "tokens": 90000
+      },
+      "without_skill": {
+        "pass_rate": 0.2,
+        "time_seconds": 180,
+        "tokens": 90000
+      }
+    }
+  ]
+}

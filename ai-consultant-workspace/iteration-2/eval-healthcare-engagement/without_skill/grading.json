@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes an AI maturity assessment using exactly 5 dimensions: Data, Infrastructure, Talent, Governance, and Culture — each scored on a 1-5 scale",
+      "passed": false,
+      "evidence": "No output file contains a formal AI maturity assessment with those 5 specific dimensions (Data, Infrastructure, Talent, Governance, Culture) scored on a 1-5 scale. The discovery questionnaire (02) has an 'AI Readiness Assessment' section with subsections for Data Readiness, Process Readiness, Organizational Readiness, and Regulatory Considerations, but these are questionnaire prompts, not scored dimensions. None of the 8 output files produce a scored maturity model."
+    },
+    {
+      "text": "Output produces a weighted aggregate maturity score mapped to a named stage (Foundation, Pilot-Ready, Scale-Ready, or Optimize)",
+      "passed": false,
+      "evidence": "No output file contains a weighted aggregate maturity score or maps to named stages such as Foundation, Pilot-Ready, Scale-Ready, or Optimize. The engagement proposal (04) mentions an 'AI Readiness Scorecard' as a future deliverable but does not produce one. No maturity stage terminology appears anywhere in the outputs."
+    },
+    {
+      "text": "Output includes a bottleneck analysis identifying which maturity dimension scores lowest and how far it is below the aggregate",
+      "passed": false,
+      "evidence": "No bottleneck analysis exists in any output file. Since no maturity dimensions are scored, there is no analysis of which dimension scores lowest or its distance from an aggregate score. The opportunity assessment (03) and risk register (05) discuss risks and challenges but not in the context of a maturity dimension bottleneck analysis."
+    },
+    {
+      "text": "Output produces a dedicated red flags section or document with severity ratings (Critical, High, Medium) and specific mitigation plans for each flag",
+      "passed": true,
+      "evidence": "The risk register (05-risk-register.md) is a dedicated document with severity ratings: Critical (2 items), High (5 items), Medium (7 items), and Low (3 items). Each risk includes a detailed mitigation strategy. For example, R-001 (HIPAA Compliance Violation) is rated HIGH with a 5-point mitigation strategy, and R-002 (Scope Creep) is rated CRITICAL with a 5-point mitigation strategy. The CTO call prep briefing (08) also has a 'Potential Red Flags to Probe' section, though it lacks severity ratings. The risk register satisfies this assertion."
+    },
+    {
+      "text": "Output classifies opportunities using the 2x2 Impact-Feasibility quadrant: Quick Wins, Strategic Bets, Fill-ins, and Deprioritize",
+      "passed": false,
+      "evidence": "The opportunity assessment (03) uses a tiered classification (Tier 1: High Impact Lower Complexity / Quick Wins, Tier 2: High Impact Moderate Complexity, Tier 3: Transformational Higher Complexity) but does NOT use a 2x2 Impact-Feasibility quadrant. The specific quadrant labels 'Strategic Bets', 'Fill-ins', and 'Deprioritize' do not appear anywhere in the outputs. Only 'Quick Wins' is used as a label."
+    },
+    {
+      "text": "Output includes a Build vs Buy recommendation for each identified AI opportunity",
+      "passed": false,
+      "evidence": "No output file contains Build vs Buy recommendations. The opportunity assessment (03) describes technology approaches for each opportunity (e.g., 'AWS Textract for OCR, Comprehend Medical for NLP') but never frames these as explicit Build vs Buy decisions. The engagement proposal (04) mentions a 'Technology Vendor Evaluation Matrix' as a future deliverable but does not produce one."
+    },
+    {
+      "text": "Output includes an Agent Potential assessment for each opportunity rating whether it could be an autonomous AI agent workflow",
+      "passed": false,
+      "evidence": "No output file contains any assessment of 'Agent Potential' or autonomous AI agent workflows. The opportunity assessment (03) describes AI opportunities with technology approaches and estimated impacts, but none are evaluated for their potential as autonomous AI agent workflows. The term 'agent' does not appear in the context of autonomous AI agents in any output."
+    },
+    {
+      "text": "Output explicitly connects the maturity score to the recommended engagement approach (e.g., a low score drives foundation-building, a mid score drives pilot-ready recommendations)",
+      "passed": false,
+      "evidence": "No maturity score exists in any output, so no connection between a maturity score and engagement approach is made. The engagement proposal (04) recommends a phased approach (Discovery, Strategy, Quick Wins, Core Transformation, Advanced Capabilities) but this is not driven by or connected to any maturity scoring. The recommendations are based on general assumptions about the organization's state rather than a formal maturity assessment."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.13
+  }
+}

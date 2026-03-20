@@ -1,0 +1,58 @@
+{
+  "eval_id": 1,
+  "eval_name": "healthcare-engagement",
+  "config": "with_skill",
+  "results": [
+    {
+      "assertion_id": 1,
+      "assertion": "Output includes an AI maturity assessment using exactly 5 dimensions: Data, Infrastructure, Talent, Governance, and Culture — each scored on a 1-5 scale",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md contains exactly 5 dimensions scored on 1-5: Data (1.5/5), Infrastructure (2.0/5), Talent (1.5/5), Governance (1.5/5), Culture (2.5/5). Each dimension has a dedicated section with indicator tables and evidence."
+    },
+    {
+      "assertion_id": 2,
+      "assertion": "Output produces a weighted aggregate maturity score mapped to a named stage (Foundation, Pilot-Ready, Scale-Ready, or Optimize)",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md includes a weighted aggregate calculation: '(1.5 × 0.25) + (2.0 × 0.20) + (1.5 × 0.20) + (1.5 × 0.20) + (2.5 × 0.15) = 1.75' mapped to 'FOUNDATION Stage' with explicit stage range '(1.0-1.9)'."
+    },
+    {
+      "assertion_id": 3,
+      "assertion": "Output includes a bottleneck analysis identifying which maturity dimension scores lowest and how far it is below the aggregate",
+      "result": "FAIL",
+      "evidence": "ai-maturity-assessment.md has a 'Bottleneck Analysis' section identifying Data, Talent, and Governance tied at 1.5 as lowest. However, the gap analysis measures distance from the highest dimension (Culture: 2.5), not from the aggregate (1.75). The table header reads 'Gap from Highest (Culture: 2.5)' showing Data at '1.0 below'. The gap from the aggregate (1.5 vs 1.75 = 0.25 below) is never explicitly stated."
+    },
+    {
+      "assertion_id": 4,
+      "assertion": "Output produces a dedicated red flags section or document with severity ratings (Critical, High, Medium) and specific mitigation plans for each flag",
+      "result": "PASS",
+      "evidence": "red-flags.md is a dedicated document with 6 red flags. Each flag has a structured table with Severity (HIGH or MEDIUM), Evidence, Risk, and Mitigation fields. The severity summary table shows Critical (0), High (2: 'No data strategy; Unrealistic expectations'), Medium (4: 'Vague budget; Compliance not consulted; No GenAI risk plan; Potential shadow AI'). Every flag has a specific, actionable mitigation plan."
+    },
+    {
+      "assertion_id": 5,
+      "assertion": "Output classifies opportunities using the 2x2 Impact-Feasibility quadrant: Quick Wins, Strategic Bets, Fill-ins, and Deprioritize",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md contains an ASCII 2x2 quadrant diagram with all four labels: 'QUICK WINS' (high impact, high feasibility), 'STRATEGIC BETS' (high impact, low feasibility), 'FILL-INS' (low impact, high feasibility), and 'DEPRIORITIZE' (low impact, low feasibility). All 8 opportunities are placed in the appropriate quadrant."
+    },
+    {
+      "assertion_id": 6,
+      "assertion": "Output includes a Build vs Buy recommendation for each identified AI opportunity",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md includes a 'Build vs Buy vs Already Licensed' section for all 8 opportunities. Recommendations: #1 Patient Intake: BUY, #2 Medical Coding: BUY, #3 Patient Comms: BUY, #4 Ambient Documentation: BUY, #5 Prior Auth: BUY, #6 Knowledge Base: BUILD or BUY, #7 Diagnostic Imaging: BUY only if applicable, #8 Predictive Staffing: BUY (later). Each includes vendor names and cost estimates."
+    },
+    {
+      "assertion_id": 7,
+      "assertion": "Output includes an Agent Potential assessment for each opportunity rating whether it could be an autonomous AI agent workflow",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md includes an 'Agent Potential' section for all 8 opportunities with ratings: #1 Medium, #2 High, #3 High, #4 Very High, #5 Very High, #6 Medium, #7 Low, #8 Low. Each rating includes a description of the potential agent workflow or explanation of why agent potential is limited."
+    },
+    {
+      "assertion_id": 8,
+      "assertion": "Output explicitly connects the maturity score to the recommended engagement approach (e.g., a low score drives foundation-building, a mid score drives pilot-ready recommendations)",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md has 'Engagement Approach (Score-Driven)' section stating: 'A score of 1.75 places MedTech Solutions squarely in the Foundation stage (1.0-1.9)' followed by 'Foundation engagement: Data strategy, infrastructure planning, executive education.' discovery-report.md has 'Maturity Score to Engagement Approach Connection' section with 4 directives explicitly driven by the Foundation-stage score, including 'Do not propose advanced AI' and 'Lead with digitization.'"
+    }
+  ],
+  "pass_count": 7,
+  "fail_count": 1,
+  "pass_rate": 0.88
+}

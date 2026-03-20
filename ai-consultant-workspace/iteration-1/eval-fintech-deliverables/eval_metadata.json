@@ -1,0 +1,17 @@
+{
+  "eval_id": 2,
+  "eval_name": "fintech-deliverables",
+  "prompt": "I've completed discovery for a fintech startup called PayFlow (Series B, 150 employees). Here's what I found:\n- They process 50,000 transactions/day with a 2.1% fraud rate (industry average is 0.5%)\n- Their fraud detection is rule-based, maintained by 2 engineers\n- Customer support gets 800 tickets/day, 60% are repetitive (balance inquiries, transaction status)\n- They have a data warehouse on BigQuery with 3 years of transaction data\n- Engineering team of 40, 3 have ML experience\n- No AI governance policy\n- CEO wants 'AI everywhere' within 6 months\n- VP of Engineering is skeptical and worried about maintaining new systems\n- They're SOC2 compliant but haven't considered AI-specific compliance\n\nGenerate the full set of deliverables for this engagement - executive summary, opportunity matrix, and a proposal for the top initiative.",
+  "assertions": [
+    "Output includes an executive summary document with specific ROI projections based on the fraud rate gap (2.1% vs 0.5% industry average)",
+    "Output produces a scored opportunity matrix with at least 3 opportunities rated on impact and feasibility dimensions",
+    "Output identifies fraud detection as the highest-priority quick win given the data readiness (3 years in BigQuery) and clear ROI",
+    "Output flags the CEO's 'AI everywhere in 6 months' expectation as unrealistic and recommends a phased approach",
+    "Output addresses the VP of Engineering's skepticism with a specific mitigation strategy (not just noting it as a risk)",
+    "Output flags the missing AI governance policy as a risk that must be addressed before scaling",
+    "Output includes actual pricing estimates or ranges for the proposed initiative (not just 'TBD' or 'to be determined')",
+    "Output produces a phased proposal or SOW structure with specific milestones, not just a list of recommendations",
+    "Output recommends customer service automation (chatbot/agent) as a second-priority opportunity given the 60% repetitive ticket rate",
+    "Output includes fintech-specific regulatory considerations beyond SOC2 (e.g., fair lending if applicable, model risk management)"
+  ]
+}

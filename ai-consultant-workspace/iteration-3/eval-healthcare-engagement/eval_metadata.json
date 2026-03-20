@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "healthcare-engagement",
+  "prompt": "I just got a new client - MedTech Solutions, a mid-size healthcare company (~500 employees, $80M revenue) that runs a chain of specialty clinics. They're using mostly paper-based patient intake and their CEO mentioned wanting to 'use AI to modernize operations.' They have an IT team of about 12 people and use a mix of on-prem and AWS. The CEO has budget but is vague on how much. I have my first call with their CTO next week. Help me prepare for this engagement.",
+  "assertions": [
+    "Output includes an AI maturity assessment using exactly 5 dimensions: Data, Infrastructure, Talent, Governance, and Culture — each scored on a 1-5 scale",
+    "Output produces a weighted aggregate maturity score mapped to a named stage (Foundation, Pilot-Ready, Scale-Ready, or Optimize)",
+    "Output includes a bottleneck analysis identifying which maturity dimension scores lowest and how far it is below the aggregate",
+    "Output produces a dedicated red flags section or document with severity ratings (Critical, High, Medium) and specific mitigation plans for each flag",
+    "Output classifies opportunities using the 2x2 Impact-Feasibility quadrant: Quick Wins, Strategic Bets, Fill-ins, and Deprioritize",
+    "Output includes a Build vs Buy recommendation for each identified AI opportunity",
+    "Output includes an Agent Potential assessment for each opportunity rating whether it could be an autonomous AI agent workflow",
+    "Output explicitly connects the maturity score to the recommended engagement approach (e.g., a low score drives foundation-building, a mid score drives pilot-ready recommendations)"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "iteration": 3,
+  "skill_name": "ai-consultant",
+  "with_skill": {
+    "pass_rate": 0.96,
+    "total_assertions": 28,
+    "total_pass": 27,
+    "total_fail": 1,
+    "per_eval": {
+      "healthcare-engagement": { "pass": 7, "total": 8, "rate": 0.88 },
+      "fintech-deliverables": { "pass": 10, "total": 10, "rate": 1.0 },
+      "manufacturing-package": { "pass": 10, "total": 10, "rate": 1.0 }
+    }
+  },
+  "old_skill": {
+    "pass_rate": 1.0,
+    "total_assertions": 28,
+    "total_pass": 28,
+    "total_fail": 0,
+    "per_eval": {
+      "healthcare-engagement": { "pass": 8, "total": 8, "rate": 1.0 },
+      "fintech-deliverables": { "pass": 10, "total": 10, "rate": 1.0 },
+      "manufacturing-package": { "pass": 10, "total": 10, "rate": 1.0 }
+    }
+  },
+  "delta": -0.04,
+  "note": "Iteration 3 compares updated skill (v3: effort-hours, existing AI tools, GenAI risks) vs previous skill (v2: dollar pricing). Both versions perform near-ceiling. The single failure is a bottleneck gap measurement detail (gap from aggregate vs gap from highest dimension)."
+}

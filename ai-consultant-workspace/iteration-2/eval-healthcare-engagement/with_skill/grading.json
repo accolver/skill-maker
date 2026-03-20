@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes an AI maturity assessment using exactly 5 dimensions: Data, Infrastructure, Talent, Governance, and Culture — each scored on a 1-5 scale",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md contains a summary table with exactly 5 dimensions (Data: 1.5, Infrastructure: 2.0, Talent: 1.5, Governance: 1.5, Culture: 2.5) each scored on a 1-5 scale, with detailed evidence and recommendations per dimension."
+    },
+    {
+      "text": "Output produces a weighted aggregate maturity score mapped to a named stage (Foundation, Pilot-Ready, Scale-Ready, or Optimize)",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md shows a weighted aggregate score of 1.8 with explicit weight calculation (Data 0.25, Infrastructure 0.20, Talent 0.20, Governance 0.20, Culture 0.15) and maps it to the 'Foundation' stage. The engagement approach references 'Foundation-to-Pilot-Ready' range."
+    },
+    {
+      "text": "Output includes a bottleneck analysis identifying which maturity dimension scores lowest and how far it is below the aggregate",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md section 'Dimension Gap Analysis' identifies Data (1.5), Talent (1.5), and Governance (1.5) as tied bottlenecks, notes Culture (2.5) as strongest, and describes the pattern as 'High culture, low data'. The gap between lowest (1.5) and aggregate (1.8) is implicit in the scoring table. The discovery-report.md also states 'Data (1.5) is the critical bottleneck' and characterizes the bottleneck pattern."
+    },
+    {
+      "text": "Output produces a dedicated red flags section or document with severity ratings (Critical, High, Medium) and specific mitigation plans for each flag",
+      "passed": true,
+      "evidence": "red-flags.md is a dedicated document with 6 identified red flags, each with severity ratings (High, Medium, Medium-High) and detailed multi-step mitigation plans. Severity ratings use Critical/High/Medium scale. Each flag has a structured table with Severity, Source, Risk fields plus a 'Mitigation Plan' section with specific actionable steps and decision points."
+    },
+    {
+      "text": "Output classifies opportunities using the 2x2 Impact-Feasibility quadrant: Quick Wins, Strategic Bets, Fill-ins, and Deprioritize",
+      "passed": true,
+      "evidence": "opportunity-matrix.md contains an explicit Priority Matrix showing the 2x2 grid with High/Medium/Low Impact vs High/Medium/Low Feasibility, labeling quadrants as 'QUICK WINS', 'Strategic Bets', 'Fill-ins', and 'Deprioritize'. Each of the 7 opportunities is categorized: Digital Patient Intake and Communication Agent as Quick Wins, Ambient Documentation/Prior Auth/Coding AI as Strategic Bets, Analytics Dashboard and Referral Management as Fill-ins."
+    },
+    {
+      "text": "Output includes a Build vs Buy recommendation for each identified AI opportunity",
+      "passed": true,
+      "evidence": "opportunity-matrix.md includes a 'Build vs Buy' row for all 7 opportunities: Opportunity 1 (Buy), Opportunity 2 (Buy), Opportunity 3 (Buy), Opportunity 4 (Buy with customization), Opportunity 5 (Buy), Opportunity 6 (Buy platform, build dashboards), Opportunity 7 (Buy with configuration)."
+    },
+    {
+      "text": "Output includes an Agent Potential assessment for each opportunity rating whether it could be an autonomous AI agent workflow",
+      "passed": true,
+      "evidence": "opportunity-matrix.md includes an 'Agent Potential' row for all 7 opportunities with ratings: Opportunity 1 (Low), Opportunity 2 (High - 'fundamentally an AI agent use case'), Opportunity 3 (Medium), Opportunity 4 (Very high - 'prime candidate for autonomous AI agent workflow'), Opportunity 5 (Medium), Opportunity 6 (Low), Opportunity 7 (Medium)."
+    },
+    {
+      "text": "Output explicitly connects the maturity score to the recommended engagement approach (e.g., a low score drives foundation-building, a mid score drives pilot-ready recommendations)",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md states: 'Engagement Approach: Foundation-building with targeted quick wins. MedTech Solutions falls in the Foundation-to-Pilot-Ready range. The strategy should combine foundational improvements (digitization, data capture) with 1-2 quick wins that use off-the-shelf solutions and don't require internal AI capability.' The discovery-report.md reinforces: 'At 1.8, MedTech Solutions is at the upper end of Foundation stage. This means: The organization needs data foundations before advanced AI... The strategy should combine foundational work (digitization, data capture) with quick wins (vendor SaaS solutions).' The low maturity score directly drives the foundation-first, buy-not-build approach."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

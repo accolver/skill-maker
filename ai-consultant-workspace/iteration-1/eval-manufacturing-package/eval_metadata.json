@@ -1,0 +1,17 @@
+{
+  "eval_id": 3,
+  "eval_name": "manufacturing-package",
+  "prompt": "A manufacturing company (TitanWorks, 2000 employees, $300M revenue, 4 factories) wants to reduce unplanned downtime which is costing them $2M/month. They have sensors on about 40% of critical equipment, the rest is monitored manually. Their IT team is 25 people, all enterprise IT (ERP, networking) with zero data science capability. They just migrated to Azure 6 months ago. The plant managers are enthusiastic but the CFO is concerned about ROI and wants hard numbers before committing. The previous 'digital transformation' initiative 18 months ago was considered a failure and the project lead left the company.\n\nI need the full engagement package: maturity assessment, opportunity analysis with build vs buy, a 3-tier proposal (essential/recommended/comprehensive), and a roadmap. The CFO specifically asked for a sensitivity analysis on ROI.",
+  "assertions": [
+    "Output includes an AI maturity assessment scoring all 5 dimensions with the talent dimension scoring lowest (no data science capability)",
+    "Output quantifies the predictive maintenance opportunity using the $2M/month downtime cost as the baseline for ROI calculations",
+    "Output includes a build vs buy analysis for predictive maintenance comparing custom ML vs vendor solutions (e.g., Azure ML, or specialized PdM platforms)",
+    "Output provides 3 pricing tiers (essential/recommended/comprehensive) with different scope levels and actual dollar ranges",
+    "Output includes a sensitivity analysis with at least 3 scenarios (conservative, base, optimistic) showing different ROI outcomes",
+    "Output explicitly addresses the failed digital transformation as a risk and proposes specific mitigation (e.g., different governance, executive alignment, phased approach with early wins)",
+    "Output flags the 40% sensor coverage as a constraint and recommends sensor retrofit as a prerequisite or Phase 1 activity",
+    "Output addresses the talent gap with specific recommendations (hire, partner, or train) rather than just noting the gap exists",
+    "Output includes a phased roadmap with dependencies between sensor deployment, data collection, model training, and production deployment",
+    "Output tailors the CFO-facing deliverables to focus on financial metrics and risk mitigation rather than technical architecture"
+  ]
+}

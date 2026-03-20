@@ -1,0 +1,50 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a company research section with instructions to web search MedTech Solutions for recent news, competitors, and industry context",
+      "passed": true,
+      "evidence": "company-briefing.md contains an 'Industry Context' section covering competitive landscape (CVS Health, Walgreens, One Medical/Amazon), a 'Competitor and Industry AI Initiatives' section listing specific competitors and AI tools (Nuance DAX, Abridge, Phreesia, Fathom, Nym Health), and a 'Key Questions to Answer Before CTO Call' section. While it does not explicitly instruct to 'web search,' it provides comprehensive company research covering industry trends, competitors, and context, satisfying the semantic intent."
+    },
+    {
+      "text": "Output explicitly mentions HIPAA compliance as a constraint for any AI initiative",
+      "passed": true,
+      "evidence": "HIPAA is mentioned extensively across multiple files. company-briefing.md Regulatory Considerations table states 'All AI systems touching PHI need BAAs, encryption, access controls, audit trails. Cloud AI services must be HIPAA-compliant.' red-flags.md Red Flag #4 states 'In healthcare, HIPAA compliance is non-negotiable. Any AI system that touches Protected Health Information (PHI) requires Business Associate Agreements.' ai-maturity-assessment.md and cto-interview-guide.md also reference HIPAA as a constraint."
+    },
+    {
+      "text": "Output provides CTO-specific interview questions covering infrastructure, data architecture, and security requirements",
+      "passed": true,
+      "evidence": "cto-interview-guide.md contains 27 structured interview questions. Section 3 'Technical Infrastructure' covers EHR systems (Q13), AWS vs on-prem split (Q14), data architecture and data flow (Q15), analytics infrastructure (Q16), system integration requirements (Q17), and HIPAA/BAA compliance for cloud services (Q18 — security). Additional sections cover strategic alignment, operations, team/talent, budget, and stakeholder mapping."
+    },
+    {
+      "text": "Output includes a preliminary AI maturity assessment hypothesis based on the information given (paper-based intake suggests low data maturity)",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md provides a detailed preliminary assessment with aggregate score 1.75/5.0 ('Foundation Stage'). The Data dimension is scored 1.5 and labeled 'BOTTLENECK' with rationale: 'Paper-based patient intake is a primary indicator of immature data practices.' Document states 'Do NOT propose an ambitious AI agent fleet or advanced GenAI platform. The client is not ready.'"
+    },
+    {
+      "text": "Output identifies healthcare-specific AI opportunities like clinical documentation, patient intake automation, or prior authorization",
+      "passed": true,
+      "evidence": "opportunity-matrix.md identifies six healthcare-specific opportunities: (1) Digital Patient Intake, (2) Ambient Clinical Documentation, (3) AI-Powered Medical Coding, (4) Patient Communication Agent, (5) Prior Authorization Automation, and (6) Operational Analytics Platform. Each includes impact/feasibility scoring, investment estimates, time-to-value, and build vs. buy recommendations."
+    },
+    {
+      "text": "Output flags the vague budget as a risk and recommends getting budget range signals early",
+      "passed": true,
+      "evidence": "red-flags.md lists 'Vague Budget' as Red Flag #1 with Medium severity, stating 'Proposing a $500K engagement to a client expecting to spend $50K destroys credibility.' It provides a 4-step mitigation plan including specific CTO call questions and anchoring strategies. cto-interview-guide.md Section 5 'Budget & Timeline' includes escalating approaches to obtain budget signals, with resolution criteria: 'Obtain a budget range (even broad) before submitting any proposal beyond discovery.'"
+    },
+    {
+      "text": "Output recommends a stakeholder interview sequence beyond just the CTO (exec sponsor, department heads, frontline clinicians)",
+      "passed": true,
+      "evidence": "engagement-roadmap.md Phase 0 activity 0.2 lists 'Stakeholder interviews (ops director, clinical lead, compliance, finance, front desk staff).' cto-interview-guide.md Section 6 'Stakeholder Mapping' asks 'Beyond yourself, who are the key stakeholders who should be part of this conversation?' executive-summary.md next steps include 'Stakeholder interviews with operations, clinical leadership, compliance, and frontline staff.'"
+    },
+    {
+      "text": "Output produces or outlines an actual document (company briefing, interview prep guide, or engagement plan) rather than just giving advice",
+      "passed": true,
+      "evidence": "The output consists of seven fully structured documents: (1) company-briefing.md — complete company briefing, (2) ai-maturity-assessment.md — detailed maturity assessment with dimension scores, (3) red-flags.md — structured risk assessment with mitigation plans, (4) cto-interview-guide.md — 27-question interview prep guide with scripted questions and timing, (5) opportunity-matrix.md — scored opportunity analysis, (6) engagement-roadmap.md — phased engagement plan with pricing and milestones, (7) executive-summary.md — client-ready executive summary."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

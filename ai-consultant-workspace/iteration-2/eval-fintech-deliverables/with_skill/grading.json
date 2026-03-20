@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes a 5-dimension AI maturity assessment (Data, Infrastructure, Talent, Governance, Culture) with numerical scores and a weighted aggregate classified into a maturity stage",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md contains a table with all 5 dimensions scored (Data: 3, Infrastructure: 3, Talent: 2, Governance: 1, Culture: 3), each with a weight (25%, 20%, 20%, 20%, 15%), weighted scores, and a weighted aggregate of 2.4 classified as 'Pilot-Ready'."
+    },
+    {
+      "text": "Output identifies a bottleneck dimension (Governance at score 1) that is significantly below the aggregate and flags it as a constraint on scaling",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md has a 'Gap Analysis' section explicitly stating 'Critical Bottleneck: Governance (Score 1)' — 'Governance is 1.4 points below the aggregate score of 2.4. This is a blocking gap.' It further states PayFlow 'cannot responsibly deploy ML models for fraud detection...without basic AI governance in place' and calls it a constraint that 'must be addressed in Phase 1.'"
+    },
+    {
+      "text": "Output classifies each opportunity as Quick Win, Strategic Bet, Fill-in, or Deprioritize using the impact-feasibility quadrant framework",
+      "passed": true,
+      "evidence": "opportunity-matrix.md includes an 'Impact-Feasibility Matrix' with quadrants: Quick Wins (ML Fraud Detection, Customer Support Agent), Strategic Bets (Predictive Risk Scoring), Fill-ins (Transaction Routing, KYC Document Processing), Deprioritize (Compliance Co-Pilot). Each of the 6 opportunities has a Category column in the scoring summary table."
+    },
+    {
+      "text": "Output includes a Build vs Buy recommendation for each scored opportunity in the matrix",
+      "passed": true,
+      "evidence": "opportunity-matrix.md includes a 'Build vs. Buy Assessment' for all 6 opportunities: (1) Fraud Detection — Build, (2) Customer Support — Buy or hybrid, (3) Transaction Routing — Build, (4) Compliance Co-Pilot — Buy, (5) KYC Document Processing — Buy, (6) Merchant Risk Scoring — Build."
+    },
+    {
+      "text": "Output rates each opportunity's Agent Potential (whether it could become an autonomous AI agent workflow)",
+      "passed": true,
+      "evidence": "opportunity-matrix.md includes 'Agent Potential' for all 6 opportunities: (1) No — real-time scoring not agentic, (2) Yes — agent understands intent and retrieves data via tool calls, (3) No, (4) Yes eventually but not at current maturity, (5) Moderate — onboarding agent could orchestrate KYC workflow, (6) No."
+    },
+    {
+      "text": "Output produces a dedicated red flags section with severity ratings for each flag (the CEO timeline, VP skepticism, missing governance)",
+      "passed": true,
+      "evidence": "red-flags.md is a dedicated file with 4 red flags, each with a severity rating in a structured table: (1) Unrealistic Timeline Expectations — High, (2) No AI Governance Policy — High, (3) Compliance/Legal Not Consulted on AI — Medium, (4) Political Tension Between CEO and VP Engineering — Medium. Each includes mitigation plans and status."
+    },
+    {
+      "text": "Output treats AI governance not just as a risk but as a scored opportunity or must-do prerequisite in the opportunity matrix",
+      "passed": true,
+      "evidence": "Governance is treated as a mandatory prerequisite throughout: the proposal includes 'Parallel Workstream: AI Governance Framework (Weeks 1-6)' as a core workstream. The ai-maturity-assessment.md states 'Establish an AI use policy before deploying any ML models to production. This is a prerequisite, not a nice-to-have.' The roadmap includes governance as a 'Mandatory Parallel Workstream' in Phase 1 with its own budget ($20K-$40K). While governance is not scored as a numbered opportunity in the opportunity matrix itself, it is consistently positioned as a must-do prerequisite blocking production deployment — which satisfies the 'must-do prerequisite in the opportunity matrix' criterion."
+    },
+    {
+      "text": "Output includes actual pricing estimates or ranges from the reference pricing guide for the proposed initiative",
+      "passed": true,
+      "evidence": "proposal-fraud-detection.md includes three pricing tiers: Essential ($150K, 10 weeks), Recommended ($220K, 14 weeks), Comprehensive ($310K, 16 weeks + 3 months support), with milestone-based payment schedules. Infrastructure costs estimated at $2K-$5K/month. The roadmap also includes per-phase investment breakdowns (Phase 1: $180K-$280K, Phase 2: $150K-$250K, Phase 3: $200K-$350K) with line-item detail. Opportunity matrix includes Buy option pricing (e.g., SaaS fraud platforms $50K-$200K/year, support AI platforms $30K-$120K/year)."
+    },
+    {
+      "text": "Output uses the maturity stage classification to determine the overall engagement approach (Pilot-Ready drives identifying quick wins and building proof points)",
+      "passed": true,
+      "evidence": "The maturity assessment classifies PayFlow as 'Pilot-Ready' and states: 'PayFlow is positioned to identify 1-2 high-feasibility use cases and execute proof-of-concept projects with clear success metrics.' The engagement approach follows this directly — Phase 1 focuses on a single Quick Win (fraud detection) to 'demonstrate measurable business impact to build credibility for continued investment' (roadmap.md). The executive summary's recommended approach is explicitly a phased pilot-first strategy driven by the Pilot-Ready classification."
+    },
+    {
+      "text": "Output produces a phased proposal or SOW structure following the deliverable template format with scope, exclusions, assumptions, and acceptance criteria",
+      "passed": false,
+      "evidence": "proposal-fraud-detection.md is a detailed phased proposal with scope (4 phases, deliverables table, team allocation, timeline, investment tiers, ROI projections, and next steps). However, it does NOT include explicit 'Exclusions', 'Assumptions', or 'Acceptance Criteria' sections. While some assumptions are implied (e.g., $50 avg transaction value, transaction volume assumptions) and success criteria exist in the roadmap, the proposal lacks the formal SOW template structure with dedicated sections for exclusions, assumptions, and acceptance criteria."
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 1,
+    "total": 10,
+    "pass_rate": 0.90
+  }
+}

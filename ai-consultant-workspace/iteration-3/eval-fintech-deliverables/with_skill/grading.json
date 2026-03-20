@@ -1,0 +1,70 @@
+{
+  "eval_id": 2,
+  "eval_name": "fintech-deliverables",
+  "config": "with_skill",
+  "results": [
+    {
+      "assertion_id": 1,
+      "assertion": "Output includes a 5-dimension AI maturity assessment (Data, Infrastructure, Talent, Governance, Culture) with numerical scores and a weighted aggregate classified into a maturity stage",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md contains a table with all 5 dimensions scored numerically: Data (3, 25%), Infrastructure (3, 20%), Talent (2, 20%), Governance (1, 20%), Culture (3, 15%). Weighted aggregate calculated as 2.4/5.0 and classified as 'Pilot-Ready Stage'."
+    },
+    {
+      "assertion_id": 2,
+      "assertion": "Output identifies a bottleneck dimension (Governance at score 1) that is significantly below the aggregate and flags it as a constraint on scaling",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md has a 'Bottleneck Analysis' section with 'Critical Bottleneck: Governance (Score 1)' stating 'Governance scores 2+ levels below the aggregate (1 vs 2.4). This is a blocking bottleneck.' It explicitly flags this as a constraint: 'Deploying ML models for fraud detection or customer-facing agents without AI governance will create compliance risk.' Also identifies pattern: 'PayFlow can deploy fast but will hit compliance walls if governance is not addressed before scaling.'"
+    },
+    {
+      "assertion_id": 3,
+      "assertion": "Output classifies each opportunity as Quick Win, Strategic Bet, Fill-in, or Deprioritize using the impact-feasibility quadrant framework",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md includes an 'Impact-Feasibility Quadrant' table classifying all 6 opportunities: ML Fraud Detection (Quick Win), Customer Support AI Agent (Quick Win), Internal Knowledge Assistant (Fill-in), Personalized Risk Scoring (Strategic Bet), Real-Time AML System (Deprioritize), Compliance Monitoring Co-Pilot (Fill-in). Each opportunity detail section also lists its quadrant classification."
+    },
+    {
+      "assertion_id": 4,
+      "assertion": "Output includes a Build vs Buy recommendation for each scored opportunity in the matrix",
+      "result": "PASS",
+      "evidence": "Every opportunity in opportunity-matrix.md includes a 'Build vs Buy vs Already Licensed' field. Examples: ML Fraud Detection ('Build (custom model) on managed platform'), Customer Support AI Agent ('Buy-first evaluation recommended'), Internal Knowledge Assistant ('Buy'), Personalized Risk Scoring ('Build on managed platform'), Real-Time AML System ('Buy strongly recommended'), Compliance Monitoring Co-Pilot ('Buy-first evaluation')."
+    },
+    {
+      "assertion_id": 5,
+      "assertion": "Output rates each opportunity's Agent Potential (whether it could become an autonomous AI agent workflow)",
+      "result": "PASS",
+      "evidence": "Every opportunity in opportunity-matrix.md includes an 'Agent Potential' field. ML Fraud Detection: 'Medium-term' (fraud investigation agent). Customer Support AI Agent: 'High — this IS an agent use case.' Internal Knowledge Assistant: 'Low.' Personalized Risk Scoring: 'Low for scoring itself... Medium for the response layer.' Real-Time AML: 'Medium.' Compliance Monitoring Co-Pilot: 'High.'"
+    },
+    {
+      "assertion_id": 6,
+      "assertion": "Output produces a dedicated red flags section with severity ratings for each flag (the CEO timeline, VP skepticism, missing governance)",
+      "result": "PASS",
+      "evidence": "red-flags.md is a dedicated file with 6 red flags, each with a 'Severity' rating: (1) Unrealistic Expectations from CEO - High, (2) No AI Governance Policy - Critical, (3) No AI-Specific Compliance Consideration - High, (4) Political Tension Between CEO and VP Engineering - Medium, (5) No Plan for GenAI-Specific Risks - Medium, (6) Fraud Rate 4x Industry Average - High. All three specified flags (CEO timeline, VP skepticism, missing governance) are covered."
+    },
+    {
+      "assertion_id": 7,
+      "assertion": "Output treats AI governance not just as a risk but as a scored opportunity or must-do prerequisite in the opportunity matrix",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md explicitly states at the end: 'AI Governance runs as a parallel workstream alongside all initiatives — it is not an \"opportunity\" but a prerequisite.' Multiple opportunities list governance as a dependency (e.g., ML Fraud Detection: 'AI governance policy (at minimum: model documentation, approval workflow, bias testing)'). The maturity assessment calls it a 'blocking bottleneck' and 'non-negotiable for fintech.' The executive summary includes 'Establish AI governance policy' in Phase 1 scope."
+    },
+    {
+      "assertion_id": 8,
+      "assertion": "Output includes effort estimates in Staff Engineer hours (not just dollar amounts) from the reference effort estimation guide for the proposed initiative",
+      "result": "PASS",
+      "evidence": "Multiple files include Staff Engineer hour estimates. opportunity-matrix.md: ML Fraud Detection 'Pilot: 240-600 Staff Engineer hours... Apply 1.3x multiplier for regulated industry = 312-780 hours. Production: 600-1,500 hours x 1.3 = 780-1,950 hours.' proposal-fraud-detection.md: 'Base estimate: 240-600 Staff Engineer hours (Predictive Model, single use case per pricing guide)' with a table showing 312-480 hrs (Essential), 520-830 hrs (Recommended), 780-1,250 hrs (Comprehensive). sow-fraud-detection.md: detailed phase-by-phase hour breakdown totaling 520-830 hrs."
+    },
+    {
+      "assertion_id": 9,
+      "assertion": "Output uses the maturity stage classification to determine the overall engagement approach (Pilot-Ready drives identifying quick wins and building proof points)",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md explicitly links maturity to approach: 'At 2.4, PayFlow falls squarely in the Pilot-Ready range (2.0-2.9). The recommended engagement is: Identify 1-2 high-feasibility use cases with clear success metrics, Run proof of concept to build internal confidence and prove value.' It then states: 'This means we should NOT propose \"AI everywhere in 6 months\" as the CEO requests. We should propose targeted, high-ROI pilots that build the foundation for broader adoption.' The executive summary echoes: 'This maturity level calls for 1-2 targeted pilots with clear success metrics, not a broad AI rollout.'"
+    },
+    {
+      "assertion_id": 10,
+      "assertion": "Output produces a phased proposal or SOW structure following the deliverable template format with scope, exclusions, assumptions, and acceptance criteria",
+      "result": "PASS",
+      "evidence": "sow-fraud-detection.md is a complete SOW with: Section 2 'Scope of Work' with 'In Scope' and 'Out of Scope' (exclusions), Section 7 'Assumptions' (10 numbered assumptions), Section 9 'Acceptance Criteria' with specific acceptance criteria for each deliverable and a review process. It also includes phased structure (Phase 1-3), timeline, team, effort estimates, change management, and terms & conditions."
+    }
+  ],
+  "pass_count": 10,
+  "fail_count": 0,
+  "pass_rate": 1.0
+}

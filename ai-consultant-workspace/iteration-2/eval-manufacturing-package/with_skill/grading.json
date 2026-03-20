@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes an AI maturity assessment scoring exactly 5 dimensions (Data, Infrastructure, Talent, Governance, Culture) with Talent scoring lowest at 1 due to zero data science capability",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md contains a table with exactly 5 dimensions: Data (1.5), Infrastructure (2.0), Talent (1.0), Governance (1.0), Culture (2.5). Talent scores 1.0 with rationale 'No AI Skills (1)' and evidence stating 'Zero data science capability — no data scientists, ML engineers, or analytics specialists'. While Governance also scores 1.0, Talent is explicitly called out as the 'single biggest constraint' in the Gap Analysis and is tied for lowest."
+    },
+    {
+      "text": "Output produces a weighted aggregate maturity score in the 1-2 range classified as Foundation stage, driving a foundation-building engagement approach",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md shows weighted aggregate of 1.55 with explicit calculation: (1.5x0.25)+(2.0x0.20)+(1.0x0.20)+(1.0x0.20)+(2.5x0.15)=1.55. Classified as 'Foundation' stage. The assessment states 'TitanWorks needs data strategy, infrastructure preparation, and capability building' — a foundation-building approach."
+    },
+    {
+      "text": "Output includes a bottleneck analysis identifying Talent and/or Governance as critical gaps that are 0.5+ points below the aggregate",
+      "passed": true,
+      "evidence": "ai-maturity-assessment.md Gap Analysis section explicitly identifies 'Critical Bottleneck: Talent (1.0)' at 0.55 points below the aggregate and 'Secondary Bottleneck: Governance (1.0)' also at 0.55 points below. A Dimension Disparity table shows Talent at -0.55 and Governance at -0.55 from the 1.55 aggregate."
+    },
+    {
+      "text": "Output produces a dedicated company briefing or pre-engagement research document as a standalone file",
+      "passed": true,
+      "evidence": "company-briefing.md is a standalone file titled 'Company Briefing: TitanWorks' containing company overview, current situation, likely pain points, competitor AI landscape, technology landscape, regulatory considerations, political context, and preliminary hypotheses — a comprehensive pre-engagement research document."
+    },
+    {
+      "text": "Output includes a dedicated red flags document with severity ratings and mitigation plans, including a section for positive indicators (red flags NOT present)",
+      "passed": false,
+      "evidence": "red-flags.md is a dedicated document with 5 red flags, each having severity ratings (Medium, High, Medium-High, Medium-High, Medium) and detailed mitigation plans. However, there is NO section for positive indicators or 'red flags NOT present'. The document ends with a 'Critical Assessment' noting no critical-severity flags exist, but this is not the same as a dedicated section identifying positive indicators or red flags that are absent."
+    },
+    {
+      "text": "Output classifies each opportunity using the Quick Wins / Strategic Bets / Fill-ins / Deprioritize quadrant framework based on impact and feasibility scores",
+      "passed": true,
+      "evidence": "opportunity-matrix.md classifies all 8 opportunities into the quadrant framework: Quick Wins (#1 Predictive Maintenance, #2 Knowledge Base), Strategic Bets (#3 Sensor Expansion, #4 Visual QC, #7 Supply Chain), Fill-ins (#5 Demand Forecasting, #6 Energy Optimization), Deprioritize (#8 Digital Twin). Each has Business Impact and Feasibility scores driving the classification, with an ASCII Impact-Feasibility Matrix visualization."
+    },
+    {
+      "text": "Output includes Build vs Buy assessment and Agent Potential rating for each opportunity in the matrix",
+      "passed": false,
+      "evidence": "opportunity-matrix.md includes Build vs Buy analysis for opportunities 1, 2, 3, 4, and 5, but opportunities 6, 7, and 8 lack detailed Build vs Buy tables (though #3 has brief notes and #8 has a brief recommendation). Agent Potential is explicitly rated only for opportunities 1 ('Low for Phase 1') and 2 ('High in Phase 2-3'). Opportunities 3-8 do not include Agent Potential ratings. The assertion requires these for 'each opportunity' which is not met."
+    },
+    {
+      "text": "Output includes a sensitivity analysis with at least 3 scenarios showing different ROI outcomes anchored to the $2M/month downtime baseline",
+      "passed": true,
+      "evidence": "roi-analysis.md contains 5 sensitivity analysis scenarios: (1) Benefit Realization Sensitivity with 6 sub-scenarios from 25% to 150% of projected benefits, (2) Cost Overrun Sensitivity with 5 sub-scenarios, (3) Combined Downside (worst realistic case), (4) Delay Sensitivity (cost of inaction anchored to $2M/month), and (5) Phased Investment Break-Even. All are anchored to the $24M/year ($2M/month) downtime baseline. Additionally, the proposal.md contains a separate sensitivity analysis table with 5 scenarios."
+    },
+    {
+      "text": "Output provides 3 pricing tiers (essential/recommended/comprehensive) with actual dollar ranges for each tier",
+      "passed": true,
+      "evidence": "proposal.md Investment section provides three tiers: Essential ($175K-$250K), Recommended ($650K-$1.1M), Comprehensive ($1.2M-$2.0M). roi-analysis.md also breaks down costs by tier across 3 years with detailed category-level cost tables for each tier."
+    },
+    {
+      "text": "Output explicitly connects the maturity score to the engagement strategy — a Foundation-stage classification drives the recommendation to lead with data foundations and a quick win before advanced AI",
+      "passed": true,
+      "evidence": "Multiple documents make this connection explicit. ai-maturity-assessment.md states the Foundation stage means 'TitanWorks needs data strategy, infrastructure preparation, and capability building' but a 'targeted pilot is feasible even at this maturity level'. proposal.md states 'AI maturity score of 1.55/5... the right approach is targeted quick wins with a commercial platform, not a broad enterprise AI build-out'. The roadmap Phase 1 is titled 'Foundation and Quick Win' with data pipeline as the first workstream. executive-summary.md states 'The right approach at this maturity level is a targeted commercial platform pilot — not a broad enterprise AI build-out'. The red-flags.md connects maturity 1.55 to 'Buy (not build)' approach."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 2,
+    "total": 10,
+    "pass_rate": 0.80
+  }
+}

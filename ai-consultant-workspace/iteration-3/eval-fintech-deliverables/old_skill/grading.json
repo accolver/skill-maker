@@ -1,0 +1,70 @@
+{
+  "eval_id": 2,
+  "eval_name": "fintech-deliverables",
+  "config": "old_skill",
+  "results": [
+    {
+      "assertion_id": 1,
+      "assertion": "Output includes a 5-dimension AI maturity assessment (Data, Infrastructure, Talent, Governance, Culture) with numerical scores and a weighted aggregate classified into a maturity stage",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md contains a table with all 5 dimensions scored numerically: Data (3), Infrastructure (2), Talent (2), Governance (1), Culture (3), with weights (25%, 20%, 20%, 20%, 15%) and weighted scores summing to a 2.20 aggregate classified as 'Pilot-Ready (2.0 - 2.9)'."
+    },
+    {
+      "assertion_id": 2,
+      "assertion": "Output identifies a bottleneck dimension (Governance at score 1) that is significantly below the aggregate and flags it as a constraint on scaling",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md has a dedicated 'Bottleneck Analysis' section stating: 'Critical Bottleneck: Governance (Score: 1 — 1.2+ levels below aggregate)' and 'Governance at Level 1 while the aggregate is 2.20 represents the single biggest risk to PayFlow's AI ambitions.' It explicitly calls governance 'the most critical bottleneck' and warns 'no path to production ML in a compliant way.'"
+    },
+    {
+      "assertion_id": 3,
+      "assertion": "Output classifies each opportunity as Quick Win, Strategic Bet, Fill-in, or Deprioritize using the impact-feasibility quadrant framework",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md classifies all 8 opportunities into quadrants: Quick Wins (ML Fraud Detection, Customer Service AI Agent), Strategic Bets (KYC Document Processing, Real-Time Risk Scoring, Compliance Monitoring), Fill-ins (Engineering Knowledge Base), Deprioritize (Personalized Financial Advice, Market Sentiment). The summary matrix table includes a 'Quadrant' column for each."
+    },
+    {
+      "assertion_id": 4,
+      "assertion": "Output includes a Build vs Buy recommendation for each scored opportunity in the matrix",
+      "result": "PASS",
+      "evidence": "Every scored opportunity in opportunity-matrix.md includes a 'Build vs Buy vs Already Licensed' section with a specific recommendation: #1 Build, #2 Buy + Integrate, #3 Buy, #4 Build (Phase 2), #5 Buy (later), #6 Check existing licenses/Buy. The summary table has an 'Approach' column. Deprioritized items #7 and #8 note 'N/A' which is appropriate."
+    },
+    {
+      "assertion_id": 5,
+      "assertion": "Output rates each opportunity's Agent Potential (whether it could become an autonomous AI agent workflow)",
+      "result": "PASS",
+      "evidence": "Every scored opportunity in opportunity-matrix.md includes an 'Agent Potential' section: #1 'Low for core detection, medium for investigation workflow', #2 'High', #3 'High', #4 'Low', #5 'High', #6 'Medium', #7 'High, but premature', #8 'Low'. The summary table includes an 'Agent Potential' column."
+    },
+    {
+      "assertion_id": 6,
+      "assertion": "Output produces a dedicated red flags section with severity ratings for each flag (the CEO timeline, VP skepticism, missing governance)",
+      "result": "PASS",
+      "evidence": "red-flags.md is a dedicated file with 7 red flags, each with explicit severity ratings in a summary table: #1 No AI governance (Critical), #2 Unrealistic executive expectations (High), #3 Key stakeholder resistance (High), #4 AI-specific compliance not addressed (High), #5 No plan for GenAI-specific risks (Medium), #6 Talent gap (Medium), #7 Compliance/legal not consulted (Medium). All three specified flags (CEO timeline, VP skepticism, missing governance) are covered."
+    },
+    {
+      "assertion_id": 7,
+      "assertion": "Output treats AI governance not just as a risk but as a scored opportunity or must-do prerequisite in the opportunity matrix",
+      "result": "PASS",
+      "evidence": "AI governance is treated as a prerequisite throughout. In the opportunity matrix, governance gaps are cited as feasibility deductions for multiple opportunities (e.g., Fraud Detection: 'Deducted 1 point: no MLOps infrastructure, no model serving pipeline, governance gap'). The proposal includes governance as a core deliverable built into Phase 1 ('Establish AI governance minimum'). The executive summary lists it in Phase 1 scope. The maturity assessment calls it 'the most critical bottleneck' and states governance 'must be built in parallel with the first pilot, not after.' While not scored as a separate numbered opportunity in the matrix, it is explicitly treated as a must-do prerequisite that gates other opportunities."
+    },
+    {
+      "assertion_id": 8,
+      "assertion": "Output includes effort estimates in Staff Engineer hours (not just dollar amounts) from the reference effort estimation guide for the proposed initiative",
+      "result": "PASS",
+      "evidence": "proposal-fraud-detection.md includes detailed effort breakdowns in Staff Engineer hours: Phase 1: 300-450 hrs, Phase 2: 150-250 hrs, Phase 3: 120-200 hrs, Governance & PM: 70-100 hrs, Total: 640-1,000 hrs. It references the pricing guide explicitly: 'Applied to base estimate of 240-600 hrs (Predictive Model, single use case from pricing guide)' and applies estimation multipliers (1.3x regulated industry, 1.3x first AI project, 0.9x existing data platform)."
+    },
+    {
+      "assertion_id": 9,
+      "assertion": "Output uses the maturity stage classification to determine the overall engagement approach (Pilot-Ready drives identifying quick wins and building proof points)",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md explicitly links the 2.20 score to 'Pilot-Ready Stage' and states the recommended approach: 'Identify 1-2 high-feasibility use cases with clear success metrics', 'Run a proof of concept that delivers measurable value in 3-6 months', 'Use quick wins to build credibility and justify investment.' The executive summary opens with 'AI Maturity: 2.2 / 5.0 (Pilot-Ready)' and the recommended approach follows this logic with Quick Wins first (fraud detection, customer service AI)."
+    },
+    {
+      "assertion_id": 10,
+      "assertion": "Output produces a phased proposal or SOW structure following the deliverable template format with scope, exclusions, assumptions, and acceptance criteria",
+      "result": "PASS",
+      "evidence": "proposal-fraud-detection.md contains a full 'Statement of Work' section with: '2. Scope of Work' (In Scope and Out of Scope subsections), '7. Assumptions' (10 numbered assumptions), '9. Acceptance Criteria' (table with criteria for each deliverable), '10. Exclusions' (6 numbered exclusions). It also includes phased structure (Phase 1-3), timeline, team composition, effort estimates, deliverables table, change management, and terms & conditions."
+    }
+  ],
+  "pass_count": 10,
+  "fail_count": 0,
+  "pass_rate": 1.0
+}

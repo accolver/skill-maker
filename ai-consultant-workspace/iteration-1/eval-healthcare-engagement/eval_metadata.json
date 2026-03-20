@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "healthcare-engagement",
+  "prompt": "I just got a new client - MedTech Solutions, a mid-size healthcare company (~500 employees, $80M revenue) that runs a chain of specialty clinics. They're using mostly paper-based patient intake and their CEO mentioned wanting to 'use AI to modernize operations.' They have an IT team of about 12 people and use a mix of on-prem and AWS. The CEO has budget but is vague on how much. I have my first call with their CTO next week. Help me prepare for this engagement.",
+  "assertions": [
+    "Output includes a company research section with instructions to web search MedTech Solutions for recent news, competitors, and industry context",
+    "Output explicitly mentions HIPAA compliance as a constraint for any AI initiative",
+    "Output provides CTO-specific interview questions covering infrastructure, data architecture, and security requirements",
+    "Output includes a preliminary AI maturity assessment hypothesis based on the information given (paper-based intake suggests low data maturity)",
+    "Output identifies healthcare-specific AI opportunities like clinical documentation, patient intake automation, or prior authorization",
+    "Output flags the vague budget as a risk and recommends getting budget range signals early",
+    "Output recommends a stakeholder interview sequence beyond just the CTO (exec sponsor, department heads, frontline clinicians)",
+    "Output produces or outlines an actual document (company briefing, interview prep guide, or engagement plan) rather than just giving advice"
+  ]
+}

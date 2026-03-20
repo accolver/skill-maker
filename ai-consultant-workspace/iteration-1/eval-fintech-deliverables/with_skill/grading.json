@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes an executive summary document with specific ROI projections based on the fraud rate gap (2.1% vs 0.5% industry average)",
+      "passed": true,
+      "evidence": "executive-summary.md includes an Investment & Expected Return table with specific ROI projections: Phase 1 fraud detection yields $3.5M-$5M annual return on $180K-$280K investment with 1-2 month payback. The fraud rate gap (2.1% vs 0.5%) is explicitly cited in the Situation section and used to derive the estimates."
+    },
+    {
+      "text": "Output produces a scored opportunity matrix with at least 3 opportunities rated on impact and feasibility dimensions",
+      "passed": true,
+      "evidence": "opportunity-matrix.md contains 5 scored opportunities each rated on Business Impact (1-5) and Feasibility (1-5): Fraud Detection (5,4), CS AI Agent (4,4), AI Governance (3,5), Compliance Monitoring (3,3), Personalized Insights (3,2). A visual Impact-Feasibility Matrix quadrant chart is also included."
+    },
+    {
+      "text": "Output identifies fraud detection as the highest-priority quick win given the data readiness (3 years in BigQuery) and clear ROI",
+      "passed": true,
+      "evidence": "Fraud Detection is scored highest at (5,4), categorized as 'Quick Win', and listed as Priority 1 in the Recommended Prioritization table with rationale: 'Highest ROI, urgent business need, data is ready, proves AI value with hard numbers'. The 3 years of BigQuery data is explicitly cited as enabling feasibility."
+    },
+    {
+      "text": "Output flags the CEO's 'AI everywhere in 6 months' expectation as unrealistic and recommends a phased approach",
+      "passed": true,
+      "evidence": "executive-summary.md states: 'The CEO's expectation of \"AI everywhere within 6 months\" is unrealistic for a company at maturity level 2.4 and must be reframed.' opportunity-matrix.md Red Flags table rates this as High severity and recommends: 'Frame the phased approach as \"AI that works\" vs. \"AI that creates liability.\"' A 3-phase approach spanning 12 months is recommended instead."
+    },
+    {
+      "text": "Output addresses the VP of Engineering's skepticism with a specific mitigation strategy (not just noting it as a risk)",
+      "passed": true,
+      "evidence": "opportunity-matrix.md Red Flags table provides a specific mitigation strategy: 'Make the VP the owner of AI technical standards and infrastructure decisions. His concerns about maintenance are valid and should shape how systems are built. Give him veto power on technical architecture -- this converts a skeptic into a quality gatekeeper.' The proposal also addresses his concerns by designing the system to be maintainable by the existing team."
+    },
+    {
+      "text": "Output flags the missing AI governance policy as a risk that must be addressed before scaling",
+      "passed": true,
+      "evidence": "AI Governance scores 1/5 and is identified as a 'critical bottleneck' in the Bottleneck Analysis: 'Deploying AI in financial services without governance exposes PayFlow to regulatory risk, model bias liability, and reputational damage. This must be addressed in parallel with any AI initiative.' It is elevated to Priority 1 (parallel) 'must-do' status and listed as a Red Flag with High severity."
+    },
+    {
+      "text": "Output includes actual pricing estimates or ranges for the proposed initiative (not just 'TBD' or 'to be determined')",
+      "passed": true,
+      "evidence": "proposal-fraud-detection.md provides three priced options: Essential ($120K), Recommended ($180K), Comprehensive ($250K). It includes a milestone-based payment schedule ($45K x 4), Year 1 cost breakdown ($180K consulting + $40K infrastructure + $20-40K ongoing), and per-opportunity pricing in the opportunity matrix ($80K-$150K for fraud, $50K-$120K for CS agent, $25K-$50K for governance)."
+    },
+    {
+      "text": "Output produces a phased proposal or SOW structure with specific milestones, not just a list of recommendations",
+      "passed": true,
+      "evidence": "proposal-fraud-detection.md contains a detailed 12-week SOW with weekly milestones (Week 1: Kickoff + Data Audit, Weeks 2-3: Feature Engineering Complete, Weeks 4-5: Model v1 Trained, etc.), four distinct phases, team allocation table, payment milestones tied to deliverables, and specific deliverables list including production model, monitoring system, runbook, and knowledge transfer sessions."
+    },
+    {
+      "text": "Output recommends customer service automation (chatbot/agent) as a second-priority opportunity given the 60% repetitive ticket rate",
+      "passed": true,
+      "evidence": "Customer Service AI Agent is rated (4,4) and listed as Priority 2 in the Recommended Prioritization table for Phase 2 (Month 3-6). The 60% repetitive ticket rate is explicitly cited: '60% are repetitive (balance inquiries, transaction status) = 480 tickets/day that don't require human judgment' with estimated savings of $800K-$1.2M annually."
+    },
+    {
+      "text": "Output includes fintech-specific regulatory considerations beyond SOC2 (e.g., fair lending if applicable, model risk management)",
+      "passed": true,
+      "evidence": "opportunity-matrix.md Red Flags table mentions: 'model explainability for financial decisions, PCI DSS for AI touching payment data, fair lending implications.' The AI Governance opportunity lists: 'AI-specific obligations (fair lending, PCI DSS for AI, customer notification).' The proposal addresses SHAP-based explainability as 'a regulatory requirement for financial services' and includes model risk management through drift detection, retraining pipelines, and monitoring."
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  }
+}

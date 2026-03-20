@@ -1,0 +1,70 @@
+{
+  "eval_id": 3,
+  "eval_name": "manufacturing-package",
+  "config": "with_skill",
+  "results": [
+    {
+      "assertion_id": 1,
+      "assertion": "Output includes an AI maturity assessment scoring exactly 5 dimensions (Data, Infrastructure, Talent, Governance, Culture) with Talent scoring lowest at 1 due to zero data science capability",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md scores exactly 5 dimensions: Data (2), Infrastructure (2), Talent (1), Governance (1), Culture (2.5). Talent scores 1 (tied with Governance as lowest). Talent entry states: 'Zero data scientists or ML engineers. 25-person IT team entirely enterprise IT (ERP, networking). No analytics engineering. No AI training budget identified. No internal capability to build, deploy, or maintain ML models.'"
+    },
+    {
+      "assertion_id": 2,
+      "assertion": "Output produces a weighted aggregate maturity score in the 1-2 range classified as Foundation stage, driving a foundation-building engagement approach",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md calculates weighted aggregate as 1.68/5.0, classified as 'Foundation' stage. Engagement approach states: 'Foundation-building with an embedded quick-win pilot.' The Foundation stage description reads: 'Data strategy, infrastructure planning, executive education. 6-12 month horizon before meaningful AI. Focus on data foundations and building the case.'"
+    },
+    {
+      "assertion_id": 3,
+      "assertion": "Output includes a bottleneck analysis identifying Talent and/or Governance as critical gaps that are 0.5+ points below the aggregate",
+      "result": "PASS",
+      "evidence": "ai-maturity-assessment.md Bottleneck Analysis section shows Talent at -0.68 delta from aggregate (1.0 vs 1.68) and Governance at -0.68 delta (1.0 vs 1.68). Both are explicitly labeled as bottlenecks: 'Talent: Yes - Primary Bottleneck' and 'Governance: Yes - Secondary Bottleneck'. Both gaps exceed the 0.5+ threshold."
+    },
+    {
+      "assertion_id": 4,
+      "assertion": "Output produces a dedicated company briefing or pre-engagement research document as a standalone file",
+      "result": "PASS",
+      "evidence": "company-briefing.md is a standalone file titled 'Company Briefing: TitanWorks' containing company overview, current situation, known technology landscape, likely pain points (industry pattern matching), competitive AI landscape, regulatory considerations, political/organizational context, and preliminary hypotheses."
+    },
+    {
+      "assertion_id": 5,
+      "assertion": "Output includes a dedicated red flags document with severity ratings and mitigation plans, including a section for positive indicators (red flags NOT present)",
+      "result": "PASS",
+      "evidence": "red-flags.md contains 6 red flags with severity ratings (2 High, 4 Medium), each with detailed mitigation plans. A dedicated 'Positive Indicators' section lists 5 positive indicators (Plant Manager Enthusiasm, Clear Quantifiable Problem, Azure Cloud Platform, Existing Sensor Infrastructure, CFO Engagement) with strength ratings and descriptions."
+    },
+    {
+      "assertion_id": 6,
+      "assertion": "Output classifies each opportunity using the Quick Wins / Strategic Bets / Fill-ins / Deprioritize quadrant framework based on impact and feasibility scores",
+      "result": "PASS",
+      "evidence": "opportunity-matrix.md classifies 9 opportunities into the four quadrants: Quick Wins (Predictive Maintenance 40% fleet: Impact 5/Feasibility 4; Maintenance Knowledge Base: 3.5/4), Strategic Bets (Full Fleet PM: 5/2.5; Quality Control CV: 4/2.5; Supply Chain: 3.5/2), Fill-Ins (Energy Optimization: 2.5/3.5; Automated Quality Reporting: 2/4), Deprioritize (Safety Monitoring: 3/1.5; Digital Twin: 3.5/1.5)."
+    },
+    {
+      "assertion_id": 7,
+      "assertion": "Output includes Build vs Buy assessment and Agent Potential rating for each opportunity in the matrix",
+      "result": "PASS",
+      "evidence": "All 9 opportunities in opportunity-matrix.md include both 'Build vs Buy' and 'Agent Potential' fields. Examples: Opportunity #1 has 'Buy (strongly recommended)' and 'Agent Potential: Moderate'; Opportunity #2 has 'Buy/Configure preferred' and 'Agent Potential: High'; Opportunity #9 has 'Build with platform support' and 'Agent Potential: Low for Phase 1'."
+    },
+    {
+      "assertion_id": 8,
+      "assertion": "Output includes a sensitivity analysis with at least 3 scenarios showing different ROI outcomes anchored to the $2M/month downtime baseline",
+      "result": "PASS",
+      "evidence": "roi-analysis.md contains a sensitivity analysis with 4 scenarios: Pessimistic (3-Year ROI 184%, 14-month payback), Conservative (326%, 10 months), Base Case (468%, 7 months), Optimistic (639%, 5 months). All scenarios are anchored to the $2M/month downtime baseline, with benefit streams derived from the $800K/month attributable to instrumented equipment and $1.2M/month from non-instrumented equipment."
+    },
+    {
+      "assertion_id": 9,
+      "assertion": "Output provides 3 tiers (essential/recommended/comprehensive) with effort estimates in Staff Engineer hours for each tier",
+      "result": "PASS",
+      "evidence": "proposal.md Investment section provides 3 tiers: Essential (280-400 Staff Engineer hours, $70K-$100K consulting), Recommended (800-1,200 Staff Engineer hours, $200K-$300K consulting), Comprehensive (1,800-2,800 Staff Engineer hours, $450K-$700K consulting). Each tier includes scope description, timeline, expected benefits, and payback period."
+    },
+    {
+      "assertion_id": 10,
+      "assertion": "Output explicitly connects the maturity score to the engagement strategy — a Foundation-stage classification drives the recommendation to lead with data foundations and a quick win before advanced AI",
+      "result": "PASS",
+      "evidence": "proposal.md states: 'TitanWorks scored 1.68 on the AI Maturity Model (Foundation stage). Our approach builds the foundation (data pipelines, governance, talent) alongside the quick win, rather than attempting a capabilities leap the organization cannot sustain.' ai-maturity-assessment.md states: 'Recommended engagement approach: Foundation-building with an embedded quick-win pilot.' The roadmap explicitly follows this: Phase 1 is 'Foundation & Quick Win' focusing on data pipelines and governance before any advanced AI."
+    }
+  ],
+  "pass_count": 10,
+  "fail_count": 0,
+  "pass_rate": 1.0
+}

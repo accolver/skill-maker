@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes an AI maturity assessment scoring all 5 dimensions with the talent dimension scoring lowest (no data science capability)",
+      "passed": false,
+      "evidence": "The maturity assessment scores 8 dimensions (not 5): Sensor Coverage (2.3), Data Infrastructure (2.0), Analytics & AI (1.0), Process Digitization (2.5), Workforce Digital Skills (1.5), Organizational Readiness (2.0), Cloud & IT Infrastructure (2.8), Cybersecurity (1.8). Analytics & AI scores lowest at 1.0 (not the talent/workforce dimension at 1.5). While the zero data science capability is extensively noted, the assessment does not use the expected 5-dimension framework and the talent dimension is not the lowest scorer."
+    },
+    {
+      "text": "Output quantifies the predictive maintenance opportunity using the $2M/month downtime cost as the baseline for ROI calculations",
+      "passed": true,
+      "evidence": "The $2M/month ($24M/year) downtime cost is used extensively as the baseline throughout all documents. The opportunity analysis decomposes the $2M/month into cost categories, calculates 73% is addressable ($17.5M/year), and all tier ROI calculations derive from this baseline. The sensitivity analysis explicitly lists 'Current unplanned downtime cost: $2.0M/month ($24M/year)' as the base assumption."
+    },
+    {
+      "text": "Output includes a build vs buy analysis for predictive maintenance comparing custom ML vs vendor solutions (e.g., Azure ML, or specialized PdM platforms)",
+      "passed": true,
+      "evidence": "Document 02 provides a detailed build vs buy analysis with three options: Option A Build on Azure (IoT Hub, Stream Analytics, Azure ML — $5.84M/3yr, 6 FTEs needed), Option B Buy specialized PdM SaaS (Augury, Uptake, Samsara — $3.74M/3yr), and Option C Hybrid. A weighted decision matrix scores Buy at 3.75, Hybrid at 3.55, Build at 2.25 across 7 criteria."
+    },
+    {
+      "text": "Output provides 3 pricing tiers (essential/recommended/comprehensive) with different scope levels and actual dollar ranges",
+      "passed": true,
+      "evidence": "Document 03 presents three tiers matching the required labels: Tier 1 Essential ($660K, 30 assets, 2 factories), Tier 2 Recommended ($2.64M cumulative, 120 assets, 4 factories), Tier 3 Comprehensive ($4.74M cumulative, 200+ assets, full predictive capability). Each includes detailed line-item cost breakdowns and scope definitions."
+    },
+    {
+      "text": "Output includes a sensitivity analysis with at least 3 scenarios (conservative, base, optimistic) showing different ROI outcomes",
+      "passed": true,
+      "evidence": "Document 04 provides 4 scenarios per tier: Pessimistic, Conservative, Base Case, and Optimistic. For Tier 1 example: Pessimistic (12% reduction, NPV $1.72M, IRR 185%), Conservative (15%, NPV $2.39M, IRR 238%), Base Case (20%, NPV $3.48M, IRR 327%), Optimistic (28%, NPV $5.22M, IRR 471%). Also includes Monte Carlo analysis with 10,000 scenarios and variable sensitivity tables."
+    },
+    {
+      "text": "Output explicitly addresses the failed digital transformation as a risk and proposes specific mitigation (e.g., different governance, executive alignment, phased approach with early wins)",
+      "passed": true,
+      "evidence": "Multiple documents address this. The maturity assessment notes 'organizational scar tissue' from the failed initiative 18 months ago. Specific mitigations include: reframing as 'maintenance improvement' not 'digital transformation'; establishing a steering committee governance structure with decision gates; quick wins in first 90 days; monthly CFO financial reporting; narrative strategy stating to position as 'A capital investment with measurable returns — not an innovation initiative'; and the CFO summary explicitly answers 'How is this different from last time?'"
+    },
+    {
+      "text": "Output flags the 40% sensor coverage as a constraint and recommends sensor retrofit as a prerequisite or Phase 1 activity",
+      "passed": true,
+      "evidence": "The maturity assessment identifies 40% sensor coverage as a critical finding: 'The 60% of critical equipment without sensors represents the majority of failure risk and cannot be addressed by software alone.' Sensor deployment is a core Phase 1/Tier 1 activity (15 sensors at Factory 1 in Month 1-2, 15 more at Factory 2 in Month 3-4), with continued expansion in Tier 2 (70-90 additional sensors) and Tier 3 (80+ more)."
+    },
+    {
+      "text": "Output addresses the talent gap with specific recommendations (hire, partner, or train) rather than just noting the gap exists",
+      "passed": true,
+      "evidence": "All three strategies are recommended: PARTNER — Buy approach initially with vendor managed services to avoid hiring 6 FTEs; HIRE — IoT/Data Engineer + Maintenance Analytics Specialist at Month 9, Data Scientist at Month 21; TRAIN — 2-day on-site training for maintenance teams, condition monitoring certification for 8 maintenance leads, external consultants for OT security and ML/digital twins to transfer knowledge."
+    },
+    {
+      "text": "Output includes a phased roadmap with dependencies between sensor deployment, data collection, model training, and production deployment",
+      "passed": true,
+      "evidence": "Document 05 provides a 36-month phased roadmap with explicit dependencies: Phase 0 (vendor selection, network assessment) gates Phase 1 (sensor deployment); sensor data must flow before Azure Data Lake ingestion (Month 12-13); historical data preparation (Month 20-23) precedes custom ML model development (Month 21-24); model validation (Month 23-24) precedes digital twin and prescriptive analytics deployment (Month 25-30). Decision gates between tiers enforce prerequisites."
+    },
+    {
+      "text": "Output tailors the CFO-facing deliverables to focus on financial metrics and risk mitigation rather than technical architecture",
+      "passed": true,
+      "evidence": "Document 04 is explicitly addressed to the CFO and focuses on NPV, IRR, payback periods, break-even analysis, Monte Carlo risk simulations, cash flow projections, and comparison to alternative capital investments. Section 10 provides a CFO summary answering financial questions. The proposal's CFO recommendation frames the $660K as 'less than two weeks of current downtime cost.' Technical architecture details are minimal in CFO-facing sections."
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 1,
+    "total": 10,
+    "pass_rate": 0.90
+  }
+}

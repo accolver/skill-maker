@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Output includes an AI maturity assessment scoring exactly 5 dimensions (Data, Infrastructure, Talent, Governance, Culture) with Talent scoring lowest at 1 due to zero data science capability",
+      "passed": false,
+      "evidence": "The maturity assessment scores 6 dimensions (Data Infrastructure & Collection: 2.5, Analytics & Data Science Capability: 1.0, Technology Platform & Integration: 2.5, Process Maturity: 2.0, Organizational Readiness: 2.5, Strategic Alignment & Governance: 2.0), not the required 5. The dimension names do not match the specified names (Data, Infrastructure, Talent, Governance, Culture). 'Culture' is not a dimension at all. While Analytics scores lowest at 1.0 (mapping loosely to 'Talent'), the framework uses 6 non-matching dimensions."
+    },
+    {
+      "text": "Output produces a weighted aggregate maturity score in the 1-2 range classified as Foundation stage, driving a foundation-building engagement approach",
+      "passed": false,
+      "evidence": "The weighted aggregate score is 2.05 (rounded to 2.1 in the executive summary), which is slightly above the 1-2 range. It is classified as 'Stage 2: Reactive' on a 'Reactive-to-Predictive continuum,' not as 'Foundation stage.' The terminology and classification framework do not match."
+    },
+    {
+      "text": "Output includes a bottleneck analysis identifying Talent and/or Governance as critical gaps that are 0.5+ points below the aggregate",
+      "passed": false,
+      "evidence": "There is no dedicated bottleneck analysis section with explicit gap calculations. The dimension analysis identifies Analytics & Data Science (1.0) as 'the single largest capability gap,' which is 1.05 below the 2.05 aggregate. However, Strategic Alignment & Governance scores 2.0, only 0.05 below the aggregate — not the required 0.5+. There is no formal bottleneck analysis framework with numerical gap comparisons."
+    },
+    {
+      "text": "Output produces a dedicated company briefing or pre-engagement research document as a standalone file",
+      "passed": false,
+      "evidence": "The output contains 6 files: 00-executive-summary.md, 01-maturity-assessment.md, 02-opportunity-analysis-build-vs-buy.md, 03-three-tier-proposal.md, 04-sensitivity-analysis-roi.md, 05-implementation-roadmap.md. None of these is a dedicated company briefing or pre-engagement research document. Company context is woven into the executive summary and maturity assessment but not isolated as a standalone briefing file."
+    },
+    {
+      "text": "Output includes a dedicated red flags document with severity ratings and mitigation plans, including a section for positive indicators (red flags NOT present)",
+      "passed": false,
+      "evidence": "No standalone red flags document exists. The maturity assessment contains a 'Risk Register (Top 5)' table with Likelihood/Impact/Mitigation columns, but this is embedded within the assessment file, not a dedicated document. It uses Likelihood (High/Medium) and Impact (Critical/High) rather than explicit severity ratings. There is no section identifying positive indicators or red flags that are NOT present."
+    },
+    {
+      "text": "Output classifies each opportunity using the Quick Wins / Strategic Bets / Fill-ins / Deprioritize quadrant framework based on impact and feasibility scores",
+      "passed": false,
+      "evidence": "The opportunity analysis (02-opportunity-analysis-build-vs-buy.md) does not use a Quick Wins / Strategic Bets / Fill-ins / Deprioritize quadrant framework. Instead, it presents a Build vs Buy vs Hybrid analysis with a comparative summary table scoring criteria like TCO, time to value, execution risk, and vendor dependency. No impact/feasibility scoring matrix or quadrant classification is present."
+    },
+    {
+      "text": "Output includes Build vs Buy assessment and Agent Potential rating for each opportunity in the matrix",
+      "passed": false,
+      "evidence": "A detailed Build vs Buy assessment exists in 02-opportunity-analysis-build-vs-buy.md with three options (Build, Buy, Hybrid) including 3-year TCO, pros/cons, and a comparative summary. However, there is no 'Agent Potential rating' for any opportunity. The term 'agent' does not appear in the outputs in this context."
+    },
+    {
+      "text": "Output includes a sensitivity analysis with at least 3 scenarios showing different ROI outcomes anchored to the $2M/month downtime baseline",
+      "passed": true,
+      "evidence": "The sensitivity analysis (04-sensitivity-analysis-roi.md) includes 4 multi-variable scenarios: (1) 'Everything Goes Wrong' (NPV $1.94M, IRR 18%), (2) 'Tier 1 Only' (NPV $1.2M, IRR 68%), (3) 'Moderate Success' (NPV $13.85M, IRR 82%), (4) 'Strong Execution' (NPV $28.44M, IRR 178%). All scenarios are explicitly anchored to the $2M/month ($24M/year) unplanned downtime baseline. Additionally, single-variable sensitivity tables test downtime reduction, cost overruns, time to value delays, and discount rate variations."
+    },
+    {
+      "text": "Output provides 3 pricing tiers (essential/recommended/comprehensive) with actual dollar ranges for each tier",
+      "passed": true,
+      "evidence": "The three-tier proposal (03-three-tier-proposal.md) provides exactly 3 tiers matching the required names: Essential ($1,100,000, 6 months, 1 factory), Recommended ($2,400,000 incremental, Month 7-18, 3 factories), Comprehensive ($2,200,000 incremental, Month 19-30, 4 factories). Each tier includes detailed cost breakdowns and expected annual savings ranges (Essential: $900K-$1,500K, Recommended: $5,400K-$8,100K, Comprehensive: $10,800K-$14,400K)."
+    },
+    {
+      "text": "Output explicitly connects the maturity score to the engagement strategy — a Foundation-stage classification drives the recommendation to lead with data foundations and a quick win before advanced AI",
+      "passed": false,
+      "evidence": "The output does connect the maturity score to strategy: the opportunity analysis states 'Maturity: Stage 2 (low) -- needs guided, low-risk path' and Tier 1 is named 'Condition Monitoring Foundation' focusing on data foundations before ML. The executive summary explicitly recommends proving value in 90 days before scaling. However, the classification is 'Stage 2: Reactive' not 'Foundation stage,' and while the strategic connection exists in substance, it is not framed using the specific 'Foundation-stage classification' terminology that the assertion requires."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 8,
+    "total": 10,
+    "pass_rate": 0.20
+  }
+}
