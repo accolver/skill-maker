@@ -1,0 +1,57 @@
+{
+  "skill_name": "ai-consultant",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just got a new client - MedTech Solutions, a mid-size healthcare company (~500 employees, $80M revenue) that runs a chain of specialty clinics. They're using mostly paper-based patient intake and their CEO mentioned wanting to 'use AI to modernize operations.' They have an IT team of about 12 people and use a mix of on-prem and AWS. The CEO has budget but is vague on how much. I have my first call with their CTO next week. Help me prepare for this engagement.",
+      "expected_output": "A structured pre-engagement briefing with company research, a 5-dimension AI maturity assessment hypothesis, a dedicated red flags document, a stakeholder interview plan with role-specific questions, and an opportunity matrix using the impact-feasibility quadrant framework with build-vs-buy and agent potential per opportunity.",
+      "files": [],
+      "assertions": [
+        "Output includes an AI maturity assessment using exactly 5 dimensions: Data, Infrastructure, Talent, Governance, and Culture — each scored on a 1-5 scale",
+        "Output produces a weighted aggregate maturity score mapped to a named stage (Foundation, Pilot-Ready, Scale-Ready, or Optimize)",
+        "Output includes a bottleneck analysis identifying which maturity dimension scores lowest and how far it is below the aggregate",
+        "Output produces a dedicated red flags section or document with severity ratings (Critical, High, Medium) and specific mitigation plans for each flag",
+        "Output classifies opportunities using the 2x2 Impact-Feasibility quadrant: Quick Wins, Strategic Bets, Fill-ins, and Deprioritize",
+        "Output includes a Build vs Buy recommendation for each identified AI opportunity",
+        "Output includes an Agent Potential assessment for each opportunity rating whether it could be an autonomous AI agent workflow",
+        "Output explicitly connects the maturity score to the recommended engagement approach (e.g., a low score drives foundation-building, a mid score drives pilot-ready recommendations)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I've completed discovery for a fintech startup called PayFlow (Series B, 150 employees). Here's what I found:\n- They process 50,000 transactions/day with a 2.1% fraud rate (industry average is 0.5%)\n- Their fraud detection is rule-based, maintained by 2 engineers\n- Customer support gets 800 tickets/day, 60% are repetitive (balance inquiries, transaction status)\n- They have a data warehouse on BigQuery with 3 years of transaction data\n- Engineering team of 40, 3 have ML experience\n- No AI governance policy\n- CEO wants 'AI everywhere' within 6 months\n- VP of Engineering is skeptical and worried about maintaining new systems\n- They're SOC2 compliant but haven't considered AI-specific compliance\n\nGenerate the full set of deliverables for this engagement - executive summary, opportunity matrix, and a proposal for the top initiative.",
+      "expected_output": "Multiple deliverables using the skill's frameworks: executive summary with ROI, opportunity matrix using 5-dimension maturity model and impact-feasibility quadrants, red flags with severity and mitigation, and a phased proposal with pricing estimates.",
+      "files": [],
+      "assertions": [
+        "Output includes a 5-dimension AI maturity assessment (Data, Infrastructure, Talent, Governance, Culture) with numerical scores and a weighted aggregate classified into a maturity stage",
+        "Output identifies a bottleneck dimension (Governance at score 1) that is significantly below the aggregate and flags it as a constraint on scaling",
+        "Output classifies each opportunity as Quick Win, Strategic Bet, Fill-in, or Deprioritize using the impact-feasibility quadrant framework",
+        "Output includes a Build vs Buy recommendation for each scored opportunity in the matrix",
+        "Output rates each opportunity's Agent Potential (whether it could become an autonomous AI agent workflow)",
+        "Output produces a dedicated red flags section with severity ratings for each flag (the CEO timeline, VP skepticism, missing governance)",
+        "Output treats AI governance not just as a risk but as a scored opportunity or must-do prerequisite in the opportunity matrix",
+        "Output includes effort estimates in Staff Engineer hours (not just dollar amounts) from the reference effort estimation guide for the proposed initiative",
+        "Output uses the maturity stage classification to determine the overall engagement approach (Pilot-Ready drives identifying quick wins and building proof points)",
+        "Output produces a phased proposal or SOW structure following the deliverable template format with scope, exclusions, assumptions, and acceptance criteria"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "A manufacturing company (TitanWorks, 2000 employees, $300M revenue, 4 factories) wants to reduce unplanned downtime which is costing them $2M/month. They have sensors on about 40% of critical equipment, the rest is monitored manually. Their IT team is 25 people, all enterprise IT (ERP, networking) with zero data science capability. They just migrated to Azure 6 months ago. The plant managers are enthusiastic but the CFO is concerned about ROI and wants hard numbers before committing. The previous 'digital transformation' initiative 18 months ago was considered a failure and the project lead left the company.\n\nI need the full engagement package: maturity assessment, opportunity analysis with build vs buy, a 3-tier proposal (essential/recommended/comprehensive), and a roadmap. The CFO specifically asked for a sensitivity analysis on ROI.",
+      "expected_output": "Comprehensive deliverables using the skill's frameworks: 5-dimension maturity assessment with Foundation stage, company briefing, red flags document, opportunity matrix with quadrant classification and build-vs-buy/agent-potential per opportunity, 3-tier proposal, and maturity-driven roadmap.",
+      "files": [],
+      "assertions": [
+        "Output includes an AI maturity assessment scoring exactly 5 dimensions (Data, Infrastructure, Talent, Governance, Culture) with Talent scoring lowest at 1 due to zero data science capability",
+        "Output produces a weighted aggregate maturity score in the 1-2 range classified as Foundation stage, driving a foundation-building engagement approach",
+        "Output includes a bottleneck analysis identifying Talent and/or Governance as critical gaps that are 0.5+ points below the aggregate",
+        "Output produces a dedicated company briefing or pre-engagement research document as a standalone file",
+        "Output includes a dedicated red flags document with severity ratings and mitigation plans, including a section for positive indicators (red flags NOT present)",
+        "Output classifies each opportunity using the Quick Wins / Strategic Bets / Fill-ins / Deprioritize quadrant framework based on impact and feasibility scores",
+        "Output includes Build vs Buy assessment and Agent Potential rating for each opportunity in the matrix",
+        "Output includes a sensitivity analysis with at least 3 scenarios showing different ROI outcomes anchored to the $2M/month downtime baseline",
+        "Output provides 3 tiers (essential/recommended/comprehensive) with effort estimates in Staff Engineer hours for each tier",
+        "Output explicitly connects the maturity score to the engagement strategy — a Foundation-stage classification drives the recommendation to lead with data foundations and a quick win before advanced AI"
+      ]
+    }
+  ]
+}
