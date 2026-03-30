@@ -1,0 +1,64 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response cuts the broad analytics suite down to a narrower wedge with one primary user and one core workflow.",
+      "passed": false,
+      "evidence": "`outputs/report.md:9-14` narrows the idea to \"Daily profit and revenue reporting for small Shopify brands,\" and `outputs/report.md:40-43` names one outcome, but the target user remains plural/broad in `outputs/report.md:16-21` (\"Owner-operators and small ecommerce teams\") rather than one primary user. `outputs/result.json:5-8` also uses a two-item `target_user` array instead of a single primary user field."
+    },
+    {
+      "text": "Response includes at least 3 items in manual_work or automated_first where appropriate, showing a real boundary between manual and automated work.",
+      "passed": false,
+      "evidence": "No manual-vs-automated boundary is present. `outputs/result.json:1-47` contains no `manual_work` or `automated_first` keys, and `outputs/report.md:1-131` never identifies which tasks stay manual versus which are automated first."
+    },
+    {
+      "text": "Response includes at least 3 do_not_build_yet items that exclude broad platform behavior.",
+      "passed": true,
+      "evidence": "`outputs/report.md:60-75` lists 10 explicit non-goals excluding broad platform behavior, including multi-channel analytics, marketing attribution, cohort retention analysis, inventory planning, and custom dashboard builders. The same exclusions appear in `outputs/result.json:26-37` under `non_goals`."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/micro-saas-scope-template.json.",
+      "passed": false,
+      "evidence": "`outputs/result.json` parses as JSON, but its shape does not match the eval's expected template-oriented fields. It only has keys like `product_name`, `target_user`, `mvp_scope`, and `non_goals` (`outputs/result.json:1-47`) and lacks the template fields implied by this eval, including `readiness_verdict`, `product_wedge`, `manual_work`, `automated_first`, `mvp_boundary`, `productization_trigger`, and `do_not_build_yet`. The referenced schema file was not present in the workspace, so exact schema validation was impossible, but the output clearly does not follow the intended template structure."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 3,
+    "total": 4,
+    "pass_rate": 0.25
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment.",
+      "Referenced schema file assets/micro-saas-scope-template.json was not present in the workspace for direct validation."
+    ],
+    "output_chars": 5661
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states this at `transcript.md:4`, and both files exist in `outputs/` with substantive content: `outputs/report.md` has 131 lines and `outputs/result.json` has 47 lines."
+    },
+    {
+      "claim": "Do not start with a broad ecommerce analytics suite.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This recommendation is consistently supported by the scoped output: `outputs/report.md:5-7` explains the suite expands into attribution, forecasting, inventory, finance, and BI workflows, and `outputs/report.md:60-77` lists concrete non-goals that keep the MVP narrow."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Bundle `assets/micro-saas-scope-template.json` with the eval or copy the required schema fields into `eval_metadata.json` so the JSON-shape assertion is directly verifiable.",
+      "Strengthen assertion 1 by requiring a singular field or explicit statement for the primary user; the current wording leaves room for broad multi-user answers that still sound narrowed.",
+      "Add an assertion for a readiness or build-now verdict/productization trigger, since the template used in the successful run includes those important scoping signals but the current assertion set does not check them.",
+      "Consider explicitly requiring both sides of the manual/automated split when that boundary matters; right now assertion 2 allows either `manual_work` or `automated_first`, which weakens the intended boundary check."
+    ],
+    "overall": "The eval discriminates meaningfully on scope boundary and manual-vs-automated thinking, but one assertion depends on a missing schema artifact and the set does not check readiness verdict or productization trigger, both of which are important parts of the intended template."
+  }
+}

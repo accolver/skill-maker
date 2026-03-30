@@ -1,0 +1,94 @@
+{
+  "skill_name": "edge-profiler",
+  "iteration": 1,
+  "timestamp": "2026-03-29T20:45:21.509Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9375,
+        "stddev": 0.1083
+      },
+      "time_seconds": {
+        "mean": 0,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.75,
+        "stddev": 0.3062
+      },
+      "time_seconds": {
+        "mean": 0,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0
+      }
+    },
+    "delta": {
+      "pass_rate": 0.1875,
+      "time_seconds": 0,
+      "tokens": 0
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "audience-vs-buyers",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "eval_name": "employer-restricted-edge",
+      "with_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 0,
+        "tokens": 0
+      },
+      "without_skill": {
+        "pass_rate": 0.75,
+        "time_seconds": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "eval_name": "hvac-network-vs-distribution",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      },
+      "without_skill": {
+        "pass_rate": 0.25,
+        "time_seconds": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "eval_name": "prestige-fake-edge",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      }
+    }
+  ]
+}

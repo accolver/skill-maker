@@ -1,0 +1,61 @@
+{
+  "system_objective": {
+    "primary_user": "Internal compliance operations manager",
+    "trigger": "A new client evidence request is submitted or a scheduled compliance review cycle begins",
+    "output": "A reviewed evidence package is delivered to the client with status tracking and an audit trail",
+    "human_escalation": "A compliance analyst reviews missing, conflicting, low-confidence, or high-risk evidence before client delivery"
+  },
+  "components": [
+    "Request intake form or API",
+    "Job queue",
+    "Evidence assembly worker",
+    "Internal operator dashboard",
+    "Delivery service",
+    "Audit log storage"
+  ],
+  "inputs": [
+    "Client request metadata",
+    "Evidence checklist template",
+    "Uploaded or sourced evidence files",
+    "Client delivery contacts"
+  ],
+  "outputs": [
+    "Draft evidence package",
+    "Approved evidence package",
+    "Delivery confirmation",
+    "Exception queue entries",
+    "Audit events"
+  ],
+  "integrations": [
+    "Email provider",
+    "Optional existing document storage"
+  ],
+  "manual_steps": [
+    "Review whether evidence satisfies the requested controls",
+    "Resolve missing, conflicting, or stale files",
+    "Approve final client delivery"
+  ],
+  "automated_steps": [
+    "Create evidence job from intake event",
+    "Track checklist completeness",
+    "Assemble draft package from available files",
+    "Send package after analyst approval",
+    "Record delivery and audit events"
+  ],
+  "milestones": [
+    "Define request schema, checklist model, and review states",
+    "Build intake, storage, and operator dashboard",
+    "Implement worker-based package assembly and completeness checks",
+    "Add analyst review, exception handling, and audit logging",
+    "Add secure client delivery and status tracking",
+    "Pilot with one compliance program and tighten rules"
+  ],
+  "out_of_scope": [
+    "Client portal",
+    "Predictive risk scoring",
+    "CRM sync",
+    "Analytics dashboards",
+    "Broad multi-program support",
+    "Auto-approval of compliance decisions"
+  ]
+}

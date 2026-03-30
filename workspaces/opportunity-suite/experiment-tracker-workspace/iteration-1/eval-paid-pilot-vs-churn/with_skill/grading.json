@@ -1,0 +1,62 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response distinguishes stronger and weaker signals rather than flattening them.",
+      "passed": true,
+      "evidence": "`outputs/report.md` explicitly separates `Strong signal`, `Contradictory signal`, and `Weak signal` in the `# Signal Quality` section (lines 16-27). `outputs/result.json` also preserves that distinction with separate `strong_signals`, `weak_signals`, and `contradictions` arrays (lines 14-24)."
+    },
+    {
+      "text": "Response chooses a clear decision state such as continue or narrow.",
+      "passed": true,
+      "evidence": "`outputs/report.md` has a dedicated `# Decision State` section with the explicit value ``narrow`` (lines 29-37). `outputs/result.json` repeats this as `\"decision_state\": \"narrow\"` (line 25)."
+    },
+    {
+      "text": "Response recommends one next experiment tied to the biggest remaining uncertainty.",
+      "passed": true,
+      "evidence": "`outputs/report.md` recommends a single next experiment: `Run one standardized paid pilot for a narrowly defined HVAC sub-segment...` (lines 39-42), then states `This best resolves the biggest remaining uncertainty` and names that uncertainty as whether the business can retain paying customers with a repeatable workflow (lines 51-53). `outputs/result.json` mirrors the same experiment and rationale (lines 26-27)."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid JSON (`jq empty` succeeded) and has a clear schema with keys including `experiments`, `strong_signals`, `weak_signals`, `contradictions`, `decision_state`, `next_experiment`, and `rationale` (lines 1-28)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 4087
+  },
+  "claims": [
+    {
+      "claim": "One customer actually paid, making payment the strongest demand signal in the dataset.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The underlying prompt in `eval_metadata.json` states `1 actually paid` (line 4). This is reflected in `outputs/report.md` lines 16-17 and `outputs/result.json` lines 14-17."
+    },
+    {
+      "claim": "The current workflow is too custom to reliably retain customers.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The source prompt states `1 churned after setup because the workflow was too custom` in `eval_metadata.json` line 4. The response uses that evidence to identify `retention and delivery risk` in `outputs/result.json` lines 22-27 and `delivery friction and low repeatability` in `outputs/report.md` lines 10-12 and 22-24."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON.` to check for specific required fields such as `decision_state`, `next_experiment`, and `rationale`; in its current form, any valid JSON blob would pass.",
+      "Add an assertion that the response explicitly addresses the churn/customization evidence as a constraint on scaling or retention; that is a central part of the prompt but is not directly required by the current eval.",
+      "Add an assertion that the recommended next experiment includes measurable success criteria. This run includes concrete criteria in `report.md` lines 44-49, but the eval does not distinguish that from a vague experiment suggestion."
+    ],
+    "overall": "All 4 assertions pass and the set does check the core shape of the answer, but one assertion is fairly shallow and the eval underweights whether the response meaningfully incorporates the churn/root-cause evidence and defines a measurable experiment."
+  }
+}

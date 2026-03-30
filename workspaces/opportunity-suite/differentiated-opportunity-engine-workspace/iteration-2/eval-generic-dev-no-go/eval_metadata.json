@@ -1,0 +1,14 @@
+{
+  "eval_id": 5,
+  "eval_name": "generic-dev-no-go",
+  "prompt": "I am a junior full-stack developer. I have no niche audience, no special domain access, no budget, and only about 4 hours a week. I want to build an AI micro-SaaS in 30 days and make money fast, but I do not want sales calls, services, or content creation. What should I do?",
+  "assertions": [
+    "Response explicitly says the current edge is weak, generic, or insufficient for a strong opportunity pick.",
+    "Response treats the requested constraint bundle as unrealistic or binding rather than pretending there is an easy fast-money path.",
+    "The best bet is not an immediate generic AI micro-SaaS or wrapper.",
+    "Response identifies at least 2 binding constraints that must change or 2 capabilities that must be built first.",
+    "Response gives a credible next-step plan for edge-building, market access, or narrowing scope rather than generic hustle advice.",
+    "Kill criteria or revisit criteria are falsifiable or quantified.",
+    "Structured JSON marks feasibility as conditional or no_go, and that matches the prose recommendation."
+  ]
+}

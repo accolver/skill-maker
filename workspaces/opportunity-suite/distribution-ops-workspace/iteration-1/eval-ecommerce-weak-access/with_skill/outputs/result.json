@@ -1,0 +1,44 @@
+{
+  "channel_thesis": "The founder has strong ecommerce workflow knowledge but weak direct buyer access and no audience, so the first channel should borrow trust and access from intermediaries. A partner path through agencies, fractional operators, and merchant-facing service providers is the fastest realistic route to signal because it matches existing trust relationships and can generate merchant introductions without requiring broad brand awareness.",
+  "primary_channel": "Partner or reseller path through ecommerce agencies, fractional operators, and adjacent merchant service providers.",
+  "supporting_channels": [
+    "Narrow outbound to a curated list of agencies, consultants, and service firms serving ecommerce merchants.",
+    "Niche community and newsletter placements aimed at operators and agencies to build credibility with partners.",
+    "Lightweight marketplace, directory, or partner page presence to support trust after introductions."
+  ],
+  "assets_needed": [
+    "One-page partner brief with merchant pain, workflow fit, and pilot terms.",
+    "Partner-specific demo showing reporting workflow value.",
+    "Partner landing page with use cases and pilot CTA.",
+    "Simple ROI or time-saved calculator.",
+    "Partner outreach and follow-up copy.",
+    "Pilot onboarding checklist for introduced merchants.",
+    "Proof-point capture template for testimonials and outcomes.",
+    "CRM tracker for partner pipeline and pilot status."
+  ],
+  "sequence": [
+    "Build a list of 40 target partners in one narrow segment such as Shopify-focused agencies and fractional operators.",
+    "Create a concise partner brief and partner-specific demo.",
+    "Run direct outreach to book discovery calls with partners rather than merchants.",
+    "Convert 5 to 8 partners into active pilot discussions.",
+    "Ask interested partners for 1 to 3 merchant introductions or a white-glove pilot.",
+    "Run merchant pilots, capture proof points, and refine the partner pitch.",
+    "Expand to the next partner segment only after repeatable introductions or conversions appear."
+  ],
+  "success_metrics": [
+    "40 target partners contacted in the first sprint.",
+    "At least 25% partner reply rate.",
+    "At least 20% meeting rate from contacted partners.",
+    "At least 5 serious partner conversations.",
+    "At least 3 partners willing to introduce merchants or run a pilot.",
+    "At least 3 merchant pilots started from partner access.",
+    "At least 1 pilot converts to paid usage or has a clear committed expansion path."
+  ],
+  "kill_criteria": [
+    "Under 10% partner reply rate after 40 highly relevant outreaches.",
+    "Fewer than 3 partner meetings after the first 40 outreaches.",
+    "Zero merchant introductions after 5 quality partner conversations.",
+    "No repeatable partner willingness to introduce additional merchants after initial pilots.",
+    "No credible path to paid conversion after 3 merchant pilots."
+  ]
+}

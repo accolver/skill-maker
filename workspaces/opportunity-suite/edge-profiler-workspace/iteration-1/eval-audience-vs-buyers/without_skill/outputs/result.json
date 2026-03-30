@@ -1,0 +1,38 @@
+{
+  "task": "audience_vs_buyers_assessment",
+  "input": {
+    "platform": "X",
+    "followers": 120000,
+    "topic": "AI productivity",
+    "suspected_major_segments": ["students", "hobbyists"],
+    "known_buyer_evidence": false
+  },
+  "assessment": {
+    "overall_conclusion": "Large audience, but buyer density is unproven and likely low as a percentage.",
+    "audience_attention_validated": true,
+    "commercial_demand_validated": false,
+    "buyer_presence_estimate": "moderate absolute count, low percentage",
+    "confidence": "medium"
+  },
+  "likely_segments": [
+    {
+      "segment": "students",
+      "buyer_likelihood": "low"
+    },
+    {
+      "segment": "hobbyists",
+      "buyer_likelihood": "low"
+    },
+    {
+      "segment": "indie builders and freelancers",
+      "buyer_likelihood": "medium"
+    },
+    {
+      "segment": "founders, team leads, operators",
+      "buyer_likelihood": "high"
+    }
+  ],
+  "main_risk": "Engagement may be driven mostly by non-buyers, while real buyers remain a small hidden segment.",
+  "recommended_next_action": "Run a targeted buyer qualification test aimed at founders, operators, and team leads; measure role, budget authority, urgency, and willingness to pay.",
+  "final_answer": "Some buyers are probably present, but the audience should currently be treated as validated attention rather than validated demand."
+}

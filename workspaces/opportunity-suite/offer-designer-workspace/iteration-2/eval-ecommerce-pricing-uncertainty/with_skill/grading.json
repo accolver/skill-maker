@@ -1,0 +1,54 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not present price as settled fact; it gives a hypothesis tied to 2 to 4 scope or value variables.",
+      "passed": true,
+      "evidence": "PASS from `outputs/report.md:69-89`, which labels pricing as a `Pricing Hypothesis`, gives ranges instead of a settled price, and ties pricing to four concrete variables: `data fragmentation`, `channel count`, `SKU complexity`, and `how much interpretation the buyer expects`. The same structure appears in `outputs/result.json:23-26`, which explicitly says `ranges are more honest than a single precise price` and cites `channel count, data fragmentation, SKU depth, and interpretation needs`."
+    },
+    {
+      "text": "Response includes at least 2 open questions that would materially change the offer or pricing.",
+      "passed": true,
+      "evidence": "PASS from `outputs/report.md:90-98`, which lists four material open questions: source-system capacity before margin breaks, whether buyers value interpretation vs. recommendations vs. unification, whether weekly beats biweekly cadence, and which complexity variables predict delivery time and willingness to pay. `outputs/result.json:34-38` repeats four open questions in structured form."
+    },
+    {
+      "text": "Response keeps the offer narrower than broad ecommerce analytics consulting.",
+      "passed": true,
+      "evidence": "PASS from `outputs/report.md:10-12`, which says the promise is `not \"become their analytics department\"`; `outputs/report.md:57-67`, which sets explicit boundaries including no custom dashboards, no execution ownership, and no unlimited ad hoc analysis; and `outputs/report.md:102-103`, which explicitly rejects a `Broad ecommerce consulting retainer` as too vague and prone to sprawl. The same narrow positioning appears in `outputs/result.json:2`, `16-21`, and `28-30`."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/offer-template.json.",
+      "passed": true,
+      "evidence": "PASS because `outputs/result.json` parses as valid JSON (`jq empty` succeeded) and matches the template shape in `/home/alan/dev/ai/skills/offer-designer/assets/offer-template.json:1-18`: it contains `offer_thesis`; `icp` with `buyer`, `segment`, and `why_now`; `offer_shape`; arrays for `deliverables`, `scope_boundaries`, `rejected_framings`, and `open_questions`; and `pricing_hypothesis` with `model`, `range_or_price`, and `pricing_rationale`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [],
+    "output_chars": 9997
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by the presence of `outputs/report.md` and `outputs/result.json`, and both files contain substantive content. The claim also appears in `transcript.md:5`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the recommended pricing variables are explicitly connected to delivery effort or buyer value, not merely listed, to sharpen discrimination between shallow and substantive answers.",
+      "Add an assertion that the markdown report and JSON output are substantively consistent with each other; the current eval only checks JSON validity and could miss mismatches between the narrative and structured artifact.",
+      "Add an assertion that at least one scope boundary excludes execution work or custom builds, since that is central to keeping the offer narrow in this prompt."
+    ],
+    "overall": "The current assertion set is reasonably discriminating for this prompt and all four checks are objectively verifiable from the artifacts. The main coverage gap is consistency between `report.md` and `result.json`, plus stronger checks that the pricing rationale genuinely ties uncertainty to concrete effort or value drivers."
+  }
+}

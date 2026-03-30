@@ -1,0 +1,62 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly states that paraphrasing or recreating employer templates, process docs, or pricing logic from memory is still blocked.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 37-43 explicitly block memory-based recreation, including `Recreating employer internal templates from memory`, `Reproducing or paraphrasing confidential pricing logic ... from memory`, and `Rebuilding internal process docs ... from memory`. `outputs/result.json` lines 22-27 repeats the same blocked items."
+    },
+    {
+      "text": "Response distinguishes generalized industry knowledge from employer-confidential methods by giving at least one allowed example and one blocked example.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 13-18 allow `generalized industry knowledge` and creation of `brand-new templates, workflows, and documentation from scratch`, while lines 39-43 block recreating employer templates, paraphrasing confidential pricing logic, and rebuilding employer-specific process docs. `outputs/result.json` lines 10-15 and 22-27 provide the same allowed vs. blocked contrast."
+    },
+    {
+      "text": "Response names a concrete safer adjacent path based on public data, original assets, or generalized workflow understanding.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 49-62 provide a concrete `Safer Path`, including `public-data research products`, `original templates from a blank page` based on `public regulations` and `public RFP language`, and `generalized workflow support tools`. `outputs/result.json` lines 29-35 includes the same safer-path items."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/risk-screen-template.json with non-empty risk_summary, risk_categories, allowed, conditional, blocked, safer_path, and notes.",
+      "passed": true,
+      "evidence": "`outputs/result.json` parses as valid JSON and matches the template keys from `/home/alan/dev/ai/skills/clean-room-risk-screen/assets/risk-screen-template.json` (`risk_summary`, `risk_categories`, `allowed`, `conditional`, `blocked`, `safer_path`, `notes`). A `jq` validation confirmed the exact key set and that every required field is present and non-empty."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 9163
+  },
+  "claims": [
+    {
+      "claim": "The proposed side business is not a valid clean-room approach.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This claim is explicitly made in `outputs/report.md` lines 3-5 and reflected consistently in the blocked items and safer-path guidance in both output files."
+    },
+    {
+      "claim": "A safer adjacent path exists if the business is rebuilt from public information, generalized knowledge, and new original work.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`outputs/report.md` lines 51-62 and `outputs/result.json` lines 29-39 provide a specific alternative path based on public data, original assets, independent pricing, and source provenance."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that `report.md` and `result.json` are semantically consistent, since this run produced two deliverables with mirrored guidance but the eval only checks JSON validity directly.",
+      "Add an assertion for the key clean-room rationale itself, such as requiring explanation of why memory-based recreation remains blocked even without copying files verbatim.",
+      "Add an assertion covering at least one specific public-source provenance recommendation, because source-traceability is a meaningful safety behavior visible in the output but currently untested."
+    ],
+    "overall": "The assertion set is reasonably discriminating for this task and all four assertions were substantively satisfied. Coverage is strongest on the main prohibition and JSON structure, but it misses output consistency and some of the more concrete clean-room safeguards the response included."
+  }
+}

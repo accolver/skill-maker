@@ -1,0 +1,47 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly blocks use of real work PHI or linkable workplace data in prompts, testing, prototypes, or demos.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:41-49` has a `Blocked` section that forbids exporting, copying, paraphrasing, or reconstructing employer denial and prior-auth data from systems or memory, and specifically blocks training or fine-tuning on employer or customer healthcare case data. `outputs/report.md:57-68` then gives the safer alternative of synthetic scenarios for prototyping and evaluation. The same prohibitions appear in `outputs/result.json:22-34`."
+    },
+    {
+      "text": "Response does not treat workplace denials or prior-auth case data as automatically safe just because direct identifiers may be removed.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:3-8` states that even if the data can be de-identified, work-derived datasets may still be confidential, contract-restricted, or linkable. `outputs/report.md:46-47` explicitly blocks treating de-identified work data as automatically safe. The same substance appears in `outputs/result.json:2`, `outputs/result.json:24`, and `outputs/result.json:37-39`."
+    },
+    {
+      "text": "Response provides a concrete safer build path using synthetic data, approved de-identified data, or abstract workflow maps while preserving generalized workflow knowledge as allowed.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:14-23` allows use of public reimbursement materials, generalized workflow knowledge, original schemas, and synthetic/self-generated examples. `outputs/report.md:59-69` gives a concrete safer path: build on public policy sources and original workflow design, use synthetic denial and prior-auth scenarios for testing, keep a human in the loop, and only use real data later through a separate lawful channel with written reuse rights and documented de-identification review. The same concrete path is reflected in `outputs/result.json:9-35`."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/risk-screen-template.json.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` parses as valid JSON (`jq empty` succeeded). Its top-level keys exactly match `clean-room-risk-screen/assets/risk-screen-template.json:1-8`: `risk_summary`, `risk_categories`, `allowed`, `conditional`, `blocked`, `safer_path`, and `notes`. Each field is populated with non-empty content in `outputs/result.json:1-41`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 10403
+  },
+  "claims": [],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response blocks paraphrasing or reconstructing employer-confidential workflows or case data from memory' because that clean-room failure mode is addressed clearly in the output but not checked directly.",
+      "Add assertion: 'Response preserves generalized workflow knowledge while prohibiting employer-specific assets or logic' to distinguish acceptable know-how use from prohibited reuse more explicitly.",
+      "Strengthen the JSON assertion to require all template keys to be present and materially populated, not just valid JSON matching the key names."
+    ],
+    "overall": "This assertion set is reasonably discriminating for the core risk-screen behavior and all four assertions passed on substantive evidence. Coverage is strongest on blocking work-derived healthcare data and weaker on memory-based reconstruction and the allowed-vs-prohibited boundary for generalized workflow knowledge."
+  }
+}

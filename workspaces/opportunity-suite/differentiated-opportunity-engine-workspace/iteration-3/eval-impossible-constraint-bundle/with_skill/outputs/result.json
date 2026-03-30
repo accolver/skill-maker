@@ -1,0 +1,165 @@
+{
+  "user_profile": {
+    "skills": [
+      "junior full-stack development",
+      "basic software implementation"
+    ],
+    "domain_experience": [],
+    "assets": [
+      "ability to build simple web software"
+    ],
+    "distribution": [],
+    "network_access": [],
+    "constraints": [
+      "no niche audience",
+      "no special domain access",
+      "no budget",
+      "2 hours per week",
+      "target of $3000 MRR in 30 days",
+      "refuses sales calls",
+      "refuses services",
+      "refuses content creation",
+      "refuses cold outreach"
+    ],
+    "credibility_signals": [
+      "can build software"
+    ],
+    "unfair_advantages": []
+  },
+  "feasibility_verdict": "no_go",
+  "binding_constraints": [
+    "No credible buyer access",
+    "No niche or differentiated founder edge",
+    "Insufficient time budget for discovery and iteration",
+    "Core early-revenue paths are explicitly refused",
+    "30-day $3000 MRR target is inconsistent with the remaining options"
+  ],
+  "opportunities": [
+    {
+      "id": "opp_async_niche_offer",
+      "title": "Async niche audit or implementation offer",
+      "category": "cash_now",
+      "thesis": "The fastest general route to revenue would be a narrow asynchronous service offer, but the user refuses services and outreach so the path is invalid under current rules.",
+      "why_user_can_win": "Some technical operators can turn small repetitive workflow pain into paid fixes faster than non-technical freelancers.",
+      "why_this_could_fail": "The user has banned the exact mechanisms that make this path work: services and outbound demand capture.",
+      "scores": {
+        "edge_fit": 3,
+        "speed_to_revenue": 7,
+        "durability": 3,
+        "distribution_fit": 2,
+        "ai_leverage": 6,
+        "defensibility": 2,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 1
+      },
+      "validation_plan": [
+        "Only becomes valid if the user allows asynchronous buyer contact in one channel",
+        "Target 5 buyer conversations or 2 paid pilots in 7 days",
+        "Stop immediately if the user keeps the no-service rule"
+      ],
+      "tool_specs": [
+        "simple landing page",
+        "payment link",
+        "manual delivery workflow"
+      ],
+      "kill_criteria": [
+        "User will not relax the no-service rule",
+        "Fewer than 2 strong intent signals after 5 targeted contacts"
+      ]
+    },
+    {
+      "id": "opp_marketplace_microtool",
+      "title": "Marketplace-first developer micro-tool",
+      "category": "asset_later",
+      "thesis": "A tiny tool listed on an existing marketplace is the lowest-friction product path because it avoids calls and custom outreach, but it is still low-odds for meaningful MRR in 30 days.",
+      "why_user_can_win": "The user can build a simple product without cash and can borrow some discovery from a marketplace.",
+      "why_this_could_fail": "No niche edge, limited time, crowded categories, and weak iteration speed make traction unlikely.",
+      "scores": {
+        "edge_fit": 2,
+        "speed_to_revenue": 3,
+        "durability": 4,
+        "distribution_fit": 4,
+        "ai_leverage": 5,
+        "defensibility": 2,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Choose one marketplace and one narrow workflow",
+        "Ship a fake-door listing or landing page in under 90 minutes",
+        "Require 50 visits or 5 qualified clicks within 72 hours before building further"
+      ],
+      "tool_specs": [
+        "single-feature product",
+        "marketplace listing",
+        "basic analytics",
+        "optional payment link"
+      ],
+      "kill_criteria": [
+        "Fewer than 5 qualified clicks in 72 hours",
+        "No signups or payments after first exposure",
+        "Requires more than one workflow or persona to explain the value"
+      ]
+    },
+    {
+      "id": "opp_edge_building_plan",
+      "title": "Constraint-change and edge-building plan before micro-SaaS",
+      "category": "hybrid",
+      "thesis": "The honest best bet is to spend the next 30 days manufacturing a real niche advantage and one low-friction distribution wedge before attempting a micro-SaaS revenue goal.",
+      "why_user_can_win": "This path uses the only reliable asset currently available, technical execution, while acknowledging that edge and access must be created first.",
+      "why_this_could_fail": "If the user refuses all forms of validation, contact, and visibility, even edge-building cannot happen.",
+      "scores": {
+        "edge_fit": 4,
+        "speed_to_revenue": 2,
+        "durability": 6,
+        "distribution_fit": 3,
+        "ai_leverage": 6,
+        "defensibility": 3,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 1
+      },
+      "validation_plan": [
+        "Pick one weekly workflow pain from personal experience on day 1",
+        "Collect 20 pain signals from public forums or marketplaces in 60 minutes on day 2",
+        "Publish one fake-door page with pricing and CTA by day 3",
+        "Get 50 visits, 5 qualified clicks, 1 payment, or 3 explicit willingness-to-pay replies within 7 days"
+      ],
+      "tool_specs": [
+        "single landing page",
+        "one screenshot or mock",
+        "payment link or waitlist form",
+        "manual fulfillment workflow",
+        "basic analytics"
+      ],
+      "kill_criteria": [
+        "Cannot identify one niche workflow with measurable output",
+        "Cannot collect 20 pain signals in 60 minutes",
+        "No qualified intent signals within 7 days",
+        "User refuses to relax at least one of: no outreach, no services, no time, no timeline"
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Generic AI wrapper",
+      "reason": "Weak founder edge, weak defensibility, and no cheap path to customers."
+    },
+    {
+      "title": "Pure content business",
+      "reason": "The user refuses content creation and has no audience to monetize."
+    },
+    {
+      "title": "Software-first micro-SaaS build",
+      "reason": "No validated niche, no buyer access, and not enough time for a full find-build-distribute loop."
+    }
+  ],
+  "best_bet": "opp_edge_building_plan",
+  "next_actions": [
+    "Drop the 30-day $3000 MRR target under the current constraints",
+    "Relax exactly one major constraint, preferably allowing one asynchronous distribution channel",
+    "Choose one niche workflow pain from personal experience",
+    "Collect 20 public pain signals in 60 minutes",
+    "Publish one fake-door page with pricing and CTA within 3 days",
+    "Stop if there is no meaningful intent within 7 days"
+  ]
+}

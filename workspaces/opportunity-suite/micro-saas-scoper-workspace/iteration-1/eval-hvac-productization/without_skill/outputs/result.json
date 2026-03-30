@@ -1,0 +1,29 @@
+{
+  "productization_decision": "yes",
+  "recommended_shape": "vertical_micro_saas",
+  "market": "HVAC missed-call recovery concierge",
+  "positioning": "recover missed revenue from unanswered calls",
+  "summary": "The service appears suitable for productization as a focused vertical SaaS because the workflow pain is repeated across multiple HVAC owners, the problem is revenue-linked and urgent, and the initial solution can be standardized around missed-call detection, immediate follow-up, qualification, routing, and ROI reporting.",
+  "mvp_capabilities": [
+    "missed inbound call detection",
+    "immediate SMS follow-up",
+    "lightweight lead qualification",
+    "notification and handoff to owner or dispatcher",
+    "pipeline tracking for recovered opportunities",
+    "basic ROI and conversion reporting"
+  ],
+  "defer": [
+    "full CRM",
+    "horizontal multi-industry support",
+    "deep customization",
+    "broad communications platform features"
+  ],
+  "key_risks": [
+    "integration complexity across phone and dispatch systems",
+    "premature customization pressure",
+    "automation quality may lag human concierge judgment",
+    "messy revenue attribution",
+    "text messaging compliance requirements"
+  ],
+  "ideal_early_customer": "small to mid-sized HVAC businesses with meaningful inbound call volume and weak or inconsistent missed-call follow-up"
+}

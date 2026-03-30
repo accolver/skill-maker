@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "regulated-authority",
+  "prompt": "The user wants AI to auto-draft regulator responses and act like a lightweight outsourced compliance officer for clients. Screen the risk.",
+  "assertions": [
+    "Response blocks or strongly restricts outsourced compliance officer or delegated-authority framing.",
+    "Response proposes a safer path like evidence prep, documentation support, or workflow support.",
+    "Response includes allowed, conditional, and blocked distinctions.",
+    "Response includes structured JSON."
+  ]
+}

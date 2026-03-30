@@ -1,0 +1,21 @@
+{
+  "label": "employer_restricted_edge",
+  "result": "restricted",
+  "confidence": "high",
+  "summary": "The described advantage depends materially on employer-confidential templates, pricing logic, and process documentation, so it should be treated as employer-restricted rather than freely portable.",
+  "portable_components": [
+    "general market knowledge",
+    "publicly observable industry dynamics",
+    "personal functional skills and experience"
+  ],
+  "restricted_components": [
+    "internal templates",
+    "pricing logic",
+    "process documentation",
+    "confidential know-how derived from employer materials"
+  ],
+  "inputs": {
+    "files_provided": 0,
+    "scenario": "Works at a govtech company with access to internal templates, pricing logic, process docs, and strong market knowledge."
+  }
+}

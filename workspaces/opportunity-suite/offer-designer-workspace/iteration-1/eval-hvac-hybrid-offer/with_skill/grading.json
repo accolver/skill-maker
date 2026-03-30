@@ -1,0 +1,67 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response names one painful job and one narrow HVAC ICP.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` names the painful job as \"recover revenue from missed inbound calls\" at lines 27-28, and defines an HVAC ICP at lines 12-18 as an owner/operator of a small-to-mid-sized HVAC service business with inbound demand and missed-call leakage. `outputs/result.json` repeats the ICP in lines 3-7."
+    },
+    {
+      "text": "Response keeps the offer narrower than broad AI automation consulting.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` frames the offer as a specific \"AI-assisted missed-call recovery layer\" for HVAC at lines 3-8 and a \"concierge hybrid\" at lines 22-30, then explicitly rejects a broad \"AI for home services\" agency offer at lines 77-80. `outputs/result.json` also lists \"Broad AI agency for home services\" under `rejected_framings` at lines 27-31."
+    },
+    {
+      "text": "Response includes scope boundaries and a productization-friendly shape.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` explicitly gives a productizable offer shape at lines 22-26 (\"concierge hybrid that can later productize\") and provides concrete scope boundaries at lines 47-58, including missed-call-only focus, no full CSR replacement, no custom software required in v1, and no regulated advice. The same structure appears in `outputs/result.json` with `offer_shape` at line 8 and `scope_boundaries` at lines 16-20."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with top-level keys including `offer_thesis`, `icp`, `offer_shape`, `deliverables`, `scope_boundaries`, `pricing_hypothesis`, `rejected_framings`, and `open_questions` (lines 1-39). `outputs/report.md` also embeds the same structure in a fenced JSON block at lines 88-127."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8727
+  },
+  "claims": [
+    {
+      "claim": "The first offer should be sold as a concierge hybrid service before building software.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md` lines 3-5 and 56-58, which state the offer should be a concierge hybrid service and does not require custom software in version one. `outputs/result.json` line 2 also states the service recovers opportunities before building software."
+    },
+    {
+      "claim": "The offer is limited to missed inbound-call recovery rather than full dispatch or CSR replacement.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md` lines 47-53, especially line 49 (\"focused only on missed inbound-call recovery, not full CSR replacement\"). `outputs/result.json` lines 16-20 repeat the same scope boundary."
+    },
+    {
+      "claim": "The pricing model is a setup fee plus monthly retainer.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md` lines 60-68, which specify the primary model and price ranges, and by `outputs/result.json` lines 22-25, where `pricing_hypothesis.model` is \"Setup fee plus monthly retainer\"."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response names one painful job and one narrow HVAC ICP.` by requiring a genuinely narrow HVAC segment such as install-heavy shops, after-hours emergency-heavy operators, or single-location owner-led businesses; the current assertion can pass with a still-broad HVAC description.",
+      "Add an assertion for explicit exclusions or risk boundaries, since the response meaningfully limits overreach with no dispatch replacement, no licensed advice, and no custom software in v1, but the eval only partially checks that through a broad scope-boundaries assertion.",
+      "Strengthen `Response includes structured JSON.` to require a valid machine-readable file with specific keys instead of any JSON-shaped content; as written, it is relatively easy to satisfy.",
+      "Add an assertion for pricing or commercial packaging. The output includes a concrete pricing hypothesis and delivery model, which is important to a first sellable offer but currently ungraded."
+    ],
+    "overall": "The current eval covers the main positioning requirements and this run clearly satisfies them, but the suite under-tests how commercially credible and operationally constrained the offer is. It would discriminate better with stronger checks for ICP specificity, exclusions, and pricing/package structure."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "eval_id": 1,
+  "eval_name": "hvac-hybrid-pressure",
+  "prompt": "I am a software engineer who spent 6 years building internal tools for HVAC distributors. My brother runs a small HVAC service business and knows a lot of owners in the region. I want to make money with AI and eventually build a micro-SaaS, but I am open to starting with services. I do not have an audience. Help me figure out the best path.",
+  "assertions": [
+    "Response uses the brother's owner network or warm HVAC-owner access as a material distribution advantage in the recommendation, not as a passing mention.",
+    "Response names a concrete first HVAC wedge tied to revenue, such as missed-call recovery, estimate follow-up, membership renewal, or another specific operational pain.",
+    "Response explains why software-first loses for this user today and why a hybrid or service-first path is stronger under the current constraints.",
+    "If a service-first or hybrid path is recommended, the response names a concrete initial offer, a narrow ICP, one measurable pain or outcome metric, and a specific productization trigger or likely first software module.",
+    "The validation plan includes numeric targets such as interview count, pilot target count, time window, or success thresholds.",
+    "Kill criteria include at least 2 falsifiable stop or pivot conditions rather than generic caution.",
+    "The prose recommendation and structured JSON agree on the same best bet and sequencing."
+  ]
+}

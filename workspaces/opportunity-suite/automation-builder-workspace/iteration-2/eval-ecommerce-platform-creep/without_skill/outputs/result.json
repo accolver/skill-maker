@@ -1,0 +1,63 @@
+{
+  "task": "Build spec for a lightweight self-serve ecommerce reporting utility with pressure to expand into collaboration, dashboards, alerts, and multi-store support",
+  "recommended_product": "Daily Profit Snapshot",
+  "primary_problem": "Merchants need a fast daily answer to whether the store was actually profitable after refunds, discounts, and ad spend.",
+  "target_user": "Single merchant operator managing one store",
+  "scope": {
+    "in": [
+      "single merchant account",
+      "single store connection",
+      "single ad account connection",
+      "daily sales, refunds, discounts, and ad spend reporting",
+      "estimated contribution profit",
+      "guided onboarding",
+      "CSV export",
+      "printable report export"
+    ],
+    "out": [
+      "team collaboration",
+      "custom dashboards",
+      "alerts",
+      "multi-store support",
+      "advanced permissions",
+      "arbitrary report builder"
+    ]
+  },
+  "functional_requirements": [
+    "connect one ecommerce store",
+    "connect one ad platform",
+    "ingest orders, refunds, discounts, taxes, shipping revenue, and ad spend",
+    "display yesterday, last 7 days, and last 30 days metrics",
+    "compare with prior period",
+    "export CSV and printable report",
+    "show sync freshness and status"
+  ],
+  "minimal_data_model": [
+    "account",
+    "store_connection",
+    "ad_connection",
+    "daily_metrics",
+    "sync_run",
+    "cost_profile"
+  ],
+  "acceptance_criteria": [
+    "merchant can self-serve setup without ops help",
+    "dashboard displays daily performance across key periods",
+    "estimated profit is calculated from defined inputs",
+    "report data can be exported",
+    "first useful report is available in one onboarding session"
+  ],
+  "success_metrics": [
+    "time to first report",
+    "integration completion rate",
+    "weekly returning users",
+    "report export rate"
+  ],
+  "expansion_order_after_v1": [
+    "alerts on fixed metrics",
+    "basic read-only second user seat",
+    "multi-store support",
+    "limited saved views",
+    "custom dashboards last"
+  ]
+}

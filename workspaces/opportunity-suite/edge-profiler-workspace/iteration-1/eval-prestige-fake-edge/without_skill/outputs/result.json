@@ -1,0 +1,51 @@
+{
+  "task": "Assess whether prestige, network quality, and sector reading create a real edge for finding a fintech SaaS idea",
+  "summary": "The user's current assets are useful but do not yet constitute a durable edge. They create a starting advantage in pattern recognition, credibility, and access, but without customers, distribution, proprietary data, or special access, the edge is mostly potential rather than realized.",
+  "verdict": "potential_edge_not_realized",
+  "confidence": 0.84,
+  "real_assets": [
+    "Faster hypothesis formation from broad fintech knowledge",
+    "Above-average ability to understand market structure and workflow complexity",
+    "Potential access to strong operator feedback and introductions",
+    "Higher credibility in enterprise conversations"
+  ],
+  "fake_edge_risks": [
+    "Sector knowledge may not map to urgent operational pain",
+    "Knowing smart people is not the same as having buyers or distribution",
+    "Prestige can create false confidence",
+    "Reading trends can bias toward visible themes instead of painful workflows"
+  ],
+  "recommended_strategy": [
+    "Choose one narrow buyer/function pair",
+    "Run 30-50 customer interviews",
+    "Focus on repeated manual pain tied to revenue, risk, compliance, or financial close",
+    "Look for design partners willing to share artifacts and test early",
+    "Build only after repeated evidence of painful current workarounds"
+  ],
+  "good_target_shapes": [
+    "Back-office fintech workflows",
+    "Compliance and audit preparation",
+    "Reconciliation and exception handling",
+    "Reporting and internal operations QA",
+    "Software for service providers selling into fintech teams"
+  ],
+  "signals_of_real_opportunity": [
+    "Existing spreadsheet or labor-heavy workaround",
+    "High workflow frequency",
+    "Expensive or regulated errors",
+    "Cross-team ownership failure",
+    "A design partner is willing to engage deeply",
+    "Can start with one team and expand later"
+  ],
+  "signals_of_weak_opportunity": [
+    "Only high-level interest with no operator introductions",
+    "Strategic but not operational pain",
+    "Requires many integrations before value appears",
+    "Unclear buyer",
+    "Pain appears in articles more than in real artifacts and workflows"
+  ],
+  "output_files": {
+    "report": "/home/alan/dev/ai/skills/edge-profiler-workspace/iteration-1/eval-prestige-fake-edge/without_skill/outputs/report.md",
+    "result_json": "/home/alan/dev/ai/skills/edge-profiler-workspace/iteration-1/eval-prestige-fake-edge/without_skill/outputs/result.json"
+  }
+}

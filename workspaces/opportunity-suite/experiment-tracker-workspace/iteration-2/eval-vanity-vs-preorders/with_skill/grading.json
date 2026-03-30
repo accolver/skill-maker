@@ -1,0 +1,48 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly treats clicks or praise as weak or vanity signal relative to failed paid conversion.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 11-16 explicitly labels clicks as a vanity signal and praise as a weak signal, then says zero preorders is the strongest signal because it directly tests willingness to pay. `outputs/result.json` lines 6-14 also frames praise as weak demand evidence and centers the contradiction of zero preorders."
+    },
+    {
+      "text": "Response does not call the experiment a success just because engagement was high.",
+      "passed": true,
+      "evidence": "The response never describes the experiment as a success. Instead, `outputs/report.md` lines 24-26 states that the current offer plus price is not validated and that the path should change rather than scale the same message. `outputs/result.json` lines 12-14 likewise sets `decision_state` to `pivot` and explains that the current offer-price combination is not working."
+    },
+    {
+      "text": "Response uses exactly one decision state and one next experiment tied to pricing, segment, or offer mismatch.",
+      "passed": true,
+      "evidence": "`outputs/report.md` has a single Decision State section with only `pivot` on line 22 and a single Next Experiment recommendation on lines 30-33 focused on a price-sensitivity preorder test. `outputs/result.json` contains exactly one `decision_state` value (`pivot`) and one `next_experiment` string tied to pricing on lines 12-13."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/experiment-log-template.json.",
+      "passed": true,
+      "evidence": "`outputs/result.json` parses successfully as JSON, and its top-level keys and value types match `/home/alan/dev/ai/skills/experiment-tracker/assets/experiment-log-template.json`: `experiments`, `strong_signals`, `weak_signals`, `contradictions`, `decision_state`, `next_experiment`, and `rationale`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 3454
+  },
+  "claims": [],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the JSON assertion to check semantic quality as well as shape, for example requiring the contradiction and rationale to explicitly connect zero preorders to willingness to pay.",
+      "Reduce overlap between assertions 1 and 2. Both check that engagement is not over-weighted; one could instead validate that the recommendation isolates a single causal hypothesis.",
+      "Add an assertion that the next experiment remains a single-variable test rather than combining multiple changes, since that is an important quality signal in these outputs.",
+      "Add an assertion for transcript completeness or execution trace availability if process quality matters, because this run's transcript provides almost no observable execution detail."
+    ],
+    "overall": "The current assertions discriminate reasonably well on outcome framing and output format, but they miss some important quality dimensions: whether the proposed experiment isolates one hypothesis cleanly, whether the rationale is causally tight, and whether process evidence exists to support how the result was produced."
+  }
+}

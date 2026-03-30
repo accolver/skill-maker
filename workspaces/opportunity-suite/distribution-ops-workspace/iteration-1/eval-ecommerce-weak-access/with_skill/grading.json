@@ -1,0 +1,61 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not pretend weak buyer access is already solved.",
+      "passed": true,
+      "evidence": "PASS: `report.md` explicitly preserves the constraint rather than hand-waving it away: lines 5-10 say the founder `lacks direct buyer access and does not have an owned audience` and therefore needs a partner path; `result.json` line 2 repeats that the founder has `weak direct buyer access and no audience` and recommends borrowing trust from intermediaries."
+    },
+    {
+      "text": "Response chooses a realistic starting channel or access-building motion.",
+      "passed": true,
+      "evidence": "PASS: The output selects a concrete, realistic first motion centered on intermediaries already serving merchants. `report.md` lines 8-15 identify `a partner path through agencies, fractional ecommerce operators, and app-adjacent service providers` as the strongest starting channel, and lines 43-55 give a specific 30-day sequence. `result.json` lines 3-7 and 19-27 mirror this with a defined primary channel and execution sequence."
+    },
+    {
+      "text": "Response includes kill criteria for the chosen channel.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 116-123 contain an explicit `Kill criteria for the primary channel` section with measurable thresholds, including `fewer than 10% partner replies after 40 highly relevant outreaches` and `no credible path to paid conversion after 3 merchant pilots`. `result.json` lines 37-42 also includes a `kill_criteria` array with the same concrete conditions."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with multiple top-level keys including `channel_thesis`, `primary_channel`, `supporting_channels`, `assets_needed`, `sequence`, `success_metrics`, and `kill_criteria` (lines 1-44). `report.md` lines 130-132 also explicitly references the machine-readable version."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8424
+  },
+  "claims": [
+    {
+      "claim": "The founder has weak direct buyer access and no audience.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json` line 4, which states: `User has strong workflow knowledge but weak buyer access and no audience.` The same constraint is carried into `report.md` lines 5-7 and `result.json` line 2."
+    },
+    {
+      "claim": "The machine-readable version is saved in `result.json` alongside this report.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified directly: `report.md` lines 130-132 state this, and `outputs/result.json` exists and contains the structured plan in JSON form."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON.` to require specific fields such as `primary_channel`, `sequence`, and `kill_criteria`; as written, any non-trivial JSON blob would pass.",
+      "Add an assertion that the chosen channel is specifically aligned to the weak-access constraint by leveraging intermediaries, not just that a channel was chosen.",
+      "Add an assertion for concrete execution detail, such as a bounded test plan or first-step sequence, since the current assertions would still pass a much thinner recommendation.",
+      "Add an assertion covering fallback behavior after kill criteria are hit; the response includes a fallback channel, but the eval does not check for it."
+    ],
+    "overall": "This assertion set is fairly discriminating on the core constraint and channel choice, but it under-specifies output quality. Three assertions test important substance, while the JSON assertion is comparatively weak and there is no check for execution sequencing, partner specificity, or fallback planning."
+  }
+}

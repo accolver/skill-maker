@@ -1,0 +1,23 @@
+{
+  "state_summary": {
+    "clicks": 800,
+    "qualitative_feedback": "lots of praise",
+    "preorders": 0,
+    "assessment": "Strong attention but no purchase conversion at the stated price.",
+    "interpretation": "The bottleneck appears to be at the pricing or commitment step rather than initial interest."
+  },
+  "recommended_next_experiment": {
+    "name": "pricing_and_commitment_sensitivity_test",
+    "goal": "Determine whether lower price or lower commitment unlocks paid conversion.",
+    "design": [
+      "Use a similar audience and similar messaging to control for awareness effects.",
+      "Test a lower-friction offer such as an early-bird preorder, refundable deposit, or discounted founding-customer price.",
+      "Prefer comparing two price or offer variants if feasible.",
+      "Use paid commitment as the primary success metric instead of clicks."
+    ],
+    "decision_rule": {
+      "if_positive": "If preorders or deposits appear, price or commitment friction was likely the main blocker.",
+      "if_negative": "If conversion remains zero, revisit the value proposition or target segment before scaling attention efforts."
+    }
+  }
+}

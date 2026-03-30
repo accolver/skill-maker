@@ -1,0 +1,41 @@
+{
+  "risk_summary": "High risk if positioned or operated as delegated compliance authority. The concept becomes substantially safer if limited to workflow support, draft preparation, and human-reviewed submission support. The phrase 'your AI compliance lead' is not safe positioning because it overstates regulated-role authority.",
+  "risk_categories": [
+    "licensed or regulated authority",
+    "unsafe claims or positioning",
+    "sensitive or regulated data"
+  ],
+  "allowed": [
+    "Organize compliance tasks, deadlines, and evidence collection for clients.",
+    "Generate draft responses from client-provided facts and public regulatory materials when clearly labeled as drafts.",
+    "Pre-fill forms for human review using authorized client data.",
+    "Escalate matters to an attorney or qualified compliance reviewer when interpretation or sign-off is needed.",
+    "Use public rules and original workflows created from scratch."
+  ],
+  "conditional": [
+    "Draft regulator responses only with clear human approval before sending.",
+    "Pre-fill forms only when the source data is authorized, traceable, and reviewable.",
+    "Support submission workflows only if the actual send step remains under human control with an audit trail.",
+    "Handle sensitive records only with appropriate data safeguards and access controls.",
+    "Mention attorney review as escalation support, not as proof that the AI itself is providing professional judgment."
+  ],
+  "blocked": [
+    "Market the system as 'your AI compliance lead' or otherwise imply it serves as the client's compliance officer or legal representative.",
+    "Autonomously send regulator responses or file forms without meaningful human approval.",
+    "Present outputs as authoritative compliance or legal advice without human review.",
+    "Claim the tool can replace compliance leadership or licensed judgment for regulated submissions.",
+    "Use confidential third-party templates or non-public materials without authorization."
+  ],
+  "safer_path": [
+    "Reposition the product as an AI compliance operations assistant or workflow copilot.",
+    "Focus on intake, evidence gathering, public-rule lookup, draft preparation, and reviewer routing.",
+    "Require explicit client or attorney approval before finalization or submission.",
+    "Keep submission authority with the client or an authorized human reviewer.",
+    "Rely on public materials, client-provided facts, and original assets created from scratch."
+  ],
+  "notes": [
+    "Primary risk is regulated-role overreach, not merely software automation.",
+    "Positioning language matters because it changes how users and regulators may understand the product's role.",
+    "This screen is a practical risk classification, not formal legal advice."
+  ]
+}

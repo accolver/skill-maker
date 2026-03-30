@@ -1,0 +1,43 @@
+{
+  "risk_summary": "High risk as stated because the idea references PHI, denials data, and prior-auth case data from work, which raises employer confidentiality, customer data rights, and regulated-data misuse concerns.",
+  "risk_categories": [
+    "Employer IP or templates",
+    "PHI or regulated customer data",
+    "Customer relationships the user cannot legally solicit",
+    "Licensed or regulated authority the user does not control",
+    "Marketing claims that overstate legal authority or automation safety"
+  ],
+  "allowed": [
+    "Build on public reimbursement guidance and public payer documentation",
+    "Use generalized industry knowledge not copied from confidential materials",
+    "Create original assets, prompts, schemas, and workflows from scratch",
+    "Support human operators with workflow tooling and drafting assistance",
+    "Use synthetic, de-identified, or fully user-owned sample data"
+  ],
+  "conditional": [
+    "Use reimbursement examples only if lawfully obtained and fully de-identified",
+    "Use historical outcome data only with clear rights and proper controls",
+    "Draft case materials only with qualified human review before external use",
+    "Reference healthcare operations carefully without implying regulated authority",
+    "Reuse personal know-how only at a generalized level, not as copied internal logic"
+  ],
+  "blocked": [
+    "Use PHI from work for training, prompting, testing, or demos",
+    "Use employer denials data or prior-auth case data without explicit rights",
+    "Reuse internal templates, playbooks, or confidential process documents",
+    "Expose customer or patient records obtained through employment",
+    "Claim the system autonomously determines coverage, necessity, or compliance outcomes"
+  ],
+  "safer_path": [
+    "Use public rules and original clean-room assets",
+    "Focus on intake, evidence gathering, packet assembly, and workflow management",
+    "Develop with synthetic or properly authorized de-identified data",
+    "Require human-in-the-loop review for case-specific outputs",
+    "Position as workflow support, not delegated regulated judgment"
+  ],
+  "notes": [
+    "This is a practical risk screen and not formal legal advice.",
+    "The highest-risk elements are PHI use and reuse of employer/work case data.",
+    "A clean-room path remains viable if the product is rebuilt around public information and original assets."
+  ]
+}

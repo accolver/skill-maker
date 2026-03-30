@@ -1,0 +1,64 @@
+{
+  "user_profile": {
+    "skills": [
+      "structured problem solving",
+      "analytical synthesis",
+      "market research and synthesis"
+    ],
+    "domain_experience": [
+      "general fintech familiarity from sustained reading",
+      "some professional exposure implied by 2 years at McKinsey"
+    ],
+    "assets": [
+      "personal network of smart peers"
+    ],
+    "distribution": [],
+    "network_access": [
+      "likely access to smart peers and potential introductions, but buyer quality is unproven"
+    ],
+    "constraints": [
+      "no customers",
+      "no audience",
+      "no special access identified",
+      "cannot assume McKinsey client access is independently usable"
+    ],
+    "credibility_signals": [
+      "2 years at McKinsey"
+    ],
+    "unfair_advantages": []
+  },
+  "usable_edge": [
+    "Strong analytical and structuring ability",
+    "Broad fintech market familiarity",
+    "Potential access to thoughtful peers for feedback"
+  ],
+  "restricted_or_unusable_edge": [
+    "McKinsey brand does not automatically confer usable customer access",
+    "Any employer-mediated client knowledge, frameworks, or contacts are restricted unless clearly personal and reusable"
+  ],
+  "fake_or_overstated_edge": [
+    "Prestige-brand background as a substitute for customer access",
+    "Smart network as a substitute for buyer distribution",
+    "Constant industry reading as a substitute for proprietary insight or trust"
+  ],
+  "weak_spots": [
+    "No owned distribution",
+    "No direct customer access demonstrated",
+    "No clear niche buyer identified",
+    "No proof of proprietary data or workflow insight",
+    "No validated pain point or wedge"
+  ],
+  "follow_up_questions": [
+    "Which exact fintech buyer do you understand better than most people?",
+    "Who in your network could buy, champion, or pilot a product within 30 days?",
+    "What fintech workflow have you repeatedly seen break in practice?",
+    "Which parts of your knowledge are public and reusable versus employer-confidential?",
+    "Can you independently ship an MVP, or do you need a technical partner?"
+  ],
+  "confidence_notes": [
+    "Medium confidence on analytical skill due to direct McKinsey signal.",
+    "Low confidence on buyer access because the prompt names no customers, audience, or owned distribution.",
+    "Low confidence on fintech domain depth because reading interest is clear but direct operator experience is not.",
+    "Overall conclusion: current edge appears weak for fintech SaaS unless hidden buyer access or specific workflow expertise exists."
+  ]
+}

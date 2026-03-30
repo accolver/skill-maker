@@ -1,0 +1,87 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response treats the audience, newsletter, or community as the primary distribution advantage and uses it materially in the recommendation.",
+      "passed": true,
+      "evidence": "PASS: `report.md:7-12` identifies the `42,000-subscriber newsletter` and paid community as the core access advantage, `report.md:87-89` says the best opportunity works because it combines `trusted distribution` with repeated pain exposure, and `report.md:104-106` calls the niche audience `a real distribution moat`. `result.json:13-23` and `result.json:144-145` repeat the same distribution-led rationale."
+    },
+    {
+      "text": "The best bet is not a service-first or agency-first path.",
+      "passed": true,
+      "evidence": "PASS: `report.md:26-27` states `a service-first wedge is not the best fit`, `report.md:107` says the recommendation `avoids the user's stated constraint: no client service work required`, and the selected best bet in `report.md:99-100` is a membership-plus-software ladder rather than services. `result.json:29-31` also records `does not want client service work` as a core constraint."
+    },
+    {
+      "text": "Response recommends at least one monetization path beyond ads or sponsorships, such as paid templates, benchmark data, subscriptions, software, or another concrete product path.",
+      "passed": true,
+      "evidence": "PASS: The outputs recommend several non-ad monetization paths. `report.md:35-40` proposes paid template packs, `report.md:80-86` proposes a recurring benchmark and template membership, and `report.md:203-210` specifies a recurring membership plus AI-assisted tools. `result.json:140-176` encodes the same benchmark membership product, including pricing and deliverables at `result.json:157-169`."
+    },
+    {
+      "text": "Response explains why a content-led, community-led, or distribution-led launch is credible for this user even though content is often a weaker default path.",
+      "passed": true,
+      "evidence": "PASS: `report.md:104-106` explicitly addresses the exception case: the `42,000-person niche audience with existing trust is a real distribution moat, and this is one of the cases where a content-supported business is not a cop-out.` The surrounding rationale in `report.md:108-114` explains why this audience can support product sales before heavy software buildout. `result.json:144-145` mirrors that this founder has `trusted distribution` and `a channel for rapid paid validation.`"
+    },
+    {
+      "text": "The validation plan includes numeric audience, conversion, interview, or pilot targets.",
+      "passed": true,
+      "evidence": "PASS: `report.md:160-176` sets targets for `30 survey respondents`, `15 founding buyers`, `8 buyer calls`, `100 survey responses`, `10 preorders`, and `3` annual buyers. `report.md:192-197` adds `100` completed surveys, `10` paid founding members, `15%` landing-page conversion, and `6 of 8` interviewees confirming pain. `result.json:156-163` includes matching numeric validation targets."
+    },
+    {
+      "text": "Kill criteria include at least 2 falsifiable stop or pivot conditions.",
+      "passed": true,
+      "evidence": "PASS: `report.md:227-238` lists five falsifiable kill criteria, including `Fewer than 50 completed surveys`, `Fewer than 5 paid founding members`, `Fewer than 4 of 8 buyer interviews`, `Refund or objection rate above 20%`, and repeated demand for individualized consulting. `result.json:171-176` also includes four concrete stop conditions for the chosen best bet."
+    },
+    {
+      "text": "The prose recommendation and structured JSON agree on the same best bet and why it wins.",
+      "passed": true,
+      "evidence": "PASS: `report.md:99-114` names the best path as `Therapy Practice Benchmark + Template Membership, Then AI Ops Copilot` and says it wins because of trusted niche distribution, fast monetization via templates/benchmarks, recurring revenue, and a later software layer. `result.json:189` selects `opp_benchmark_membership`, whose full title at `result.json:141-145` is the same concept with the same rationale: trusted distribution, repeated pain exposure, and rapid paid validation."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 18475
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states this at `transcript.md:4`, and both files are present in `outputs/` and readable: `report.md` and `result.json`."
+    },
+    {
+      "claim": "The user has a 42,000-subscriber newsletter and a paid community.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The source prompt in `eval_metadata.json:4` says `I run a 42000-subscriber newsletter and paid community`. The outputs preserve the same fact at `report.md:7-8` and `result.json:13-16`."
+    },
+    {
+      "claim": "A service-first wedge is not the best fit for this user.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The prompt states `I do not want to do client service work` in `eval_metadata.json:4`. The recommendation uses that constraint directly at `report.md:26-27` and `report.md:107`, so this conclusion is supported by the available evidence."
+    },
+    {
+      "claim": "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment.",
+      "type": "process",
+      "verified": true,
+      "evidence": "This limitation is stated explicitly in `transcript.md:6-7`. No tool-level transcript data is available elsewhere in the run artifacts."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Recommendation preserves legal/compliance boundaries by avoiding clinical, PHI-heavy, or payer-representation workflows' — the outputs make this a major part of the recommendation, but the eval does not check it.",
+      "Add assertion: 'Response specifies a concrete initial product scope, deliverables, and launch price' — the run includes ICP, survey scope, sample assets, and pricing, but the eval does not measure whether the recommendation is operationalized.",
+      "Strengthen assertion: 'The prose recommendation and structured JSON agree on the same best bet and why it wins' by requiring the same named opportunity plus at least two matching reasons, so future runs cannot pass on vague thematic overlap alone."
+    ],
+    "overall": "This assertion set is reasonably discriminating and all seven checks are substantively satisfied in this run. Its biggest gap is that it does not test compliance positioning or the concreteness of the proposed launch plan, both of which are central to the actual output quality here."
+  }
+}

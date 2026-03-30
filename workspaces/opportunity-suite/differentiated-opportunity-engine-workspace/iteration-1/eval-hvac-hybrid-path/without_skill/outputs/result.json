@@ -1,0 +1,65 @@
+{
+  "recommended_path": {
+    "model": "hybrid",
+    "summary": "Start with a narrow HVAC-specific service tied to revenue, validate with local owner conversations and paid pilots, then productize the repeated workflow into a micro-SaaS.",
+    "reasoning": [
+      "Warm access to HVAC owners is a stronger early distribution advantage than building an audience from scratch.",
+      "Services create fast learning loops and earlier cash flow.",
+      "A narrow operational wedge is easier to sell and later convert into software than a broad AI product."
+    ]
+  },
+  "top_opportunity": {
+    "name": "Missed-call and lead follow-up automation",
+    "why": [
+      "Pain is common and easy for owners to understand.",
+      "Value is tied directly to recovered revenue.",
+      "Can be delivered manually or with lightweight tooling before full productization.",
+      "Supports a natural evolution into a micro-SaaS."
+    ]
+  },
+  "other_opportunities": [
+    "Membership and maintenance renewal automation",
+    "Estimate follow-up and unsold-job recovery",
+    "CSR dispatch and inbox copilot",
+    "Technician note summarization and quote drafting",
+    "Review generation and post-job follow-up"
+  ],
+  "ideal_customer_profile": {
+    "employee_range": "3-25",
+    "traits": [
+      "Residential service and replacement focus",
+      "Small office team handling phones and scheduling",
+      "Missed after-hours leads or slow follow-up",
+      "Not advanced enough to build internal tooling",
+      "Able to pay for clear ROI"
+    ]
+  },
+  "initial_offer": {
+    "name": "HVAC Lead Recovery System",
+    "deliverables": [
+      "Lead intake and missed-call audit",
+      "Texting and follow-up automation setup",
+      "After-hours response workflow",
+      "Basic tracking pipeline",
+      "Weekly recovered-lead reporting"
+    ],
+    "pricing": {
+      "setup_fee_usd": [1500, 4000],
+      "monthly_retainer_usd": [500, 1500]
+    }
+  },
+  "risks": [
+    "Building software before validating the workflow",
+    "Selling a vague AI offer",
+    "Too much per-customer customization",
+    "Early dependence on fragile integrations",
+    "Focusing on low-value time savings instead of revenue impact"
+  ],
+  "first_30_days": [
+    "Interview 10 HVAC owners through warm intros",
+    "Refine one narrow offer around missed-call and lead follow-up recovery",
+    "Close 2-3 paid pilots",
+    "Track response time, recovered leads, and booked jobs",
+    "Write one case study and identify the first reusable software module"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response names one painful job and one narrow HVAC ICP.",
+      "passed": false,
+      "evidence": "`result.json` clearly identifies the painful job as missed-call recovery (`category`, lines 2-3; `core_promise`, line 15), but the ICP stays broad: `audience.primary` is `Owner-led or dispatcher-led HVAC service businesses` (line 5) and `best_fit` lists generic firm traits like `3 to 25 technicians` and `meaningful inbound call volume` (lines 7-10). The output does not name one narrow HVAC subsegment or tightly bounded ICP."
+    },
+    {
+      "text": "Response keeps the offer narrower than broad AI automation consulting.",
+      "passed": true,
+      "evidence": "The offer is framed as a specific service, not general consulting: `category` is `AI-assisted missed-call recovery concierge` (lines 2-3), `format` is a `30-day hybrid concierge pilot` (line 13), and `scope_boundaries` limit it to `Missed inbound calls only`, `SMS and callback recovery only`, and `Avoid deep integrations in version one` (lines 49-55)."
+    },
+    {
+      "text": "Response includes scope boundaries and a productization-friendly shape.",
+      "passed": true,
+      "evidence": "`result.json` includes an explicit `scope_boundaries` array (lines 49-55). It also gives a productized structure with a named offer (line 2), fixed pilot format (line 13), defined included deliverables (lines 16-25), and bounded pricing ranges plus a flat-fee example (lines 26-37)."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid structured JSON with multiple top-level keys including `offer_name`, `audience`, `pricing`, `scope_boundaries`, and `recommended_offer` (lines 1-71)."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 2872
+  },
+  "claims": [
+    {
+      "claim": "Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states `Completed. Wrote `report.md` and `result.json`.` (transcript.md lines 4-4), and both files are present in `outputs/`."
+    },
+    {
+      "claim": "Sellable before software exists.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`result.json` explicitly says `Sellable before software exists` in `why_this_first` (line 43), and the surrounding output supports it with a concierge pilot format (line 13), `human-backed service` positioning (line 14), and boundaries such as `Use existing scheduling workflow where possible` and `Avoid deep integrations in version one` (lines 52-53)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response names one painful job and one narrow HVAC ICP.` by requiring an explicit HVAC subsegment such as `owner-operated residential HVAC shops with 5-15 techs` rather than allowing broad firmographic traits.",
+      "Add an assertion for narrative completeness in `report.md`; in this run the markdown report is only a title, but the current assertion set does not penalize that missing substance.",
+      "Tighten `Response includes structured JSON.` so it checks for required strategic fields like ICP, scope boundaries, pricing, and delivery model, not just the presence of a JSON file."
+    ],
+    "overall": "The eval discriminates reasonably on offer focus and packaging, but it underweights response completeness outside JSON. This run passes 3 of 4 assertions even though `report.md` is effectively empty and the ICP is still fairly broad."
+  }
+}

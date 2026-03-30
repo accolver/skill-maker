@@ -1,0 +1,82 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says employer, customer, confidentiality, or PHI limits mean the obvious healthcare niche edge cannot be monetized directly right now.",
+      "passed": true,
+      "evidence": "PASS: `report.md:19-21` distinguishes the usable edge from the \"unusable edge\" of employer data, internal process docs, customer-specific insight, and proprietary materials. `report.md:27-32` says the obvious buyers are legally sensitive due to employer overlap and PHI-handling workflows, and `report.md:275-277` explicitly says not to start with provider-facing software or consulting."
+    },
+    {
+      "text": "Response does not recommend using employer customers, employer data, PHI, or proprietary internal workflow knowledge as the core wedge.",
+      "passed": true,
+      "evidence": "PASS: The recommendation is a clean-room subscription built from public and synthetic inputs, not employer-derived assets. See `report.md:31-32`, `report.md:121-123`, `report.md:133-139`, `report.md:229-235`, and `report.md:247-253`. The JSON mirrors this boundary in `result.json:50-55`, `result.json:173-175`, and `result.json:207-212`."
+    },
+    {
+      "text": "The best bet is conditional or no_go, or an adjacent clean-room path, rather than immediate direct monetization of the same niche.",
+      "passed": true,
+      "evidence": "PASS: The prose gives `Feasibility verdict: conditional` at `report.md:23` and names the best bet as a staged denial-intelligence library to software path at `report.md:114-129`. It repeatedly frames the path as public-source, synthetic, and non-PHI at `report.md:121-123` and `report.md:275-277`. The structured output matches with `result.json:49` (`\"conditional\"`) and `result.json:205-212`."
+    },
+    {
+      "text": "Response identifies at least 2 binding constraints.",
+      "passed": true,
+      "evidence": "PASS: `report.md:25-32` lists three explicit binding constraints, including PHI/employer overlap risk, `4 hours/week + no consulting + no sales calls`, and the need for a productized public-source path. `result.json:50-55` also lists four binding constraints."
+    },
+    {
+      "text": "If an adjacent opportunity is suggested, the response explains what makes it clean-room or legally safer than exploiting the employer edge.",
+      "passed": true,
+      "evidence": "PASS: The adjacent recommendation is justified as safer because it can be built from `public payer documentation, synthetic examples, and non-PHI operator education` in `report.md:121-123`. Additional legal-separation detail appears in `report.md:169-175`, `report.md:189-195`, and `report.md:231-235`. The JSON repeats the same clean-room criteria in `result.json:54`, `result.json:107-120`, and `result.json:207-209`."
+    },
+    {
+      "text": "The 7-day plan focuses on boundary clarification, public-market validation, or edge-building with numeric targets, not immediate niche product building.",
+      "passed": true,
+      "evidence": "PASS: The 7-day plan starts with legal boundary review (`report.md:167-175`), then moves to offer definition, public-source sample artifacts, landing page, async outreach, and preorder/deposit validation with concrete numeric targets each day (`report.md:177-223`). It does not propose immediately building PHI-heavy niche software; instead the build spec defers software until repeated paid demand exists (`report.md:152-155`, `report.md:257-259`)."
+    },
+    {
+      "text": "Structured JSON feasibility verdict matches the prose recommendation.",
+      "passed": true,
+      "evidence": "PASS: `report.md:23` gives the prose verdict as `conditional`, and `result.json:49` sets `\"feasibility_verdict\": \"conditional\"`. Both outputs recommend the same staged clean-room path (`report.md:114-129`; `result.json:205-212`)."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 21523
+  },
+  "claims": [
+    {
+      "claim": "The JSON was syntax-validated successfully.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states this at `transcript.md:5-6`, and `outputs/result.json` is valid parseable JSON with consistent structure."
+    },
+    {
+      "claim": "The recommended path can be kept legally safer by using only public sources, synthetic examples, and non-PHI materials.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This claim is supported internally and consistently across the deliverables: `report.md:121-123`, `report.md:189-195`, `report.md:229-235`, and `result.json:50-55` all define the proposed offer around public-source and synthetic clean-room inputs rather than employer data or PHI."
+    },
+    {
+      "claim": "Software should only be built after repeated paid demand reveals a stable product surface.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The recommendation explicitly defers software until demand is proven at `report.md:152-155` and `report.md:257-259`; the same gating logic appears in `result.json:159-176`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Recommended target buyers are explicitly non-employer buyers' — the response makes this a core safety boundary, but no assertion checks it directly.",
+      "Add assertion: 'Response explicitly rejects PHI-heavy/provider-facing workflow software as the starting path' — this is central to the recommendation and currently only indirectly covered.",
+      "Strengthen assertion 3 by checking the exact feasibility field value (`conditional` or `no_go`) and the presence of a staged clean-room alternative, rather than allowing a broader semantic pass.",
+      "Add assertion for concrete legal-separation actions such as reviewing employment/IP/non-solicit terms before launch; the response includes this, but the eval does not check for it."
+    ],
+    "overall": "This assertion set is reasonably discriminating and all seven assertions are substantively satisfied in this run. Coverage is strongest on legal boundaries and clean-room positioning, but it misses some important specifics the outputs emphasize: non-employer buyer targeting, explicit rejection of provider-facing software, and the concrete employment/IP review step."
+  }
+}

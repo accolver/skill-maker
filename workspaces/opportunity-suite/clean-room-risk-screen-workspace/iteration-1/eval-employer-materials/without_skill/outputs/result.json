@@ -1,0 +1,57 @@
+{
+  "scenario": "User wants to use employer internal templates, pricing logic, and process docs from a govtech job to launch a side business in the same niche.",
+  "overall_risk": {
+    "level": "very_high",
+    "summary": "Using employer internal materials in a same-niche side business creates major confidentiality, trade secret, IP, loyalty, competition, and possible govtech ethics/procurement risks."
+  },
+  "screen_result": "red_light",
+  "primary_recommendation": "Do not use employer internal templates, pricing logic, or process documents.",
+  "risk_factors": [
+    {
+      "factor": "confidentiality_and_trade_secrets",
+      "severity": "high",
+      "reason": "Internal documents and methods are likely confidential and may qualify as trade secrets."
+    },
+    {
+      "factor": "pricing_logic",
+      "severity": "very_high",
+      "reason": "Pricing methods, margins, and bid logic are especially sensitive and commonly protected."
+    },
+    {
+      "factor": "same_niche_competition",
+      "severity": "high",
+      "reason": "Operating in the same niche strengthens claims of competitive misuse and disloyalty."
+    },
+    {
+      "factor": "govtech_context",
+      "severity": "high",
+      "reason": "Public-sector procurement, ethics, security, and data-handling obligations may add constraints."
+    },
+    {
+      "factor": "memory_based_recreation",
+      "severity": "high",
+      "reason": "Paraphrasing or rebuilding from memory may still rely on protected substance or structure."
+    }
+  ],
+  "material_risks": {
+    "internal_templates": "high",
+    "pricing_logic": "very_high",
+    "process_docs": "high",
+    "customer_specific_knowledge": "very_high",
+    "general_industry_know_how": "medium"
+  },
+  "avoid": [
+    "Copying files, text, tables, checklists, workflows, formulas, or bid logic.",
+    "Recreating materials from memory when they derive from employer internal documents.",
+    "Using employer pricing assumptions, margin targets, discount rules, or proposal structure.",
+    "Using employer customer lists, pipeline details, contacts, or nonpublic requirements.",
+    "Using employer time, devices, accounts, software, or data for the side business."
+  ],
+  "safer_alternative": [
+    "Use a clean-room process based only on public sources and original drafting.",
+    "Review employment, confidentiality, invention assignment, and moonlighting restrictions.",
+    "Avoid overlapping competition while still employed.",
+    "Consult an employment/IP attorney before launch in the same niche."
+  ],
+  "legal_advice_disclaimer": true
+}

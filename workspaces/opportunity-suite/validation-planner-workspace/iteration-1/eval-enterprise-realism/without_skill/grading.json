@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not pretend enterprise revenue validation is realistically achievable in 7 days under the stated conditions.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:9-11` says validation should focus on painful problems and continued engagement, \"not on immediate revenue.\" `outputs/report.md:228-233` says the realistic 7-day objective is \"not sales\" but proving urgency through interviews, repeated pain, and follow-up discussions. `outputs/result.json:13-28` and `:99-117` contain discovery metrics and decision thresholds, not revenue or purchase targets."
+    },
+    {
+      "text": "Response identifies the primary near-term unknown, such as buyer access or problem verification, rather than trying to validate everything at once.",
+      "passed": true,
+      "evidence": "PASS. The response narrows the near-term objective to problem verification and buyer access signals rather than broad business validation. `outputs/report.md:35-45` defines real validation as interviews, repeated pain, artifact sharing, follow-up interest, and a warm path to a budget owner. `outputs/report.md:228-233` further states the goal is to prove a narrow procurement pain is urgent enough for enterprise buyers to continue engaging."
+    },
+    {
+      "text": "Response gives numeric thresholds for a realistic discovery or access-building plan instead of fake purchase targets.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:46-59` sets concrete discovery targets including `35-50` targeted contacts, `4` interviews booked, `3` completed, `2` follow-up meetings, and `1` artifact received. The daily plan in `outputs/report.md:78-190` and mirrored structured data in `outputs/result.json:13-97` provide numeric outreach, reply, interview, and artifact thresholds without any unrealistic revenue or purchase commitments."
+    },
+    {
+      "text": "Response includes go, revise, and kill thresholds with decisions attached.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:182-190` includes explicit decision logic: \"Go deeper\" if interview, pain-pattern, and follow-up thresholds are met; \"Adjust the wedge\" if interest exists but pain is diffuse; and \"Pause\" if `50` targeted contacts still yield fewer than `2` booked interviews or no repeated urgent pain. `outputs/report.md:204-224` reinforces these as strong, moderate, and weak validation bands."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 11500
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by `transcript.md:4` and by the presence of both `outputs/report.md` and `outputs/result.json`."
+    },
+    {
+      "claim": "For this starting point, the realistic 7-day objective is not sales.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The task constraints in `eval_metadata.json:4` specify no product, only one weak second-degree intro, and a 7-day horizon for a Fortune 500 enterprise concept. The output aligns with that reality in `outputs/report.md:9-11` and `:228-233` by focusing on interviews, repeated pain, and follow-up evidence instead of revenue validation."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 2 to require an explicit statement of the single primary unknown (for example, buyer access or problem urgency) rather than allowing implicit focus to count.",
+      "Add an assertion that checks for enterprise-appropriate evidence thresholds such as artifact sharing, second meetings, or access to a budget owner; those are meaningful realism signals present in the output but not directly tested.",
+      "Add an assertion that the plan narrows the initial ICP or wedge instead of treating all Fortune 500 procurement teams as one segment; the response does this well, but the current eval does not reward it."
+    ],
+    "overall": "The assertion set is reasonably discriminating for enterprise-realism and all four assertions are objectively gradable from the outputs. Its main gap is coverage: it checks realism and decision thresholds, but not whether the plan uses enterprise-specific validation signals or meaningfully narrows the starting segment."
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "user_profile": {
+    "skills": [
+      "staff-level software engineering",
+      "workflow automation",
+      "AI-assisted operations tooling",
+      "healthcare claims operations understanding"
+    ],
+    "domain_experience": [
+      "healthcare denials",
+      "prior authorization workflows",
+      "provider revenue leakage points",
+      "claims startup operating context"
+    ],
+    "assets": [
+      "deep operational knowledge of denial and prior auth failure modes",
+      "ability to translate messy workflows into structured logic",
+      "ability to synthesize public payer rules into usable operator outputs"
+    ],
+    "distribution": [
+      "no clear owned audience",
+      "async outreach is possible",
+      "direct access to employer customers is not usable"
+    ],
+    "network_access": [
+      "healthcare claims niche knowledge",
+      "potential access to non-employer RCM operators and health-tech buyers"
+    ],
+    "constraints": [
+      "cannot use PHI",
+      "cannot contact employer customers",
+      "does not want consulting",
+      "does not want sales calls",
+      "about 4 hours per week",
+      "must be fully legal",
+      "must avoid employer-confidential information and internal materials"
+    ],
+    "credibility_signals": [
+      "staff engineer title",
+      "domain-specific claims workflow knowledge",
+      "practical understanding of denial and prior auth economics"
+    ],
+    "unfair_advantages": [
+      "strong judgment on which denial and prior auth issues actually matter operationally",
+      "ability to package niche workflow knowledge into AI-assisted operator tools",
+      "clean problem selection in a painful, expensive niche"
+    ]
+  },
+  "feasibility_verdict": "conditional",
+  "binding_constraints": [
+    "obvious provider-facing opportunities carry PHI and workflow liability risk",
+    "employer customer overlap and confidentiality boundaries reduce usable buyer access",
+    "4 hours per week plus no consulting and no sales calls makes fast revenue unlikely",
+    "the business must be built only from public sources, synthetic examples, and clean-room analysis"
+  ],
+  "opportunities": [
+    {
+      "id": "opp_async_teardown",
+      "title": "Async denial and prior-auth workflow teardown for small RCM firms",
+      "category": "cash_now",
+      "thesis": "Sell fixed-scope workflow teardowns using public rules and synthetic examples to independent billing and RCM firms.",
+      "why_user_can_win": "The user understands margin leaks and workflow bottlenecks better than generalist consultants or generic AI builders.",
+      "why_this_could_fail": "It still looks like consulting, usually needs calls, and conflicts with the user's stated preference.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 6,
+        "durability": 4,
+        "distribution_fit": 3,
+        "ai_leverage": 6,
+        "defensibility": 5,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Offer one fixed-scope teardown product page to non-employer RCM firms only.",
+        "Send 20 targeted async messages and track reply and purchase intent.",
+        "Only continue if at least 2 buyers agree to a paid async engagement without calls."
+      ],
+      "tool_specs": [
+        "Landing page",
+        "Synthetic example pack",
+        "Checklist generator",
+        "Async intake form"
+      ],
+      "kill_criteria": [
+        "Stop if buyers insist on live calls or custom consulting.",
+        "Stop if legal review suggests the niche overlaps too closely with employer restrictions."
+      ]
+    },
+    {
+      "id": "opp_public_rule_subscription",
+      "title": "Public-rule denial intelligence subscription for RCM operators",
+      "category": "asset_later",
+      "thesis": "Turn public payer policy changes and prior-auth rule updates into a paid operator-ready feed, taxonomy, and playbook subscription.",
+      "why_user_can_win": "The user can identify which public rule changes will actually produce denials and rework, which is the valuable layer buyers pay for.",
+      "why_this_could_fail": "Distribution is weak and the product fails if it relies on employer-derived knowledge or looks like commodity summaries.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 4,
+        "durability": 8,
+        "distribution_fit": 4,
+        "ai_leverage": 7,
+        "defensibility": 7,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Create 3 sample artifacts from public sources only.",
+        "Launch a landing page with a founding subscription offer.",
+        "Seek 2 paid preorders or 5 refundable deposits from non-employer buyers within 7 days."
+      ],
+      "tool_specs": [
+        "Public source collection pipeline",
+        "Taxonomy and tagging schema",
+        "Weekly email digest",
+        "Member portal"
+      ],
+      "kill_criteria": [
+        "Stop if buyers do not pay for the information layer.",
+        "Stop if valuable output cannot be created entirely from public sources and synthetic examples."
+      ]
+    },
+    {
+      "id": "opp_template_library",
+      "title": "Template and playbook library for denial and prior-auth operations",
+      "category": "asset_later",
+      "thesis": "Sell SOPs, checklists, dashboards, and prompt packs as an async digital product for RCM operators.",
+      "why_user_can_win": "The user can create templates grounded in real workflow friction instead of generic administrative templates.",
+      "why_this_could_fail": "It is easier to copy, less recurring, and may not justify ongoing subscription revenue.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 5,
+        "durability": 5,
+        "distribution_fit": 4,
+        "ai_leverage": 6,
+        "defensibility": 4,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Package one high-value starter bundle for one specialty.",
+        "List it on a landing page and one relevant marketplace if appropriate.",
+        "Continue only if at least 3 buyers purchase the starter pack within 14 days."
+      ],
+      "tool_specs": [
+        "Template bundle",
+        "Sample preview",
+        "Checkout flow",
+        "Update calendar"
+      ],
+      "kill_criteria": [
+        "Stop if buyers treat it as a one-time low-value purchase with no renewal intent."
+      ]
+    },
+    {
+      "id": "opp_hybrid_library_to_software",
+      "title": "Denial intelligence library to benchmark feed to lightweight ops software",
+      "category": "hybrid",
+      "thesis": "Start with a paid information and template subscription, then add benchmark data and software only after repeated paid demand reveals a stable product surface.",
+      "why_user_can_win": "The user can turn specialized workflow judgment into a structured ontology and later software without touching PHI-heavy execution at the start.",
+      "why_this_could_fail": "This is slower than services and software should not be built if the information layer does not pull buyers first.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 5,
+        "durability": 9,
+        "distribution_fit": 4,
+        "ai_leverage": 8,
+        "defensibility": 8,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Review employment and IP boundaries before any build.",
+        "Launch a founding subscription with 3 proof artifacts and a preorder path.",
+        "Continue to software only if at least 3 paying customers request repeated searchable workflows or alerts."
+      ],
+      "tool_specs": [
+        "Public payer update ingest",
+        "LLM-assisted summarization with human review",
+        "Structured taxonomy database",
+        "Searchable member portal",
+        "Email digest and payment system"
+      ],
+      "kill_criteria": [
+        "Stop if fewer than 2 paid preorders or 5 deposits arrive in the first 7-14 days.",
+        "Stop if maintaining the service exceeds 4 hours per week before 3 customers.",
+        "Stop if legal review raises unresolved IP, confidentiality, or non-solicit issues."
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Provider-facing AI copilot for denials or prior auth",
+      "reason": "Too likely to require PHI handling, substantive workflow liability, and overlap with employer-sensitive customer relationships."
+    },
+    {
+      "title": "Broad healthcare AI consulting",
+      "reason": "Conflicts with the user's no-consulting and no-sales-call constraints and does not compound into an asset efficiently at 4 hours per week."
+    },
+    {
+      "title": "Pure content business about revenue cycle management",
+      "reason": "Too slow without an existing audience and too weakly differentiated as a primary monetization path."
+    }
+  ],
+  "best_bet": "opp_hybrid_library_to_software",
+  "next_actions": [
+    "Review employment agreement and create a written clean-room boundary memo.",
+    "Pick one narrow ICP and one specialty cluster.",
+    "Create 3 sample artifacts from public sources only.",
+    "Launch a landing page with a founding subscription offer and payment path.",
+    "Run 30 targeted async outreaches to non-employer buyers only.",
+    "Continue only if at least 2 paid preorders or 5 deposits arrive without legal concerns."
+  ]
+}

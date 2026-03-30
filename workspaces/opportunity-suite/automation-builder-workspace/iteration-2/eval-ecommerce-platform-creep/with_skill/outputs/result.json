@@ -1,0 +1,55 @@
+{
+  "system_objective": {
+    "primary_user": "Solo ecommerce operator or merchant owner for a single store.",
+    "trigger": "Merchant connects one store and generates the latest daily report on demand, with an optional scheduled daily refresh.",
+    "output": "A fixed daily exceptions report for one store showing revenue, refunds, discount leakage, and top products, plus CSV export.",
+    "human_escalation": "Support or an internal operator reviews failed imports, data mismatches, and requests that push beyond the fixed single-store report."
+  },
+  "components": [
+    "Merchant-facing web app with store connect flow and report page.",
+    "Scheduled import job for orders, refunds, discounts, and product metadata.",
+    "Report generation worker that computes fixed daily metrics and exception flags.",
+    "Relational database for merchant accounts, store connections, imports, and reports.",
+    "Internal support view for sync status and failed runs."
+  ],
+  "inputs": [
+    "Last 24 hours of orders.",
+    "Last 24 hours of refunds.",
+    "Discount totals and discount codes.",
+    "Product and SKU metadata."
+  ],
+  "outputs": [
+    "In-app daily exceptions report.",
+    "CSV export of the fixed report.",
+    "Internal failure and reconciliation log."
+  ],
+  "integrations": [
+    "One ecommerce platform API in v1, such as Shopify.",
+    "Email provider for login or support contact only."
+  ],
+  "manual_steps": [
+    "Review reconciliation issues when imported totals do not match store totals.",
+    "Decide whether merchant feature requests belong in the fixed report.",
+    "Handle unusual order-state edge cases or permission issues manually."
+  ],
+  "automated_steps": [
+    "Import daily store data for one connected store.",
+    "Compute fixed KPIs and exception flags from predefined rules.",
+    "Render the report and produce CSV export.",
+    "Persist completed reports for later viewing."
+  ],
+  "milestones": [
+    "Define the fixed v1 report schema and exception rules.",
+    "Build single-store connection and manual report generation.",
+    "Add scheduled imports, report persistence, and CSV export.",
+    "Add internal support tooling for failures and reconciliation.",
+    "Pilot with a small merchant cohort and prune unused metrics."
+  ],
+  "out_of_scope": [
+    "Team collaboration and user roles.",
+    "Custom dashboards or flexible report builders.",
+    "Alerts and notifications.",
+    "Multi-store support or rollup reporting.",
+    "Broader BI and warehouse-style analytics features."
+  ]
+}

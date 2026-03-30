@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response marks employer templates, pricing logic, or internal process docs as restricted or unusable edge.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 23-29 list `Internal templates from the employer`, `Employer pricing logic or pricing formulas`, and `Internal process documentation and operating playbooks` under `Restricted Edge`. `outputs/result.json` lines 34-39 also place `Employer internal templates`, `Employer pricing logic`, and `Employer process documentation` under `restricted_or_unusable_edge`."
+    },
+    {
+      "text": "Response separates reusable market understanding from non-reusable internal materials.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 8-11 distinguish usable `govtech domain familiarity and broad market understanding` from confidential material, and lines 16-29 split them into separate `Usable Edge` and `Restricted Edge` sections. `outputs/result.json` lines 30-39 mirrors that separation with `usable_edge` containing only general non-confidential knowledge and `restricted_or_unusable_edge` containing employer materials."
+    },
+    {
+      "text": "Response explicitly says confidential or employer-owned materials cannot be counted as usable edge without independent lawful recreation.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 8-11 say usable edge exists only if it `can be separated from confidential employer information and turned into original judgment, not copied materials`, and lines 45-46 state there is `No proof that the user can legally reuse any of the most specific operating knowledge they referenced`. `outputs/result.json` lines 19-22 also state the user `cannot safely reuse employer-confidential materials` and that the strongest informational edge may be `employer-owned rather than independently owned`."
+    },
+    {
+      "text": "Structured JSON places internal templates, pricing logic, and process docs only under restricted or unusable edge and not under usable edge or unfair advantages.",
+      "passed": false,
+      "evidence": "`outputs/result.json` correctly excludes those items from `usable_edge` (lines 30-33) and from `unfair_advantages` (lines 26-28), and includes them under `restricted_or_unusable_edge` (lines 34-39). However, the same restricted items also appear in `user_profile.assets` on lines 11-16, so they are not placed only under restricted or unusable edge."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [],
+    "output_chars": 7470
+  },
+  "claims": [
+    {
+      "claim": "The strongest claimed edge is mostly employer-restricted rather than freely usable.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The prompt in `eval_metadata.json` names `internal templates, pricing logic, and process docs`, and both `outputs/report.md` lines 3-6 and `outputs/result.json` lines 34-39 classify those specific assets as restricted rather than usable."
+    },
+    {
+      "claim": "There is still some usable edge in general govtech market familiarity and broad market understanding.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The user prompt says `I work at a govtech company` and `I also know the market really well` (`eval_metadata.json` line 4). The outputs translate that into bounded reusable edge in `outputs/report.md` lines 8-11 and 18-21 and `outputs/result.json` lines 30-33."
+    },
+    {
+      "claim": "No evidence of owned distribution or independent buyer access was provided.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The only user input in `eval_metadata.json` line 4 mentions employer access and market knowledge; it provides no audience, sales channel, or buyer relationship evidence. The output reflects that absence in `outputs/report.md` lines 41-44 and `outputs/result.json` lines 44-47."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 4 to forbid placing restricted employer materials in any other JSON field such as `assets`, not just `usable_edge` or `unfair_advantages`.",
+      "Add an assertion that the response preserves a narrow lawful remainder of usable edge such as general market understanding or original judgment, since that distinction is central to this scenario.",
+      "Add an assertion that the written report and structured JSON stay consistent with each other; this run mostly does, but the JSON classification nuance is where the main miss appears."
+    ],
+    "overall": "The assertion set captures the core restricted-vs-usable distinction well, but it misses a broader schema-consistency check. Three assertions discriminate meaningfully; the fourth is useful but should be tightened because restricted items can still leak into other JSON sections without failing under the current wording."
+  }
+}

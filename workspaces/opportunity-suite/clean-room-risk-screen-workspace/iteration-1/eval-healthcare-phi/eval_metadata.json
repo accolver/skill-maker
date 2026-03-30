@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "healthcare-phi",
+  "prompt": "The user wants to build AI workflow tooling for healthcare reimbursement, but mentions PHI, denials data, and prior-auth case data from work. Screen the risk.",
+  "assertions": [
+    "Response explicitly flags PHI or sensitive healthcare data as blocked or highly conditional.",
+    "Response proposes a clean-room path that does not rely on workplace PHI or restricted data.",
+    "Response distinguishes data risk from generalized workflow knowledge.",
+    "Response includes structured JSON."
+  ]
+}

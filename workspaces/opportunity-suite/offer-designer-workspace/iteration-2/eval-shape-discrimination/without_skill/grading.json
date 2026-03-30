@@ -1,0 +1,64 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response chooses exactly one primary offer shape and explains why it beats the closest alternative for speed to sale, delivery burden, or buyer trust.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:5-11` chooses a single primary shape, the 'done-with-you recruiter outreach sprint,' over the hiring-process audit. `outputs/report.md:36-43` gives substantive reasons tied to speed to sale and buyer trust: easier urgency, easier pricing from concrete deliverables, faster feedback loop, and better fit for warm intros. `outputs/result.json:2-12` repeats the same single choice and rationale."
+    },
+    {
+      "text": "Response defines one sharply bounded wedge: one buyer, one painful job, one first deliverable or outcome, and one explicit scope boundary that excludes adjacent work.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:21-23` defines one buyer as boutique recruiters. `outputs/report.md:17-19` states the painful job/outcome: turning their network into a cleaner, more consistent client-outreach motion. `outputs/report.md:27-34` specifies the first deliverables/outcomes (kickoff, tightened messaging, prospect list, outreach copy, launch support). `outputs/report.md:51-57` and `104` provide explicit scope boundaries: one niche, one target client profile, one primary channel, one sprint only, not ongoing agency work; it also excludes broad strategy, branding, and full sales system rebuild."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/offer-template.json with non-empty values for offer_thesis, icp.buyer, icp.segment, icp.why_now, offer_shape, at least 3 deliverables, at least 3 scope_boundaries, pricing_hypothesis.model, pricing_hypothesis.range_or_price, pricing_hypothesis.pricing_rationale, at least 2 rejected_framings, and at least 2 open_questions.",
+      "passed": false,
+      "evidence": "FAIL: `outputs/result.json` is valid JSON, but it does not match the required shape named in the assertion. Required keys such as `offer_thesis`, `icp`, `offer_shape`, `scope_boundaries`, `pricing_hypothesis`, `rejected_framings`, and `open_questions` are absent. It includes `deliverables` and `pricing`, but not under the required field names, and it provides no `open_questions` at all. The referenced `assets/offer-template.json` file was also not present in the workspace, so only the explicit field requirements in the assertion could be checked."
+    },
+    {
+      "text": "Response rejects at least two weaker framings, including the closest alternative offer shape.",
+      "passed": false,
+      "evidence": "FAIL: The closest alternative, hiring-process audit, is clearly rejected in `outputs/report.md:5-11`, `116-127`, and `outputs/result.json:38-45`. But no second weaker framing is explicitly rejected as an offer framing. `outputs/report.md:104` excludes broad strategy, branding, and full sales system rebuild, but those are scope exclusions, not two clearly named rejected alternative offer framings."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment.",
+      "Referenced schema file `assets/offer-template.json` was not present under `/home/alan/dev/ai/skills/offer-designer-workspace`."
+    ],
+    "output_chars": 6306
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:4` states both files were written, and both files are present in `outputs/` with substantive contents."
+    },
+    {
+      "claim": "The recommended offer is a 7-day done-with-you sprint rather than a hiring-process audit.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:45-49` defines the format as a done-with-you sprint with length 7 days, and `outputs/result.json:2-6` records the same recommendation and decision over the audit."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Bundle or inline the JSON schema instead of referencing `assets/offer-template.json`; as written, part of assertion 3 depends on an artifact that was not available in the workspace.",
+      "Strengthen assertion 4 by naming what counts as a distinct 'framing' so scope exclusions cannot be confused with rejected alternatives.",
+      "Add an assertion that the prose recommendation and JSON payload are consistent with each other on offer shape, buyer, scope, and pricing.",
+      "Add an assertion for explicit open questions in the prose as well as JSON, since unanswered uncertainties are important for early offer design but currently only checked in the structured output."
+    ],
+    "overall": "The suite is moderately discriminating: 2 of 4 assertions failed on this run. The main weakness is that the schema-based assertion references a missing template artifact, which makes full verification less robust than it should be."
+  }
+}

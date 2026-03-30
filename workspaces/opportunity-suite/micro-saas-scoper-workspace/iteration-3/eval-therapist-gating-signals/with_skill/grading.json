@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not force build_now without repeated workflow evidence.",
+      "passed": true,
+      "evidence": "`outputs/report.md:3` gives the verdict as `stay_manual_for_now`, and `outputs/report.md:7-15` explains that there is 'little evidence yet that one therapist workflow is repeatedly painful in the same way across customers.' `outputs/result.json:2` also uses `\"stay_manual_for_now\"`, so the response explicitly avoids a build-now recommendation in the absence of repeated workflow evidence."
+    },
+    {
+      "text": "If verdict is not build_now, response lists 3 concrete gating signals that would flip the verdict later.",
+      "passed": true,
+      "evidence": "Because the verdict is not build-now (`outputs/report.md:3`, `outputs/result.json:2`), the response must provide gating signals. `outputs/report.md:83-92` lists three concrete flip conditions: multiple customers independently requesting help with the same workflow, repeated use of the same inputs/outputs with limited customization, and willingness to pay for speed/consistency/self-serve completion of that workflow. These are specific future signals, not generic advice."
+    },
+    {
+      "text": "Response includes at least 3 do_not_build_yet items.",
+      "passed": true,
+      "evidence": "`outputs/report.md:75-81` contains five explicit 'Do Not Build Yet' items. `outputs/result.json:26-31` also includes five entries in the `do_not_build_yet` array, exceeding the minimum of three."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/micro-saas-scope-template.json.",
+      "passed": true,
+      "evidence": "`outputs/result.json:1-33` is well-formed JSON and matches the template structure in `/home/alan/dev/ai/skills/micro-saas-scoper/assets/micro-saas-scope-template.json:1-13`: it includes `readiness_verdict`, `product_wedge` with `primary_user`, `job_to_be_done`, and `core_workflow`, plus `manual_work`, `automated_first`, `mvp_boundary`, `productization_trigger`, and `do_not_build_yet`. No extra structural requirements are visible in the template."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 7278
+  },
+  "claims": [
+    {
+      "claim": "The strongest validated asset appears to be a paid information/productized-service artifact, not a clearly repeated operational workflow with consistent inputs, outputs, and escalation points.",
+      "type": "quality",
+      "verified": false,
+      "evidence": "This claim appears in `outputs/report.md:12-15`, but the available evidence is only the prompt and final outputs. The transcript (`transcript.md:1-8`) does not show any research or validation artifacts that would let the grader independently verify this market assessment."
+    },
+    {
+      "claim": "Implementation risk is moderate to high, because therapist workflows often vary by practice style, compliance posture, niche, and client process.",
+      "type": "quality",
+      "verified": false,
+      "evidence": "This claim is stated in `outputs/report.md:25-26`, but there is no supporting evidence in the transcript or outputs beyond the assertion itself, so it cannot be independently verified from the available run artifacts."
+    },
+    {
+      "claim": "The same input-to-output workflow is repeatedly requested and delivered with only minor variation would be the productization trigger.",
+      "type": "process",
+      "verified": true,
+      "evidence": "This claim is present in `outputs/report.md:37-38` and `outputs/result.json:25`. It is consistent with the report's stated decision logic in `outputs/report.md:7-15` and `17-26`, which repeatedly grounds the verdict in the absence of repeated, standardized workflow evidence."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that checks the gating signals are also represented in the machine-readable JSON, not only in the prose report.",
+      "Strengthen the JSON assertion to specify whether exact key set only is required, because the current template check is mostly structural and easy to satisfy with placeholder content.",
+      "Add an assertion that the rationale explicitly ties the non-build verdict to missing repeated workflow evidence, since that causal explanation is central to this eval but only indirectly tested."
+    ],
+    "overall": "This assertion set is reasonably discriminating for the main decision and output format, but it misses whether the gating signals are captured in structured output and only lightly checks the quality of the rationale. The run passed cleanly, though the transcript is too sparse to support stronger process-level verification."
+  }
+}

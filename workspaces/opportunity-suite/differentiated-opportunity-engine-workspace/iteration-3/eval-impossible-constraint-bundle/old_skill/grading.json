@@ -1,0 +1,83 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says the 30-day $3000 MRR goal is not credible under the current constraints.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:21-26` says `the requested outcome is not realistic as stated` and replaces it with `3-10 paying users`; `outputs/report.md:88-90` says the target is `fantasy`; `outputs/result.json:150-155` says the goal is `not realistic under the stated constraints`."
+    },
+    {
+      "text": "Response identifies at least 3 binding constraints.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:14-15` lists `no budget`, `2 hours per week`, `$3000 MRR in 30 days`, and refusal of `sales calls`, `services`, `content creation`, and `cold outreach`. The same constraint bundle is also structured in `outputs/result.json:24-32`."
+    },
+    {
+      "text": "Best bet is to change constraints, build edge, or stop chasing this goal for now, not to build a product immediately.",
+      "passed": false,
+      "evidence": "FAIL: although the response says to change the success metric and possibly relax constraints, its explicit `Best Bet` in `outputs/report.md:84-100` is to `Build one review-mined marketplace micro-tool`, and `outputs/result.json:141-149` likewise selects `opp_marketplace_microtool` with concrete build steps. That is still a product path, not primarily a `change constraints/build edge/stop for now` recommendation."
+    },
+    {
+      "text": "Response does not present any current opportunity as realistic near-term income under the stated constraints.",
+      "passed": true,
+      "evidence": "PASS: the ranked opportunities are framed as weak or only worth attempting with a reduced goal, not as realistic near-term income. `outputs/report.md:21-26` resets the target to proof of pull, `outputs/report.md:88-90` rejects `$3000 MRR in 30 days`, and `outputs/result.json:150-155` marks the requested goal `not realistic under the stated constraints`."
+    },
+    {
+      "text": "Response gives a concrete edge-building or constraint-change plan with numeric targets or milestones.",
+      "passed": true,
+      "evidence": "PASS: the response gives concrete numeric milestones and a constraint-change recommendation. `outputs/report.md:111-113` recommends relaxing time from `2 hours` to `5 hours a week`; `outputs/report.md:94-100` and `115-155` specify `50-100` reviews, problems appearing `at least 5 times`, pricing of `$9-$29` per month or `$49-$99` one-time, and ship criteria of `3+ waitlist signups` or `1 prepay`. `outputs/result.json:143-148` repeats this as next actions."
+    },
+    {
+      "text": "Kill or revisit criteria are quantified.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:193-204` includes quantified stop criteria such as `more than 6-10 build hours` and lack of `installs, waitlist signups, or prepay interest`; `outputs/result.json:73-78` also includes quantified kill criteria for the best-bet opportunity."
+    },
+    {
+      "text": "Structured JSON feasibility verdict is no_go and matches the prose recommendation.",
+      "passed": false,
+      "evidence": "FAIL: `outputs/result.json:150-155` contains a `feasibility_assessment` with `assessment: not realistic under the stated constraints`, but there is no explicit structured verdict field set to `no_go`. The prose and JSON are directionally aligned, but the required `no_go` verdict is absent."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.7142857142857143
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 3,
+    "errors_encountered": [],
+    "output_chars": 13674
+  },
+  "claims": [
+    {
+      "claim": "The user explicitly refuses content creation.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against the prompt in `eval_metadata.json:4`, which says the user `refuse[s] sales calls, services, content creation, and cold outreach`. The same claim appears in `outputs/report.md:5-6` and `outputs/result.json:28-31`."
+    },
+    {
+      "claim": "The first version must fit in roughly 6-10 total build hours.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This requirement is stated in `outputs/report.md:106-108` and reflected as a kill criterion in `outputs/report.md:199-200` and `outputs/result.json:75`."
+    },
+    {
+      "claim": "The best available path is a review-mined marketplace micro-tool.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified from the outputs themselves: `outputs/report.md:82-90` names this as the `best available path`, and `outputs/result.json:141` sets `best_bet` to `opp_marketplace_microtool`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 3. It mixes several acceptable recommendations (`change constraints`, `build edge`, or `stop`) with a prohibition on recommending a product path, so it can conflict with otherwise sensible proof-of-demand advice.",
+      "Clarify assertion 4 by replacing `realistic near-term income` with a more testable phrase such as `does not claim any opportunity can plausibly reach meaningful revenue within 30 days under the stated constraints`.",
+      "Keep assertion 7, but define the required JSON shape more explicitly in the eval contract, for example requiring a top-level `verdict` field with allowed values like `go`, `no_go`, or `conditional`.",
+      "Add an assertion that checks whether the response resets the success metric to proof of demand or another smaller milestone, since that is central to the intended behavior and clearly visible in both outputs.",
+      "Add an assertion that checks the response recommends validating before full build, because the current suite does not directly distinguish between `build now` and `validate first then maybe build`."
+    ],
+    "overall": "The suite is reasonably discriminating and caught two meaningful misses, but it underspecifies the boundary between `do not build immediately` and `validate a tiny wedge before building`, which makes assertion 3 especially brittle. Coverage would improve by explicitly checking for proof-of-demand reframing and validation-first behavior."
+  }
+}

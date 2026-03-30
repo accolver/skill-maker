@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response distinguishes pain signal from near-term conversion signal.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:5-14` explicitly separates \"strong top-of-funnel demand\" from \"weak near-term conversion\" and states the experiment did not validate fast pilot conversion. `outputs/result.json:7-12` reinforces this with `interest_signal: \"strong\"` and `pilot_commitment_signal: \"none\"`."
+    },
+    {
+      "text": "Response chooses a realistic decision state instead of overstating traction.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:22-27` gives a balanced decision state: positive for validating demand, negative for validating a fast path to pilots and conversion without compliance-ready packaging. `outputs/report.md:56-58` avoids claiming traction and instead says the next experiment should test conversion under process constraints."
+    },
+    {
+      "text": "Response recommends a lower-friction next experiment or narrowed wedge.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:29-43` recommends reducing the commitment barrier and proposes specific lower-friction variants including a sandbox/self-serve evaluation, a design-partner engagement below procurement thresholds, and a security-ready package. `outputs/result.json:13-25` mirrors this recommendation in structured form."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with top-level keys `experiment`, `inputs`, `state`, and `recommendation`, plus nested arrays for `example_variants` and `success_metrics` (`outputs/result.json:1-27`)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 3526
+  },
+  "claims": [
+    {
+      "claim": "Across 20 enterprise conversations, prospects expressed strong interest but none would commit to a pilot because security review and procurement would take months.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against the source prompt in `eval_metadata.json:4-10`, which states: \"20 enterprise conversations produced strong interest, but no one would commit to a pilot because security review and procurement would take months.\" The same facts are restated in `outputs/report.md:5-9` and `outputs/result.json:3-11`."
+    },
+    {
+      "claim": "The current path to pilot is too high-friction for enterprise buyers.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Supported by the prompt facts in `eval_metadata.json:4-10`: despite strong interest, zero prospects would commit to a pilot because pre-pilot security review and procurement would take months. `outputs/report.md:11-14` and `outputs/result.json:10-14` make this interpretation explicit and it is a reasonable, evidence-backed synthesis of the provided scenario."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response explicitly identifies security review and procurement as the gating bottleneck' to ensure the answer names the specific cause of stalled pilots, not just generic friction.",
+      "Add assertion: 'Response includes measurable post-interest success metrics for the next experiment' because both outputs include concrete evaluation metrics (`report.md:45-53`, `result.json:20-25`) and that is useful quality not currently checked.",
+      "Consider strengthening 'Response includes structured JSON' to require key fields such as decision state, bottleneck, next experiment, and success metrics; as written, it mostly checks format rather than decision quality."
+    ],
+    "overall": "The assertion set covers the core strategic judgment well and all four assertions are substantively met in this run. Coverage is still somewhat format-heavy on the JSON assertion and does not explicitly check whether the response identifies procurement/security as the blocking mechanism or defines measurable criteria for the proposed next experiment. The transcript is too sparse to evaluate process quality; `transcript.md:6-7` says detailed tool-by-tool execution was not exposed, and `timing.json:1` records zero duration and zero tokens, so execution metrics should be treated as unavailable rather than meaningful performance data."
+  }
+}

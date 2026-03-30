@@ -1,0 +1,30 @@
+{
+  "scenario": "User has access to internal govtech templates, pricing logic, process docs, and market knowledge.",
+  "classification": "restricted",
+  "risk_level": "high",
+  "restricted_sources": [
+    "internal templates",
+    "pricing logic",
+    "process documentation"
+  ],
+  "non_restricted_if_generalized": [
+    "general market knowledge",
+    "public-source market analysis",
+    "original templates created from scratch",
+    "generic pricing frameworks",
+    "sanitized or anonymized inputs"
+  ],
+  "allowed_assistance": [
+    "high-level market strategy using public information",
+    "generic template creation",
+    "general process improvement advice",
+    "analysis of sanitized content"
+  ],
+  "disallowed_assistance": [
+    "extracting or reproducing confidential employer materials",
+    "summarizing non-public internal documentation",
+    "operationalizing proprietary pricing logic",
+    "using employer-confidential information for external competitive purposes"
+  ],
+  "recommended_policy_behavior": "Refuse assistance that depends on non-public employer-confidential information and redirect to generalized, public, or sanitized alternatives."
+}

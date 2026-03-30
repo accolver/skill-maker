@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly labels at least one strong signal and at least one weak, vanity, or contradictory signal.",
+      "passed": true,
+      "evidence": "`outputs/report.md` explicitly labels multiple signal types in `## Signal Quality`: `Strong signal` at lines 19-22, `Weak signal` at lines 23-24, `Contradictory signal` at lines 25-27, and `Vanity signal: none` at line 28."
+    },
+    {
+      "text": "Response identifies customization or delivery fit, not demand, as the primary blocker after the paid pilot.",
+      "passed": true,
+      "evidence": "`outputs/report.md` states `the current delivery model appears fragile because custom setup creates churn risk` (lines 14-15) and later says `The main uncertainty is no longer whether the pain exists; it is whether the solution can be delivered in a repeatable way without heavy customization` (lines 36-37). `outputs/result.json` also says `the current delivery model is not yet repeatable` in `rationale` (line 19)."
+    },
+    {
+      "text": "Response uses exactly one decision state from continue, narrow, pivot, or stop and proposes exactly one next experiment tied to the main uncertainty.",
+      "passed": true,
+      "evidence": "`outputs/report.md` uses a single decision state, ``narrow`` (line 32), which is one of the allowed values. It proposes one next experiment in `## Next Experiment` (lines 41-44): a single standardized pilot offer with fixed scope, explicitly tied to the main uncertainty named at lines 36-37. `outputs/result.json` mirrors that single state and single experiment in `decision_state` (line 17) and `next_experiment` (line 18)."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/experiment-log-template.json with non-empty experiments, strong_signals, weak_signals, contradictions, decision_state, next_experiment, and rationale.",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid JSON (`jq empty` succeeded) and matches the template keys from `/home/alan/dev/ai/skills/experiment-tracker/assets/experiment-log-template.json` lines 2-8: `experiments`, `strong_signals`, `weak_signals`, `contradictions`, `decision_state`, `next_experiment`, and `rationale`. In `outputs/result.json`, every required field is present and non-empty: `experiments` lines 2-6, `strong_signals` lines 7-10, `weak_signals` lines 11-13, `contradictions` lines 14-16, `decision_state` line 17, `next_experiment` line 18, and `rationale` line 19."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 4050
+  },
+  "claims": [
+    {
+      "claim": "There is real pain around missed calls for at least part of the HVAC market.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md` supports this with `4 owners said missed calls are a painful problem` (line 4) and repeats that `4 owners independently described missed calls as painful` as a strong signal (lines 21-22)."
+    },
+    {
+      "claim": "The main uncertainty is no longer whether the pain exists; it is whether the solution can be delivered in a repeatable way without heavy customization.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The available evidence shows both demand and delivery friction: 4 painful-problem conversations and 1 actual payment in `outputs/report.md` lines 4-6, plus churn caused by custom workflow in line 7 and lines 25-27. That supports the claim that delivery repeatability, not raw demand, is the main remaining uncertainty."
+    },
+    {
+      "claim": "Demand signal exists because buyers described the pain repeatedly and one customer paid, but the current delivery model is not yet repeatable.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This claim appears in `outputs/result.json` line 19 and is supported by repeated pain signals in lines 7-10 plus the contradiction in lines 14-16 showing churn from over-custom delivery."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the prose summary and `result.json` stay semantically consistent; this run is consistent, but the current suite would not catch divergence between them.",
+      "Add an assertion requiring the rationale to explain why the chosen decision state is better than the nearest alternative, since the current suite checks the state value but not the depth of justification.",
+      "Consider capturing fuller executor telemetry or asserting transcript completeness separately; the current transcript is too sparse to evaluate process quality or tool use."
+    ],
+    "overall": "All 4 assertions are objective and discriminating for this task, and this run substantively satisfies them. The main gap is not assertion quality but missing process visibility from the transcript, which limits grading of execution quality beyond the final artifacts."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "product_name": "Daily Shopify Profit and Anomaly Digest",
+  "category": "micro-saas ecommerce reporting",
+  "recommendation": "Cut the proposed broad analytics suite down to a single-purpose daily reporting product for Shopify merchants.",
+  "target_user": "Small Shopify merchants and lean ecommerce teams who manually check store performance each day.",
+  "core_job": "Show what changed yesterday in sales and margin-related metrics and flag issues that need attention.",
+  "v1_scope": {
+    "integrations": ["Shopify"],
+    "delivery": ["email", "slack_optional"],
+    "kpis": [
+      "gross_sales",
+      "orders",
+      "average_order_value",
+      "discounts",
+      "refunds",
+      "net_sales"
+    ],
+    "comparisons": ["previous_day", "same_day_last_week"],
+    "alerts": ["revenue_drop", "refund_spike"],
+    "dashboard": ["latest_snapshot", "7_day_trend", "alert_history"]
+  },
+  "out_of_scope": [
+    "multi_store_rollups",
+    "ads_integrations",
+    "attribution",
+    "roas",
+    "cohort_analysis",
+    "ltv_prediction",
+    "inventory_forecasting",
+    "custom_dashboards",
+    "report_builder",
+    "agency_features",
+    "merchant_benchmarking",
+    "enterprise_permissions"
+  ],
+  "positioning": "Daily Shopify performance email with automatic anomaly detection.",
+  "roadmap": [
+    "Phase 1: single-store Shopify digest",
+    "Phase 2: add one ads source if strongly requested",
+    "Phase 3: add lightweight drill-downs for products, discounts, and refunds"
+  ],
+  "success_criteria": [
+    "store connects quickly",
+    "first digest delivered immediately or next morning",
+    "report is understandable without setup work",
+    "alerts are useful and not noisy",
+    "product replaces manual daily performance checks"
+  ]
+}

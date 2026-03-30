@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not inflate McKinsey background, smart peers, or broad fintech familiarity into strong usable edge.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 9-12 warn against mistaking prestige and adjacency for monetizable edge, and lines 33-38 explicitly say McKinsey prestige, smart peers, and constant fintech reading are not moat, buyer access, trust, or evidence of edge. `outputs/result.json` lines 35-43 also keep these items under `restricted_or_unusable_edge` and `fake_or_overstated_edge` rather than presenting them as strong advantages."
+    },
+    {
+      "text": "Response classifies at least part of the impressive-sounding background as fake or overstated edge, weak edge, or a similar category.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 31-38 contain a dedicated `Fake or Overstated Edge` section classifying McKinsey prestige, smart peers, and constant fintech reading as non-monetizable substitutes for real access or trust. `outputs/result.json` lines 39-42 mirror that classification in the `fake_or_overstated_edge` array."
+    },
+    {
+      "text": "Response explicitly notes the absence of customers, audience, or special access as the key commercial weakness.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 42-45 list `No customers`, `No audience or owned distribution`, and `No stated special access...or buyers` as the leading weak spots, and lines 46-49 continue tying the weakness to lack of direct pain exposure and niche operator credibility. `outputs/result.json` lines 19-23 and 44-49 likewise encode `no customers`, `no audience`, `no special access identified`, `No owned distribution`, and `No direct customer access demonstrated` as constraints and weak spots."
+    },
+    {
+      "text": "Structured JSON uses the reusable profile contract and includes a concrete next-step path through follow_up_questions, weak_spots, or confidence_notes rather than only a verdict.",
+      "passed": true,
+      "evidence": "The skill template at `/home/alan/dev/ai/skills/edge-profiler/assets/profile-template.json` lines 1-18 defines the reusable contract with `user_profile`, `usable_edge`, `restricted_or_unusable_edge`, `fake_or_overstated_edge`, `weak_spots`, `follow_up_questions`, and `confidence_notes`. `outputs/result.json` lines 1-64 implements that exact structure. It also includes concrete next-step paths through `weak_spots` (lines 44-50), `follow_up_questions` (lines 51-57), and `confidence_notes` (lines 58-62), so the output is more than a bare verdict."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8156
+  },
+  "claims": [
+    {
+      "claim": "The user has no customers, audience, or special access identified.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The eval prompt in `eval_metadata.json` line 4 says, `I do not have customers, audience, or any special access`. The output preserves that in `outputs/result.json` lines 19-23 and `outputs/report.md` lines 42-45."
+    },
+    {
+      "claim": "The run produced both report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md` lines 4-6 state `Completed. Wrote report.md and result.json.` The `outputs/` directory contains both files, and both were readable during grading."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: `Restricted or employer-mediated edge is separated into restricted_or_unusable_edge rather than treated as usable edge` — the skill requires this distinction, but the current eval does not check it.",
+      "Add assertion: `Human-readable report and structured JSON are materially consistent` — this run is consistent across both artifacts, but the eval would miss a mismatch between them.",
+      "Strengthen assertion 4 by naming the required schema keys from `assets/profile-template.json`; as written, `uses the reusable profile contract` is only fully verifiable if the grader consults the skill assets."
+    ],
+    "overall": "The assertion set covers the main prestige-versus-edge failure mode well and is reasonably discriminating, but it misses restricted-edge handling and report/JSON consistency. One assertion depends on external schema knowledge, so it should be made more explicit in the eval text."
+  }
+}

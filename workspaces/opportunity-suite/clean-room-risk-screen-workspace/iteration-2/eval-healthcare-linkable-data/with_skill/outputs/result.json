@@ -1,0 +1,41 @@
+{
+  "risk_summary": "Medium-high risk. The proposed product edge appears to rely on work-originated denial and prior-authorization case data in a healthcare reimbursement setting. Even if the data is described as de-identified, it may still be confidential, contract-restricted, or linkable, and using it could create employer IP/confidentiality, customer-rights, and regulated-data risk.",
+  "risk_categories": [
+    "PHI or regulated customer data",
+    "Employer IP or templates",
+    "Customer relationships the user cannot legally solicit",
+    "Marketing claims that overstate legal authority or automation safety"
+  ],
+  "allowed": [
+    "Build with public reimbursement rules, payer manuals, CMS guidance, and other public materials.",
+    "Use generalized workflow knowledge without reproducing employer-specific assets or logic.",
+    "Create original schemas, prompts, checklists, and workflows from scratch.",
+    "Use synthetic or self-generated examples that do not come from employer or customer records.",
+    "Position the tool as human-reviewed workflow support rather than delegated judgment."
+  ],
+  "conditional": [
+    "Use of real denial or prior-auth data only if the user has explicit written rights independent of the job, plus cleared privacy, contractual, and confidentiality constraints.",
+    "Benchmarking on historical cases only if the dataset is lawfully obtained outside employer access and is demonstrably non-linkable.",
+    "Recommendations about coding, appeals, or authorization outcomes only with narrow claims and human review.",
+    "Contact with current employer customers or counterparties only if solicitation and access rights are clearly permitted."
+  ],
+  "blocked": [
+    "Copying, exporting, paraphrasing, or reconstructing employer denial data, prior-auth data, labels, notes, prompts, or playbooks from systems or memory.",
+    "Assuming work-derived de-identified data is automatically safe to use when it may still be linkable or contract-restricted.",
+    "Training or fine-tuning models on employer or customer healthcare case data obtained through the user's job without explicit rights.",
+    "Reusing non-public customer-specific patterns or internal payer/appeal heuristics learned through restricted access.",
+    "Claiming autonomous reimbursement, compliance, prior-auth, legal, or clinical decision authority."
+  ],
+  "safer_path": [
+    "Build the initial product on public policy sources and original assets rather than work-originated case data.",
+    "Use synthetic denial and prior-auth scenarios created from scratch for prototyping and evaluation.",
+    "Focus on human-in-the-loop preparation, summarization, checklisting, QA, and evidence organization.",
+    "If real data is needed later, obtain it through a separate lawful channel with written reuse rights and documented de-identification review.",
+    "Keep positioning narrow and avoid claims that replace licensed, legal, clinical, or payer authority."
+  ],
+  "notes": [
+    "This is a practical risk screen, not formal legal advice.",
+    "The main clean-room issue is not just PHI removal; it is also employer confidentiality, customer rights, and residual linkability.",
+    "Paraphrasing or recreating employer-confidential workflows from memory is not a valid clean-room workaround."
+  ]
+}

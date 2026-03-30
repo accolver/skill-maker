@@ -1,0 +1,247 @@
+{
+  "user_profile": {
+    "skills": [
+      "software engineering",
+      "internal tool development",
+      "workflow automation",
+      "integration and data tooling"
+    ],
+    "domain_experience": [
+      "6 years building internal tools for HVAC distributors",
+      "understands HVAC quoting, ordering, and operational workflows",
+      "familiar with trade-specific operational pain points"
+    ],
+    "assets": [
+      "live pilot access through brother's HVAC service business",
+      "ability to build bespoke tooling without hiring a team"
+    ],
+    "distribution": [
+      "warm intro channel through brother",
+      "regional owner network access without needing an audience"
+    ],
+    "network_access": [
+      "brother runs a small HVAC service business",
+      "brother knows many HVAC owners in the region"
+    ],
+    "constraints": [
+      "no audience",
+      "should not rely on content-first distribution",
+      "best path should validate before building software",
+      "time and budget assumed to be limited but not prohibitive"
+    ],
+    "credibility_signals": [
+      "years of HVAC-adjacent software experience",
+      "direct operator access for pilot feedback",
+      "can discuss concrete workflows instead of generic AI"
+    ],
+    "unfair_advantages": [
+      "HVAC-specific domain fluency",
+      "trusted family-level design partner",
+      "warm path to first customers",
+      "service-first learning path into software"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_hvac_revenue_recovery_sprint",
+      "title": "HVAC Revenue Recovery Sprint",
+      "category": "cash_now",
+      "thesis": "Sell a fixed-fee audit plus implementation that recovers lost revenue from missed calls, stale estimates, lapsed memberships, and weak follow-up using AI-assisted analysis and lightweight automation.",
+      "why_user_can_win": "The user has HVAC workflow knowledge plus warm access to owners, allowing an outcome-led niche offer instead of generic automation consulting.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 9,
+        "durability": 5,
+        "distribution_fit": 8,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Run a manual leak audit for brother's shop",
+        "Quantify value from one or two leaks",
+        "Pitch a 2-week paid sprint to warm intros"
+      ],
+      "tool_specs": [
+        "CSV import for calls, estimates, and memberships",
+        "Opportunity tracker",
+        "AI-generated summary and next-step suggestions",
+        "Weekly ROI report"
+      ],
+      "kill_criteria": [
+        "Owners do not see recovered revenue as urgent",
+        "No paid pilot closes after concrete audit"
+      ]
+    },
+    {
+      "id": "opp_hvac_backoffice_automation_service",
+      "title": "HVAC Back-Office Automation Service",
+      "category": "cash_now",
+      "thesis": "Offer done-for-you automation for office and dispatch workflows such as quote follow-up, technician note processing, task routing, and owner reporting.",
+      "why_user_can_win": "The user already understands the data and workflow mess behind HVAC operations, which reduces discovery time and improves implementation quality.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 8,
+        "durability": 6,
+        "distribution_fit": 7,
+        "ai_leverage": 8,
+        "defensibility": 6,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Interview 3 owners about repetitive office bottlenecks",
+        "Package one fixed-scope automation offer",
+        "Pilot with a single workflow before broader scope"
+      ],
+      "tool_specs": [
+        "Workflow mapping template",
+        "Task automation scripts",
+        "Owner visibility dashboard"
+      ],
+      "kill_criteria": [
+        "Work is too custom across shops to repeat",
+        "Automation savings are hard to quantify"
+      ]
+    },
+    {
+      "id": "opp_hvac_service_funnel_benchmark_dashboard",
+      "title": "HVAC Service Funnel Benchmark Dashboard",
+      "category": "asset_later",
+      "thesis": "Turn implementation data into a subscription benchmark dashboard showing where a shop is leaking revenue relative to peers.",
+      "why_user_can_win": "The user can source real domain-specific metrics from early service engagements instead of inventing a generic dashboard in a vacuum.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 4,
+        "durability": 8,
+        "distribution_fit": 6,
+        "ai_leverage": 5,
+        "defensibility": 7,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Collect common metrics across first 2-3 pilots",
+        "Test whether owners care more about benchmark visibility or action workflows",
+        "Pre-sell dashboard reporting as an add-on"
+      ],
+      "tool_specs": [
+        "Normalized KPI schema",
+        "Owner dashboard",
+        "Peer benchmark reporting"
+      ],
+      "kill_criteria": [
+        "Data access is inconsistent across shops",
+        "Owners value action more than benchmarks"
+      ]
+    },
+    {
+      "id": "opp_replacement_estimate_followup_copilot",
+      "title": "Replacement Estimate Follow-Up Copilot",
+      "category": "asset_later",
+      "thesis": "Build software that tracks open replacement estimates, drafts personalized follow-ups, and shows owners where deals are going stale.",
+      "why_user_can_win": "The user can design around the real quoting and follow-up friction in HVAC rather than building a generic sales assistant.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 5,
+        "durability": 8,
+        "distribution_fit": 6,
+        "ai_leverage": 7,
+        "defensibility": 5,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Measure open-estimate aging in pilot shop",
+        "Test manual follow-up workflow first",
+        "Pre-sell daily visibility dashboard"
+      ],
+      "tool_specs": [
+        "Estimate status board",
+        "Follow-up drafting engine",
+        "Close-risk alerts"
+      ],
+      "kill_criteria": [
+        "Estimate process varies too widely to standardize early",
+        "Users only want service, not software"
+      ]
+    },
+    {
+      "id": "opp_revenue_recovery_concierge_to_saas",
+      "title": "Revenue Recovery Concierge to Micro-SaaS",
+      "category": "hybrid",
+      "thesis": "Start as a monthly revenue recovery service for missed calls, stale estimates, and lapsed memberships; automate repeatable workflows; then productize the dashboard and workflow engine into a micro-SaaS.",
+      "why_user_can_win": "This path uses the user's strongest assets at once: HVAC domain fluency, a live pilot, warm owner introductions, and the ability to build tooling after learning what repeats.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 9,
+        "durability": 9,
+        "distribution_fit": 9,
+        "ai_leverage": 8,
+        "defensibility": 8,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Pilot with brother's shop using manual exports",
+        "Close one additional paid pilot through warm intro",
+        "Track which leak category produces the clearest ROI",
+        "Automate only the highest-frequency steps"
+      ],
+      "tool_specs": [
+        "Opportunity queue for missed calls, open estimates, and lapsed memberships",
+        "CSV ingest and later system connectors",
+        "AI summaries and follow-up suggestions",
+        "Owner dashboard with dollar value, aging, and status",
+        "Weekly recovery reporting"
+      ],
+      "kill_criteria": [
+        "Fewer than 5 warm owner conversations in 2 weeks",
+        "No paid pilot after showing a leak audit",
+        "No repeatable workflow emerges after 2-3 pilots",
+        "Value is perceived as admin help rather than revenue recovery"
+      ]
+    },
+    {
+      "id": "opp_dispatcher_copilot_service_to_saas",
+      "title": "Dispatcher Copilot Service to SaaS",
+      "category": "hybrid",
+      "thesis": "Offer a dispatcher-assist service that summarizes calls, flags urgency, drafts follow-up, and tracks unbooked opportunities, then package the console as software.",
+      "why_user_can_win": "The user understands HVAC ops and can design a focused dispatcher workflow instead of selling a generic AI assistant.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 7,
+        "durability": 8,
+        "distribution_fit": 8,
+        "ai_leverage": 9,
+        "defensibility": 6,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Shadow intake workflow in pilot shop",
+        "Measure missed booking and callback rates",
+        "Offer manual dispatcher support before software"
+      ],
+      "tool_specs": [
+        "Call summary feed",
+        "Urgency tagging",
+        "Follow-up task queue",
+        "Booking visibility dashboard"
+      ],
+      "kill_criteria": [
+        "Owners resist using AI in live customer communication",
+        "Operational gains are too hard to prove"
+      ]
+    }
+  ],
+  "best_bet": "opp_revenue_recovery_concierge_to_saas",
+  "next_actions": [
+    "Interview brother and map top revenue leaks",
+    "Run a manual audit on his shop data",
+    "Create a one-page offer for a revenue recovery sprint",
+    "Use brother's network for 5 warm owner conversations",
+    "Close one paid pilot before building product"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response selects an audience-led validation motion that fits the user's constraints and opportunity type.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:3-8` selects an audience pre-sell for a paid template bundle plus benchmark pack and states the core risk is willingness to pay for a productized asset, not access or trust. `outputs/report.md:43-47` explicitly asks for completed checkout or pre-order payment and says the offer is a product, not a service. This matches the prompt's constraints of avoiding services and using an existing trusted newsletter audience. The same recommendation is mirrored in `outputs/result.json:2-8`."
+    },
+    {
+      "text": "Response uses numeric thresholds tied to funnel quality, such as segmented send response, preorder attempts, or paid conversions, rather than vanity signups alone.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:95-109` sets decision-grade numeric thresholds tied to quality signals: at least 2 completed purchases, at least 1 buyer citing the benchmarks as a purchase driver, and a 20 percent click-to-interest rate from the segmented send where interest is checkout start, buying-question reply, or purchase. `outputs/report.md:113-120` adds numeric kill thresholds of 0 purchases after 2 segmented sends and fewer than 5 qualified buyer conversations or replies. These are materially stronger than vanity signups. The same thresholds appear in `outputs/result.json:18-39`."
+    },
+    {
+      "text": "Response briefly explains why a lower-signal alternative, such as service pilots or generic interviews, is weaker for this case.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:122-127` explicitly contrasts the chosen motion with lower-signal alternatives: a poll, waitlist, or 'would you buy this?' survey. It explains these are weaker because the user already has trust and direct audience access, so asking for money is feasible and soft engagement would create false positives and delay the real decision. The output does not use the exact examples 'service pilots' or 'generic interviews', but it does substantively explain why a lower-signal alternative is weaker in this case."
+    },
+    {
+      "text": "Response includes go, revise, and kill thresholds with numeric cutoffs.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:95-105` gives numeric `Go` and `Revise` thresholds, including 2 completed purchases within 7 days, 1 buyer citing benchmarks as a purchase reason, 20 percent click-to-interest, and `Revise` if there is only 1 purchase. `outputs/report.md:113-116` gives numeric `Kill` thresholds: 0 completed purchases after 2 segmented sends and fewer than 5 qualified buyer conversations or replies. Matching structured thresholds also appear in `outputs/result.json:18-29`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Transcript did not expose detailed tool-by-tool execution data.",
+      "timing.json reported zero tokens and zero duration, so runtime metrics were unavailable."
+    ],
+    "output_chars": 9991
+  },
+  "claims": [
+    {
+      "claim": "The user already has audience trust.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json:4`, which states the user 'already has audience trust.' The output relies on that premise in `outputs/report.md:6-8` and `outputs/report.md:125-126`."
+    },
+    {
+      "claim": "The offer should be tested as a product, not a service.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The prompt in `eval_metadata.json:4` says the user wants to avoid services. The recommendation consistently preserves that constraint in `outputs/report.md:43-47`, `outputs/report.md:67-70`, and `outputs/report.md:117-120`, all of which reject service creep or bespoke work."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 3 to require a comparison against service-based validation specifically, since the prompt says the user wants to avoid services and the current wording allows a pass via discussion of polls or waitlists alone.",
+      "Add assertion: 'Response recommends a specific paid product wedge aligned to the prompt, including both the template and benchmark components' because that important output quality is visible in `report.md` but not directly checked.",
+      "Add assertion: 'Response protects against service creep or custom-work dependence' because the output repeatedly treats this as decision-critical, but the current eval set does not verify it."
+    ],
+    "overall": "The current assertions discriminate reasonably well on validation motion and threshold quality, but coverage is incomplete around the prompt's strongest constraint: avoiding services. All 4 assertions passed, and the run produced substantive, decision-oriented thresholds rather than generic advice."
+  }
+}

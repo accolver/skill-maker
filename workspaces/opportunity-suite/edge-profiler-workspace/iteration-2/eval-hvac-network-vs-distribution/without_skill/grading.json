@@ -1,0 +1,57 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explains why HVAC workflow knowledge is usable edge and does not upgrade it into distribution on its own.",
+      "passed": true,
+      "evidence": "PASS based on `outputs/report.md:9-13`, which says the brother provides warm access to buyers while distribution experience gives 'domain fluency and credibility once you are in the room,' and `outputs/report.md:107-126`, which labels distribution background a 'supporting asset, not the primary channel.' `outputs/result.json:3-8` and `36-49` repeat that distribution ops experience is credibility/product insight, while the distribution-side path is secondary with clear limitations."
+    },
+    {
+      "text": "Response classifies the brother's introductions as limited warm access or network access rather than durable owned distribution.",
+      "passed": false,
+      "evidence": "FAIL because the response repeatedly upgrades the brother's introductions into distribution language instead of explicitly framing them as limited network access. `outputs/report.md:19-21` says the introductions are 'immediate distribution,' and `outputs/report.md:135-139` says the setup provides 'warm distribution.' Although the content describes warm introductions, it does not clearly distinguish them from durable owned distribution."
+    },
+    {
+      "text": "Response explicitly separates audience, network access, and monetizable distribution instead of merging them.",
+      "passed": false,
+      "evidence": "FAIL because the response mentions 'no audience' in `outputs/report.md:19-21`, but then merges the brother's introductions into distribution language rather than explicitly separating network access from monetizable distribution. `outputs/report.md:19-21` calls the introductions 'immediate distribution,' and `outputs/report.md:135-139` lists 'warm distribution' as one of the three assets. `outputs/result.json` also lacks any explicit field or explanation separating audience, network access, and owned distribution."
+    },
+    {
+      "text": "Structured JSON uses the reusable profile contract with user_profile, usable_edge, restricted_or_unusable_edge, fake_or_overstated_edge, weak_spots, follow_up_questions, and confidence_notes.",
+      "passed": false,
+      "evidence": "FAIL because `outputs/result.json:1-50` uses a custom schema with keys such as `recommended_path`, `summary`, `rationale`, `best_initial_customer_profile`, `priority_problem_areas`, and `distribution_network_role`. None of the required contract keys (`user_profile`, `usable_edge`, `restricted_or_unusable_edge`, `fake_or_overstated_edge`, `weak_spots`, `follow_up_questions`, `confidence_notes`) are present."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 3,
+    "total": 4,
+    "pass_rate": 0.25
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not available, so execution steps and tool usage could not be reconstructed."
+    ],
+    "output_chars": 7979
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:4` states both files were written, and both `outputs/report.md` and `outputs/result.json` exist and contain substantive content."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 1 by naming the exact concepts that must appear, because 'usable edge' and 'does not upgrade it into distribution' leave room for subjective interpretation.",
+      "Keep assertion 2 separate from assertion 3, but require explicit terminology like 'warm access', 'network access', or 'not owned distribution' so the grading hinge is objective.",
+      "Add an assertion that the written report and JSON must agree on the classification; this run's prose and JSON are aligned, but the eval does not currently check cross-output consistency.",
+      "Add an assertion about avoiding contradictory phrasing such as calling introductions 'distribution' after distinguishing them from owned distribution, since that contradiction is the main failure mode here."
+    ],
+    "overall": "The eval is directionally good and discriminates this run, but assertions 1-3 still overlap and rely on nuanced interpretation of edge versus distribution language. The JSON contract assertion is strong; the conceptual assertions would be more reliable if they required explicit terminology and checked for contradictions across the response."
+  }
+}

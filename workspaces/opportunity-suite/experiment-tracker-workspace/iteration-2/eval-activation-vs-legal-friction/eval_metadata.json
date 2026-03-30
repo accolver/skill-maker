@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "activation-vs-legal-friction",
+  "prompt": "Experiment log: 30 founder interviews, 12 say the pain is severe, 5 ask for a demo, 2 start trials, 0 activate, 1 says legal blocked data sharing, and 1 says onboarding was confusing. Summarize the state and recommend the next experiment.",
+  "assertions": [
+    "Response identifies one dominant uncertainty, such as activation or legal friction, rather than trying to optimize everything at once.",
+    "Response distinguishes pain signal from activation or conversion signal.",
+    "Response uses exactly one decision state and exactly one next experiment.",
+    "Response includes valid JSON matching assets/experiment-log-template.json."
+  ]
+}

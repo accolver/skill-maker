@@ -1,0 +1,51 @@
+{
+  "recommended_opportunity": {
+    "name": "AI-assisted compliance documentation and mock-exam readiness service for small financial firms",
+    "type": "productized service",
+    "target_customers": [
+      "small RIAs",
+      "small broker-dealer affiliated offices",
+      "hybrid firms with limited in-house compliance bandwidth",
+      "newly launched or breakaway firms"
+    ],
+    "core_offer": "Compliance Documentation Tune-Up + Mock Exam Pack",
+    "why_this_fits": [
+      "matches existing compliance domain expertise",
+      "can be sold through warm contacts and referrals",
+      "works within 8 to 10 hours per week",
+      "does not require content creation",
+      "AI can accelerate drafting, gap analysis, summarization, and evidence organization"
+    ],
+    "ai_uses": [
+      "draft policy and procedure updates",
+      "compare documents against internal checklists",
+      "generate request lists and testing plans",
+      "summarize meetings into action items",
+      "organize exam-readiness folders and evidence trackers",
+      "draft remediation memos for human review"
+    ],
+    "legal_guardrails": [
+      "do not market the service as legal advice unless licensed",
+      "do not act as outsourced CCO or supervisor unless intentionally and legally engaged for that role",
+      "review all AI outputs before delivery",
+      "do not promise regulatory outcomes",
+      "use clear engagement letters with scope and limits",
+      "refer legal interpretation questions to securities counsel",
+      "maintain confidentiality and AI vendor diligence",
+      "minimize sensitive data exposure and prefer redaction"
+    ],
+    "go_to_market": [
+      "warm-contact outreach",
+      "fixed-fee pilot projects",
+      "referrals from attorneys and adjacent providers",
+      "private demos using sanitized examples"
+    ],
+    "primary_risks": [
+      "scope creep into bespoke consulting or legal advice",
+      "clients expecting full ownership of implementation",
+      "unsafe handling of sensitive materials in AI tools",
+      "taking on high-mess clients with poor economics"
+    ],
+    "bottom_line": "This is the strongest fit because it combines high trust, clear pain, low marketing dependence, and strong AI leverage while staying on the conservative side of legal positioning."
+  }
+}

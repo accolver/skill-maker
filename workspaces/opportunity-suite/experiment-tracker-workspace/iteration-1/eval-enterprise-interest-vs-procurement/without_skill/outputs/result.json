@@ -1,0 +1,27 @@
+{
+  "experiment": "enterprise-interest-vs-procurement",
+  "inputs": {
+    "enterprise_conversations": 20,
+    "summary": "Strong enterprise interest, but no commitment to a pilot because security review and procurement would take months."
+  },
+  "state": {
+    "interest_signal": "strong",
+    "pilot_commitment_signal": "none",
+    "primary_bottleneck": "security review and procurement delays",
+    "interpretation": "Demand appears real, but the current path to pilot is too high-friction for enterprise buyers."
+  },
+  "recommendation": {
+    "next_experiment": "Test a lower-friction evaluation or pilot path that reduces or defers security and procurement burden.",
+    "example_variants": [
+      "Sandbox or self-serve evaluation with no production data",
+      "Design-partner offer below common procurement thresholds",
+      "Security-ready package to shorten review time"
+    ],
+    "success_metrics": [
+      "Interested-to-evaluation conversion rate",
+      "Time from first conversation to evaluation start",
+      "Count of prospects willing to enter the new path",
+      "Breakdown of blockers: security, procurement, budget, ownership"
+    ]
+  }
+}

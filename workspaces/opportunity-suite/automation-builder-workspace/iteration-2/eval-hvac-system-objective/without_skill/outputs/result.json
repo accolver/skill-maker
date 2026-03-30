@@ -1,0 +1,64 @@
+{
+  "title": "HVAC missed-call recovery tool",
+  "objective": "Turn one missed-call event into one operator review step and one owner-facing output.",
+  "artifacts": {
+    "report": "/home/alan/dev/ai/skills/automation-builder-workspace/iteration-2/eval-hvac-system-objective/without_skill/outputs/report.md"
+  },
+  "workflow": {
+    "input_count": 1,
+    "review_steps": 1,
+    "output_count": 1,
+    "steps": [
+      {
+        "name": "Receive missed-call event",
+        "type": "input",
+        "description": "Accept a single missed-call event from the phone system and validate required fields."
+      },
+      {
+        "name": "Operator review",
+        "type": "human_review",
+        "description": "Present the missed call to an operator for classification and follow-up decision."
+      },
+      {
+        "name": "Generate owner summary",
+        "type": "output",
+        "description": "Create a concise owner-facing summary describing the call and operator action."
+      }
+    ]
+  },
+  "input_schema": {
+    "required": [
+      "call_id",
+      "caller_phone",
+      "call_time"
+    ],
+    "optional": [
+      "line_name",
+      "service_area",
+      "caller_name",
+      "voicemail_summary",
+      "transcript"
+    ]
+  },
+  "operator_actions": [
+    "callback_now",
+    "callback_later",
+    "not_a_lead",
+    "duplicate"
+  ],
+  "owner_output_fields": [
+    "missed_call_time",
+    "caller_identity",
+    "operator_decision",
+    "operator_note",
+    "follow_up_status",
+    "urgency_flag"
+  ],
+  "acceptance_criteria": [
+    "A valid missed-call event creates one review item.",
+    "An operator can review and classify the item in one step.",
+    "Completing review generates one owner-facing summary.",
+    "Duplicate call_id events do not create extra review items.",
+    "The system records timestamps for intake, review, and output generation."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "validation_thesis": "Run an audience pre-sell for a niche template bundle paired with a benchmark pack to test whether a trusted newsletter audience will pay for a productized asset without any service layer.",
+  "key_unknowns": [
+    "Primary: willingness to pay for a productized template + benchmark offer",
+    "Secondary: whether the template, the benchmark pack, or the combined bundle is the strongest wedge",
+    "Secondary: whether demand supports a meaningful starting price"
+  ],
+  "motion": "Audience pre-sell with completed checkout or pre-order as the primary commitment signal",
+  "day_by_day_plan": [
+    "Day 1: Choose one narrow audience job-to-be-done, define a single paid offer, and publish a simple pre-order page with price and delivery date.",
+    "Day 2: Send a segmented newsletter pitch asking for completed checkout or pre-order payment.",
+    "Day 3: Follow up with clickers and responders, then categorize objections into price, scope, or credibility.",
+    "Day 4: Run a second pass with one changed variable: headline, price, or promise.",
+    "Day 5: Collect onboarding inputs from early buyers to confirm repeatable delivery without custom service creep.",
+    "Day 6: Review conversion metrics and determine whether demand centers on templates, benchmarks, or the bundle.",
+    "Day 7: Make a go, revise, or kill decision based on purchases and objection patterns."
+  ],
+  "success_criteria": [
+    "Go: 2 or more completed purchases within 7 days",
+    "Go: at least 1 buyer cites the benchmarks/examples as a key reason to buy",
+    "Go: 20 percent or better click-to-interest rate from the segmented send",
+    "Revise: 1 purchase with multiple high-intent replies indicating a narrower scope or different price",
+    "Revise: demand clusters around one component of the bundle rather than the full offer"
+  ],
+  "kill_criteria": [
+    "Kill: 0 completed purchases after 2 segmented sends",
+    "Kill: fewer than 5 qualified buyer replies or conversations after the campaign",
+    "Kill: all serious prospects ask for bespoke service rather than the product",
+    "Kill: closing buyers requires promising custom work that breaks the product wedge"
+  ],
+  "evidence_to_capture": [
+    "Recipients reached in the relevant segment",
+    "Clicks to the offer page",
+    "Checkout starts",
+    "Completed purchases",
+    "Buyer replies explaining why they bought",
+    "Non-buyer objections grouped by price, scope, and credibility",
+    "Signals of product demand versus service demand"
+  ]
+}

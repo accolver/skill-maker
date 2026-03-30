@@ -1,0 +1,71 @@
+{
+  "user_profile": {
+    "skills": [
+      "software development",
+      "workflow automation",
+      "operations analysis"
+    ],
+    "domain_experience": [
+      "8 years in HVAC distribution operations",
+      "adjacent familiarity with local HVAC service business operations"
+    ],
+    "assets": [
+      "ability to build software and automations",
+      "family access to a local HVAC service owner"
+    ],
+    "distribution": [
+      "no owned audience",
+      "potential warm introductions to HVAC owners through brother"
+    ],
+    "network_access": [
+      "brother can introduce user to local HVAC service owners"
+    ],
+    "constraints": [
+      "no existing audience",
+      "warm introductions are not yet proven repeatable distribution",
+      "cannot assume former employer data or relationships are reusable"
+    ],
+    "credibility_signals": [
+      "8 years of HVAC distribution ops experience",
+      "technical ability to build custom software and automations"
+    ],
+    "unfair_advantages": [
+      "combination of HVAC operational context and hands-on technical building ability",
+      "family-based path to early owner conversations"
+    ]
+  },
+  "usable_edge": [
+    "real HVAC distribution operational familiarity",
+    "ability to ship software and automations without external developers",
+    "warm path to initial owner interviews and pilots through brother"
+  ],
+  "restricted_or_unusable_edge": [
+    "any confidential knowledge, pricing, customer data, or internal processes from prior distribution employers",
+    "brother's business goodwill beyond the introductions he is personally willing to make"
+  ],
+  "fake_or_overstated_edge": [
+    "brother-led introductions counted as durable distribution",
+    "domain experience alone counted as moat",
+    "technical skill alone counted as go-to-market advantage"
+  ],
+  "weak_spots": [
+    "no owned audience or inbound demand channel",
+    "buyer access quality is unproven beyond family introductions",
+    "unclear best initial buyer and workflow wedge",
+    "unclear whether the intended model is service, productized service, or SaaS"
+  ],
+  "follow_up_questions": [
+    "How many owner introductions are realistically available in the near term?",
+    "What type and size of HVAC businesses are in that network?",
+    "Which relationships from the user's past are personally owned and legally usable?",
+    "Which HVAC workflows does the user understand deeply enough to improve immediately?",
+    "Does the user prefer a service-led wedge or a product-first wedge?"
+  ],
+  "confidence_notes": [
+    "high: HVAC distribution operations experience is directly stated",
+    "high: ability to build software and automations is directly stated",
+    "medium: owner access exists through brother, but scale and buyer quality are not yet known",
+    "medium: HVAC service workflow familiarity is implied through family adjacency, not directly evidenced in detail",
+    "low: exact monetizable wedge is still unclear without follow-up"
+  ]
+}

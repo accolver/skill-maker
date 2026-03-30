@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not force a build-now SaaS verdict without repeated workflow evidence.",
+      "passed": true,
+      "evidence": "`outputs/report.md:5-10` says 'Do not commit to building software yet' and frames software as 'a hypothesis to test'; `outputs/report.md:34-42` says 'Do not build a full micro-SaaS' and only justify SaaS if repeated behavior and recurring value become obvious. `outputs/result.json:2-4` also says `do_not_build_full_software_yet` and notes there is not enough evidence of a repeated, painful workflow."
+    },
+    {
+      "text": "Response explains what evidence would justify productization later.",
+      "passed": true,
+      "evidence": "`outputs/report.md:44-55` lists concrete missing evidence for later productization, including frequent repeated workflow, time sensitivity, error-proneness, messy manual workarounds, and recurring pricing support. `outputs/report.md:94-100` gives a decision rule for when to build. `outputs/result.json:11-21` mirrors this with `missing_evidence` and `safe_next_steps`."
+    },
+    {
+      "text": "Response includes what not to build yet.",
+      "passed": true,
+      "evidence": "`outputs/report.md:71-76` explicitly lists near-term scope to avoid: multi-feature practice management software, CRM-style therapist operations suite, scheduling/billing/EHR/compliance-heavy systems, and broad workflow automation without proven repeated usage."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid structured JSON with 8 top-level keys: `decision`, `summary`, `recommendation`, `rationale`, `missing_evidence`, `safe_next_steps`, `scope_now`, and `confidence`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 5179
+  },
+  "claims": [
+    {
+      "claim": "There is already a paid benchmark/template product.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:16-18` states this as one of the prompt facts, and `eval_metadata.json:4` says the user has 'a paid benchmark/template product'."
+    },
+    {
+      "claim": "There is little evidence that a software workflow is repeatedly painful.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:18-19` cites this as a prompt fact, and `eval_metadata.json:4` says there is 'little evidence that a software workflow is repeatedly painful yet'."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen 'Response includes structured JSON' to require specific fields such as decision, missing_evidence, and safe_next_steps; the current assertion passes on any valid JSON blob.",
+      "Add assertion: 'Response recommends a concrete validation path before building software' to distinguish cautious but vague answers from actionable ones.",
+      "Add assertion: 'Response distinguishes information-product demand from software-demand evidence' because that is a core reasoning step visible in strong outputs but not directly checked."
+    ],
+    "overall": "This assertion set captures the main decision well and all four assertions are substantively satisfied in this run. The main gap is that structure and actionability are under-specified: a weaker answer could still pass by avoiding SaaS and emitting generic JSON."
+  }
+}

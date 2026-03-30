@@ -1,0 +1,118 @@
+{
+  "task": "Best bet: enterprise procurement analytics product for Fortune 500 teams. User has one weak second-degree intro, no product, and wants a 7-day validation plan with numeric goals.",
+  "best_bet": {
+    "segment": "Fortune 500 procurement and strategic sourcing teams",
+    "wedge": "manual savings-discovery and compliance-leakage analysis for indirect spend categories",
+    "positioning": "Help enterprise procurement teams identify overlooked savings and compliance leakage faster than current BI or consulting workflows."
+  },
+  "constraints": {
+    "product": false,
+    "warm_intro_strength": "weak second-degree intro",
+    "time_horizon_days": 7
+  },
+  "numeric_goals": {
+    "target_contacts_min": 35,
+    "target_contacts_max": 50,
+    "target_accounts_min": 15,
+    "target_accounts_max": 20,
+    "warm_intro_attempts_min": 1,
+    "warm_intro_attempts_max": 2,
+    "interviews_booked_min": 4,
+    "interviews_completed_min": 3,
+    "repeated_pain_threshold": 2,
+    "follow_up_meetings_min": 2,
+    "artifact_requests_min": 3,
+    "artifacts_received_min": 1,
+    "disqualifying_outreach_threshold": 50,
+    "disqualifying_booked_interviews_threshold": 2
+  },
+  "daily_plan": [
+    {
+      "day": 1,
+      "focus": "Build target list and messaging",
+      "goals": {
+        "accounts_researched": 15,
+        "contacts_identified": 35,
+        "intro_requests_sent": 1
+      }
+    },
+    {
+      "day": 2,
+      "focus": "Launch first outreach wave",
+      "goals": {
+        "outbound_messages_min": 20,
+        "outbound_messages_max": 25,
+        "reply_target": 3,
+        "meetings_booked_min": 1,
+        "meetings_booked_max": 2
+      }
+    },
+    {
+      "day": 3,
+      "focus": "Follow up and widen slightly",
+      "goals": {
+        "cumulative_outbound_min": 35,
+        "cumulative_outbound_max": 50,
+        "cumulative_positive_replies": 4,
+        "cumulative_interviews_booked_min": 2,
+        "cumulative_interviews_booked_max": 4
+      }
+    },
+    {
+      "day": 4,
+      "focus": "Run first interviews",
+      "goals": {
+        "interviews_completed": 2,
+        "pain_statements_captured": 2,
+        "artifact_requests": 1
+      }
+    },
+    {
+      "day": 5,
+      "focus": "Test manual audit offer",
+      "goals": {
+        "one_page_offer_created": 1,
+        "audit_offers_sent": 2,
+        "second_meetings_booked": 1
+      }
+    },
+    {
+      "day": 6,
+      "focus": "Pressure-test urgency",
+      "goals": {
+        "total_interviews_completed_min": 3,
+        "prospects_with_clear_next_step": 2,
+        "artifacts_received_min": 1
+      }
+    },
+    {
+      "day": 7,
+      "focus": "Decision review",
+      "goals": {
+        "go_deeper_if_booked_interviews_min": 4,
+        "go_deeper_if_completed_interviews_min": 3,
+        "go_deeper_if_repeated_pains_min": 2,
+        "go_deeper_if_follow_up_conversations_min": 2
+      }
+    }
+  ],
+  "decision_thresholds": {
+    "strong_validation": {
+      "booked_interviews_min": 4,
+      "completed_interviews_min": 3,
+      "repeated_pains_min": 2,
+      "follow_up_interest_min": 2,
+      "artifacts_received_min": 1
+    },
+    "moderate_validation": {
+      "booked_interviews_min": 2,
+      "booked_interviews_max": 3
+    },
+    "weak_validation": {
+      "booked_interviews_lt": 2,
+      "after_targeted_outreach_min": 35
+    }
+  },
+  "recommended_status_if_goals_met": "Proceed with the indirect-spend savings-discovery wedge and design a manual pilot around one category.",
+  "recommended_status_if_goals_missed": "Reconsider the wedge, buyer title, or spend category before building product."
+}

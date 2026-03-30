@@ -1,0 +1,54 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly states that normal demand validation is premature because a prerequisite gap blocks it.",
+      "passed": true,
+      "evidence": "`outputs/report.md:3-7` says the opportunity is `no_go` because the user lacks `edge, time, and distribution` and explicitly states, `The immediate goal is not to validate end-demand for the business.` `outputs/report.md:77-78` also says to keep the opportunity in `no_go` status until a prerequisite changes. The same position is repeated in `outputs/result.json:2`."
+    },
+    {
+      "text": "Response gives a bounded edge-building or constraint-change plan with measurable milestones that would justify re-running validation later.",
+      "passed": true,
+      "evidence": "`outputs/report.md:24-78` provides a bounded `7-Day Plan` with concrete daily actions. `outputs/report.md:80-106` defines measurable revisit criteria including `5+ qualified conversations`, `4+ hours/week` protected, `2` concrete next-step commitments or `1` repeatable channel source, plus revise and kill thresholds. The same milestones are captured structurally in `outputs/result.json:8-35`."
+    },
+    {
+      "text": "Response avoids pretending the current idea is ready for standard validation activity.",
+      "passed": true,
+      "evidence": "The response consistently frames the idea as not ready for standard validation now. `outputs/report.md:3-7` says this is a `no_go` opportunity today, `outputs/report.md:110-115` rejects `generic idea interviews or content posting` as lower-signal alternatives, and `outputs/report.md:77-78` says to keep the broader opportunity in `no_go` status unless a prerequisite changes."
+    },
+    {
+      "text": "Response includes numeric revisit thresholds and structured JSON.",
+      "passed": true,
+      "evidence": "Numeric thresholds appear throughout the response, including `7 days`, `4 hours/week`, `20` prospects, `5` connectors, `5+` qualified conversations, `2` next-step commitments, and kill criteria in `outputs/report.md:24-106`. The response also includes a fenced JSON block at `outputs/report.md:117-157`, and the same content is delivered as valid structured JSON in `outputs/result.json:1-37`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 10140
+  },
+  "claims": [
+    {
+      "claim": "Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript completion note at `transcript.md:4` states both files were written, and both files exist in `outputs/` with substantive content: `outputs/report.md` and `outputs/result.json`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Split assertion 4 into two assertions: one for numeric revisit thresholds and one for valid structured JSON. It currently bundles two distinct checks into a single pass/fail outcome.",
+      "Strengthen the suite with an assertion that the plan includes explicit kill criteria or a condition for keeping the idea in `no_go` status; that is a central outcome in this run but is not directly tested.",
+      "Assertions 1 and 3 overlap materially because both check that the response rejects premature validation. Tightening one to focus on the specific blocked prerequisite set or downstream consequence would make the suite more discriminating."
+    ],
+    "overall": "This assertion set discriminates reasonably well for the no-go framing and presence of a measurable plan, but it has some overlap and under-specifies important output qualities like explicit kill criteria and concrete evidence capture requirements."
+  }
+}

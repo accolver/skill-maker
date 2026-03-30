@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explains why HVAC workflow knowledge is usable edge and does not upgrade it into distribution on its own.",
+      "passed": true,
+      "evidence": "PASS because the response treats HVAC background as a useful asset without treating it as distribution. `outputs/report.md:39-42` says the distribution background gives `useful domain knowledge` but those contacts are `less likely to be the end buyer`; `outputs/report.md:143-145` says to use the background as `supporting credibility, discovery context, and later referral leverage, but not as the main first go-to-market path.` `outputs/result.json:5-6` mirrors this with `secondary_asset: \"hvac_distribution_background\"` and says to use distribution experience as `credibility and context, but not as the first go-to-market channel.`"
+    },
+    {
+      "text": "Response classifies the brother's introductions as limited warm access or network access rather than durable owned distribution.",
+      "passed": false,
+      "evidence": "FAIL because the response does call the brother path a `warm intro path` (`outputs/report.md:15-19`) and mentions `family-level access to trusted owner introductions` (`outputs/report.md:132-134`), but it never explicitly makes the crucial semantic distinction that this is limited network access rather than durable owned distribution. No output uses language equivalent to `not owned distribution`, `limited access`, or `indirect network access` for the brother channel."
+    },
+    {
+      "text": "Response explicitly separates audience, network access, and monetizable distribution instead of merging them.",
+      "passed": false,
+      "evidence": "FAIL because the response compares owner introductions with distribution relationships, but it never explicitly separates all three categories the assertion requires: audience, network access, and monetizable distribution. The user's lack of audience is not discussed at all in either output, and there is no explicit framework distinguishing audience from network from owned distribution. See `outputs/report.md:5-11`, `outputs/report.md:141-145`, and `outputs/result.json:3-7`."
+    },
+    {
+      "text": "Structured JSON mirrors the same judgment: usable edge includes domain knowledge, owned distribution remains absent, and network access is limited or indirect.",
+      "passed": false,
+      "evidence": "FAIL because the JSON only partially mirrors the intended judgment. It does encode domain knowledge as a secondary asset via `secondary_asset: \"hvac_distribution_background\"` (`outputs/result.json:4-6`), but it does not say owned distribution is absent, and it does not classify the brother channel as limited or indirect network access. Instead it elevates it to `primary_channel: \"brother_owner_network\"` without the required qualification."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 3,
+    "total": 4,
+    "pass_rate": 0.25
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [],
+    "output_chars": 7134
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states this at `transcript.md:4`, and both files exist in `outputs/` with substantive content: `outputs/report.md` (154 lines) and `outputs/result.json` (38 lines)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 1 by replacing `usable edge` with concrete language such as `treats HVAC distribution experience as domain credibility/context rather than owned distribution`.",
+      "Keep assertion 2, but specify the exact expected phrasing or JSON fields for `limited warm access`, `indirect network access`, and `not owned distribution` so grading is less interpretive.",
+      "Assertion 3 is good coverage but should require an explicit mention that the user has no audience; otherwise many responses can discuss channels without addressing the audience/network/distribution taxonomy.",
+      "Assertion 4 should require explicit structured fields for `audience`, `network_access`, and `owned_distribution` to make semantic mirroring objectively checkable in JSON."
+    ],
+    "overall": "The eval targets an important distinction, but only one assertion is currently easy to verify from natural-language outputs. The remaining assertions depend on a specific taxonomy that the run did not explicitly encode, so the suite would be more discriminating if it required exact conceptual labels in both prose and structured JSON."
+  }
+}

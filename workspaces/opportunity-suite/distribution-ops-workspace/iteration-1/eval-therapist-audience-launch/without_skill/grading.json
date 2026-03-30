@@ -1,0 +1,48 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response chooses the owned audience as the primary channel.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:40-56` explicitly labels `Newsletter-Owned Launch` as the first and primary strategy and says to `Make the newsletter the primary sales channel because trust already exists there.` `outputs/result.json:7-18` also ranks `owned newsletter launch` with `priority: 1`."
+    },
+    {
+      "text": "Response includes concrete launch assets or sequence steps.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:46-55` gives a concrete 4-email sequence with the purpose of each email, `outputs/report.md:118-126` lists launch assets such as a sales page, survey form, webinar deck, partner promo kit, and social snippets, and `outputs/result.json:12-17,66-72,94-99` includes channel tactics, funnel steps, and a week-by-week execution timeline."
+    },
+    {
+      "text": "Response includes numeric metrics and kill criteria.",
+      "passed": false,
+      "evidence": "FAIL: The response includes some numeric content such as a `$79 to $199` price band in `outputs/report.md:22-23`, a `20-30 minute` webinar in `outputs/report.md:75-80`, and `recommended_range_usd` in `outputs/result.json:73-79`, but it does not define any numeric success targets or any kill criteria / stop conditions. `outputs/report.md:149-156` lists metric names only, with no thresholds."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json:1-100` is valid structured JSON with nested objects and arrays for `product`, `primary_channels`, `secondary_channels`, `funnel`, `pricing`, `key_messages`, `success_metrics`, and `execution_timeline`."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 10325
+  },
+  "claims": [],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Split `Response includes numeric metrics and kill criteria.` into two assertions so numeric detail and stop conditions are graded independently.",
+      "Add an assertion for therapist-specific positioning or audience fit; the outputs repeatedly tailor the offer to therapists, but the eval does not check that core requirement.",
+      "Add an assertion for concrete launch sequencing across time or funnel stages if execution readiness matters, since the current asset/steps assertion could pass with a much thinner plan.",
+      "Strengthen the JSON assertion to require key fields or schema elements, because any non-trivial JSON blob could satisfy the current wording even if it omitted the actual channel plan."
+    ],
+    "overall": "The assertion set covers channel choice, presence of execution detail, kill-criteria rigor, and JSON output format, but it misses audience specificity and does not distinguish between named metrics and actionable thresholds. 1 of 4 assertions is currently doing double duty by bundling two separate requirements."
+  }
+}

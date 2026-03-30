@@ -1,0 +1,72 @@
+{
+  "offer_name": "Warm Contact Note-Prep Sprint",
+  "category": "AI-assisted administrative support for solo insurance agents",
+  "target_buyer": {
+    "segment": "solo insurance agents",
+    "constraints": [
+      "only 5 hours a week available",
+      "has warm contacts rather than needing cold lead generation",
+      "must avoid licensed-advice framing"
+    ]
+  },
+  "core_problem": "Agents lose time converting scattered warm-contact context into usable call prep and follow-up materials.",
+  "primary_outcome": "Save 2 to 4 hours per week through faster meeting prep and follow-up consistency.",
+  "offer_format": {
+    "type": "productized service",
+    "duration": "2 weeks",
+    "estimated_delivery_time_hours": 5
+  },
+  "deliverables": [
+    "workflow intake and boundary setup",
+    "1 AI-assisted note-prep workflow",
+    "3 reusable prompt templates",
+    "10 done-for-you note-prep packs for real warm contacts",
+    "1 SOP for self-service reuse",
+    "1 revision round"
+  ],
+  "note_prep_pack_contents": [
+    "contact snapshot from source material",
+    "missing-information checklist",
+    "non-advisory discovery questions",
+    "meeting objective options",
+    "agent-reviewed follow-up draft"
+  ],
+  "positioning": {
+    "safe_language": [
+      "meeting preparation support",
+      "administrative AI workflow setup",
+      "drafting support for agent-reviewed communications",
+      "organization of existing client and prospect information"
+    ],
+    "avoid_language": [
+      "automated recommendations",
+      "best coverage suggestions",
+      "client-specific insurance guidance",
+      "close more policies with AI advice"
+    ]
+  },
+  "exclusions": [
+    "policy recommendations",
+    "carrier comparisons",
+    "suitability judgments",
+    "coverage interpretations",
+    "binding, quoting, or application decisions",
+    "direct consumer advice"
+  ],
+  "pricing": {
+    "recommended_start_price_usd": 400,
+    "range_usd": [
+      300,
+      500
+    ],
+    "model": "one-time sprint"
+  },
+  "sales_angle": "Lead with time saved and more consistent follow-up for existing warm contacts.",
+  "validation_plan": [
+    "sell manually to 2 to 3 agents",
+    "measure time saved per contact",
+    "track turnaround time",
+    "capture compliance and scope objections",
+    "identify highest-value deliverable for future iteration"
+  ]
+}

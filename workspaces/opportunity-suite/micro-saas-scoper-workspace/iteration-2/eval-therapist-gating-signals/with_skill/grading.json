@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not force build_now without repeated workflow evidence.",
+      "passed": true,
+      "evidence": "PASS: `report.md:1-13` gives the verdict `stay_manual_for_now` and explicitly says `this is not yet strong evidence for a software build` because the missing signal is `repeated workflow pain`. `result.json:2` also sets `readiness_verdict` to `stay_manual_for_now`."
+    },
+    {
+      "text": "If verdict is not build_now, response lists 3 concrete gating signals that would flip the verdict later.",
+      "passed": false,
+      "evidence": "FAIL: The run does not clearly list 3 separate gating signals. `report.md:24-26` mentions one `productization trigger`, and `result.json:26` compresses the flip condition into one combined sentence about repeated struggle, recurring inputs/outputs, and willingness to pay. Those are not presented as 3 explicitly listed gating signals."
+    },
+    {
+      "text": "Response includes at least 3 do_not_build_yet items.",
+      "passed": true,
+      "evidence": "PASS: `report.md:55-63` lists 6 `Do Not Build Yet` items, including `A broad practice-management platform`, `Multi-user collaboration for staff, consultants, and admins`, and `EHR, billing, scheduling, or CRM integrations`. `result.json:27-34` also contains 6 `do_not_build_yet` entries."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/micro-saas-scope-template.json.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid JSON and contains the same top-level structure as `assets/micro-saas-scope-template.json`: `readiness_verdict`, `product_wedge` with `primary_user`/`job_to_be_done`/`core_workflow`, `manual_work`, `automated_first`, `mvp_boundary`, `productization_trigger`, and `do_not_build_yet`. A `jq` validation confirmed the required object/array structure."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 6249
+  },
+  "claims": [
+    {
+      "claim": "The audience is real and reachable because there is already a niche therapist buyer and a paid benchmark/template product.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json:4`, which states the user has `a niche therapist audience and a paid benchmark/template product`. The same claim appears in `report.md:5-7`."
+    },
+    {
+      "claim": "There is little evidence that a software workflow is repeatedly painful yet.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json:4`, which explicitly says there is `little evidence that a software workflow is repeatedly painful yet`. This is reflected in `report.md:9-13`."
+    },
+    {
+      "claim": "The narrowest future software wedge is a therapist workflow that turns practice inputs into a benchmarked snapshot with recommended template outputs.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The output consistently defines this wedge in `report.md:17-26` and `result.json:3-7`. This is a verifiable characterization of the proposed scope within the run outputs."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 2 by requiring a clearly labeled list of exactly 3 gating signals or distinct bullet points, since a single compound trigger sentence creates ambiguity.",
+      "Add an assertion that checks whether the gating signals are specific to the therapist benchmark/template workflow rather than generic SaaS advice.",
+      "Add an assertion that the response explains why the existing paid product validates expertise demand but not yet repeated software workflow pain, because that distinction is central to this eval and currently untested."
+    ],
+    "overall": "The assertion set is reasonably discriminating, but it under-specifies the expected format for gating signals. The current outputs make it easy to pass the non-build and JSON checks while remaining ambiguous on whether the agent actually produced 3 distinct flip conditions."
+  }
+}

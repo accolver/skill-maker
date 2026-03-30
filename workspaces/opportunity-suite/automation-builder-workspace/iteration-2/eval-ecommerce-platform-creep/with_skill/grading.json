@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response defines one primary user and one primary workflow in system_objective rather than a broad reporting platform.",
+      "passed": true,
+      "evidence": "`outputs/result.json:2-7` defines a single `system_objective` with one `primary_user` ('Solo ecommerce operator or merchant owner for a single store.') and one `trigger` ('Merchant connects one store and generates the latest daily report on demand...'). `outputs/report.md:14-17` also explicitly says the plan avoids turning the release into a collaborative analytics platform."
+    },
+    {
+      "text": "Response explicitly rejects at least 3 platform expansions as out of scope.",
+      "passed": true,
+      "evidence": "`outputs/result.json:48-54` lists five explicit platform-expansion rejections in `out_of_scope`: team collaboration/user roles, custom dashboards/report builders, alerts/notifications, multi-store/rollup reporting, and broader BI analytics. `outputs/report.md:97-104` repeats the same boundary."
+    },
+    {
+      "text": "Response includes milestones plus a real out_of_scope boundary in JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json:41-47` contains a five-item `milestones` array with concrete delivery steps. `outputs/result.json:48-54` contains a substantive `out_of_scope` array that sets real product boundaries, not placeholders or empty headings."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/build-plan-template.json.",
+      "passed": true,
+      "evidence": "`outputs/result.json` parses as valid JSON. Structural verification against `/home/alan/dev/ai/skills/automation-builder/assets/build-plan-template.json` showed identical top-level keys (`system_objective`, `components`, `inputs`, `outputs`, `integrations`, `manual_steps`, `automated_steps`, `milestones`, `out_of_scope`) and identical nested keys under `system_objective`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8684
+  },
+  "claims": [
+    {
+      "claim": "This plan avoids turning the first release into a collaborative analytics platform.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`outputs/report.md:14-17` makes this claim directly, and `outputs/result.json:48-54` substantiates it with explicit exclusions for team collaboration, custom dashboards, alerts, multi-store support, and broader BI features."
+    },
+    {
+      "claim": "Use the simplest pattern that can ship: lightweight self-serve tool with one input and one output.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`outputs/report.md:21-22` states this claim, and the rest of the plan stays narrowly scoped to one merchant, one store, one recurring daily report workflow, with no collaboration or cross-store features (`outputs/report.md:5-17`, `97-104`)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the chosen recurring merchant problem is specific and concrete, not just a generally narrow-sounding analytics use case.",
+      "Strengthen the JSON-template assertion to also check required value quality, since a structurally valid file with generic filler text would currently pass.",
+      "Add an assertion that the out_of_scope items directly address the stakeholder creep named in the prompt: collaboration, dashboards, alerts, and multi-store support."
+    ],
+    "overall": "This assertion set discriminates reasonably on scope control, but it still leaves a gap between structural compliance and product-quality compliance. The current run clearly passes all four assertions with substantive evidence. Transcript-derived execution metrics are limited because `transcript.md` explicitly says detailed tool-by-tool execution data was not exposed, and `timing.json` reports zero duration/tokens."
+  }
+}

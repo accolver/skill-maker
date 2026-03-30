@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "ecommerce-self-serve",
+  "prompt": "Build spec: lightweight self-serve ecommerce reporting utility for one recurring merchant problem. Produce the build plan.",
+  "assertions": [
+    "Response defines one primary user and one primary workflow.",
+    "Response keeps the build minimal rather than a broad reporting platform.",
+    "Response includes out-of-scope items.",
+    "Response includes structured JSON."
+  ]
+}

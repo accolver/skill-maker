@@ -1,0 +1,211 @@
+{
+  "user_profile": {
+    "skills": [
+      "data analysis",
+      "merchant reporting diagnostics",
+      "KPI design",
+      "stakeholder reporting",
+      "ecommerce analytics"
+    ],
+    "domain_experience": [
+      "senior data analyst at an ecommerce SaaS company",
+      "direct exposure to merchant reporting pain",
+      "experience translating reporting requests into practical analysis"
+    ],
+    "assets": [
+      "pattern knowledge of merchant reporting complaints",
+      "familiarity with common ecommerce reporting workflows",
+      "ability to spot trust-breaking analytics issues quickly"
+    ],
+    "distribution": [
+      "peer network useful for interviews and referrals",
+      "likely warm access to operators and analytics peers"
+    ],
+    "network_access": [
+      "mostly peers rather than founders",
+      "limited direct access to budget owners"
+    ],
+    "constraints": [
+      "does not directly own budget",
+      "uncertain whether to build micro-SaaS immediately",
+      "likely limited time outside primary job"
+    ],
+    "credibility_signals": [
+      "senior title",
+      "domain fluency in ecommerce reporting pain",
+      "practical understanding of merchant needs"
+    ],
+    "unfair_advantages": [
+      "better understanding of real merchant reporting pain than a generalist builder",
+      "can recognize recurring high-value reporting workflows quickly",
+      "can sell outcomes around trust and decision speed rather than generic dashboards"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_reporting_audit",
+      "title": "Ecommerce reporting audit plus implementation sprint",
+      "category": "cash_now",
+      "thesis": "Sell a fixed-scope audit and cleanup sprint that identifies high-cost reporting blind spots and implements a cleaner KPI pack.",
+      "why_user_can_win": "The user already knows the recurring merchant reporting failure modes and can diagnose them faster than a general consultant.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 7,
+        "durability": 4,
+        "distribution_fit": 5,
+        "ai_leverage": 6,
+        "defensibility": 5,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Test a fixed-scope audit offer with warm contacts",
+        "Run 3-5 pain interviews to refine the promise",
+        "Ask for one paid cleanup sprint"
+      ],
+      "tool_specs": [
+        "reporting audit checklist",
+        "metric QA template",
+        "weekly KPI report template"
+      ],
+      "kill_criteria": [
+        "No clear willingness to pay for a one-time audit",
+        "Every prospect needs fully custom project work"
+      ]
+    },
+    {
+      "id": "opp_fractional_reporting_concierge",
+      "title": "Fractional merchant analytics and reporting concierge",
+      "category": "cash_now",
+      "thesis": "Offer a recurring monthly service that gives ecommerce operators clean KPI reporting, anomaly explanation, and fast answers without a full-time hire.",
+      "why_user_can_win": "This is closest to the user's current edge because it monetizes real workflow knowledge immediately and fits warm peer-driven distribution.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 8,
+        "durability": 6,
+        "distribution_fit": 6,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Interview operators and agencies about recurring reporting pain",
+        "Package a monthly concierge offer with fixed deliverables",
+        "Secure one paid pilot"
+      ],
+      "tool_specs": [
+        "standard metric layer",
+        "anomaly summary generator",
+        "monthly report template"
+      ],
+      "kill_criteria": [
+        "Prospects like the idea but will not pay for an outside reporting partner",
+        "The work cannot be scoped into a repeatable monthly service"
+      ]
+    },
+    {
+      "id": "opp_kpi_trust_saas",
+      "title": "Micro-SaaS for merchant KPI trust and anomaly explanation",
+      "category": "asset_later",
+      "thesis": "Build a narrow tool that unifies a few core data sources, flags KPI anomalies, and explains likely causes in plain English.",
+      "why_user_can_win": "The user understands the reporting questions that matter, but current distribution and buyer access are too weak to make software-first the best opening move.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 3,
+        "durability": 8,
+        "distribution_fit": 3,
+        "ai_leverage": 7,
+        "defensibility": 4,
+        "execution_difficulty": 7,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Validate the recurring anomaly-explanation pain through interviews",
+        "Test the workflow manually before building customer-facing software",
+        "Only build after repeated paid usage appears"
+      ],
+      "tool_specs": [
+        "CSV import or basic connectors",
+        "metric anomaly detector",
+        "plain-English explanation engine"
+      ],
+      "kill_criteria": [
+        "No repeated demand for the same monitoring workflow",
+        "Prospects view it as a nice-to-have dashboard rather than urgent workflow support"
+      ]
+    },
+    {
+      "id": "opp_benchmark_subscription",
+      "title": "Ecommerce benchmark feed or KPI template subscription",
+      "category": "asset_later",
+      "thesis": "Sell recurring templates, scorecards, and eventually benchmark comparisons for merchants by segment.",
+      "why_user_can_win": "The user can define useful reporting structures, though the moat is weak without proprietary data or distribution.",
+      "scores": {
+        "edge_fit": 6,
+        "speed_to_revenue": 4,
+        "durability": 7,
+        "distribution_fit": 4,
+        "ai_leverage": 5,
+        "defensibility": 3,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Test willingness to pay for templates before benchmarking",
+        "Identify one segment-specific KPI pack",
+        "Avoid benchmark claims until data depth exists"
+      ],
+      "tool_specs": [
+        "template library",
+        "segment-specific KPI definitions",
+        "subscription delivery workflow"
+      ],
+      "kill_criteria": [
+        "Low willingness to pay for templates alone",
+        "No path to proprietary benchmark data"
+      ]
+    },
+    {
+      "id": "opp_concierge_to_saas",
+      "title": "Reporting concierge to internal automation to micro-SaaS",
+      "category": "hybrid",
+      "thesis": "Start with a productized reporting concierge, automate the repeated internal steps, and turn the most common workflow into a narrow software product.",
+      "why_user_can_win": "This best exploits the user's reporting-domain edge while matching current access constraints and improving odds of a later micro-SaaS.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 8,
+        "durability": 8,
+        "distribution_fit": 6,
+        "ai_leverage": 8,
+        "defensibility": 7,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Sell one audit plus one recurring concierge pilot",
+        "Document every repeated workflow step",
+        "Productize only after 3 customers share the same core job"
+      ],
+      "tool_specs": [
+        "internal ingestion helpers",
+        "standard metric layer",
+        "anomaly summary generator",
+        "customer-facing narrow workflow app later"
+      ],
+      "kill_criteria": [
+        "No paid service demand from warm network and referrals",
+        "No repeated workflow emerges across multiple customers",
+        "The work stays highly bespoke and cannot be narrowed"
+      ]
+    }
+  ],
+  "best_bet": "opp_concierge_to_saas",
+  "next_actions": [
+    "Write a one-page reporting audit plus monthly concierge offer",
+    "Run 10 warm discovery conversations with operators, agencies, and analytics peers",
+    "Test a paid pilot before building any customer-facing SaaS",
+    "Track which workflow steps repeat across prospects and pilots",
+    "Only build software around the narrowest repeated high-frequency pain"
+  ]
+}

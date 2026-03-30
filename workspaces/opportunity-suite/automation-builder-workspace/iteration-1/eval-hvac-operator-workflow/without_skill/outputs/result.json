@@ -1,0 +1,66 @@
+{
+  "task": "Build spec: HVAC missed-call recovery tool with one input, one operator review step, and one output to the owner.",
+  "artifacts": {
+    "report": "/home/alan/dev/ai/skills/automation-builder-workspace/iteration-1/eval-hvac-operator-workflow/without_skill/outputs/report.md",
+    "json": "/home/alan/dev/ai/skills/automation-builder-workspace/iteration-1/eval-hvac-operator-workflow/without_skill/outputs/result.json"
+  },
+  "workflow": {
+    "input_count": 1,
+    "input": {
+      "name": "missed_call_event",
+      "type": "object",
+      "required_fields": [
+        "call_id",
+        "timestamp",
+        "caller_phone"
+      ],
+      "optional_fields": [
+        "caller_name",
+        "call_duration_seconds",
+        "line_or_location",
+        "voicemail_present",
+        "voicemail_text"
+      ]
+    },
+    "operator_review_steps": 1,
+    "operator_review": {
+      "name": "operator_review",
+      "actions": [
+        "urgent_service",
+        "quote_or_install",
+        "callback_required",
+        "spam_or_wrong_number",
+        "insufficient_info"
+      ],
+      "fields": [
+        "review_notes",
+        "callback_priority",
+        "follow_up_owner_needed"
+      ]
+    },
+    "output_count": 1,
+    "output": {
+      "name": "owner_summary_message",
+      "channel": "email",
+      "contains": [
+        "missed_call_time",
+        "caller_identity",
+        "operator_classification",
+        "callback_priority",
+        "operator_notes",
+        "owner_action_needed"
+      ]
+    }
+  },
+  "mvp_phases": [
+    "Ingest missed call event and validate payload.",
+    "Create recovery case and operator review queue.",
+    "Submit operator review and send owner summary email."
+  ],
+  "acceptance_criteria": [
+    "One valid missed-call input creates one reviewable case.",
+    "One operator review step is required before output.",
+    "One owner-facing summary is sent after review.",
+    "Duplicate call_id values do not create duplicate active cases."
+  ]
+}

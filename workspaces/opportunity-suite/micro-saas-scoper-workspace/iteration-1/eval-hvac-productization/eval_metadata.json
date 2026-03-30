@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "hvac-productization",
+  "prompt": "The user has a validated HVAC missed-call recovery concierge service with repeated workflow pain across multiple owners. Scope the software decision.",
+  "assertions": [
+    "Response gives an explicit readiness verdict.",
+    "Response scopes one narrow user, one job, and one workflow rather than a broad platform.",
+    "Response separates manual work from what gets automated first.",
+    "Response includes structured JSON."
+  ]
+}

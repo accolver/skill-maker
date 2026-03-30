@@ -1,0 +1,69 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response defines a clear trigger, output, and operator or human step.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 5-10 explicitly define the primary trigger, primary output, and human escalation point; `outputs/result.json` lines 3-6 repeats the same structure in JSON under `system_objective` with `trigger`, `output`, and `human_escalation`."
+    },
+    {
+      "text": "Response avoids platform sprawl and keeps the architecture narrow.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 12-15 states the goal is to avoid needing a full call-center platform, line 19 defines a minimal pattern `trigger -> queue -> worker -> review -> delivery`, lines 91-98 explicitly exclude broader systems like CRM sync, AI voice handling, and mobile apps, and `outputs/result.json` lines 8-14 lists only five core components."
+    },
+    {
+      "text": "Response includes integrations only if directly needed.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 50-56 lists only directly functional integrations for intake, operator access, and owner delivery, and qualifies CRM as optional only when already available; `outputs/result.json` lines 21-25 mirrors the same narrow integration set."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with top-level keys `system_objective`, `components`, `inputs`, `outputs`, `integrations`, `manual_steps`, `automated_steps`, `milestones`, and `out_of_scope` (lines 1-52). `outputs/report.md` lines 102-155 also embeds the build plan as a JSON code block."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment.",
+      "timing.json reports zeroed metrics (`total_tokens`: 0, `duration_ms`: 0, `total_duration_seconds`: 0), so execution performance could not be meaningfully assessed."
+    ],
+    "output_chars": 8271
+  },
+  "claims": [
+    {
+      "claim": "The plan uses a minimal architecture of trigger -> queue -> worker -> review -> delivery.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified in `outputs/report.md` line 19, and the listed components in lines 23-31 operationalize that same flow."
+    },
+    {
+      "claim": "The workflow has one input event, one operator review step, and one owner-facing output.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified in `outputs/report.md` lines 33-42 and lines 66-70; `outputs/result.json` lines 15-20 define a single input and a single output, while lines 27-36 center the flow around one human review stage before delivery."
+    },
+    {
+      "claim": "CRM lookup is optional rather than required.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified in `outputs/report.md` lines 55-56 and `outputs/result.json` line 25, both of which state CRM lookup is optional only if already available."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: `Response explicitly distinguishes what is automated versus what remains manual.` The output spends substantial detail on that boundary in `report.md` lines 60-77, but the eval does not check it.",
+      "Add assertion: `Response includes concrete out-of-scope items to preserve a narrow first version.` The current run strongly communicates scope control, but only indirectly through the platform-sprawl assertion.",
+      "Strengthen `Response includes structured JSON.` to require valid parseable JSON in `result.json` with fields for trigger, human step, output, integrations, and milestones; the current assertion checks format more than planning quality."
+    ],
+    "overall": "This assertion set is reasonably discriminating for scope discipline and required structure, but it under-covers the automation-vs-human boundary and out-of-scope guardrails that are central to the prompt. The JSON assertion is the weakest because it verifies format more than substantive plan quality."
+  }
+}

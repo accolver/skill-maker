@@ -1,0 +1,50 @@
+{
+  "system_objective": {
+    "primary_user": "HVAC office operator",
+    "trigger": "A single missed-call event from the phone system",
+    "output": "An owner-facing recovery summary showing which missed calls need follow-up and what action was taken",
+    "human_escalation": "Operator review before any recovery action is finalized or sent to the owner"
+  },
+  "components": [
+    "Call event webhook receiver",
+    "Review queue store",
+    "Operator review screen",
+    "Recovery worker",
+    "Owner report delivery"
+  ],
+  "inputs": [
+    "One missed-call event containing caller number, timestamp, call direction, and location or line identifier if available"
+  ],
+  "outputs": [
+    "Owner-facing recovery summary for each reviewed missed call",
+    "Internal status markers such as pending review, approved for follow-up, duplicate, or ignore"
+  ],
+  "integrations": [
+    "Phone system or call-tracking provider webhook",
+    "Email or SMS delivery service for the owner-facing output"
+  ],
+  "manual_steps": [
+    "Operator reviews each missed-call record before any external output is finalized",
+    "Operator marks the call as recoverable, duplicate, spam, or ignore",
+    "Operator confirms or edits the recovery note"
+  ],
+  "automated_steps": [
+    "Receive the missed-call event",
+    "Create a pending review record",
+    "Place the record into the operator queue",
+    "Generate and deliver the owner-facing summary after approval"
+  ],
+  "milestones": [
+    "Accept a missed-call webhook and persist a pending review record",
+    "Build a simple operator review screen with approve, ignore, and duplicate actions",
+    "Generate and deliver the owner-facing recovery summary after review",
+    "Add basic audit history and delivery status tracking"
+  ],
+  "out_of_scope": [
+    "Fully automated callback or texting without human review",
+    "CRM sync beyond a simple owner-facing output",
+    "Lead scoring models or routing logic across multiple teams",
+    "Multi-location permissions, billing, or analytics dashboards",
+    "Historical reporting beyond the current recovery queue and delivered summaries"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "system_objective": {
+    "primary_user": "Internal compliance operations analyst",
+    "trigger": "A new client evidence request or scheduled compliance review is submitted by an internal operator",
+    "output": "A reviewed evidence package ready for client delivery",
+    "human_escalation": "Any missing, conflicting, stale, or ambiguous evidence is routed to a human reviewer before release"
+  },
+  "components": [
+    "Intake form or internal ticket action",
+    "Request store for request metadata, statuses, and artifacts",
+    "Evidence worker for collecting predefined evidence",
+    "Internal review dashboard",
+    "Delivery packaging step"
+  ],
+  "inputs": [
+    "Client name and request identifier",
+    "Requested control set or evidence checklist",
+    "Due date and priority",
+    "Internal source references such as policy links, ticket IDs, audit exports, or prior evidence artifacts"
+  ],
+  "outputs": [
+    "Reviewed evidence package",
+    "Review notes and approval history",
+    "Delivery-ready status with timestamp and reviewer identity"
+  ],
+  "integrations": [
+    "Internal ticketing or request intake system",
+    "Approved document repository or cloud drive",
+    "Optional identity or cloud admin systems for metadata exports",
+    "Internal email or messaging notifications"
+  ],
+  "manual_steps": [
+    "Validate evidence adequacy against client or framework requirements",
+    "Review substitutions, stale artifacts, and exceptions",
+    "Approve final package before external delivery"
+  ],
+  "automated_steps": [
+    "Create request record from intake",
+    "Collect predefined evidence artifacts from approved sources",
+    "Mark checklist items as found, missing, or needing review",
+    "Notify reviewer when package is ready",
+    "Package approved artifacts for delivery"
+  ],
+  "milestones": [
+    "Define request schema, evidence states, and review statuses",
+    "Build intake flow and request tracking store",
+    "Implement evidence worker for a small fixed set of source systems",
+    "Build reviewer dashboard with approve, reject, and comment actions",
+    "Add delivery packaging, audit trail, and notifications",
+    "Pilot with a narrow compliance evidence set and refine manual review rules"
+  ],
+  "out_of_scope": [
+    "Fully automated client delivery without human approval",
+    "Broad framework intelligence or dynamic control mapping across many standards",
+    "OCR, document classification, or advanced AI extraction for arbitrary files",
+    "External client portal, self-serve uploads, or multi-tenant productization",
+    "Long-term evidence warehouse or generalized GRC platform capabilities"
+  ]
+}

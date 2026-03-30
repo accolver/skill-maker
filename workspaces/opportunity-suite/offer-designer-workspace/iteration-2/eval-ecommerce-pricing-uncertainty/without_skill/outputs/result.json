@@ -1,0 +1,135 @@
+{
+  "offer_name": "Concierge Reporting Pack for Niche Ecommerce Operators",
+  "recommended_direction": "Sell a done-for-you monthly operator briefing that turns ecommerce and marketing data into findings and actions, with tiers based on store complexity.",
+  "buyer_value_assessment": "plausible_but_unvalidated",
+  "core_promise": "We turn messy store, marketing, and product data into a short monthly operator briefing with clear actions on what to fix, cut, repeat, and watch next.",
+  "target_customer_profile": {
+    "best_fit": [
+      "Founder-led or lean ecommerce brands",
+      "Roughly 50 to 500 orders per month",
+      "Single-store or low-complexity operations",
+      "Using Shopify or similar platform",
+      "Running at least one paid acquisition channel"
+    ],
+    "avoid_initially": [
+      "Very early stores with too little data",
+      "Enterprise merchants with advanced BI expectations",
+      "Highly complex multi-region or multi-warehouse businesses unless custom quoted"
+    ]
+  },
+  "service_structure": {
+    "deliverables": [
+      "Executive summary in plain English",
+      "KPI snapshot",
+      "3 to 5 key findings",
+      "3 to 5 prioritized recommendations",
+      "Risk or anomaly watchlist",
+      "Optional async Q&A"
+    ],
+    "required_inputs": [
+      "Store platform data",
+      "Ad platform data",
+      "Product catalog or SKU mapping"
+    ],
+    "optional_inputs": [
+      "Email/SMS platform data",
+      "Inventory data",
+      "Cohort or subscription data",
+      "Margin or financial inputs"
+    ]
+  },
+  "tiers": [
+    {
+      "name": "Starter Pack",
+      "fit": "Simple stores",
+      "scope": [
+        "1 store",
+        "Up to 2 marketing channels",
+        "Up to 100 active SKUs",
+        "Monthly report",
+        "1 revision or Q&A round"
+      ],
+      "pricing_usd_monthly": {
+        "min": 500,
+        "max": 900
+      },
+      "setup_fee_usd": {
+        "min": 250,
+        "max": 500
+      }
+    },
+    {
+      "name": "Growth Pack",
+      "fit": "Moderate-complexity stores needing deeper channel and product analysis",
+      "scope": [
+        "1 store",
+        "Up to 4 channels",
+        "Up to 500 active SKUs",
+        "Monthly report",
+        "Trend comparisons",
+        "Loom walkthrough or review call"
+      ],
+      "pricing_usd_monthly": {
+        "min": 1000,
+        "max": 2000
+      },
+      "setup_fee_usd": {
+        "min": 500,
+        "max": 1000
+      }
+    },
+    {
+      "name": "Custom / Complex Store",
+      "fit": "Multi-store, multi-brand, or operationally complex businesses",
+      "scope": [
+        "Custom source integration",
+        "Large SKU counts",
+        "Margin or inventory views",
+        "Custom analysis questions"
+      ],
+      "pricing_usd_monthly": {
+        "min": 2500,
+        "max": null
+      },
+      "setup_fee_usd": {
+        "min": null,
+        "max": null
+      }
+    }
+  ],
+  "scope_controls": [
+    "Additional store or region",
+    "Additional ad account or marketing channel",
+    "SKU count above tier threshold",
+    "Ad hoc deep dives",
+    "Weekly reporting requests",
+    "Margin modeling or inventory analysis"
+  ],
+  "go_to_market": {
+    "recommended_framing": [
+      "Monthly operator briefing for ecommerce founders",
+      "Done-for-you reporting that ends with recommended actions",
+      "Analytics without hiring an in-house analyst"
+    ],
+    "avoid_framing": [
+      "Business intelligence solution",
+      "Custom analytics system",
+      "Fractional data team"
+    ]
+  },
+  "pilot_offer": {
+    "recommended": true,
+    "shape": "One-time paid diagnostic or first-month reporting pack with fixed scope",
+    "example_pricing_usd": [
+      750,
+      1500
+    ]
+  },
+  "key_risks": [
+    "Pricing mismatch between simple and complex stores",
+    "Messy source data increasing fulfillment effort",
+    "Buyers perceiving overlap with existing dashboards",
+    "Consulting scope creep beyond reporting"
+  ],
+  "final_recommendation": "Proceed with a tiered concierge reporting offer centered on a standardized monthly deliverable, protected by setup fees and explicit complexity boundaries. Lead with a paid pilot and avoid broad custom analytics positioning until demand and pricing are validated."
+}

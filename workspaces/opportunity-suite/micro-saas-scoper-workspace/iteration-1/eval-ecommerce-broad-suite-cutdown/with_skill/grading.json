@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response cuts the broad analytics suite down to a narrower wedge.",
+      "passed": true,
+      "evidence": "PASS: `report.md:5-9` says the proposed suite is 'too broad to build as an MVP' and recommends starting 'only with a narrow reporting workflow'. `report.md:24-42` narrows this to a single job, user, workflow, and productization trigger. `result.json:3-7` mirrors that wedge in structured form."
+    },
+    {
+      "text": "Response identifies one primary user and one workflow.",
+      "passed": true,
+      "evidence": "PASS: `report.md:29-37` names one primary user, 'Operator-founder of a small Shopify brand,' and one core workflow, connecting Shopify and receiving a scheduled weekly report. The same fields appear in `result.json:3-7` as `primary_user` and `core_workflow`."
+    },
+    {
+      "text": "Response includes a do-not-build-yet list.",
+      "passed": true,
+      "evidence": "PASS: `report.md:72-81` contains a dedicated 'Do Not Build Yet' section with eight concrete exclusions such as multi-source warehouse, attribution, dashboard builder, forecasting, and extra integrations. `result.json:29-38` repeats this as the `do_not_build_yet` array."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `report.md:83-125` embeds a fenced JSON object with consistent keys and arrays, and `result.json:1-39` is a standalone valid structured JSON file containing the same scope data."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 6102
+  },
+  "claims": [
+    {
+      "claim": "The run produced both `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified from the outputs directory listing, which contains exactly `report.md` and `result.json`, and from `transcript.md:5`, which states both files were written."
+    },
+    {
+      "claim": "The structured JSON and the narrative report are materially aligned.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by matching the user/workflow/wedge fields in `report.md:83-125` with `result.json:1-39`; both contain the same readiness verdict, primary user, workflow, boundary, trigger, and do-not-build-yet exclusions."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response gives a clear readiness verdict with a reason not to build the full suite yet' because the current output includes a substantive go/no-go framing that is not directly checked.",
+      "Add assertion: 'Response distinguishes what should stay manual versus what should be automated first' because that boundary is central to the scope recommendation and currently ungraded.",
+      "Strengthen 'Response includes structured JSON' to require specific keys or valid schema compliance; as written, any non-trivial JSON blob would likely satisfy it."
+    ],
+    "overall": "This eval set discriminates the basic scoping behavior well, and all four assertions are substantively satisfied in this run. Coverage is still incomplete: it misses the readiness verdict, the manual-vs-automation boundary, and the productization trigger. Execution metrics are limited because `transcript.md:7-8` states the detailed tool-by-tool transcript was not exposed, and `timing.json:1` contains only zero values."
+  }
+}

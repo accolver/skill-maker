@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "audience-vs-buyers",
+  "prompt": "I have 120000 followers on X talking about AI productivity, but most of them are students and hobbyists. I do not know if any are buyers.",
+  "assertions": [
+    "Response downgrades the 120000 follower base because the audience is mostly non-buyers, and does not treat scale alone as strong founder edge.",
+    "Response names the core commercial weakness precisely, such as weak buyer quality, weak ICP proximity, or unproven monetizable distribution.",
+    "If follow-up questions are asked, they target buyer composition, conversion history, or paid access rather than generic audience questions.",
+    "Structured JSON includes weak spots or fake or overstated edge tied to follower quality rather than pretending the audience is already a strong moat."
+  ]
+}

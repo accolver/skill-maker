@@ -1,0 +1,14 @@
+{
+  "eval_id": 2,
+  "eval_name": "compliance-legal-play",
+  "prompt": "I am a former compliance consultant for small financial firms. I have strong domain knowledge and a few warm contacts, but only 8 to 10 hours a week and almost no desire to become a content creator. I care about staying fully legal. I want something AI can accelerate. What opportunity should I pursue?",
+  "assertions": [
+    "Response includes a section header named Differentiation Profile",
+    "Response includes a section header named Top Opportunities",
+    "Response explicitly notes legal or compliance constraints",
+    "Response explicitly downgrades or avoids pure content or media as the main business",
+    "Response explains why this user can win using compliance expertise or warm contacts",
+    "Response includes kill criteria or stop conditions",
+    "Response includes a JSON block with an opportunities array"
+  ]
+}

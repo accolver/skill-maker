@@ -1,0 +1,54 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly blocks direct use of employer internal materials.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:10-15` says the safest result is `do not use the employer's internal materials, logic, or documents`, and `outputs/report.md:54-64` gives a red-light prohibition on copying, recreating from memory, or using pricing logic. `outputs/result.json:7-9` also records `screen_result: red_light` and `Do not use employer internal templates, pricing logic, or process documents.`"
+    },
+    {
+      "text": "Response preserves some lawful generalized knowledge or public-data path rather than banning everything.",
+      "passed": true,
+      "evidence": "PASS: The response does not impose a total ban. `outputs/report.md:50` rates `General industry know-how in your head` as `Medium` risk when it is truly general and non-confidential, and `outputs/report.md:68-81` proposes a lawful path using a `clean room` process with `only public sources, independently developed frameworks, and original drafting`. The same path appears in `outputs/result.json:50-54`."
+    },
+    {
+      "text": "Response proposes a concrete safer adjacent path.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:68-81` gives specific next steps: use a clean-room build process from public sources, avoid the same niche while still employed, review employment/confidentiality/moonlighting restrictions, avoid employer devices/accounts/time/data/software, and consult an employment/IP attorney. `outputs/result.json:50-54` repeats this as a structured safer alternative list."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with multiple top-level keys including `scenario`, `overall_risk`, `screen_result`, `risk_factors`, `material_risks`, `avoid`, and `safer_alternative` (`outputs/result.json:1-57`)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 7543
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by the presence and readable contents of `outputs/report.md` and `outputs/result.json`, matching `transcript.md:4`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: `Response warns that paraphrasing or rebuilding employer materials from memory is still prohibited/high risk.` The report covers this in detail, but the current eval would miss that distinction.",
+      "Add assertion: `Response identifies pricing logic as especially sensitive or very high risk.` That is a central risk factor in this scenario and is explicitly addressed in both outputs.",
+      "Add assertion: `Response mentions same-niche competition or govtech/public-sector constraints as reasons risk is elevated.` The current assertions check outcome shape, but not whether the rationale is materially grounded in the facts of the prompt."
+    ],
+    "overall": "The current assertion set is useful and objectively gradable, but it mainly checks for the presence of a block, a lawful alternative, a safer path, and JSON structure. It misses important scenario-specific substance that distinguishes a shallow answer from a strong one, especially memory-based recreation, pricing sensitivity, and govtech/same-niche risk rationale."
+  }
+}

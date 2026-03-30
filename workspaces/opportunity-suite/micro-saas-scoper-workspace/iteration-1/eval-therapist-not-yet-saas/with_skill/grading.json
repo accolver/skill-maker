@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not force a build-now SaaS verdict without repeated workflow evidence.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:3-20` gives the readiness verdict `stay_manual_for_now` and explicitly says there is 'little evidence' of a repeatedly painful software-suitable workflow, so it does not force a build-now SaaS conclusion. `outputs/result.json:2` repeats the same verdict."
+    },
+    {
+      "text": "Response explains what evidence would justify productization later.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:24-35` defines the productization trigger as repeated evidence that buyers ask for the same customization, interpretation, or update step often enough that manual fulfillment becomes slow, error-prone, or hard to scale. `outputs/report.md:114-122` and `outputs/result.json:28-36` restate this concretely in structured form."
+    },
+    {
+      "text": "Response includes what not to build yet.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:55-61` includes a substantive 'What not to build yet' list covering broad practice management software, scheduling/billing/EHR/CRM features, team workflows, marketplace/community features, and AI copilots. `outputs/report.md:75-82` adds a second 'Do Not Build Yet' section, and `outputs/result.json:29-35` preserves these exclusions in JSON."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json:1-37` is a structured JSON object with keys including `readiness_verdict`, `product_wedge`, `manual_work`, `automated_first`, `mvp_boundary`, `productization_trigger`, and `do_not_build_yet`. `outputs/report.md:84-124` also embeds the same structure in a fenced JSON block."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 6652
+  },
+  "claims": [
+    {
+      "claim": "There is at least some paid demand because a benchmark/template product already sells.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json:4`, which states the user has 'a paid benchmark/template product'. The report makes the same claim in `outputs/report.md:7-9`."
+    },
+    {
+      "claim": "There is little evidence that the same software-suitable workflow is repeatedly painful across many buyers.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json:4`, which says there is 'little evidence that a workflow is repeatedly painful yet'. The report restates this in `outputs/report.md:9-18`."
+    },
+    {
+      "claim": "Build only after repeated customization or interpretation work becomes a clear manual bottleneck.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This recommendation is consistently operationalized in `outputs/report.md:33-35`, `outputs/report.md:47-53`, and `outputs/result.json:28`, all of which tie future productization to repeated, bottleneck-forming manual work rather than vague readiness criteria."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the response names a narrow future product wedge or single workflow; the current assertions would still pass a more generic 'wait' answer.",
+      "Add an assertion that the response distinguishes current paid demand for information/templates from demand for software, because that distinction is central to this eval's intent but is not checked directly.",
+      "Strengthen 'Response includes structured JSON' to require specific keys or schema validity; as written, any minimally structured JSON would satisfy it."
+    ],
+    "overall": "The assertion set captures the main decision outcome well, but it is somewhat under-specified on the quality of the scoping logic. Three assertions are discriminating, while the JSON assertion is relatively weak and the suite does not directly test whether the response defines a credible narrow wedge or distinguishes template demand from software demand."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response treats the audience, newsletter, or community as the primary distribution advantage and uses it materially in the recommendation.",
+      "passed": true,
+      "evidence": "PASS: `report.md:7-12` identifies the `42,000-subscriber newsletter`, `paid community`, and `direct owned channel to buyers` as core assets; `report.md:34-39` and `report.md:98-106` tie that distribution directly to the recommended benchmark-plus-toolkit path; `result.json:14-24` and `result.json:52` likewise describe trusted distribution as a core reason the best bet wins."
+    },
+    {
+      "text": "The best bet is not a service-first or agency-first path.",
+      "passed": true,
+      "evidence": "PASS: `report.md:92-94` names the best path as a hybrid product ladder, not a service offer; `report.md:100` says `the first sale is a product, not labor`; `report.md:117-118` says `a paid product-first wedge is stronger than a service-first wedge`; `report.md:85-86` explicitly rejects `done-for-you insurance billing or ops services`; `result.json:51-52` also frames the best bet as a paid benchmark/template product leading to SaaS."
+    },
+    {
+      "text": "Response recommends at least one monetization path beyond ads or sponsorships, such as paid templates, benchmark data, subscriptions, software, or another concrete product path.",
+      "passed": true,
+      "evidence": "PASS: The response recommends multiple concrete non-ad monetization paths: `report.md:37-39` proposes quarterly benchmarks plus AI-assisted SOPs/templates/calculators; `report.md:122-127` proposes `annual subscription or one-time purchase` and later `software`; `report.md:209-212` outlines phase 1 paid product, phase 2 subscription software, and phase 3 benchmark network effects. `result.json:70-75` and `result.json:182-189` mirror those product paths."
+    },
+    {
+      "text": "Response explains why a content-led, community-led, or distribution-led launch is credible for this user even though content is often a weaker default path.",
+      "passed": true,
+      "evidence": "PASS: The response gives a specific exception-case rationale rather than generic content advice. `report.md:34-36` says the audience already trusts this publisher on these exact problems; `report.md:111-118` says distribution fit is `excellent` because `The audience is already assembled and niche-specific` and concludes `This user already has distribution, so a paid product-first wedge is stronger than a service-first wedge.` `result.json:52` and `result.json:120` repeat that the trusted niche audience and access to proprietary data make this launch path plausible for this user specifically."
+    },
+    {
+      "text": "The validation plan includes numeric audience, conversion, interview, or pilot targets.",
+      "passed": true,
+      "evidence": "PASS: `report.md:135-143` narrows the buyer to `1-10 clinicians` or `3-25 staff` and sets price tests of `$149-$299` one-time or `$29-$79` monthly; `report.md:148` calls for `15-minute buyer interviews`; `report.md:177-179` gives explicit success targets of `10 or more paid buyers` and `20 percent or higher click-to-interest rate`. These are concrete numeric validation thresholds."
+    },
+    {
+      "text": "Kill criteria include at least 2 falsifiable stop or pivot conditions.",
+      "passed": true,
+      "evidence": "PASS: `report.md:214-224` lists five falsifiable stop/pivot conditions, including `Fewer than 5 paid conversions`, `Interviewees like the idea but refuse to pay`, `No single workflow stands out`, `Buyers only want custom implementation help`, and `Compliance review suggests the chosen angle is drifting into legal advice...`. `result.json:76-80` also contains four structured kill criteria for the best bet."
+    },
+    {
+      "text": "The prose recommendation and structured JSON agree on the same best bet and why it wins.",
+      "passed": true,
+      "evidence": "PASS: `report.md:92-106` names the best path as `Practice Ops Benchmark + AI SOP Toolkit` followed by a workflow tracker, justified by audience trust, no-service fit, legal safety, and compounding data assets. `result.json:48-52` describes the same opportunity, and `result.json:182` sets `best_bet` to `opp_hybrid_ops_benchmark_toolkit`. The core rationale also matches: trusted distribution, niche pain intelligence, and proprietary benchmark data."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 16895
+  },
+  "claims": [
+    {
+      "claim": "The user has a 42000-subscriber newsletter and a paid community.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json:4`, which states `I run a 42000-subscriber newsletter and paid community...`; repeated in `report.md:7-8` and `result.json:15-17`."
+    },
+    {
+      "claim": "The user does not want client service work.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json:4`, which says `I do not want to do client service work`; repeated in `report.md:13-15` and `result.json:29-33`."
+    },
+    {
+      "claim": "The agent completed the task by writing report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:5` says `Completed. Wrote report.md and result.json.` The files exist in `outputs/` and were read successfully: `outputs/report.md` and `outputs/result.json`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Structured JSON preserves numeric validation targets and kill criteria from the prose report' — the prose includes strong numeric thresholds, but the JSON validation arrays are much less specific and no assertion checks that loss of structure.",
+      "Add assertion: 'Recommendation explicitly defines legal/compliance boundaries such as avoiding PHI-heavy workflows, clinical judgment replacement, and legal-advice drift' — this is central to the prompt and substantially addressed in the outputs, but currently untested.",
+      "Strengthen assertion 4 by requiring explicit causal evidence for why distribution-led launch is credible here (for example: existing warm audience, niche trust, and no-service constraint) rather than relying on a broad interpretive reading of credibility."
+    ],
+    "overall": "The assertion set discriminates the core recommendation well and all seven assertions are substantively satisfied in this run. Coverage is still missing for structured-output completeness and the legal/compliance scoping that is a major part of the user's brief."
+  }
+}

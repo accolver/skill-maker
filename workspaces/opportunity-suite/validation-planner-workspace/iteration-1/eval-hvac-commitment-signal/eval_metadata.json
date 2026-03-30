@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "hvac-commitment-signal",
+  "prompt": "Best bet: HVAC missed-call recovery concierge for small service businesses. User has warm owner access through a family member and wants to validate within 7 days.",
+  "assertions": [
+    "Response explicitly names one primary unknown and ties the major steps to resolving that unknown within the 7-day window.",
+    "Response asks for a real commitment signal appropriate to the offer, such as a deposit, paid pilot, or booked implementation slot, not just soft interest.",
+    "Response includes go, revise, and kill thresholds with numeric cutoffs and linked decisions.",
+    "Response includes both a readable plan and a structured JSON block."
+  ]
+}

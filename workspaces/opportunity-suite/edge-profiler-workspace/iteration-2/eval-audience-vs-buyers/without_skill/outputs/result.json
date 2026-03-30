@@ -1,0 +1,48 @@
+{
+  "task": "evaluate whether an X audience of 120000 followers discussing AI productivity likely contains buyers",
+  "inputs": {
+    "platform": "X",
+    "follower_count": 120000,
+    "topic": "AI productivity",
+    "reported_audience_composition": [
+      "students",
+      "hobbyists"
+    ],
+    "known_buyer_evidence": false
+  },
+  "assessment": {
+    "audience_strength": "high",
+    "buyer_certainty": "low",
+    "estimated_buyer_density": "unknown_but_likely_minor_fraction",
+    "bottom_line": "Large reach does not currently prove meaningful buyer presence. Some buyers are likely present, but most followers are probably not qualified buyers based on the reported audience mix.",
+    "confidence": "moderate"
+  },
+  "reasoning": [
+    "Students and hobbyists usually indicate strong interest but weaker purchasing power.",
+    "Follower count measures attention, not budget, urgency, or authority.",
+    "AI productivity content is broad and tends to attract many non-commercial learners.",
+    "A smaller subset of founders, operators, consultants, or team leads may still be viable buyers."
+  ],
+  "likely_segments": [
+    "students",
+    "hobbyists",
+    "early-career professionals",
+    "founders",
+    "consultants",
+    "agency operators",
+    "team leads"
+  ],
+  "key_risks": [
+    "high engagement but low conversion",
+    "free-content expectations",
+    "broad topic attracts low-intent followers",
+    "misreading public audience as buyer pool"
+  ],
+  "recommended_next_steps": [
+    "post buyer-specific questions to identify business pain",
+    "test a business-oriented offer and track clicks or replies",
+    "segment respondents by role and budget authority",
+    "measure booked calls, qualified replies, and conversions instead of likes"
+  ],
+  "verdict": "Audience present, buyers unproven"
+}

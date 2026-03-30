@@ -1,0 +1,197 @@
+{
+  "user_profile": {
+    "skills": [
+      "editorial synthesis of operator pain points",
+      "audience building",
+      "community monetization",
+      "product packaging"
+    ],
+    "domain_experience": [
+      "4 years listening to admin, documentation, staffing, and insurance problems for independent therapists and small clinics"
+    ],
+    "assets": [
+      "42000-subscriber newsletter",
+      "paid community",
+      "trusted niche distribution",
+      "ongoing qualitative market feedback"
+    ],
+    "distribution": [
+      "newsletter",
+      "paid community",
+      "warm audience launches",
+      "survey-based research"
+    ],
+    "network_access": [
+      "independent therapists",
+      "small clinic owners"
+    ],
+    "constraints": [
+      "does not want client service work",
+      "must stay on the legal side of healthcare operations support",
+      "should avoid PHI-heavy or licensed-advice workflows"
+    ],
+    "credibility_signals": [
+      "4 years of niche listening",
+      "existing paid community",
+      "large subscriber base in the niche"
+    ],
+    "unfair_advantages": [
+      "direct trusted access to buyers",
+      "pattern recognition across repeated operational pain points",
+      "can validate offers without cold start acquisition"
+    ]
+  },
+  "feasibility_verdict": "go",
+  "binding_constraints": [
+    "No client service work",
+    "Need to avoid legal, clinical, or payer-representation claims",
+    "Need explicit permission and anonymization for any benchmark data used"
+  ],
+  "opportunities": [
+    {
+      "id": "opp_template_packs",
+      "title": "Paid therapy ops template packs",
+      "category": "cash_now",
+      "thesis": "Sell narrowly scoped operational template packs for recurring therapist and clinic admin pain points.",
+      "why_user_can_win": "Existing audience trust and repeated exposure to common workflow pain make product packaging much easier than for a generic creator.",
+      "why_this_could_fail": "One-time purchases may be strong but retention may be weak without recurring updates or data.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 9,
+        "durability": 5,
+        "distribution_fit": 10,
+        "ai_leverage": 6,
+        "defensibility": 6,
+        "execution_difficulty": 2,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Create 3 sample templates and a sales page in 48 hours",
+        "Email the list and target 10 sales from warm traffic within 7 days"
+      ],
+      "tool_specs": [
+        "PDF and Notion or spreadsheet templates",
+        "Simple AI-assisted customization form for practice size and payer mix"
+      ],
+      "kill_criteria": [
+        "Fewer than 10 sales from the first launch to the warm audience",
+        "Most objections are that templates feel too generic"
+      ]
+    },
+    {
+      "id": "opp_vendor_matchmaking",
+      "title": "Curated vendor matchmaking and sponsorship",
+      "category": "cash_now",
+      "thesis": "Monetize trusted distribution by matching operators to vetted ops vendors.",
+      "why_user_can_win": "Strong access to buyers and a trusted media position make distribution easy.",
+      "why_this_could_fail": "This is less defensible, more trust-sensitive, and more media-dependent than an owned product.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 8,
+        "durability": 4,
+        "distribution_fit": 10,
+        "ai_leverage": 3,
+        "defensibility": 4,
+        "execution_difficulty": 2,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Secure 2 sponsor conversations and survey audience openness to curated recommendations"
+      ],
+      "tool_specs": [
+        "Vendor directory",
+        "Intake form and matching workflow"
+      ],
+      "kill_criteria": [
+        "Audience trust concerns appear in more than 20% of responses"
+      ]
+    },
+    {
+      "id": "opp_micro_saas",
+      "title": "Insurance and staffing ops micro-SaaS",
+      "category": "asset_later",
+      "thesis": "Build lightweight software for one narrow therapy practice admin workflow.",
+      "why_user_can_win": "Audience access increases odds of early pilots and feedback.",
+      "why_this_could_fail": "Software-first requires workflow selection, build time, support, and sharper scoping before demand is proven.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 4,
+        "durability": 8,
+        "distribution_fit": 9,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 7,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Interview 10 potential pilot users and get 3 paid design partners before building core workflows"
+      ],
+      "tool_specs": [
+        "Simple portal",
+        "Task tracking",
+        "Optional AI-assisted SOP or checklist generation"
+      ],
+      "kill_criteria": [
+        "No single workflow emerges as urgent across interviews",
+        "Fewer than 3 paid design partners commit"
+      ]
+    },
+    {
+      "id": "opp_benchmark_membership",
+      "title": "Therapy practice benchmark and template membership, then AI ops copilot",
+      "category": "hybrid",
+      "thesis": "Launch a recurring benchmark and template membership for therapy practice operations, then add AI-assisted customization and workflow recommendations.",
+      "why_user_can_win": "This founder has the rare combination of trusted distribution, repeated pain exposure, and a channel for rapid paid validation.",
+      "why_this_could_fail": "The benchmark product will fail if response volume is low or the outputs feel generic rather than decision-useful.",
+      "scores": {
+        "edge_fit": 10,
+        "speed_to_revenue": 8,
+        "durability": 9,
+        "distribution_fit": 10,
+        "ai_leverage": 8,
+        "defensibility": 8,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Define the initial ICP as independent therapists and clinics under 20 staff",
+        "Create a 15 to 20 question survey across staffing, documentation ops, and insurance collections",
+        "Build a landing page for a founding membership at 199 per year or 29 per month",
+        "Publish 3 sample assets: staffing scorecard, insurance follow-up SOP, documentation QA checklist",
+        "Get 100 completed surveys, 8 buyer calls, and 10 paid founding members within 7 days",
+        "Deliver one mini benchmark snapshot and one template update before the end of the week"
+      ],
+      "tool_specs": [
+        "Landing page and payments",
+        "Survey collection with anonymized operational data only",
+        "Member portal for reports and template packs",
+        "LLM-assisted customization workflow based on practice type, team size, and payer mix",
+        "No EMR integrations or PHI handling in v1"
+      ],
+      "kill_criteria": [
+        "Fewer than 50 completed surveys after one newsletter send and one community push",
+        "Fewer than 5 paid founding members in 7 days",
+        "Fewer than 4 of 8 buyer interviews say benchmarks would affect a staffing or purchase decision",
+        "More than 20% of early buyers ask for individualized consulting instead of productized assets"
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Generic therapist AI documentation assistant",
+      "reason": "Crowded market, higher compliance and trust risk, and weaker differentiation than an audience-led ops intelligence product."
+    },
+    {
+      "title": "Software-first broad admin platform",
+      "reason": "Too much build and support complexity before proving which workflow is valuable enough to buy."
+    }
+  ],
+  "best_bet": "opp_benchmark_membership",
+  "next_actions": [
+    "Draft the founding membership landing page",
+    "Create the benchmark survey",
+    "Produce 3 sample assets",
+    "Launch to newsletter and paid community",
+    "Review results after 7 days against the kill criteria"
+  ]
+}

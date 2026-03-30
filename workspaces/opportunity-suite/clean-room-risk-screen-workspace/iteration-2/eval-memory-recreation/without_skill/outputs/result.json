@@ -1,0 +1,55 @@
+{
+  "task": "Screen the risk of recreating employer internal templates, pricing logic, and process docs from memory for a same-niche govtech side business",
+  "overall_risk": {
+    "level": "high",
+    "summary": "Recreating internal employer materials from memory for a same-niche side business presents substantial trade secret, confidentiality, contract, and dispute risk, with pricing logic posing the sharpest concern."
+  },
+  "risk_categories": [
+    {
+      "category": "trade_secret_or_confidential_information",
+      "level": "high",
+      "reason": "Internal templates, pricing logic, and process documentation may reflect protected non-public business information even if reconstructed from memory."
+    },
+    {
+      "category": "employment_or_contractual_obligations",
+      "level": "high",
+      "reason": "Confidentiality, IP assignment, moonlighting, or non-solicit terms may restrict reuse of employer-derived know-how or side-business activity."
+    },
+    {
+      "category": "copyright",
+      "level": "medium",
+      "reason": "Near-verbatim recreation of templates or documentation increases expression-based infringement risk, though ideas and general concepts are less protected."
+    },
+    {
+      "category": "unfair_competition_or_fiduciary_issues",
+      "level": "medium_high",
+      "reason": "Operating in the same niche increases the chance of claims that the side business unfairly leveraged employer information or competed improperly."
+    },
+    {
+      "category": "practical_dispute_risk",
+      "level": "high",
+      "reason": "Similarity in niche, materials, and business use can trigger costly disputes even where ultimate liability is uncertain."
+    }
+  ],
+  "aggravating_factors": [
+    "Materials are internal rather than public",
+    "Same-niche govtech business overlap",
+    "Specific desire to recreate templates, pricing logic, and process docs",
+    "Pricing methods and operational workflows are commonly treated as proprietary"
+  ],
+  "safer_alternative": {
+    "level": "lower_than_proposed_approach",
+    "summary": "Create new materials from public sources and independent reasoning without reproducing remembered employer structures, wording, formulas, thresholds, or workflows."
+  },
+  "recommended_controls": [
+    "Do not recreate employer internal materials from memory",
+    "Avoid employer-derived pricing formulas, thresholds, approval rules, and heuristics",
+    "Review employment, confidentiality, IP assignment, moonlighting, and non-solicit documents",
+    "Use a documented clean-room process based on public sources and independent requirements",
+    "Keep devices, accounts, time, and storage separate from employer resources",
+    "Maintain an audit trail of independent creation",
+    "Seek qualified employment/IP counsel before use"
+  ],
+  "screen_result": "not_clean_room_safe_as_described",
+  "legal_note": "This is a practical risk screen for issue spotting and not legal advice."
+}

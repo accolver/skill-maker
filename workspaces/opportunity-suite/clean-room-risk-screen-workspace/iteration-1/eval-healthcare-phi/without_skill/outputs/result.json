@@ -1,0 +1,15 @@
+{
+  "task": "Screen the risk of building AI workflow tooling for healthcare reimbursement using PHI, denials data, and prior-auth case data from work.",
+  "outcome": "high_risk",
+  "safe_to_proceed_with_real_work_data": false,
+  "risk_factors": [
+    "protected_health_information",
+    "confidential_employer_data",
+    "denials_data_may_contain_phi",
+    "prior_auth_case_data_may_contain_phi",
+    "hipaa_and_privacy_compliance_exposure",
+    "potential_external_ai_data_disclosure"
+  ],
+  "recommended_action": "Do not use raw work data. Restrict work to synthetic, redacted, or approved de-identified data and require privacy/compliance review before any real-data handling.",
+  "recommended_disposition": "escalate_and_restrict"
+}

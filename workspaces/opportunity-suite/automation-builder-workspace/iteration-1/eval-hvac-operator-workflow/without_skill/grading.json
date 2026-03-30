@@ -1,0 +1,67 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response defines a clear trigger, output, and operator or human step.",
+      "passed": true,
+      "evidence": "`report.md` defines the trigger as a missed call event (`Single input: missed_call_event`, lines 23-25), the human step as `Operator Review Step` (`This is the only human-in-the-loop step.`, lines 54-56), and the output as `Single output: owner_summary_message` (lines 92-99). `result.json` also encodes `input_count: 1`, `operator_review_steps: 1`, and `output_count: 1` (lines 8-9, 25, 41-44)."
+    },
+    {
+      "text": "Response avoids platform sprawl and keeps the architecture narrow.",
+      "passed": true,
+      "evidence": "The plan explicitly narrows the MVP to `One inbound missed-call payload`, `One operator review form`, and `One owner email output` in `report.md` lines 228-236. It also limits delivery to `Email preferred for audit trail` with `SMS optional later, but not required in initial build` (lines 96-99), and recommends `a simple operator queue rather than complex routing` (lines 205-210)."
+    },
+    {
+      "text": "Response includes integrations only if directly needed.",
+      "passed": true,
+      "evidence": "The report keeps integrations optional rather than required: source options are listed as alternatives (`Phone system webhook`, `Call-tracking platform webhook`, or `Manual entry form`) in `report.md` lines 38-42, and CRM is only mentioned as a later quality improvement (`Add customer lookup from CRM or call history`, lines 191-196) or mitigation (`optional CRM lookup`, lines 220-223). No unnecessary third-party stack is introduced in `result.json`; the output channel is just `email` (lines 42-45)."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid structured JSON with top-level keys `task`, `artifacts`, `workflow`, `mvp_phases`, and `acceptance_criteria` (lines 1-66). The `workflow` object is semantically structured with nested `input`, `operator_review`, and `output` sections (lines 7-54)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 7780
+  },
+  "claims": [
+    {
+      "claim": "This is the only human-in-the-loop step.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`report.md` states this directly in the `Operator Review Step` section (lines 54-56), and `result.json` confirms `operator_review_steps: 1` (line 25)."
+    },
+    {
+      "claim": "Use email as the only owner output in v1.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`report.md` recommends `Use email as the only owner output in v1.` (line 207), and `result.json` specifies the output channel as `email` (lines 42-45)."
+    },
+    {
+      "claim": "Duplicate input for the same call_id does not create another active case.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This requirement appears in `report.md` acceptance criteria (`Duplicate input for the same call_id does not create another active case.`, lines 214-218) and is repeated in `result.json` acceptance criteria (`Duplicate call_id values do not create duplicate active cases.`, lines 60-64)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that checks the response explicitly limits the workflow to exactly one input, one operator step, and one owner output; the current first assertion could pass even if extra steps were added elsewhere.",
+      "Add an assertion for deliverable quality in the JSON, such as requiring machine-readable fields for input, review, and output rather than merely checking that some structured JSON exists.",
+      "Add an assertion for implementation specificity, such as duplicate handling or review/output rules, because the current suite does not distinguish a shallow outline from a substantively buildable plan.",
+      "Strengthen `includes integrations only if directly needed` by naming disallowed sprawl patterns or requiring optional integrations to be clearly marked as later-phase or optional."
+    ],
+    "overall": "All 4 assertions pass for this run, but the suite is somewhat non-discriminating: it checks general shape and presence of JSON, yet misses whether the plan is operationally specific enough to implement and whether the one-input/one-review/one-output constraint is enforced exactly rather than loosely described."
+  }
+}

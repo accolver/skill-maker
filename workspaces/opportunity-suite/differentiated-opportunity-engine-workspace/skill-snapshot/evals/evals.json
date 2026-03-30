@@ -1,0 +1,52 @@
+{
+  "skill_name": "differentiated-opportunity-engine",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I am a software engineer who spent 6 years building internal tools for HVAC distributors. My brother runs a small HVAC service business and knows a lot of owners in the region. I want to make money with AI and eventually build a micro-SaaS, but I am open to starting with services. I do not have an audience. Help me figure out the best path.",
+      "expected_output": "A differentiated recommendation that favors a legal hybrid or service-to-software path over generic AI content plays, explains the HVAC edge clearly, and includes validation steps plus a build handoff.",
+      "files": [],
+      "assertions": [
+        "Response includes a section header named Differentiation Profile",
+        "Response includes a section header named Top Opportunities",
+        "Response includes a section header named Best Bet",
+        "Response includes a section header named 7-Day Validation Plan",
+        "Response includes a section header named Build Spec",
+        "Response includes a section header named Kill Criteria",
+        "Response explicitly explains why this user can win in HVAC or why the user has an edge",
+        "Response recommends or seriously considers a hybrid ladder such as service to automation to product",
+        "Response includes a JSON block with a best_bet field"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I am a former compliance consultant for small financial firms. I have strong domain knowledge and a few warm contacts, but only 8 to 10 hours a week and almost no desire to become a content creator. I care about staying fully legal. I want something AI can accelerate. What opportunity should I pursue?",
+      "expected_output": "A legally grounded set of opportunities that uses compliance credibility as the main differentiator, avoids defaulting to pure content, and produces a ranked recommendation with validation and stop conditions.",
+      "files": [],
+      "assertions": [
+        "Response includes a section header named Differentiation Profile",
+        "Response includes a section header named Top Opportunities",
+        "Response explicitly notes legal or compliance constraints",
+        "Response explicitly downgrades or avoids pure content or media as the main business",
+        "Response explains why this user can win using compliance expertise or warm contacts",
+        "Response includes kill criteria or stop conditions",
+        "Response includes a JSON block with an opportunities array"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I am a senior data analyst at an ecommerce SaaS company. I know a lot about merchant reporting pain, but I do not directly own budget and my network is mostly peers, not founders. I would love a micro-SaaS, but I am not sure if I should sell a service first. Give me your honest recommendation.",
+      "expected_output": "An honest recommendation that weighs the weak buyer access against strong workflow knowledge, states whether a service-first wedge is smarter than immediate software, and returns both a readable report and structured JSON.",
+      "files": [],
+      "assertions": [
+        "Response includes a section header named Differentiation Profile",
+        "Response includes a section header named Best Bet",
+        "Response discusses the user's weak direct buyer access or distribution limits",
+        "Response explains whether a service first wedge should come before software",
+        "Response explains why this user can win using merchant reporting knowledge",
+        "Response includes a 7 day validation plan",
+        "Response includes a JSON block with a user_profile object"
+      ]
+    }
+  ]
+}

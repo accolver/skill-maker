@@ -1,0 +1,35 @@
+{
+  "readiness_verdict": "stay_manual_for_now",
+  "product_wedge": {
+    "primary_user": "Solo or small-practice therapist owner",
+    "job_to_be_done": "Turn practice inputs into a benchmarked practice snapshot with recommended template next steps",
+    "core_workflow": "The therapist submits a standardized set of practice data, receives a benchmark comparison, and gets a recommended template or next action"
+  },
+  "manual_work": [
+    "Collect therapist pain points through interviews, sales calls, and support",
+    "Interpret benchmark results for edge cases and unusual practices",
+    "Adapt templates for specialty-specific or non-standard situations",
+    "Verify that the same input fields and outputs recur across customers"
+  ],
+  "automated_first": [
+    "Standardized intake form for benchmark inputs",
+    "Rules-based benchmark summary generation",
+    "Basic template recommendation based on a few practice characteristics"
+  ],
+  "mvp_boundary": [
+    "One user role: therapist owner",
+    "One core workflow: intake to benchmark summary to template recommendation",
+    "One key input: standardized practice metrics",
+    "One key output: benchmark summary with next best template/action",
+    "One human escalation trigger for incomplete, unusual, or out-of-range cases"
+  ],
+  "productization_trigger": "Evidence that many therapists repeatedly struggle with the same benchmarking-and-template workflow, use the same inputs and outputs, and will pay specifically to automate that repeated task",
+  "do_not_build_yet": [
+    "Broad practice-management platform",
+    "Multi-user collaboration and admin tooling",
+    "EHR, billing, scheduling, or CRM integrations",
+    "Broad dashboards and analytics suites",
+    "Marketplace or community features",
+    "Open-ended AI advisory functionality"
+  ]
+}

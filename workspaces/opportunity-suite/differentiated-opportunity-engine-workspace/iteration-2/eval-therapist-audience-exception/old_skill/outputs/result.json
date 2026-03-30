@@ -1,0 +1,191 @@
+{
+  "user_profile": {
+    "skills": [
+      "editorial packaging",
+      "community building",
+      "audience trust",
+      "problem discovery",
+      "product positioning"
+    ],
+    "domain_experience": [
+      "4 years listening to independent therapists and small clinic owners",
+      "deep exposure to admin, documentation, staffing, and insurance pain points"
+    ],
+    "assets": [
+      "42000-subscriber newsletter",
+      "paid community",
+      "warm survey and beta-tester access",
+      "historical audience knowledge"
+    ],
+    "distribution": [
+      "owned newsletter distribution",
+      "community channel",
+      "content-supported launches"
+    ],
+    "network_access": [
+      "independent therapists",
+      "small clinic owners"
+    ],
+    "constraints": [
+      "does not want client service work",
+      "must stay legal",
+      "wants AI-assisted products",
+      "should avoid PHI-heavy workflows early"
+    ],
+    "credibility_signals": [
+      "niche audience of 42000 subscribers",
+      "paid community",
+      "4 years of focused niche listening"
+    ],
+    "unfair_advantages": [
+      "trusted direct access to buyers",
+      "large backlog of real operator pain points",
+      "ability to validate and launch without cold start distribution"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_hybrid_ops_benchmark_toolkit",
+      "title": "Practice Ops Benchmark and AI SOP Toolkit to workflow SaaS",
+      "category": "hybrid",
+      "thesis": "Start with a paid benchmark and template product for therapist practice operations, then turn the highest-retention workflow into a lightweight tracker SaaS.",
+      "why_user_can_win": "The user already has trusted distribution to the exact buyers, years of niche pain intelligence, and can create proprietary benchmark data that a generic AI operator cannot access.",
+      "scores": {
+        "edge_fit": 10,
+        "speed_to_revenue": 9,
+        "durability": 9,
+        "distribution_fit": 10,
+        "ai_leverage": 7,
+        "defensibility": 8,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Publish a landing page with a narrow promise around back-office benchmarks and SOPs",
+        "Survey newsletter and community to rank admin, insurance, staffing, and documentation pains",
+        "Pre-sell the founding version before building the full library",
+        "Deliver only the top requested assets and track repeated use",
+        "Choose the software wedge based on buyer pull"
+      ],
+      "tool_specs": [
+        "Quarterly benchmark report",
+        "Template vault in Notion/PDF/Sheets",
+        "AI prompt packs for non-clinical internal workflows",
+        "Later SaaS tracker for denials, credentialing, staffing, or admin execution"
+      ],
+      "kill_criteria": [
+        "Fewer than 5 paid conversions from a warm launch",
+        "No single workflow emerges as a software wedge",
+        "Buyers mainly request custom service work",
+        "Compliance risk rises due to PHI or legal-advice drift"
+      ]
+    },
+    {
+      "id": "opp_cash_template_vault",
+      "title": "Insurance and Admin Template Vault",
+      "category": "cash_now",
+      "thesis": "Sell a premium library of therapist-practice admin, hiring, policy, and payer-follow-up templates with AI-assisted adaptation prompts.",
+      "why_user_can_win": "Trust and domain specificity matter more than generic template volume, and this user has both the buyer channel and the editorial credibility.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 10,
+        "durability": 6,
+        "distribution_fit": 10,
+        "ai_leverage": 6,
+        "defensibility": 5,
+        "execution_difficulty": 2,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Sell a founding bundle to the email list",
+        "Measure which templates are most requested",
+        "Use requests to inform benchmark and software roadmap"
+      ],
+      "tool_specs": [
+        "Template vault",
+        "Prompt pack",
+        "Download area",
+        "Update cadence"
+      ],
+      "kill_criteria": [
+        "High clicks but low payment intent",
+        "Users want bespoke customization rather than productized assets"
+      ]
+    },
+    {
+      "id": "opp_asset_staffing_benchmark",
+      "title": "Staffing and Compensation Benchmark Subscription",
+      "category": "asset_later",
+      "thesis": "Build a recurring data product around therapist practice staffing, compensation, utilization, and retention.",
+      "why_user_can_win": "The audience and trust make it plausible to gather private operational data that new entrants cannot easily collect.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 6,
+        "durability": 9,
+        "distribution_fit": 9,
+        "ai_leverage": 5,
+        "defensibility": 9,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Run a compensation and staffing survey",
+        "Pre-sell the report to operators before collecting all data",
+        "Test whether subscribers want annual or quarterly updates"
+      ],
+      "tool_specs": [
+        "Survey pipeline",
+        "Benchmark report",
+        "Segment filters",
+        "Subscriber update workflow"
+      ],
+      "kill_criteria": [
+        "Response quality is too low to produce trusted benchmarks",
+        "Insufficient willingness to pay for recurring updates"
+      ]
+    },
+    {
+      "id": "opp_asset_insurance_ops_tracker",
+      "title": "Insurance Ops Tracker for Small Practices",
+      "category": "asset_later",
+      "thesis": "Offer a narrow software tool for credentialing, claims aging, denials, appeals, and payer follow-up without trying to replace the EHR.",
+      "why_user_can_win": "The user can pre-sell to a warm niche audience and stay focused on a specific neglected workflow instead of competing head-on with broad practice management vendors.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 5,
+        "durability": 8,
+        "distribution_fit": 9,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Validate the exact workflow through template and benchmark buyers",
+        "Prototype with sheets or no-code before custom build",
+        "Avoid PHI ingestion in the first version"
+      ],
+      "tool_specs": [
+        "Status dashboard",
+        "Owner assignment",
+        "Aging reminders",
+        "KPI view",
+        "Exportable logs"
+      ],
+      "kill_criteria": [
+        "Users do not switch from spreadsheets",
+        "Integration requirements make the v1 too heavy",
+        "Compliance burden rises materially"
+      ]
+    }
+  ],
+  "best_bet": "opp_hybrid_ops_benchmark_toolkit",
+  "next_actions": [
+    "Choose the initial buyer segment",
+    "Write and publish a pre-sell landing page",
+    "Survey the audience on top back-office pain",
+    "Collect payments or deposits for a founding offer",
+    "Build only the top requested assets",
+    "Select the software wedge based on repeated workflow demand"
+  ]
+}

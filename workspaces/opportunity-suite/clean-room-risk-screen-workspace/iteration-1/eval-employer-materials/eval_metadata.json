@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "employer-materials",
+  "prompt": "The user wants to use employer internal templates, pricing logic, and process docs from their govtech job to launch a side business in the same niche. Screen the risk.",
+  "assertions": [
+    "Response explicitly blocks direct use of employer internal materials.",
+    "Response preserves some lawful generalized knowledge or public-data path rather than banning everything.",
+    "Response proposes a concrete safer adjacent path.",
+    "Response includes structured JSON."
+  ]
+}

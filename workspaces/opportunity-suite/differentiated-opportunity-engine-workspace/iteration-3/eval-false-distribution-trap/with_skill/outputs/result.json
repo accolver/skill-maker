@@ -1,0 +1,197 @@
+{
+  "user_profile": {
+    "skills": [
+      "audience building in AI productivity",
+      "message testing at scale",
+      "understanding of beginner-to-intermediate AI workflows",
+      "product intuition around prompts and automations"
+    ],
+    "domain_experience": [
+      "AI productivity content and audience development"
+    ],
+    "assets": [
+      "150000 X followers",
+      "fast low-cost distribution for self-serve tests",
+      "ability to collect survey and usage data"
+    ],
+    "distribution": [
+      "strong reach to students, job-seekers, hobbyists, and ambitious individual AI users",
+      "weak direct reach to business buyers"
+    ],
+    "network_access": [
+      "consumer and prosumer AI productivity audience on X"
+    ],
+    "constraints": [
+      "does not want service work",
+      "does not want course revenue",
+      "wants a durable business",
+      "does not currently have trust with business buyers"
+    ],
+    "credibility_signals": [
+      "large visible audience in the AI productivity category"
+    ],
+    "unfair_advantages": [
+      "can activate early self-serve users faster than a typical founder",
+      "can turn content distribution into product testing and data collection"
+    ]
+  },
+  "feasibility_verdict": "conditional",
+  "binding_constraints": [
+    "Current audience is real distribution but mostly to the wrong buyer for direct B2B sales",
+    "No service wedge means there is no fast path to borrowed B2B credibility",
+    "A durable product business is only credible if the first customer is an individual user and B2B trust is earned later"
+  ],
+  "opportunities": [
+    {
+      "id": "opp_sponsored_benchmark_report",
+      "title": "Sponsor-funded AI productivity benchmark report",
+      "category": "cash_now",
+      "thesis": "Use the audience to collect benchmark data and sell sponsorship to AI vendors or adjacent tools.",
+      "why_user_can_win": "The audience makes survey distribution and report launch easier than for a random operator.",
+      "why_this_could_fail": "Revenue is one-off and media-like, so it does not match the desired durable business.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 7,
+        "durability": 3,
+        "distribution_fit": 8,
+        "ai_leverage": 4,
+        "defensibility": 4,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Run one 20-question survey and target 300 responses from the existing audience",
+        "Pitch 10 potential sponsors and target 2 paid sponsor conversations within 7 days"
+      ],
+      "tool_specs": [
+        "survey collection",
+        "simple report generator",
+        "landing page for sponsors"
+      ],
+      "kill_criteria": [
+        "Fewer than 150 survey responses in 7 days",
+        "Zero sponsor calls booked after 10 targeted pitches"
+      ]
+    },
+    {
+      "id": "opp_team_benchmark_product",
+      "title": "AI workflow benchmark and certification product for teams",
+      "category": "asset_later",
+      "thesis": "Turn audience and product data into a benchmarking product for managers or L&D leaders.",
+      "why_user_can_win": "The audience can seed data collection for a benchmark layer.",
+      "why_this_could_fail": "Managers may not trust the founder yet, so procurement and sales can stall.",
+      "scores": {
+        "edge_fit": 6,
+        "speed_to_revenue": 3,
+        "durability": 7,
+        "distribution_fit": 4,
+        "ai_leverage": 5,
+        "defensibility": 7,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Interview 10 managers or L&D leads about AI proficiency measurement",
+        "Test one benchmark concept page and target 5 demo requests"
+      ],
+      "tool_specs": [
+        "assessment engine",
+        "benchmark dashboard",
+        "report export"
+      ],
+      "kill_criteria": [
+        "Fewer than 3 qualified buyer conversations after 20 targeted outreaches",
+        "No buyer agrees the benchmark would influence a purchase or training decision"
+      ]
+    },
+    {
+      "id": "opp_workflow_os_bottom_up",
+      "title": "Self-serve workflow operating system for ambitious AI users, then team analytics and controls",
+      "category": "hybrid",
+      "thesis": "Start with a self-serve product for ambitious individual users to save, run, and prove repeatable AI workflows, then add team analytics, shared libraries, and manager-facing controls once usage patterns appear.",
+      "why_user_can_win": "The founder already has low-cost access to early adopters in AI productivity, so distribution works for a bottom-up product even though it does not yet work for enterprise sales.",
+      "why_this_could_fail": "If the product is too broad or does not anchor to one repeated job, it will look like a generic AI productivity wrapper and fail to retain users.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 6,
+        "durability": 8,
+        "distribution_fit": 7,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Pick one repeated job and launch one focused landing page",
+        "Target 150 visits, 30 email captures, and 10 qualified work-context respondents from 3 focused X posts",
+        "Interview 10 qualified users and target 6 who describe the same repeated workflow pain",
+        "Give 10 users prototype access and target 5 created workflows, 3 repeat runs, and 2 shares",
+        "Test willingness to pay with a preorder or beta commitment and target 5 preorders or 15 strong weekly-usage commitments"
+      ],
+      "tool_specs": [
+        "landing page for one workflow job",
+        "workflow builder",
+        "workflow run log",
+        "metrics and proof-card generator",
+        "shared template gallery",
+        "event tracking for repeat usage and shares"
+      ],
+      "kill_criteria": [
+        "Fewer than 30 qualified work-context signups from the first 3 focused posts",
+        "Fewer than 6 of 10 interviewed users describe the same repeated job",
+        "Fewer than 3 of 10 testers run a workflow more than once in 72 hours",
+        "Zero users prepay or make a strong weekly-usage commitment",
+        "Signups come mostly from curiosity users with no repeated work context"
+      ]
+    },
+    {
+      "id": "opp_vertical_partnership_wedge",
+      "title": "Vertical partnership wedge inside career platforms or bootcamps",
+      "category": "hybrid",
+      "thesis": "Embed an AI workflow tool or benchmark into training platforms first, then expand toward employer-facing buyers.",
+      "why_user_can_win": "Current audience and category credibility are closer to these channels than to enterprise procurement.",
+      "why_this_could_fail": "The business may get stuck in education-adjacent budgets instead of reaching durable business buyers.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 5,
+        "durability": 6,
+        "distribution_fit": 7,
+        "ai_leverage": 6,
+        "defensibility": 5,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Pitch 15 partner orgs and target 5 calls",
+        "Secure 1 pilot with at least 25 users"
+      ],
+      "tool_specs": [
+        "partner dashboard",
+        "co-branded onboarding",
+        "basic reporting"
+      ],
+      "kill_criteria": [
+        "Fewer than 3 partner calls after 15 targeted outreaches",
+        "No pilot partner accepts within 21 days"
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Generic B2B AI copilot for companies",
+      "reason": "It matches the aspiration but not the real edge. There is no current buyer trust, buyer access, or service wedge to make enterprise adoption credible."
+    },
+    {
+      "title": "Course or cohort business",
+      "reason": "It would monetize the current audience faster, but it conflicts with the stated goal of building a durable compounding business."
+    }
+  ],
+  "best_bet": "opp_workflow_os_bottom_up",
+  "next_actions": [
+    "Choose one repeated job with measurable time or quality improvement",
+    "Write a landing page with one promise and one hard metric",
+    "Ship a thin prototype with save, run, log, and share workflow actions",
+    "Run 3 focused X posts aimed at the chosen ICP instead of the whole audience",
+    "Interview 10 qualified users and measure repeat usage before expanding scope"
+  ]
+}

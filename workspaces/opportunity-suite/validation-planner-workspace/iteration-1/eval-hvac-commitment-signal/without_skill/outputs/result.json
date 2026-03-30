@@ -1,0 +1,53 @@
+{
+  "idea": "HVAC missed-call recovery concierge for small service businesses",
+  "recommendation": "proceed_with_7_day_validation",
+  "best_bet_rationale": [
+    "Missed calls directly map to lost HVAC revenue and are easy for owners to understand.",
+    "A manual concierge pilot can demonstrate value without full product development.",
+    "Warm access through a family connection increases odds of fast, honest feedback and pilot conversion."
+  ],
+  "core_hypothesis": "Small HVAC owners with meaningful missed-call volume will show commitment within 7 days by paying for a pilot, granting operational access, or sharing real call data.",
+  "ideal_customer_profile": {
+    "segment": "owner-led small HVAC businesses",
+    "size": "roughly 3-20 techs",
+    "traits": [
+      "phone-driven lead intake",
+      "missed calls during busy periods or after hours",
+      "limited live answering coverage"
+    ]
+  },
+  "commitment_signals_ranked": [
+    "Paid pilot or refundable deposit",
+    "Agreement to start a live pilot this week",
+    "Sharing missed-call logs or call volume data",
+    "Intro to office manager or dispatcher with scheduled follow-up",
+    "Verbal interest only"
+  ],
+  "seven_day_plan": [
+    "Prepare one-page offer and define a narrow pilot with a clear paid ask.",
+    "Run 3-5 owner conversations, starting with the warm intro, and ask for specifics on missed calls and value.",
+    "Refine positioning based on objections and narrow the use case if needed.",
+    "Run one manual concierge simulation for the strongest prospect.",
+    "Ask directly for a paid pilot or equivalent commitment.",
+    "Follow up with maybes using a time-bound pilot message.",
+    "Score outcomes and decide proceed, narrow, or stop."
+  ],
+  "success_criteria": {
+    "strong_validation": [
+      "1 paid pilot",
+      "or 2 prospects willing to start a live pilot with operational access",
+      "or 3 prospects willing to share logs and enter implementation discussions"
+    ],
+    "weak_validation": [
+      "positive feedback without access or payment",
+      "feature requests without commitment",
+      "vague follow-up promises"
+    ]
+  },
+  "recommended_pilot": {
+    "scope": "after-hours and missed inbound calls only",
+    "delivery": "manual concierge is acceptable",
+    "price_test": "$250-$500 for a 2-week pilot, optionally credited forward"
+  },
+  "decision_rule": "Continue only if real commitment appears within 7 days; otherwise narrow the segment/use case or stop."
+}

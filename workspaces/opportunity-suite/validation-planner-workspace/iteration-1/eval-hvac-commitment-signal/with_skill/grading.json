@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly names one primary unknown and ties the major steps to resolving that unknown within the 7-day window.",
+      "passed": true,
+      "evidence": "`outputs/report.md:11-12` names the primary unknown as 'willingness-to-pay risk,' and the 7-day plan repeatedly targets that unknown through commitment-seeking steps such as asking directly for the paid pilot (`outputs/report.md:58`), closing pilot commitments (`outputs/report.md:64`), pushing for deposit collection or a signed kickoff slot (`outputs/report.md:70`), and deciding from commitment signals on Day 7 (`outputs/report.md:91-92`). The same structure is mirrored in `outputs/result.json:4-17`."
+    },
+    {
+      "text": "Response asks for a real commitment signal appropriate to the offer, such as a deposit, paid pilot, or booked implementation slot, not just soft interest.",
+      "passed": true,
+      "evidence": "The plan asks for strong commitment signals, not soft interest: `outputs/report.md:27` offers a '$250 pilot fee up front to reserve the slot'; `outputs/report.md:31-33` defines the strongest signals as a collected '$250 pilot deposit' or a 'signed implementation slot with a scheduled kickoff inside 7 days'; `outputs/report.md:58` says to ask directly for the paid 14-day pilot. The JSON output repeats the deposit and scheduled slot language in `outputs/result.json:9,20-21,26`."
+    },
+    {
+      "text": "Response includes go, revise, and kill thresholds with numeric cutoffs and linked decisions.",
+      "passed": true,
+      "evidence": "`outputs/report.md:97-104` defines numeric go and revise thresholds: Go requires '5 or more qualified owner conversations' plus 'at least 2 paid pilot deposits, or 1 paid deposit plus 1 signed implementation slot'; Revise requires '5 or more qualified owner conversations and exactly 1 strong commitment.' `outputs/report.md:117-118` defines kill thresholds such as 'Fewer than 5 qualified owner conversations' and 'Zero owners will pay a deposit or reserve a kickoff slot within 7 days.' These thresholds are explicitly linked to the Day 7 decision in `outputs/report.md:89-93`. The same thresholds appear in `outputs/result.json:19-29`."
+    },
+    {
+      "text": "Response includes both a readable plan and a structured JSON block.",
+      "passed": true,
+      "evidence": "`outputs/report.md` contains a readable narrative plan with prose sections and a day-by-day breakdown (`outputs/report.md:1-134`), then includes an explicit fenced JSON block under 'Structured Plan' (`outputs/report.md:135-177`). A standalone structured JSON file is also present at `outputs/result.json:1-39`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 11652
+  },
+  "claims": [
+    {
+      "claim": "Buyer-access risk is relatively low because the user has warm owner access through a family member.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This claim appears in `outputs/report.md:18-19` and `outputs/result.json:7`. It is supported by the task prompt in `eval_metadata.json:4`, which states the user 'has warm owner access through a family member.'"
+    },
+    {
+      "claim": "The agent wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript says 'Completed. Wrote `report.md` and `result.json`' at `transcript.md:4`, and both files are present in `outputs/` with substantive content."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 4. 'Response includes both a readable plan and a structured JSON block' is only moderately discriminating because the task already instructs the agent to save both `report.md` and `result.json`; require specific fields or internal consistency between them.",
+      "Add an assertion checking that the commitment ask is front-loaded into the outreach steps, not only mentioned in success criteria. This run does that well, but the current suite would miss plans that mention deposits only abstractly.",
+      "Add an assertion that the thresholds are calibrated to the user's actual channel advantage ('warm owner access through a family member') rather than generic startup validation advice."
+    ],
+    "overall": "The current assertions discriminate reasonably well on commitment-signal quality and threshold specificity, and this run satisfies all four with substantive evidence. Coverage is still thin around plan quality details that matter for this prompt, especially whether the commitment ask is operationalized early and whether the numbers are tailored to the warm-intro context."
+  }
+}

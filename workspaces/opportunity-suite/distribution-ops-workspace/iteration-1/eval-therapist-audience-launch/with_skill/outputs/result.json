@@ -1,0 +1,44 @@
+{
+  "channel_thesis": "Launch through the existing trusted therapist newsletter first because this product depends on authority and relevance more than reach; a warm audience should convert faster and more credibly than cold channels.",
+  "primary_channel": "Niche newsletter or community launch via the existing trusted therapist newsletter",
+  "supporting_channels": [
+    "Conversion-focused landing page for email traffic",
+    "Warm partner amplification from aligned therapist educators or consultants",
+    "Organic social reposts that reinforce the newsletter launch"
+  ],
+  "assets_needed": [
+    "Offer positioning statement",
+    "Sales landing page",
+    "Sample benchmark charts or anonymized findings",
+    "Template previews",
+    "FAQ",
+    "Pre-launch interest email",
+    "Main launch email",
+    "Proof email",
+    "Final-call email",
+    "Checkout and fulfillment flow",
+    "Tracked links and basic analytics"
+  ],
+  "sequence": [
+    "Tease the problem and upcoming product to the newsletter audience",
+    "Measure intent with a waitlist or interest-capture email",
+    "Send the main launch email with clear value proposition and CTA",
+    "Follow with a proof email showing benchmark insights and template examples",
+    "Close with a deadline-driven final-call email",
+    "Review conversion by source before expanding beyond the owned audience"
+  ],
+  "success_metrics": [
+    "Interest email CTR >= 3%",
+    "Waitlist-to-purchase >= 8%",
+    "Main launch click-to-purchase >= 4%",
+    "Main launch recipient-to-purchase >= 0.8%",
+    "Landing page conversion from email traffic >= 3%",
+    "Refund rate < 5%"
+  ],
+  "kill_criteria": [
+    "Stop or reposition if recipient-to-purchase stays below 0.3% after the full launch sequence",
+    "Stop partner amplification as a priority if fewer than 2 warm partners share or their traffic underperforms materially",
+    "Do not test paid acquisition until the newsletter launch meets baseline conversion thresholds",
+    "Rework offer-message fit if clicks are healthy but purchases remain weak"
+  ]
+}

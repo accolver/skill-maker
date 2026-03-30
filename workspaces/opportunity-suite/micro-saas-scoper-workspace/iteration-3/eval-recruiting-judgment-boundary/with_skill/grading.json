@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response uses exactly one readiness verdict from build_now, stay_manual_for_now, or conditional_build.",
+      "passed": true,
+      "evidence": "`outputs/result.json:2` sets `\"readiness_verdict\": \"conditional_build\"`, and `outputs/report.md:3` repeats only `conditional_build`. No other readiness verdict token appears in either output."
+    },
+    {
+      "text": "Response does not allow end-to-end automation and keeps judgment-heavy matching or screening manual in v1.",
+      "passed": true,
+      "evidence": "`outputs/report.md:10-15` says the core match decision still depends on human judgment and to keep `final matching, outreach nuance, and client calibration human-led`. `outputs/report.md:43-50` lists final match judgment and client tradeoff conversations as manual work, and `outputs/report.md:77-80` explicitly rejects end-to-end sourcing automation and autonomous outreach. The same boundaries are mirrored in `outputs/result.json:8-35`."
+    },
+    {
+      "text": "Response automates only one narrow workflow first rather than the whole funnel.",
+      "passed": true,
+      "evidence": "`outputs/report.md:31-35` defines one narrow job and one core workflow: turning raw candidate profiles into a first-pass shortlist packet. `outputs/report.md:65-70` further narrows the MVP to one user role and one core workflow, while `outputs/report.md:77-81` says not to build sourcing automation, outreach orchestration, scheduling, or a marketplace yet."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/micro-saas-scope-template.json with non-empty readiness_verdict, product_wedge.primary_user, product_wedge.job_to_be_done, product_wedge.core_workflow, manual_work, automated_first, mvp_boundary, productization_trigger, and do_not_build_yet.",
+      "passed": true,
+      "evidence": "`outputs/result.json` parses as valid JSON. It matches the template structure from `assets/micro-saas-scope-template.json:1-13`: top-level keys `readiness_verdict`, `product_wedge`, `manual_work`, `automated_first`, `mvp_boundary`, `productization_trigger`, and `do_not_build_yet` are all present and non-empty. Within `product_wedge`, `primary_user` (`result.json:4`), `job_to_be_done` (`:5`), and `core_workflow` (`:6`) are populated; arrays `manual_work` (`:8-13`), `automated_first` (`:14-19`), `mvp_boundary` (`:20-26`), and `do_not_build_yet` (`:28-35`) all contain substantive items."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [],
+    "output_chars": 8504
+  },
+  "claims": [
+    {
+      "claim": "The run produced both `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:5` says it wrote both files, and both exist in `with_skill/outputs/` with substantive content."
+    },
+    {
+      "claim": "The correct readiness verdict is `conditional_build` rather than full automation now.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Both outputs consistently choose `conditional_build` (`report.md:3`, `result.json:2`) and justify it with repeat-client/productization signals plus explicit preservation of judgment-heavy work (`report.md:8-15`, `43-50`, `77-81`)."
+    },
+    {
+      "claim": "The proposed first product should be a shortlist-packet triage workflow, not the whole recruiting funnel.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`report.md:31-35` and `65-73` scope the product to candidate triage into a review packet with manual escalation, while `report.md:75-82` excludes broader funnel automation. `result.json:20-35` mirrors the same boundary."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response explains why the verdict was chosen using concrete productization signals from the scenario' — the current assertions check the boundary decision but not the supporting rationale quality.",
+      "Add assertion: 'Response includes an explicit human-escalation trigger for uncertain cases' — this output includes one, and it is an important discriminator for judgment-boundary tasks.",
+      "Strengthen the JSON assertion to require semantic alignment between `manual_work` and `automated_first`, not just non-empty fields, so shallow template-filling does not pass."
+    ],
+    "overall": "The assertion set covers the core boundary decision well and is reasonably discriminating. Its main gap is rationale quality: a run could satisfy all four assertions with structurally correct but weak reasoning about why the wedge is appropriate."
+  }
+}

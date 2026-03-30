@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response treats clicks and praise as weaker than failed paid conversion.",
+      "passed": true,
+      "evidence": "`report.md` lines 14-19 explicitly labels clicks as a vanity signal, praise as a weak signal, and zero preorders as the strong signal. `result.json` lines 5-10 mirrors this by placing zero preorders under `strong_signals` and clicks/praise under `weak_signals`."
+    },
+    {
+      "text": "Response avoids calling the experiment a success just because engagement was high.",
+      "passed": true,
+      "evidence": "`report.md` lines 24-31 sets the decision state to `pivot` and says the current stated preorder price is 'not validated.' `result.json` line 15 also sets `decision_state` to `pivot`, so the response does not frame the run as a success based on engagement alone."
+    },
+    {
+      "text": "Response recommends one focused next experiment tied to pricing, segment, or offer mismatch.",
+      "passed": true,
+      "evidence": "`report.md` lines 35-42 recommends a single pricing-and-offer sensitivity experiment with three preorder variants and a paid-conversion success criterion. `result.json` line 16 likewise proposes one revised preorder experiment focused on offer/price variants."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json` exists and contains a structured JSON object with keys including `experiments`, `strong_signals`, `weak_signals`, `decision_state`, `next_experiment`, and `rationale` (`result.json` lines 1-18). `jq empty outputs/result.json` succeeded, confirming valid JSON syntax."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 1,
+    "errors_encountered": [],
+    "output_chars": 3179
+  },
+  "claims": [
+    {
+      "claim": "See `result.json` for the machine-readable tracker entry.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`report.md` lines 44-46 direct the reader to `result.json`, and `outputs/result.json` is present with valid structured JSON content (`result.json` lines 1-18)."
+    },
+    {
+      "claim": "The next step should focus on resolving purchase friction rather than generating more traffic.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The prompt data and outputs show approximately 800 clicks but zero preorders. The recommendation in `report.md` lines 35-42 and `result.json` lines 16-17 therefore centers on price/offer testing instead of additional traffic generation."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen 'Response includes structured JSON' to require specific tracker fields such as `decision_state`, `next_experiment`, and `rationale`, since any valid JSON would currently pass.",
+      "Add an assertion that the recommendation uses paid conversion as the success metric, because that is a key substantive behavior visible in `report.md` lines 40-42 but not directly checked.",
+      "Reduce overlap between the first two assertions: both currently reward recognizing that clicks/praise are weaker than zero paid conversion and that high engagement does not equal success."
+    ],
+    "overall": "The eval captures the main reasoning well, but one assertion is shallow and two are partially overlapping. It would discriminate better with a stronger JSON schema check and an explicit assertion on using paid conversion as the next experiment's metric."
+  }
+}

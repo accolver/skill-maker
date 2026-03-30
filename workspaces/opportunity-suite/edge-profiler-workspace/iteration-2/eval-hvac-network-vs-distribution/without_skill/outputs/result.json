@@ -1,0 +1,50 @@
+{
+  "recommended_path": "service_owner_network_first",
+  "summary": "Use the brother's local HVAC owner introductions as the primary go-to-market channel, while using HVAC distribution operations experience as credibility and product insight.",
+  "rationale": [
+    "Warm introductions to owners are more valuable than a cold start without an audience.",
+    "Service owners directly feel and can budget for operational pain solved by software and automation.",
+    "HVAC distribution operations experience improves credibility and helps identify practical workflow problems.",
+    "Local service businesses usually have shorter sales cycles and cleaner pilot opportunities than distributor-side sales motions."
+  ],
+  "best_initial_customer_profile": {
+    "industry": "HVAC service businesses",
+    "size": "5-30 technicians",
+    "buyer": "owner-operator or operations-minded owner",
+    "traits": [
+      "high admin load",
+      "revenue leakage from follow-up or renewals",
+      "limited internal technical capability",
+      "fast decision-making"
+    ]
+  },
+  "priority_problem_areas": [
+    "quote follow-up automation",
+    "maintenance agreement retention and reactivation",
+    "dispatch and admin workflow automation",
+    "parts and job-status visibility",
+    "after-hours lead capture and triage"
+  ],
+  "go_to_market_plan": [
+    "Get 10-15 owner introductions through the brother's network.",
+    "Run structured discovery conversations around revenue leakage and admin bottlenecks.",
+    "Select one repeated, high-ROI workflow problem.",
+    "Pilot a narrow solution with 2-3 shops.",
+    "Turn the pilot into a productized service, lightweight SaaS, or hybrid offering."
+  ],
+  "positioning": "I spent years in HVAC distribution ops, understand how contractors actually run, and now build practical software and automations that remove admin drag and recover lost revenue for HVAC service companies.",
+  "distribution_network_role": {
+    "recommendation": "secondary_asset",
+    "uses": [
+      "credibility",
+      "product insight",
+      "possible future referrals",
+      "possible channel partnerships later"
+    ],
+    "limitations": [
+      "may not reach budget owners directly",
+      "likely longer sales cycles",
+      "less direct path to paid pilot"
+    ]
+  }
+}

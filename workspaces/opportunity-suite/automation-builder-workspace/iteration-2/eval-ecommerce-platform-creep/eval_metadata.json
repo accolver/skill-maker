@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "ecommerce-platform-creep",
+  "prompt": "Build spec: lightweight self-serve ecommerce reporting utility for one recurring merchant problem, but stakeholders keep asking for team collaboration, custom dashboards, alerts, and multi-store support. Produce the build plan.",
+  "assertions": [
+    "Response defines one primary user and one primary workflow in system_objective rather than a broad reporting platform.",
+    "Response explicitly rejects at least 3 platform expansions as out of scope.",
+    "Response includes milestones plus a real out_of_scope boundary in JSON.",
+    "Response includes valid JSON matching assets/build-plan-template.json."
+  ]
+}

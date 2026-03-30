@@ -1,0 +1,84 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says employer, customer, confidentiality, or PHI limits mean the obvious healthcare niche edge cannot be monetized directly right now.",
+      "passed": false,
+      "evidence": "The response lists constraints such as no PHI, no employer confidential information, and no contact with employer customers (report.md:15-17; result.json:27-33), but it never explicitly states that the obvious healthcare niche edge cannot be monetized directly right now. It also presents an immediate monetization option ('Async denial leakage memo') in report.md:36-49, which undercuts this stricter claim."
+    },
+    {
+      "text": "Response does not recommend using employer customers, employer data, PHI, or proprietary internal workflow knowledge as the core wedge.",
+      "passed": true,
+      "evidence": "The recommended wedge targets 'Independent provider groups outside employer relationships, small MSOs, billing services, or RCM consultants' (report.md:151-157). The report repeatedly constrains the solution to 'public payer documents, synthetic examples, and non-customer distribution' (report.md:124-125) and sets a data policy of 'No PHI, no customer data, no employer data, no confidential workflow artifacts' (report.md:193-194). The JSON mirrors this with constraints barring PHI, employer confidential information, and employer customers (result.json:27-33) and with a best bet based on public policy monitoring (result.json:139-170,205-212)."
+    },
+    {
+      "text": "The best bet is conditional or no_go, or an adjacent clean-room path, rather than immediate direct monetization of the same niche.",
+      "passed": true,
+      "evidence": "The stated best bet is not direct monetization of the employer-linked niche; it is a cleaner adjacent path: 'payer policy diff monitor -> action playbook -> self-serve copilot' using public payer documents, synthetic examples, and non-customer distribution (report.md:116-131). The report also includes explicit kill criteria and continuation gates such as stopping if employer policy bars moonlighting or if two weeks of distribution show no signal (report.md:218-229). The JSON likewise recommends reviewing employment/confidentiality obligations first and continuing only if there is evidence of recurring demand (result.json:205-212)."
+    },
+    {
+      "text": "Response identifies at least 2 binding constraints.",
+      "passed": true,
+      "evidence": "The response identifies five explicit constraints: 'No PHI, no use of employer confidential information, no contact with employer customers, no consulting or sales calls, roughly 4 hours per week' (report.md:15-17). The same constraints appear in structured form in result.json:27-33."
+    },
+    {
+      "text": "If an adjacent opportunity is suggested, the response explains what makes it clean-room or legally safer than exploiting the employer edge.",
+      "passed": true,
+      "evidence": "The recommended path is explained as safer because it 'stays on the safe side of employer conflict if you use only public payer documents, synthetic examples, and non-customer distribution' (report.md:124-125). The pressure test adds specific legal/compliance boundaries: 'avoid PHI, avoid employer data, do not copy proprietary internal materials' (report.md:142-144), and the build spec codifies a clean-room data policy of 'No PHI, no customer data, no employer data, no confidential workflow artifacts' (report.md:193-194)."
+    },
+    {
+      "text": "The 7-day plan focuses on boundary clarification, public-market validation, or edge-building with numeric targets, not immediate niche product building.",
+      "passed": true,
+      "evidence": "The 7-day plan centers on validation artifacts and market testing: choose a niche, create 3 sample outputs from public sources only, build a landing page, add a waitlist/preorder CTA, and distribute through written channels only (report.md:159-179). It includes numeric targets such as '5-10 LinkedIn posts' and '2 short niche articles' (report.md:172-174). It does not call for building a full niche product in the first week; the only build steps are lightweight samples and a landing page for validation."
+    },
+    {
+      "text": "Structured JSON feasibility verdict matches the prose recommendation.",
+      "passed": false,
+      "evidence": "The prose clearly recommends a best bet and conditional continuation criteria (report.md:114-147,218-229), but result.json does not contain an explicit structured feasibility verdict field such as 'go', 'conditional', or 'no_go'. It includes 'best_bet' and 'next_actions' (result.json:205-212), so there is no direct JSON feasibility verdict to compare against the prose."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.7142857142857143
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 20445
+  },
+  "claims": [
+    {
+      "claim": "The recommended best bet avoids PHI and employer data by design.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The best-bet section says the path uses 'public payer documents, synthetic examples, and non-customer distribution' (report.md:124-125), the pressure test says to avoid PHI and employer data (report.md:142-144), and the build spec sets 'No PHI, no customer data, no employer data, no confidential workflow artifacts' (report.md:193-194)."
+    },
+    {
+      "claim": "The recommended go-to-market can be executed without consulting calls.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The report states 'It does not require consulting calls' and recommends a subscription sold through sample outputs, landing pages, and email capture (report.md:128-129). The 7-day plan further says 'Do not book calls' and uses self-serve CTAs plus written channels only (report.md:170-174)."
+    },
+    {
+      "claim": "The response's top recommendation is the payer policy diff monitor / self-serve copilot path.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The prose names this as 'Best Bet' in report.md:114-118, and the structured output sets 'best_bet' to 'opp_policy_diff_copilot' in result.json:205."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Split assertion 1 into two checks: one for recognizing employer/PHI/confidentiality constraints and one for explicitly rejecting direct monetization of the same niche. As written, it is bundled and stricter than the other assertions.",
+      "Strengthen assertion 7 by requiring a specific JSON field such as 'feasibility_verdict' with allowed values like 'go', 'conditional', or 'no_go'. The current run has no such field, so the assertion depends on an unstated schema expectation.",
+      "Add an assertion that the recommendation names a legally safer adjacent buyer or channel, such as non-customer provider groups, RCM consultants, or billing services. The output does this clearly, but the current eval only checks the explanation abstractly.",
+      "Add an assertion that the plan explicitly requires reviewing employment, moonlighting, confidentiality, and invention-assignment obligations before launch. That boundary check is important and is present in the output, but no assertion directly scores it."
+    ],
+    "overall": "The eval distinguishes the legal-boundary theme reasonably well, but 2 of 7 assertions are weakened by schema ambiguity or bundled wording. Coverage would improve with a concrete JSON verdict field and a direct check for employment-boundary review before validation begins."
+  }
+}

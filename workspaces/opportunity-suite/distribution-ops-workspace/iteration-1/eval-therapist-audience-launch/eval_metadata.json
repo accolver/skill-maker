@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "therapist-audience-launch",
+  "prompt": "Offer: paid benchmark and template product for a therapist newsletter audience with existing trust. Build the channel plan.",
+  "assertions": [
+    "Response chooses the owned audience as the primary channel.",
+    "Response includes concrete launch assets or sequence steps.",
+    "Response includes numeric metrics and kill criteria.",
+    "Response includes structured JSON."
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "user_profile": {
+    "skills": [
+      "healthcare claims workflow knowledge",
+      "denials and prior authorization operations",
+      "software engineering",
+      "workflow automation",
+      "systems thinking"
+    ],
+    "domain_experience": [
+      "staff engineer at a healthcare claims startup",
+      "knows where provider groups lose money on denials and prior auth"
+    ],
+    "assets": [
+      "deep domain understanding of denial and prior-auth failure modes"
+    ],
+    "distribution": [
+      "no existing audience stated",
+      "must rely on async channels or partners"
+    ],
+    "network_access": [
+      "cannot contact employer's customers"
+    ],
+    "constraints": [
+      "cannot use PHI",
+      "cannot contact employer's customers",
+      "does not want consulting",
+      "does not want sales calls",
+      "about 4 hours per week",
+      "must be fully legal"
+    ],
+    "credibility_signals": [
+      "staff-level role in the niche",
+      "firsthand operational knowledge of reimbursement leakage"
+    ],
+    "unfair_advantages": [
+      "stronger problem selection than generic AI builders",
+      "can translate payer-policy and workflow friction into concrete tools"
+    ]
+  },
+  "feasibility_verdict": "conditional",
+  "binding_constraints": [
+    "No PHI or employer/customer-confidential data can be used",
+    "No contact with employer customers",
+    "No consulting or sales calls removes the fastest revenue path",
+    "4 hours per week requires an async low-ops offer",
+    "Need to avoid adjacent-IP and moonlighting conflicts"
+  ],
+  "opportunities": [
+    {
+      "id": "opp_async_template_pack",
+      "title": "Async denial and prior-auth workflow kit",
+      "category": "cash_now",
+      "thesis": "Sell a narrow self-serve pack of templates, checklists, prompts, and synthetic examples for denial prevention and appeal preparation using only public rules and non-PHI inputs.",
+      "why_user_can_win": "The user knows the exact workflow breakdowns that cost provider groups money, so the assets can be concrete and operationally useful rather than generic AI templates.",
+      "why_this_could_fail": "Weak initial distribution and low defensibility if the assets are too broad or not updated.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 6,
+        "durability": 4,
+        "distribution_fit": 3,
+        "ai_leverage": 6,
+        "defensibility": 4,
+        "execution_difficulty": 2,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Create one landing page with one sample asset and a $99-$299 price",
+        "Produce 3 sample assets using only public payer-policy sources and synthetic examples",
+        "Send 20 async messages to independent RCM operators or billing-shop owners",
+        "Post in 3 non-employer channels and track replies",
+        "Target 2 preorders or 1 paid pilot in 7 days"
+      ],
+      "tool_specs": [
+        "PDF/Notion pack",
+        "policy research prompts",
+        "denial reason maps",
+        "appeal evidence checklist"
+      ],
+      "kill_criteria": [
+        "Fewer than 5 meaningful replies after 20 async outreaches and 3 posts",
+        "Zero preorders and zero paid pilots after 7 days",
+        "Repeated requests for bespoke consulting instead of self-serve assets"
+      ]
+    },
+    {
+      "id": "opp_policy_subscription",
+      "title": "Public-policy denial intelligence subscription",
+      "category": "asset_later",
+      "thesis": "Turn public payer and CMS policy changes into operational alerts, denial-risk summaries, and workflow guidance for small provider organizations and outsourced billing teams.",
+      "why_user_can_win": "The user can interpret how policy changes translate into operational revenue leakage.",
+      "why_this_could_fail": "Needs consistent publishing and a credible distribution wedge; newsletter-only economics are weak.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 3,
+        "durability": 7,
+        "distribution_fit": 3,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Publish 3 sample updates for a single specialty",
+        "Offer an annual founding subscription to 20 async prospects",
+        "Target 3 paid founding subscribers before building software"
+      ],
+      "tool_specs": [
+        "policy change monitor",
+        "summary generator",
+        "specialty-specific alert feed"
+      ],
+      "kill_criteria": [
+        "No paid founding subscribers after 20 targeted async offers",
+        "Content takes more than 4 hours per week to sustain"
+      ]
+    },
+    {
+      "id": "opp_workflow_copilot",
+      "title": "Denial workflow copilot from kit to lightweight app",
+      "category": "hybrid",
+      "thesis": "Start with a paid workflow kit and evolve into a self-serve app that maps denial reasons and payer names to evidence checklists and policy-research steps without storing PHI.",
+      "why_user_can_win": "The user has strong edge in selecting the right workflow wedge and translating payer friction into guided prep steps.",
+      "why_this_could_fail": "Distribution remains hard, and the scope can easily drift into regulated advice or PHI handling if not tightly constrained.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 5,
+        "durability": 8,
+        "distribution_fit": 4,
+        "ai_leverage": 8,
+        "defensibility": 6,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Sell 5 copies of the workflow kit first",
+        "Interview buyers asynchronously via email or form on their top repetitive prep task",
+        "Build a tiny non-PHI form workflow assistant only after repeated requests",
+        "Target 3 repeat buyers or 5 paid kit sales as productization trigger"
+      ],
+      "tool_specs": [
+        "non-PHI intake form",
+        "checklist generator",
+        "public policy link retrieval",
+        "human-review disclaimer on every output"
+      ],
+      "kill_criteria": [
+        "No repeat demand after 5 kit sales",
+        "Buyers need direct handling, consulting, or PHI-heavy workflows",
+        "Product scope cannot stay inside public data plus non-PHI inputs"
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Benchmark product built from employer-side denial data",
+      "reason": "Too much confidentiality, data-rights, and employer-conflict risk unless the data is independently sourced and clearly licensed."
+    },
+    {
+      "title": "Broad consulting or managed denial-recovery service",
+      "reason": "Conflicts with the user's preference against consulting and sales calls, and exceeds the 4-hour-per-week constraint."
+    },
+    {
+      "title": "Software-first healthcare AI platform",
+      "reason": "Too slow to validate with weak distribution, tight time budget, and regulated-scope risk."
+    }
+  ],
+  "best_bet": "opp_workflow_copilot",
+  "next_actions": [
+    "Review employment agreement for moonlighting, IP, and adjacency restrictions",
+    "Pick one specialty and one workflow wedge",
+    "Launch one paid landing page with explicit no-PHI and human-review disclaimers",
+    "Create 3 synthetic sample assets from public payer-policy materials",
+    "Run 20 async outreaches and 3 community posts in non-employer channels",
+    "Only build the lightweight app after 5 paid sales or 3 repeat-buyer signals"
+  ]
+}

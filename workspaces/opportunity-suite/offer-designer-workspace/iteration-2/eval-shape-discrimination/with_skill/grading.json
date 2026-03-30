@@ -1,0 +1,67 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response chooses exactly one primary offer shape and explains why it beats the closest alternative for speed to sale, delivery burden, or buyer trust.",
+      "passed": true,
+      "evidence": "`outputs/report.md:9-16` names one primary shape, `Diagnostic / audit`, and directly compares it against the closest alternative, `done-with-you outreach sprint`, on speed to validate, buyer trust, and delivery burden. `outputs/result.json:2-39` stays consistent with a single `offer_shape` value of `Diagnostic or audit`."
+    },
+    {
+      "text": "Response defines one sharply bounded wedge: one buyer, one painful job, one first deliverable or outcome, and one explicit scope boundary that excludes adjacent work.",
+      "passed": true,
+      "evidence": "`outputs/report.md:20-28` defines one buyer (`Founder or managing partner of a boutique recruiting firm`) and one painful job (`Diagnose why candidate outreach is underperforming...`). `outputs/report.md:36-49` gives the first deliverable/outcome as a fixed-scope audit with a written bottleneck diagnosis and prioritized changes. `outputs/report.md:55-64` explicitly excludes adjacent work such as live outreach execution, recruiter management, CRM/ATS rebuild, and broad recruiting redesign."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/offer-template.json with non-empty values for offer_thesis, icp.buyer, icp.segment, icp.why_now, offer_shape, at least 3 deliverables, at least 3 scope_boundaries, pricing_hypothesis.model, pricing_hypothesis.range_or_price, pricing_hypothesis.pricing_rationale, at least 2 rejected_framings, and at least 2 open_questions.",
+      "passed": true,
+      "evidence": "`outputs/result.json` parses as valid JSON and matches the template fields in `/home/alan/dev/ai/skills/offer-designer/assets/offer-template.json:1-18`. Required fields are non-empty: `offer_thesis` (`outputs/result.json:2`), `icp.buyer`/`segment`/`why_now` (`3-7`), `offer_shape` (`8`), `pricing_hypothesis.model`/`range_or_price`/`pricing_rationale` (`25-29`). Array counts exceed the minimums: 6 `deliverables` (`9-16`), 6 `scope_boundaries` (`17-24`), 4 `rejected_framings` (`30-35`), and 3 `open_questions` (`36-40`)."
+    },
+    {
+      "text": "Response rejects at least two weaker framings, including the closest alternative offer shape.",
+      "passed": true,
+      "evidence": "`outputs/report.md:79-90` rejects four weaker framings. The first explicitly rejects the closest alternative offer shape, `Done-with-you outreach sprint first`, and the remaining entries reject broad recruiting-process consulting, done-for-you recruiting / placement support, and a generic AI outreach optimization service. The same set appears in `outputs/result.json:30-35`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [],
+    "output_chars": 9195
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:4` states both files were written, and both files exist in `with_skill/outputs/` with substantive content: `report.md` (`1-136`) and `result.json` (`1-41`)."
+    },
+    {
+      "claim": "The primary offer shape is a diagnostic or audit.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:9` states `Primary offer shape: Diagnostic / audit.` and `outputs/result.json:8` records `offer_shape` as `Diagnostic or audit`."
+    },
+    {
+      "claim": "The response includes both a readable offer package and a structured JSON version using the template field set.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`outputs/report.md:1-136` is a readable package with the expected sections, and `outputs/result.json:1-41` provides a structured JSON object using the exact top-level template keys from `/home/alan/dev/ai/skills/offer-designer/assets/offer-template.json:1-18`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the rationale for the chosen shape must tie explicitly to the user's stated constraint (`fastest path to paid validation`) rather than just offering a generic comparison.",
+      "Add an assertion for consistency between the readable report and `result.json`, since a run could satisfy the JSON shape while the narrative recommends a different offer.",
+      "Add an assertion that the wedge stays narrow in delivery window and implementation responsibility, because those constraints are important to this prompt but currently only indirectly checked.",
+      "Strengthen transcript capture; the current transcript (`transcript.md:6-7`) exposes no tool-level evidence, which limits grading of process claims."
+    ],
+    "overall": "The current assertions discriminate reasonably well on offer-shaping quality and structured output compliance, but they do not check narrative/JSON consistency or whether the answer is tightly grounded in the prompt's paid-validation constraint."
+  }
+}

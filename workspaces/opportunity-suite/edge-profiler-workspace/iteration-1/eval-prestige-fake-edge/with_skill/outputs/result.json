@@ -1,0 +1,65 @@
+{
+  "user_profile": {
+    "skills": [
+      "Analytical problem structuring",
+      "Research synthesis",
+      "General business reasoning"
+    ],
+    "domain_experience": [
+      "Broad fintech market familiarity from sustained reading"
+    ],
+    "assets": [
+      "Prestige credential from McKinsey",
+      "General network of smart people"
+    ],
+    "distribution": [],
+    "network_access": [
+      "Access to smart peers and contacts, but buyer relevance is unproven"
+    ],
+    "constraints": [
+      "No customers",
+      "No audience",
+      "No special access",
+      "No evidence of owned buyer distribution"
+    ],
+    "credibility_signals": [
+      "2 years at McKinsey",
+      "Strong curiosity and consistent fintech reading"
+    ],
+    "unfair_advantages": [
+      "Above-average analytical training relative to a generic founder"
+    ]
+  },
+  "usable_edge": [
+    "Analytical training that can help identify and frame business problems",
+    "Broad fintech familiarity that may help narrow toward promising pain points",
+    "Potential access to thoughtful feedback from a smart network"
+  ],
+  "restricted_or_unusable_edge": [
+    "Any employer-derived client knowledge, internal frameworks, or confidential insight from McKinsey",
+    "General network prestige unless it converts into actual buyer access or repeatable distribution"
+  ],
+  "fake_or_overstated_edge": [
+    "Prestige brand as a substitute for customer access",
+    "Knowing smart people as a substitute for distribution",
+    "Reading about fintech as a substitute for first-hand workflow pain or buyer trust"
+  ],
+  "weak_spots": [
+    "No customers or active user relationships",
+    "No owned audience or acquisition channel",
+    "No special access to proprietary data, institutions, or regulated advantage",
+    "No identified niche with proven buyer trust"
+  ],
+  "follow_up_questions": [
+    "Which fintech buyer or workflow do you understand from direct observation rather than reading?",
+    "Do any contacts provide actual buyer introductions, channel access, or distribution?",
+    "What can you personally ship and sell without depending on others?",
+    "What problem have you heard repeatedly from the same buyer type?",
+    "What constraints limit you most right now?"
+  ],
+  "confidence_notes": [
+    "Medium confidence overall: direct evidence is limited to prestige background, network quality, and fintech interest.",
+    "Low confidence on product execution ability because no technical or operational building skill was stated.",
+    "High confidence that distribution is currently weak because the prompt explicitly says there are no customers, audience, or special access."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "experiments": [
+    "12 HVAC owner conversations to assess pain and demand",
+    "Paid pilot offer to qualified HVAC owners",
+    "Initial customer setup and onboarding"
+  ],
+  "strong_signals": [
+    "4 HVAC owners said missed calls are painful",
+    "1 prospect converted into an actual paid pilot"
+  ],
+  "weak_signals": [
+    "2 owners agreed to a paid pilot, but only 1 actually paid"
+  ],
+  "contradictions": [
+    "1 customer churned after setup because the workflow was too custom"
+  ],
+  "decision_state": "narrow",
+  "next_experiment": "Run a standardized pilot for new HVAC prospects with fixed setup scope and explicit no-custom boundaries to test whether the offer can be delivered repeatably.",
+  "rationale": "Demand signal exists because buyers described the pain repeatedly and one customer paid, but the current delivery model is not yet repeatable. The next step should reduce customization and test whether a narrower, standardized workflow can retain customers."
+}

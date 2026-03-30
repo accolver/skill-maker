@@ -1,0 +1,62 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response gives an explicit readiness verdict.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 3-10 contains a dedicated `Readiness Verdict` section with the explicit verdict `build_now`, and `outputs/result.json` line 2 repeats `\"readiness_verdict\": \"build_now\"`."
+    },
+    {
+      "text": "Response scopes one narrow user, one job, and one workflow rather than a broad platform.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 18-26 explicitly define one primary user, one narrow job, and one core workflow; lines 57-66 also exclude broader platform expansions such as CRM, dispatching, omnichannel inbox, and AI receptionist. The same narrow scope is preserved in `outputs/result.json` lines 3-7 and 29-38."
+    },
+    {
+      "text": "Response separates manual work from what gets automated first.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 28-45 has separate sections `What remains manual` and `What gets automated first`, each populated with specific items. `outputs/result.json` lines 8-20 mirrors this separation with distinct `manual_work` and `automated_first` arrays."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with top-level keys including `readiness_verdict`, `product_wedge`, `manual_work`, `automated_first`, `mvp_boundary`, `productization_trigger`, and `do_not_build_yet`. `outputs/report.md` lines 68-110 also embeds the same structure in a JSON code block."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 7159
+  },
+  "claims": [
+    {
+      "claim": "The service is already validated.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json` line 4, which states: `The user has a validated HVAC missed-call recovery concierge service...`; `outputs/report.md` line 7 relies on that same fact."
+    },
+    {
+      "claim": "The same missed-call recovery workflow pain exists across multiple HVAC owners.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against `eval_metadata.json` line 4, which says the workflow pain is repeated `across multiple owners`; `outputs/report.md` lines 24-26 and `outputs/result.json` line 29 restate that condition."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the response names explicit non-goals or a `do not build yet` boundary; that boundary is present in the outputs but not evaluated.",
+      "Add an assertion that the readiness verdict is justified with evidence tied to the prompt context, not just stated as a label.",
+      "Strengthen `Response includes structured JSON.` to require a machine-readable output file with the key decision fields, since a weak JSON stub could satisfy the current wording."
+    ],
+    "overall": "The current assertion set covers the core shape of the answer and discriminates reasonably well for scope discipline, but it misses whether the verdict is justified and whether the response sets strong product boundaries beyond the core wedge."
+  }
+}

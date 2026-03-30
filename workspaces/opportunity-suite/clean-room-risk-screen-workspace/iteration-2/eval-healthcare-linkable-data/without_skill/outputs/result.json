@@ -1,0 +1,22 @@
+{
+  "task": "Screen the risk of building AI workflow tooling for healthcare reimbursement using de-identified work denials data and prior-auth case data.",
+  "risk_level": "high",
+  "decision": "do_not_treat_as_safely_deidentified_by_default",
+  "summary": "Healthcare reimbursement denial and prior-authorization case data remains highly linkable even after removal of direct identifiers, and may also be subject to employer, contractual, and healthcare privacy controls.",
+  "key_reasons": [
+    "Denials and prior-auth case data likely contains protected or regulated healthcare information.",
+    "Quasi-identifiers such as dates, provider details, payer information, diagnosis/procedure combinations, and locations can enable linkage.",
+    "Unstructured notes, narratives, and attachments may retain residual identifiers.",
+    "Use of work data may violate employer policy, contracts, or regulated data handling requirements.",
+    "External AI tooling introduces vendor, retention, and model-training disclosure risk if not explicitly approved."
+  ],
+  "recommended_controls": [
+    "Obtain written employer or data-owner approval.",
+    "Require privacy, compliance, and security review before use.",
+    "Prefer synthetic data or a formally approved limited dataset.",
+    "Keep any approved real-data workflow inside enterprise-controlled infrastructure.",
+    "Strip or generalize dates, geography, provider and payer identifiers, free text, and rare combinations.",
+    "Document de-identification and assess re-identification risk."
+  ],
+  "overall_assessment": "high_risk_linkable_healthcare_data"
+}

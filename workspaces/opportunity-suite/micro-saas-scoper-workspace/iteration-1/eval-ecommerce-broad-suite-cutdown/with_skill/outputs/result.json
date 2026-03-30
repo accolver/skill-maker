@@ -1,0 +1,39 @@
+{
+  "readiness_verdict": "conditional_build",
+  "product_wedge": {
+    "primary_user": "Operator-founder of a small Shopify brand",
+    "job_to_be_done": "Turn raw store performance data into a weekly executive summary with clear actions",
+    "core_workflow": "Connect Shopify, calculate a fixed KPI set, and send a scheduled weekly report with key metrics, flags, and plain-language takeaways"
+  },
+  "manual_work": [
+    "Define and refine the report template and KPI set",
+    "Review unusual performance swings and edge cases",
+    "Add custom recommendations for atypical stores",
+    "Handle missing or inconsistent cost/ad data"
+  ],
+  "automated_first": [
+    "Import Shopify order and product data",
+    "Compute a fixed weekly KPI set",
+    "Generate a standard weekly report",
+    "Flag simple anomalies and inventory risks",
+    "Send the report on a recurring schedule"
+  ],
+  "mvp_boundary": [
+    "One user role: small-brand operator/founder",
+    "One workflow: weekly ecommerce performance reporting",
+    "One key input: Shopify data",
+    "One key output: scheduled summary report",
+    "Escalate to human review on data gaps or unusual anomalies"
+  ],
+  "productization_trigger": "The same weekly report is manually delivered for multiple Shopify stores with mostly identical inputs, sections, and recommendations",
+  "do_not_build_yet": [
+    "Broad analytics dashboard suite",
+    "Cross-channel attribution",
+    "Custom dashboard builder",
+    "Team admin and permissions",
+    "Forecasting and budgeting",
+    "Benchmarking across stores",
+    "Advanced alerts engine",
+    "Additional integrations before Shopify-only value is proven"
+  ]
+}

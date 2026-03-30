@@ -1,0 +1,40 @@
+{
+  "recommended_motion": "paid_template_plus_benchmark_product",
+  "summary": "Best bet is a paid niche-specific template bundled with a benchmark product, because it leverages existing audience trust while remaining productized and low-service.",
+  "fit": {
+    "avoids_services": true,
+    "uses_audience_trust": true,
+    "presell_friendly": true,
+    "repeatable_delivery": true
+  },
+  "why": [
+    "Templates provide immediate utility.",
+    "Benchmarks add context and reduce buyer uncertainty.",
+    "The bundle supports stronger pricing than a template alone.",
+    "The offer can be validated before full production."
+  ],
+  "offer_structure": {
+    "core": [
+      "Niche-specific template",
+      "Benchmark pack with examples, ranges, comparisons, or scorecards"
+    ],
+    "tiers": [
+      "Template only",
+      "Template plus benchmark pack",
+      "Template plus benchmark pack plus periodic updates"
+    ]
+  },
+  "presell_steps": [
+    "State the niche problem clearly",
+    "Show 1-3 preview benchmarks or screenshots",
+    "Open early access for the bundle",
+    "Set a minimum buyer threshold",
+    "Use feedback to refine version one"
+  ],
+  "risks": [
+    "Benchmark may feel too shallow",
+    "Niche may be defined too broadly",
+    "Maintenance may become too manual"
+  ],
+  "bottom_line": "A paid template plus benchmark product is the strongest audience-presell motion under the stated constraints."
+}

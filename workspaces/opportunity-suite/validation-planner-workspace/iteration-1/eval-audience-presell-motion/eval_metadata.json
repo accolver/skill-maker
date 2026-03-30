@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "audience-presell-motion",
+  "prompt": "Best bet: paid template and benchmark product for a niche newsletter audience. User wants to avoid services and already has audience trust.",
+  "assertions": [
+    "Response selects an audience-led validation motion that fits the user's constraints and opportunity type.",
+    "Response uses numeric thresholds tied to funnel quality, such as segmented send response, preorder attempts, or paid conversions, rather than vanity signups alone.",
+    "Response briefly explains why a lower-signal alternative, such as service pilots or generic interviews, is weaker for this case.",
+    "Response includes go, revise, and kill thresholds with numeric cutoffs."
+  ]
+}

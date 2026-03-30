@@ -1,0 +1,54 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response cuts the broad analytics suite down to a narrower wedge with one primary user and one core workflow.",
+      "passed": true,
+      "evidence": "`outputs/result.json:3-7` defines a single `product_wedge` with one `primary_user` ('Owner-operator of a small Shopify brand') and one `core_workflow` focused on ingesting yesterday's orders and ad spend to produce a daily exception report. `outputs/report.md:21-35` explicitly narrows the idea from 'a broad ecommerce analytics suite' to 'A daily ecommerce profit exception report for small Shopify brands, not a general analytics suite.'"
+    },
+    {
+      "text": "Response includes at least 3 items in manual_work or automated_first where appropriate, showing a real boundary between manual and automated work.",
+      "passed": true,
+      "evidence": "`outputs/result.json:8-19` includes 4 `manual_work` items and 4 `automated_first` items. The boundary is substantive rather than cosmetic: setup, messy data mapping, investigation, and edge-case handling stay manual (`8-13`), while daily ingestion, metric calculation, summary generation, and scheduled delivery are automated (`14-19`). The same distinction is explained in `outputs/report.md:37-53`."
+    },
+    {
+      "text": "Response includes at least 3 do_not_build_yet items that exclude broad platform behavior.",
+      "passed": true,
+      "evidence": "`outputs/result.json:27-35` lists 8 `do_not_build_yet` items, including clearly broad platform behaviors such as 'A multi-tab analytics dashboard', 'Custom report builders', 'Cohort, LTV, or retention analysis', 'Inventory planning and operations modules', and 'Team permissions, approvals, and admin-heavy settings'. `outputs/report.md:70-79` repeats the same exclusions."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/micro-saas-scope-template.json.",
+      "passed": true,
+      "evidence": "`outputs/result.json` is syntactically valid JSON and contains the same top-level shape as `/home/alan/dev/ai/skills/micro-saas-scoper/assets/micro-saas-scope-template.json:1-13`: `readiness_verdict`, `product_wedge`, `manual_work`, `automated_first`, `mvp_boundary`, `productization_trigger`, and `do_not_build_yet`. `product_wedge` also contains the expected nested keys `primary_user`, `job_to_be_done`, and `core_workflow`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 6922
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:5` states both files were written, and both files exist in `outputs/` with substantive contents: `outputs/report.md` and `outputs/result.json`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion for the readiness verdict and rationale; the current suite does not check whether the response explicitly rejects or conditions the broader platform idea.",
+      "Add an assertion for `mvp_boundary` quality, since the output includes a clear one-user/one-input/one-output boundary but the eval does not verify it.",
+      "Strengthen 'matches assets/micro-saas-scope-template.json' by using a real schema or explicit required-key/type checks; the referenced file is a template example, so the current assertion is only a loose structural check."
+    ],
+    "overall": "The assertion set is reasonably discriminating for wedge-narrowing and scope control, but it misses the readiness rationale and boundary framing that are central to this skill. The JSON assertion is also weaker than it appears because it references a template rather than an enforceable schema."
+  }
+}

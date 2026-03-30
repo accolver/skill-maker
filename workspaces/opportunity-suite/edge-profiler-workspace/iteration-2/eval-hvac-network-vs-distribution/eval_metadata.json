@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "hvac-network-vs-distribution",
+  "prompt": "I spent 8 years in HVAC distribution ops and my brother runs a local HVAC service business. I do not have an audience, but he can introduce me to owners. I can build software and automations.",
+  "assertions": [
+    "Response explains why HVAC workflow knowledge is usable edge and does not upgrade it into distribution on its own.",
+    "Response classifies the brother's introductions as limited warm access or network access rather than durable owned distribution.",
+    "Response explicitly separates audience, network access, and monetizable distribution instead of merging them.",
+    "Structured JSON uses the reusable profile contract with user_profile, usable_edge, restricted_or_unusable_edge, fake_or_overstated_edge, weak_spots, follow_up_questions, and confidence_notes."
+  ]
+}

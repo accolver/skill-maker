@@ -1,0 +1,82 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says the 30-day $3000 MRR goal is not credible under the current constraints.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:88-90` says the top-ranked option \"is not a credible path to $3000 MRR in 30 days,\" and `outputs/report.md:124-129` says \"$3000 MRR is not a responsible expectation.\" `outputs/result.json:152-155` repeats that the target is not realistic under the full constraint bundle."
+    },
+    {
+      "text": "Response identifies at least 3 binding constraints.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:6-12` identifies multiple blockers: no niche audience, no special domain access, no budget, only 2 hours per week, 30-day timeline, refusal of sales calls, services, content creation, and cold outreach. `outputs/result.json:11-22` lists the same constraint bundle in structured form."
+    },
+    {
+      "text": "Best bet is to change constraints, build edge, or stop chasing this goal for now, not to build a product immediately.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:91-99` states \"The correct answer is to change at least one constraint\" and only offers a marketplace build as the \"least-bad move\" if the user refuses to change any constraint. `outputs/result.json:152-155` likewise says to relax at least one constraint and, failing that, run a validation sprint rather than chase the headline goal."
+    },
+    {
+      "text": "Response does not present any current opportunity as realistic near-term income under the stated constraints.",
+      "passed": true,
+      "evidence": "PASS. The service options are explicitly disqualified for violating the user's rules in `outputs/report.md:30-34` and `outputs/report.md:72-76`. The only non-service option is labeled \"least-bad\" and `outputs/report.md:88-90` says it is not a credible 30-day $3000 MRR path; `outputs/report.md:126-129` reframes the realistic target as first 1 to 5 paying users, not near-term meaningful income."
+    },
+    {
+      "text": "Response gives a concrete edge-building or constraint-change plan with numeric targets or milestones.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:131-174` provides a day-by-day 7-day validation plan. It includes numeric milestones such as collecting 20 search terms (`136`), reading 30 low-rating reviews (`142`), and using first 1 to 5 paying users as the realistic target in `outputs/report.md:128-129`."
+    },
+    {
+      "text": "Kill or revisit criteria are quantified.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:203-215` includes quantified stop conditions, including \"30 competitor reviews\" (`207`), an \"8 total hours\" delivery constraint (`211-212`), and the monthly-hour budget frame. Some criteria remain qualitative (for example \"near-zero interest\"), but the output does include concrete quantified kill criteria."
+    },
+    {
+      "text": "Structured JSON feasibility verdict is no_go and matches the prose recommendation.",
+      "passed": false,
+      "evidence": "FAIL. `outputs/result.json` does not contain any explicit `feasibility_verdict`, `verdict`, or `no_go` field. The prose recommendation is clearly negative in `outputs/report.md:93-99` and `124-129`, but the required structured JSON verdict is missing, so the assertion is not met."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.8571428571428571
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 14485
+  },
+  "claims": [
+    {
+      "claim": "$3000 MRR in 30 days is not a responsible expectation under the stated constraint bundle.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by the direct language in `outputs/report.md:124-129` and the matching structured next actions in `outputs/result.json:152-155`. The claim is also consistent with the constraint bundle listed in `eval_metadata.json:4-13`."
+    },
+    {
+      "claim": "Marketplace-first micro-SaaS is the least-bad option if the user refuses to relax any constraint.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:83-99`, which ranks the marketplace option first while immediately stating it is only the least-bad fit, and by `outputs/result.json:150-155`, which sets `best_bet` to `opp_marketplace_micro_saas` while still framing the goal as unrealistic."
+    },
+    {
+      "claim": "The next 30 days should be treated as a validation sprint for first revenue signals, not a realistic sprint to $3000 MRR.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:95-99`, which says to treat the period as a validation sprint, `outputs/report.md:128-129`, which reframes success as first 1 to 5 paying users, and `outputs/result.json:154-155`, which says to aim for first paying users and conversion signal instead of headline MRR."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 6. 'Kill or revisit criteria are quantified' is borderline because the output mixes numeric thresholds with vague terms like 'near-zero interest' and 'willingness to pay.' Replace it with explicit numeric checks such as minimum CTR, install count, or conversion threshold.",
+      "Keep assertion 7. It is the most discriminating assertion in this run and correctly catches that the prose says 'no-go' while the JSON lacks an explicit feasibility verdict field.",
+      "Add an assertion that the JSON and prose rank the same best-bet opportunity. This run is internally consistent on ranking, but the current suite does not check report-to-JSON consistency beyond the missing verdict field.",
+      "Add an assertion that any fallback build path is explicitly framed as validation rather than realistic income. That nuance is central to the desired behavior and is only indirectly covered now."
+    ],
+    "overall": "The assertion set covers the core feasibility message well and successfully catches the missing structured no_go verdict. Most assertions are discriminating, but assertion 6 is softer than the rest because it does not define how much quantification is enough. Timing data is not informative here because `timing.json` reports zero duration and the transcript exposes no tool-by-tool execution details."
+  }
+}

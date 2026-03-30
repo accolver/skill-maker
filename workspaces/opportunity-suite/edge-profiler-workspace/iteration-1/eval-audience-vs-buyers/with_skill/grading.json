@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response downgrades the 120000 follower base because the audience is mostly non-buyers, and does not treat scale alone as strong founder edge.",
+      "passed": true,
+      "evidence": "PASS: `report.md` explicitly says the reach is 'not yet validated buyer access' and that `120000` followers 'should not be treated as proof of buyer density' (lines 15-17, 35-39). The structured JSON repeats this in `fake_or_overstated_edge` with 'Follower count as proxy for buyer density' and 'Audience attention as proof of monetizable demand' (`report.md` lines 100-104; `result.json` lines 33-37)."
+    },
+    {
+      "text": "Response names the core commercial weakness precisely, such as weak buyer quality, weak ICP proximity, or unproven monetizable distribution.",
+      "passed": true,
+      "evidence": "PASS: The response names the weakness precisely as buyer-quality and monetization uncertainty: 'weak evidence of buyer-quality distribution' (`report.md` line 3), 'buyer quality is unknown' (`report.md` lines 84-87; `result.json` lines 17-20), and 'No direct evidence of buyers in the audience' plus 'Likely audience skew toward low-budget segments' (`report.md` lines 43-49, 105-110; `result.json` lines 38-43)."
+    },
+    {
+      "text": "If follow-up questions are asked, they target buyer composition, conversion history, or paid access rather than generic audience questions.",
+      "passed": true,
+      "evidence": "PASS: The follow-up questions focus on buyer composition and monetization evidence, including 'What percentage of engaged followers are founders, operators, managers, or agency owners?', 'Have any followers asked for audits, consulting, team workflows, pricing, or implementation help?', and 'Do you have past revenue, client work, or case studies in AI productivity?' (`report.md` lines 55-63). The JSON version likewise asks about 'actual operators, founders, or managers,' 'inbound requests that imply budget,' and 'prior paid offers or proof of willingness to pay' (`report.md` lines 111-117; `result.json` lines 44-50)."
+    },
+    {
+      "text": "Structured JSON includes weak spots or fake or overstated edge tied to follower quality rather than pretending the audience is already a strong moat.",
+      "passed": true,
+      "evidence": "PASS: `result.json` contains both `fake_or_overstated_edge` and `weak_spots` sections tied directly to follower quality, including 'Follower count as proxy for buyer density,' 'Audience attention as proof of monetizable demand,' 'No direct evidence of buyers in the audience,' and 'Likely audience skew toward low-budget segments' (`result.json` lines 33-43). It does not present the audience as an established moat; instead the strongest positive framing is limited to 'top-of-funnel testing' (`result.json` lines 28-31)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 6482
+  },
+  "claims": [
+    {
+      "claim": "The user has 120000 followers on X talking about AI productivity.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The prompt in `eval_metadata.json` states 'I have 120000 followers on X talking about AI productivity' (line 4). The outputs repeat this in `report.md` lines 7-8 and `result.json` lines 10-15."
+    },
+    {
+      "claim": "Buyer quality is unknown and the audience is believed to skew toward students and hobbyists.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The prompt states 'most of them are students and hobbyists' and 'I do not know if any are buyers' (`eval_metadata.json` line 4). The outputs preserve that in `report.md` lines 9-10, 19-20, 43-48 and `result.json` lines 17-20, 38-40."
+    },
+    {
+      "claim": "The current audience is an attention asset, not validated buyer distribution.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This evaluative conclusion is supported by the response's own evidence: `report.md` says 'This is a real attention asset' but 'It is not yet validated buyer access' (lines 14-17), and `confidence_notes` states 'The strongest likely conclusion is attention asset, not validated buyer distribution' (`report.md` lines 118-121; `result.json` lines 51-54)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the response distinguishes top-of-funnel attention from monetizable distribution or buyer access; that distinction is central in the outputs but only indirectly covered by the current set.",
+      "Add an assertion that the response preserves uncertainty instead of overstating evidence, for example by noting low confidence on buyer quality when buyers are unknown.",
+      "Strengthen the JSON assertion by requiring specific entries under `weak_spots` or `fake_or_overstated_edge`, since a shallow section title alone would otherwise look compliant."
+    ],
+    "overall": "The current assertions discriminate reasonably well for this run and all four are substantively met. Coverage is strongest on buyer-quality skepticism and follow-up questions, but weaker on confidence calibration and the top-of-funnel-versus-monetizable-distribution distinction that the outputs emphasize clearly."
+  }
+}

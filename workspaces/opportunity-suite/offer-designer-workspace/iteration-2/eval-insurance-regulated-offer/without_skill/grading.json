@@ -1,0 +1,61 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response turns limited time and regulated-risk constraints into concrete exclusions, cadence, or scope boundaries rather than generic caveats.",
+      "passed": true,
+      "evidence": "PASS: `report.md` turns the 5-hour constraint into a specific 2-week delivery model and time box: Week 1/Week 2 plan plus `setup and customization: 2 hours`, `producing first 10 packs: 2 hours`, `revisions and handoff: 1 hour`, `Total: about 5 hours` (lines 95-115). It also converts regulated-risk into explicit scope controls and exclusions such as `policy recommendations`, `carrier comparisons`, `suitability judgments`, and `binding, quoting, or application decisions` (lines 66-90, 166-179). `result.json` mirrors these constraints in `constraints`, `offer_format.estimated_delivery_time_hours`, and `exclusions` (lines 6-18, 48-63)."
+    },
+    {
+      "text": "Response explicitly rejects licensed-advice or delegated-authority framing.",
+      "passed": true,
+      "evidence": "PASS: `report.md` explicitly says the offer works `without crossing into licensed advice` (line 7), states `To avoid licensed-advice framing, the offer should clearly exclude` followed by six prohibited activities (lines 66-76), and says `This is admin and meeting-prep support only, not client advice or coverage recommendations` (lines 151-155). `result.json` also encodes this rejection through `must avoid licensed-advice framing` in `target_buyer.constraints`, `avoid_language`, and `exclusions` (lines 6-10, 41-55)."
+    },
+    {
+      "text": "Response chooses one primary shape and defines a narrow ICP plus concrete deliverables.",
+      "passed": true,
+      "evidence": "PASS: The response commits to a single offer shape, `Warm Contact Note-Prep Sprint`, described as the `Recommended first offer` and later as the exact first offer (report.md lines 9-15, 186-210). The ICP is narrow: `Solo insurance agent or very small agency` with `an existing book, referrals, or warm inbound contacts` and limited admin capacity (lines 30-35, 190-191). Deliverables are concrete and countable: `3 reusable prompt templates`, `10 done-for-you note-prep packs`, `A short SOP`, `1 revision round`, plus detailed pack contents (lines 45-65, 197-204). `result.json` preserves the same structure in `deliverables` and `note_prep_pack_contents` (lines 19-33)."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/offer-template.json with meaningful pricing rationale and rejected framings.",
+      "passed": false,
+      "evidence": "FAIL: `result.json` is syntactically valid JSON (verified with `jq empty`) and it includes rejected framings via `positioning.avoid_language` (result.json lines 41-46). However, the required schema match cannot be verified because `assets/offer-template.json` was not present anywhere under `/home/alan/dev/ai/skills/offer-designer-workspace` during grading, so there is no evidence it matches that template. Separately, `result.json` contains pricing numbers (`recommended_start_price_usd`, `range_usd`, `model`, lines 56-63) but no explicit pricing-rationale field; the rationale exists only in `report.md` lines 122-137. Because the assertion requires schema match plus meaningful pricing rationale and rejected framings, it fails on available evidence."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8606
+  },
+  "claims": [
+    {
+      "claim": "The offer can be fulfilled within about 5 hours.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`report.md` breaks delivery into `setup and customization: 2 hours`, `producing first 10 packs: 2 hours`, and `revisions and handoff: 1 hour`, which sums to the stated `Total: about 5 hours` (lines 108-115). `result.json` also states `estimated_delivery_time_hours: 5` (lines 14-18)."
+    },
+    {
+      "claim": "The proposed framing avoids licensed advice by limiting the service to administrative and meeting-prep support.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`report.md` repeatedly constrains the offer to `meeting preparation support`, `administrative AI workflow setup`, and `drafting support for agent-reviewed communications`, while excluding recommendations, suitability judgments, and binding/quoting decisions (lines 66-90, 209-210). `result.json` mirrors this with `safe_language`, `avoid_language`, and `exclusions` (lines 34-55)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Provide or reference the actual `assets/offer-template.json` in the eval inputs; otherwise the schema-match portion of assertion 4 is not objectively verifiable.",
+      "Split assertion 4 into separate checks for JSON validity/schema match, pricing rationale, and rejected framings so one strong area does not mask another and failures are easier to diagnose.",
+      "Add an assertion that checks the response keeps the work product strictly agent-reviewed or internal-use only, since that is a core regulated-risk mitigation visible in the output.",
+      "Add an assertion that the offer converts the 5-hour constraint into explicit caps such as contact-pack count, revision limit, or workflow count; this run does that well, but only assertion 1 captures it indirectly."
+    ],
+    "overall": "The assertion set is fairly discriminating on scope, framing, and offer design, but assertion 4 is partially unverifiable in this environment because the referenced schema file is missing. Coverage of regulated-risk mitigation is decent, though agent-review/internal-use safeguards and concrete capacity caps would be worth checking explicitly."
+  }
+}

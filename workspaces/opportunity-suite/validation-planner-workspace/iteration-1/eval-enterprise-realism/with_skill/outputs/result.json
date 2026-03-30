@@ -1,0 +1,131 @@
+{
+  "validation_thesis": "Test whether Fortune 500 procurement leaders will commit budget or a defined internal buying step for a $3,000 procurement leakage diagnostic before any product exists.",
+  "key_unknowns": [
+    "Can the founder reach qualified Fortune 500 procurement buyers with only one weak second-degree intro plus targeted outbound?",
+    "Will buyers pay for a fixed-scope diagnostic without a software product?",
+    "Does one repeatable problem statement appear across early conversations?",
+    "Will prospects stay within a narrow wedge instead of asking for custom consulting?"
+  ],
+  "motion": "Weak warm intro plus targeted outbound to named enterprise buyers, ending in a paid diagnostic or defined commercial next step.",
+  "day_by_day_plan": [
+    {
+      "day": 1,
+      "objective": "Define ICP, offer, and target list",
+      "actions": [
+        "Build a list of 25 Fortune 500 target accounts",
+        "Identify 40 named buyers across procurement, procurement operations, and finance transformation",
+        "Prepare a one-page paid diagnostic offer with fixed scope and price"
+      ],
+      "numeric_targets": [
+        "25 target accounts",
+        "40 named buyers",
+        "1 one-page offer"
+      ]
+    },
+    {
+      "day": 2,
+      "objective": "Launch intro request and first outbound batch",
+      "actions": [
+        "Send the weak second-degree intro request with a forwardable note",
+        "Send 20 personalized emails",
+        "Send 10 LinkedIn messages",
+        "Ask 5 relevant contacts for referrals"
+      ],
+      "numeric_targets": [
+        "1 intro request",
+        "30 direct buyer messages",
+        "5 referral asks"
+      ]
+    },
+    {
+      "day": 3,
+      "objective": "Expand outreach and convert replies into calls",
+      "actions": [
+        "Send 15 more personalized messages",
+        "Follow up on all prior outreach",
+        "Run any booked calls and end each with a commercial ask"
+      ],
+      "numeric_targets": [
+        "15 new outbound messages",
+        "5 live conversations booked by Day 4",
+        "100% of calls end with a commercial ask"
+      ]
+    },
+    {
+      "day": 4,
+      "objective": "Run early calls and test price and urgency",
+      "actions": [
+        "Complete 2-3 qualified buyer calls",
+        "Probe for costly reporting gaps and current workaround pain",
+        "Ask one buyer whether $3,000 is low enough for a quick buy"
+      ],
+      "numeric_targets": [
+        "2-3 qualified calls",
+        "2 buyers confirm a painful analytics gap",
+        "1 pricing-process signal"
+      ]
+    },
+    {
+      "day": 5,
+      "objective": "Reach conversation target and send proposals",
+      "actions": [
+        "Complete remaining calls to reach 5-6 total",
+        "Send proposals to urgent prospects",
+        "Ask the strongest prospect for a paid diagnostic or scheduled internal buying step"
+      ],
+      "numeric_targets": [
+        "5-6 total qualified conversations",
+        "2 written proposals",
+        "1 explicit commercial next step requested"
+      ]
+    },
+    {
+      "day": 6,
+      "objective": "Follow up and narrow the wedge if needed",
+      "actions": [
+        "Follow up on open proposals",
+        "Narrow to one use case if feedback clusters",
+        "Disqualify unpaid custom consulting requests"
+      ],
+      "numeric_targets": [
+        "2 proposal follow-ups",
+        "1 narrowed wedge chosen if pattern appears",
+        "0 unpaid custom discovery projects"
+      ]
+    },
+    {
+      "day": 7,
+      "objective": "Make go, revise, or kill decision",
+      "actions": [
+        "Score results against thresholds",
+        "Choose go, revise, or kill",
+        "Preserve call notes, objections, and buying-process evidence"
+      ],
+      "numeric_targets": [
+        "1 final decision memo",
+        "1 clear next-step choice"
+      ]
+    }
+  ],
+  "success_criteria": [
+    "Go: 5 or more qualified buyer conversations in 7 days",
+    "Go: 2 or more buyers confirm the same high-cost analytics problem",
+    "Go: 1 or more buyers agrees to a $3,000 paid diagnostic or a defined internal buying step within 30 days",
+    "Revise: 3-4 qualified conversations and real pain, but no acceptance of the current offer"
+  ],
+  "kill_criteria": [
+    "Fewer than 3 qualified conversations after 45 or more targeted touches plus the intro attempt",
+    "No buyer agrees to pay or advance a defined commercial step",
+    "Prospects mostly ask for free consulting or fully custom work",
+    "No repeated urgent problem emerges across the first 5-6 conversations"
+  ],
+  "evidence_to_capture": [
+    "Buyer titles and company segment",
+    "Response rate by channel",
+    "Qualified conversations completed",
+    "Repeated problem language",
+    "Proposal sends and replies",
+    "Paid diagnostic acceptance or rejection reasons",
+    "Specific buying-process blockers"
+  ]
+}

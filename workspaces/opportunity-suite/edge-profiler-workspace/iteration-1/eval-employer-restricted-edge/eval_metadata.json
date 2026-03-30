@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "employer-restricted-edge",
+  "prompt": "I work at a govtech company and have access to internal templates, pricing logic, and process docs. I also know the market really well.",
+  "assertions": [
+    "Response marks employer templates, pricing logic, or internal process docs as restricted or unusable edge.",
+    "Response separates reusable market understanding from non-reusable internal materials.",
+    "Response explicitly says confidential or employer-owned materials cannot be counted as usable edge without independent lawful recreation.",
+    "Structured JSON places internal templates, pricing logic, and process docs only under restricted or unusable edge and not under usable edge or unfair advantages."
+  ]
+}

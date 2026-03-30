@@ -1,0 +1,56 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not present price as settled fact; it gives a hypothesis tied to 2 to 4 scope or value variables.",
+      "passed": true,
+      "evidence": "PASS: `report.md` explicitly frames pricing as uncertain and hypothetical: 'Because buyer value is plausible but unvalidated' and fulfillment effort may vary (`report.md:120-122`). It gives ranges rather than fixed prices (`report.md:126-136`; `result.json:52-59`, `72-79`) and ties pricing/scope to concrete variables including store count, marketing channels, SKU count, and extra analysis or reporting demands (`report.md:81-116`, `143-150`; `result.json:45-50`, `64-70`, `100-106`)."
+    },
+    {
+      "text": "Response includes at least 2 open questions that would materially change the offer or pricing.",
+      "passed": false,
+      "evidence": "FAIL: Neither output includes an open-questions section or any explicit questions. `report.md` contains recommendations, risks, and scope controls through the end of the file (`report.md:179-239`) but no questions. `result.json` has no `open_questions` key and ends with `final_recommendation` (`result.json:128-135`)."
+    },
+    {
+      "text": "Response keeps the offer narrower than broad ecommerce analytics consulting.",
+      "passed": true,
+      "evidence": "PASS: The response repeatedly narrows the offer to a concierge reporting pack rather than broad consulting. It says 'The offer should be sold as a concierge reporting pack, not as generic analytics setup' (`report.md:9-10`), tells the seller to avoid framings like 'Business intelligence solution', 'Custom analytics system', and 'Fractional data team' (`report.md:171-175`; `result.json:114-118`), and concludes 'Do not lead with fully custom analytics work' (`report.md:228-229`)."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/offer-template.json.",
+      "passed": false,
+      "evidence": "FAIL: `result.json` is syntactically valid JSON, but it does not match `/home/alan/dev/ai/skills/offer-designer/assets/offer-template.json`. The template requires top-level keys `offer_thesis`, `icp`, `offer_shape`, `deliverables`, `scope_boundaries`, `pricing_hypothesis`, `rejected_framings`, and `open_questions` (`offer-template.json:2-17`). `result.json` instead uses different keys such as `offer_name`, `recommended_direction`, `target_customer_profile`, `service_structure`, `tiers`, `scope_controls`, `go_to_market`, and has no `rejected_framings` or `open_questions` fields (`result.json:2-134`)."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 11528
+  },
+  "claims": [
+    {
+      "claim": "Buyer value is plausible but unvalidated.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`result.json` states `buyer_value_assessment: plausible_but_unvalidated` (`result.json:4`), matching the eval prompt in `eval_metadata.json`, which says 'Buyer value is plausible but unvalidated' (`eval_metadata.json:4`)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the JSON assertion by naming the required template fields explicitly; this run produced valid JSON but not template-shaped JSON.",
+      "Add an assertion for `rejected_framings`, since the template requires it and the response included related prose, but the current eval does not check that requirement directly.",
+      "Add an assertion that pricing uncertainty is justified by a small set of explicit complexity drivers such as channels, SKU count, or store count; the current pricing assertion blends two checks together."
+    ],
+    "overall": "The suite caught two important failures: missing open questions and failure to match the required JSON template. Coverage is decent, but it under-specifies template compliance and does not directly test rejected framings even though the template requires them."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "experiments": [
+    {
+      "name": "HVAC owner discovery and paid pilot test",
+      "summary": "Ran 12 HVAC owner conversations to test missed-call pain and willingness to pay for a pilot.",
+      "outcomes": [
+        "4 of 12 said missed calls are painful",
+        "2 agreed to a paid pilot",
+        "1 actually paid",
+        "1 churned after setup because the workflow was too custom"
+      ]
+    }
+  ],
+  "strong_signals": [
+    "1 customer actually paid, showing real willingness to buy",
+    "4 HVAC owners repeated missed calls as a painful problem",
+    "2 owners agreed to a paid pilot, indicating stronger-than-verbal interest"
+  ],
+  "weak_signals": [
+    "Only 4 of 12 conversations surfaced the target pain clearly, so the wedge is not yet broad across all HVAC owners"
+  ],
+  "contradictions": [
+    "A paying pilot still churned after setup because the workflow was too custom, showing retention and delivery risk despite demand"
+  ],
+  "decision_state": "narrow",
+  "next_experiment": "Run a standardized paid pilot with 3 HVAC owners who all report missed-call pain, using the same onboarding and workflow with minimal customization, then measure activation and retention through the initial pilot period.",
+  "rationale": "There is real demand signal because owners expressed repeated pain and one customer paid, but the churn outcome shows the current solution may be too bespoke to scale. The next experiment should test whether a tighter segment and a standardized workflow can retain customers without custom setup."
+}

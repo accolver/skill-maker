@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "ecommerce-template-boundary",
+  "prompt": "The user wants a micro-SaaS for ecommerce reporting and immediately proposes a broad analytics suite. Scope the product.",
+  "assertions": [
+    "Response cuts the broad analytics suite down to a narrower wedge with one primary user and one core workflow.",
+    "Response includes at least 3 items in manual_work or automated_first where appropriate, showing a real boundary between manual and automated work.",
+    "Response includes at least 3 do_not_build_yet items that exclude broad platform behavior.",
+    "Response includes valid JSON matching assets/micro-saas-scope-template.json."
+  ]
+}

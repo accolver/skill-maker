@@ -1,0 +1,70 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response includes explicit human review or escalation points.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:112-123` has an explicit `## Human Review Gate` section stating `Human review is mandatory before any client-facing action` and `Approval must be explicit, attributable, and timestamped`. It also includes escalation in `outputs/report.md:133-138` with `Reminder and escalation automation for overdue evidence`. `outputs/result.json:78-88` further encodes a required human review gate with `required: true` and `delivery_blocked_without_approval: true`."
+    },
+    {
+      "text": "Response chooses a minimal internal workflow rather than a broad client platform.",
+      "passed": true,
+      "evidence": "PASS: The plan is framed as an internal workflow, not a client platform. `outputs/report.md:5-7` says it gathers evidence from `internal systems and staff`, routes material through human review, and only then releases an approved package for client delivery. `outputs/report.md:11-14` limits scope to `internal-only collaboration during drafting and review`, and `outputs/report.md:228-234` recommends a simple first implementation with a web app/internal workflow tool, relational database, object storage, and simple package generation."
+    },
+    {
+      "text": "Response includes milestones and out-of-scope items.",
+      "passed": false,
+      "evidence": "FAIL: The response includes milestone-like phases in `outputs/report.md:177-203` and structured build phases in `outputs/result.json:89-133`, but there is no explicit out-of-scope section or list in either output. The `## Scope` section in `outputs/report.md:9-15` defines included scope only; it does not identify excluded work."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json:1-147` is valid structured JSON with nested arrays and objects, including keys such as `workflow_steps`, `requirements`, `human_review_gate`, and `build_phases`."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 12819
+  },
+  "claims": [
+    {
+      "claim": "The build plan requires human review before client delivery.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:112-123`, which states human review is mandatory and delivery must enforce an approval check, and by `outputs/result.json:78-88`, which sets `required` to true and `delivery_blocked_without_approval` to true."
+    },
+    {
+      "claim": "The response produced both a narrative report and a structured JSON artifact.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by the presence and contents of `outputs/report.md` and `outputs/result.json`, and corroborated by `transcript.md:4`, which says `Wrote report.md and result.json`."
+    },
+    {
+      "claim": "The proposed implementation starts with a minimal internal system rather than a broad external platform.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:228-234`, which recommends starting with a simple internal web app/workflow tool, relational database, object storage, and simple package generation instead of a larger client-facing platform."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON.` to require specific fields tied to the prompt, because any minimally structured JSON artifact would satisfy the current assertion.",
+      "Clarify `Response includes explicit human review or escalation points.` because it allows a pass if only one of the two exists; split it into separate assertions for human review gating and escalation handling if both matter.",
+      "Add an assertion for approval enforcement before delivery, since that is a core requirement repeatedly emphasized in both outputs but is not directly checked.",
+      "Add an assertion for internal-only boundaries or separation between draft workspace and client-ready package, which is a meaningful outcome visible in the outputs but currently only indirectly covered.",
+      "If out-of-scope items are required, make that explicit in the prompt as well as the assertion, since the current prompt asks for a build plan but does not explicitly request exclusions."
+    ],
+    "overall": "The assertion set covers the basic shape of the response but misses one of the most important behaviors: enforced approval before client delivery. One assertion is somewhat non-discriminating (`structured JSON`), and the milestones/out-of-scope assertion is stricter than the prompt itself, which makes failures less informative about skill quality."
+  }
+}

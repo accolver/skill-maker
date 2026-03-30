@@ -1,0 +1,47 @@
+{
+  "product_name": "Daily profit and revenue reporting for small Shopify brands",
+  "category": "micro-saas",
+  "recommendation": "Reject the initial broad analytics suite and start with a narrow Shopify-first reporting product.",
+  "target_user": [
+    "Shopify owner-operators",
+    "small ecommerce teams"
+  ],
+  "core_problem": "Small ecommerce operators need a fast, trusted daily view of revenue and gross profit without stitching together multiple dashboards or spreadsheets.",
+  "mvp_scope": {
+    "integrations": [
+      "Shopify"
+    ],
+    "features": [
+      "Shopify connection",
+      "Daily sync of orders, refunds, discounts, taxes, and shipping revenue",
+      "COGS input by product or variant",
+      "Daily summary view",
+      "Previous-period comparisons",
+      "Top products",
+      "Email or Slack daily summary",
+      "Recent date-range reporting"
+    ],
+    "primary_outcome": "Automatically deliver a trusted daily ecommerce performance report."
+  },
+  "non_goals": [
+    "Multi-channel analytics",
+    "Marketing attribution",
+    "Cohort retention analysis",
+    "LTV prediction",
+    "Inventory planning",
+    "Cash flow forecasting",
+    "Customer segmentation engine",
+    "Custom dashboard builder",
+    "Advanced role-based permissions",
+    "Full finance reconciliation"
+  ],
+  "positioning": "A simple daily revenue and profit report for Shopify brands.",
+  "phase_2": [
+    "Marketing spend inputs or ad integrations",
+    "Multi-store support",
+    "Deeper product and category profitability",
+    "Weekly executive summaries",
+    "Simple anomaly alerts"
+  ],
+  "final_scope": "A Shopify-first daily ecommerce reporting tool focused on revenue, refunds, AOV, and gross profit visibility for small brands."
+}

@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "hvac-hybrid-offer",
+  "prompt": "Chosen direction: AI-assisted missed-call recovery concierge for HVAC service businesses. The user has warm owner access and wants something sellable before software. Design the first offer.",
+  "assertions": [
+    "Response names one painful job and one narrow HVAC ICP.",
+    "Response keeps the offer narrower than broad AI automation consulting.",
+    "Response includes scope boundaries and a productization-friendly shape.",
+    "Response includes structured JSON."
+  ]
+}

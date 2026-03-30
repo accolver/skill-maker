@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "compliance-offer",
+  "prompt": "Chosen direction: compliance evidence concierge for small financial firms. The user has warm contacts, limited weekly time, and must avoid legal-advice framing. Design the offer.",
+  "assertions": [
+    "Response defines a narrow ICP and a clear deliverable or outcome.",
+    "Response explicitly rejects legal-advice or outsourced-CCO framing.",
+    "Response gives a pricing hypothesis tied to scope rather than generic consulting pricing.",
+    "Response includes readable offer sections and structured JSON."
+  ]
+}

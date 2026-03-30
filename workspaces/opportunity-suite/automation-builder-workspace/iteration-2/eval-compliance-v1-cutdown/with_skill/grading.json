@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly rejects at least 3 requested v1 expansions as out of scope.",
+      "passed": true,
+      "evidence": "PASS. `report.md` explicitly narrows scope in lines 13-17 and lists at least four requested expansions as out of scope in lines 106-113: client self-serve portal, predictive risk scoring, CRM sync, and analytics dashboards. `result.json` also includes these items in `out_of_scope` on lines 53-59."
+    },
+    {
+      "text": "Response includes at least one manual step, one automated step, and one explicit escalation or review gate with a reason tied to risk, ambiguity, or trust.",
+      "passed": true,
+      "evidence": "PASS. Manual steps are explicit in `report.md` lines 64-68 and `result.json` lines 33-36. Automated steps are explicit in `report.md` lines 78-84 and `result.json` lines 38-43. A human review gate is explicit in `report.md` lines 70-76 and `system_objective.human_escalation` in `result.json` line 6, with reasons tied to risk and ambiguity in `report.md` lines 86-91 such as missing evidence, conflicting versions, low-confidence classification, and sensitive or non-standard controls."
+    },
+    {
+      "text": "Response chooses a minimal internal workflow rather than a client-facing platform.",
+      "passed": true,
+      "evidence": "PASS. `report.md` states, \"This should ship as a minimal concierge-style workflow, not a platform\" on line 13 and defines the wedge as \"an internal operator workflow\" on lines 15-17. The architecture on lines 21-22 and components on lines 30-33 center an internal dashboard and operator review, while `out_of_scope` on lines 108-112 excludes a client self-serve portal and analytics platform expansion. `result.json` reinforces the same choice with `components[3] = \"Internal operator dashboard\"` on line 12 and the out-of-scope list on lines 53-59."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/build-plan-template.json with non-empty system_objective.primary_user, trigger, output, human_escalation, plus components, inputs, outputs, integrations, manual_steps, automated_steps, milestones, and out_of_scope.",
+      "passed": true,
+      "evidence": "PASS. `assets/build-plan-template.json` defines `system_objective` plus `components`, `inputs`, `outputs`, `integrations`, `manual_steps`, `automated_steps`, `milestones`, and `out_of_scope` on lines 1-16. `outputs/result.json` parses as valid JSON and contains exactly those top-level fields on lines 1-61, with non-empty `system_objective.primary_user`, `trigger`, `output`, and `human_escalation` on lines 2-7 and non-empty arrays for every required list on lines 8-60."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8106
+  },
+  "claims": [
+    {
+      "claim": "This should ship as a minimal concierge-style workflow, not a platform.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by `report.md` lines 13-17 and 21-22, which define an internal operator workflow rather than a platform, plus lines 106-113 and `result.json` lines 53-59, which reject platform-style expansions such as a client portal, predictive scoring, CRM sync, and analytics dashboards."
+    },
+    {
+      "claim": "The package is sent only after explicit analyst approval.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by `report.md` lines 78-84, which say the system sends the package after explicit analyst approval, together with manual approval in `report.md` lines 66-68 and `result.json` lines 33-43, where `manual_steps` includes final approval and `automated_steps` includes sending the package after analyst approval."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response specifies at least one concrete client delivery mechanism and audit trail output' because secure delivery and auditability are central to this workflow but currently untested.",
+      "Strengthen the human-loop assertion to require that escalation reasons appear in the structured JSON or are clearly mirrored between prose and JSON; the current assertion can pass even if the reasoning only appears in prose.",
+      "Add assertion for milestone sequencing quality or dependency logic. The current eval checks presence of milestones, but not whether they form a credible build order."
+    ],
+    "overall": "This assertion set is reasonably discriminating for scope control, internal-workflow selection, and human-in-the-loop handling. It does not cover delivery and audit specifics, and it does not test whether the milestone sequence is substantively executable."
+  }
+}

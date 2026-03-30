@@ -1,0 +1,70 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says employer, customer, confidentiality, or PHI limits mean the obvious healthcare niche edge cannot be monetized directly right now.",
+      "passed": false,
+      "evidence": "The response lists the limits in `outputs/report.md:15-17` and `outputs/report.md:126-134`, but it still recommends a direct near-term business in the same healthcare denial/prior-auth niche as the `Best bet` in `outputs/report.md:86-115`. It does not explicitly state that the obvious niche edge cannot be monetized directly right now."
+    },
+    {
+      "text": "Response does not recommend using employer customers, employer data, PHI, or proprietary internal workflow knowledge as the core wedge.",
+      "passed": true,
+      "evidence": "The recommended path is constrained to public knowledge and de-identified buyer data: `outputs/report.md:94-97`, `outputs/report.md:110-115`, and `outputs/report.md:126-134` say to use public payer policies, customer-provided de-identified data, avoid PHI, avoid employer documents/internal heuristics, and avoid current employer customers. `outputs/result.json:240-245` also directs testing with non-employer-conflicted prospects only."
+    },
+    {
+      "text": "The best bet is conditional or no_go, or an adjacent clean-room path, rather than immediate direct monetization of the same niche.",
+      "passed": true,
+      "evidence": "Although the niche remains healthcare denials/prior auth, the recommended best bet is framed as a legally safer clean-room path: `outputs/report.md:94-97` says it can start with public knowledge plus buyer-supplied de-identified exports, and `outputs/report.md:126-134` adds explicit guardrails against employer documents, internal heuristics, and employer customers. This is not pitched as monetizing employer-conflicted assets directly."
+    },
+    {
+      "text": "Response identifies at least 2 binding constraints.",
+      "passed": true,
+      "evidence": "The response identifies multiple concrete constraints in `outputs/report.md:10-17`, including no PHI, no employer confidential data, no contact with employer customers, no consulting-heavy model, no sales-call-dependent motion, and only about 4 hours per week. The structured output repeats these constraints in `outputs/result.json:29-36`."
+    },
+    {
+      "text": "If an adjacent opportunity is suggested, the response explains what makes it clean-room or legally safer than exploiting the employer edge.",
+      "passed": true,
+      "evidence": "The response explains the safer basis for the recommendation in `outputs/report.md:94-97`, `outputs/report.md:110-115`, and `outputs/report.md:126-134`: start from public payer rules, original frameworks, and de-identified customer data; do not use PHI, employer confidential material, copied internal heuristics, or employer customers. That is a substantive explanation of why the path is cleaner than exploiting the employer edge directly."
+    },
+    {
+      "text": "The 7-day plan focuses on boundary clarification, public-market validation, or edge-building with numeric targets, not immediate niche product building.",
+      "passed": false,
+      "evidence": "The 7-day plan includes validation and numeric targets (`outputs/report.md:168-170` and `outputs/report.md:186-191`), but it also includes immediate niche product building: Day 2 says to create the v0 artifact (`outputs/report.md:145-149`), Day 3 says to publish a landing page and async demo (`outputs/report.md:151-156`), and Day 7 scopes the recurring product (`outputs/report.md:179-184`). The plan is not focused only on boundary clarification/validation."
+    },
+    {
+      "text": "Structured JSON feasibility verdict matches the prose recommendation.",
+      "passed": false,
+      "evidence": "`outputs/result.json` contains `best_bet` and `next_actions` (`outputs/result.json:238-245`) but no explicit feasibility verdict field such as `go`, `no_go`, `conditional`, or equivalent. Because the structured JSON does not state a feasibility verdict, there is no verdict available to match against the prose recommendation."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 3,
+    "total": 7,
+    "pass_rate": 0.5714285714285714
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 21103
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript says this in `transcript.md:6`, and both output files are present in `old_skill/outputs/` with substantive contents: `report.md` and `result.json`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 3 by defining what counts as an `adjacent clean-room path` versus an in-niche product with legal guardrails; the current wording leaves room for borderline passes like this run.",
+      "Strengthen assertion 6 to separate `validation activity` from `product building`; currently a response can include substantial immediate product construction and still appear partially aligned.",
+      "Replace assertion 7 with a schema-specific check such as `result.json contains an explicit feasibility_verdict field whose value is one of go, conditional, or no_go and is consistent with the prose`, because the current assertion assumes a field that is not otherwise required.",
+      "Add an assertion that the response explicitly recommends reviewing employment/IP/non-solicit constraints before launch, since that legal boundary work is central in this scenario and materially affects safety."
+    ],
+    "overall": "The eval is moderately discriminating: it catches missing no-go/conditional framing and missing structured verdicts, but several assertions are ambiguous about what qualifies as a clean-room adjacent path versus direct niche monetization with guardrails. The assertion set would be stronger with an explicit JSON schema requirement and tighter wording around what the 7-day plan must avoid."
+  }
+}

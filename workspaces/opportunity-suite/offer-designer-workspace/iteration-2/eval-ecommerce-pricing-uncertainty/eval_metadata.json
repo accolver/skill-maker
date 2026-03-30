@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "ecommerce-pricing-uncertainty",
+  "prompt": "Chosen direction: concierge reporting pack for niche ecommerce operators. Buyer value is plausible but unvalidated, and scope may vary a lot by store complexity. Design the offer.",
+  "assertions": [
+    "Response does not present price as settled fact; it gives a hypothesis tied to 2 to 4 scope or value variables.",
+    "Response includes at least 2 open questions that would materially change the offer or pricing.",
+    "Response keeps the offer narrower than broad ecommerce analytics consulting.",
+    "Response includes valid JSON matching assets/offer-template.json."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "eval_id": 4,
+  "eval_name": "false-distribution-trap",
+  "prompt": "I have 150000 followers on X talking about AI productivity, but most engagement comes from students, job-seekers, and hobbyists. I do not have trust with business buyers, and I do not want service work. I want a durable business, not course revenue. What path is actually credible?",
+  "assertions": [
+    "Response explicitly distinguishes audience size from buyer quality, trust, or monetizable distribution.",
+    "Response does not recommend a durable business solely because follower count is high.",
+    "If a content-led or audience-led path is recommended, it includes a buyer-segmentation or audience-migration plan rather than assuming current followers are enough.",
+    "Response recommends at least one monetization path beyond course sales or generic sponsorships, and explains why it fits or why it still may not.",
+    "The validation plan includes numeric targets around segmentation, conversion, or interviews with actual buyers.",
+    "Kill criteria include quantified thresholds.",
+    "Structured JSON matches the prose best bet and feasibility stance."
+  ]
+}

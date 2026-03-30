@@ -1,0 +1,20 @@
+{
+  "experiments": [
+    "30 founder interviews produced 12 reports of severe pain, 5 demo requests, 2 trial starts, and 0 activations.",
+    "Observed blockers included 1 prospect blocked by legal data-sharing concerns and 1 prospect confused by onboarding."
+  ],
+  "strong_signals": [
+    "12 of 30 founders said the pain is severe, indicating repeated workflow pain.",
+    "2 prospects started trials, showing willingness to test the product beyond conversation."
+  ],
+  "weak_signals": [
+    "5 demo requests indicate interest, but they are weaker than activation or committed usage."
+  ],
+  "contradictions": [
+    "User pain appears real, but no trial user activated.",
+    "Known blockers point to both legal friction and onboarding confusion, so the primary cause of activation failure is still uncertain."
+  ],
+  "decision_state": "continue",
+  "next_experiment": "Run a concierge activation experiment with 5 new trial users where onboarding is manually guided and no sensitive data is required upfront.",
+  "rationale": "The strongest remaining uncertainty is whether failed activation is caused mainly by onboarding friction or by legal/data-sharing constraints. A guided no-sensitive-data onboarding path is the fastest single experiment to separate those causes while preserving the current wedge."
+}

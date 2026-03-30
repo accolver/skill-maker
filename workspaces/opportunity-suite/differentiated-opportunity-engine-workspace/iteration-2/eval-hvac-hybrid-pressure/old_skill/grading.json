@@ -1,0 +1,82 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response uses the brother's owner network or warm HVAC-owner access as a material distribution advantage in the recommendation, not as a passing mention.",
+      "passed": true,
+      "evidence": "PASS: The recommendation makes warm owner access central to the chosen path, not incidental. `report.md:74-83` says the best hybrid ladder uses 'pilot with your brother, warm intros to nearby owners' and scores distribution fit 9; `report.md:100-103` says the best-bet path 'fits your actual distribution: warm intros and a family pilot, not audience building.' `result.json:174-176` also states the best-bet thesis uses 'a live pilot, warm owner introductions' as core advantages."
+    },
+    {
+      "text": "Response names a concrete first HVAC wedge tied to revenue, such as missed-call recovery, estimate follow-up, membership renewal, or another specific operational pain.",
+      "passed": true,
+      "evidence": "PASS: The report repeatedly names revenue-linked operational wedges: `report.md:31-37` proposes an 'HVAC Revenue Recovery Sprint' around 'missed calls, unbooked estimates, lapsed maintenance memberships, and slow estimate follow-up'; `report.md:78-80` makes those same leaks the starting point for the recommended path. `result.json:174-175` mirrors this with 'missed calls, stale estimates, and lapsed memberships.'"
+    },
+    {
+      "text": "Response explains why software-first loses for this user today and why a hybrid or service-first path is stronger under the current constraints.",
+      "passed": true,
+      "evidence": "PASS: The explanation is explicit. `report.md:118-124` says to 'Start manually with exports, call logs, and simple messaging before building software' and concludes 'This should begin as a service. Building software first would increase risk and reduce learning speed.' `report.md:15-16` also ties the constraint set to direct outreach/referrals rather than a software-first growth motion."
+    },
+    {
+      "text": "If a service-first or hybrid path is recommended, the response names a concrete initial offer, a narrow ICP, one measurable pain or outcome metric, and a specific productization trigger or likely first software module.",
+      "passed": false,
+      "evidence": "FAIL: The response includes a concrete initial offer and later software direction, but it does not fully satisfy all required elements together. The initial offer is clear in `report.md:126-134` ('2-week paid sprint or monthly retainer'), and likely productization direction appears in `report.md:161-163` and `report.md:200-205`. But the recommended section does not clearly define a narrow ICP beyond broad 'HVAC owner or office manager' (`report.md:170-172`), and it does not anchor the offer to one explicit measurable outcome metric such as a target missed-call recovery rate, booked jobs recovered, or estimate-close improvement. Because the assertion requires all of these elements, it fails."
+    },
+    {
+      "text": "The validation plan includes numeric targets such as interview count, pilot target count, time window, or success thresholds.",
+      "passed": true,
+      "evidence": "PASS: The validation plan contains multiple numeric targets and time windows. `report.md:138-163` includes a 7-day plan, a '60-90 minutes' interview, outreach to '10 owners,' a goal of '5 conversations,' '3-5 owner calls,' and an attempt to close 'one paid pilot.' `result.json:200-202` and `report.md:216-225` also use '5 warm owner conversations in 2 weeks' and '2-3 pilots' as explicit thresholds."
+    },
+    {
+      "text": "Kill criteria include at least 2 falsifiable stop or pivot conditions rather than generic caution.",
+      "passed": true,
+      "evidence": "PASS: `report.md:214-227` lists six falsifiable stop/pivot conditions, including failing to get 'at least 5 warm owner conversations ... within 2 weeks,' finding that 'fewer than 2 owners' see the problem as urgent, failing to get anyone to pay for a pilot after a concrete audit, and failing to find a repeatable workflow after '2-3 pilots.' `result.json:199-204` also preserves four falsifiable kill criteria for the selected best bet."
+    },
+    {
+      "text": "The prose recommendation and structured JSON agree on the same best bet and sequencing.",
+      "passed": true,
+      "evidence": "PASS: The prose names 'Revenue Recovery Concierge -> Automation -> Micro-SaaS' as the best path in `report.md:96-107`. The JSON selects `opp_revenue_recovery_concierge_to_saas` as `best_bet` in `result.json:239-245`, and the corresponding opportunity in `result.json:171-204` uses the same sequence: service first, then automation, then productization into micro-SaaS."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.8571428571428571
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 21172
+  },
+  "claims": [
+    {
+      "claim": "The best path is Revenue Recovery Concierge -> Automation -> Micro-SaaS.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by consistency across outputs: `report.md:96-107` names this as the best bet, and `result.json:239-245` selects `opp_revenue_recovery_concierge_to_saas` as the structured best bet with matching sequencing."
+    },
+    {
+      "claim": "The user's warm HVAC-owner access is a real go-to-market advantage.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Supported by the prompt in `eval_metadata.json:4`, which says the brother 'knows a lot of owners in the region,' and reinforced in `report.md:11-13` and `result.json:18-25`, which treat this as a warm-intro distribution channel."
+    },
+    {
+      "claim": "The recommended offer should start as a service before software.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified directly in the recommendation: `report.md:118-124` says to start manually and explicitly states 'This should begin as a service.' The chosen JSON opportunity in `result.json:174-175` also describes a monthly service that later becomes software."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 4 by separating it into discrete checks for ICP, metric, and productization trigger; the current bundled assertion mixes several requirements and is easier to fail ambiguously.",
+      "Add an assertion that the recommendation includes concrete pricing or commercial packaging for the initial offer; the report gives real pricing (`report.md:130-132`) but the current eval does not check monetization specificity.",
+      "Add an assertion that the response explains implementation risk boundaries or trust/compliance constraints for the initial AI workflow; `report.md:120-122` discusses this, but the eval set does not measure it.",
+      "Consider adding an assertion that the chosen wedge specifies the first software module more explicitly in the structured JSON, not just in prose, to better detect prose/JSON mismatch beyond the high-level best bet."
+    ],
+    "overall": "The eval set is reasonably discriminating and captures the main strategic requirements well. Coverage is strongest on distribution advantage, wedge specificity, validation numerics, kill criteria, and prose/JSON consistency, but it under-checks pricing/commercial packaging and risk boundaries. One assertion is notably compound, which makes grading less clean than the others."
+  }
+}

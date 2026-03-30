@@ -1,0 +1,147 @@
+{
+  "task": "Build spec: internal concierge workflow for compliance evidence collection with human review before client delivery",
+  "artifact": "build_plan",
+  "objective": "Collect compliance evidence internally, require human review, and prevent client delivery until explicit approval is recorded.",
+  "users": [
+    "compliance_analyst",
+    "evidence_contributor",
+    "reviewer_approver",
+    "client_delivery_owner"
+  ],
+  "workflow_steps": [
+    "intake_request",
+    "map_requirements_to_evidence_items",
+    "assign_collection_tasks",
+    "ingest_evidence",
+    "run_automated_validation",
+    "assemble_draft_package",
+    "route_for_human_review",
+    "capture_review_decisions",
+    "lock_approved_package",
+    "handoff_for_client_delivery"
+  ],
+  "entities": [
+    "ComplianceRequest",
+    "ControlRequirement",
+    "EvidenceItem",
+    "ReviewDecision",
+    "DeliveryPackage",
+    "AuditEvent"
+  ],
+  "request_statuses": [
+    "intake",
+    "collecting_evidence",
+    "draft_ready",
+    "in_review",
+    "changes_requested",
+    "approved_for_delivery",
+    "delivered",
+    "closed"
+  ],
+  "evidence_statuses": [
+    "requested",
+    "submitted",
+    "needs_revision",
+    "reviewed",
+    "approved",
+    "rejected",
+    "redacted"
+  ],
+  "requirements": {
+    "functional": [
+      "Create request records with client, framework, owner, due date, and controls.",
+      "Track evidence items with metadata, source, version, and control mapping.",
+      "Accept files, links, exports, and questionnaire responses.",
+      "Assemble draft packages and show completeness by control.",
+      "Require human approval before delivery.",
+      "Block delivery unless package status is approved_for_delivery.",
+      "Capture reviewer comments, redaction notes, and revision requests.",
+      "Generate a manifest and audit log for each approved package."
+    ],
+    "non_functional": [
+      "Role-based access control.",
+      "Secure evidence storage.",
+      "Immutable audit trail.",
+      "Clear status transitions.",
+      "Scalable from ad hoc to repeat requests."
+    ]
+  },
+  "automation_components": [
+    "intake_and_template_generation",
+    "task_assignment",
+    "evidence_submission_portal",
+    "validation_checks",
+    "review_queue",
+    "package_snapshot_and_manifest",
+    "notifications_and_escalations"
+  ],
+  "human_review_gate": {
+    "required": true,
+    "delivery_blocked_without_approval": true,
+    "checklist": [
+      "completeness",
+      "freshness",
+      "sensitivity_and_redaction",
+      "client_readability",
+      "removal_of_internal_only_content"
+    ]
+  },
+  "build_phases": [
+    {
+      "phase": 1,
+      "name": "foundations",
+      "outputs": [
+        "data_model",
+        "intake_form",
+        "dashboard",
+        "submission_flow",
+        "audit_logging"
+      ]
+    },
+    {
+      "phase": 2,
+      "name": "review_gate",
+      "outputs": [
+        "draft_package_assembly",
+        "reviewer_queue",
+        "approval_enforcement",
+        "manifest_generation"
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "operational_automation",
+      "outputs": [
+        "reminders",
+        "sla_tracking",
+        "freshness_checks",
+        "duplicate_detection",
+        "framework_templates"
+      ]
+    },
+    {
+      "phase": 4,
+      "name": "integrations_and_hardening",
+      "outputs": [
+        "identity_integration",
+        "storage_integration",
+        "ticketing_integration",
+        "retention_controls",
+        "reporting"
+      ]
+    }
+  ],
+  "acceptance_criteria": [
+    "Requests can be created and decomposed into evidence requirements.",
+    "Contributors can submit evidence with metadata and version history.",
+    "Completeness is visible across requested controls.",
+    "Reviewers can approve, reject, request changes, and specify redactions.",
+    "Delivery is blocked until approval is recorded.",
+    "Approved packages are snapshotted with manifest and audit trail.",
+    "Delivery status is recorded after handoff."
+  ],
+  "written_files": [
+    "/home/alan/dev/ai/skills/automation-builder-workspace/iteration-1/eval-compliance-concierge-build/without_skill/outputs/report.md",
+    "/home/alan/dev/ai/skills/automation-builder-workspace/iteration-1/eval-compliance-concierge-build/without_skill/outputs/result.json"
+  ]
+}

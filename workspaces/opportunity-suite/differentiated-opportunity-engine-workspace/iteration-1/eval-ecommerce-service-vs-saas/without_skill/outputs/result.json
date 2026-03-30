@@ -1,0 +1,46 @@
+{
+  "recommendation": "service_first_then_productize",
+  "summary": "Start with a narrow, productized ecommerce analytics service rather than building a micro-SaaS immediately. Your domain insight is strong, but your current buyer access and founder network are weaker than ideal for a SaaS-first motion.",
+  "rationale": [
+    "Deep knowledge of merchant reporting pain gives you a strong discovery and delivery edge.",
+    "A peer-heavy network is better for interviews and referrals than immediate software sales to budget owners.",
+    "Service work creates paid learning about urgent pains, real buyers, pricing, and repeatable workflows.",
+    "Ecommerce reporting problems are often messy and partially bespoke, which favors services before software standardization.",
+    "A focused service can create the decision-maker relationships needed for a later SaaS motion."
+  ],
+  "recommended_strategy": {
+    "initial_model": "productized_service",
+    "positioning": "narrow, outcome-based ecommerce reporting or analytics offer",
+    "goal": "find a repeated workflow or deliverable that can become a SaaS wedge"
+  },
+  "anti_patterns_to_avoid": [
+    "starting with broad analytics consulting",
+    "building a dashboard product before validating buyer urgency",
+    "accepting highly bespoke work that does not reveal reusable patterns"
+  ],
+  "signals_to_productize": [
+    "same client request appears repeatedly",
+    "same inputs and KPI logic recur across clients",
+    "manual delivery includes a stable repeatable workflow",
+    "clients express willingness to pay for recurring access or automation"
+  ],
+  "ninety_day_plan": {
+    "days_1_30": [
+      "interview 15-20 ecommerce operators",
+      "identify one recent high-cost reporting pain",
+      "define one narrow offer",
+      "test the offer through direct outreach"
+    ],
+    "days_31_60": [
+      "close 2-3 paid clients",
+      "deliver using templates and fixed scope",
+      "capture repeated steps, inputs, and objections"
+    ],
+    "days_61_90": [
+      "identify the most repeated low-variance part of delivery",
+      "build a minimal internal or client-facing tool around it",
+      "test willingness to pay for recurring usage"
+    ]
+  },
+  "bottom_line": "Service-first is the stronger path for your current situation, with the explicit intent to productize the repeated part once patterns and buyer behavior are clear."
+}

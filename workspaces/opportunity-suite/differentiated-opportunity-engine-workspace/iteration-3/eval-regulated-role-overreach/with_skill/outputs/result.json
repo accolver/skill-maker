@@ -1,0 +1,204 @@
+{
+  "user_profile": {
+    "skills": [
+      "compliance workflow design",
+      "regulator response drafting",
+      "document and evidence coordination",
+      "AI-assisted knowledge work design"
+    ],
+    "domain_experience": [
+      "former fintech compliance support",
+      "regulatory request handling",
+      "small-team compliance operations pain points"
+    ],
+    "assets": [
+      "practical understanding of regulator-response workflows",
+      "ability to define structured drafting and evidence processes"
+    ],
+    "distribution": [
+      "warm outreach",
+      "operator credibility in fintech compliance"
+    ],
+    "network_access": [
+      "a few warm fintech and compliance contacts"
+    ],
+    "constraints": [
+      "must avoid unauthorized legal or regulated-role representation",
+      "must keep humans in the loop for substantive judgments",
+      "must not use confidential prior employer or client materials without rights"
+    ],
+    "credibility_signals": [
+      "direct prior experience supporting compliance teams at a fintech"
+    ],
+    "unfair_advantages": [
+      "understands the real workflow behind regulator responses better than generic AI builders",
+      "can position a narrow painful workflow instead of a vague AI compliance promise"
+    ]
+  },
+  "feasibility_verdict": "conditional",
+  "binding_constraints": [
+    "Do not market or operate as a replacement compliance officer, MLRO, or legal advisor.",
+    "All substantive outputs require client review and approval before use or submission.",
+    "Keep the service on drafting, evidence gathering, workflow management, and exam-readiness operations.",
+    "Escalate legal interpretation, licensing questions, and formal sign-off to the client's designated professional."
+  ],
+  "opportunities": [
+    {
+      "id": "opp_response_prep_concierge",
+      "title": "AI regulator-response prep concierge for small fintechs",
+      "category": "cash_now",
+      "thesis": "Sell a productized service that converts messy internal facts into draft response packs, evidence requests, and reviewer-ready first drafts for client approval.",
+      "why_user_can_win": "The user has direct domain experience with regulator-response workflows and better buyer empathy than generic automation consultants.",
+      "why_this_could_fail": "The work may be too bespoke or too tightly tied to outside counsel unless the offer is narrowly scoped.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 8,
+        "durability": 5,
+        "distribution_fit": 7,
+        "ai_leverage": 8,
+        "defensibility": 6,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Pitch 12 warm or warm-adjacent prospects within 7 days.",
+        "Book 4 discovery calls and show one synthetic demo pack.",
+        "Ask for a paid pilot in the $2k-$5k range."
+      ],
+      "tool_specs": [
+        "Structured intake form",
+        "evidence request checklist",
+        "draft outline generator",
+        "human approval gate"
+      ],
+      "kill_criteria": [
+        "Fewer than 2 prospects show willingness to pay for a scoped pilot.",
+        "Buyers consistently expect officer-level sign-off rather than workflow support."
+      ]
+    },
+    {
+      "id": "opp_controls_evidence_service",
+      "title": "Compliance documentation and controls evidence pack service",
+      "category": "cash_now",
+      "thesis": "Help small regulated firms maintain audit trails, policy-to-control mappings, issue logs, and exam-readiness document rooms.",
+      "why_user_can_win": "This is adjacent to the user's lived experience and easier to keep on the operations side of the regulated boundary.",
+      "why_this_could_fail": "Demand may feel less urgent than live regulator-response work unless tied to an exam or remediation trigger.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 7,
+        "durability": 6,
+        "distribution_fit": 6,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Test demand on the same 4 discovery calls.",
+        "Offer a fixed-scope readiness package to 2 prospects.",
+        "Measure whether urgency is lower than response-prep demand."
+      ],
+      "tool_specs": [
+        "controls inventory template",
+        "evidence repository",
+        "issue log",
+        "review checklist"
+      ],
+      "kill_criteria": [
+        "Prospects treat this as nice-to-have rather than budgeted pain.",
+        "The service becomes too bespoke to standardize."
+      ]
+    },
+    {
+      "id": "opp_response_workspace",
+      "title": "Regulator response workspace for small regulated firms",
+      "category": "asset_later",
+      "thesis": "Build a narrow SaaS that structures regulator requests, tracks evidence, drafts first-pass responses, and enforces human review.",
+      "why_user_can_win": "Service work can uncover the common workflow and data model before software build-out.",
+      "why_this_could_fail": "Software-first is too early if request types and buyer urgency are not yet standardized.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 3,
+        "durability": 8,
+        "distribution_fit": 5,
+        "ai_leverage": 8,
+        "defensibility": 6,
+        "execution_difficulty": 7,
+        "compliance_platform_risk": 5
+      },
+      "validation_plan": [
+        "Only pursue after 3 paid pilots.",
+        "Confirm at least 60% workflow overlap across engagements.",
+        "Validate that 2 clients want ongoing tooling."
+      ],
+      "tool_specs": [
+        "request classifier",
+        "evidence owner tracker",
+        "draft generator",
+        "approval workflow",
+        "audit log"
+      ],
+      "kill_criteria": [
+        "Less than 40% workflow reuse across customers.",
+        "No buyer requests ongoing software after paid service work."
+      ]
+    },
+    {
+      "id": "opp_hybrid_response_ops",
+      "title": "Response prep concierge to compliance workflow product",
+      "category": "hybrid",
+      "thesis": "Start with a tightly scoped regulator-response preparation service, then productize recurring intake, evidence collection, drafting, escalation, and review workflow into a lightweight compliance operations platform.",
+      "why_user_can_win": "This path uses the user's domain edge immediately, monetizes through warm contacts, and collects process insight without overclaiming regulated authority.",
+      "why_this_could_fail": "If the first engagements are too custom or too infrequent, there may be no repeatable product wedge.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 8,
+        "durability": 8,
+        "distribution_fit": 7,
+        "ai_leverage": 8,
+        "defensibility": 7,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Launch a one-page offer and contact 12 prospects within 7 days.",
+        "Book 4 discovery calls and get 2 paid pilot yeses or serious procurement discussions.",
+        "Map the workflow into 6-10 standard steps and confirm at least 60% reuse.",
+        "Schedule 1 partnership conversation with a compliance advisor or law firm for edge cases."
+      ],
+      "tool_specs": [
+        "secure intake form",
+        "document store",
+        "evidence tracker",
+        "LLM drafting assistant",
+        "red-flag escalation rules",
+        "human sign-off workflow",
+        "exportable response packet"
+      ],
+      "kill_criteria": [
+        "Fewer than 4 of 12 outreach messages get replies in 7 days.",
+        "Fewer than 2 of 4 calls produce willingness to pay for a pilot.",
+        "Interested buyers want delegated officer-level responsibility rather than support tooling.",
+        "Less than 40% of workflow steps are reusable across prospects."
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Lightweight outsourced compliance officer for small firms",
+      "reason": "This positioning implies delegated regulated authority and ongoing professional judgment, creating legal and compliance overreach risk."
+    },
+    {
+      "title": "Software-first AI compliance copilot",
+      "reason": "Too early without paid validation and a clear repeatable workflow across multiple firms."
+    }
+  ],
+  "best_bet": "opp_hybrid_response_ops",
+  "next_actions": [
+    "Draft a one-page offer for a 48-hour regulator response prep sprint with explicit human-review language.",
+    "Send 12 warm outreach messages within 7 days.",
+    "Run 4 discovery calls and show a synthetic demo pack.",
+    "Ask for 2 paid pilots priced at $2k-$5k.",
+    "Find 1 compliance advisor or law firm partner for substantive edge cases."
+  ]
+}

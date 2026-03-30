@@ -1,0 +1,58 @@
+{
+  "user_profile": {
+    "skills": [
+      "audience growth on X",
+      "content packaging around AI productivity",
+      "topic selection for broad AI productivity interest"
+    ],
+    "domain_experience": [
+      "AI productivity content and audience interests"
+    ],
+    "assets": [
+      "X account with about 120000 followers interested in AI productivity"
+    ],
+    "distribution": [
+      "Large X audience in AI productivity"
+    ],
+    "network_access": [],
+    "constraints": [
+      "Audience appears concentrated in students and hobbyists",
+      "Buyer quality is unknown",
+      "No evidence yet of owned buyer list or conversion data"
+    ],
+    "credibility_signals": [
+      "Large public following in a specific topic category"
+    ],
+    "unfair_advantages": [
+      "Can test messaging quickly with a large existing audience interested in AI productivity"
+    ]
+  },
+  "usable_edge": [
+    "Large top-of-funnel reach in AI productivity",
+    "Proven ability to attract audience attention in the niche"
+  ],
+  "restricted_or_unusable_edge": [],
+  "fake_or_overstated_edge": [
+    "Follower count treated as proof of buyer access",
+    "Audience interest treated as purchasing intent",
+    "AI productivity popularity treated as durable moat"
+  ],
+  "weak_spots": [
+    "No validated buyer segment identified",
+    "No evidence of paying customer behavior from the audience",
+    "Likely low purchasing power concentration if audience is mostly students and hobbyists",
+    "No warm buyer network or owned demand channel evidenced"
+  ],
+  "follow_up_questions": [
+    "What percentage of your audience has budget authority or business purchasing intent?",
+    "Have you sold anything to this audience before, and what converted?",
+    "Which posts attract comments or DMs from professionals versus learners?",
+    "Do you have an email list, community, or customer base separate from X?",
+    "Which buyer segment do you know best personally: founders, teams, creators, agencies, or students?"
+  ],
+  "confidence_notes": [
+    "Medium confidence that the audience is a real distribution asset because the follower count is explicit.",
+    "High confidence that buyer quality is unproven because the user explicitly says most followers are students and hobbyists and they do not know if any are buyers.",
+    "Low confidence on network access, conversion potential, and monetization paths because no evidence was provided."
+  ]
+}

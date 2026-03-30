@@ -1,0 +1,54 @@
+{
+  "recommended_offer": {
+    "name": "Boutique Recruiter Outreach Sprint",
+    "type": "done-with-you sprint",
+    "duration_days": 7,
+    "decision": "chosen over hiring-process audit",
+    "why": [
+      "Faster path to paid validation",
+      "Better fit for founder's warm access to boutique recruiters",
+      "More concrete and outcome-oriented than an audit",
+      "Shorter feedback loop on willingness to pay"
+    ]
+  },
+  "target_customer": {
+    "segment": "boutique recruiters",
+    "traits": [
+      "small firm or independent",
+      "need more client outreach consistency",
+      "do not want a long consulting engagement",
+      "already feel business development pain"
+    ]
+  },
+  "deliverables": [
+    "kickoff session",
+    "offer and messaging refinement",
+    "target prospect list",
+    "email and LinkedIn outreach copy",
+    "follow-up cadence",
+    "launch support",
+    "end-of-sprint review"
+  ],
+  "pricing": {
+    "pilot_range_usd": [500, 1500],
+    "recommended_intro_pilot_usd": 750,
+    "pricing_goal": "validate willingness to pay, not maximize revenue"
+  },
+  "risk_reversal": "If the sprint is completed and the client does not leave with finalized messaging, a target list, and a live outreach plan, delivery continues until those assets are complete.",
+  "secondary_offer": {
+    "name": "Hiring-Process Audit",
+    "role": "fallback, downsell, or feeder into sprint",
+    "not_primary_because": [
+      "more abstract",
+      "less urgent",
+      "weaker for fast paid validation"
+    ]
+  },
+  "validation_metrics": [
+    "warm intro to call conversion",
+    "call to paid pilot conversion",
+    "price resistance",
+    "message resonance",
+    "post-sprint continuation interest"
+  ]
+}

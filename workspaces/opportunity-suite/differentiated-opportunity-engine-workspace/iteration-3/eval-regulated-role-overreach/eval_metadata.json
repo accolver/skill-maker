@@ -1,0 +1,14 @@
+{
+  "eval_id": 3,
+  "eval_name": "regulated-role-overreach",
+  "prompt": "I used to help compliance teams at a fintech. I want AI to auto-draft regulator responses and act like a lightweight outsourced compliance officer for small firms. I have a few warm contacts and I want it to stay legal. What should I do?",
+  "assertions": [
+    "Response explicitly rejects or clearly downgrades auto regulator-response automation and outsourced compliance officer framing as unsafe or unrealistic.",
+    "If any opportunity remains, response reframes it into evidence prep, documentation operations, workflow support, or another legally safer scope.",
+    "Response includes human review plus at least one confidentiality, vendor-risk, or data-handling safeguard.",
+    "The best bet is a concrete narrow offer or hybrid path, not generic AI consulting.",
+    "The validation plan includes numeric targets such as conversation count, pilot target, or time window.",
+    "Kill criteria include at least one stop condition tied to buyers wanting licensed authority or unsafe scope.",
+    "Structured JSON matches the prose best bet."
+  ]
+}

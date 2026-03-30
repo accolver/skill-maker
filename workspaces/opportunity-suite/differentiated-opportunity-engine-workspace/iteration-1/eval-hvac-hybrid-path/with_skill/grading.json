@@ -1,0 +1,73 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response includes a section header named Differentiation Profile",
+      "passed": true,
+      "evidence": "`outputs/report.md` line 1 contains the exact header `# Differentiation Profile`, followed by substantive HVAC-specific background, access, constraints, and unfair-advantage content on lines 3-26."
+    },
+    {
+      "text": "Response includes a section header named Top Opportunities",
+      "passed": true,
+      "evidence": "`outputs/report.md` line 28 contains the exact header `# Top Opportunities`, followed by five concrete opportunities with classifications, theses, user edge explanations, and scorecards on lines 30-107."
+    },
+    {
+      "text": "Response includes a section header named Best Bet",
+      "passed": true,
+      "evidence": "`outputs/report.md` line 109 contains the exact header `# Best Bet`, and lines 111-153 explicitly recommend the hybrid ladder and explain why it is the best path, offer structure, and business model progression."
+    },
+    {
+      "text": "Response includes a section header named 7-Day Validation Plan",
+      "passed": true,
+      "evidence": "`outputs/report.md` line 155 contains the exact header `# 7-Day Validation Plan`, followed by a day-by-day plan with specific actions for Days 1-7 on lines 157-215."
+    },
+    {
+      "text": "Response includes a section header named Build Spec",
+      "passed": true,
+      "evidence": "`outputs/report.md` line 216 contains the exact header `# Build Spec`, followed by concrete MVP, internal-tool, SaaS-wedge, pricing, and scope guidance on lines 218-263."
+    },
+    {
+      "text": "Response includes a section header named Kill Criteria",
+      "passed": true,
+      "evidence": "`outputs/report.md` line 264 contains the exact header `# Kill Criteria`, and lines 266-277 provide explicit pivot or stop conditions tied to interviews, payment willingness, integration burden, and workflow repeatability."
+    },
+    {
+      "text": "Response explicitly explains why this user can win in HVAC or why the user has an edge",
+      "passed": true,
+      "evidence": "The report repeatedly states the user's edge in HVAC: `outputs/report.md` lines 38-40, 51-53, 65-67, and 94-96 each include `Why this user can win` explanations, and lines 122-123 restate the user's edge as HVAC workflow familiarity plus warm owner access."
+    },
+    {
+      "text": "Response recommends or seriously considers a hybrid ladder such as service to automation to product",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 85-99 present a dedicated `Hybrid Ladder` opportunity, lines 111-113 name the best path as `revenue recovery concierge -> internal tooling -> micro-SaaS`, and lines 148-153 describe the service-to-tooling-to-SaaS progression. `outputs/result.json` lines 170-204 also encode the hybrid opportunity as the selected best bet."
+    },
+    {
+      "text": "Response includes a JSON block with a best_bet field",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid JSON and includes the top-level field `\"best_bet\": \"opp_hybrid_revenue_recovery\"` on line 204. This satisfies the required JSON best-bet output, even though it is provided as a separate JSON file rather than embedded inside `report.md`."
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 21113
+  },
+  "claims": [],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the six section-header assertions by requiring substantive content under each header, since exact headings alone are relatively easy to satisfy.",
+      "Add an assertion that the Best Bet aligns with the highest-ranked opportunity and with `result.json.best_bet`, since cross-file consistency is currently untested.",
+      "Add an assertion that the 7-day plan includes concrete outreach or validation targets such as interview counts or pilot goals, since actionability matters more than the presence of the header.",
+      "Clarify whether the JSON requirement must be an embedded JSON block in the markdown response or whether a separate `result.json` file is acceptable; the current wording is slightly ambiguous."
+    ],
+    "overall": "All 9 assertions pass, but 6 of them are primarily structural header checks. The eval captures the required format and the hybrid-path recommendation, but it would discriminate better with stronger checks for substance, cross-file consistency, and measurable validation detail."
+  }
+}

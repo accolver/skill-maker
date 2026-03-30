@@ -1,0 +1,56 @@
+{
+  "user_profile": {
+    "skills": [
+      "audience building around AI productivity",
+      "content packaging for broad interest topics"
+    ],
+    "domain_experience": [
+      "AI productivity content"
+    ],
+    "assets": [
+      "120000 followers on X"
+    ],
+    "distribution": [
+      "large X audience interested in AI productivity"
+    ],
+    "network_access": [],
+    "constraints": [
+      "buyer quality is unknown",
+      "audience is believed to skew toward students and hobbyists"
+    ],
+    "credibility_signals": [
+      "large public following in a specific topic area"
+    ],
+    "unfair_advantages": [
+      "ability to cheaply test messaging against a large live audience"
+    ]
+  },
+  "usable_edge": [
+    "Large existing audience for top-of-funnel testing",
+    "Clear topic positioning around AI productivity"
+  ],
+  "restricted_or_unusable_edge": [],
+  "fake_or_overstated_edge": [
+    "Follower count as proxy for buyer density",
+    "Topic interest as proxy for budget authority",
+    "Audience attention as proof of monetizable demand"
+  ],
+  "weak_spots": [
+    "No direct evidence of buyers in the audience",
+    "Likely audience skew toward low-budget segments",
+    "No stated conversions, case studies, or buyer trust signals",
+    "No confirmed warm access to decision-makers"
+  ],
+  "follow_up_questions": [
+    "What share of your engaged followers are actual operators, founders, or managers?",
+    "Have you seen inbound requests that imply budget or urgent workflow pain?",
+    "Do you have any prior paid offers or proof of willingness to pay from this audience?",
+    "Which audience segment do you understand best as a buyer, not just as a follower?",
+    "What channel besides X do you control for qualification, such as email or calls?"
+  ],
+  "confidence_notes": [
+    "High confidence that reach exists because follower count is explicit.",
+    "Low confidence on buyer quality because the prompt states buyers are unknown.",
+    "The strongest likely conclusion is attention asset, not validated buyer distribution."
+  ]
+}

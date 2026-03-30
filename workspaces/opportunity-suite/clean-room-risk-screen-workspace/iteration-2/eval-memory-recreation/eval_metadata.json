@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "memory-recreation",
+  "prompt": "The user wants to recreate employer internal templates, pricing logic, and process docs from memory for a same-niche govtech side business. Screen the risk.",
+  "assertions": [
+    "Response explicitly states that paraphrasing or recreating employer templates, process docs, or pricing logic from memory is still blocked.",
+    "Response distinguishes generalized industry knowledge from employer-confidential methods by giving at least one allowed example and one blocked example.",
+    "Response names a concrete safer adjacent path based on public data, original assets, or generalized workflow understanding.",
+    "Response includes valid JSON matching assets/risk-screen-template.json with non-empty risk_summary, risk_categories, allowed, conditional, blocked, safer_path, and notes."
+  ]
+}

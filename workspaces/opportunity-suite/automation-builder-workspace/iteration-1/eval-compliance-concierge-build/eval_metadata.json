@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "compliance-concierge-build",
+  "prompt": "Build spec: internal concierge workflow for compliance evidence collection with human review before client delivery. Produce the build plan.",
+  "assertions": [
+    "Response includes explicit human review or escalation points.",
+    "Response chooses a minimal internal workflow rather than a broad client platform.",
+    "Response includes milestones and out-of-scope items.",
+    "Response includes structured JSON."
+  ]
+}

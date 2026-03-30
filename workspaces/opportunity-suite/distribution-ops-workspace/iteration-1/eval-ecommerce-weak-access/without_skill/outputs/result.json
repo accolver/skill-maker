@@ -1,0 +1,116 @@
+{
+  "offer": "ecommerce reporting product for merchants",
+  "constraints": {
+    "strong_workflow_knowledge": true,
+    "weak_buyer_access": true,
+    "has_audience": false
+  },
+  "strategy": {
+    "summary": "Prioritize high-intent channels that do not require an existing audience: founder-led outbound, partner distribution, and operator communities. Support them with tactical content and service-assisted onboarding.",
+    "primary_wedge": [
+      "Position against spreadsheets, agency-built reporting, and confusing BI tools",
+      "Sell outcomes like weekly clarity, margin visibility, and faster decisions",
+      "Bundle setup, reporting audits, or dashboard migration into the initial motion"
+    ]
+  },
+  "channel_ranking": [
+    {
+      "rank": 1,
+      "channel": "agency and consultant partnerships",
+      "fit": "high",
+      "why": [
+        "Existing merchant trust",
+        "One partner can unlock multiple buyers",
+        "Strong fit for workflow expertise"
+      ]
+    },
+    {
+      "rank": 2,
+      "channel": "founder-led outbound",
+      "fit": "high",
+      "why": [
+        "No audience required",
+        "Fast path to customer conversations",
+        "Best for sharpening messaging"
+      ]
+    },
+    {
+      "rank": 3,
+      "channel": "operator communities",
+      "fit": "medium-high",
+      "why": [
+        "Pain is discussed in public",
+        "Useful participation builds credibility",
+        "Supports both outbound and referrals"
+      ]
+    },
+    {
+      "rank": 4,
+      "channel": "problem-led content",
+      "fit": "medium",
+      "why": [
+        "Supports trust and capture",
+        "Can be repurposed into outbound and community replies",
+        "Too slow to be the main engine initially"
+      ]
+    },
+    {
+      "rank": 5,
+      "channel": "app ecosystem and marketplace surfaces",
+      "fit": "medium",
+      "why": [
+        "Good once positioning is validated",
+        "Useful for solution-aware buyers",
+        "Usually weak at day 1 without reviews or pull"
+      ]
+    }
+  ],
+  "avoid_early": [
+    "broad paid social",
+    "seo-first strategy",
+    "large webinars and brand campaigns",
+    "enterprise sales motion",
+    "generic cold ads to merchants"
+  ],
+  "positioning": {
+    "emphasize": [
+      "replace manual weekly reporting",
+      "see true channel and SKU performance",
+      "decision-ready reporting instead of dashboard clutter",
+      "reduce analyst and agency reporting labor"
+    ],
+    "avoid": [
+      "broad BI language",
+      "perfect-attribution claims",
+      "generic dashboard-tool messaging"
+    ]
+  },
+  "ninety_day_plan": {
+    "days_1_30": [
+      "pick one ICP slice",
+      "build a list of 100 merchants and 50 partners",
+      "create 3 pain-based outreach angles",
+      "create a sample report and audit checklist",
+      "run weekly founder-led outreach",
+      "join 3 to 5 operator communities"
+    ],
+    "days_31_60": [
+      "double down on the best pain angle",
+      "tighten landing page and demo narrative",
+      "pilot 3 to 5 partners",
+      "publish tactical content from objections"
+    ],
+    "days_61_90": [
+      "formalize partner program if pull exists",
+      "turn best content asset into lead capture",
+      "add referral asks to onboarding",
+      "test one ecosystem surface"
+    ]
+  },
+  "recommended_initial_mix": [
+    "founder-led outbound",
+    "agency and consultant partnerships",
+    "community participation with tactical content reuse"
+  ],
+  "final_recommendation": "Start with direct merchant outreach and partner-led distribution, using communities for trust and content as support. Focus on a narrow merchant segment with acute reporting pain and sell a concrete operational outcome rather than generic analytics value."
+}

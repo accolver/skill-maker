@@ -1,0 +1,41 @@
+{
+  "audience": "therapists and private practice owners with newsletters",
+  "direction": "paid benchmark and template product",
+  "offer": {
+    "title": "Private Practice Newsletter Benchmark + Template Kit",
+    "type": "self-serve digital product",
+    "positioning": "A therapist newsletter checkup buyers can use immediately without hiring a marketer.",
+    "corePromise": "Show therapists how their newsletter compares to niche norms, identify likely weak spots, and provide templates to improve performance."
+  },
+  "components": [
+    "benchmark report",
+    "newsletter health scorecard",
+    "therapist-specific template kit",
+    "90-day improvement plan",
+    "subject line swipe file"
+  ],
+  "pricing": {
+    "launch": "$59-$99",
+    "core": "$79-$149",
+    "premiumUpsell": "$199-$299"
+  },
+  "whyThisFits": [
+    "productized rather than service-based",
+    "niche-specific to therapists",
+    "diagnostic value from benchmarking",
+    "implementation value from templates"
+  ],
+  "goToMarket": [
+    "therapist-focused newsletters",
+    "private practice communities",
+    "podcasts for therapists",
+    "partnerships with therapist business tools",
+    "organic email marketing content"
+  ],
+  "risks": [
+    "generic or weak benchmark data reduces credibility",
+    "overly marketer-style messaging may reduce trust",
+    "positioning too close to legal or clinical advice creates risk"
+  ],
+  "recommendation": "Build the benchmark-first product and use templates as the action layer."
+}

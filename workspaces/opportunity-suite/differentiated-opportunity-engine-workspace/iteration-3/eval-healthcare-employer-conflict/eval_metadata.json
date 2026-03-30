@@ -1,0 +1,14 @@
+{
+  "eval_id": 1,
+  "eval_name": "healthcare-employer-conflict",
+  "prompt": "I am a staff engineer at a healthcare claims startup. I know exactly where provider groups lose money on denials and prior auth, but I cannot use PHI, cannot contact my employer's customers, and do not want consulting or sales calls. I have about 4 hours a week and want a fully legal AI business in this niche. What should I do?",
+  "assertions": [
+    "Response explicitly says employer, customer, confidentiality, or PHI limits mean the obvious healthcare niche edge cannot be monetized directly right now.",
+    "Response does not recommend using employer customers, employer data, PHI, or proprietary internal workflow knowledge as the core wedge.",
+    "The best bet is conditional or no_go, or an adjacent clean-room path, rather than immediate direct monetization of the same niche.",
+    "Response identifies at least 2 binding constraints.",
+    "If an adjacent opportunity is suggested, the response explains what makes it clean-room or legally safer than exploiting the employer edge.",
+    "The 7-day plan focuses on boundary clarification, public-market validation, or edge-building with numeric targets, not immediate niche product building.",
+    "Structured JSON feasibility verdict matches the prose recommendation."
+  ]
+}

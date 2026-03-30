@@ -1,0 +1,14 @@
+{
+  "eval_id": 3,
+  "eval_name": "impossible-constraint-bundle",
+  "prompt": "I am a junior full-stack developer with no niche audience, no special domain access, no budget, and only 2 hours a week. I want $3000 MRR from an AI micro-SaaS in 30 days, and I refuse sales calls, services, content creation, and cold outreach. What should I do?",
+  "assertions": [
+    "Response explicitly says the 30-day $3000 MRR goal is not credible under the current constraints.",
+    "Response identifies at least 3 binding constraints.",
+    "Best bet is to change constraints, build edge, or stop chasing this goal for now, not to build a product immediately.",
+    "Response does not present any current opportunity as realistic near-term income under the stated constraints.",
+    "Response gives a concrete edge-building or constraint-change plan with numeric targets or milestones.",
+    "Kill or revisit criteria are quantified.",
+    "Structured JSON feasibility verdict is no_go and matches the prose recommendation."
+  ]
+}

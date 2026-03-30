@@ -1,0 +1,73 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response includes a section header named Differentiation Profile",
+      "passed": false,
+      "evidence": "`outputs/report.md` includes headers such as `## Bottom line` (line 3), `## Recommended strategy` (line 21), and `## Best initial wedge` (line 39), but no section header named `Differentiation Profile`."
+    },
+    {
+      "text": "Response includes a section header named Top Opportunities",
+      "passed": false,
+      "evidence": "`outputs/report.md` has `## Other strong opportunities` at line 62 rather than a section header named `Top Opportunities`. No exact `Top Opportunities` header appears in the report or transcript."
+    },
+    {
+      "text": "Response includes a section header named Best Bet",
+      "passed": false,
+      "evidence": "The response presents a recommendation through `## Best initial wedge` (line 39) and `## My recommendation` (line 224), but there is no section header named `Best Bet`."
+    },
+    {
+      "text": "Response includes a section header named 7-Day Validation Plan",
+      "passed": false,
+      "evidence": "`outputs/report.md` contains `## 30-day action plan` at line 238, not a `7-Day Validation Plan` section. No equivalent 7-day header is present."
+    },
+    {
+      "text": "Response includes a section header named Build Spec",
+      "passed": false,
+      "evidence": "No section header named `Build Spec` appears in `outputs/report.md`; the document discusses phases and possible software modules at lines 154-183 but not under that required header."
+    },
+    {
+      "text": "Response includes a section header named Kill Criteria",
+      "passed": false,
+      "evidence": "`outputs/report.md` includes `## Biggest risks` at line 212 but no `Kill Criteria` section header, and no explicit kill criteria section appears elsewhere in the outputs."
+    },
+    {
+      "text": "Response explicitly explains why this user can win in HVAC or why the user has an edge",
+      "passed": true,
+      "evidence": "`outputs/report.md` explicitly states `You have three unusually strong advantages` (line 13) and lists concrete edge reasons: HVAC operational/software experience (line 15), warm owner access through the brother (lines 16-17), and a fragmented under-digitized market (lines 18-19)."
+    },
+    {
+      "text": "Response recommends or seriously considers a hybrid ladder such as service to automation to product",
+      "passed": true,
+      "evidence": "`outputs/report.md` says `Your best path is a hybrid model` (line 5), recommends starting with a service offer and turning repeated workflows into a `micro-SaaS wedge` (lines 7-11), and lays out `Phase 1: Concierge service`, `Phase 2: Productized service`, and `Phase 3: Micro-SaaS` (lines 158-175). `outputs/result.json` also sets `recommended_path.model` to `hybrid` (line 3)."
+    },
+    {
+      "text": "Response includes a JSON block with a best_bet field",
+      "passed": false,
+      "evidence": "`outputs/result.json` is valid JSON, but its top-level keys are `recommended_path`, `top_opportunity`, `other_opportunities`, `ideal_customer_profile`, `initial_offer`, `risks`, and `first_30_days` (lines 2-64). There is no `best_bet` field, and `outputs/report.md` does not contain a JSON block with that field either."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 7,
+    "total": 9,
+    "pass_rate": 0.2222222222222222
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 11020
+  },
+  "claims": [],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the section-header assertions so they test substance as well as format; the current set overweights exact naming conventions instead of whether the response contains the required analysis.",
+      "Add assertions for substantive outcomes already present in the outputs, such as naming a concrete initial HVAC wedge, defining an ideal customer profile, and giving a service-to-product sequencing rationale.",
+      "Relax or clarify `Response includes a JSON block with a best_bet field` if equivalent structured output is acceptable; this run produced meaningful JSON in `result.json`, but the assertion is narrowly tied to one field name.",
+      "Add an assertion for explicit kill conditions or disqualifying signals if that concept is important, because the current header-only `Kill Criteria` check does not distinguish between a labeled but empty section and actionable stop conditions."
+    ],
+    "overall": "The eval is highly format-driven: 6 of 9 assertions require exact section names or a specific JSON field, so a response with strong HVAC-specific reasoning and a clear hybrid recommendation still fails heavily. Coverage of substantive strategy quality is limited compared with coverage of presentation format."
+  }
+}

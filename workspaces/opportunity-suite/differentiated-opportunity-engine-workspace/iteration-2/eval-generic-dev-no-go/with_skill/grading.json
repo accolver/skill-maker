@@ -1,0 +1,77 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says the current edge is weak, generic, or insufficient for a strong opportunity pick.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 13-14 says `Unfair advantages: weak. The only credible edge is being close to generic developer workflow problems.` This explicitly characterizes the user's edge as weak and generic. `outputs/result.json` lines 30-32 likewise limits unfair advantages to generic developer workflow proximity."
+    },
+    {
+      "text": "Response treats the requested constraint bundle as unrealistic or binding rather than pretending there is an easy fast-money path.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 18-30 labels the constraints as `Binding constraints`, lists seven of them, and states `This is an impossible bundle for a cold-start micro-SaaS... the odds of meaningful revenue in 30 days are low.` The prose rejects an easy fast-money framing."
+    },
+    {
+      "text": "The best bet is not an immediate generic AI micro-SaaS or wrapper.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 95-103 says `do not optimize for fast money from a cold-start AI micro-SaaS right now` and frames the next 30 days as `a validation sprint, not an income plan.` `outputs/report.md` lines 84-91 also explicitly rejects `Generic AI wrapper for a broad audience`."
+    },
+    {
+      "text": "Response identifies at least 2 binding constraints that must change or 2 capabilities that must be built first.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 20-26 lists multiple binding constraints: `Fast revenue`, `No audience`, `No niche access`, `No sales calls`, `No services`, `No content creation`, and `Only ~16 hours total in 30 days.` This easily exceeds the minimum of two."
+    },
+    {
+      "text": "Response gives a credible next-step plan for edge-building, market access, or narrowing scope rather than generic hustle advice.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 128-179 provides a specific 7-day validation plan with concrete actions: choose one narrow pain, review `50 public signals`, collect `20 exact user phrases`, publish a priced landing page by day 2, build a minimal slice by day 3, publish to `at least 3 existing channels`, and measure activation/buying signals. This is a scoped validation plan, not generic hustle advice."
+    },
+    {
+      "text": "Kill criteria or revisit criteria are falsifiable or quantified.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 165-179 and 221-232 include quantified thresholds such as `at least 30 landing page visits, 5 waitlist signups, or 2 checkout attempts`, `3 paying users`, `10 qualified waitlist signups`, `5 activated users and 2 explicit statements that they would pay`, plus kill thresholds like `fewer than 3 paying users or monthly revenue is still $0`. These are falsifiable and numeric."
+    },
+    {
+      "text": "Structured JSON marks feasibility as conditional or no_go, and that matches the prose recommendation.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` line 34 sets `feasibility_verdict` to `no_go`. `outputs/report.md` line 16 says `Feasibility verdict: no_go`, and lines 95-103 reiterate that the user should not pursue fast-money expectations from a cold-start micro-SaaS now. The JSON and prose are aligned."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 14886
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md` line 4 states `Completed. Wrote report.md and result.json.` Both files exist in `outputs/` and were read successfully."
+    },
+    {
+      "claim": "The best bet is the GitHub app for CI failure triage and recurring failure digests.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/result.json` line 161 sets `best_bet` to `opp_ci_triage_app`, whose title at lines 78-79 is `GitHub app for CI failure triage and recurring failure digests`. `outputs/report.md` lines 105-108 names the same default candidate."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'The recommended best bet is named consistently between prose and structured JSON' — this run does align, but the current suite does not check that consistency directly.",
+      "Add assertion: 'Response explicitly states that some distribution effort is still required even without calls or content' — the report makes this important point at `outputs/report.md` lines 159-160 and 231-232, but the eval does not measure it.",
+      "Strengthen assertion 5 by requiring at least one time-bound or channel-specific action, so generic 'next steps' prose cannot pass without operational detail."
+    ],
+    "overall": "The assertion set is reasonably discriminating for the core no-go recommendation and constraint handling, and this run substantively satisfies all 7 assertions. Coverage is still missing on recommendation consistency between prose and JSON, and on whether the response preserves the crucial nuance that no-call/no-content still requires distribution effort."
+  }
+}

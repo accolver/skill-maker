@@ -1,0 +1,61 @@
+{
+  "user_profile": {
+    "skills": [
+      "market analysis",
+      "govtech process familiarity",
+      "pricing and process pattern recognition"
+    ],
+    "domain_experience": [
+      "govtech market exposure"
+    ],
+    "assets": [
+      "general market knowledge",
+      "employer internal templates",
+      "employer pricing logic",
+      "employer process documentation"
+    ],
+    "distribution": [],
+    "network_access": [],
+    "constraints": [
+      "cannot safely reuse employer-confidential materials",
+      "most specific informational edge may be employer-owned rather than independently owned"
+    ],
+    "credibility_signals": [
+      "current employment inside the govtech sector"
+    ],
+    "unfair_advantages": [
+      "some real sector familiarity, but the strongest specific assets are restricted"
+    ]
+  },
+  "usable_edge": [
+    "General non-confidential govtech market knowledge",
+    "Domain judgment about common market patterns if expressed in original form"
+  ],
+  "restricted_or_unusable_edge": [
+    "Employer internal templates",
+    "Employer pricing logic",
+    "Employer process documentation",
+    "Confidential know-how that depends on employer-owned materials"
+  ],
+  "fake_or_overstated_edge": [
+    "Broad market familiarity without owned distribution or independent buyer access",
+    "Employer-mediated information advantage presented as portable moat"
+  ],
+  "weak_spots": [
+    "No owned distribution",
+    "No independent buyer access evidence",
+    "No clearly reusable proprietary asset owned by the user"
+  ],
+  "follow_up_questions": [
+    "Do you have direct buyer relationships you personally own outside your employer?",
+    "What parts of your knowledge are public or experience-based rather than confidential?",
+    "Have you created any original assets that are clearly separate from employer IP?",
+    "What buyer problem can you describe without relying on internal materials?",
+    "Do you control any direct distribution to govtech buyers?"
+  ],
+  "confidence_notes": [
+    "High confidence that templates, pricing logic, and process docs are restricted because the user explicitly described them as internal employer materials.",
+    "Medium confidence on the strength of the usable edge because the user did not provide evidence of owned distribution, independent customer access, or original assets.",
+    "Low confidence on exact skill depth because the prompt is brief and no input files were provided."
+  ]
+}

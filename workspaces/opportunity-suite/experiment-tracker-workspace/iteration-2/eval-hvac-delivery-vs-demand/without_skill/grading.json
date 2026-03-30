@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly labels at least one strong signal and at least one weak, vanity, or contradictory signal.",
+      "passed": false,
+      "evidence": "FAIL: `outputs/report.md` describes evidence but never explicitly labels any item as a `strong signal`, `weak signal`, `vanity signal`, or `contradictory signal` (lines 13-31). `outputs/result.json` likewise lacks `strong_signals`, `weak_signals`, and `contradictions` fields entirely (lines 1-32)."
+    },
+    {
+      "text": "Response identifies customization or delivery fit, not demand, as the primary blocker after the paid pilot.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` states `The bigger risk right now appears to be delivery, not just demand` and says the solution `may be too bespoke to deploy reliably` (lines 18-20), then explicitly reframes the question as whether they can `deliver a standard version of the workflow with minimal customization` (lines 29-31). `outputs/result.json` reinforces this with `primary_risk: The offering appears too customized to deliver repeatably` and `This is more of a delivery and productization problem than a pure demand problem` (lines 13-14)."
+    },
+    {
+      "text": "Response uses exactly one decision state from continue, narrow, pivot, or stop and proposes exactly one next experiment tied to the main uncertainty.",
+      "passed": false,
+      "evidence": "FAIL: The outputs propose one next experiment (`Run a delivery-focused experiment around a standardized pilot` in `outputs/report.md`, lines 33-65), but neither output uses exactly one explicit decision state from the required set `continue`, `narrow`, `pivot`, or `stop`. `outputs/result.json` has no `decision_state` field at all (lines 1-32)."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/experiment-log-template.json with non-empty experiments, strong_signals, weak_signals, contradictions, decision_state, next_experiment, and rationale.",
+      "passed": false,
+      "evidence": "FAIL: The template at `/home/alan/dev/ai/skills/experiment-tracker/assets/experiment-log-template.json` requires top-level keys `experiments`, `strong_signals`, `weak_signals`, `contradictions`, `decision_state`, `next_experiment`, and `rationale` (lines 1-8). `outputs/result.json` is valid JSON syntactically, but its top-level keys are `summary`, `state`, and `recommended_next_experiment` instead (lines 1-31), so it does not match the required structure and does not provide the required non-empty fields."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 3,
+    "total": 4,
+    "pass_rate": 0.25
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 3737
+  },
+  "claims": [
+    {
+      "claim": "The bigger risk right now appears to be delivery, not just demand.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Supported by the run inputs in `eval_metadata.json` line 4: only 1 of 2 agreed pilots paid, and 1 customer churned after setup because `the workflow was too custom`. The outputs correctly center delivery/customization as the blocker (`outputs/report.md` lines 18-20, 29-31; `outputs/result.json` lines 13-14)."
+    },
+    {
+      "claim": "Interest can convert into revenue, since one customer paid.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md` line 17 makes this claim, and it is directly supported by the evaluation prompt in `eval_metadata.json` line 4, which states `1 actually paid`."
+    },
+    {
+      "claim": "The signal is promising but not yet strong enough to claim repeatable demand.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This assessment in `outputs/report.md` line 5 is consistent with the available evidence: 12 conversations, 4 pain confirmations, 2 pilot agreements, 1 payment, and churn after setup (`eval_metadata.json` line 4). The pattern shows some demand evidence but not repeatable validation."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Clarify the schema reference in assertion 4 by pointing to an absolute or repo-relative path that is guaranteed to exist near the eval, since `assets/experiment-log-template.json` is not inside this eval directory.",
+      "Add an assertion that checks the response explains why the chosen next experiment resolves the central uncertainty; this run did that in prose, but only assertion 3 partially covers it.",
+      "Strengthen assertion 1 by specifying whether exact labels like `strong signal` / `weak signal` are required, or whether equivalent phrasing is acceptable. The current wording is gradeable, but strictness around `explicitly labels` can reject otherwise substantive analyses."
+    ],
+    "overall": "The assertion set covers the key semantic outcome well: distinguishing signal strength, naming the blocker, choosing a decision state, and producing structured JSON. The biggest gap is schema-path clarity for assertion 4; otherwise the eval is discriminating and this run clearly fails 3 of 4 checks on missing explicit labels and missing required JSON structure."
+  }
+}

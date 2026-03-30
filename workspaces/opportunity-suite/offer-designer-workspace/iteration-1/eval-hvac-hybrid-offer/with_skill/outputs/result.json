@@ -1,0 +1,39 @@
+{
+  "offer_thesis": "A concierge hybrid missed-call recovery service for HVAC owners that uses AI-assisted triage, texting, and callback workflows to recover lost inbound opportunities before building software.",
+  "icp": {
+    "buyer": "Owner or operator of a small-to-mid-sized HVAC service business",
+    "segment": "HVAC companies with meaningful inbound call volume, missed-call leakage, and weak after-hours or overflow follow-up",
+    "why_now": "Peak-season demand, staffing gaps, and high lead costs make missed calls feel like immediate lost revenue."
+  },
+  "offer_shape": "Concierge hybrid that can later productize",
+  "deliverables": [
+    "Missed-call recovery workflow tailored to hours, geography, and call types",
+    "AI-assisted triage, text follow-up, and callback handling for missed inbound calls",
+    "HVAC-specific scripts for emergency, service, install, and maintenance inquiries",
+    "Daily or weekly recovery reporting with booked next steps and unresolved cases",
+    "Escalation rules for owner or office handoff on edge cases"
+  ],
+  "scope_boundaries": [
+    "Missed inbound-call recovery only, not full dispatch or CSR replacement",
+    "No guarantee of revenue outcomes",
+    "No licensed HVAC advice, financing decisions, or regulated claims",
+    "No custom software required in version one"
+  ],
+  "pricing_hypothesis": {
+    "model": "Setup fee plus monthly retainer",
+    "range_or_price": "$1,500-$3,500 setup and $2,000-$5,000 per month per location",
+    "pricing_rationale": "Pricing should reflect speed to deploy, live revenue impact, location count, missed-call volume, and coverage window rather than pretend product-style precision."
+  },
+  "rejected_framings": [
+    "Software-first missed-call SaaS",
+    "Broad AI agency for home services",
+    "Full virtual dispatcher promise",
+    "Any offer implying licensed technical or regulated-role overreach"
+  ],
+  "open_questions": [
+    "How many missed calls per week does the target HVAC shop currently lose?",
+    "What is the typical revenue value of a recovered service call, maintenance booking, or install lead?",
+    "How much after-hours and weekend coverage must be included in the first version?",
+    "Will the business allow texting from its main number or require a separate workflow?"
+  ]
+}

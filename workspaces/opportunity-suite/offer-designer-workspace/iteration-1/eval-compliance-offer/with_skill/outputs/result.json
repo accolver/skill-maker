@@ -1,0 +1,42 @@
+{
+  "offer_thesis": "Provide a narrow compliance evidence concierge for small financial firms: assemble, track, and package evidence for one audit, diligence, or review cycle without offering legal advice or formal compliance sign-off.",
+  "icp": {
+    "buyer": "COO, operations lead, compliance manager, or founder",
+    "segment": "Small financial firms such as RIAs, specialty finance operators, fund admins, and lean fintech teams facing recurring audits or diligence requests",
+    "why_now": "An upcoming audit, diligence request, annual compliance cycle, or investor/client review is creating evidence-collection pressure on a small team"
+  },
+  "offer_shape": "Concierge hybrid that can later productize",
+  "deliverables": [
+    "Kickoff call to define one review scope",
+    "Tailored evidence request list",
+    "Shared tracker for items, owners, status, and gaps",
+    "Weekly async follow-up and document chasing",
+    "Organized folder structure and naming convention",
+    "Gap summary for missing or stale evidence",
+    "Final readiness packet with tracker, document index, and open items"
+  ],
+  "scope_boundaries": [
+    "One defined review, audit, or diligence cycle only",
+    "No legal advice or regulatory interpretation",
+    "No adequacy sign-off or formal audit opinion",
+    "No outsourced CCO or compliance officer role",
+    "No custom legal policy drafting beyond light formatting or organization support"
+  ],
+  "pricing_hypothesis": {
+    "model": "Fixed-fee sprint",
+    "range_or_price": "$2,500-$6,000 per sprint, plus optional fast-turn or extra-scope add-ons",
+    "pricing_rationale": "Price maps to the number of stakeholders, evidence volume, urgency, and the buyer value of saving internal team time while improving review readiness"
+  },
+  "rejected_framings": [
+    "Broad compliance consulting",
+    "Legal-advice positioning",
+    "Outsourced CCO/compliance officer service",
+    "Software-first evidence platform",
+    "Generic AI compliance assistant"
+  ],
+  "open_questions": [
+    "Which firm subtype responds fastest within the user's warm network?",
+    "Is the first sale easier around annual compliance reviews, client diligence, or audit prep?",
+    "What evidence volume and turnaround time best separate the base package from an urgent add-on?"
+  ]
+}

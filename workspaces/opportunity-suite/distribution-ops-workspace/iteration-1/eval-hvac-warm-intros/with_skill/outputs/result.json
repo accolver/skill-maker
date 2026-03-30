@@ -1,0 +1,44 @@
+{
+  "channel_thesis": "Start with warm introductions from the family member to local HVAC owners because trust and direct owner access matter more than reach for a concierge missed-call recovery offer.",
+  "primary_channel": "Warm introductions to HVAC owners through a family member's local network.",
+  "supporting_channels": [
+    "Referral compounding from successful warm conversations and pilots.",
+    "Lightweight proof assets that make the intro and owner conversation easier.",
+    "Narrow referred-adjacent outbound only after warm proof exists."
+  ],
+  "assets_needed": [
+    "Forwardable 2-sentence intro blurb",
+    "One-page offer sheet",
+    "Simple ROI calculator",
+    "Discovery call script",
+    "Pilot offer document",
+    "Objection handling notes",
+    "Case-study template",
+    "Referral ask script"
+  ],
+  "sequence": [
+    "Validate 10-15 real reachable owners through the family member.",
+    "Create intro and proof assets.",
+    "Request the first 5 intros.",
+    "Run discovery calls focused on missed-call pain and booking leakage.",
+    "Make pilot offers to best-fit owners.",
+    "Capture results and request referrals.",
+    "Add narrow local follow-up outbound only after proof."
+  ],
+  "success_metrics": [
+    "10-15 warm intros requested",
+    "6+ owner conversations",
+    "4+ discovery calls completed",
+    "2+ pilot offers made",
+    "1+ pilot closed",
+    "40%+ warm intro to meeting rate",
+    "30%+ meeting to pilot rate"
+  ],
+  "kill_criteria": [
+    "Fewer than 5 intros are actually available",
+    "Under 25% of warm intros become owner conversations after 10 intros",
+    "Under 2 discovery calls after 10 intros",
+    "Owners repeatedly do not see the pain as urgent",
+    "The warm source does not send intros within 2 weeks"
+  ]
+}

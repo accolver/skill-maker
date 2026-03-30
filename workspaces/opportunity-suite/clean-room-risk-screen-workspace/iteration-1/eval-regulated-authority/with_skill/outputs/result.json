@@ -1,0 +1,43 @@
+{
+  "risk_summary": "High risk as framed because the offer implies delegated regulated judgment and compliance authority, plus possible use of sensitive client regulatory records. A safer version is human-supervised prep and workflow support rather than autonomous compliance decision-making.",
+  "risk_categories": [
+    "licensed or regulated authority",
+    "unsafe claims or positioning",
+    "sensitive or regulated data"
+  ],
+  "allowed": [
+    "Build tooling that organizes evidence, timelines, and document checklists for human review",
+    "Summarize public regulations, enforcement actions, and filing instructions from public sources",
+    "Generate non-final internal drafts that require client or qualified professional review",
+    "Provide workflow software for task tracking, document collection, and audit trails",
+    "Offer research and questionnaire support based on public standards and client-provided facts"
+  ],
+  "conditional": [
+    "Draft regulator response templates only as preparatory material subject to human sign-off",
+    "Support compliance operations only if marketing avoids claiming formal compliance authority",
+    "Handle client compliance documents only with clear authorization and strong data controls",
+    "Use AI issue-spotting only when a human validates the analysis and final submission",
+    "Serve regulated clients only with contracts that disclaim legal advice and delegated compliance authority"
+  ],
+  "blocked": [
+    "Market the service as an outsourced compliance officer or equivalent regulated authority without the proper structure and qualifications",
+    "Allow AI to send regulator responses automatically without competent human review and approval",
+    "Claim the system can determine legal sufficiency, regulatory compliance, or filing strategy on its own",
+    "Use sensitive client compliance records or regulator correspondence without explicit rights and safeguards",
+    "Claim the product keeps clients compliant, replaces compliance staff, or safely negotiates with regulators autonomously",
+    "Provide client-specific legal or compliance judgments where the service effectively acts as licensed professional advice without required authority"
+  ],
+  "safer_path": [
+    "Reposition as a compliance operations copilot or regulatory response preparation assistant",
+    "Limit outputs to draft packs, issue lists, checklists, timelines, and source-backed summaries",
+    "Require a human-in-the-loop approval step for every regulator-facing statement",
+    "Rely on public regulations and newly created original workflows unless clients explicitly provide materials for the engagement",
+    "Market workflow acceleration and prep support rather than delegated compliance judgment",
+    "If true outsourced compliance leadership is desired, offer it separately as a qualified professional service rather than an AI claim"
+  ],
+  "notes": [
+    "Primary risk comes from regulated-role overreach, not from generalized compliance knowledge itself",
+    "The highest-risk language is 'act like a lightweight outsourced compliance officer' because it implies formal authority and judgment",
+    "Any regulator-facing workflow should preserve human accountability and final approval"
+  ]
+}

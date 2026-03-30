@@ -1,0 +1,56 @@
+{
+  "user_profile": {
+    "skills": [
+      "govtech market analysis",
+      "opportunity framing based on domain familiarity"
+    ],
+    "domain_experience": [
+      "govtech market familiarity"
+    ],
+    "assets": [],
+    "distribution": [],
+    "network_access": [],
+    "constraints": [
+      "cannot treat employer-confidential templates as reusable assets",
+      "cannot treat employer pricing logic as reusable assets",
+      "cannot treat employer process docs as reusable assets"
+    ],
+    "credibility_signals": [
+      "claims strong familiarity with the govtech market"
+    ],
+    "unfair_advantages": [
+      "above-average domain familiarity in govtech compared with a generic builder"
+    ]
+  },
+  "usable_edge": [
+    "Generalized govtech market knowledge and pattern recognition",
+    "Likely understanding of buyer pain, procurement dynamics, and category structure"
+  ],
+  "restricted_or_unusable_edge": [
+    "Employer-internal templates",
+    "Employer pricing logic",
+    "Employer process docs",
+    "Any confidential employer knowledge that cannot be reused independently"
+  ],
+  "fake_or_overstated_edge": [
+    "Market familiarity alone is not a moat without owned distribution, buyer trust, or independent access"
+  ],
+  "weak_spots": [
+    "No demonstrated owned distribution",
+    "No demonstrated independent buyer access",
+    "No demonstrated public credibility or founder track record",
+    "No evidence of legally reusable proprietary assets"
+  ],
+  "follow_up_questions": [
+    "What buyer types do you understand best in govtech?",
+    "What independent buyer or partner access do you already have outside your employer?",
+    "What public or reusable assets do you personally control today?",
+    "What employment or legal limits apply to side projects in this market?",
+    "What proof do you have of trust or credibility independent of your employer?"
+  ],
+  "confidence_notes": [
+    "Medium confidence that govtech domain familiarity is real because the user states it directly.",
+    "High confidence that internal templates, pricing logic, and process docs are restricted or unusable edge.",
+    "Low confidence on distribution, network access, and credibility because the prompt provides no direct evidence."
+  ]
+}

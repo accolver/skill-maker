@@ -1,0 +1,11 @@
+{
+  "eval_id": 4,
+  "eval_name": "prestige-fake-edge",
+  "prompt": "I worked at McKinsey for 2 years, know a lot of smart people, and read constantly about fintech. I do not have customers, audience, or any special access, but I feel like I should be able to figure out a fintech SaaS.",
+  "assertions": [
+    "Response does not inflate McKinsey background, smart peers, or broad fintech familiarity into strong usable edge.",
+    "Response classifies at least part of the impressive-sounding background as fake or overstated edge, weak edge, or a similar category.",
+    "Response explicitly notes the absence of customers, audience, or special access as the key commercial weakness.",
+    "Structured JSON reflects weak or overstated edge rather than inventing a stronger moat."
+  ]
+}

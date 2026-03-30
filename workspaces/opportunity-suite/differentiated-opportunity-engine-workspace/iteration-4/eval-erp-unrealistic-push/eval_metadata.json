@@ -1,0 +1,14 @@
+{
+  "eval_id": 4,
+  "eval_name": "erp-unrealistic-push",
+  "prompt": "I spent 7 years implementing ERP systems for distributors. I know the pain well, but I hate client work, refuse outbound, will not create content, only have 3 hours a week, and still want first revenue in 30 days from AI. Should I build a product or am I kidding myself?",
+  "assertions": [
+    "Response explicitly says first revenue in 30 days is unrealistic or at least highly conditional under the current constraints.",
+    "Response identifies at least 3 binding constraints.",
+    "Best bet is constraint change, slower validation, or no_go, not immediate product building.",
+    "Response does not treat ERP domain expertise alone as enough without a route to buyers.",
+    "Response gives a concrete plan for changing constraints or testing with numeric targets.",
+    "Kill or revisit criteria are quantified.",
+    "Structured JSON feasibility verdict matches the prose recommendation."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "validation_thesis": "The opportunity should remain no_go unless the user can create a credible path to buyer access and protect enough recurring time to run a real validation motion. In 7 days, the test is whether the user can secure 5+ qualified conversations, 4+ hours/week of protected time, and at least 2 concrete next-step commitments or 1 repeatable channel source.",
+  "key_unknowns": [
+    "Buyer-access risk: can the user reach qualified buyers without existing distribution?",
+    "Time-allocation risk: can the user protect at least 4 hours per week for the next 4 weeks?",
+    "Edge-creation risk: can the user produce one narrow credibility wedge that buyers respond to?"
+  ],
+  "motion": "Constraint-change plan using protected time, one credibility asset, targeted outreach, and concrete follow-up commitments.",
+  "day_by_day_plan": [
+    "Day 1: choose one buyer and workflow, block 4 hours/week for 4 weeks, build a list of 20 prospects and 5 connectors/channel sources.",
+    "Day 2: create one credibility asset such as a teardown, checklist, benchmark, or audit template tied to the target workflow.",
+    "Day 3: send 20 targeted outreach messages or 5 intro asks plus 10 direct messages, offering a 15-minute call or custom teardown.",
+    "Day 4: complete the first 2-3 qualified conversations and ask for the strongest feasible next-step commitment.",
+    "Day 5: continue until 5 qualified conversations are completed or clearly unattainable, then refine the wedge and messaging.",
+    "Day 6: ask best prospects for a scheduled review, requested teardown, operator intro, or pilot-scope conversation; ask one source for repeatable channel access.",
+    "Day 7: review the evidence and decide go, revise, or kill."
+  ],
+  "success_criteria": [
+    "Go: 5+ qualified conversations in 7 days.",
+    "Go: 4+ hours/week protected for the next 4 weeks.",
+    "Go: at least 2 concrete next-step commitments from prospects or 1 repeatable channel source.",
+    "Revise: 3-4 qualified conversations, protected time exists, and at least 1 concrete next step is earned."
+  ],
+  "kill_criteria": [
+    "Kill: fewer than 3 qualified conversations after 20 targeted outreach attempts and 5 intro/channel asks.",
+    "Kill: no recurring 4 hours/week can be protected.",
+    "Kill: no prospect agrees to any concrete next step.",
+    "Kill: all interest points toward custom work outside a repeatable wedge."
+  ],
+  "evidence_to_capture": [
+    "Calendar screenshot showing protected weekly time.",
+    "Prospect list with buyer type and outreach status.",
+    "Copies of outreach messages and response rates.",
+    "Notes from qualified conversations including urgency and current workaround.",
+    "Proof of concrete next-step commitments such as booked follow-ups, teardown requests, or channel introductions."
+  ]
+}

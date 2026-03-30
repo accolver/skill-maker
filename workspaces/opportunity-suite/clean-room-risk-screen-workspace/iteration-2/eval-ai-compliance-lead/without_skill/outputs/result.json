@@ -1,0 +1,60 @@
+{
+  "task": "Screen risk for an AI tool that drafts regulator responses, pre-fills forms, and sends them for small clients with attorney review available if needed, marketed as 'your AI compliance lead'.",
+  "overall_rating": "high",
+  "launch_recommendation": "Do not launch or market as stated without major narrowing and stronger controls.",
+  "marketed_claim": "your AI compliance lead",
+  "primary_risks": [
+    {
+      "name": "unauthorized_practice_of_law",
+      "severity": "high",
+      "reason": "Drafting regulator responses and determining submission content can constitute legal advice or legal judgment, especially for small clients without sophisticated internal review."
+    },
+    {
+      "name": "misleading_marketing",
+      "severity": "high",
+      "reason": "The phrase 'AI compliance lead' implies professional authority, accountability, and expertise that may overstate the product's role."
+    },
+    {
+      "name": "regulator_facing_error_risk",
+      "severity": "high",
+      "reason": "Incorrect, incomplete, or hallucinated submissions to regulators can create enforcement, false statement, and deadline risks."
+    },
+    {
+      "name": "insufficient_human_review",
+      "severity": "medium_high",
+      "reason": "Attorney review 'if needed' is not a reliable safeguard when the workflow itself may require legal judgment."
+    },
+    {
+      "name": "confidentiality_and_privilege",
+      "severity": "medium_high",
+      "reason": "Regulatory matters may involve sensitive or privileged information, and optional attorney involvement can create ambiguity around handling and expectations."
+    }
+  ],
+  "risk_drivers": [
+    "external-facing communications to regulators",
+    "small-client reliance risk",
+    "marketing language suggesting delegated responsibility",
+    "legal and judgment-heavy workflow elements",
+    "optional rather than mandatory review"
+  ],
+  "safer_positioning": [
+    "AI compliance drafting assistant",
+    "AI workflow tool for compliance teams",
+    "Helps prepare draft filings and regulator correspondence for human review",
+    "Administrative support for compliance documentation"
+  ],
+  "recommended_guardrails": [
+    "mandatory human review before regulator-facing submission",
+    "mandatory attorney review for high-risk matters",
+    "default to drafting and data collection only",
+    "clear non-legal-advice disclosures",
+    "approval gates and audit logs",
+    "source-grounded drafts with citations",
+    "separate clerical tasks from legal analysis",
+    "industry and jurisdiction gating"
+  ],
+  "final_screen": {
+    "status": "red_or_yellow_if_narrowed",
+    "summary": "High risk as proposed. Could move toward yellow only with narrower marketing, no autonomous regulator submissions by default, and mandatory human or attorney review for regulator-facing outputs."
+  }
+}

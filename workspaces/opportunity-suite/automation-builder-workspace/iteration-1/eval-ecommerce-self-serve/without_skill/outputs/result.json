@@ -1,0 +1,104 @@
+{
+  "task": "Build spec: lightweight self-serve ecommerce reporting utility for one recurring merchant problem",
+  "status": "completed",
+  "chosen_problem": {
+    "name": "refund leakage visibility",
+    "summary": "Merchants need a fast self-serve way to quantify revenue lost to refunds and identify the main drivers."
+  },
+  "proposed_solution": {
+    "name": "Self-Serve Refund Leakage Reporter",
+    "type": "csv-first web application",
+    "target_users": [
+      "merchant owner",
+      "ecommerce operations manager",
+      "finance lead"
+    ],
+    "core_outputs": [
+      "refund rate by revenue",
+      "refund rate by order count",
+      "top refunded SKUs and products",
+      "refund reasons breakdown",
+      "time trend for refund spikes",
+      "segment leakage analysis"
+    ]
+  },
+  "v1_scope": {
+    "in_scope": [
+      "CSV upload for orders and refunds",
+      "field mapping",
+      "validation and normalization",
+      "summary dashboard",
+      "drilldown tables and charts",
+      "exportable report",
+      "saved report runs"
+    ],
+    "out_of_scope": [
+      "real-time sync",
+      "ML explanations",
+      "multi-store consolidation",
+      "forecasting",
+      "inventory and ad spend attribution"
+    ]
+  },
+  "required_inputs": {
+    "orders": [
+      "order_id",
+      "order_date",
+      "gross_sales"
+    ],
+    "refunds": [
+      "refund_id",
+      "order_id",
+      "refund_date",
+      "refund_amount"
+    ]
+  },
+  "suggested_stack": {
+    "frontend": "React or Next.js",
+    "backend": "Node.js API",
+    "database": "Postgres",
+    "file_storage": "local disk or object storage"
+  },
+  "delivery_phases": [
+    {
+      "name": "Phase 1",
+      "focus": "core report",
+      "items": [
+        "CSV upload",
+        "mapping and validation",
+        "core refund metrics",
+        "summary dashboard"
+      ]
+    },
+    {
+      "name": "Phase 2",
+      "focus": "analysis and export",
+      "items": [
+        "segment breakdowns",
+        "trend charts",
+        "CSV export",
+        "printable report"
+      ]
+    },
+    {
+      "name": "Phase 3",
+      "focus": "quality and convenience",
+      "items": [
+        "saved mappings",
+        "scheduled weekly reports",
+        "basic Shopify and Stripe connectors"
+      ]
+    }
+  ],
+  "acceptance_criteria": [
+    "Merchant can upload order and refund CSVs without engineering help",
+    "Merchant can generate a usable refund leakage report in one session",
+    "Report clearly identifies top products, reasons, and segments driving refunds",
+    "Validation catches missing required fields before processing",
+    "Exported report matches on-screen metrics"
+  ],
+  "output_files": {
+    "report": "/home/alan/dev/ai/skills/automation-builder-workspace/iteration-1/eval-ecommerce-self-serve/without_skill/outputs/report.md",
+    "json": "/home/alan/dev/ai/skills/automation-builder-workspace/iteration-1/eval-ecommerce-self-serve/without_skill/outputs/result.json"
+  }
+}

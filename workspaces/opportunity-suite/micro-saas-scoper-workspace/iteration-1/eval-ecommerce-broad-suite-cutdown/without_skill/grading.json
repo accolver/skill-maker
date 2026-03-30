@@ -1,0 +1,48 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response cuts the broad analytics suite down to a narrower wedge.",
+      "passed": true,
+      "evidence": "`outputs/report.md:5-18` explicitly rejects the broad analytics suite as too wide and narrows it to `A daily profit and anomaly digest for Shopify brands.` `outputs/report.md:87-98` further contrasts the narrow wedge positioning against an `All-in-one ecommerce analytics platform.` `outputs/result.json:2-4` matches this reduced scope with a single-purpose Shopify reporting product."
+    },
+    {
+      "text": "Response identifies one primary user and one workflow.",
+      "passed": true,
+      "evidence": "`outputs/report.md:32-45` identifies a primary user (`Small Shopify merchants`) and a single core workflow: `Connect Shopify, set a reporting email or Slack destination, and receive a daily summary`. `outputs/result.json:5-6` repeats the same primary user and core job in structured form."
+    },
+    {
+      "text": "Response includes a do-not-build-yet list.",
+      "passed": true,
+      "evidence": "`outputs/report.md:73-85` contains an explicit out-of-scope list for V1, including `Ads integrations`, `Attribution and ROAS`, `Cohort analysis`, `LTV predictions`, and `Custom dashboards`. `outputs/result.json:22-35` mirrors this as the `out_of_scope` array."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json:1-49` is valid structured JSON with top-level keys such as `product_name`, `target_user`, `v1_scope`, `out_of_scope`, `roadmap`, and `success_criteria`. The structure is substantive rather than placeholder content."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 5683
+  },
+  "claims": [],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response identifies one primary user and one workflow` to require a clearly named repeated workflow, not just a target user plus a general job statement.",
+      "Add an assertion that the response limits V1 to a single data source or platform; that is a key scoping behavior visible here but not directly tested.",
+      "Add an assertion that the response explains why the narrowed wedge is viable for a micro-SaaS, since the rationale is present in `report.md` but currently ungraded.",
+      "`Response includes structured JSON` is only mildly discriminating; strengthen it to require specific fields such as target user, core job, V1 scope, and out-of-scope items."
+    ],
+    "overall": "This eval cleanly checks for narrowing, target user/workflow, out-of-scope items, and machine-readable output, and this run passes all of them. Coverage is decent but misses whether the wedge is constrained to a single platform and whether the rationale for the cut-down scope is actually persuasive and specific."
+  }
+}

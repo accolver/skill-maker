@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "enterprise-interest-vs-procurement",
+  "prompt": "Experiment log: 20 enterprise conversations produced strong interest, but no one would commit to a pilot because security review and procurement would take months. Summarize the state and recommend the next experiment.",
+  "assertions": [
+    "Response distinguishes pain signal from near-term conversion signal.",
+    "Response chooses a realistic decision state instead of overstating traction.",
+    "Response recommends a lower-friction next experiment or narrowed wedge.",
+    "Response includes structured JSON."
+  ]
+}

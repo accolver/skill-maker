@@ -1,0 +1,63 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly states that normal demand validation is premature because a prerequisite gap blocks it.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:26-29` says `Prerequisites Before Reconsidering` and `The user should satisfy at least two of these three conditions before revisiting the opportunity`; `outputs/report.md:53-54` says `Only resume validation when at least one defensible edge and one credible distribution path are present.` `outputs/result.json:24` also says `Revisit only after at least two of the three prerequisites are meaningfully in place.` This substantively states validation should wait because prerequisite gaps block it."
+    },
+    {
+      "text": "Response gives a bounded edge-building or constraint-change plan with measurable milestones that would justify re-running validation later.",
+      "passed": false,
+      "evidence": "FAIL: The response gives a qualitative plan in `outputs/report.md:31-54` and `outputs/result.json:25-30`, but it does not provide measurable milestones such as interview counts, time-budget numbers, audience-size targets, or distribution performance thresholds. `At least two of these three conditions` in `report.md:28-29` is a categorical gate, not a concrete measurable milestone set."
+    },
+    {
+      "text": "Response avoids pretending the current idea is ready for standard validation activity.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:5` says `Best bet is currently no-go.` `outputs/report.md:65` says `If not, maintain the no-go decision.` `outputs/result.json:2` sets `verdict` to `no-go`, and `result.json:24` says to revisit only after prerequisites are in place. The response consistently withholds readiness for normal validation."
+    },
+    {
+      "text": "Response includes numeric revisit thresholds and structured JSON.",
+      "passed": false,
+      "evidence": "FAIL: Structured JSON is present in `outputs/result.json:1-32`, but the revisit criteria are not robust numeric thresholds. The only explicit count is `at least two of the three prerequisites` in `outputs/report.md:28-29` and `outputs/result.json:24`; there are no numeric targets for time, distribution, or evidence of edge. Because the assertion requires both numeric revisit thresholds and structured JSON, it fails."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 3541
+  },
+  "claims": [
+    {
+      "claim": "The user has no edge, no time, and no distribution.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against the eval prompt in `eval_metadata.json:4`, which states `Best bet is currently no-go because the user has no edge, no time, and no distribution.` The same claim is repeated in `outputs/result.json:3` and elaborated in `outputs/report.md:9-18`."
+    },
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by `transcript.md:4`, plus both files exist in `outputs/` and were read: `outputs/report.md` and `outputs/result.json`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the milestone assertion by specifying the kind of measurable threshold required, for example weekly hours, interview counts, or a minimum distribution signal.",
+      "Split `Response includes numeric revisit thresholds and structured JSON` into two assertions so JSON format compliance and threshold quality are graded independently.",
+      "Add an assertion that the plan names the blocked prerequisites explicitly (`edge`, `time`, `distribution`), since that is central to this eval's intent and currently only indirectly covered.",
+      "Add an assertion that the re-entry criteria are tied to later validation readiness rather than generic startup advice."
+    ],
+    "overall": "The assertion set is moderately discriminating: it catches the missing measurable milestones, but one assertion bundles content quality with output format, which makes diagnosis less precise. Coverage is good on the no-go framing and weaker on whether the proposed prerequisites are concrete enough to act on."
+  }
+}

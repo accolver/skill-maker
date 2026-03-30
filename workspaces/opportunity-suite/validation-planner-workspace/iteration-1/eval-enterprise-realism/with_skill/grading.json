@@ -1,0 +1,54 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not pretend enterprise revenue validation is realistically achievable in 7 days under the stated conditions.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:3-6` explicitly says the near-term test is not whether a full enterprise procurement analytics product can be built, and `outputs/report.md:183-189` says the strongest realistic signal is a paid diagnostic or concrete internal buying step, not pretending the product already exists. `outputs/result.json:2` likewise frames validation around commitment to a $3,000 diagnostic before any product exists."
+    },
+    {
+      "text": "Response identifies the primary near-term unknown, such as buyer access or problem verification, rather than trying to validate everything at once.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:9-13` states: 'The single biggest unknown is buyer-access plus willingness-to-pay for a no-product wedge.' `outputs/report.md:17-18` further labels the 'Primary unknown' as getting a Fortune 500 procurement buyer to commit to a paid diagnostic without a product. `outputs/result.json:3-8` keeps the key unknowns centered on reachability, payment, repeatable pain, and avoiding custom consulting."
+    },
+    {
+      "text": "Response gives numeric thresholds for a realistic discovery or access-building plan instead of fake purchase targets.",
+      "passed": true,
+      "evidence": "PASS. The plan uses realistic access and discovery thresholds throughout: `outputs/report.md:44-58` sets 25 target accounts and 40 named buyers; `outputs/report.md:61-71` sets 30 direct buyer messages and 5 referral asks; `outputs/report.md:84-87` targets 5 live conversations booked by Day 3 or 4; `outputs/report.md:112-114` targets 5-6 qualified conversations and 2 proposals. The commercial signal is a modest $3,000 paid diagnostic or scheduled internal review (`outputs/report.md:37-40`, `outputs/report.md:107-108`), not an unrealistic 7-day enterprise software purchase. The same numeric targets are mirrored in `outputs/result.json:10-108`."
+    },
+    {
+      "text": "Response includes go, revise, and kill thresholds with decisions attached.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:145-156` defines Go thresholds, `outputs/report.md:158-169` defines Revise thresholds plus a specific revision action, and `outputs/report.md:171-179` defines Kill criteria. `outputs/report.md:132-141` also says Day 7 is for scoring results against go, revise, and kill thresholds and making a clear next-step choice. `outputs/result.json:110-120` includes Go/Revise and kill thresholds in structured form, and `outputs/result.json:97-107` includes the Day 7 decision step."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 15128
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified from `transcript.md:4` and the presence of both output files in `outputs/`, with substantive content in `outputs/report.md` and `outputs/result.json`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response proposes a realistic paid wedge or commercial proxy instead of claiming full enterprise product validation' — this is a key quality signal in the output but is only indirectly covered now.",
+      "Add assertion: 'Response includes concrete buyer-access building actions such as target-account selection, named-buyer outreach, and referral asks' — the current numeric-threshold assertion checks counts but not the operational quality of the plan.",
+      "Add assertion: 'Response explains why lighter signals like interviews or landing-page clicks are insufficient in this enterprise context' — the output includes a substantive rationale in `report.md`, but the eval does not test for that reasoning."
+    ],
+    "overall": "The assertion set is reasonably discriminating and all four checks are substantively met in this run. Coverage is strongest on realism, primary unknown selection, numeric targets, and thresholded decisions. It misses some important quality signals the output provides, especially the use of a service-first paid wedge and the explicit rationale for rejecting lower-signal validation methods in an enterprise setting."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "eval_id": 2,
+  "eval_name": "govtech-employer-conflict",
+  "prompt": "I work at a govtech procurement software company. I know where mid-sized cities waste money, and I have access to internal templates, pricing logic, and workflow insights from my employer. I cannot solicit my employer's customers, want to stay fully legal, and only have 5 hours a week. I also do not want consulting. What should I do?",
+  "assertions": [
+    "Response explicitly says internal templates, pricing logic, or employer customer access cannot be used directly as the business edge.",
+    "Response does not recommend monetizing employer customers or employer-owned materials as the main wedge.",
+    "The best bet is conditional or no_go, or an adjacent clean-room public-market path, not direct insider monetization.",
+    "Response identifies at least 2 binding constraints.",
+    "If an adjacent path is suggested, the response explains the clean-room or public-data route clearly.",
+    "The 7-day plan focuses on legal boundary clarification, public validation, or edge-building with numeric targets.",
+    "Structured JSON feasibility verdict matches the prose recommendation."
+  ]
+}

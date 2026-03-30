@@ -1,0 +1,14 @@
+{
+  "eval_id": 2,
+  "eval_name": "compliance-guardrails",
+  "prompt": "I am a former compliance consultant for small financial firms. I have strong domain knowledge and a few warm contacts, but only 8 to 10 hours a week and almost no desire to become a content creator. I care about staying fully legal. I want something AI can accelerate. What opportunity should I pursue?",
+  "assertions": [
+    "Response explicitly separates compliance operations support from legal advice or other licensed judgment.",
+    "Response rejects or clearly downgrades unsafe framings such as acting as outsourced CCO, unsupervised compliance authority, or similar regulated role overreach.",
+    "Response uses the user's warm contacts and trust-sensitive niche credibility as the primary go-to-market edge rather than content-first marketing.",
+    "The best bet is a concrete narrow offer or hybrid path, not generic AI consulting.",
+    "Response includes at least one human-review safeguard and at least one confidentiality, vendor-risk, or data-handling safeguard.",
+    "The validation plan includes numeric targets such as conversation count, paid pilot target, or time window.",
+    "Kill criteria include at least 2 falsifiable stop or pivot conditions, and the structured JSON matches the prose best bet."
+  ]
+}

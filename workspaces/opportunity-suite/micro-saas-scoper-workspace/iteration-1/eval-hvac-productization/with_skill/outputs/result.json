@@ -1,0 +1,40 @@
+{
+  "readiness_verdict": "build_now",
+  "product_wedge": {
+    "primary_user": "HVAC business owner or office manager responsible for inbound lead follow-up",
+    "job_to_be_done": "Turn missed inbound calls into booked follow-up conversations before the lead goes cold",
+    "core_workflow": "Detect a missed inbound call, trigger immediate outreach, capture lead response, and route a callback task back to the business"
+  },
+  "manual_work": [
+    "Final phone callback and closing conversation by the HVAC team",
+    "Exception handling for unusual lead situations",
+    "Tuning outreach scripts based on local business preferences",
+    "Deciding business hours, routing rules, and escalation rules during onboarding"
+  ],
+  "automated_first": [
+    "Detecting a missed inbound call event",
+    "Starting a recovery sequence immediately after the missed call",
+    "Sending the first outreach message to the lead",
+    "Collecting basic lead intent and preferred callback timing",
+    "Creating a callback task or queue item for the business",
+    "Escalating to a human when the lead replies in a way that needs judgment"
+  ],
+  "mvp_boundary": [
+    "One user role: owner or office manager",
+    "One core workflow: missed call to recovered callback task",
+    "One key input: missed inbound call event with caller identity if available",
+    "One key output: qualified callback task with conversation status",
+    "One escalation trigger: lead response that cannot be handled by the scripted recovery flow"
+  ],
+  "productization_trigger": "The same missed-call recovery workflow is already being delivered repeatedly across multiple HVAC owners with clear pain and repeatable steps",
+  "do_not_build_yet": [
+    "Full CRM or pipeline management",
+    "Dispatching and technician scheduling",
+    "Multi-location franchise administration",
+    "Broad analytics dashboards beyond basic recovery outcomes",
+    "Deep phone-system integrations beyond what is needed to detect missed calls",
+    "Two-way omnichannel inbox for every customer communication",
+    "AI voice receptionist replacing the full front desk",
+    "Marketplace or multi-sided coordination between homeowners and contractors"
+  ]
+}

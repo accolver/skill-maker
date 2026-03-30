@@ -1,0 +1,47 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response chooses the owned audience as the primary channel.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 5-8 state the strongest starting channel is the trusted therapist newsletter because the audience already trusts the publisher, and line 15 explicitly says `Primary channel: trusted therapist newsletter.` `outputs/result.json` line 3 also sets `primary_channel` to `Niche newsletter or community launch via the existing trusted therapist newsletter`."
+    },
+    {
+      "text": "Response includes concrete launch assets or sequence steps.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 25-36 provide a 5-step launch sequence (teaser, waitlist, main sales email, proof email, final-call email). Lines 58-70 add a detailed asset checklist including product page, sample visuals, FAQ, three-email sequence, checkout flow, and tracking links. `outputs/result.json` lines 9-29 mirror both `assets_needed` and `sequence` in structured form."
+    },
+    {
+      "text": "Response includes numeric metrics and kill criteria.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 76-88 include explicit numeric thresholds such as CTR >= 3%, waitlist-to-purchase >= 8%, click-to-purchase >= 4%, recipient-to-purchase >= 0.8%, and refund rate < 5%. Lines 90-100 add concrete kill criteria including cutting the approach if recipient-to-purchase stays below 0.3% and dropping partner outreach if fewer than 2 warm partners share. `outputs/result.json` lines 30-42 repeats the same numeric success metrics and kill criteria."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid JSON and parsed successfully with `jq empty`. It contains six top-level structured keys: `channel_thesis`, `primary_channel`, `supporting_channels`, `assets_needed`, `sequence`, `success_metrics`, and `kill_criteria` (`outputs/result.json` lines 1-43). `outputs/report.md` lines 102-149 also embeds the plan as a fenced JSON block."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8472
+  },
+  "claims": [],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON.` by requiring specific fields such as `primary_channel`, `sequence`, `success_metrics`, and `kill_criteria`, since any valid JSON blob would currently pass.",
+      "Add an assertion for rationale quality, e.g. `Response explains why the owned therapist audience should beat colder channels for this offer`, because the current eval checks channel choice but not whether the reasoning is substantive.",
+      "Add an assertion that supporting channels remain secondary to the owned-audience launch, since the output explicitly constrains landing pages, partners, and social to reinforce the newsletter rather than replace it."
+    ],
+    "overall": "All 4 assertions are satisfied with substantive evidence. The eval covers core channel selection, launch execution, metrics, and machine-readable structure, but it under-specifies the JSON assertion and does not directly test the quality of the strategic rationale or the secondary-channel constraints."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response includes a section header named Differentiation Profile",
+      "passed": false,
+      "evidence": "FAIL. `outputs/report.md` uses headers such as `## Short answer` (line 3), `## Why service-first fits you better than SaaS-first` (line 24), and `## Best path: service now, SaaS later` (line 94), but nowhere includes a header named `Differentiation Profile`. `outputs/result.json` is a JSON file, not a response sectioned with that header."
+    },
+    {
+      "text": "Response includes a section header named Best Bet",
+      "passed": false,
+      "evidence": "FAIL. `outputs/report.md` contains `## Best path: service now, SaaS later` at line 94, which is semantically related but not the required header name `Best Bet`. No output file contains a header with the exact name `Best Bet`."
+    },
+    {
+      "text": "Response discusses the user's weak direct buyer access or distribution limits",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:14-22` explicitly says the user is missing `direct budget authority in your network` and `close access to founders or senior decision-makers`, and explains that this makes service-first preferable. `outputs/report.md:26-36` adds that the user's `current edge is diagnosis, not distribution` and that a peer-heavy network is weaker for fast budget decisions. `outputs/result.json:3` also states `your current buyer access and founder network are weaker than ideal for a SaaS-first motion.`"
+    },
+    {
+      "text": "Response explains whether a service first wedge should come before software",
+      "passed": true,
+      "evidence": "PASS. The recommendation is explicit and repeatedly justified. `outputs/report.md:5-6` says `start with a narrow, high-value service before building a micro-SaaS`; `outputs/report.md:20-22` explains why service-first is better; `outputs/report.md:94-106` states `Best path: service now, SaaS later` and explains that the repeated service unit becomes the product wedge. `outputs/result.json:2` sets `recommendation` to `service_first_then_productize`, and `outputs/result.json:11-15` defines the initial model as a `productized_service` whose goal is to find a SaaS wedge."
+    },
+    {
+      "text": "Response explains why this user can win using merchant reporting knowledge",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:8-13` identifies the user's assets as `deep firsthand knowledge of merchant reporting pain`, operator credibility, and the ability to spot recurring ecommerce analytics workflow problems. `outputs/report.md:28-31` says the user `understand[s] the pain better than many founders do`. `outputs/result.json:5` likewise states `Deep knowledge of merchant reporting pain gives you a strong discovery and delivery edge.` This is a substantive explanation of why the user's domain knowledge is an advantage."
+    },
+    {
+      "text": "Response includes a 7 day validation plan",
+      "passed": false,
+      "evidence": "FAIL. The outputs include a `## A practical 90-day approach` section in `outputs/report.md:133-155` and a matching `ninety_day_plan` object in `outputs/result.json:27-44`, but there is no 7-day validation plan in either file. A 90-day plan does not satisfy a 7-day requirement."
+    },
+    {
+      "text": "Response includes a JSON block with a user_profile object",
+      "passed": false,
+      "evidence": "FAIL. `outputs/result.json` is valid JSON, but its top-level keys are `recommendation`, `summary`, `rationale`, `recommended_strategy`, `anti_patterns_to_avoid`, `signals_to_productize`, `ninety_day_plan`, and `bottom_line` (`outputs/result.json:2-45`). There is no `user_profile` object, and `outputs/report.md` does not contain an embedded JSON block."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 4,
+    "total": 7,
+    "pass_rate": 0.42857142857142855
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [],
+    "output_chars": 8935
+  },
+  "claims": [
+    {
+      "claim": "Your current buyer access and founder network are weaker than ideal for a SaaS-first motion.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against the eval prompt in `eval_metadata.json:4`, which says the user `do[es] not directly own budget` and their `network is mostly peers, not founders`. This supports the claim in `outputs/result.json:3`."
+    },
+    {
+      "claim": "Deep knowledge of merchant reporting pain gives you a strong discovery and delivery edge.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against the eval prompt in `eval_metadata.json:4`, where the user says `I know a lot about merchant reporting pain`. The output's restatement in `outputs/result.json:5` is grounded in the prompt."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen or replace the header-name assertions (`Differentiation Profile`, `Best Bet`). They are brittle format checks that fail a substantively good answer using different headings.",
+      "Clarify whether `Response includes a JSON block with a user_profile object` requires an inline Markdown JSON block, a separate JSON artifact, or a specific schema. As written, it over-constrains format and schema without checking recommendation quality.",
+      "Add an assertion for whether the recommendation is explicit and honest about service-first vs SaaS-first, since that is the core task and is currently only indirectly covered.",
+      "Add an assertion that checks whether the answer ties the recommendation to the user's actual constraints: no budget ownership, peer-heavy network, and strong merchant reporting domain knowledge.",
+      "If a near-term action plan is important, replace the rigid `7 day validation plan` wording with a more outcome-focused check like `includes a concrete near-term validation plan with specific actions and timeline`, unless seven days is intentionally part of the rubric."
+    ],
+    "overall": "The assertion set partially measures the task, but 3 of 7 assertions are overly format-specific and can fail a strong response for naming or schema reasons rather than recommendation quality. The eval should focus more on the honesty of the recommendation, its grounding in the user's buyer-access constraints, and the concreteness of the proposed validation path."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "summary": "30 founder interviews show meaningful problem severity but no activation. Interest exists, yet the funnel breaks between demo/trial and first value.",
+  "metrics": {
+    "founder_interviews": 30,
+    "severe_pain": 12,
+    "demo_requests": 5,
+    "trial_starts": 2,
+    "activations": 0
+  },
+  "conversion_rates": {
+    "severe_pain_rate": 0.4,
+    "demo_request_rate": 0.1667,
+    "trial_start_rate": 0.0667,
+    "activation_rate": 0.0
+  },
+  "observed_blockers": [
+    {
+      "type": "legal_friction",
+      "count": 1,
+      "detail": "Prospect said legal blocked data sharing."
+    },
+    {
+      "type": "onboarding_confusion",
+      "count": 1,
+      "detail": "Prospect said onboarding was confusing."
+    }
+  ],
+  "state_assessment": {
+    "market_signal": "promising",
+    "primary_bottleneck": "activation",
+    "interpretation": "The problem appears real for a subset of founders, but trust and onboarding friction likely prevent trial users from reaching first value."
+  },
+  "recommended_next_experiment": {
+    "name": "Activation-focused guided pilot",
+    "hypothesis": "Reducing legal/data-sharing friction and simplifying onboarding will improve trial-to-activation conversion.",
+    "target_segment": "Next 5-10 qualified prospects who match the severe-pain profile",
+    "changes": [
+      "Provide a no-sensitive-data or synthetic-data evaluation path",
+      "Provide a short legal/trust FAQ or security one-pager",
+      "Run concierge onboarding with a single explicit activation milestone"
+    ],
+    "success_metrics": {
+      "primary": "At least 2 activations from the next 5-10 trials",
+      "secondary": [
+        "Fewer legal objections",
+        "Fewer onboarding confusion reports",
+        "Clearer visibility into onboarding drop-off points"
+      ]
+    }
+  }
+}

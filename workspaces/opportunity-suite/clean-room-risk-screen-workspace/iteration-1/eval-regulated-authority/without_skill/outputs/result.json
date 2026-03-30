@@ -1,0 +1,26 @@
+{
+  "scenario": "AI auto-drafts regulator responses and acts like a lightweight outsourced compliance officer for clients",
+  "overall_risk": "high",
+  "screen_result": "likely restricted",
+  "summary": "The concept materially risks crossing into regulated professional services because it drafts regulator-facing communications and is framed as acting like a compliance officer. It should not be treated as a low-risk productivity tool.",
+  "primary_risks": [
+    "unauthorized practice or unlicensed professional services risk",
+    "misleading claims of professional authority or expertise",
+    "high-stakes regulator-facing output with legal and enforcement consequences",
+    "hallucinated or incomplete regulatory analysis",
+    "client over-reliance on automated outputs",
+    "confidentiality, privilege, retention, and auditability issues"
+  ],
+  "required_controls": [
+    "qualified human review before any regulator-facing use",
+    "no autonomous sending or filing",
+    "clear non-advisory product positioning",
+    "jurisdiction and domain scoping",
+    "source-grounded drafting with citations",
+    "audit logs and reviewer sign-off",
+    "high-severity escalation rules",
+    "strong data protection controls"
+  ],
+  "recommended_positioning": "Use only as a drafting assistant for qualified human teams, not as an outsourced compliance officer or autonomous representative.",
+  "approval_posture": "redesign required before deployment"
+}

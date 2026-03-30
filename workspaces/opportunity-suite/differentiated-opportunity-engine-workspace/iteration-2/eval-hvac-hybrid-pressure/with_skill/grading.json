@@ -1,0 +1,89 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response uses the brother's owner network or warm HVAC-owner access as a material distribution advantage in the recommendation, not as a passing mention.",
+      "passed": true,
+      "evidence": "PASS: `report.md` makes the brother's network central to the recommendation, not incidental: 'warm intros matter more here than having an audience' (lines 10-12), 'warm access through your brother's network' is part of why the user can win (lines 51-53), the recommended hybrid ladder says it best matches 'real buyer access' (lines 112-114), and the Best Bet section says 'It exploits your actual edge ... warm intros, pilot access' (lines 148-151). `result.json` mirrors this in `distribution`, `network_access`, and `why_user_can_win` for the best bet (lines 17-23, 180-181)."
+    },
+    {
+      "text": "Response names a concrete first HVAC wedge tied to revenue, such as missed-call recovery, estimate follow-up, membership renewal, or another specific operational pain.",
+      "passed": true,
+      "evidence": "PASS: The response names a specific first wedge tied to revenue recovery. `report.md` recommends a '30-day Estimate Follow-Up and Job Closeout Sprint' (lines 123-128) and frames the hybrid thesis around a 'narrow revenue-recovery workflow' (lines 106-111). It ties this to revenue outcomes such as estimates followed up within 24 hours, jobs recovered, and reduced job-to-invoice closeout time (lines 127-132, 181-184, 191-193). `result.json` matches this with the best-bet thesis and next actions focused on stale estimates and job closeout lag (lines 177-180, 225-230)."
+    },
+    {
+      "text": "Response explains why software-first loses for this user today and why a hybrid or service-first path is stronger under the current constraints.",
+      "passed": true,
+      "evidence": "PASS: `report.md` explicitly rejects a pure micro-SaaS build before workflow proof (lines 29-30) and says service-first should come before software because workflow boundaries, data quality issues, and buying triggers will become clearer after 2-3 live accounts (lines 168-169). It also states the alternative loses because a micro-SaaS-first path has slower learning, weaker proof of demand, and higher risk of shipping the wrong feature set (lines 170-172). The constraints section also notes no audience and need for near-term income (lines 13-15, 31-32), supporting the hybrid/service-first logic. `result.json` encodes the same constraint that micro-SaaS should follow validation rather than precede it (lines 24-29, 42-45)."
+    },
+    {
+      "text": "If a service-first or hybrid path is recommended, the response names a concrete initial offer, a narrow ICP, one measurable pain or outcome metric, and a specific productization trigger or likely first software module.",
+      "passed": true,
+      "evidence": "PASS: `report.md` provides all required elements under 'Recommended ladder details': concrete offer '30-day Estimate Follow-Up and Job Closeout Sprint' (line 123), narrow ICP 'owner-led or GM-led residential HVAC service companies with 5-20 technicians' (lines 124-126), measurable outcomes 'increase percent of estimates followed up within 24 hours and reduce days from completed job to invoice closeout' (lines 127-128), and a productization trigger after 3 paid pilots with 70 percent workflow sameness and 2 customers wanting to keep paying monthly (lines 129-132). It also lists likely first software modules in the Build Spec such as intake records, AI summaries, follow-up state machine, and ROI dashboard (lines 256-279)."
+    },
+    {
+      "text": "The validation plan includes numeric targets such as interview count, pilot target count, time window, or success thresholds.",
+      "passed": true,
+      "evidence": "PASS: The validation plan is numerically specific throughout `report.md`: 5-10 warm intros within 2 weeks (line 36), 15 prospects and 8 intro requests (lines 199-205), 3-5 owner interviews (lines 208-214), 3 pilot asks and 1 serious paid-pilot conversation (lines 228-233), and a 7-day validation window overall (lines 186-249). `result.json` also carries numeric targets in the best-bet validation plan: 15 named prospects, at least 8 intro requests, at least 3 interviews in 7 days, and 1 serious paid-pilot conversation by day 7 (lines 192-197)."
+    },
+    {
+      "text": "Kill criteria include at least 2 falsifiable stop or pivot conditions rather than generic caution.",
+      "passed": true,
+      "evidence": "PASS: `report.md` includes five falsifiable kill criteria with concrete thresholds: fewer than 5 owner conversations within 14 days (lines 290-292), fewer than 2 of the first 5 owners describing the problem as urgent enough to pay (lines 293-294), no paid pilot within 21 days (lines 295-296), less than 70 percent overlap across the first 3 pilots (lines 297-299), and failure to save at least 5 admin hours per week or recover obvious revenue (lines 300-301). `result.json` repeats these thresholds for the hybrid opportunity (lines 205-210)."
+    },
+    {
+      "text": "The prose recommendation and structured JSON agree on the same best bet and sequencing.",
+      "passed": true,
+      "evidence": "PASS: `report.md` names the best bet as 'HVAC Revenue Recovery Concierge -> Automation Layer -> Micro-SaaS' (lines 142-145) and explicitly sequences service first, then automation, then software (lines 106-111, 168-169). `result.json` uses the corresponding structured best bet `opp_revenue_recovery_ladder` (line 224), whose title is 'HVAC Revenue Recovery Concierge to Automation Layer to Micro-SaaS' (lines 176-179). The `next_actions` in `result.json` also follow the same sequence: write offer, source prospects, run interviews, pilot in brother's business, then pursue the paid sprint before building software (lines 225-230)."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 22656
+  },
+  "claims": [
+    {
+      "claim": "Wrote report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified from the outputs directory contents: `report.md` and `result.json` both exist and were fully readable. The transcript completion note also states 'Wrote report.md and result.json' (transcript.md lines 4-5)."
+    },
+    {
+      "claim": "Verified that result.json parses successfully.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript says 'Verified that result.json parses successfully' (transcript.md lines 4-5). The file is valid JSON as read, with consistent nesting and no parse-visible syntax issues across lines 1-232."
+    },
+    {
+      "claim": "The best path is a hybrid ladder: service delivery first, then automation, then a micro-SaaS.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This recommendation is stated explicitly in `report.md` Best Bet (lines 142-145) and the hybrid opportunity thesis (lines 106-111), and it is encoded consistently in `result.json` via `best_bet: opp_revenue_recovery_ladder` and the opportunity title/thesis (lines 176-180, 224-230)."
+    },
+    {
+      "claim": "The initial offer should focus on estimate follow-up and job closeout for 5-20 tech residential HVAC businesses.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified directly in `report.md` recommended ladder details: '30-day Estimate Follow-Up and Job Closeout Sprint' and ICP '5-20 tech residential HVAC businesses' (lines 123-126). The same operational focus appears in `result.json` next actions around stale estimates and job closeout lag (lines 225-230)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the response includes a pricing hypothesis or monetization path, because the current eval checks the wedge and sequencing but not whether the recommendation is commercially actionable.",
+      "Add an assertion that the response states what should not be built first or what path is explicitly rejected; the output includes strong anti-goals, but the current suite does not check for them.",
+      "Add an assertion that the plan includes an explicit productization trigger with numeric reuse thresholds; the current assertion 4 covers this, but separating the trigger from the offer/ICP bundle would make failures easier to diagnose.",
+      "Add an assertion that the response respects the employer-IP constraint, since this is a material risk surfaced in both outputs but currently ungraded.",
+      "The current assertions are generally discriminating and objectively verifiable; none are trivially satisfied, though assertion 7 is broad enough that future versions could require explicit agreement on both recommendation and order of operations as separate checks."
+    ],
+    "overall": "This eval set is strong: all 7 assertions are specific, semantic, and well aligned to the intended recommendation quality. Its main gap is missing coverage for monetization detail, explicit anti-goals, and risk handling around employer-confidential HVAC distributor knowledge."
+  }
+}

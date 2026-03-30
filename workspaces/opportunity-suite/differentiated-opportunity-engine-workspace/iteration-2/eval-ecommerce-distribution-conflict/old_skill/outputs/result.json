@@ -1,0 +1,151 @@
+{
+  "user_profile": {
+    "skills": [
+      "senior data analysis",
+      "merchant reporting diagnosis",
+      "ecommerce SaaS domain knowledge",
+      "KPI and dashboard workflow analysis"
+    ],
+    "domain_experience": [
+      "ecommerce SaaS",
+      "merchant reporting pain",
+      "analytics adoption and reporting friction"
+    ],
+    "assets": [
+      "close exposure to recurring merchant reporting complaints",
+      "ability to distinguish real reporting pain from feature requests",
+      "likely access to examples of broken reporting workflows"
+    ],
+    "distribution": [
+      "peer network for discovery and referrals",
+      "potential internal champions rather than direct budget holders"
+    ],
+    "network_access": [
+      "peers in ecommerce SaaS and analytics-related roles",
+      "operators adjacent to merchant reporting problems"
+    ],
+    "constraints": [
+      "does not directly own budget",
+      "network is mostly peers, not founders",
+      "wants a micro-SaaS but is unsure whether to start with services"
+    ],
+    "credibility_signals": [
+      "senior title",
+      "deep category-specific pain knowledge",
+      "practical understanding of merchant reporting failures"
+    ],
+    "unfair_advantages": [
+      "knows which reporting pain repeats enough to monetize",
+      "can translate vague reporting complaints into a scoped workflow",
+      "can use peer network as discovery and champion layer"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_reporting_concierge_hybrid",
+      "title": "Merchant reporting concierge to automated KPI pack to micro-SaaS",
+      "category": "hybrid",
+      "thesis": "Start with a narrow recurring reporting service, learn which workflow gets budget, then automate the repeated slice into software.",
+      "why_user_can_win": "The user has stronger insight into ecommerce merchant reporting failure modes than a generic builder and can use peers as discovery sources and internal champions.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 8,
+        "durability": 8,
+        "distribution_fit": 7,
+        "ai_leverage": 6,
+        "defensibility": 7,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Pick one narrow buyer context and one fixed outcome",
+        "Interview 15 to 20 peers and operators about recurring reporting pain",
+        "Run 5 detailed calls focused on the ugliest repeated workflow",
+        "Package the repeated pain into a fixed-scope paid pilot",
+        "Look for one repeatable delivery unit before building software"
+      ],
+      "tool_specs": [
+        "Internal intake form for data sources and reporting context",
+        "Metric definition map and QA checklist",
+        "Template-driven KPI pack and exception summary",
+        "Automation for anomaly summarization and standardized output generation"
+      ],
+      "kill_criteria": [
+        "No recurring reporting pain found after 10 to 15 conversations",
+        "No path from peers to a buyer with budget",
+        "Work remains fully bespoke with no repeated workflow",
+        "No paid pilot or strong pilot commitment from warm outreach"
+      ]
+    },
+    {
+      "id": "opp_reporting_audit_cash_now",
+      "title": "Productized reporting audit for merchant-facing teams",
+      "category": "cash_now",
+      "thesis": "Sell a fixed-scope audit that identifies broken metrics, confusing dashboards, and missing reporting decision triggers.",
+      "why_user_can_win": "The user can diagnose category-specific reporting problems faster and more credibly than general analytics freelancers.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 9,
+        "durability": 4,
+        "distribution_fit": 7,
+        "ai_leverage": 5,
+        "defensibility": 5,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 1
+      },
+      "validation_plan": [
+        "Define a fixed audit scope and price band",
+        "Test warm outreach with peers and adjacent operators",
+        "Use sample teardown artifacts to improve conversion"
+      ],
+      "tool_specs": [
+        "Audit template",
+        "Report teardown checklist",
+        "Recommendation memo generator"
+      ],
+      "kill_criteria": [
+        "Prospects only want broad advisory work",
+        "The audit does not lead to follow-on engagement or referrals"
+      ]
+    },
+    {
+      "id": "opp_exception_reporting_saas",
+      "title": "Exception-based merchant reporting micro-SaaS",
+      "category": "asset_later",
+      "thesis": "Build a narrow product that detects KPI drift, metric mismatches, or reporting anomalies for one ecommerce reporting job.",
+      "why_user_can_win": "The user likely knows which reporting exceptions matter, but lacks validated buyer access and willingness to pay for a self-serve tool today.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 3,
+        "durability": 8,
+        "distribution_fit": 4,
+        "ai_leverage": 6,
+        "defensibility": 5,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Do not build first",
+        "Use service delivery to identify the single repeated reporting job",
+        "Validate budget approval and workflow repetition before product work"
+      ],
+      "tool_specs": [
+        "Single-job operator dashboard",
+        "Exception alerting or KPI QA engine",
+        "Integration with one or two common ecommerce data sources"
+      ],
+      "kill_criteria": [
+        "Users praise the idea but will not pay",
+        "The problem varies too much across accounts",
+        "Distribution remains dependent on cold founder outreach"
+      ]
+    }
+  ],
+  "best_bet": "opp_reporting_concierge_hybrid",
+  "next_actions": [
+    "Choose one buyer context and one painful reporting deliverable",
+    "Run 5 interviews with peers and operators this week",
+    "Package the repeated pain into a fixed-scope paid pilot",
+    "Use the first 3 to 5 pilots to determine whether the workflow is repeatable enough for micro-SaaS"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response selects an audience-led validation motion that fits the user's constraints and opportunity type.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:5-14` recommends `sell a paid template bundled with a benchmark product for the niche newsletter audience` and states it is `productized, not a service`, uses `existing audience trust`, and `can be presold before full buildout`. `outputs/result.json:2-9` repeats the same motion and marks `avoids_services`, `uses_audience_trust`, and `presell_friendly` as true."
+    },
+    {
+      "text": "Response uses numeric thresholds tied to funnel quality, such as segmented send response, preorder attempts, or paid conversions, rather than vanity signups alone.",
+      "passed": false,
+      "evidence": "FAIL: The outputs mention only non-numeric guidance such as `show 1-3 benchmark examples` and `set a simple threshold for fulfillment, such as a fixed number of buyers` in `outputs/report.md:68-72`, plus `Set a minimum buyer threshold` in `outputs/result.json:27-32`. No numeric cutoffs, no paid conversion targets, and no funnel-quality metrics are provided."
+    },
+    {
+      "text": "Response briefly explains why a lower-signal alternative, such as service pilots or generic interviews, is weaker for this case.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:26-31` explicitly says the recommendation is `stronger than a pure content membership or a service offer` because the buyer gets a concrete asset, delivery remains lightweight and repeatable, and the product can be presold from preview material. This is a substantive explanation of why a lower-fit alternative is weaker for this case."
+    },
+    {
+      "text": "Response includes go, revise, and kill thresholds with numeric cutoffs.",
+      "passed": false,
+      "evidence": "FAIL: Neither output defines separate go, revise, and kill outcomes, and neither includes numeric cutoff criteria. The closest language is `set a simple threshold for fulfillment` in `outputs/report.md:71` and `Set a minimum buyer threshold` in `outputs/result.json:31`, which is still non-numeric and incomplete."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 4809
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by file presence and content in `outputs/report.md` and `outputs/result.json`; the completion note in `transcript.md:4` matches the files present in `outputs/`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 1 by requiring the response to explicitly connect the motion to both existing audience trust and the user's desire to avoid services; as written, `fits the user's constraints and opportunity type` is somewhat broad.",
+      "Add an assertion that checks the recommendation is specifically a productized audience presell offer, not just any generic monetization idea, because the current suite does not directly test for the template-plus-benchmark shape visible in the outputs.",
+      "Add an assertion for explaining why the benchmark component improves the offer, since `outputs/report.md:48-60` makes that argument but no assertion checks for this differentiating rationale."
+    ],
+    "overall": "The eval discriminates well on numeric threshold rigor: the run clearly selects a plausible motion but fails the metrics-oriented assertions. Coverage is weaker on the specific product shape and on whether the response fully leverages audience trust and benchmark-based differentiation."
+  }
+}

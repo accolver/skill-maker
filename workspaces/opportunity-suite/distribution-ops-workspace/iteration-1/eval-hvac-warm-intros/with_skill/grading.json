@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response chooses warm intros or direct owner network as the primary channel.",
+      "passed": true,
+      "evidence": "`outputs/report.md:11-15` explicitly states `Primary channel: Warm owner intros through the family member's local network.` `outputs/result.json:2-3` repeats the same choice as `primary_channel`."
+    },
+    {
+      "text": "Response avoids defaulting to generic content or SEO as the main channel.",
+      "passed": true,
+      "evidence": "The plan centers on trust-based owner access rather than content/SEO: `outputs/report.md:5-9` says warm access should beat `cold outreach or generic ads`, `outputs/report.md:38-55` limits supporting channels to referrals, proof assets, and narrow follow-up outbound, and no section proposes generic content or SEO as the main motion."
+    },
+    {
+      "text": "Response includes metrics and kill criteria.",
+      "passed": true,
+      "evidence": "`outputs/report.md:70-93` contains a dedicated `Metrics And Kill Criteria` section with quantified success metrics (`10-15 warm introductions`, `40%+ warm intro to meeting rate`, etc.) and explicit stop conditions (`Under 25% of warm intros become owner conversations after 10 intros`, etc.). The same structures appear in `outputs/result.json:28-43` as `success_metrics` and `kill_criteria`."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json:1-44` is valid structured JSON with named keys such as `channel_thesis`, `primary_channel`, `supporting_channels`, `success_metrics`, and `kill_criteria`. `outputs/report.md:108-155` also embeds a matching JSON block."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [],
+    "output_chars": 7885
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:5-7` says the run completed and wrote both files, and both files are present in `outputs/` with substantive content."
+    },
+    {
+      "claim": "The primary channel is warm introductions to HVAC owners through the family member's network.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This claim is stated consistently in `outputs/report.md:11-15` and `outputs/result.json:2-3`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON` to check for required fields like `primary_channel`, `success_metrics`, and `kill_criteria`, since any valid JSON blob could otherwise pass.",
+      "Add an assertion that the plan is tailored to the specific offer and access pattern, for example requiring explicit use of the family-member warm intro wedge and HVAC-owner targeting.",
+      "Add an assertion that supporting channels remain subordinate to the warm-intro motion, since that strategic prioritization is important and only indirectly covered today."
+    ],
+    "overall": "This assertion set discriminates the main channel choice well enough for this run, but it under-specifies output quality. All 4 assertions pass, yet the suite does not check whether the JSON has the expected schema depth or whether the plan includes concrete execution assets and sequencing."
+  }
+}

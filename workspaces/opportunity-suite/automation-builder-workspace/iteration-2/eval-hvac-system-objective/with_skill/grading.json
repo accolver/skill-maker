@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response defines the exact system objective with a primary user, trigger, output, and human escalation point.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:5-10` explicitly lists `Primary user: HVAC office operator`, `Primary trigger: A single missed-call event from the phone system`, `Primary output: An owner-facing recovery summary...`, and `Human escalation point: Operator review before any recovery action is finalized or sent to the owner`. The same four fields are present in `outputs/result.json:2-7`."
+    },
+    {
+      "text": "Response includes at least one manual step, one automated step, and keeps integrations limited to directly necessary ones.",
+      "passed": true,
+      "evidence": "PASS: Manual work is specified in `outputs/report.md:55-59` and `outputs/result.json:26-30` (`Operator reviews each missed-call record`, `marks the call as recoverable, duplicate, spam, or ignore`, `confirms or edits the recovery note`). Automated work is specified in `outputs/report.md:66-71` and `outputs/result.json:31-36` (`Receive the missed-call event`, `Create a pending review record`, `Place the record into the operator queue`, `Generate and deliver the owner-facing summary after approval`). Integrations are limited to two directly necessary services in `outputs/report.md:48-52` and `outputs/result.json:22-25`: the phone/call-tracking webhook source and the owner-output delivery service."
+    },
+    {
+      "text": "Response avoids platform sprawl and keeps the architecture wedge-shaped.",
+      "passed": true,
+      "evidence": "PASS: The architecture is intentionally narrow in `outputs/report.md:19-30`, described as `Minimal pattern: trigger -> queue -> worker -> review -> delivery` with five small components. `outputs/report.md:48-52` limits integrations to two. `outputs/report.md:86-92` and `outputs/result.json:43-49` explicitly exclude CRM sync, lead scoring, multi-location permissions, billing, analytics dashboards, and broad historical reporting, which substantively shows platform sprawl is being avoided."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/build-plan-template.json.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` parses successfully as JSON (`jq empty` succeeded). Its top-level keys and nested `system_objective` fields match `/home/alan/dev/ai/skills/automation-builder/assets/build-plan-template.json:1-16`: `system_objective` with `primary_user`, `trigger`, `output`, `human_escalation`, plus `components`, `inputs`, `outputs`, `integrations`, `manual_steps`, `automated_steps`, `milestones`, and `out_of_scope`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 7390
+  },
+  "claims": [
+    {
+      "claim": "The build plan uses a minimal pattern: trigger -> queue -> worker -> review -> delivery.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:19-30`, which names exactly that minimal flow and only five supporting components, and by `outputs/result.json`, which contains a correspondingly small plan structure."
+    },
+    {
+      "claim": "The solution starts from one call event input.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:34-35` and `outputs/result.json:15-17`, both of which define a single missed-call event as the only input."
+    },
+    {
+      "claim": "Operator approval gates any owner-facing output.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:9-10`, `outputs/report.md:71`, and `outputs/result.json:6` and `35`, all of which state that the owner-facing summary is only finalized or delivered after operator review/approval."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response avoids platform sprawl and keeps the architecture wedge-shaped` by defining measurable criteria, such as a maximum number of integrations or required evidence that non-essential systems are explicitly out of scope.",
+      "Add an assertion that checks the plan preserves the prompt constraint of exactly one operator review step, since the current assertions do not distinguish one review gate from multiple human checkpoints.",
+      "Add an assertion that checks the owner-facing output is clearly identified as the final delivered artifact rather than just any internal status update, because the current assertions do not test that distinction directly."
+    ],
+    "overall": "This assertion set discriminates reasonably well on system-objective completeness and JSON structure, but one assertion relies on subjective wording (`wedge-shaped`) and the suite misses an explicit check for the prompt's exact one-review-step constraint."
+  }
+}

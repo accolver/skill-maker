@@ -1,0 +1,68 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explains why HVAC workflow knowledge is usable edge and does not upgrade it into distribution on its own.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` explains that the user's edge is operational knowledge plus build ability, not distribution: lines 5-7 say 'The strongest edge is not broad market distribution; it is operational knowledge plus a plausible path to warm introductions,' and lines 44-46 add that '8 years in HVAC distribution' only becomes commercially useful when paired with a way to reach buyers repeatedly. `outputs/result.json` mirrors this with `usable_edge[0]` = 'real HVAC distribution operational familiarity' (lines 37-40) while separately listing lack of distribution in `weak_spots[0]` = 'no owned audience or inbound demand channel' (lines 51-55)."
+    },
+    {
+      "text": "Response classifies the brother's introductions as limited warm access or network access rather than durable owned distribution.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 12-15 state there is 'no owned audience' and no proof the brother's introductions convert into repeated sales access, so the user has a wedge for discovery and early pilots 'but not durable distribution yet.' Lines 41-43 explicitly say the brother's introductions are 'warm access for discovery and initial selling, not a repeatable channel yet.' `outputs/result.json` matches this with `distribution` = 'potential warm introductions to HVAC owners through brother' (lines 16-19), `network_access` = 'brother can introduce user to local HVAC service owners' (lines 20-22), and `fake_or_overstated_edge[0]` = 'brother-led introductions counted as durable distribution' (lines 46-49)."
+    },
+    {
+      "text": "Response explicitly separates audience, network access, and monetizable distribution instead of merging them.",
+      "passed": true,
+      "evidence": "PASS: The separation is explicit in both outputs. `outputs/report.md` distinguishes 'no owned audience' (line 12), 'warm introductions with owners through the brother's network' (lines 5-7), and lack of 'durable distribution yet' (line 15). `outputs/result.json` structurally separates these concepts into `distribution` (lines 16-19: includes 'no owned audience'), `network_access` (lines 20-22: introductions via brother), and `constraints` / `weak_spots` (lines 23-27 and 51-55: introductions are not proven repeatable distribution). That is substantive separation, not keyword-level compliance."
+    },
+    {
+      "text": "Structured JSON mirrors the same judgment: usable edge includes domain knowledge, owned distribution remains absent, and network access is limited or indirect.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` directly encodes the same judgment. `usable_edge` includes 'real HVAC distribution operational familiarity' and technical building ability (lines 37-40). Owned distribution remains absent in `distribution[0]` = 'no owned audience' (lines 16-18) and `weak_spots[0]` = 'no owned audience or inbound demand channel' (lines 51-53). Network access is limited/indirect via `distribution[1]` = 'potential warm introductions to HVAC owners through brother' (lines 18-19), `network_access[0]` = 'brother can introduce user to local HVAC service owners' (lines 20-22), and `constraints[1]` = 'warm introductions are not yet proven repeatable distribution' (lines 23-26)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 9655
+  },
+  "claims": [
+    {
+      "claim": "The user's strongest edge is operational HVAC knowledge plus build ability, not broad market distribution.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified against `outputs/report.md` lines 5-9 and 12-15, which explicitly rank operational knowledge and software-building as the meaningful edge while denying durable distribution. `outputs/result.json` lines 37-40 and 51-55 reflect the same split."
+    },
+    {
+      "claim": "The user has no owned audience.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified directly from the source prompt in `eval_metadata.json` line 4: 'I do not have an audience.' The outputs preserve this in `outputs/report.md` line 12 and `outputs/result.json` lines 16-18 and 51-53."
+    },
+    {
+      "claim": "The brother's introductions are warm access for discovery or pilots, not durable distribution.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by the prompt in `eval_metadata.json` line 4, which only says the brother 'can introduce me to owners' and does not establish any repeatable channel. The outputs correctly interpret that as limited access in `outputs/report.md` lines 14-15 and 41-43 and `outputs/result.json` lines 18-26 and 46-49."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response states there is no owned audience or inbound demand channel' — this is central evidence in the outputs and currently only indirectly covered.",
+      "Add assertion: 'Response distinguishes technical ability from distribution advantage' — both `report.md` and `result.json` say software-building ability is useful but not go-to-market on its own.",
+      "Add a process-facing check outside this assertion set if process matters — the current run transcript is too thin to evaluate whether the skill was actually followed versus merely producing a plausible answer."
+    ],
+    "overall": "All 4 assertions are objectively verifiable from the outputs and discriminate well for the network-vs-distribution distinction. The main gap is missing coverage for the explicit 'no audience' finding and the separate point that technical capability is enabling edge, not distribution."
+  }
+}

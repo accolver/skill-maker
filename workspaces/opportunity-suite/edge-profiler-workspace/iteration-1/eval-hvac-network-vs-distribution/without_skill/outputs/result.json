@@ -1,0 +1,38 @@
+{
+  "task": "Evaluate whether to start with HVAC owner introductions through brother's service-business network or with HVAC distribution relationships.",
+  "recommendation": {
+    "primary_channel": "brother_owner_network",
+    "secondary_asset": "hvac_distribution_background",
+    "summary": "Start with direct introductions to HVAC owners through the brother's network. Use distribution experience as credibility and context, but not as the first go-to-market channel."
+  },
+  "rationale": [
+    "Warm access to likely decision-makers",
+    "Closer proximity to revenue-linked operational pain",
+    "Faster product discovery from direct workflow exposure",
+    "Higher probability of converting early pilots into paid engagements",
+    "Distribution contacts are useful but one step removed from the core buyer"
+  ],
+  "best_initial_offers": [
+    "missed-call text-back and lead capture",
+    "quote follow-up automation",
+    "maintenance membership renewal reminders",
+    "review request automation",
+    "after-hours AI intake and callback workflows",
+    "dispatch and admin workflow automation"
+  ],
+  "risks_of_leading_with_distribution": [
+    "Indirect access to buyers",
+    "Slower feedback loops",
+    "Abstract conversations without purchase urgency",
+    "Possible channel misalignment",
+    "Higher chance of solving the wrong problem first"
+  ],
+  "next_steps": [
+    "Get 5 owner introductions from brother",
+    "Interview 10 to 15 owners or operators",
+    "Identify the most repeated painful workflow",
+    "Sell one fixed-scope pilot tied to a measurable outcome",
+    "Use pilot results to create a repeatable offer"
+  ],
+  "confidence": "high"
+}

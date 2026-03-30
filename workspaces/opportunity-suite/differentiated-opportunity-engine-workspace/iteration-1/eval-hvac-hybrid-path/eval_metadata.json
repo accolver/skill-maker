@@ -1,0 +1,16 @@
+{
+  "eval_id": 1,
+  "eval_name": "hvac-hybrid-path",
+  "prompt": "I am a software engineer who spent 6 years building internal tools for HVAC distributors. My brother runs a small HVAC service business and knows a lot of owners in the region. I want to make money with AI and eventually build a micro-SaaS, but I am open to starting with services. I do not have an audience. Help me figure out the best path.",
+  "assertions": [
+    "Response includes a section header named Differentiation Profile",
+    "Response includes a section header named Top Opportunities",
+    "Response includes a section header named Best Bet",
+    "Response includes a section header named 7-Day Validation Plan",
+    "Response includes a section header named Build Spec",
+    "Response includes a section header named Kill Criteria",
+    "Response explicitly explains why this user can win in HVAC or why the user has an edge",
+    "Response recommends or seriously considers a hybrid ladder such as service to automation to product",
+    "Response includes a JSON block with a best_bet field"
+  ]
+}

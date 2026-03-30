@@ -1,0 +1,37 @@
+{
+  "readiness_verdict": "stay_manual_for_now",
+  "product_wedge": {
+    "primary_user": "Solo or small-practice therapist who already values benchmark/template guidance",
+    "job_to_be_done": "Turn a benchmark/template into a tailored practice recommendation or draft faster",
+    "core_workflow": "Therapist submits a few structured practice inputs and receives one benchmark-driven output"
+  },
+  "manual_work": [
+    "Sell the benchmark/template product",
+    "Collect recurring customer questions and requests",
+    "Interpret results for the therapist's specific situation",
+    "Deliver custom examples or template tweaks by hand",
+    "Track whether the same requests repeat often enough to justify software"
+  ],
+  "automated_first": [
+    "Guided intake form for structured practice inputs",
+    "Auto-generated benchmark summary or action-plan draft",
+    "Rules-based recommendations for common scenarios",
+    "Human escalation for edge cases"
+  ],
+  "mvp_boundary": [
+    "One user role: therapist buyer",
+    "One workflow: structured input to one tailored output",
+    "One key input: short questionnaire",
+    "One key output: benchmark-driven report or draft",
+    "One escalation path to manual review"
+  ],
+  "productization_trigger": "Build only after the same customization or interpretation workflow repeatedly appears across enough therapist customers that manual delivery becomes a clear bottleneck",
+  "do_not_build_yet": [
+    "Practice management platform features",
+    "Scheduling, billing, EHR, or CRM integrations",
+    "Broad dashboards",
+    "Team/admin workflows",
+    "Marketplace or community features",
+    "Open-ended AI advisor features"
+  ]
+}

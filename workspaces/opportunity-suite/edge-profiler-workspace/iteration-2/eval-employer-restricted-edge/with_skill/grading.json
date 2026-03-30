@@ -1,0 +1,73 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response marks employer templates, pricing logic, or internal process docs as restricted or unusable edge.",
+      "passed": true,
+      "evidence": "Passed. `outputs/report.md:9-12` says the strongest sounding assets are mostly restricted and that internal templates, pricing logic, and process docs should not be treated as usable startup assets. `outputs/report.md:26-32` lists all three under `Restricted Edge`. `outputs/result.json:29-33` also places them under `restricted_or_unusable_edge`."
+    },
+    {
+      "text": "Response separates reusable market understanding from non-reusable internal materials.",
+      "passed": true,
+      "evidence": "Passed. `outputs/report.md:3-7` distinguishes generalized govtech knowledge and pattern recognition as usable while excluding employer-owned materials and confidential specifics. `outputs/report.md:17-24` lists usable market familiarity, while `outputs/report.md:26-32` separately lists internal templates, pricing logic, and process documentation as restricted. The same separation appears structurally in `outputs/result.json:25-34`."
+    },
+    {
+      "text": "Response explicitly says confidential or employer-owned materials cannot be counted as usable edge without independent lawful recreation.",
+      "passed": false,
+      "evidence": "Failed. The outputs clearly say the materials are restricted and cannot be reused independently, but they do not explicitly state the stronger condition that such materials cannot count as usable edge unless they are independently and lawfully recreated. See `outputs/report.md:9-12`, `outputs/report.md:31-32`, and `outputs/result.json:33`. The intent is mostly aligned, but the required explicit phrasing and concept are missing."
+    },
+    {
+      "text": "Structured JSON keeps internal templates, pricing logic, and process docs out of user_profile.assets and places them only under restricted_or_unusable_edge.",
+      "passed": true,
+      "evidence": "Passed. In `outputs/result.json:10`, `user_profile.assets` is an empty array. The restricted items appear only in `outputs/result.json:29-33` under `restricted_or_unusable_edge`, and not in `skills`, `domain_experience`, `assets`, `distribution`, or `network_access`. The same JSON is also embedded in `outputs/report.md:67-124`."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 4224
+  },
+  "claims": [
+    {
+      "claim": "Internal templates, pricing logic, and process docs are restricted or unusable edge.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by the output content itself: `outputs/report.md:9-12` and `outputs/report.md:26-32` classify these materials as restricted, and `outputs/result.json:29-33` encodes the same classification under `restricted_or_unusable_edge`."
+    },
+    {
+      "claim": "Generalized govtech market knowledge and pattern recognition remain usable edge.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:3-7` and `outputs/report.md:17-24`, which distinguish generalized market understanding from employer-owned materials. `outputs/result.json:25-27` encodes the same idea in `usable_edge`."
+    },
+    {
+      "claim": "The structured profile keeps the employer-internal materials out of `user_profile.assets`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified directly in `outputs/result.json:10`, where `assets` is empty, and `outputs/result.json:29-33`, where the internal materials are instead listed under `restricted_or_unusable_edge`."
+    },
+    {
+      "claim": "No evidence of owned distribution, independent buyer access, or public credibility was provided in the prompt.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The source prompt in `eval_metadata.json:4` only mentions internal templates, pricing logic, process docs, and market knowledge. It does not mention any owned distribution, independent buyer access, or public credibility. The output reflects that absence in `outputs/report.md:44-49` and `outputs/result.json:38-42`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 1 or merge it with assertion 4; both check the same core behavior that internal materials are treated as restricted.",
+      "Keep assertion 3 because it is discriminating, but make clear that exact wording is not required if the output unambiguously conveys the lawful independent recreation condition.",
+      "Add an assertion that checks the response preserves generalized market knowledge as usable edge rather than only rejecting restricted materials; that distinction is central to this eval and currently only partly covered by assertion 2.",
+      "Add an assertion that `report.md` and `result.json` are semantically consistent, since the run produces both files and divergence between them would be important."
+    ],
+    "overall": "The eval is reasonably discriminating and the failed assertion caught a real omission. Coverage is strongest on rejecting employer-owned materials, but it is somewhat redundant across assertions 1 and 4 and does not directly check consistency between the narrative report and the structured JSON output."
+  }
+}

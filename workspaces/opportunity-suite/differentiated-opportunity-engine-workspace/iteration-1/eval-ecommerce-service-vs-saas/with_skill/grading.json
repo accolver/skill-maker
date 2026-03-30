@@ -1,0 +1,82 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response includes a section header named Differentiation Profile",
+      "passed": true,
+      "evidence": "`outputs/report.md:1` contains the exact header `## Differentiation Profile`."
+    },
+    {
+      "text": "Response includes a section header named Best Bet",
+      "passed": true,
+      "evidence": "`outputs/report.md:85` contains the exact header `## Best Bet`."
+    },
+    {
+      "text": "Response discusses the user's weak direct buyer access or distribution limits",
+      "passed": true,
+      "evidence": "`outputs/report.md:11-16` describes a peer-heavy network, limited founder-owner access, and lower odds of fast SaaS sales; `outputs/report.md:94-98` explicitly says the user does not own buyer budget and mostly has peer-network access. `outputs/result.json:20-31` repeats the same distribution and access constraints in structured form."
+    },
+    {
+      "text": "Response explains whether a service first wedge should come before software",
+      "passed": true,
+      "evidence": "`outputs/report.md:87-88` says `sell a service first`; `outputs/report.md:100-103` says the service-first wedge is the shortest path to a better micro-SaaS; `outputs/report.md:126-128` explicitly states `Service-first wedge before software: yes, strongly recommended.` The recommendation is substantive, not just a mention."
+    },
+    {
+      "text": "Response explains why this user can win using merchant reporting knowledge",
+      "passed": true,
+      "evidence": "`outputs/report.md:20-23` explains the user's unfair advantage in understanding merchant reporting pain; `outputs/report.md:29-31`, `38-40`, `49-52`, and `68-74` repeatedly tie opportunity fit to the user's knowledge of recurring reporting failure modes and workflow pain. `outputs/result.json:38-41` also states the user's reporting knowledge is a concrete advantage over generalist builders."
+    },
+    {
+      "text": "Response includes a 7 day validation plan",
+      "passed": true,
+      "evidence": "`outputs/report.md:138` contains the exact header `## 7-Day Validation Plan`, followed by specific actions for Day 1 through Day 7 in `outputs/report.md:140-180`."
+    },
+    {
+      "text": "Response includes a JSON block with a user_profile object",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid JSON and begins with a top-level `user_profile` object at `outputs/result.json:2-43`, containing structured fields such as `skills`, `domain_experience`, `assets`, `distribution`, and `constraints`."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 18552
+  },
+  "claims": [
+    {
+      "claim": "The report includes the exact skill-required section headers",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript claims this at `transcript.md:5-7`. The outputs include exact headers such as `## Differentiation Profile` at `outputs/report.md:1`, `## Best Bet` at `outputs/report.md:85`, and `## 7-Day Validation Plan` at `outputs/report.md:138`."
+    },
+    {
+      "claim": "The recommendation is a service-first wedge designed to compound into a micro-SaaS",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The transcript claims this at `transcript.md:5-7`. `outputs/report.md:87-88` recommends selling a service first, and `outputs/report.md:100-128` explains that the service wedge should deliberately lead into software productization. `outputs/result.json:170-203` also sets `opp_concierge_to_saas` as the best bet."
+    },
+    {
+      "claim": "Completed. Wrote report.md and result.json",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states this at `transcript.md:5-7`, and both files exist in `outputs/`: `report.md` and `result.json`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the recommendation explicitly compares service-first versus software-first rather than only mentioning one path; the current suite would still pass a weaker answer with the right headers.",
+      "Add an assertion that the Best Bet names a concrete ICP and offer. This run includes both in `outputs/report.md:103-113`, but no assertion checks for that specificity.",
+      "Add an assertion that the 7-day plan contains concrete outreach and validation actions tied to the user's distribution limits; currently any generic 7-day list could pass.",
+      "Strengthen `Response includes a JSON block with a user_profile object` to require key fields such as distribution constraints and unfair advantages, since a shallow object would also satisfy the current check."
+    ],
+    "overall": "The assertion set covers the required structure and the main recommendation well enough to distinguish obvious failures, but several checks are still format-heavy. This run is substantively strong, yet the eval would be more discriminating if it tested the depth of the service-vs-software reasoning, the specificity of the ICP and offer, and the quality of the validation plan."
+  }
+}

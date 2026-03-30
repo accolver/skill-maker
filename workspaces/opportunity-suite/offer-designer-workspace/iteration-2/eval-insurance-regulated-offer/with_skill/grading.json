@@ -1,0 +1,47 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response turns limited time and regulated-risk constraints into concrete exclusions, cadence, or scope boundaries rather than generic caveats.",
+      "passed": true,
+      "evidence": "`outputs/report.md` gives concrete capacity and scope limits, including `Up to 10 prep packets per month` and `24-hour turnaround on business days` (lines 55-61), plus explicit boundaries like `Does not recommend policies, coverage amounts, carriers, or plan structures` and `Does not promise CRM integration or custom software in version one` (lines 63-71). The same constraints are mirrored in `outputs/result.json` under `scope_boundaries` (lines 17-24)."
+    },
+    {
+      "text": "Response explicitly rejects licensed-advice or delegated-authority framing.",
+      "passed": true,
+      "evidence": "`outputs/report.md` explicitly states the offer works `without crossing into licensed advice` (line 8) and sets boundaries such as `Does not generate final client advice or \"best option\" language` and `Does not speak to prospects on the agent's behalf` (lines 65-68). It also rejects `AI that tells clients what coverage they need` as unsafe regulated-role overreach (lines 90-97). `outputs/result.json` repeats these exclusions in `scope_boundaries` and `rejected_framings` (lines 17-24, 30-34)."
+    },
+    {
+      "text": "Response chooses one primary shape and defines a narrow ICP plus concrete deliverables.",
+      "passed": true,
+      "evidence": "`outputs/report.md` names a single primary shape, `Concierge hybrid that can later productize` (line 24), defines a narrow ICP of `solo independent insurance agents` handling their own warm-contact follow-up (lines 14-20), and lists specific deliverables including a `Follow-Up Prep Packet`, `Missing-info checklist`, `Draft CRM note`, and `Draft recap email` (lines 46-53). `outputs/result.json` contains the same structured ICP, offer shape, and six concrete deliverables (lines 3-16)."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/offer-template.json with meaningful pricing rationale and rejected framings.",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid JSON and matches the template structure in `/home/alan/dev/ai/skills/offer-designer/assets/offer-template.json`: both contain `offer_thesis`, `icp`, `offer_shape`, `deliverables`, `scope_boundaries`, `pricing_hypothesis`, `rejected_framings`, and `open_questions`, with matching nested keys for `icp` and `pricing_hypothesis`. The pricing rationale is substantive rather than generic: it ties price to `faster follow-up time`, `improves consistency`, and intentionally constrained scope (`outputs/result.json` lines 25-29; `outputs/report.md` lines 73-80). Rejected framings are explicit and specific in both files (`outputs/result.json` lines 30-34; `outputs/report.md` lines 90-99)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 9319
+  },
+  "claims": [],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Split the final assertion into separate checks for JSON validity/template match, pricing rationale quality, and rejected framings; it currently bundles multiple outcomes into one pass/fail decision.",
+      "Add an assertion for whether the response converts the 5-hour/week limit into an explicit package cap or turnaround commitment, since that is central to this prompt and was handled well here.",
+      "Add an assertion for whether the deliverables are clearly internal-prep artifacts rather than client-facing advice, because that is an important regulated-scope distinction not checked directly."
+    ],
+    "overall": "The assertion set is fairly discriminating and all four were substantively satisfied in this run, but coverage would improve by separating the overloaded JSON assertion and directly checking for internal-only deliverables tied to the compliance boundary."
+  }
+}

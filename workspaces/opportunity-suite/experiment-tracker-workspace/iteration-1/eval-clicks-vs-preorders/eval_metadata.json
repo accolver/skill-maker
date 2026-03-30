@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "clicks-vs-preorders",
+  "prompt": "Experiment log: a newsletter send got 800 clicks and lots of praise, but zero preorders at the stated price. Summarize the state and recommend the next experiment.",
+  "assertions": [
+    "Response treats clicks and praise as weaker than failed paid conversion.",
+    "Response avoids calling the experiment a success just because engagement was high.",
+    "Response recommends one focused next experiment tied to pricing, segment, or offer mismatch.",
+    "Response includes structured JSON."
+  ]
+}

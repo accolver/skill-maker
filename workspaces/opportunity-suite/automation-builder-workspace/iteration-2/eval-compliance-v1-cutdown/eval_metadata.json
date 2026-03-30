@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "compliance-v1-cutdown",
+  "prompt": "Build spec: compliance evidence workflow. The stakeholder is asking for a client portal, automated client delivery, predictive risk scoring, CRM sync, and analytics dashboards in v1. Produce the build plan.",
+  "assertions": [
+    "Response explicitly rejects at least 3 requested v1 expansions as out of scope.",
+    "Response includes at least one manual step, one automated step, and one explicit escalation or review gate with a reason tied to risk, ambiguity, or trust.",
+    "Response chooses a minimal internal workflow rather than a client-facing platform.",
+    "Response includes valid JSON matching assets/build-plan-template.json with non-empty system_objective.primary_user, trigger, output, human_escalation, plus components, inputs, outputs, integrations, manual_steps, automated_steps, milestones, and out_of_scope."
+  ]
+}

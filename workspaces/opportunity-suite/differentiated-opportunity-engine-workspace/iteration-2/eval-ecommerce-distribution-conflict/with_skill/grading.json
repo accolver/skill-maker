@@ -1,0 +1,75 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says that a peer-heavy network weakens fast software sales or direct buyer access, rather than merely noting it in passing.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:83-89` says, 'your problem knowledge is strong, but your distribution is not' and explains that the user does not control budget and does not have a founder-heavy network, making a direct jump into micro-SaaS 'much less credible.' `outputs/report.md:107-110` adds that the ICP/channel choice matters because agencies and operators already have merchant trust and budget conversations. `outputs/result.json:41-43` also states 'direct software sales are constrained by weak founder and budget-holder access.'"
+    },
+    {
+      "text": "If service-first is recommended, the response names a concrete initial offer, a narrow ICP, one measurable outcome metric, and a specific productization trigger.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:97-125` includes all four required elements: a concrete offer ('Ecommerce Reporting Trust Sprint' at `:99`), a narrow ICP ('Small ecommerce agencies, fractional ecommerce operators, or analytics freelancers serving Shopify brands in the $1M-$20M revenue range' at `:107-108`), a measurable outcome ('Reduce reporting discrepancies or unresolved KPI exceptions by at least 50% within 14 days' at `:117-118`), and explicit productization triggers ('4-6 paid engagements where at least 70% of the workflow is the same' and 'At least 3 customers ask for ongoing monitoring' at `:122-125`). The same recommendation is reflected structurally in `outputs/result.json:143-176`."
+    },
+    {
+      "text": "Response states what evidence would justify switching toward software-first or productization later.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:120-125` defines evidence for productization later: repeated workflows across 4-6 paid engagements and at least 3 customers requesting ongoing monitoring. `outputs/report.md:143-145` also states what would change the recommendation toward software-first: '10+ warm founder conversations or an existing distribution channel into brands.' `outputs/result.json:127-130` and `:159-176` repeat those gating conditions in structured form."
+    },
+    {
+      "text": "Response uses the user's merchant reporting knowledge as the main edge rather than generic AI capability.",
+      "passed": true,
+      "evidence": "PASS. The response repeatedly centers domain expertise as the advantage: `outputs/report.md:31-32` says 'Your advantage is diagnosis speed. You already know the recurring failure modes in merchant reporting'; `:74-75` says the hybrid path 'matches your real edge'; `:86-89` grounds the recommendation in problem knowledge vs. weak distribution; and `:203-204` explicitly limits AI to a supporting role: 'do not pretend AI is the product.' `outputs/result.json:35-38` and `:51-52` likewise frame the edge as merchant-reporting diagnosis, not generic AI."
+    },
+    {
+      "text": "The validation plan includes numeric targets such as interview count, paid pilot target, or timeline.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:147-191` contains a 7-day plan with concrete numeric targets: a list of 30 prospects (`:153-154`), 20 targeted messages and 6 conversations booked (`:158-159`), 3 discovery calls on day 3 (`:163`), 3 more on day 4 (`:170`), 3 pilot pitches and 1 verbal yes or 2 strong follow-ups on day 5 (`:177-178`), and continuation thresholds of at least 8 conversations, 2 warm intros, and 1 paid or highly specific pending pilot (`:189-191`). `outputs/result.json:160-163` preserves the same numeric validation targets."
+    },
+    {
+      "text": "Kill criteria include at least 2 falsifiable stop or pivot conditions.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:217-226` gives four falsifiable stop/pivot conditions, including failing to get 8 relevant conversations in 7 days (`:219-220`), fewer than 2 agency/operator introductions (`:221-222`), fewer than 3 paid pilots or less than 70% repeated workflow before building software (`:223-224`), and buyers consistently treating the pain as low priority (`:225-226`). `outputs/result.json:171-176` also includes four explicit kill criteria for the recommended hybrid path."
+    },
+    {
+      "text": "The prose recommendation and structured JSON agree on the same best bet.",
+      "passed": true,
+      "evidence": "PASS. The prose recommendation in `outputs/report.md:83-95` says the best bet is a 'service-first hybrid' and names 'Reporting triage service for a narrow ecommerce ICP, sold through operators/agencies, with a clear trigger to productize the repeated QA workflow.' The structured output matches this exactly: `outputs/result.json:143-176` defines opportunity `opp_hybrid_channel_to_product` with the same service-through-channel-then-productize thesis, and `outputs/result.json:189` sets `best_bet` to that opportunity ID."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 18143
+  },
+  "claims": [
+    {
+      "claim": "The run completed and produced both `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified from `transcript.md:4`, which says 'Completed. Wrote report.md and result.json,' and from the presence and readable contents of `outputs/report.md` and `outputs/result.json`."
+    },
+    {
+      "claim": "The best bet is the hybrid path `opp_hybrid_channel_to_product` rather than a software-first micro-SaaS.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by internal consistency across outputs: `outputs/report.md:83-95` recommends a service-first hybrid and rejects software-first, while `outputs/result.json:189` sets `best_bet` to `opp_hybrid_channel_to_product` and `:180-187` lists software-first as a rejected path."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'The structured JSON preserves the core recommendation details from the prose, including offer, ICP, outcome metric, and productization trigger' — current checks only verify best-bet agreement, not parity of supporting detail.",
+      "Add assertion: 'The recommendation explicitly addresses both weak founder access and lack of budget ownership as reasons against software-first' — the outputs do this, but the current suite only partially checks the distribution constraint.",
+      "Add assertion: 'Rejected paths include specific reasons for rejection' — the outputs contain concrete rejected alternatives, and checking them would improve discrimination between shallow and well-reasoned recommendations."
+    ],
+    "overall": "All 7 assertions are objectively verifiable and this run passes all of them. The suite is fairly discriminating on recommendation quality, but it under-checks whether the structured output fully preserves the prose reasoning and whether rejected alternatives are justified with concrete evidence."
+  }
+}

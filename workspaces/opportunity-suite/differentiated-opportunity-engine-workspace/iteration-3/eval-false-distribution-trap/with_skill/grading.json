@@ -1,0 +1,81 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly distinguishes audience size from buyer quality, trust, or monetizable distribution.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 10-14 distinguish the large audience from weak buyer access (`strong reach to students, job-seekers, hobbyists...; weak direct access to budget-holding business buyers`), and lines 25-30 say the audience is real distribution but mostly the wrong buyer for direct B2B sales. `result.json` lines 17-29 and 39-42 repeat the same distinction in structured form."
+    },
+    {
+      "text": "Response does not recommend a durable business solely because follower count is high.",
+      "passed": true,
+      "evidence": "PASS: The recommendation is explicitly constrained, not follower-count-driven. `report.md` lines 27-30 state a business-buyer-first SaaS is not credible today and only a bottom-up product is credible if trust is earned later. Lines 124-148 frame the best bet as `bottom-up product now, business trust later` because the audience can activate self-serve users, not because 150000 followers automatically imply a durable business. `result.json` lines 38-42 and 111-145 match that conditional logic."
+    },
+    {
+      "text": "If a content-led or audience-led path is recommended, it includes a buyer-segmentation or audience-migration plan rather than assuming current followers are enough.",
+      "passed": true,
+      "evidence": "PASS: The chosen path uses the current audience only for initial self-serve adoption, then explicitly migrates toward business credibility. `report.md` lines 76-79 describe starting with ambitious individual users and later adding manager-facing features; lines 163-165 state the recommendation would shift if the founder gets 10 to 15 warm relationships with budget owners; lines 167-178 require choosing one narrow ICP and repeated job instead of broadcasting to the whole audience. The 7-day plan also targets `3 distribution tests to X aimed at one ICP, not the whole audience` (`report.md` lines 196-199). `result.json` lines 124-129 and 190-195 encode the same segmentation and migration plan."
+    },
+    {
+      "text": "Response recommends at least one monetization path beyond course sales or generic sponsorships, and explains why it fits or why it still may not.",
+      "passed": true,
+      "evidence": "PASS: Beyond the sponsor-funded report, the response recommends multiple non-course paths, including the best bet `Self-serve workflow operating system... then team analytics and controls` (`report.md` lines 72-91, 127-148; `result.json` lines 108-145), and explains both fit (`distribution works for a bottom-up product`) and failure mode (`too broad... generic AI productivity wrapper`). It also includes an `AI workflow benchmark and certification product for teams` and a `Vertical partnership wedge` with explicit reasons they could fail (`report.md` lines 54-68, 93-105; `result.json` lines 77-106, 148-176)."
+    },
+    {
+      "text": "The validation plan includes numeric targets around segmentation, conversion, or interviews with actual buyers.",
+      "passed": true,
+      "evidence": "PASS: The best-bet validation plan is numeric and specific. `report.md` lines 196-218 set targets of `150 landing page visits`, `30 email captures`, `10 respondents` using AI for real work, `10 qualified users` interviewed, `5 create one workflow`, `3 run it twice`, `2 share`, and `5 preorders` or `15 users` committing to weekly beta usage. `result.json` lines 124-129 mirrors these targets. The output also includes actual-buyer interview targets for the team benchmark path: `Interview 10 managers or L&D leads` and target `5 demo requests` (`result.json` lines 93-96)."
+    },
+    {
+      "text": "Kill criteria include quantified thresholds.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 267-278 contain quantified kill criteria including `fewer than 30 qualified work-context signups`, `fewer than 6 of 10 interviewed users`, `fewer than 3 of the first 10 testers`, and `at least 5 individual users` before adding team features. `result.json` lines 139-145 also includes numeric kill criteria for the best-bet opportunity, and the other opportunities include thresholds such as `fewer than 150 survey responses` or `zero sponsor calls` (`result.json` lines 71-74, 102-105, 173-176)."
+    },
+    {
+      "text": "Structured JSON matches the prose best bet and feasibility stance.",
+      "passed": true,
+      "evidence": "PASS: The prose says `Feasibility verdict: conditional` (`report.md` line 21) and names the best bet as `build a self-serve AI workflow operating system for ambitious individual users` (`report.md` lines 127-128). `result.json` line 38 sets `feasibility_verdict` to `conditional`, and line 189 sets `best_bet` to `opp_workflow_os_bottom_up`, whose title on lines 108-113 matches the prose recommendation. The supporting constraints also align across `report.md` lines 25-30 and `result.json` lines 39-42."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 19609
+  },
+  "claims": [
+    {
+      "claim": "The feasibility stance is conditional, not an unconditional yes or no.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified directly in both outputs: `report.md` line 21 says `Feasibility verdict: conditional`, and `result.json` line 38 sets `feasibility_verdict` to `conditional`."
+    },
+    {
+      "claim": "A generic B2B AI copilot for companies is not a credible near-term path for this user.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by the explicit rejection and rationale. `report.md` lines 110-114 reject `generic B2B AI copilot for companies` because there is no trust, buyer access, or service wedge. `result.json` lines 180-183 encodes the same rejected path and reason. This is also consistent with the prompt's stated lack of business-buyer trust and refusal to do service work (`eval_metadata.json` line 4)."
+    },
+    {
+      "claim": "The best bet is to start with a self-serve workflow product for ambitious individual users and later earn team pull and manager-facing expansion.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by cross-file consistency: `report.md` lines 127-138 define the best bet as a self-serve workflow operating system that later evolves into team features, and `result.json` lines 108-145 defines `opp_workflow_os_bottom_up` with the same staged expansion logic and then sets it as `best_bet` on line 189."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response explicitly rejects enterprise-first/B2B-first as not credible under the user's stated constraints' because that is a core discriminating behavior visible in both outputs but currently untested.",
+      "Add assertion: 'Recommended starting ICP is narrowed to one repeated measurable job rather than a general AI productivity audience' because the output's strongest anti-handwaving move is the forced narrowing in `report.md` lines 167-178 and 177-178.",
+      "Strengthen assertion 7 to require that the JSON also carries the validation or kill logic for the chosen best bet, not just the same label and feasibility stance. A weaker JSON could currently pass as long as the top-level best-bet ID matches the prose."
+    ],
+    "overall": "This assertion set is reasonably discriminating for the false-distribution failure mode: all seven checks are objectively verifiable here and they test the main monetization, segmentation, and validation behaviors. The main gap is that the eval does not directly check the explicit rejection of enterprise-first positioning or the requirement to narrow to one repeated job, both of which are central to why this run is strong."
+  }
+}

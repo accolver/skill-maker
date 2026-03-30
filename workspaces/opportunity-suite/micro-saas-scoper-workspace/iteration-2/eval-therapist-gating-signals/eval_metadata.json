@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "therapist-gating-signals",
+  "prompt": "The user has a niche therapist audience and a paid benchmark/template product, but little evidence that a software workflow is repeatedly painful yet. Scope the software decision.",
+  "assertions": [
+    "Response does not force build_now without repeated workflow evidence.",
+    "If verdict is not build_now, response lists 3 concrete gating signals that would flip the verdict later.",
+    "Response includes at least 3 do_not_build_yet items.",
+    "Response includes valid JSON matching assets/micro-saas-scope-template.json."
+  ]
+}

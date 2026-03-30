@@ -1,0 +1,72 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response distinguishes stronger and weaker signals rather than flattening them.",
+      "passed": true,
+      "evidence": "`outputs/report.md:11-15` separates positive demand evidence from fragility in delivery, and `outputs/report.md:17-23` explicitly breaks signals into problem, buying, revenue, and delivery risk rather than treating all signals as equivalent. `outputs/report.md:27-30` further distinguishes demand risk from implementation risk."
+    },
+    {
+      "text": "Response chooses a clear decision state such as continue or narrow.",
+      "passed": true,
+      "evidence": "`outputs/report.md:34-43` chooses a concrete next state: continue by running a tighter paid pilot and narrow the scope to owners with explicit missed-call pain, a fixed-scope pilot, and no custom workflows. `outputs/result.json:19-27` mirrors that narrowed decision in structured form."
+    },
+    {
+      "text": "Response recommends one next experiment tied to the biggest remaining uncertainty.",
+      "passed": true,
+      "evidence": "`outputs/report.md:27-30` identifies the main uncertainty as whether churn is caused by bespoke implementation rather than weak demand. `outputs/report.md:34-47` recommends one specific experiment, a standardized paid pilot, and `outputs/report.md:55-59` says the experiment is meant to learn whether demand survives after removing custom work. `outputs/result.json:20-32` contains the same single experiment with hypothesis and success criteria."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json:1-34` is structured JSON with top-level objects `summary`, `assessment`, and `recommended_next_experiment`, and nested keys for counts, state, hypothesis, design, and success criteria."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 3539
+  },
+  "claims": [
+    {
+      "claim": "Problem signal exists: 33% mentioned missed calls as painful.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:19` states 33% mentioned missed-call pain, matching the underlying counts in `outputs/report.md:3-4` and `outputs/result.json:3-4` of 4 out of 12 conversations."
+    },
+    {
+      "claim": "Buying signal exists: 17% agreed to a paid pilot.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:20` states 17% agreed to a paid pilot, which matches `outputs/report.md:5` and `outputs/result.json:5` showing 2 agreements out of 12 conversations."
+    },
+    {
+      "claim": "Revenue signal exists: at least one customer paid.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:21` and `outputs/result.json:6` both state that 1 actual customer paid."
+    },
+    {
+      "claim": "A custom workflow caused churn after setup.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:7` states one user churned after setup because the workflow was too custom, and `outputs/result.json:16` repeats that a custom workflow caused churn after setup. This matches the task facts in `transcript.md:1-2` via the original prompt context in `eval_metadata.json:4`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON.` by requiring a specific schema or required fields; any generic JSON artifact could satisfy the current assertion.",
+      "Add an assertion that the response identifies delivery/customization risk as the primary blocker, since that is a key substantive insight in this task and currently goes unchecked.",
+      "Clarify `Response chooses a clear decision state such as continue or narrow.` by requiring explicit language or an explicit field; as written, graders must infer whether a narrowed continue decision is sufficient."
+    ],
+    "overall": "The current assertion set covers the main outcome reasonably well and all four assertions pass for this run, but one assertion is weakly discriminating and the suite does not directly test for the central causal diagnosis around bespoke implementation risk."
+  }
+}

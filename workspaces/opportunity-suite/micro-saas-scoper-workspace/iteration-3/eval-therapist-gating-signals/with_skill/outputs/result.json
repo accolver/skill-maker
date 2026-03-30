@@ -1,0 +1,33 @@
+{
+  "readiness_verdict": "stay_manual_for_now",
+  "product_wedge": {
+    "primary_user": "Solo or small-practice therapist owner",
+    "job_to_be_done": "Turn a therapist's raw practice inputs into a benchmarked practice-planning output",
+    "core_workflow": "Therapist submits a fixed set of practice metrics and receives one benchmark/template-guided recommendation or output"
+  },
+  "manual_work": [
+    "Interview therapists to identify which recurring workflow is painful enough to pay to remove",
+    "Deliver benchmark interpretation and template customization by hand",
+    "Validate whether the same inputs and outputs recur across multiple therapist customers"
+  ],
+  "automated_first": [
+    "A single structured intake form for the benchmark/template workflow",
+    "A rules-based generation step that produces one standardized output",
+    "A clear human-escalation flag when the case falls outside the standard pattern"
+  ],
+  "mvp_boundary": [
+    "One user role: therapist owner only",
+    "One core workflow: structured intake to one benchmarked output",
+    "One key input: a fixed set of practice metrics",
+    "One key output: one recommendation/template package",
+    "One escalation trigger: incomplete or atypical practice data"
+  ],
+  "productization_trigger": "The same input-to-output workflow is repeatedly requested and delivered with only minor variation",
+  "do_not_build_yet": [
+    "A therapist practice operating system or broad back-office platform",
+    "Multi-step workflow automation across intake, analytics, follow-up, and CRM",
+    "Integrations with EHR, billing, scheduling, or email tools",
+    "Broad dashboards covering many practice KPIs",
+    "Team collaboration, permissions, or admin tooling"
+  ]
+}

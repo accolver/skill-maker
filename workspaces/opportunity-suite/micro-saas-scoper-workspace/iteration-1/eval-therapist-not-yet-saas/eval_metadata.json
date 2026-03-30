@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "therapist-not-yet-saas",
+  "prompt": "The user has a niche therapist audience and a paid benchmark/template product, but little evidence that a software workflow is repeatedly painful yet. Scope the software decision.",
+  "assertions": [
+    "Response does not force a build-now SaaS verdict without repeated workflow evidence.",
+    "Response explains what evidence would justify productization later.",
+    "Response includes what not to build yet.",
+    "Response includes structured JSON."
+  ]
+}

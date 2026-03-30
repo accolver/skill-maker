@@ -1,0 +1,14 @@
+{
+  "eval_id": 4,
+  "eval_name": "therapist-audience-exception",
+  "prompt": "I run a 42000-subscriber newsletter and paid community for independent therapists and small clinic owners. For 4 years I have listened to their admin, documentation, staffing, and insurance headaches. I do not want to do client service work. I am open to lightweight software, paid templates, benchmark data, or content-supported products. I want something legal and AI-assisted. What is the best path?",
+  "assertions": [
+    "Response treats the audience, newsletter, or community as the primary distribution advantage and uses it materially in the recommendation.",
+    "The best bet is not a service-first or agency-first path.",
+    "Response recommends at least one monetization path beyond ads or sponsorships, such as paid templates, benchmark data, subscriptions, software, or another concrete product path.",
+    "Response explains why a content-led, community-led, or distribution-led launch is credible for this user even though content is often a weaker default path.",
+    "The validation plan includes numeric audience, conversion, interview, or pilot targets.",
+    "Kill criteria include at least 2 falsifiable stop or pivot conditions.",
+    "The prose recommendation and structured JSON agree on the same best bet and why it wins."
+  ]
+}

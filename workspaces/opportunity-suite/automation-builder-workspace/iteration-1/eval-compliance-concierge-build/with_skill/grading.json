@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response includes explicit human review or escalation points.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:9-10` states 'Human escalation point: Any missing, conflicting, stale, or ambiguous evidence is routed to a human reviewer before release.' `outputs/report.md:67-72` and `outputs/report.md:93` also require human review/final approval before delivery. The same requirement appears in `outputs/result.json:6` and `outputs/result.json:53`."
+    },
+    {
+      "text": "Response chooses a minimal internal workflow rather than a broad client platform.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:14-15` explicitly says 'Minimal system pattern: concierge workflow with internal admin panel'. The scope stays internal in `outputs/report.md:19-27`, and `outputs/report.md:91-97` rules out an 'External client portal' and 'generalized GRC platform capabilities'. Matching evidence appears in `outputs/result.json:8-14` and `outputs/result.json:52-57`."
+    },
+    {
+      "text": "Response includes milestones and out-of-scope items.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:82-89` provides six numbered milestones, and `outputs/report.md:91-97` provides five explicit out-of-scope items. The same structures are present in `outputs/result.json:44-58` under `milestones` and `out_of_scope`."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json:1-59` is a valid structured JSON object with top-level keys including `system_objective`, `components`, `inputs`, `outputs`, `integrations`, `manual_steps`, `automated_steps`, `milestones`, and `out_of_scope`. `outputs/report.md:99-160` also embeds the same content in a fenced JSON block."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 9063
+  },
+  "claims": [
+    {
+      "claim": "The workflow is a minimal internal concierge workflow rather than a client-facing platform.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:14-15`, which labels the pattern as minimal and internal, plus `outputs/report.md:91-97`, which excludes an external client portal and generalized platform scope. `outputs/result.json:52-57` repeats the same exclusions."
+    },
+    {
+      "claim": "Human review is required before client delivery.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:9-10`, `outputs/report.md:67-72`, and `outputs/report.md:93`, all of which require human review or approval before release. `outputs/result.json:6` and `outputs/result.json:35` align with the same process."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the plan identifies the primary internal user and trigger; those are substantive requirements visible in the outputs but currently untested.",
+      "Add an assertion that the workflow limits automation to predefined evidence sources and preserves manual judgment for ambiguous evidence; this is central to the build quality but not directly checked.",
+      "Strengthen 'Response includes structured JSON' to require valid JSON with specific required sections, since a very shallow JSON object could satisfy the current wording."
+    ],
+    "overall": "The current assertions discriminate basic scope and format well for this run, but they miss important quality checks around the internal operator persona, constrained automation boundaries, and whether the review loop is operationally specific rather than merely mentioned."
+  }
+}

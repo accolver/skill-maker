@@ -1,0 +1,14 @@
+{
+  "eval_id": 3,
+  "eval_name": "ecommerce-distribution-conflict",
+  "prompt": "I am a senior data analyst at an ecommerce SaaS company. I know a lot about merchant reporting pain, but I do not directly own budget and my network is mostly peers, not founders. I would love a micro-SaaS, but I am not sure if I should sell a service first. Give me your honest recommendation.",
+  "assertions": [
+    "Response explicitly says that a peer-heavy network weakens fast software sales or direct buyer access, rather than merely noting it in passing.",
+    "If service-first is recommended, the response names a concrete initial offer, a narrow ICP, one measurable outcome metric, and a specific productization trigger.",
+    "Response states what evidence would justify switching toward software-first or productization later.",
+    "Response uses the user's merchant reporting knowledge as the main edge rather than generic AI capability.",
+    "The validation plan includes numeric targets such as interview count, paid pilot target, or timeline.",
+    "Kill criteria include at least 2 falsifiable stop or pivot conditions.",
+    "The prose recommendation and structured JSON agree on the same best bet."
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says first revenue in 30 days is unrealistic or at least highly conditional under the current constraints.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:88-95` says, 'You should not start with a standalone product if first revenue in 30 days is non-negotiable' and 'under your stated constraints, a product-first path is unrealistic.' `outputs/report.md:112-114` adds that if the user refuses even a small amount of selling/customer-specific work, they are 'kidding yourself about 30-day revenue from AI.' `outputs/result.json:174-179` matches this by saying not to build a standalone product first and to stop pursuing fast revenue if warm distribution or client-specific work is unavailable."
+    },
+    {
+      "text": "Response identifies at least 3 binding constraints.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:12-13` explicitly lists five constraints: hates client work, refuses outbound, will not create content, only 3 hours/week, and wants first revenue in 30 days. `outputs/report.md:91-95` specifically ties the recommendation to at least four of them: 3 hours/week, no outbound, no content, and no appetite for client work. The same five constraints are also structured in `outputs/result.json:26-32`."
+    },
+    {
+      "text": "Best bet is constraint change, slower validation, or no_go, not immediate product building.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:88-101` rejects a standalone product-first path and says the only plausible near-term path is a 'very small hybrid' using a concierge pilot before productizing. `outputs/report.md:112-114` says that if the user refuses that constraint change, they should optimize for a 'slower asset-later path' instead of pretending it is a fast-income plan. `outputs/result.json:172-179` is consistent: best bet is `opp_concierge_to_product`, with next actions explicitly saying 'Do not build a standalone product first' and to treat this as a slower asset-later path if the constraints remain unchanged."
+    },
+    {
+      "text": "Response does not treat ERP domain expertise alone as enough without a route to buyers.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:16-18` says the domain edge is real but go-to-market leverage is not. `outputs/report.md:94-95` states, 'Your domain edge is real, but your distribution engine is effectively turned off.' `outputs/result.json:17-25` lists no audience/no content/no outbound and only possible warm contacts, while `outputs/result.json:36-40` explicitly says the user has 'weak go-to-market leverage under stated constraints.'"
+    },
+    {
+      "text": "Response gives a concrete plan for changing constraints or testing with numeric targets.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:116-160` provides a 7-day validation plan with numeric targets: 10 warm contacts (`128-130`), 3 introductions or direct reactions (`130`), 3 conversations (`134-136`), a 20-minute call (`134-135`), and a 2-week pilot (`142`). `outputs/result.json:173-179` also includes concrete sequential actions and conditions for proceeding within 30 days."
+    },
+    {
+      "text": "Kill or revisit criteria are quantified.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:177-187` contains quantified stop conditions including 'No access to at least 3 warm conversations in 7 days,' 'No willingness ... to run a paid pilot in the next 30 days,' and delivery exceeding the '3-hour weekly limit.' The packaging/revisit threshold is also quantified in `outputs/report.md:174-175`: no custom software until there is a repeated workflow across 'at least 2 buyers or 1 partner channel.' `outputs/result.json:134-138` also includes quantified kill criteria such as 'No paid pilot within 30 days' and 'Pilot workload exceeds 3 hours per week.'"
+    },
+    {
+      "text": "Structured JSON feasibility verdict matches the prose recommendation.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` does not contain a literal `feasibility_verdict` field, but its structured recommendation matches the prose semantically. The JSON sets `best_bet` to `opp_concierge_to_product` (`172`) rather than the product-first option, and `next_actions:174-179` say not to build a standalone product first, to seek 3 warm conversations in 7 days, and to stop pursuing fast revenue if warm distribution or customer-specific work is unavailable. That is consistent with `outputs/report.md:88-114`, which says a product-first path is unrealistic and that only a tiny hybrid path is plausible under changed constraints."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 14710
+  },
+  "claims": [
+    {
+      "claim": "A product-first path is unrealistic under the stated constraints.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by the substance of the recommendation in `outputs/report.md:88-95` and reinforced in `outputs/report.md:112-114`; the structured actions in `outputs/result.json:174-179` are aligned with that same conclusion rather than a fast product build."
+    },
+    {
+      "claim": "The only plausible near-term path is a very small hybrid using a warm-intro concierge pilot before productizing.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:97-101`, which says 'The only plausible near-term path is a very small hybrid,' and by `outputs/result.json:172-179`, which selects `opp_concierge_to_product` and instructs the user to validate with warm conversations and a paid pilot before any software build."
+    },
+    {
+      "claim": "You have at least a few warm industry contacts or partner relationships you can ping directly.",
+      "type": "factual",
+      "verified": false,
+      "evidence": "`outputs/report.md:19-21` labels this as an 'Assumption used,' not established evidence. The original prompt in `eval_metadata.json:4` does not state that warm contacts or partner relationships exist, so this factual premise is not verified by the available record."
+    },
+    {
+      "claim": "Domain expertise alone is not sufficient here without buyer access or distribution.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:16-18` and `94-95`, which explicitly separate strong problem knowledge from weak go-to-market leverage, and by `outputs/result.json:17-25` plus `36-40`, which encode the lack of audience/content/outbound and weak GTM leverage as part of the structured profile."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 7 to require an explicit structured field such as `feasibility_verdict`, because in this run the JSON only implies the verdict through `best_bet` and `next_actions`.",
+      "Split assertion 3 into separate checks for 'rejects immediate product build' and 'recommends either constraint change, hybrid validation, or slower path' because it currently bundles multiple acceptable outcomes into one compound assertion.",
+      "Add an assertion that the recommended buyer path is restricted to warm introductions/partner channels under the user's no-outbound constraint; that behavior is central to the recommendation but currently only indirectly covered.",
+      "Add an assertion that the response explicitly confronts the conflict between 'hates client work' and the fastest revenue path, since that tension is a key discriminating part of the answer."
+    ],
+    "overall": "The assertion set is reasonably discriminating for this prompt and all seven assertions are substantively satisfied by the outputs. The main weakness is that the JSON-consistency check is underspecified because it does not require an explicit verdict field, forcing semantic interpretation rather than direct verification."
+  }
+}

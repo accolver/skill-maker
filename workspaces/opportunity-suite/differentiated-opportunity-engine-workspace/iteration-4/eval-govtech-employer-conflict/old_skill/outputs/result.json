@@ -1,0 +1,181 @@
+{
+  "user_profile": {
+    "skills": [
+      "municipal procurement analysis",
+      "workflow diagnosis",
+      "RFP and contract pattern recognition",
+      "public-sector software procurement domain knowledge"
+    ],
+    "domain_experience": [
+      "govtech procurement software",
+      "mid-sized city purchasing inefficiencies",
+      "procurement workflow and pricing sensitivity"
+    ],
+    "assets": [
+      "ability to interpret public procurement records",
+      "strong judgment on recurring municipal buying failures",
+      "niche domain fluency"
+    ],
+    "distribution": [
+      "adjacent niche credibility",
+      "potential access to vendor-side and civic analysis communities"
+    ],
+    "network_access": [
+      "public-sector adjacent buyers",
+      "non-city buyer segments such as vendors, insurers, journalists, and watchdogs"
+    ],
+    "constraints": [
+      "5 hours per week",
+      "no consulting",
+      "do not solicit employer customers",
+      "must stay fully legal",
+      "must not use employer-confidential templates, pricing logic, or workflow details"
+    ],
+    "credibility_signals": [
+      "real operating exposure inside the govtech procurement category",
+      "informed understanding of where mid-sized cities waste money"
+    ],
+    "unfair_advantages": [
+      "can spot procurement waste patterns in public data faster than generalists",
+      "can design useful scoring frameworks for municipal procurement behavior",
+      "understands buyer pain without needing to learn the category from scratch"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_public_benchmark",
+      "title": "Public procurement waste benchmark for adjacent buyers",
+      "category": "hybrid",
+      "thesis": "Start with a narrowly scoped benchmark built from public records, sell it as a recurring information product, and expand into a dataset or lightweight software.",
+      "why_user_can_win": "The user has superior judgment about municipal procurement waste patterns and can interpret public artifacts faster than a general operator without relying on employer IP.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 6,
+        "durability": 8,
+        "distribution_fit": 5,
+        "ai_leverage": 7,
+        "defensibility": 7,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Review employment and confidentiality restrictions and define written red lines.",
+        "Select one narrow spend category or friction theme for 25 cities.",
+        "Assemble a 10-city sample from public records only.",
+        "Publish a 2-page sample benchmark and test prepaid demand with adjacent buyers."
+      ],
+      "tool_specs": [
+        "Spreadsheet or Airtable-backed dataset",
+        "Public-record extraction workflow with LLM summarization",
+        "Static landing page with preorder flow",
+        "Methodology and disclaimer page"
+      ],
+      "kill_criteria": [
+        "Legal or policy conflict with employer restrictions",
+        "No ability to keep data and methodology fully independent of employer IP",
+        "No prepaid demand or qualified recurring interest after initial outreach"
+      ]
+    },
+    {
+      "id": "opp_independent_template_library",
+      "title": "Independent procurement modernization template library",
+      "category": "asset_later",
+      "thesis": "Create an original template and playbook library for city procurement teams, but only if conflict review shows the market and materials are safely outside employer boundaries.",
+      "why_user_can_win": "The user knows which procurement artifacts are operationally useful and could create better original materials than a non-expert.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 4,
+        "durability": 7,
+        "distribution_fit": 4,
+        "ai_leverage": 5,
+        "defensibility": 5,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 6
+      },
+      "validation_plan": [
+        "Confirm no conflict with employer market, IP, or customer restrictions.",
+        "Draft one original template pack from scratch without referencing internal materials.",
+        "Test interest with non-customer municipal communities or associations."
+      ],
+      "tool_specs": [
+        "Downloadable templates and playbooks",
+        "Email delivery or member portal",
+        "Simple checkout and update mechanism"
+      ],
+      "kill_criteria": [
+        "Any ambiguity around IP ownership or overlap with employer offerings",
+        "Buyers only want custom help instead of a self-serve library"
+      ]
+    },
+    {
+      "id": "opp_public_teardown_reports",
+      "title": "Productized public-record teardown reports",
+      "category": "cash_now",
+      "thesis": "Sell fixed-scope teardown reports on one city's procurement inefficiencies to adjacent buyers as a research product rather than consulting.",
+      "why_user_can_win": "The user can diagnose public procurement problems quickly and package insight into a standardized report.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 7,
+        "durability": 3,
+        "distribution_fit": 5,
+        "ai_leverage": 6,
+        "defensibility": 4,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Create one standardized sample teardown from public documents.",
+        "Offer a fixed-price report to adjacent buyers only.",
+        "Measure whether demand is for the standardized product or for custom consulting."
+      ],
+      "tool_specs": [
+        "Report template",
+        "Public-data research checklist",
+        "Simple payment link"
+      ],
+      "kill_criteria": [
+        "Requests are mostly bespoke consulting",
+        "Delivery time exceeds 5-hour weekly budget"
+      ]
+    },
+    {
+      "id": "opp_bid_qualification_dataset",
+      "title": "Vendor-side municipal bid qualification dataset",
+      "category": "asset_later",
+      "thesis": "Build a subscription dataset that helps SMB vendors decide whether a municipal RFP is worth pursuing based on public process-friction signals.",
+      "why_user_can_win": "The user understands which procurement features predict painful sales cycles and poor bid economics.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 5,
+        "durability": 8,
+        "distribution_fit": 5,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Interview 5 SMB vendors selling to municipalities.",
+        "Build a sample list of 20 RFPs with friction scores.",
+        "Test whether vendors will pay for qualification guidance before building software."
+      ],
+      "tool_specs": [
+        "Scored RFP database",
+        "Search and export view",
+        "Recurring alert workflow"
+      ],
+      "kill_criteria": [
+        "Vendors do not see enough value over manual qualification",
+        "Data collection burden is too high for a solo operator at 5 hours per week"
+      ]
+    }
+  ],
+  "best_bet": "opp_public_benchmark",
+  "next_actions": [
+    "Review employment restrictions and define written legal red lines before any market test.",
+    "Choose one narrow benchmark wedge and derive all metrics from public sources only.",
+    "Build a 10-city sample dataset and a 2-page benchmark preview.",
+    "Test prepaid demand with adjacent buyers who are not employer customers.",
+    "Continue only if demand appears for a recurring product rather than consulting."
+  ]
+}

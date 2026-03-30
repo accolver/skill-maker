@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "ecommerce-weak-access",
+  "prompt": "Offer: ecommerce reporting product for merchants. User has strong workflow knowledge but weak buyer access and no audience. Build the channel plan.",
+  "assertions": [
+    "Response does not pretend weak buyer access is already solved.",
+    "Response chooses a realistic starting channel or access-building motion.",
+    "Response includes kill criteria for the chosen channel.",
+    "Response includes structured JSON."
+  ]
+}

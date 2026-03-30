@@ -1,0 +1,32 @@
+{
+  "summary": {
+    "conversations": 12,
+    "owners_saying_missed_calls_are_painful": 4,
+    "agreed_to_paid_pilot": 2,
+    "actually_paid": 1,
+    "churned_after_setup": 1,
+    "churn_reason": "workflow was too custom"
+  },
+  "state": {
+    "assessment": "promising but inconclusive",
+    "primary_signal": "There is credible pain around missed calls and at least some willingness to pay.",
+    "primary_risk": "The offering appears too customized to deliver repeatably.",
+    "stage_interpretation": "This is more of a delivery and productization problem than a pure demand problem."
+  },
+  "recommended_next_experiment": {
+    "name": "standardized missed-call pilot",
+    "goal": "Test whether a narrow, repeatable workflow can onboard and retain HVAC customers with minimal customization.",
+    "design": [
+      "Offer the next 3 to 5 prospects the same fixed pilot.",
+      "Limit scope to missed inbound calls only.",
+      "Use a standard workflow: missed call triggers immediate text-back and lead capture.",
+      "Avoid custom logic unless absolutely necessary.",
+      "Measure onboarding completion, payment, and 2+ week retention."
+    ],
+    "success_criteria": [
+      "At least 2 customers complete onboarding without custom workflow changes.",
+      "At least 1 additional customer pays for the standardized pilot.",
+      "No churn during the first 2 weeks due to setup complexity."
+    ]
+  }
+}

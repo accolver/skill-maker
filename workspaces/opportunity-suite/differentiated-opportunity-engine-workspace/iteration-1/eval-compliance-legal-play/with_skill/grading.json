@@ -1,0 +1,80 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response includes a section header named Differentiation Profile",
+      "passed": true,
+      "evidence": "`report.md` line 1 contains the exact header `## Differentiation Profile`."
+    },
+    {
+      "text": "Response includes a section header named Top Opportunities",
+      "passed": true,
+      "evidence": "`report.md` line 30 contains the exact header `## Top Opportunities`."
+    },
+    {
+      "text": "Response explicitly notes legal or compliance constraints",
+      "passed": true,
+      "evidence": "`report.md` lines 13-15 state a hard constraint to 'stay fully legal'; lines 123-125 and 139-141 explicitly separate compliance ops support from legal advice and require client or human review. `result.json` lines 24-28 also encode the legal constraint in `user_profile.constraints`."
+    },
+    {
+      "text": "Response explicitly downgrades or avoids pure content or media as the main business",
+      "passed": true,
+      "evidence": "`report.md` lines 13-15 identify low interest in content creation as a constraint, and lines 109-110 say the recommended path 'does not require becoming a public content creator,' explicitly steering away from a content/media-led business."
+    },
+    {
+      "text": "Response explains why this user can win using compliance expertise or warm contacts",
+      "passed": true,
+      "evidence": "`report.md` repeatedly includes 'Why this user can win' explanations tied to compliance expertise and warm contacts, including lines 35-36, 44-46, 55-57, and 76-78. `result.json` lines 44, 76, 107, 139, 170, and 208 also provide explicit `why_user_can_win` fields."
+    },
+    {
+      "text": "Response includes kill criteria or stop conditions",
+      "passed": true,
+      "evidence": "`report.md` lines 231-243 contain a dedicated `## Kill Criteria` section with explicit stop and pivot conditions. `result.json` also includes `kill_criteria` arrays for each opportunity, for example lines 66-69 and 196-200."
+    },
+    {
+      "text": "Response includes a JSON block with an opportunities array",
+      "passed": true,
+      "evidence": "`result.json` line 38 begins an `opportunities` array containing six opportunity objects through line 235. The transcript also states at lines 4-6 that `result.json` was written as the machine-readable counterpart to the report."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment.",
+      "`timing.json` reports zero tokens and zero duration, so performance metrics are unavailable."
+    ],
+    "output_chars": 21148
+  },
+  "claims": [
+    {
+      "claim": "Wrote report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md` line 4 states both files were written, and `outputs/` contains `report.md` and `result.json`."
+    },
+    {
+      "claim": "The JSON mirrors the same recommendation in machine-readable form.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`report.md` lines 98-100 recommend the hybrid ladder (`productized compliance operations retainer -> internal automation -> lightweight client portal`), and `result.json` lines 166-170 define that same hybrid opportunity while line 236 selects it as `best_bet`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes a section header named Differentiation Profile` by also checking for substantive content about skills, assets, constraints, and unfair advantages; the current wording is mostly structural.",
+      "Strengthen `Response includes a section header named Top Opportunities` by requiring multiple ranked opportunities with rationale or score fields; the current assertion can pass on a thin list.",
+      "Clarify `Response includes a JSON block with an opportunities array` to specify whether a separate `result.json` file is acceptable or whether the markdown response itself must embed a JSON block.",
+      "Add an assertion that the recommendation explicitly distinguishes operational support from legal advice and includes a human-review guardrail, because that is a core quality and compliance property present in the outputs.",
+      "Add an assertion that the response names a single best bet and explains why it beats the alternatives; the current suite checks ingredients but not whether a decisive recommendation is made."
+    ],
+    "overall": "All 7 assertions pass on substantive evidence, but 2 of them are relatively low-discrimination structural checks. The suite covers format, legal awareness, and positioning well enough for this prompt, yet it misses the strength of the legal guardrails and the presence of a single clearly argued best recommendation."
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly rejects at least 3 requested v1 expansions as out of scope.",
+      "passed": false,
+      "evidence": "The response does the opposite of rejecting the requested expansions. `report.md:7-10` says the stakeholder requested five areas and that v1 should \"ship all five in a constrained form\". `report.md:28-39` includes client portal, automated delivery, predictive risk scoring, CRM sync, and analytics dashboards in scope. `result.json:6-18` likewise lists all five themes under `scope.included` and only rejects adjacent complexity, not at least 3 of the requested expansions themselves."
+    },
+    {
+      "text": "Response includes at least one manual step, one automated step, and one explicit escalation or review gate with a reason tied to risk, ambiguity, or trust.",
+      "passed": false,
+      "evidence": "There is evidence of a manual step and an automated step, but not an explicit escalation/review gate justified by risk, ambiguity, or trust. `report.md:66-78` includes manual review in step 2 (\"Reviewer approves the evidence item\") and automated behavior in steps 4, 7, and 8 (triggered delivery, risk updates, CRM sync). However, the output never states that the review gate exists because of risk, ambiguity, or trust; it is only described as part of the flow. The assertion requires all three elements, so this fails."
+    },
+    {
+      "text": "Response chooses a minimal internal workflow rather than a client-facing platform.",
+      "passed": false,
+      "evidence": "The response centers a client-facing platform as part of v1. `report.md:30-33` makes a read-only client portal a scoped v1 deliverable, `report.md:91-100` defines portal requirements, and `report.md:150-152` proposes both an internal web app and a client web portal. `result.json:7-11` includes a client portal, automated delivery, CRM sync, and dashboards, which is broader than a minimal internal workflow."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/build-plan-template.json with non-empty system_objective.primary_user, trigger, output, human_escalation, plus components, inputs, outputs, integrations, manual_steps, automated_steps, milestones, and out_of_scope.",
+      "passed": false,
+      "evidence": "`result.json` is valid JSON, but it does not match the required shape. The file contains top-level keys like `artifact`, `product`, `version`, `scope`, `users`, `functional_requirements`, `phases`, `acceptance_criteria`, and `open_questions` (`result.json:2-120`). It does not contain the required keys `system_objective`, `trigger`, `output`, `human_escalation`, `components`, `inputs`, `outputs`, `integrations`, `manual_steps`, `automated_steps`, `milestones`, or `out_of_scope`. The referenced `assets/build-plan-template.json` could not be found in the provided workspace, so template matching could not be confirmed; regardless, the explicit required fields are missing."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 4,
+    "total": 4,
+    "pass_rate": 0.0
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 13127
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:4` makes this claim, and both files exist in `outputs/` with substantive contents: `outputs/report.md` and `outputs/result.json`."
+    },
+    {
+      "claim": "The plan should ship all five requested themes in a constrained form.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`report.md:7-10` states this directly, and `report.md:28-39` plus `result.json:6-18` include all five requested themes while constraining adjacent complexity such as ML training and self-serve BI."
+    },
+    {
+      "claim": "Start with one CRM integration target in v1.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`report.md:124-145` scopes CRM sync to one target system and `report.md:251-257` explicitly recommends one CRM integration in v1. `result.json:55-60` reflects the narrowed CRM scope."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Provide the referenced `assets/build-plan-template.json` alongside the eval inputs or embed the required schema in `eval_metadata.json`; otherwise the template-matching assertion is less reproducible than it should be.",
+      "Strengthen the scope-cutdown check by requiring an explicit `out_of_scope` section that names rejected stakeholder asks verbatim, not just adjacent complexity reductions.",
+      "Add an assertion that the report and JSON agree on the same minimal workflow, because this run could appear detailed while still violating the intended cutdown strategy.",
+      "Clarify the escalation assertion to require language such as \"human review required because ...\" so it distinguishes a true risk/trust gate from any generic approval step."
+    ],
+    "overall": "The assertion set is fairly discriminating for scope control, but one key artifact assertion depends on a template file that was not present in the provided workspace. The eval strongly checks for cutdown behavior and structured output, yet it would be more robust if the required schema were directly available and if consistency between prose and JSON were explicitly asserted."
+  }
+}

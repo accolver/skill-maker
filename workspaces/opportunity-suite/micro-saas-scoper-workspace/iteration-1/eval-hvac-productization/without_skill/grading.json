@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response gives an explicit readiness verdict.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 125-127 states `The software decision is a **yes** for productization, with a narrow scope.` `outputs/result.json` lines 2-3 also encode this verdict as `\"productization_decision\": \"yes\"` and `\"recommended_shape\": \"vertical_micro_saas\"`."
+    },
+    {
+      "text": "Response scopes one narrow user, one job, and one workflow rather than a broad platform.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` lines 34-50 narrows the product to `missed-call recovery for HVAC businesses` and explicitly rejects broader shapes like `a full CRM`, `a generic AI receptionist`, and `a horizontal solution for every local service business` (lines 37-42). It also identifies the early customer as `small to mid-sized HVAC owner-operators` (lines 141-146). `outputs/result.json` lines 3-5 and 15-20 reinforce the narrow scope by choosing `vertical_micro_saas` and deferring horizontal and broad platform features."
+    },
+    {
+      "text": "Response separates manual work from what gets automated first.",
+      "passed": false,
+      "evidence": "FAIL: The outputs describe automation priorities, such as `immediate SMS response`, `lightweight conversational intake`, and `notification and handoff` in `outputs/report.md` lines 81-88, but they never explicitly distinguish the remaining manual work from the first automation layer. There is no clear manual-vs-automated breakdown such as which steps stay with the owner/CSR/dispatcher versus which are automated first."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with named top-level fields including `productization_decision`, `recommended_shape`, `summary`, `mvp_capabilities`, `defer`, `key_risks`, and `ideal_early_customer` (lines 1-29)."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 6688
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by the presence and readable contents of `outputs/report.md` and `outputs/result.json`, and by the completion note in `transcript.md` line 4."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response gives an explicit readiness verdict.` to require both a verdict and a brief rationale tied to the business conditions, since a one-word yes/no would currently pass.",
+      "Replace `Response scopes one narrow user, one job, and one workflow rather than a broad platform.` with separate assertions for target user, core job-to-be-done, and initial workflow so partial compliance is easier to detect objectively.",
+      "Add an assertion requiring an explicit manual-versus-automated-first workflow split, because this run surfaced that gap and the current assertion set only checks it once.",
+      "Add an assertion that the response identifies what to defer or avoid building first, since the outputs meaningfully distinguish MVP scope from later expansion but no assertion checks that prioritization quality."
+    ],
+    "overall": "The eval is moderately discriminating: 3 of 4 assertions check meaningful outcomes, but the scope assertion bundles several ideas into one check and there is no direct coverage for deferrals or prioritization quality beyond a single manual-versus-automation assertion."
+  }
+}

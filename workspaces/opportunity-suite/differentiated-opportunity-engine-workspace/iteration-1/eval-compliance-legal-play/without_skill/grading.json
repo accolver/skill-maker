@@ -1,0 +1,71 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response includes a section header named Differentiation Profile",
+      "passed": false,
+      "evidence": "`report.md` uses headers such as `# Recommended Opportunity` (line 1), `## Why This Fits You` (line 14), and `## Best Initial Offer` (line 34), but there is no section header named `Differentiation Profile`. `result.json` is structured data and also contains no such header."
+    },
+    {
+      "text": "Response includes a section header named Top Opportunities",
+      "passed": false,
+      "evidence": "`report.md` contains no header named `Top Opportunities`; its later sections include `## Why This Beats Other Options` (line 67), `## Legal / Regulatory Guardrails` (line 113), and `## Bottom Line` (line 182). `result.json` provides a single recommendation, not a section with that name."
+    },
+    {
+      "text": "Response explicitly notes legal or compliance constraints",
+      "passed": true,
+      "evidence": "`report.md` has a dedicated `## Legal / Regulatory Guardrails` section (lines 113-136) that explicitly says not to market the service as legal advice, not to act as outsourced CCO/supervisor, to review AI outputs, to avoid promising regulatory outcomes, and to refer legal interpretation to counsel. `result.json` repeats these constraints in `legal_guardrails` (lines 27-35)."
+    },
+    {
+      "text": "Response explicitly downgrades or avoids pure content or media as the main business",
+      "passed": true,
+      "evidence": "The response explicitly rejects a content-led path: `report.md` says the business can be sold through referrals and private demos `instead of audience building` (lines 25-26), contrasts the recommendation with `Compared with content or courses` (lines 83-87), and recommends a `private, relationship-led motion` rather than content (lines 138-155). `result.json` also states the opportunity `does not require content creation` in `why_this_fits` (line 16)."
+    },
+    {
+      "text": "Response explains why this user can win using compliance expertise or warm contacts",
+      "passed": true,
+      "evidence": "`report.md` directly ties the opportunity to the user's edge: `You already have the two hardest assets for this niche` followed by `Real compliance judgment from prior consulting work` and `Warm contacts in a trust-sensitive market` (lines 16-20). It reiterates that the recommendation `fits your experience, works with warm contacts` (lines 187-188). `result.json` mirrors this in `why_this_fits` with `matches existing compliance domain expertise` and `can be sold through warm contacts and referrals` (lines 13-14)."
+    },
+    {
+      "text": "Response includes kill criteria or stop conditions",
+      "passed": false,
+      "evidence": "`report.md` includes a `## Biggest Risks` section (lines 172-180), but it does not give explicit kill criteria or stop conditions such as thresholds for declining clients, signals to abandon the opportunity, or clear go/no-go rules. It only notes general risks and says to `declin[e] messy edge cases early` (line 180), which is not a substantive set of kill criteria. `result.json` likewise lists `primary_risks` (lines 43-48) without stop conditions."
+    },
+    {
+      "text": "Response includes a JSON block with an opportunities array",
+      "passed": false,
+      "evidence": "`result.json` is valid JSON, but its top-level structure is `{\"recommended_opportunity\": {...}}` (lines 1-50). There is no `opportunities` array anywhere in the file, and `report.md` does not include an embedded JSON block."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 4,
+    "total": 7,
+    "pass_rate": 0.42857142857142855
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 9340
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md` states `Completed. Wrote report.md and result.json.` on line 4. Both files are present in `outputs/`, and `result.json` parses successfully as valid JSON."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes a section header named Differentiation Profile` by checking for the underlying content instead of an exact heading string; the current assertion is highly format-sensitive and can fail strong answers that use different section names.",
+      "Strengthen `Response includes a section header named Top Opportunities` or replace it with a content-based check such as `Response compares multiple opportunities before selecting one` if that is the intended behavior.",
+      "Add an assertion for explicit scope boundaries such as `Response distinguishes documentation support from legal advice / outsourced supervision`; this is a core quality dimension visible in the output and more discriminating than a heading check.",
+      "Add an assertion for user-fit reasoning across all stated constraints: limited weekly hours, aversion to content creation, legal conservatism, and AI leverage. The current suite only partially checks this.",
+      "Clarify the JSON requirement. If the eval expects ranked alternatives, keep the `opportunities` array assertion; if it expects a single best recommendation, align the schema assertion with that singular structure instead of requiring an array."
+    ],
+    "overall": "This assertion set mixes meaningful behavioral checks with brittle format requirements. Three assertions discriminate substantive content, while several others overfit to exact headers or a specific JSON schema and can miss answer quality or fail strong but differently formatted responses."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response defines one primary user and one primary workflow in system_objective rather than a broad reporting platform.",
+      "passed": false,
+      "evidence": "`outputs/result.json` is valid JSON but has no `system_objective` object at all; its top-level keys are `task`, `recommended_product`, `primary_problem`, `target_user`, `scope`, `functional_requirements`, `minimal_data_model`, `acceptance_criteria`, `success_metrics`, and `expansion_order_after_v1` (result.json lines 1-63). `outputs/report.md` also names multiple user types under `## V1 Users` (`Solo merchant operator`, `Small ecommerce founder`, `Single in-house marketer`) rather than one explicit primary user, and it describes several jobs-to-be-done instead of one primary workflow (report.md lines 41-52)."
+    },
+    {
+      "text": "Response explicitly rejects at least 3 platform expansions as out of scope.",
+      "passed": true,
+      "evidence": "`outputs/result.json` explicitly places six expansions in `scope.out`: `team collaboration`, `custom dashboards`, `alerts`, `multi-store support`, `advanced permissions`, and `arbitrary report builder` (result.json lines 17-24). `outputs/report.md` reinforces the same boundary in `## Non-Goals For V1`, listing collaboration, custom dashboards, alerts, and multi-store rollups among other rejected expansions (report.md lines 87-97)."
+    },
+    {
+      "text": "Response includes milestones plus a real out_of_scope boundary in JSON.",
+      "passed": false,
+      "evidence": "`outputs/result.json` contains no `milestones` field anywhere, and it does not expose a top-level `out_of_scope` array; instead it uses `scope.out` (result.json lines 6-25). The markdown plan does contain phased milestones under `## Delivery Plan` (report.md lines 194-220), but the assertion requires those boundaries in JSON, so the JSON output does not meet it."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/build-plan-template.json.",
+      "passed": false,
+      "evidence": "`outputs/result.json` parses successfully as JSON, but the provided artifacts do not include `assets/build-plan-template.json` to verify an exact match. On the available evidence, the JSON does not resemble the template-shaped build plans used in this eval family because it lacks required template-style sections such as `system_objective`, `components`, `inputs`, `outputs`, `integrations`, `manual_steps`, `automated_steps`, `milestones`, and `out_of_scope`; its actual top-level keys are different (result.json lines 1-63)."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 3,
+    "total": 4,
+    "pass_rate": 0.25
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 9175
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states `Completed. Wrote report.md and result.json` (transcript.md lines 4-4), and both files exist in `outputs/` with substantive content: `report.md` is 270 lines and `result.json` is 63 lines."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 4 by embedding the required schema fields directly in the assertion or including `assets/build-plan-template.json` with the grading artifacts; as written, exact template matching is not fully verifiable from the provided run files alone.",
+      "Assertion 2 is useful, but it overlaps with assertion 3's out-of-scope requirement; consider making assertion 3 focus only on the presence of `milestones` and exact JSON field names.",
+      "Add an assertion that the JSON keeps the plan narrowly scoped to one merchant, one store, and one fixed workflow, because the markdown does that well and it is central to resisting platform creep but only weakly covered today."
+    ],
+    "overall": "This eval catches the main platform-creep boundary well, but 1 of the 4 assertions depends on an external template that is not bundled with the artifacts, and the current set only partially checks whether the structured JSON expresses a single-user, single-workflow build plan rather than a broader reporting product."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly flags PHI or sensitive healthcare data as blocked or highly conditional.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` explicitly marks PHI and related work data as blocked: lines 46-55 include `Using PHI from work to train, test, prompt, or demonstrate the product` and `Using employer denials data, prior-auth case data ... without explicit rights.` `outputs/result.json` repeats the same in `blocked` entries at lines 24-29."
+    },
+    {
+      "text": "Response proposes a clean-room path that does not rely on workplace PHI or restricted data.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` has a dedicated `# Safer Path` section at lines 60-73 proposing a clean-room version built around `public payer rules, CMS/public guidance, and original workflow assets`, plus `synthetic datasets` and explicitly authorized/de-identified data only. The structured JSON repeats this under `safer_path` in `outputs/result.json` lines 31-37."
+    },
+    {
+      "text": "Response distinguishes data risk from generalized workflow knowledge.",
+      "passed": true,
+      "evidence": "PASS: The response separates acceptable generalized knowledge from prohibited data reuse. `outputs/report.md` lines 19-28 allow `generalized firsthand knowledge ... at a high level` and original assets, while lines 32-36 and 51-53 restrict use of employer documents, internal playbooks, case notes, proprietary rules, and reconstructed confidential know-how. `outputs/result.json` mirrors this distinction in `allowed` lines 10-16, `conditional` lines 17-23, and `blocked` lines 24-29."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with top-level keys `risk_summary`, `risk_categories`, `allowed`, `conditional`, `blocked`, `safer_path`, and `notes` (lines 1-43). `outputs/report.md` also embeds a fenced JSON block under `# Structured Risk Screen` at lines 75-120."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8402
+  },
+  "claims": [
+    {
+      "claim": "The highest-risk elements are PHI use and reuse of employer/work case data.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified internally by the response's own prioritization: `outputs/report.md` lines 46-55 block PHI from work, employer denials data, prior-auth case data, internal templates, and patient records; line 117 explicitly states these are the highest-risk elements. `outputs/result.json` lines 24-29 and 40 repeat the same prioritization."
+    },
+    {
+      "claim": "A clean-room path remains viable if the product is rebuilt around public information and original assets.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by the concrete alternative path provided: `outputs/report.md` lines 62-73 specify a viable safer path using public rules, original workflow assets, synthetic or authorized de-identified data, and human review. The same claim appears in `outputs/result.json` lines 31-37 and note line 41."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON.` to require specific keys such as `allowed`, `conditional`, `blocked`, and `safer_path`; as written, any minimal JSON blob would pass.",
+      "Add an assertion for human-in-the-loop safeguards, since the output repeatedly recommends qualified human review for case-specific or regulated outputs but the eval does not check for it.",
+      "Add an assertion for rights-based sourcing constraints, such as requiring the response to mention lawful access, explicit rights, de-identification, or customer authorization for any real-world data use.",
+      "Add an assertion that distinguishes employer-confidential information risk from HIPAA/regulated-data risk; the current set checks generalized workflow knowledge but does not directly test this separate confidentiality/IP dimension."
+    ],
+    "overall": "This assertion set is reasonably discriminating for the core PHI clean-room behavior, and all four assertions are substantively met in this run. The main gap is specificity: the JSON assertion is relatively easy to satisfy, and the suite does not directly check human-review safeguards or lawful-rights constraints for real-world healthcare data."
+  }
+}

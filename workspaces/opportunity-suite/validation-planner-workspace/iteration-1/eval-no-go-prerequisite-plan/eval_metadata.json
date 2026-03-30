@@ -1,0 +1,11 @@
+{
+  "eval_id": 4,
+  "eval_name": "no-go-prerequisite-plan",
+  "prompt": "Best bet is currently no-go because the user has no edge, no time, and no distribution.",
+  "assertions": [
+    "Response explicitly states that normal demand validation is premature because a prerequisite gap blocks it.",
+    "Response gives a bounded edge-building or constraint-change plan with measurable milestones that would justify re-running validation later.",
+    "Response avoids pretending the current idea is ready for standard validation activity.",
+    "Response includes numeric revisit thresholds and structured JSON."
+  ]
+}

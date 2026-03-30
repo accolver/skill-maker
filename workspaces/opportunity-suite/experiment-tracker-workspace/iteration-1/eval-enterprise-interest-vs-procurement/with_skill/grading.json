@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response distinguishes pain signal from near-term conversion signal.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md` explicitly separates strong pain evidence from conversion evidence. `Signal Quality` notes that repeated interest and a consistent blocker indicate real pain (`report.md:12-16`), while also stating `Interest alone did not convert into a pilot commitment` and `willingness to engage is not yet evidence of near-term adoption` (`report.md:17-18`). The same distinction appears structurally in `outputs/result.json` via `strong_signals` versus `weak_signals` (`result.json:9-17`)."
+    },
+    {
+      "text": "Response chooses a realistic decision state instead of overstating traction.",
+      "passed": true,
+      "evidence": "PASS: The response sets `decision_state` to `narrow` rather than claiming validation, scale, or strong traction (`report.md:24-30`, `report.md:69-71`; `result.json:21-23`). The explanation is substantively cautious: it says the wedge appears valid but the current go-to-market path is too slow because procurement friction blocks validation (`report.md:28-30`). That is a realistic state for strong interest with zero pilot commitments."
+    },
+    {
+      "text": "Response recommends a lower-friction next experiment or narrowed wedge.",
+      "passed": true,
+      "evidence": "PASS: The recommended next step is a lower-friction experiment tailored to the stated blocker. `report.md` proposes `a low-risk offer designed to avoid full enterprise procurement` (`report.md:34-35`) and specifies examples such as `a sandbox, synthetic data workflow, or advisory-style deliverable` (`report.md:38-40`). It also narrows the audience to `5 to 10 of the most interested prospects` and defines a concrete success metric (`report.md:37-44`). `result.json` mirrors this with a narrowed, procurement-light `next_experiment` (`result.json:22-23`)."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with seven top-level keys: `experiments`, `strong_signals`, `weak_signals`, `contradictions`, `decision_state`, `next_experiment`, and `rationale` (`result.json:1-24`). `report.md` also includes the same content inside a fenced JSON block (`report.md:46-73`)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 1,
+    "errors_encountered": [],
+    "output_chars": 4914
+  },
+  "claims": [
+    {
+      "claim": "Strong interest from 20 enterprise conversations is evidence of demand signal, but not evidence of near-term adoption.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by the response content itself: `report.md` identifies repeated strong interest as a strong signal (`report.md:12-16`) while separately stating that lack of pilot commitment means there is `No evidence yet of willingness to adopt on a short timeline` (`report.md:17-18`, `report.md:41-44`). The same distinction is encoded in `result.json` under `strong_signals` and `weak_signals` (`result.json:9-17`)."
+    },
+    {
+      "claim": "The current validation path is blocked by enterprise procurement and security friction.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against the task prompt and outputs. The prompt says no prospect would commit to a pilot because `security review and procurement would take months` (`eval_metadata.json:4`). The outputs restate this consistently in `report.md:14-18`, `report.md:34-40`, and `result.json:5-6`."
+    },
+    {
+      "claim": "A narrower wedge with a low-risk pilot is the appropriate next experiment rather than a full pivot.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by alignment between the chosen `decision_state` and the proposed experiment. The output explicitly selects `narrow` (`report.md:26`, `result.json:21`) and recommends a fixed-scope, procurement-light pilot for already interested prospects (`report.md:34-44`, `result.json:22-23`). This supports the claim that the response is narrowing the wedge instead of proposing a new market or product direction."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON.` to require specific fields such as `decision_state` and `next_experiment`; as written, any non-empty JSON object could pass.",
+      "Add assertion: `Response ties the recommended experiment directly to procurement/security friction` to ensure the recommendation addresses the stated blocker rather than proposing a generic follow-up test.",
+      "Add assertion: `Response defines a concrete success criterion for the next experiment` because the output includes a measurable threshold, but the current eval does not check for experimental rigor."
+    ],
+    "overall": "This eval covers the core judgment well: signal quality, decision-state realism, and recommendation quality. The main gap is that it does not check whether the proposed experiment is measurable and explicitly designed around the procurement constraint."
+  }
+}

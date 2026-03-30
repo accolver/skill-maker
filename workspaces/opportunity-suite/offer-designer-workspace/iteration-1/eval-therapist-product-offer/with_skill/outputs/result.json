@@ -1,0 +1,37 @@
+{
+  "offer_thesis": "Sell a therapist-specific benchmark and template product that helps private-practice therapists create credible, consistent newsletters faster without buying consulting or generic marketing advice.",
+  "icp": {
+    "buyer": "Solo and small-group private-practice therapists",
+    "segment": "Therapists using email newsletters for client education, referral nurturing, and practice visibility",
+    "why_now": "They know newsletters matter but lack clear standards, niche-relevant examples, and efficient templates."
+  },
+  "offer_shape": "Template or benchmark product",
+  "deliverables": [
+    "Therapist newsletter benchmark report",
+    "Annotated swipe file of strong newsletter examples",
+    "Template pack for issues, welcome emails, referral emails, and subject lines",
+    "Short implementation guide with customization guidance"
+  ],
+  "scope_boundaries": [
+    "No custom strategy or newsletter services",
+    "No done-for-you writing, editing, or setup",
+    "No legal, compliance, or clinical advice",
+    "For educational and marketing communication only"
+  ],
+  "pricing_hypothesis": {
+    "model": "One-time purchase",
+    "range_or_price": "$149-$299",
+    "pricing_rationale": "Fits a fixed-scope niche product for solo practitioners while reflecting the value of speed, specificity, and avoided consulting spend."
+  },
+  "rejected_framings": [
+    "Broad consulting offer",
+    "Generic AI newsletter service",
+    "Software-first product",
+    "Clinical or compliance guidance product"
+  ],
+  "open_questions": [
+    "Which therapist sub-niche buys fastest: general private practice, couples, trauma, or child therapists?",
+    "Will buyers value benchmarks more than templates, or the bundle more than either component alone?",
+    "Does adding a light recurring benchmark update create meaningful willingness to pay?"
+  ]
+}

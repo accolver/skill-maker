@@ -1,0 +1,39 @@
+{
+  "validation_thesis": "HVAC missed-call recovery is worth pursuing only if warm-access HVAC owners will commit within 7 days to a paid or clearly scheduled pilot for a narrow concierge service that recovers booked jobs from missed inbound calls.",
+  "key_unknowns": [
+    "Primary: willingness-to-pay risk. Owners may acknowledge missed calls but refuse to commit money or a defined start date.",
+    "Secondary: workflow-repeatability risk. The service may require too much shop-specific customization to be a viable wedge.",
+    "Secondary: urgency risk. Owners may not see missed-call recovery as urgent enough to act this week.",
+    "Secondary: buyer-access risk is relatively low because the user has warm owner access through a family member."
+  ],
+  "motion": "Warm intros plus paid concierge pilot for HVAC owners, using a 14-day missed-call recovery offer and asking for a $250 deposit or a scheduled implementation slot.",
+  "day_by_day_plan": [
+    "Day 1: Source 8-12 warm HVAC owner leads, prepare one-page offer, and define pilot rules.",
+    "Day 2: Reach out to 8-12 owners, book at least 5 qualified conversations, and ask for the pilot on each call.",
+    "Day 3: Complete conversations, refine wording only if objections repeat, and try to close 1-2 pilot commitments.",
+    "Day 4: Send follow-up terms and payment link or invoice, push for deposit or kickoff date, and narrow the wedge if nobody commits.",
+    "Day 5: Onboard committed pilots and capture baseline data, or run 3 more targeted warm intros if no one committed.",
+    "Day 6: Show live evidence for active pilots and make final close attempts with narrowed positioning.",
+    "Day 7: Decide go, revise, or kill from commitment signals and summarize objections plus operational friction."
+  ],
+  "success_criteria": [
+    "Go: at least 5 qualified owner conversations and at least 2 paid pilot deposits, or 1 paid deposit plus 1 signed implementation slot with kickoff scheduled inside 7 days.",
+    "Revise: at least 5 qualified owner conversations and exactly 1 strong commitment, with a repeated objection that indicates a narrower wedge or pricing change.",
+    "At least 3 owners independently describe missed calls as a weekly revenue leak worth fixing now."
+  ],
+  "kill_criteria": [
+    "Fewer than 5 qualified owner conversations from 8-12 warm outreaches.",
+    "Zero owners will pay a deposit or reserve a kickoff slot within 7 days.",
+    "Interested owners require broad custom call-center work beyond the narrow wedge.",
+    "Operational setup is too custom across shops to run even one pilot without heavy manual reinvention."
+  ],
+  "evidence_to_capture": [
+    "Warm intros requested, made, and replied to.",
+    "Qualified owner conversations completed.",
+    "Direct pilot asks made.",
+    "Deposits collected.",
+    "Signed kickoff slots scheduled.",
+    "Common objections around trust, pricing, and workflow fit.",
+    "If a pilot starts: recovered opportunities, booking attempts, completed bookings, and owner time required."
+  ]
+}

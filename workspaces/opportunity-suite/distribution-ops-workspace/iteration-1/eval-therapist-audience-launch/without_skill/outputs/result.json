@@ -1,0 +1,100 @@
+{
+  "product": {
+    "type": "paid benchmark and template pack",
+    "audience": "therapist newsletter audience with existing trust",
+    "promise": "Show therapists how they compare to peers and give them ready-to-use templates to act on the findings."
+  },
+  "primary_channels": [
+    {
+      "name": "owned newsletter launch",
+      "priority": 1,
+      "why": "Existing audience trust makes email the highest-leverage conversion channel.",
+      "tactics": [
+        "3-email launch sequence",
+        "1 deadline email",
+        "benchmark insight teaser",
+        "sample charts and template previews"
+      ]
+    },
+    {
+      "name": "survey-to-sale flywheel",
+      "priority": 2,
+      "why": "Contributors become high-intent buyers and generate the proof used in launch copy.",
+      "tactics": [
+        "pre-launch survey",
+        "contributor discount",
+        "sample-size proof in sales messaging",
+        "follow-up to survey participants"
+      ]
+    },
+    {
+      "name": "soft-sell newsletter content",
+      "priority": 3,
+      "why": "Pre-launch education warms demand without overusing direct sales emails.",
+      "tactics": [
+        "2-4 regular issues tied to benchmark topics",
+        "waitlist CTA",
+        "problem-aware content on pricing, referrals, and admin"
+      ]
+    },
+    {
+      "name": "webinar or live breakdown",
+      "priority": 4,
+      "why": "Live teaching helps convert high-intent readers and surfaces objections.",
+      "tactics": [
+        "20-30 minute teaching session",
+        "Q&A",
+        "replay follow-up",
+        "offer pitch at the end"
+      ]
+    }
+  ],
+  "secondary_channels": [
+    {
+      "name": "partner cross-promotions",
+      "why": "Trusted adjacent creators can extend reach into similar therapist audiences."
+    },
+    {
+      "name": "community distribution",
+      "why": "Useful benchmark insights can travel in therapist groups when framed as value-first content."
+    },
+    {
+      "name": "social proof content",
+      "why": "Short-form insight assets can reinforce launch messaging and drive readers back to email or the sales page."
+    }
+  ],
+  "funnel": [
+    "survey or waitlist opt-in",
+    "insight-based nurture emails",
+    "sales page visit",
+    "webinar or high-intent follow-up",
+    "deadline close"
+  ],
+  "pricing": {
+    "recommended_range_usd": [79, 199],
+    "packaging": [
+      "benchmark report + template pack",
+      "optional higher tier with live walkthrough or office hours"
+    ]
+  },
+  "key_messages": [
+    "How do I compare to similar therapists?",
+    "Get the benchmark plus ready-to-use templates.",
+    "Built for therapists, not generic businesses.",
+    "Save time and make better practice decisions."
+  ],
+  "success_metrics": [
+    "survey completion rate",
+    "waitlist-to-purchase conversion",
+    "revenue per email recipient",
+    "webinar conversion rate",
+    "partner revenue contribution",
+    "refund rate"
+  ],
+  "execution_timeline": {
+    "week_1": "Design survey, define benchmark categories, recruit contributors.",
+    "week_2": "Analyze data, build visuals, draft templates, open waitlist.",
+    "week_3": "Publish warm-up content, finalize sales page, recruit partners, schedule webinar.",
+    "week_4": "Run launch emails, host webinar, send deadline sequence, collect feedback."
+  }
+}

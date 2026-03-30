@@ -1,0 +1,81 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says the current edge is weak, generic, or insufficient for a strong opportunity pick.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:15-18` says the user's unfair advantages are limited and that, relative to a competent developer with ChatGPT, `the edge is weak.` `outputs/result.json:34-37` repeats that the edge is weak versus a generic competent developer."
+    },
+    {
+      "text": "Response treats the requested constraint bundle as unrealistic or binding rather than pretending there is an easy fast-money path.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:114-127` says to `reject the fantasy of a differentiated AI micro-SaaS in 30 days` and explains that no calls/services/content plus only 4 hours per week make piggybacking on existing demand the only plausible route. `outputs/report.md:158-163` further rejects instant `SaaS escape velocity`."
+    },
+    {
+      "text": "The best bet is not an immediate generic AI micro-SaaS or wrapper.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:114-116` recommends a tiny self-serve product for an existing buyer pool and explicitly says to `reject the fantasy of a differentiated AI micro-SaaS in 30 days.` `outputs/report.md:158-160` says not to build a generic AI app or target broad wrapper markets. `outputs/result.json:231-238` sets the best path to `opp_directory_first_hybrid` and says to stop pursuing a generic AI micro-SaaS thesis."
+    },
+    {
+      "text": "Response identifies at least 2 binding constraints that must change or 2 capabilities that must be built first.",
+      "passed": true,
+      "evidence": "PASS: The response identifies multiple binding constraints, including no niche edge (`outputs/report.md:120-121`), refusal of calls/services/content which removes the fastest learning loops (`outputs/report.md:122-123`), and only 4 hours per week (`outputs/report.md:124-125`). It also names capabilities/work that must come first: choosing a buyer group with built-in distribution and finding repeated public workflow complaints before building (`outputs/report.md:131-140`, `167-180`)."
+    },
+    {
+      "text": "Response gives a credible next-step plan for edge-building, market access, or narrowing scope rather than generic hustle advice.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:129-140` gives a specific recommendation sequence: pick a buyer group already paying for small tools, find a repeated workflow from public complaints, build one tiny self-serve product, and sell it in existing channels like app marketplaces or niche directories. `outputs/report.md:165-184` adds a day-by-day 7-day validation plan with concrete actions."
+    },
+    {
+      "text": "Kill criteria or revisit criteria are falsifiable or quantified.",
+      "passed": true,
+      "evidence": "PASS: The report includes quantified and falsifiable thresholds. `outputs/report.md:178-180` says to build only if at least 5 people click through and 2 people leave an email or attempt purchase; otherwise revise once and retest. `outputs/report.md:216-229` gives explicit kill criteria such as no buyer pool with built-in distribution within 3 days, no repeated public pain point, no meaningful landing-page interest, or no payment attempts after two validation cycles."
+    },
+    {
+      "text": "Structured JSON marks feasibility as conditional or no_go, and that matches the prose recommendation.",
+      "passed": false,
+      "evidence": "FAIL: `outputs/result.json` does not contain a `feasibility` field or any equivalent top-level structured status marking the opportunity as `conditional` or `no_go`. The prose clearly recommends against a generic micro-SaaS (`outputs/report.md:114-116`, `158-163`), but the required structured JSON feasibility marker is missing, so the assertion fails."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.8571428571428571
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 19764
+  },
+  "claims": [
+    {
+      "claim": "The user has no meaningful founder edge in a niche.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against the prompt in `eval_metadata.json:4` (`no niche audience, no special domain access, no budget`) and repeated in `outputs/report.md:120-121` plus `outputs/result.json:8-10`, `34-37`."
+    },
+    {
+      "claim": "The user's no-calls, no-services, no-content constraints remove the fastest learning loops.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:122-123` explicitly states this, and the underlying constraints are present in the original prompt (`eval_metadata.json:4`) and structured again in `outputs/result.json:23-30`."
+    },
+    {
+      "claim": "The closest acceptable alternative to a classic service wedge is an async concierge-like setup or manual behind-the-scenes preparation without calls.",
+      "type": "process",
+      "verified": true,
+      "evidence": "This recommendation appears in `outputs/report.md:151-154` as the constrained substitute for a service-first wedge, and it is consistent with the separately listed hybrid option `opp_async_concierge_hybrid` in `outputs/result.json:200-228`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 4. It is slightly ambiguous whether merely naming binding constraints is enough, or whether the response must explicitly say those constraints must change or that specific capabilities must be built first.",
+      "Add an assertion that the final recommendation names a concrete distribution channel with existing demand, since that is central to the skill's no-go logic but only indirectly covered now.",
+      "Add an assertion that the response avoids choosing the service-like async concierge path as the final answer when the user explicitly rejects services, because the output discusses that option even though it does not recommend it as the best bet."
+    ],
+    "overall": "The assertion set is fairly discriminating and caught a real structured-output miss: the prose is aligned with a no-go/conditional stance, but `result.json` omits a required feasibility marker. Coverage is strongest on the recommendation logic and weakest on schema precision beyond that single field and on ambiguity around what counts as sufficiently identifying binding constraints."
+  }
+}

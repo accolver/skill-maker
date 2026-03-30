@@ -1,0 +1,32 @@
+{
+  "verdict": "no-go",
+  "summary": "Best bet is currently no-go because the user has no edge, no time, and no distribution.",
+  "reasons": [
+    "No clear unfair advantage or differentiated insight",
+    "No realistic time capacity for repeated validation loops",
+    "No audience or repeatable distribution channel"
+  ],
+  "core_risk": "Proceeding now is likely to produce weak validation signal and wasted effort due to lack of leverage.",
+  "prerequisites": [
+    {
+      "name": "edge",
+      "description": "Establish a specific advantage such as domain insight, niche access, unique expertise, or differentiated data."
+    },
+    {
+      "name": "time",
+      "description": "Reserve recurring time to run validation, iteration, and follow-up consistently."
+    },
+    {
+      "name": "distribution",
+      "description": "Develop a credible, repeatable path to reach target users."
+    }
+  ],
+  "reconsider_when": "Revisit only after at least two of the three prerequisites are meaningfully in place.",
+  "next_steps": [
+    "Choose one narrow customer segment",
+    "Document actual sources of edge",
+    "Confirm weekly time budget",
+    "Identify reachable channels or audiences",
+    "Resume only when edge and distribution are both credible"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not inflate McKinsey background, smart peers, or broad fintech familiarity into strong usable edge.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:3-14` says the edge is 'weaker than it sounds at first pass' and that these assets 'do not yet constitute a moat.' `outputs/report.md:35-42` explicitly rejects McKinsey brand, smart peers, and fintech reading as substitutes for customer access, distribution, or workflow intimacy. `outputs/result.json:33-37` keeps usable edge limited to analytical training, broad familiarity, and feedback access rather than a strong moat."
+    },
+    {
+      "text": "Response classifies at least part of the impressive-sounding background as fake or overstated edge, weak edge, or a similar category.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:33-42` has a dedicated 'Fake or Overstated Edge' section labeling prestige brand, smart people, and reading about fintech as overstated. `outputs/result.json:42-46` mirrors this structurally under `fake_or_overstated_edge`."
+    },
+    {
+      "text": "Response explicitly notes the absence of customers, audience, or special access as the key commercial weakness.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:6-8` identifies the core weakness as lack of 'owned customer access' and commercializable proprietary insight. `outputs/report.md:44-53` lists 'No current customers,' 'No audience or owned distribution,' and 'No special access...' as weak spots. `outputs/result.json:19-24`, `47-52`, and `60-63` repeat that there are no customers, no audience, and no special access, and explicitly state distribution is currently weak because of that absence."
+    },
+    {
+      "text": "Structured JSON reflects weak or overstated edge rather than inventing a stronger moat.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` consistently encodes a weak-edge profile: `distribution` is empty at `15`, `constraints` include 'No customers', 'No audience', and 'No special access' at `19-24`, `restricted_or_unusable_edge` at `38-41` limits McKinsey/network value, and `fake_or_overstated_edge` at `42-46` rejects prestige/network/reading as moats. The only `unfair_advantages` entry at `29-31` is modest ('Above-average analytical training'), not an invented commercial moat."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 8304
+  },
+  "claims": [
+    {
+      "claim": "The user's current distribution position is weak because they lack customers, audience, and special access.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified against the prompt in `eval_metadata.json:4` and the outputs in `outputs/report.md:44-53` plus `outputs/result.json:19-24`, `47-52`, and `60-63`, which consistently treat these absences as the core commercial weakness."
+    },
+    {
+      "claim": "McKinsey prestige, smart peers, and fintech reading are not durable moats by themselves.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:35-42` and `outputs/result.json:42-46`, which explicitly classify those items as fake or overstated edge rather than durable moat."
+    },
+    {
+      "claim": "Any employer-derived McKinsey insight is restricted unless independently public and reusable.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The output makes this claim in `outputs/report.md:28-31` and `outputs/result.json:38-40`. This is internally consistent and uncontradicted by the available evidence; the claim is a defensible restriction statement rather than an invented asset."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response distinguishes restricted employer-derived knowledge from usable founder edge' because the output makes that distinction, but the eval does not check it.",
+      "Add assertion: 'Response includes concrete follow-up questions to convert weak prestige into a real wedge' because both outputs include substantive follow-up questions that are currently ungraded.",
+      "Add assertion: 'Structured JSON preserves the same judgment as the narrative report' to catch cases where prose is skeptical but JSON silently upgrades the moat."
+    ],
+    "overall": "This assertion set is reasonably discriminating and all four assertions are verifiable from the artifacts, but it is narrow. It checks the central weak-edge judgment well and misses important quality dimensions the output also covers, especially the restricted-vs-usable distinction and the usefulness of the follow-up questions."
+  }
+}

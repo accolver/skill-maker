@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "hvac-operator-workflow",
+  "prompt": "Build spec: HVAC missed-call recovery tool with one input, one operator review step, and one output to the owner. Produce the build plan.",
+  "assertions": [
+    "Response defines a clear trigger, output, and operator or human step.",
+    "Response avoids platform sprawl and keeps the architecture narrow.",
+    "Response includes integrations only if directly needed.",
+    "Response includes structured JSON."
+  ]
+}

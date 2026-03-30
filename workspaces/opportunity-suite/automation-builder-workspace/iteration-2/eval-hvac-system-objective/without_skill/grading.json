@@ -1,0 +1,63 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response defines the exact system objective with a primary user, trigger, output, and human escalation point.",
+      "passed": false,
+      "evidence": "`report.md` defines the trigger and flow (`report.md:5-7`, `report.md:11-13`) and includes a human review step (`report.md:21-25`, `report.md:47-68`), but it never explicitly identifies a single primary user. `result.json` also lacks a `system_objective` object or any explicit `primary_user` field (`result.json:1-64`)."
+    },
+    {
+      "text": "Response includes at least one manual step, one automated step, and keeps integrations limited to directly necessary ones.",
+      "passed": true,
+      "evidence": "The manual step is the operator review (`report.md:21-25`, `report.md:47-68`; `result.json:18-21`). Automated steps include event receipt/validation and owner summary generation (`report.md:17-25`, `report.md:89-92`; `result.json:13-16`, `result.json:23-26`). Integrations stay narrow: phone system/webhook intake, optional CRM context, and owner delivery by email or dashboard (`report.md:17-18`, `report.md:53`, `report.md:72-73`, `report.md:89-92`, `report.md:178-180`)."
+    },
+    {
+      "text": "Response avoids platform sprawl and keeps the architecture wedge-shaped.",
+      "passed": true,
+      "evidence": "The plan is deliberately minimal: one input, one human step, one output (`report.md:11-13`; `result.json:8-10`). The recommended architecture uses only four simple layers (`report.md:87-92`), and the MVP further narrows scope to webhook intake, one internal review screen, SQLite or Postgres, and email or dashboard delivery while explicitly deferring CRM enrichment and advanced scoring (`report.md:176-180`)."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/build-plan-template.json.",
+      "passed": false,
+      "evidence": "`result.json` is valid JSON (`jq empty` succeeded), but it does not match `/home/alan/dev/ai/skills/automation-builder/assets/build-plan-template.json:1-16`. The template requires top-level keys `system_objective`, `components`, `inputs`, `outputs`, `integrations`, `manual_steps`, `automated_steps`, `milestones`, and `out_of_scope`. `result.json` instead uses keys such as `title`, `objective`, `artifacts`, `workflow`, `input_schema`, `operator_actions`, `owner_output_fields`, and `acceptance_criteria` (`result.json:1-64`)."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Transcript limitation: Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 7116
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states this directly (`transcript.md:4`), and both files are present in `outputs/`."
+    },
+    {
+      "claim": "Turn one missed-call event into one operator review step and one owner-facing output.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This appears in `result.json` as the objective (`result.json:3`) and is reinforced by the explicit counts `input_count: 1`, `review_steps: 1`, `output_count: 1` (`result.json:8-10`) plus the scoped workflow in `report.md:11-13`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the first assertion to require explicit structured fields for `primary_user`, `trigger`, `output`, and `human_escalation` rather than allowing implicit prose coverage.",
+      "The third assertion is directionally useful but subjective; add concrete checks for maximum integration count or explicit deferral of non-MVP systems to make it more discriminating.",
+      "Add an assertion for key operational details already present here, such as validation/de-duplication rules or acceptance criteria, because those materially affect build quality but are currently unscored.",
+      "The JSON assertion should name the required top-level keys from the template so failure mode is unambiguous and easier to verify programmatically."
+    ],
+    "overall": "The eval distinguishes template compliance well, but 2 of 4 assertions are still somewhat subjective or under-specified. It covers architectural restraint, yet misses important build-quality details like validation rules, de-duplication, and acceptance criteria that are visible in the outputs."
+  }
+}

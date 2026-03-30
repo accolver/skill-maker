@@ -1,0 +1,72 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response defines a narrow ICP and a clear deliverable or outcome.",
+      "passed": true,
+      "evidence": "`outputs/report.md:14-26` defines a narrow ICP with named buyers and segments ('COO, operations lead, compliance manager, or founder' at 'Small RIAs, broker-dealer-adjacent firms, fund admins, specialty finance shops, or fintech operators with lean teams'). `outputs/report.md:37-53` and `outputs/result.json:9-17` define a concrete outcome and deliverables, including a 'structured evidence package', shared tracker, gap summary, and final readiness packet."
+    },
+    {
+      "text": "Response explicitly rejects legal-advice or outsourced-CCO framing.",
+      "passed": true,
+      "evidence": "`outputs/report.md:55-64` states 'Does not provide legal advice' and 'Does not act as chief compliance officer'. `outputs/report.md:92-100` explicitly lists 'Legal-advice framing' and 'Outsourced CCO/compliance officer service' under rejected framings. The same boundaries appear in `outputs/result.json:18-24` and `outputs/result.json:30-34`."
+    },
+    {
+      "text": "Response gives a pricing hypothesis tied to scope rather than generic consulting pricing.",
+      "passed": true,
+      "evidence": "`outputs/report.md:79-90` gives a fixed-fee sprint range of '$2,500-$6,000' plus add-ons, and ties pricing to 'Volume of evidence categories, number of stakeholders, urgency' and review support scope. `outputs/result.json:25-28` repeats that pricing maps to stakeholders, evidence volume, and urgency rather than generic hourly consulting."
+    },
+    {
+      "text": "Response includes readable offer sections and structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/report.md` is organized into readable sections including 'Offer Thesis', 'ICP', 'Offer Design', 'Pricing Hypothesis', 'Rejected Framings', and 'Structured Offer' (`outputs/report.md:1-150`). The response also includes structured JSON in the fenced block at `outputs/report.md:108-150`, and a standalone valid JSON file at `outputs/result.json:1-42`."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 9663
+  },
+  "claims": [
+    {
+      "claim": "The offer is a narrow compliance evidence concierge for small financial firms focused on one audit, diligence, or review cycle.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Supported by `outputs/report.md:3-8`, `outputs/report.md:37-40`, and `outputs/result.json:2-8`, which consistently define the offer around one evidence-readiness sprint for small financial firms."
+    },
+    {
+      "claim": "The service does not provide legal advice, regulatory interpretation, or outsourced CCO services.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Explicitly stated in `outputs/report.md:55-64` and `outputs/result.json:18-24`, which list those boundaries as out of scope."
+    },
+    {
+      "claim": "The pricing hypothesis is a fixed-fee sprint whose price varies with stakeholder count, evidence volume, urgency, and review support scope.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:81-90` and `outputs/result.json:25-28` both specify a fixed-fee sprint and identify the scope variables that change price."
+    },
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states this at `transcript.md:4`, and both files exist with substantive content in `outputs/report.md` and `outputs/result.json`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the deliverable includes concrete scope boundaries or exclusions, since avoiding regulated-role overreach is central to this eval but only indirectly checked.",
+      "Add an assertion that the ICP or pricing reflects the user's stated constraints ('warm contacts' and 'limited weekly time'), because the output addresses both but the current assertions do not check that fit.",
+      "Strengthen 'includes readable offer sections and structured JSON' by explicitly requiring that the JSON matches the narrative sections semantically; as written, any headed markdown plus any JSON blob could pass."
+    ],
+    "overall": "The current assertions discriminate reasonably well on ICP, positioning, pricing, and formatting, and this run satisfies all of them with substantive evidence. Coverage is still missing for user-constraint fit and explicit scope-boundary quality, both of which are important to this prompt."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly distinguishes audience size from buyer quality, trust, or monetizable distribution.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:10-18` says the user has `strong reach to non-buyers, weak direct reach to business buyers` and that the audience is useful for `data collection`, not enterprise conversion; `outputs/report.md:119-123` adds `Your audience is not a buyer channel` and `Direct B2B software is not credible yet because you do not have buyer trust.` `outputs/result.json:16-21` also separates follower reach from buyer trust."
+    },
+    {
+      "text": "Response does not recommend a durable business solely because follower count is high.",
+      "passed": true,
+      "evidence": "PASS. The recommendation is not `you have 150k followers, therefore build a business`; it repeatedly warns against that logic. `outputs/report.md:119-126` says the audience should be treated as `a data collection and product validation engine`, not a buyer channel, and recommends the hybrid benchmark-to-dataset path because it monetizes with prosumers while building a future asset. `outputs/result.json:173-175` uses the same rationale."
+    },
+    {
+      "text": "If a content-led or audience-led path is recommended, it includes a buyer-segmentation or audience-migration plan rather than assuming current followers are enough.",
+      "passed": true,
+      "evidence": "PASS. The best bet is audience-led, but it includes explicit segmentation and migration. `outputs/report.md:156-159` says to `Pick one audience slice only` and `Do not mix segments yet.` `outputs/report.md:133-148` describes the migration path from participant recruitment to `public benchmark reports` and then to a `buyer-grade team readiness product for L&D, enablement, recruiting, or innovation leaders.` `outputs/result.json:185-203` mirrors this staged path with early participant conversion followed by stronger dataset and buyer-trust signals."
+    },
+    {
+      "text": "Response recommends at least one monetization path beyond course sales or generic sponsorships, and explains why it fits or why it still may not.",
+      "passed": true,
+      "evidence": "PASS. The response recommends multiple non-course, non-sponsorship monetization paths: a `Paid AI workflow benchmark membership` (`outputs/report.md:30-41`), an `AI tool and workflow intelligence subscription` (`outputs/report.md:43-54`), and the best-bet `benchmark lab -> proprietary dataset -> team readiness SaaS` (`outputs/report.md:85-97`, `112-126`). Each includes fit reasoning and caveats, such as weak current buyer trust or limited defensibility. The structured JSON matches these options in `outputs/result.json:40-239`."
+    },
+    {
+      "text": "The validation plan includes numeric targets around segmentation, conversion, or interviews with actual buyers.",
+      "passed": true,
+      "evidence": "PASS. The validation plan has concrete numeric targets tied to conversion and sample size: `outputs/report.md:178-197` sets goals of `200-500 respondents`, `10 users` interviewed, `at least 5-10 paid founding members or 20 deposits`, and `35%+ assessment completion.` It also requires choosing `one audience slice only` in `outputs/report.md:156-159`, which provides segmentation discipline rather than assuming the whole audience is usable."
+    },
+    {
+      "text": "Kill criteria include quantified thresholds.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:234-246` includes quantified kill criteria such as `Fewer than 5 paid users or fewer than 20 deposits`, `less than 25% of signups finish the benchmark`, `first 200-500 responses`, and `After 4-6 weeks`. The best-bet JSON also preserves quantified thresholds in `outputs/result.json:199-204`."
+    },
+    {
+      "text": "Structured JSON matches the prose best bet and feasibility stance.",
+      "passed": true,
+      "evidence": "PASS. The prose best bet is `benchmark lab -> proprietary dataset -> team readiness SaaS` in `outputs/report.md:114-126`. The JSON defines the same opportunity at `outputs/result.json:170-204` and sets `best_bet` to `opp_benchmark_lab_to_saas` at `outputs/result.json:241`. The cautious feasibility stance also aligns: prose says direct B2B is not credible yet and the hybrid path is the bridge (`outputs/report.md:123-126`, `133-148`), while the JSON scores the hybrid path as viable but staged rather than immediate enterprise conversion (`outputs/result.json:176-183`)."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 20389
+  },
+  "claims": [
+    {
+      "claim": "The current audience is strong for participant recruitment but weak for direct business-buyer conversion.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against the prompt and outputs. The prompt says engagement comes mostly from `students, job-seekers, and hobbyists` and that the user `do[es] not have trust with business buyers` (`eval_metadata.json:4`). The response restates this in `outputs/report.md:10-16` and `outputs/result.json:16-21`."
+    },
+    {
+      "claim": "The recommended path uses the audience as a participant and data engine rather than assuming it is already a trusted buyer channel.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by internal consistency across both outputs. `outputs/report.md:119-126` explicitly says the audience is a `data collection and product validation engine` and that this is `the actual edge.` `outputs/result.json:173-175` says the same best-bet path uses the audience `as a participant and data engine instead of pretending it is already a trusted buyer channel.`"
+    },
+    {
+      "claim": "The run produced matching prose and JSON outputs naming the same best bet.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified directly from files. `outputs/report.md:114-126` names the hybrid benchmark-to-dataset-to-SaaS path as the best bet, and `outputs/result.json:241` points to `opp_benchmark_lab_to_saas`, whose definition at `outputs/result.json:170-204` matches the prose. The transcript also says `Completed. Wrote report.md and result.json.` (`transcript.md:5`)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 7. `Structured JSON matches the prose best bet and feasibility stance` is partly subjective; specify which JSON fields must align with which prose claims.",
+      "Add an assertion that the response explicitly rejects a service-led wedge or course-led business when those are excluded by the prompt. The report does this in `outputs/report.md:123-141`, but the current eval does not check it.",
+      "Add an assertion that the audience-migration bridge to business buyers is concrete, for example requiring a staged path through public benchmark reports, buyer conversations, or named buyer roles. Assertion 3 is directionally useful but still broad.",
+      "Add an assertion that quantified kill criteria are preserved in the structured JSON for the recommended path, not just in prose. This run would still pass the current suite even if most structured fields were vague outside the single `best_bet` pointer."
+    ],
+    "overall": "This assertion set discriminates reasonably well for the false-distribution trap itself and all 7 assertions are substantively met in this run. The biggest remaining gap is coverage of the user's hard constraints and the staged bridge from non-buyer audience to credible business buyers; those are central to answer quality but only indirectly tested today."
+  }
+}

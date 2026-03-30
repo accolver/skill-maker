@@ -1,0 +1,33 @@
+{
+  "task": "Evaluate whether the stated background constitutes a real edge for discovering a fintech SaaS opportunity",
+  "summary": "The background is promising but not inherently defensible. Prestige, smart networks, and broad fintech reading are weak edges unless converted into repeated access to specific painful workflows and reachable buyers.",
+  "verdict": "mixed_fake_edge",
+  "confidence": 0.86,
+  "real_assets": [
+    "Strong analytical problem-structuring ability",
+    "Comfort with complex and regulated business domains",
+    "Broad map of fintech market structure and trends",
+    "Access to intelligent contacts for feedback and introductions"
+  ],
+  "fake_edges": [
+    "Prestige brand without customer access",
+    "Smart network without distribution or workflow access",
+    "Reading-intensive domain familiarity without firsthand pain discovery",
+    "Broad desire to build in fintech without a narrow buyer/problem focus"
+  ],
+  "best_fit_problem_areas": [
+    "Compliance operations",
+    "KYB and onboarding workflows",
+    "Reconciliation and exception handling",
+    "Treasury and payments operations",
+    "Finance ops and controls tooling"
+  ],
+  "recommendation": "Use the existing background as a customer-discovery advantage. Focus on interviewing reachable buyers in narrow operational areas and only build after repeated evidence of painful, frequent, budget-owned workflow problems.",
+  "next_steps": [
+    "Choose 2-3 reachable buyer personas",
+    "Run 20-30 workflow-focused interviews",
+    "Identify repeated spreadsheet, exception, and compliance-heavy processes",
+    "Rank opportunities by pain, frequency, buyer clarity, and access",
+    "Build a minimal product only after repeated validation"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says internal templates, pricing logic, or employer customer access cannot be used directly as the business edge.",
+      "passed": true,
+      "evidence": "`outputs/report.md:16-19` states the only publicly defensible advantage is domain fluency and that internal templates, pricing logic, and workflow insights do not count as usable edge unless clearly non-confidential and allowed. `outputs/result.json:30-32` repeats that the usable edge is domain fluency and problem selection, not employer-confidential information."
+    },
+    {
+      "text": "Response does not recommend monetizing employer customers or employer-owned materials as the main wedge.",
+      "passed": true,
+      "evidence": "The recommended best bet is `Public-records procurement benchmark and template library` in `outputs/report.md:99-112`, built from public records and original work. `outputs/report.md:171-173` explicitly bans employer internal templates, pricing logic, customer-specific workflow details, and non-public employer material. `outputs/result.json:175-187` lists direct repackaging of employer materials as a rejected path, and `outputs/result.json:191-193` directs the user to choose an ICP outside employer customer accounts and build from public records only."
+    },
+    {
+      "text": "The best bet is conditional or no_go, or an adjacent clean-room public-market path, not direct insider monetization.",
+      "passed": true,
+      "evidence": "`outputs/report.md:21` gives the prose verdict `conditional`. The best bet in `outputs/report.md:101-112` is an adjacent public-records benchmark/template library, with the recommendation framed around public procurement data rather than insider monetization. `outputs/report.md:124-130` further says compliance is acceptable only if every input is public or freshly created and notes the verdict becomes `no_go` if the employment agreement blocks adjacent products. `outputs/result.json:34` also sets `feasibility_verdict` to `conditional`."
+    },
+    {
+      "text": "Response identifies at least 2 binding constraints.",
+      "passed": true,
+      "evidence": "`outputs/report.md:23-31` provides four explicit binding constraints: no confidential employer information, no solicitation of employer customers, limited time/no consulting, and any offer must be based on public information and original work. `outputs/result.json:35-40` mirrors these constraints in structured form."
+    },
+    {
+      "text": "If an adjacent path is suggested, the response explains the clean-room or public-data route clearly.",
+      "passed": true,
+      "evidence": "The adjacent path is described as using `only public records, original analysis, and fresh templates you create from scratch` in `outputs/report.md:54-60`. The report then specifies allowed inputs (`public RFPs`, `award notices`, `council minutes`, `bid tabs`, `public budgets`, `public audits`, original synthesis) and disallowed inputs (`employer internal templates`, `internal pricing logic`, `customer-specific workflow details`, `non-public employer material`) in `outputs/report.md:166-173`. The same clean-room framing appears in `outputs/result.json:76-80` and `outputs/result.json:103-106`."
+    },
+    {
+      "text": "The 7-day plan focuses on legal boundary clarification, public validation, or edge-building with numeric targets.",
+      "passed": true,
+      "evidence": "`outputs/report.md:134-162` is a numbered 7-day plan with concrete numeric targets: 60 minutes for agreement review, one ICP by Day 1, 25 public records from 5 cities by Day 3, 1 benchmark memo plus 3 original templates by Day 4, 6 conversations by Day 6, 2 pre-sell asks by Day 7, and continuation thresholds of 4 of 6 conversations, 2 sample requests, and 1 paid yes. The structured output also includes matching numeric validation steps in `outputs/result.json:91-107` and next actions in `outputs/result.json:190-195`."
+    },
+    {
+      "text": "Structured JSON feasibility verdict matches the prose recommendation.",
+      "passed": true,
+      "evidence": "`outputs/report.md:21` states `Feasibility verdict: conditional`, and `outputs/result.json:34` sets `feasibility_verdict` to `conditional`. The recommendation also aligns on the same best bet: `outputs/report.md:101` names `Public-records procurement benchmark and template library`, which corresponds to `outputs/result.json:75-109` and `outputs/result.json:189` (`best_bet: opp_public_benchmark_library`)."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment.",
+      "timing.json reports zero tokens and zero duration, so performance metrics are unavailable."
+    ],
+    "output_chars": 18367
+  },
+  "claims": [
+    {
+      "claim": "The best bet is the public-records procurement benchmark and template library.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The prose recommendation in `outputs/report.md:99-112` names this as the best bet, and the structured output points to the same opportunity via `outputs/result.json:189` (`best_bet: opp_public_benchmark_library`) and its matching opportunity block at `outputs/result.json:75-109`."
+    },
+    {
+      "claim": "The side business must be scoped to public information and original work product rather than employer-confidential materials.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This requirement is explicitly stated in `outputs/report.md:30-31`, `outputs/report.md:124-126`, and `outputs/report.md:166-173`. The structured output repeats the same restriction in `outputs/result.json:35-40` and `outputs/result.json:103-106`."
+    },
+    {
+      "claim": "The agent produced both requested files, report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:5` says `Completed. Wrote report.md and result.json.` Both files are present in `with_skill/outputs/` and contain substantive content."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the response includes explicit stop/kill criteria tied to legal or validation failure; the output contains strong kill criteria in `report.md:181-190`, but the eval does not check for them.",
+      "Add an assertion that any adjacent path must enumerate allowed public inputs and disallowed employer-owned inputs; the current clean-room assertion could pass with a vaguer explanation than this run actually provides.",
+      "Strengthen the JSON/prose consistency assertion to also verify that the structured `best_bet` matches the prose best bet, not just the feasibility verdict."
+    ],
+    "overall": "This assertion set is fairly discriminating for employer-conflict handling and all seven assertions substantively pass on this run. Coverage is strongest on legal boundaries and recommendation direction, but it misses explicit checks for kill criteria and for the allowed-vs-disallowed input boundary that makes the clean-room path operational rather than merely conceptual."
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "offer_name": "Missed Call Rescue Desk for HVAC",
+  "category": "AI-assisted missed-call recovery concierge",
+  "audience": {
+    "primary": "Owner-led or dispatcher-led HVAC service businesses",
+    "best_fit": [
+      "3 to 25 technicians",
+      "meaningful inbound call volume",
+      "frequent missed calls during peak or after-hours periods",
+      "wants revenue before buying custom software"
+    ]
+  },
+  "format": "30-day hybrid concierge pilot",
+  "positioning": "A done-for-you, human-backed service that uses AI assistance to recover missed inbound HVAC calls and convert them into booked jobs.",
+  "core_promise": "Respond quickly to missed inbound calls with AI-assisted SMS and callback workflows that recover leads, qualify demand, and push customers toward booking.",
+  "included": [
+    "Missed-call monitoring setup",
+    "Custom HVAC recovery scripts",
+    "AI-assisted SMS follow-up",
+    "Human review and escalation handling",
+    "Callback attempts for urgent or high-intent leads",
+    "Qualification capture",
+    "Booking handoff to existing team",
+    "Weekly performance reporting"
+  ],
+  "pricing": {
+    "setup_fee_usd": {
+      "min": 1000,
+      "max": 2500
+    },
+    "pilot_fee_usd": {
+      "min": 2000,
+      "max": 5000
+    },
+    "simple_flat_fee_example_usd": 3500,
+    "optional_success_fee": true
+  },
+  "risk_reversal": [
+    "Continue at no charge until launch workflow is live if agreed launch window is missed",
+    "Apply part of the pilot fee toward a future month or automation work if participation is strong but no meaningful recovery activity is created"
+  ],
+  "why_this_first": [
+    "Sellable before software exists",
+    "Easy for HVAC owners to understand",
+    "Outcome-driven rather than tool-driven",
+    "Operationally feasible with concierge delivery",
+    "Creates data and workflow insight for future automation"
+  ],
+  "scope_boundaries": [
+    "Missed inbound calls only",
+    "SMS and callback recovery only",
+    "Use existing scheduling workflow where possible",
+    "Avoid deep integrations in version one",
+    "Do not promise fully autonomous booking initially"
+  ],
+  "sales_assets": [
+    "One-page offer summary",
+    "ROI calculator",
+    "30-day pilot statement of work",
+    "Sample weekly report",
+    "Short proof narrative or beta story"
+  ],
+  "expansion_path": [
+    "Monthly recovery retainer",
+    "After-hours booking assistant",
+    "Reactivation campaigns",
+    "AI receptionist",
+    "Deeper CRM and scheduling integrations"
+  ],
+  "recommended_offer": "Sell a 30-day Missed Call Rescue Desk for HVAC pilot: a done-for-you, AI-assisted, human-backed service that rapidly follows up on missed inbound calls, qualifies opportunities, and hands off bookable jobs to the HVAC company's existing team."
+}

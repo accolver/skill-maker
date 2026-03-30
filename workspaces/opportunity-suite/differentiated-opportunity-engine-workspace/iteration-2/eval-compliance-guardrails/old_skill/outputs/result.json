@@ -1,0 +1,213 @@
+{
+  "user_profile": {
+    "skills": [
+      "compliance consulting",
+      "workflow design",
+      "document review",
+      "remediation tracking",
+      "client advisory in small financial firm environments"
+    ],
+    "domain_experience": [
+      "former compliance consultant for small financial firms",
+      "understands recurring compliance operations and exam-readiness workflows"
+    ],
+    "assets": [
+      "practical knowledge of compliance evidence trails",
+      "ability to define safe service boundaries",
+      "AI can accelerate summarization, extraction, and checklist generation"
+    ],
+    "distribution": [
+      "warm outbound",
+      "referrals from existing niche contacts"
+    ],
+    "network_access": [
+      "a few warm contacts in small financial firms"
+    ],
+    "constraints": [
+      "8 to 10 hours per week",
+      "almost no desire to become a content creator",
+      "must stay fully legal"
+    ],
+    "credibility_signals": [
+      "former consultant in a regulated niche",
+      "domain fluency in small-firm compliance realities"
+    ],
+    "unfair_advantages": [
+      "knows where small firms have recurring documentation and evidence gaps",
+      "can distinguish operational support from legal advice",
+      "can sell through trust rather than audience-building"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_exam_readiness_sprint",
+      "title": "Exam-readiness and evidence-pack sprint",
+      "category": "cash_now",
+      "thesis": "Sell a fixed-scope engagement to organize compliance evidence, issue logs, attestations, and remediation tracking before an audit, annual review, or regulator exam.",
+      "why_user_can_win": "The user already understands the real document trail and operational scramble in small financial firms, which reduces discovery, improves trust, and makes AI outputs more useful.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 8,
+        "durability": 4,
+        "distribution_fit": 7,
+        "ai_leverage": 7,
+        "defensibility": 7,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Pitch a fixed-fee sprint to warm contacts",
+        "Test whether evidence organization is urgent enough to buy now",
+        "Deliver first engagement manually with AI-assisted summaries"
+      ],
+      "tool_specs": [
+        "document intake checklist",
+        "issue and remediation tracker",
+        "AI-assisted source document summaries"
+      ],
+      "kill_criteria": [
+        "buyers see it as too one-off to justify payment",
+        "delivery cannot fit weekly time limits"
+      ]
+    },
+    {
+      "id": "opp_compliance_calendar_setup",
+      "title": "Annual compliance calendar and remediation tracker setup",
+      "category": "cash_now",
+      "thesis": "Offer a productized setup service that creates a recurring compliance calendar, owner map, evidence checklist, and remediation tracker in the client's existing tools.",
+      "why_user_can_win": "The user knows the recurring obligations and handoff failures common in small firms, making the setup higher quality than a generic operations consultant could provide.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 8,
+        "durability": 5,
+        "distribution_fit": 7,
+        "ai_leverage": 6,
+        "defensibility": 6,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Show a sample tracker to warm contacts",
+        "Ask whether they would pay for implementation versus building internally",
+        "Test one setup project end to end"
+      ],
+      "tool_specs": [
+        "calendar template",
+        "owner map",
+        "evidence checklist",
+        "follow-up tracker"
+      ],
+      "kill_criteria": [
+        "buyers prefer to keep setup entirely internal",
+        "engagements are too small to justify effort"
+      ]
+    },
+    {
+      "id": "opp_template_library",
+      "title": "Compliance ops template library for small financial firms",
+      "category": "asset_later",
+      "thesis": "Build a paid library of checklists, trackers, evidence-request lists, and annual review workflows tailored to a narrow firm segment.",
+      "why_user_can_win": "The templates would reflect actual consulting experience and be more practical than generic compliance downloads.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 3,
+        "durability": 7,
+        "distribution_fit": 4,
+        "ai_leverage": 5,
+        "defensibility": 5,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Test demand by offering templates as part of a paid service",
+        "See which artifacts clients reuse or ask for repeatedly",
+        "Only package after repeated paid usage"
+      ],
+      "tool_specs": [
+        "template repository",
+        "update log",
+        "segment-specific versions"
+      ],
+      "kill_criteria": [
+        "clients do not value templates separate from implementation",
+        "distribution remains too weak without content"
+      ]
+    },
+    {
+      "id": "opp_evidence_concierge_hybrid",
+      "title": "Compliance evidence concierge to AI-assisted workflow tool",
+      "category": "hybrid",
+      "thesis": "Start with a recurring service that helps firms collect, normalize, summarize, and track compliance evidence and follow-ups, then productize the repeated workflow into a lightweight tool.",
+      "why_user_can_win": "The user's edge is knowing the repeated operational pain behind proving compliance, plus having enough niche trust to land early pilots without building an audience.",
+      "scores": {
+        "edge_fit": 10,
+        "speed_to_revenue": 8,
+        "durability": 8,
+        "distribution_fit": 7,
+        "ai_leverage": 8,
+        "defensibility": 8,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Write a tightly scoped offer focused on operations support, not legal advice",
+        "Interview 5 warm contacts and test willingness to pay for a pilot",
+        "Run one manual pilot using AI for summarization and evidence-gap extraction",
+        "Identify repeated tasks worth automating"
+      ],
+      "tool_specs": [
+        "intake form for firm profile and obligations",
+        "document intake structure",
+        "AI-assisted extraction of owners, dates, obligations, and evidence gaps",
+        "master compliance task and remediation tracker",
+        "monthly review dashboard",
+        "human review layer before client delivery"
+      ],
+      "kill_criteria": [
+        "no paid pilot within 30 days",
+        "buyers expect outsourced compliance accountability or legal interpretation",
+        "workflow cannot be standardized across similar firms",
+        "delivery exceeds weekly time limits"
+      ]
+    },
+    {
+      "id": "opp_reg_change_briefing",
+      "title": "Regulatory change triage briefing service to subscription dashboard",
+      "category": "hybrid",
+      "thesis": "Provide small firms with practical change summaries and implementation checklists for selected regulatory updates, then convert those briefs into a subscription product.",
+      "why_user_can_win": "The user can filter important changes for small firms better than a generic AI assistant, but the offer risks drifting into legal interpretation.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 6,
+        "durability": 8,
+        "distribution_fit": 6,
+        "ai_leverage": 8,
+        "defensibility": 6,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 5
+      },
+      "validation_plan": [
+        "Test whether buyers want summaries or only actionable operational support",
+        "Use narrow topic pilots with strong disclaimers",
+        "Watch closely for pressure to provide legal conclusions"
+      ],
+      "tool_specs": [
+        "change log",
+        "summary workflow",
+        "implementation checklist generator"
+      ],
+      "kill_criteria": [
+        "buyers treat the product as legal advice",
+        "legal guardrails make the offer too narrow to pay for"
+      ]
+    }
+  ],
+  "best_bet": "opp_evidence_concierge_hybrid",
+  "next_actions": [
+    "Define one-page offer with explicit scope and exclusions",
+    "Target one narrow firm segment first, such as small RIAs",
+    "Create sample evidence checklist, remediation tracker, and monthly compliance calendar",
+    "Contact 5 warm contacts for feedback calls",
+    "Ask one qualified contact to pilot a fixed-fee setup plus optional retainer"
+  ]
+}

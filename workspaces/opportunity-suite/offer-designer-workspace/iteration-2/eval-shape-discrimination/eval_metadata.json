@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "shape-discrimination",
+  "prompt": "Chosen direction: founder has warm access to boutique recruiters and could sell either a hiring-process audit or a done-with-you outreach sprint. Delivery time is limited and they want the fastest path to paid validation. Design the offer.",
+  "assertions": [
+    "Response chooses exactly one primary offer shape and explains why it beats the closest alternative for speed to sale, delivery burden, or buyer trust.",
+    "Response defines one sharply bounded wedge: one buyer, one painful job, one first deliverable or outcome, and one explicit scope boundary that excludes adjacent work.",
+    "Response includes valid JSON matching assets/offer-template.json with non-empty values for offer_thesis, icp.buyer, icp.segment, icp.why_now, offer_shape, at least 3 deliverables, at least 3 scope_boundaries, pricing_hypothesis.model, pricing_hypothesis.range_or_price, pricing_hypothesis.pricing_rationale, at least 2 rejected_framings, and at least 2 open_questions.",
+    "Response rejects at least two weaker framings, including the closest alternative offer shape."
+  ]
+}

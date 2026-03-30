@@ -1,0 +1,15 @@
+{
+  "experiments": [
+    "Sent a newsletter promoting the offer at the stated price and measured clicks, praise, and preorders. Outcome: 800 clicks, lots of praise, zero preorders."
+  ],
+  "strong_signals": [],
+  "weak_signals": [
+    "Lots of praise indicates interest or encouragement, but not committed demand."
+  ],
+  "contradictions": [
+    "High click volume and positive feedback did not translate into any preorders at the stated price."
+  ],
+  "decision_state": "pivot",
+  "next_experiment": "Run a price-sensitivity preorder test with the same audience and offer, using 2 to 3 pricing points or a lower-entry paid version to isolate whether price is blocking conversion.",
+  "rationale": "Clicks and praise are lower-signal than paid commitment. Zero preorders is the clearest evidence and suggests the current offer-price combination is not working. The next best experiment is to isolate pricing before investing further in the same path."
+}

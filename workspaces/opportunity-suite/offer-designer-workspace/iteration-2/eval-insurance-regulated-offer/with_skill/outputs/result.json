@@ -1,0 +1,42 @@
+{
+  "offer_thesis": "Sell a narrow concierge service that turns solo insurance agents' rough call notes or transcripts into a review-ready follow-up prep packet, helping them move faster on warm leads without crossing into licensed advice.",
+  "icp": {
+    "buyer": "Solo independent insurance agents",
+    "segment": "Agents managing their own follow-up for warm referrals, repeat clients, or inbound conversations and still handling notes manually",
+    "why_now": "They already feel the pain of delayed follow-up, messy notes, and forgotten next steps, and this workflow can be improved without touching regulated recommendation-making."
+  },
+  "offer_shape": "Concierge hybrid that can later productize",
+  "deliverables": [
+    "Follow-Up Prep Packet for each submitted conversation",
+    "Clean internal call summary",
+    "Missing-information checklist for the agent to verify",
+    "Follow-up question list for the next contact",
+    "Draft CRM note or activity log entry",
+    "Draft recap email for the agent to review and send"
+  ],
+  "scope_boundaries": [
+    "No policy, coverage, carrier, or plan recommendations",
+    "No final client advice or best-option framing",
+    "No replacement for licensed or compliance review",
+    "No direct prospect communication on the agent's behalf",
+    "No custom software or integrations in the initial offer",
+    "Outputs are generated only from agent-provided notes, transcripts, and preferences"
+  ],
+  "pricing_hypothesis": {
+    "model": "Monthly fixed-fee concierge service",
+    "range_or_price": "$500-$900 per month for up to 10 prep packets",
+    "pricing_rationale": "This price matches a narrow but valuable admin workflow: it saves follow-up time and improves consistency, while staying below broader consulting or automation projects because the scope is intentionally constrained."
+  },
+  "rejected_framings": [
+    "Broad AI consulting for insurance agencies",
+    "AI that recommends coverage or advises clients directly",
+    "Software-first note assistant before workflow demand is proven",
+    "Generic AI setup services for local businesses"
+  ],
+  "open_questions": [
+    "Which insurance segment is easiest to access first: life, health, P&C, or Medicare-adjacent support workflows?",
+    "Will buyers prefer per-packet pricing or a monthly retainer once initial conversations happen?",
+    "What exact language do agents and compliance stakeholders consider safe for recap emails and internal summaries?",
+    "How many packets can be delivered reliably within a 5-hour weekly capacity while maintaining quality?"
+  ]
+}

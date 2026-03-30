@@ -1,0 +1,243 @@
+{
+  "user_profile": {
+    "skills": [
+      "compliance consulting",
+      "regulatory workflow design",
+      "documentation and exam preparation",
+      "process standardization"
+    ],
+    "domain_experience": [
+      "former compliance consultant for small financial firms",
+      "understands recurring compliance operations and documentation burdens"
+    ],
+    "assets": [
+      "practical knowledge of regulated small-firm workflows",
+      "ability to translate compliance pain into standardized services"
+    ],
+    "distribution": [
+      "warm outreach",
+      "referrals from existing niche relationships"
+    ],
+    "network_access": [
+      "a few warm contacts in small financial firms"
+    ],
+    "constraints": [
+      "8 to 10 hours per week",
+      "minimal interest in content creation",
+      "must stay fully legal and avoid gray-area tactics"
+    ],
+    "credibility_signals": [
+      "prior paid work in a trust-sensitive regulated niche"
+    ],
+    "unfair_advantages": [
+      "domain fluency stronger than a generic AI operator",
+      "trusted buyer language and workflow understanding",
+      "warm access reduces early sales friction"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_compliance_ops_retainer",
+      "title": "AI-assisted compliance operations retainer for small financial firms",
+      "category": "cash_now",
+      "thesis": "Offer a tightly scoped monthly service for recurring compliance operations, using AI to accelerate drafting, summarization, evidence organization, and status reporting while keeping human review in the loop.",
+      "why_user_can_win": "The user has real compliance workflow knowledge, trust-sensitive domain credibility, and warm contact access that a generic AI builder lacks.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 9,
+        "durability": 6,
+        "distribution_fit": 8,
+        "ai_leverage": 8,
+        "defensibility": 7,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Draft a one-page offer with scope and exclusions",
+        "Run 3 to 5 warm discovery conversations",
+        "Pitch a fixed-scope paid pilot or diagnostic"
+      ],
+      "tool_specs": [
+        "intake form",
+        "task tracker",
+        "document checklist",
+        "AI prompt library for summaries and remediation notes"
+      ],
+      "kill_criteria": [
+        "No paid pilot within 14 days",
+        "Target buyers view the work as legal advice rather than ops support"
+      ]
+    },
+    {
+      "id": "opp_mock_audit_sprint",
+      "title": "Mock audit and remediation sprint",
+      "category": "cash_now",
+      "thesis": "Sell a fixed-fee compliance readiness review that produces a prioritized remediation plan and document-gap analysis.",
+      "why_user_can_win": "The user can diagnose real compliance readiness issues faster and more credibly than a generic consultant or AI generalist.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 8,
+        "durability": 4,
+        "distribution_fit": 8,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Package a fixed-scope readiness sprint",
+        "Ask warm contacts whether they would buy a one-time review",
+        "Use interviews to identify the most common remediation outputs"
+      ],
+      "tool_specs": [
+        "document intake checklist",
+        "gap-analysis template",
+        "AI-assisted summary workflow"
+      ],
+      "kill_criteria": [
+        "Buyers want implementation help only, not diagnostics",
+        "Scope expands beyond a fixed-fee sprint"
+      ]
+    },
+    {
+      "id": "opp_evidence_tracker",
+      "title": "Compliance evidence and task tracker for small firms",
+      "category": "asset_later",
+      "thesis": "Build a narrow evidence-tracking and recurring-task product designed around small-firm compliance operations.",
+      "why_user_can_win": "The user understands the recurring obligations and audit-trail requirements that off-the-shelf productivity tools ignore.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 3,
+        "durability": 8,
+        "distribution_fit": 6,
+        "ai_leverage": 6,
+        "defensibility": 7,
+        "execution_difficulty": 7,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Manually deliver the workflow for 2 paying clients first",
+        "Track repeated tasks, fields, and reports before coding",
+        "Only build once repeated demand is visible"
+      ],
+      "tool_specs": [
+        "obligations registry",
+        "recurring task engine",
+        "evidence attachment workflow",
+        "status report generator"
+      ],
+      "kill_criteria": [
+        "No repeated workflow across initial service clients",
+        "Buyers prefer services over software with no urgency to switch"
+      ]
+    },
+    {
+      "id": "opp_template_library",
+      "title": "Policy and procedure template library with update notes",
+      "category": "asset_later",
+      "thesis": "Sell a curated library of templates, checklists, and update notes tailored to small financial firms.",
+      "why_user_can_win": "The user has more domain credibility than generic template sellers and can make the material operationally useful.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 4,
+        "durability": 7,
+        "distribution_fit": 6,
+        "ai_leverage": 6,
+        "defensibility": 5,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 5
+      },
+      "validation_plan": [
+        "Ask interviewees which artifacts they repeatedly need",
+        "Pre-sell a small starter pack before creating a large library",
+        "Keep disclaimers explicit and avoid legal-positioning claims"
+      ],
+      "tool_specs": [
+        "template repository",
+        "change log",
+        "delivery/download workflow"
+      ],
+      "kill_criteria": [
+        "Weak willingness to pay",
+        "Buyers want customization that turns the product into consulting"
+      ]
+    },
+    {
+      "id": "opp_compliance_os_hybrid",
+      "title": "Compliance operating system: retainer service to internal automation to lightweight client portal",
+      "category": "hybrid",
+      "thesis": "Start with a productized compliance operations retainer, convert repeated delivery into an internal automation stack, then expose the stable pieces through a lightweight client portal or micro-SaaS.",
+      "why_user_can_win": "This path compounds the user's consulting background, niche trust, and workflow knowledge into a repeatable asset that generic AI operators cannot copy quickly.",
+      "scores": {
+        "edge_fit": 10,
+        "speed_to_revenue": 8,
+        "durability": 9,
+        "distribution_fit": 8,
+        "ai_leverage": 8,
+        "defensibility": 8,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Get 5 to 10 warm conversations",
+        "Sell 1 paid pilot for a monthly ops-support offer",
+        "Document repeated tasks and outputs during delivery",
+        "Promote only repeated internal workflows into software"
+      ],
+      "tool_specs": [
+        "client intake form",
+        "obligations registry",
+        "recurring compliance calendar",
+        "evidence checklist",
+        "AI prompt library",
+        "monthly status report generator",
+        "later: lightweight client portal"
+      ],
+      "kill_criteria": [
+        "Fewer than 3 of first 10 contacts confirm strong pain",
+        "No paid pilot or diagnostic sale within 14 days",
+        "Work requires unauthorized legal positioning or excessive liability",
+        "No repeated workflow appears across initial clients"
+      ]
+    },
+    {
+      "id": "opp_exam_prep_benchmark",
+      "title": "Exam-prep concierge to benchmark data to subscription dashboard",
+      "category": "hybrid",
+      "thesis": "Begin with paid exam-readiness support and aggregate anonymized issue patterns into a benchmark product later.",
+      "why_user_can_win": "The user understands buyer anxiety and can structure the work into repeatable issue categories and prep assets.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 7,
+        "durability": 8,
+        "distribution_fit": 7,
+        "ai_leverage": 7,
+        "defensibility": 8,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 5
+      },
+      "validation_plan": [
+        "Sell exam-prep support first",
+        "Capture recurring issue categories across engagements",
+        "Test whether benchmark insights change buying behavior"
+      ],
+      "tool_specs": [
+        "issue taxonomy",
+        "prep packet generator",
+        "anonymized benchmark dataset",
+        "later: dashboard"
+      ],
+      "kill_criteria": [
+        "Data is too sparse to produce meaningful benchmarks",
+        "Confidentiality constraints block useful aggregation"
+      ]
+    }
+  ],
+  "best_bet": "opp_compliance_os_hybrid",
+  "next_actions": [
+    "Draft a one-page Compliance Ops Support offer with explicit exclusions and review requirements",
+    "Contact 5 warm leads for 20-minute problem interviews",
+    "Turn the top pain point into a fixed-scope paid pilot",
+    "Build only the internal operator workflow first, not public SaaS"
+  ]
+}

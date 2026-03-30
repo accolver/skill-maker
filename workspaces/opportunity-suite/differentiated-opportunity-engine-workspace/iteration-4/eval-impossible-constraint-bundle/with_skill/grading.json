@@ -1,0 +1,82 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says the 30-day $3000 MRR goal is not credible under the current constraints.",
+      "passed": true,
+      "evidence": "`outputs/report.md:20-22` says, \"This is an impossible constraint bundle\" and `outputs/report.md:191-192` says, \"Under the current constraints, the user should not expect `$3000 MRR` from an AI micro-SaaS in 30 days.\" `outputs/result.json:28` sets `feasibility_verdict` to `\"no_go\"`, and `outputs/result.json:167` says, \"Do not expect $3000 MRR in 30 days under the current constraint bundle.\""
+    },
+    {
+      "text": "Response identifies at least 3 binding constraints.",
+      "passed": true,
+      "evidence": "`outputs/report.md:24-32` lists 9 explicit constraints including no audience, no budget, no sales calls, and only 2 hours/week. `outputs/result.json:29-36` also provides 6 `binding_constraints`, exceeding the minimum of 3."
+    },
+    {
+      "text": "Best bet is to change constraints, build edge, or stop chasing this goal for now, not to build a product immediately.",
+      "passed": true,
+      "evidence": "`outputs/report.md:89` names the best bet as `No-go for now with a 30-day edge-building plan`. `outputs/report.md:102-114` says the user must change at least one constraint and concludes, \"do not try to build an AI micro-SaaS right now.\" `outputs/report.md:151` further limits action to \"nothing bigger than a fake-door test plus one tiny prototype.\" `outputs/result.json:108-110` and `161-167` match that recommendation."
+    },
+    {
+      "text": "Response does not present any current opportunity as realistic near-term income under the stated constraints.",
+      "passed": true,
+      "evidence": "Every proposed opportunity is either conditional on changing constraints or explicitly framed as not credible under current conditions. `outputs/report.md:45-50` says the cash-now option would require relaxing `no services` and `no sales calls`. `outputs/report.md:64-66` says the software-only option is \"not a credible path to `$3000 MRR` in 30 days\". `outputs/report.md:113-114` says if constraints do not change, \"do not try to build an AI micro-SaaS right now.\" `outputs/result.json:42`, `76`, and `110` carry the same substance."
+    },
+    {
+      "text": "Response gives a concrete edge-building or constraint-change plan with numeric targets or milestones.",
+      "passed": true,
+      "evidence": "`outputs/report.md:106-111` gives concrete constraint changes with numeric targets like increasing time to `5-7 hours/week` and lowering the goal to `first $100-$300 revenue in 30-60 days`. `outputs/report.md:121-140` gives a numeric validation plan: `3` niches, `20` complaints per niche, `60` total pain signals, `20-30` competitors, and `25` visits plus `3` email signups in `7` days. `outputs/result.json:123-129` mirrors these milestones."
+    },
+    {
+      "text": "Kill or revisit criteria are quantified.",
+      "passed": true,
+      "evidence": "`outputs/report.md:169-178` provides quantified stop conditions: fewer than `60` pain signals by day 7, no problem appearing at least `8` times, fewer than `25` qualified visits or fewer than `3` signups in `7` days, and failure to maintain `2 focused hours` weekly for `4` straight weeks. `outputs/result.json:138-143` repeats most of those thresholds."
+    },
+    {
+      "text": "Structured JSON feasibility verdict is no_go and matches the prose recommendation.",
+      "passed": true,
+      "evidence": "`outputs/result.json:28` sets `\"feasibility_verdict\": \"no_go\"`. That matches the prose in `outputs/report.md:16-20` (`Feasibility Verdict` = `no_go`) and the bottom-line recommendation in `outputs/report.md:191-202`, which says not to expect the goal under the current constraints and to do nothing if no constraint changes."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 15338
+  },
+  "claims": [
+    {
+      "claim": "The JSON was also validated successfully.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript at `transcript.md:5-6` claims the JSON was validated successfully. `outputs/result.json` is valid parseable JSON with consistent structure and no syntax errors, which supports that claim."
+    },
+    {
+      "claim": "There is no credible route to enough buyer conversations, product iteration, distribution, or conversion volume under the current constraints.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`outputs/report.md:20-36` justifies this with a concrete bundle of disqualifying constraints, and the rest of the report consistently treats every plausible path as conditional on relaxing constraints. No output provides a contradictory realistic near-term path under the stated constraints."
+    },
+    {
+      "claim": "A tiny marketplace utility is not a credible path to $3000 MRR in 30 days under these constraints.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`outputs/report.md:64-66` and `outputs/result.json:76-78` explicitly state this and support it with lack of niche wedge, buyer insight, time, and distribution. The output offers this only as the least-bad software path, not as a realistic near-term income plan."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion checking that at least one proposed alternative is explicitly marked as conditional on changing constraints, since that is central to this eval's intent.",
+      "Add an assertion that the response includes a quantified validation plan or fake-door test before building, because the current assertions do not directly check the anti-build-first discipline shown in the output.",
+      "Strengthen `Kill or revisit criteria are quantified.` to require at least two numeric thresholds tied to specific timelines or funnel metrics, so it discriminates more sharply.",
+      "Add an assertion that the response rejects generic micro-SaaS or wrapper ideas with reasons, since that is an important visible behavior in both outputs but currently ungraded."
+    ],
+    "overall": "The assertion set is solid and discriminating for the core no-go recommendation. It covers credibility, binding constraints, recommendation direction, quantified planning, and JSON/prose consistency well, but it misses some important observable behaviors such as explicit rejection of build-first tactics and conditional framing of fallback opportunities."
+  }
+}

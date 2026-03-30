@@ -1,0 +1,156 @@
+{
+  "user_profile": {
+    "skills": [
+      "junior full-stack development",
+      "basic web app implementation",
+      "API integration",
+      "AI-assisted coding"
+    ],
+    "domain_experience": [
+      "none specified"
+    ],
+    "assets": [
+      "ability to build simple software without cash outlay"
+    ],
+    "distribution": [
+      "no audience",
+      "no owned channel",
+      "must rely on marketplace or search distribution"
+    ],
+    "network_access": [
+      "no special domain access",
+      "no warm buyer network stated"
+    ],
+    "constraints": [
+      "no budget",
+      "2 hours per week",
+      "target of $3000 MRR in 30 days",
+      "no sales calls",
+      "no services",
+      "no content creation",
+      "no cold outreach"
+    ],
+    "credibility_signals": [
+      "can ship software",
+      "no niche reputation stated"
+    ],
+    "unfair_advantages": [
+      "very limited founder edge",
+      "can prototype cheaply with AI tools"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_marketplace_microtool",
+      "title": "Review-mined marketplace micro-tool",
+      "category": "hybrid",
+      "thesis": "Mine reviews in an existing marketplace for repeated pain, then ship the narrowest self-serve fix so buyer intent comes from the platform rather than from outbound sales.",
+      "why_user_can_win": "This partially offsets the lack of audience and sales willingness by borrowing distribution from a marketplace. The user's coding ability is enough for a narrow wedge, but the edge remains weak.",
+      "scores": {
+        "edge_fit": 3,
+        "speed_to_revenue": 4,
+        "durability": 6,
+        "distribution_fit": 4,
+        "ai_leverage": 7,
+        "defensibility": 3,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Choose one marketplace with built-in search intent",
+        "Collect and cluster 30-100 negative reviews from competing tools",
+        "Pick a pain point repeated at least five times",
+        "Publish a one-sentence landing page and draft listing",
+        "Proceed only if there is evidence of discoverability or prepay interest"
+      ],
+      "tool_specs": [
+        "one landing page",
+        "one narrow task flow",
+        "Stripe or marketplace billing",
+        "Supabase or Firebase auth/data",
+        "basic conversion analytics"
+      ],
+      "kill_criteria": [
+        "no repeated review complaint with clear buying intent",
+        "MVP requires more than 6-10 build hours",
+        "tool requires active outreach to get first users",
+        "no installs, waitlist signups, or prepays after listing goes live"
+      ]
+    },
+    {
+      "id": "opp_async_b2b_utility",
+      "title": "Tiny async B2B utility with self-serve checkout",
+      "category": "asset_later",
+      "thesis": "Build a single-purpose AI utility for one repetitive office task and try to sell it directly at a low monthly price without onboarding calls.",
+      "why_user_can_win": "The user can build the product cheaply, but has no distribution, niche access, or domain authority, so the path is weak.",
+      "scores": {
+        "edge_fit": 2,
+        "speed_to_revenue": 3,
+        "durability": 5,
+        "distribution_fit": 2,
+        "ai_leverage": 7,
+        "defensibility": 2,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "define one repetitive workflow",
+        "publish a landing page",
+        "test price sensitivity with self-serve checkout",
+        "abandon if no traffic source exists"
+      ],
+      "tool_specs": [
+        "single input-output workflow",
+        "simple auth",
+        "simple billing",
+        "minimal hosting"
+      ],
+      "kill_criteria": [
+        "no credible acquisition path without outreach or content",
+        "feature set grows beyond one simple job",
+        "value proposition sounds generic"
+      ]
+    },
+    {
+      "id": "opp_content_led_tool",
+      "title": "Programmatic SEO or content-led AI tool",
+      "category": "cash_now",
+      "thesis": "Use content to attract users into a narrow AI product.",
+      "why_user_can_win": "The user cannot win here because the model depends on a behavior they explicitly refuse to do.",
+      "scores": {
+        "edge_fit": 1,
+        "speed_to_revenue": 1,
+        "durability": 4,
+        "distribution_fit": 1,
+        "ai_leverage": 5,
+        "defensibility": 1,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 1
+      },
+      "validation_plan": [
+        "discard due to constraint mismatch"
+      ],
+      "tool_specs": [
+        "not recommended"
+      ],
+      "kill_criteria": [
+        "user still refuses content creation"
+      ]
+    }
+  ],
+  "best_bet": "opp_marketplace_microtool",
+  "next_actions": [
+    "Reset the month-one target from $3000 MRR to proof of demand",
+    "Choose one marketplace: Chrome, Shopify, or Google Workspace",
+    "Mine 50-100 competitor reviews for repeated complaints",
+    "Select one wedge that fits a 6-10 hour MVP",
+    "Publish a landing page and listing draft before building the full product",
+    "Kill the idea fast if there is no discoverability or prepay signal"
+  ],
+  "feasibility_assessment": {
+    "requested_goal": "$3000 MRR from an AI micro-SaaS in 30 days",
+    "assessment": "not realistic under the stated constraints",
+    "reason": "The user lacks founder edge, distribution, time, and allowed acquisition channels. Generic AI micro-SaaS ideas are easy to copy, and the constraints remove the usual paths to fast validation and revenue.",
+    "revised_goal": "3-10 paying users or one credible acquisition channel within 30 days"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response chooses warm intros or direct owner network as the primary channel.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:28-31` explicitly labels `Primary Channel: Warm Family Intro` and says it is `the highest-leverage path`; `outputs/result.json:4-8` sets `primary_channel.name` to `warm family introductions` with priority `1`."
+    },
+    {
+      "text": "Response avoids defaulting to generic content or SEO as the main channel.",
+      "passed": true,
+      "evidence": "PASS: The outputs center the plan on warm family introductions and owner follow-up rather than content/SEO. `outputs/report.md:185-189` says `Start only with warm intros, not cold outbound`, and `outputs/result.json:29-69` defines the channel plan around intros, direct text, discovery calls, pilot recap, and referral expansion. SEO appears only as existing prospect spend in `outputs/report.md:23-24`, not as the proposed channel."
+    },
+    {
+      "text": "Response includes metrics and kill criteria.",
+      "passed": false,
+      "evidence": "FAIL: The outputs include metrics, such as `Intro acceptance rate`, `Discovery-call booking rate`, and `Pilot conversion rate` in `outputs/report.md:177-183` and `outputs/result.json:80-86`, but they do not provide any kill criteria, stop conditions, thresholds, or rules for abandoning the channel or pilot."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid JSON and parses successfully, with 10 top-level keys. The file has clear structure including `primary_channel`, `target_prospect`, `channel_plan`, `recommended_sequence`, and `metrics` at `outputs/result.json:1-97`."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 9766
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:4-6` states the run completed and wrote both files. The files exist in `outputs/` and were readable at `outputs/report.md` and `outputs/result.json`."
+    },
+    {
+      "claim": "The run produced `report.md` and `result.json` as written files.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`outputs/result.json:93-96` lists both output paths under `written_files`, and the `outputs/` directory contains exactly `report.md` and `result.json`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Split `Response includes metrics and kill criteria.` into two assertions so the eval distinguishes missing metrics from missing stop conditions.",
+      "Strengthen `Response includes structured JSON.` to require key fields such as `primary_channel`, `channel_plan`, and `metrics`; otherwise the assertion is only partially discriminating.",
+      "Add an assertion for concrete warm-intro execution assets, such as an intro script or follow-up sequence, because those are central to the requested channel plan and visible in the outputs."
+    ],
+    "overall": "The assertion set checks the main strategic choice reasonably well, but it under-specifies execution quality. One assertion bundles two distinct requirements, and the suite does not check for concrete outreach assets or pilot decision rules."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explains why HVAC workflow knowledge is usable edge and does not upgrade it into distribution on its own.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 6-13 states the strongest evidence is `8 years in HVAC distribution operations` plus the ability to `build software and automations`, then explicitly says the user does not control an audience or repeatable acquisition channel and that the brother's access `is not durable distribution by itself`. This is reinforced in `outputs/report.md` lines 38-41 and `outputs/result.json` lines 35-47, which separate operational familiarity from distribution claims."
+    },
+    {
+      "text": "Response classifies the brother's introductions as limited warm access or network access rather than durable owned distribution.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 10-13 says access to owners comes through the brother's relationships and is `useful for discovery and early sales conversations but is not durable distribution by itself`. `outputs/report.md` lines 22-23 labels this as a `Warm path to conversations`, while lines 31-32 say those relationships `should not be treated as fully owned distribution`. In `outputs/result.json`, `user_profile.network_access` at lines 17-19 contains `warm introductions... through brother`, while `distribution` is empty at line 16 and `restricted_or_unusable_edge` at lines 41-44 says this access is not fully owned customer acquisition."
+    },
+    {
+      "text": "Response explicitly separates audience, network access, and monetizable distribution instead of merging them.",
+      "passed": true,
+      "evidence": "The separation is explicit in `outputs/result.json`: `distribution` is an empty array at line 16, `network_access` is a separate array at lines 17-19, and `constraints` at lines 20-24 says there is `no owned audience or media channel` and that distribution is `relationship-mediated rather than directly controlled`. The prose mirrors this in `outputs/report.md` lines 9-13 and lines 45-48, distinguishing no owned audience from brother-mediated access and from durable acquisition."
+    },
+    {
+      "text": "Structured JSON uses the reusable profile contract with user_profile, usable_edge, restricted_or_unusable_edge, fake_or_overstated_edge, weak_spots, follow_up_questions, and confidence_notes.",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid-looking structured JSON and includes all required top-level keys: `user_profile` (lines 2-34), `usable_edge` (35-40), `restricted_or_unusable_edge` (41-44), `fake_or_overstated_edge` (45-48), `weak_spots` (49-55), `follow_up_questions` (56-62), and `confidence_notes` (63-67). The same contract also appears embedded in `outputs/report.md` lines 67-138."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 9452
+  },
+  "claims": [
+    {
+      "claim": "The profile has a credible founder edge for HVAC software or automations, but not a strong distribution edge yet.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`outputs/report.md` lines 3-4 makes this claim, and the rest of the output substantiates it with domain experience plus build ability (`report.md` lines 6-9, `result.json` lines 35-40) while separately documenting lack of owned audience or repeatable acquisition (`report.md` lines 9-13, 45-48; `result.json` lines 16-24, 41-44)."
+    },
+    {
+      "claim": "No explicit restricted edge was stated, such as employer-owned IP, confidential customer data, or regulated access.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md` lines 27-30 states this directly, and the original prompt in `eval_metadata.json` line 4 mentions HVAC distribution ops experience, a brother running a service business, lack of audience, and software ability, but does not mention proprietary IP, confidential data, or regulated access."
+    },
+    {
+      "claim": "Industry background alone is not a moat without trust, access, or proof of demand.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`outputs/report.md` lines 38-41 and `outputs/result.json` lines 45-47 make this claim. It is supported internally by the listed weak spots: no owned audience, no proof of buyer trust, unknown reachable network quality, and unknown willingness to pay (`report.md` lines 45-52; `result.json` lines 49-55)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that `result.json` preserves the same semantic distinction as the prose by keeping `distribution` empty and placing the brother-led intros under `network_access`.",
+      "Add an assertion that the response distinguishes HVAC distribution operations experience from direct trust or reach with HVAC service owners; that nuance is important and present, but only indirectly covered.",
+      "Avoid process-oriented assertions for this harness unless the runner captures detailed tool transcripts; `transcript.md` explicitly says tool-by-tool execution was not exposed, which would make such assertions unverifiable."
+    ],
+    "overall": "This assertion set covers the core semantic distinction well and all four assertions are discriminating for this run. Coverage is strongest on classification quality, but it could more directly check machine-readable field placement and consistency between the prose and JSON outputs."
+  }
+}

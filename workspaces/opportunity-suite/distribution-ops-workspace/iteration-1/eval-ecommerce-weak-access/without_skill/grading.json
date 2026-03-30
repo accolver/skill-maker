@@ -1,0 +1,57 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not pretend weak buyer access is already solved.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:5-9` explicitly states the constraint as `weak buyer access, no audience, limited built-in distribution` and says to avoid channels needing `warm network density at the start`. `outputs/result.json:3-7` also preserves `weak_buyer_access: true` and `has_audience: false` instead of treating access as already solved."
+    },
+    {
+      "text": "Response chooses a realistic starting channel or access-building motion.",
+      "passed": true,
+      "evidence": "PASS: The response recommends concrete starting motions that fit weak access: partner outreach and founder-led outbound. See `outputs/report.md:23-24`, `28-44`, `58-76`, and the final recommendation at `243-247`. The structured output matches this in `outputs/result.json:9-14`, `16-36`, and `115`."
+    },
+    {
+      "text": "Response includes kill criteria for the chosen channel.",
+      "passed": false,
+      "evidence": "FAIL: The response includes rankings, execution steps, and success metrics (`outputs/report.md:191-227`; `outputs/result.json:88-108`) but never defines kill criteria or a threshold for stopping a channel if it underperforms. Success metrics are not the same as explicit stop conditions."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with nested objects and arrays, including top-level keys `offer`, `constraints`, `strategy`, `channel_ranking`, `avoid_early`, `positioning`, `ninety_day_plan`, `recommended_initial_mix`, and `final_recommendation` (`outputs/result.json:1-116`)."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not available, so execution metrics are limited."
+    ],
+    "output_chars": 11623
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by file presence and contents in `outputs/report.md` and `outputs/result.json`; the transcript also states this at `transcript.md:4`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON` to require specific fields such as the primary channel, why it fits weak access, and explicit kill criteria, not just any JSON blob.",
+      "Add an assertion that the response names a single primary starting motion or clearly prioritizes among channels; the current suite allows broad multi-channel advice to pass.",
+      "Add an assertion that the plan explains why audience-dependent channels are deprioritized, since that is central to the prompt but only indirectly covered today.",
+      "Add an assertion for measurable testing logic such as leading indicators, conversion checkpoints, or stop/continue thresholds beyond generic success metrics."
+    ],
+    "overall": "The eval catches the core realism requirement around weak access and checks for machine-readable output, but it under-specifies execution rigor. The suite misses whether the answer provides explicit stop conditions, prioritization discipline, and concrete validation logic for the initial channel motion."
+  }
+}

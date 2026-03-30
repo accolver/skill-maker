@@ -1,0 +1,39 @@
+{
+  "state": {
+    "clicks": 800,
+    "qualitative_feedback": "lots of praise",
+    "preorders": 0,
+    "summary": "Strong interest and positive feedback, but no willingness to preorder at the stated price was validated."
+  },
+  "interpretation": {
+    "overall": "mixed_signal",
+    "positive_signals": [
+      "High click volume",
+      "Positive audience response"
+    ],
+    "negative_signals": [
+      "Zero preorder conversions at stated price"
+    ],
+    "likely_issues": [
+      "Price too high relative to perceived value",
+      "Too much commitment required too early",
+      "Landing page may create interest without enough trust or urgency",
+      "Value proposition may be appealing but insufficiently concrete for purchase"
+    ]
+  },
+  "recommended_next_experiment": {
+    "name": "pricing_and_commitment_test",
+    "summary": "Test whether lower purchase friction improves conversion versus the original preorder offer.",
+    "design": [
+      "Keep the same audience and core positioning",
+      "Use one variant with the original preorder price",
+      "Use another variant with a lower-friction commitment such as a small refundable deposit",
+      "Measure click-to-commitment conversion rate"
+    ],
+    "why": "The existing experiment already validated attention, so the next uncertainty to resolve is willingness to commit under different pricing and commitment structures.",
+    "decision_rule": {
+      "if_lower_friction_converts": "Demand likely exists, but the original price or commitment level was too aggressive.",
+      "if_nothing_converts": "Re-examine the core value proposition, audience fit, or problem importance."
+    }
+  }
+}

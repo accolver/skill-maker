@@ -1,0 +1,37 @@
+{
+  "readiness_verdict": "conditional_build",
+  "product_wedge": {
+    "primary_user": "Owner-operator of a small Shopify brand",
+    "job_to_be_done": "Get a daily profitability exception report without opening multiple tools",
+    "core_workflow": "Ingest yesterday's store orders and ad spend, calculate a simple daily performance summary, and flag exceptions that need attention"
+  },
+  "manual_work": [
+    "Initial KPI definition with the user, including what counts as an exception",
+    "Mapping messy channel or campaign naming when source data is inconsistent",
+    "Investigating why a flagged metric moved and recommending action",
+    "Handling unsupported edge cases such as refunds, bundles, or attribution disputes"
+  ],
+  "automated_first": [
+    "Pulling one day's order and ad spend inputs from the minimum required sources",
+    "Calculating a fixed set of metrics such as revenue, ad spend, ROAS, and estimated contribution margin",
+    "Producing one human-readable daily summary with exception flags",
+    "Delivering the report on a fixed schedule by email or a simple web view"
+  ],
+  "mvp_boundary": [
+    "One user role: store owner or operator",
+    "One key input: yesterday's ecommerce and ad performance data",
+    "One key output: a daily exception report",
+    "One escalation trigger: a flagged metric that requires manual investigation"
+  ],
+  "productization_trigger": "Repeated demand for the same daily report format from multiple stores or consistent repeat usage by one clear buyer segment",
+  "do_not_build_yet": [
+    "A multi-tab analytics dashboard",
+    "Custom report builders",
+    "Cohort, LTV, or retention analysis",
+    "Inventory planning and operations modules",
+    "Team permissions, approvals, and admin-heavy settings",
+    "Benchmarking across stores",
+    "Forecasting and scenario modeling",
+    "Many integrations before the first reporting workflow proves value"
+  ]
+}

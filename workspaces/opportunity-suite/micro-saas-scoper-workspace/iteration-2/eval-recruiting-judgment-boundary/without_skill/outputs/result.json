@@ -1,0 +1,73 @@
+{
+  "decision": "proceed_with_internal_ai_assisted_operator_platform",
+  "summary": "Automate sourcing, screening, outreach, scheduling, and reporting now, but keep final shortlist and match recommendation under human control until enough outcome data exists to model judgment more reliably.",
+  "product_type": "judgment_amplifying_concierge_software",
+  "fit": "high",
+  "autonomy_level": "partial",
+  "recommended_scope": {
+    "build_now": [
+      "search intake",
+      "candidate knowledge base",
+      "ai screening and gap detection",
+      "outreach drafting and follow-up automation",
+      "scheduling coordination",
+      "client reporting",
+      "human override and approval workspace"
+    ],
+    "keep_human_owned": [
+      "final shortlist approval",
+      "final candidate-client match recommendation",
+      "role reframing",
+      "tradeoff decisions across quality, price, and availability"
+    ],
+    "build_later": [
+      "client preference memory",
+      "outcome-based recommendation tuning",
+      "client portal"
+    ]
+  },
+  "automation_candidates": [
+    "candidate sourcing",
+    "resume parsing",
+    "profile normalization",
+    "experience extraction",
+    "outreach personalization",
+    "inbox triage",
+    "screening summarization",
+    "scheduling",
+    "client status reporting",
+    "crm and ats updates"
+  ],
+  "judgment_boundary": [
+    "credibility beyond keywords",
+    "communication style fit",
+    "stage and chaos tolerance fit",
+    "client-specific chemistry",
+    "final recommendation quality"
+  ],
+  "build_vs_buy": {
+    "buy": [
+      "crm or ats base",
+      "email sequencing",
+      "calendar scheduling",
+      "transcript capture",
+      "basic enrichment"
+    ],
+    "build": [
+      "fractional cfo intake schema",
+      "niche scoring rubric",
+      "match explanation workflow",
+      "operator override capture",
+      "client preference memory",
+      "placement outcome loop"
+    ]
+  },
+  "key_risks": [
+    "premature automation of final matching",
+    "fragmented candidate data",
+    "weak learning if overrides are not captured",
+    "repeat clients still having changing needs",
+    "insufficient differentiation if product stays generic"
+  ],
+  "thesis": "The defensible product is not autonomous recruiting but software that captures and compounds recruiter judgment in a narrow, high-value niche."
+}

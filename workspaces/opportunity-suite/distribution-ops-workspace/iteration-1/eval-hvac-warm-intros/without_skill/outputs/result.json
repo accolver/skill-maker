@@ -1,0 +1,97 @@
+{
+  "offer": "HVAC missed-call recovery concierge for local service owners",
+  "access_type": "warm owner access through a family member",
+  "primary_channel": {
+    "name": "warm family introductions",
+    "priority": 1,
+    "why": "Trust and relevance matter more than reach for a service offer sold to local HVAC owners."
+  },
+  "target_prospect": {
+    "segments": [
+      "owner-operated HVAC businesses",
+      "locally managed HVAC shops",
+      "businesses with 3-30 technicians",
+      "shops with meaningful inbound call volume"
+    ],
+    "pain_signals": [
+      "missed daytime calls",
+      "after-hours lead leakage",
+      "busy office staff",
+      "paid lead generation spend",
+      "slow callback process"
+    ]
+  },
+  "offer_framing": [
+    "recover revenue from calls already generated",
+    "book more jobs without adding front-desk headcount",
+    "improve speed-to-lead on missed inbound calls"
+  ],
+  "channel_plan": [
+    {
+      "channel": "family-member intro",
+      "purpose": "create permission-based owner introductions",
+      "assets": [
+        "short intro blurb",
+        "group text handoff"
+      ]
+    },
+    {
+      "channel": "direct text after intro",
+      "purpose": "book a short discovery call",
+      "assets": [
+        "15-minute ask message",
+        "day-2 and day-7 follow-up texts"
+      ]
+    },
+    {
+      "channel": "discovery call",
+      "purpose": "validate pain, call volume, and fit",
+      "assets": [
+        "qualification questions",
+        "simple ROI framing"
+      ]
+    },
+    {
+      "channel": "pilot recap email or PDF",
+      "purpose": "make the next step easy and concrete",
+      "assets": [
+        "one-page overview",
+        "pilot structure",
+        "FAQ"
+      ]
+    },
+    {
+      "channel": "referral expansion",
+      "purpose": "turn warm conversations into more warm conversations",
+      "assets": [
+        "referral ask"
+      ]
+    }
+  ],
+  "recommended_sequence": [
+    "build a prioritized list of warm-reachable owners",
+    "request 5-10 permission-based intros from the family member",
+    "reply to each intro quickly with a low-friction 15-minute ask",
+    "run discovery calls to confirm pain and estimate missed-call value",
+    "offer a 14-30 day pilot",
+    "follow up by text on day 2 and day 7",
+    "ask engaged owners for 1-2 referrals"
+  ],
+  "metrics": [
+    "intro acceptance rate",
+    "discovery call booking rate",
+    "pilot conversion rate",
+    "referrals per owner conversation",
+    "estimated recovered revenue during pilot"
+  ],
+  "key_recommendations": [
+    "start with warm intros only",
+    "position the service around recovered revenue and speed-to-lead",
+    "sell a short pilot instead of a long-term commitment",
+    "use text as the main follow-up channel for owners"
+  ],
+  "written_files": [
+    "/home/alan/dev/ai/skills/distribution-ops-workspace/iteration-1/eval-hvac-warm-intros/without_skill/outputs/report.md",
+    "/home/alan/dev/ai/skills/distribution-ops-workspace/iteration-1/eval-hvac-warm-intros/without_skill/outputs/result.json"
+  ]
+}

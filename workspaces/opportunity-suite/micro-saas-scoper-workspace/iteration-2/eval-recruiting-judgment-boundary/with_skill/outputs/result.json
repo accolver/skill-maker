@@ -1,0 +1,39 @@
+{
+  "readiness_verdict": "conditional_build",
+  "product_wedge": {
+    "primary_user": "Recruiting operator running fractional CFO searches for repeat clients",
+    "job_to_be_done": "Turn a client intake and candidate pool into an organized, human-reviewed shortlist pipeline for fractional CFO placements.",
+    "core_workflow": "Intake structured search brief, ingest candidates, generate AI-assisted screening summaries, manage outreach and scheduling, and produce client status reports for human-reviewed shortlist decisions."
+  },
+  "manual_work": [
+    "Make the final candidate-client fit judgment based on nuanced leadership, stage, and stakeholder-fit factors.",
+    "Approve shortlist recommendations before anything is sent to clients.",
+    "Handle exception outreach and sensitive candidate conversations.",
+    "Run calibration with clients when briefs are ambiguous or changing."
+  ],
+  "automated_first": [
+    "Convert intake notes into a structured search brief.",
+    "Aggregate sourced candidates and notes into one search pipeline.",
+    "Generate AI-assisted screening summaries and highlight gaps.",
+    "Draft outreach and follow-up messages for approval.",
+    "Coordinate scheduling and reminders.",
+    "Generate recurring client status reports."
+  ],
+  "mvp_boundary": [
+    "Internal recruiting operator is the only primary user.",
+    "The product handles one workflow: intake to client reporting for a single search.",
+    "The main input is a fractional CFO search brief.",
+    "The main output is a human-reviewed shortlist pipeline and status report.",
+    "Human escalation is required whenever soft-fit judgment determines the decision.",
+    "Human approval is required before outreach, shortlist sharing, or recommendations."
+  ],
+  "productization_trigger": "Repeat fractional CFO searches create enough repeated operational work that reducing operator time in sourcing-to-reporting matters, even while match judgment stays human-led.",
+  "do_not_build_yet": [
+    "Fully automated matching or ranking without human review.",
+    "A two-sided client-candidate marketplace.",
+    "Broad dashboards beyond immediate search reporting.",
+    "Large integration surface area before workflow value is proven.",
+    "Candidate or client self-serve portals in v1.",
+    "Adjacent products like compensation benchmarking or assessments."
+  ]
+}

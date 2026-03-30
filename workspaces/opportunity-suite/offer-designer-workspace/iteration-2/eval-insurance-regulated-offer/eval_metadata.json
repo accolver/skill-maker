@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "insurance-regulated-offer",
+  "prompt": "Chosen direction: AI note-prep help for solo insurance agents. The user has only 5 hours a week, warm contacts, and must avoid licensed-advice framing. Design the first sellable offer.",
+  "assertions": [
+    "Response turns limited time and regulated-risk constraints into concrete exclusions, cadence, or scope boundaries rather than generic caveats.",
+    "Response explicitly rejects licensed-advice or delegated-authority framing.",
+    "Response chooses one primary shape and defines a narrow ICP plus concrete deliverables.",
+    "Response includes valid JSON matching assets/offer-template.json with meaningful pricing rationale and rejected framings."
+  ]
+}

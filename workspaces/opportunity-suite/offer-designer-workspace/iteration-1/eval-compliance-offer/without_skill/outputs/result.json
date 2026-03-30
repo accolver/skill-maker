@@ -1,0 +1,115 @@
+{
+  "offer_name": "Compliance Evidence Concierge",
+  "category": "operational compliance support",
+  "target_market": {
+    "segments": [
+      "small financial firms",
+      "registered investment advisers",
+      "fintech operators serving financial clients",
+      "fund administration or finance operations teams with recurring evidence requests"
+    ],
+    "size": "5-50 employees",
+    "buyer_roles": [
+      "founder",
+      "chief operating officer",
+      "operations lead",
+      "compliance manager",
+      "finance lead"
+    ]
+  },
+  "constraints": {
+    "lead_source": "warm contacts",
+    "time_budget": "limited weekly time",
+    "positioning_boundary": "must avoid legal-advice framing"
+  },
+  "problem": "Small firms often perform compliance-related work but lack organized, current, easy-to-produce evidence when audits, diligence requests, or annual reviews occur.",
+  "promise": "Organize and maintain compliance evidence so audits, diligence requests, and annual reviews are less disruptive.",
+  "included_services": [
+    "evidence inventory",
+    "evidence map by category, owner, source, and refresh cadence",
+    "document repository structure and naming standards",
+    "monthly evidence maintenance check-ins",
+    "missing-item follow-up with owners",
+    "packaging evidence for specific requests or review events",
+    "status summaries for complete, stale, and open items"
+  ],
+  "excluded_services": [
+    "legal advice",
+    "regulatory interpretation",
+    "legal opinions",
+    "representation before regulators",
+    "certification of compliance"
+  ],
+  "delivery_model": {
+    "phase_1": {
+      "name": "Evidence Setup Sprint",
+      "duration": "2-3 weeks",
+      "pricing_usd": {
+        "min": 3000,
+        "max": 7500,
+        "recommended_initial": 4500
+      },
+      "outputs": [
+        "evidence inventory",
+        "structured evidence room",
+        "priority gap list",
+        "refresh calendar",
+        "first packaged evidence binder or request set"
+      ]
+    },
+    "phase_2": {
+      "name": "Monthly Concierge Retainer",
+      "pricing_usd_monthly": {
+        "essential_min": 1000,
+        "essential_max": 2500,
+        "audit_ready_min": 2500,
+        "audit_ready_max": 5000,
+        "recommended_initial": {
+          "min": 1500,
+          "max": 2500
+        }
+      },
+      "outputs": [
+        "monthly maintenance",
+        "stale-item tracking",
+        "owner reminders",
+        "recurring evidence packaging"
+      ]
+    }
+  },
+  "messaging": {
+    "one_liner": "We organize and maintain your compliance evidence so audits, diligence requests, and annual reviews stop becoming fire drills.",
+    "positioning": "operational readiness and evidence hygiene, not legal or regulatory advice"
+  },
+  "sales_strategy": {
+    "entry_offer": "Evidence Setup Sprint",
+    "why_entry_offer": [
+      "easy to explain to warm contacts",
+      "finite scope",
+      "visible value quickly",
+      "fits limited weekly delivery capacity"
+    ],
+    "discovery_focus": [
+      "frequency of evidence requests",
+      "where documents live today",
+      "which items go stale",
+      "who chases missing items",
+      "next high-stakes review event"
+    ]
+  },
+  "guardrails": [
+    "Use operational support language in all proposals",
+    "State that the client remains responsible for legal and regulatory determinations",
+    "Refer legal interpretation questions to counsel or qualified compliance leadership",
+    "Define deliverables concretely to prevent scope creep"
+  ],
+  "recommended_initial_offer": {
+    "name": "Evidence Setup Sprint",
+    "timeline": "2-3 weeks",
+    "price_usd": 4500,
+    "follow_on_retainer_usd_monthly": {
+      "min": 1500,
+      "max": 2500
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly names one primary unknown and ties the major steps to resolving that unknown within the 7-day window.",
+      "passed": true,
+      "evidence": "`outputs/report.md:49-60` explicitly states the main question is not interest but commitment: \"The main question is not 'do they like it?' It is 'will they commit?'\". The 7-day plan in `outputs/report.md:61-133` then centers each day on resolving that unknown through owner conversations, a manual simulation, a direct commitment ask, follow-up, and final scoring. `outputs/result.json:26-34` mirrors this with a seven-step plan ending in a proceed/narrow/stop decision."
+    },
+    {
+      "text": "Response asks for a real commitment signal appropriate to the offer, such as a deposit, paid pilot, or booked implementation slot, not just soft interest.",
+      "passed": true,
+      "evidence": "The response repeatedly asks for hard commitment, not soft interest. `outputs/report.md:53-60` ranks commitment signals with \"Pays a setup fee, pilot fee, or refundable deposit\" first and treats \"Verbally says it is valuable\" as weakest. `outputs/report.md:75-77` sets the ask to a \"$250 to $500 paid pilot\" or \"refundable $100 deposit or signed pilot agreement\". `outputs/report.md:116-121` instructs asking directly for a paid pilot and accepting only concrete next steps. `outputs/result.json:19-25` and `47-52` repeat paid pilot, deposit, and live pilot as the target signals."
+    },
+    {
+      "text": "Response includes go, revise, and kill thresholds with numeric cutoffs and linked decisions.",
+      "passed": false,
+      "evidence": "The output provides a numeric proceed threshold but does not define distinct numeric revise and kill thresholds. `outputs/report.md:147-154` says to proceed only if there is \"1 paid pilot\", \"2 prospects willing to start a live pilot\", or \"3 prospects willing to share logs\". `outputs/report.md:130-133` and `183-188` say to \"proceed, narrow, or stop\", and `outputs/result.json:52` says to narrow or stop if no real commitment appears, but neither file assigns numeric cutoffs that separate revise from kill. The assertion requires all three threshold types with linked decisions, so this fails."
+    },
+    {
+      "text": "Response includes both a readable plan and a structured JSON block.",
+      "passed": true,
+      "evidence": "`outputs/report.md` is a readable narrative plan with sections for the hypothesis, interview script, 7-day execution plan, success criteria, risks, and recommendation (`outputs/report.md:1-188`). `outputs/result.json:1-53` is a structured JSON block containing the same plan elements in machine-readable form, including `commitment_signals_ranked`, `seven_day_plan`, `success_criteria`, and `decision_rule`."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8950
+  },
+  "claims": [
+    {
+      "claim": "The user has warm owner access through a family member.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The claim appears in `outputs/report.md:16-17` and is supported by the original prompt in `eval_metadata.json:4`, which states the user \"has warm owner access through a family member\"."
+    },
+    {
+      "claim": "The recommendation is to continue only if real commitment appears within 7 days; otherwise narrow the segment/use case or stop.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`outputs/result.json:52` states this decision rule directly, and `outputs/report.md:130-133` plus `147-154` support it by tying the day-7 decision to concrete commitment outcomes."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 4. 'Includes both a readable plan and a structured JSON block' is mostly format-based and can pass even when the plan quality is weak; add content requirements inside the JSON instead.",
+      "Split assertion 1 into two checks: one for explicitly naming the primary unknown and one for tying the 7-day plan steps to resolving it. The current assertion bundles two behaviors.",
+      "Add a more discriminating assertion for using the warm family access strategically, since the prompt makes that a key constraint and advantage but no assertion checks whether the response operationalizes it.",
+      "Add an assertion that the revise and kill paths are numerically distinct, since assertion 3 currently catches their absence only indirectly."
+    ],
+    "overall": "The eval set checks commitment orientation reasonably well, but one assertion is format-heavy and the suite does not verify whether the response makes strong use of the warm-access constraint. The threshold assertion is the main discriminator in this run."
+  }
+}

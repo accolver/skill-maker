@@ -1,0 +1,44 @@
+{
+  "risk_summary": "High risk. The proposed side business relies on employer internal templates, pricing logic, and process docs in the same govtech niche, which strongly suggests misuse of confidential employer assets rather than a clean-room build.",
+  "risk_categories": [
+    "Employer IP or templates",
+    "Confidential pricing logic or process docs",
+    "Customer relationships the user cannot legally solicit",
+    "Licensed or regulated authority the user does not control",
+    "Marketing claims that overstate legal authority or automation safety"
+  ],
+  "allowed": [
+    "Use generalized industry knowledge and independent professional judgment that does not copy employer materials.",
+    "Research the market using public procurement documents, public agency guidance, public budgets, public award data, and public competitor materials.",
+    "Create original templates, workflows, and playbooks from scratch using public sources and firsthand reasoning.",
+    "Offer human-in-the-loop research, drafting, documentation prep, or implementation support that does not depend on confidential employer know-how."
+  ],
+  "conditional": [
+    "Operate a side business in the same broad sector only if employment, invention-assignment, moonlighting, confidentiality, and non-solicitation obligations permit it.",
+    "Develop pricing only if it is independently created from public market inputs and original business assumptions rather than employer pricing logic.",
+    "Create similar deliverables only if they are genuinely original and not derived from employer structure, fields, wording, or workflow logic.",
+    "Market in the niche only if you avoid employer customer lists, confidential account intelligence, and restricted relationship access.",
+    "Provide process support only if you avoid regulated-authority claims and keep a human in the loop."
+  ],
+  "blocked": [
+    "Reuse employer internal templates, forms, checklists, spreadsheets, or playbooks.",
+    "Reuse employer pricing logic, bid strategy, rate cards, bundling, discounts, or margin rules.",
+    "Reuse employer SOPs, process docs, customer-specific lessons, internal decision trees, or operational methods.",
+    "Copy or lightly rewrite employer materials.",
+    "Use customer information, account history, or procurement intelligence gained through the job for the side business.",
+    "Market the business as having insider methods, official standing, or automation that replaces accountable regulated judgment."
+  ],
+  "safer_path": [
+    "Build a clean-room offer using public-data research products and original assets created from scratch.",
+    "Focus on generalized workflow support for a narrow govtech pain point instead of employer-specific methods.",
+    "Create templates from a blank page using only public materials and document source provenance.",
+    "Develop pricing independently from public competitor signals, customer interviews, and your own cost model.",
+    "Keep the service human-in-the-loop for research, evidence gathering, drafting support, and workflow preparation.",
+    "Review employment restrictions before launch and avoid current customers, restricted prospects, and all employer-confidential materials."
+  ],
+  "notes": [
+    "This screen is a practical risk assessment, not formal legal advice.",
+    "The highest-risk element is direct dependence on employer-confidential materials as the business foundation.",
+    "Generalized know-how may remain usable, but confidential assets and derived materials should be treated as off-limits."
+  ]
+}

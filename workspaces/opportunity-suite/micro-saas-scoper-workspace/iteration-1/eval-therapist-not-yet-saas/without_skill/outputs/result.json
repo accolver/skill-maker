@@ -1,0 +1,25 @@
+{
+  "decision": "do_not_build_full_software_yet",
+  "summary": "The audience and paid template product suggest willingness to pay for guidance, but there is not enough evidence of a repeated, painful workflow to justify SaaS yet.",
+  "recommendation": "Continue validation and only test a narrow lightweight tool if recurring workflow pain becomes clear.",
+  "rationale": [
+    "Niche therapist audience is real but does not alone imply software demand.",
+    "Existing paid benchmark/template product is evidence of information-product demand.",
+    "Repeated, urgent, high-friction workflow pain is not yet established.",
+    "Recurring value and recurring pricing are therefore unproven."
+  ],
+  "missing_evidence": [
+    "High-frequency repeated workflow",
+    "Time-sensitive or error-prone process",
+    "Manual workaround across multiple tools",
+    "Clear willingness to pay for ongoing usage"
+  ],
+  "safe_next_steps": [
+    "Interview buyers about repeated weekly or client-cycle tasks",
+    "Test a no-code or low-code guided workflow",
+    "Measure whether users return repeatedly rather than using the product once",
+    "Promote a narrow automation concept before building it"
+  ],
+  "scope_now": "validation_artifact_only",
+  "confidence": "medium"
+}

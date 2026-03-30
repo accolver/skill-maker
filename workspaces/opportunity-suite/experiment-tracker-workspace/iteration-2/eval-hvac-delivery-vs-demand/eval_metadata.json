@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "hvac-delivery-vs-demand",
+  "prompt": "Experiment log: 12 HVAC owner conversations, 4 said missed calls are painful, 2 agreed to a paid pilot, 1 actually paid, 1 churned after setup because the workflow was too custom. Summarize the state and recommend the next experiment.",
+  "assertions": [
+    "Response explicitly labels at least one strong signal and at least one weak, vanity, or contradictory signal.",
+    "Response identifies customization or delivery fit, not demand, as the primary blocker after the paid pilot.",
+    "Response uses exactly one decision state from continue, narrow, pivot, or stop and proposes exactly one next experiment tied to the main uncertainty.",
+    "Response includes valid JSON matching assets/experiment-log-template.json with non-empty experiments, strong_signals, weak_signals, contradictions, decision_state, next_experiment, and rationale."
+  ]
+}

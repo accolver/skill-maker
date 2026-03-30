@@ -1,0 +1,212 @@
+{
+  "user_profile": {
+    "skills": [
+      "software engineering",
+      "internal tool development",
+      "workflow automation",
+      "AI-assisted operations design"
+    ],
+    "domain_experience": [
+      "6 years building internal tools for HVAC distributors",
+      "understanding HVAC quoting, ordering, and back-office workflows",
+      "exposure to operational pain points in the HVAC ecosystem"
+    ],
+    "assets": [
+      "ability to build custom software and automations",
+      "direct access to a small HVAC service business through brother",
+      "ability to test workflows in a real operating environment"
+    ],
+    "distribution": [
+      "warm introductions through brother to regional HVAC business owners"
+    ],
+    "network_access": [
+      "brother runs a small HVAC service business",
+      "brother knows multiple local HVAC owners"
+    ],
+    "constraints": [
+      "no audience",
+      "no existing SaaS brand",
+      "should avoid long speculative product build before validation"
+    ],
+    "credibility_signals": [
+      "deep HVAC-adjacent workflow knowledge",
+      "technical ability to ship the stack personally",
+      "access to real operators for rapid feedback"
+    ],
+    "unfair_advantages": [
+      "better HVAC workflow understanding than generic AI consultants",
+      "warm route to first customers",
+      "clear service-to-software path inside one vertical"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_revenue_recovery_service",
+      "title": "Revenue recovery automation service for HVAC shops",
+      "category": "cash_now",
+      "thesis": "Sell a done-for-you service that recovers lost revenue from missed calls, unbooked estimates, and stale maintenance follow-ups using AI-assisted messaging, summaries, and automation.",
+      "why_user_can_win": "The user understands HVAC workflow friction, can translate technical fixes into owner outcomes, and has warm access to likely buyers through his brother.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 9,
+        "durability": 6,
+        "distribution_fit": 8,
+        "ai_leverage": 8,
+        "defensibility": 6,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Interview owners about missed calls, stale estimates, and renewal follow-up",
+        "Pitch a fixed-scope paid pilot tied to recovered bookings or reopened estimates",
+        "Run the workflow manually with lightweight tools before deeper integrations"
+      ],
+      "tool_specs": [
+        "Lead and estimate tracking board",
+        "AI-generated call summaries and follow-up drafts",
+        "Human approval workflow for outbound messages",
+        "Weekly revenue recovery reporting"
+      ],
+      "kill_criteria": [
+        "Owners will discuss the pain but will not pay for a pilot",
+        "Each account requires fully custom integrations that destroy margins"
+      ]
+    },
+    {
+      "id": "opp_dispatch_audit_impl",
+      "title": "Dispatcher and CSR workflow audit plus implementation",
+      "category": "cash_now",
+      "thesis": "Offer a paid operational audit for inbound call handling, estimate follow-up, and service agreement renewals, then implement targeted automations.",
+      "why_user_can_win": "The user can diagnose HVAC-specific process leaks faster than a generic automation freelancer and can implement fixes directly.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 8,
+        "durability": 5,
+        "distribution_fit": 8,
+        "ai_leverage": 6,
+        "defensibility": 5,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Pitch a paid audit to 3-5 owners",
+        "Use a simple scorecard for call handling, estimate follow-up, and membership renewals",
+        "Convert audit findings into a fixed implementation offer"
+      ],
+      "tool_specs": [
+        "Audit worksheet",
+        "Workflow map template",
+        "Basic automation recipes for common HVAC follow-up tasks"
+      ],
+      "kill_criteria": [
+        "Audits generate interest but not implementation work",
+        "Owners see the audit as consulting fluff rather than operational value"
+      ]
+    },
+    {
+      "id": "opp_estimate_followup_saas",
+      "title": "HVAC estimate follow-up and close-rate micro-SaaS",
+      "category": "asset_later",
+      "thesis": "Build a narrow tool that tracks open estimates, drafts follow-ups, flags stalled deals, and gives owners simple visibility into quote conversion.",
+      "why_user_can_win": "The user can shape the product around real HVAC quoting behavior and common edge cases learned from pilots.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 4,
+        "durability": 8,
+        "distribution_fit": 7,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Prove that estimate follow-up is the most acute repeated pain across pilots",
+        "Test whether owners will pay for that workflow separate from broader service",
+        "Prototype with manual or semi-manual delivery before self-serve software"
+      ],
+      "tool_specs": [
+        "Estimate pipeline dashboard",
+        "Message drafting and sequencing engine",
+        "Reminder and task queue",
+        "Close-rate reporting"
+      ],
+      "kill_criteria": [
+        "The workflow is too entangled with each shop's CRM to standardize",
+        "Owners prefer managed service over software even after proof of ROI"
+      ]
+    },
+    {
+      "id": "opp_benchmark_subscription",
+      "title": "HVAC operating benchmark and workflow playbook subscription",
+      "category": "asset_later",
+      "thesis": "Aggregate anonymized operating patterns from service shops and sell benchmarks, templates, and recurring workflow playbooks.",
+      "why_user_can_win": "The user could eventually build proprietary insight from client work, but only after earning enough trust and collecting enough repeated data.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 3,
+        "durability": 7,
+        "distribution_fit": 6,
+        "ai_leverage": 5,
+        "defensibility": 7,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Confirm owners want comparative insight, not just execution help",
+        "Gather repeatable metrics from early clients",
+        "Test willingness to pay for recurring benchmarks or playbooks"
+      ],
+      "tool_specs": [
+        "Metric collection schema",
+        "Reporting templates",
+        "Subscription content or dashboard layer"
+      ],
+      "kill_criteria": [
+        "Not enough shops will share data",
+        "Benchmarks are interesting but not budget-worthy"
+      ]
+    },
+    {
+      "id": "opp_hybrid_revenue_recovery",
+      "title": "HVAC revenue recovery concierge to automation layer to micro-SaaS",
+      "category": "hybrid",
+      "thesis": "Start by manually delivering revenue recovery for a few HVAC shops, productize the repeated parts into an internal operator console, then spin that into a narrow SaaS for estimate follow-up, missed-call recovery, and renewal workflows.",
+      "why_user_can_win": "The user has the rare combination of HVAC workflow fluency, engineering ability, and warm access to early buyers, which creates a strong service-first wedge and a credible later product moat.",
+      "scores": {
+        "edge_fit": 10,
+        "speed_to_revenue": 9,
+        "durability": 9,
+        "distribution_fit": 9,
+        "ai_leverage": 8,
+        "defensibility": 8,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Use brother's network to secure 5-8 owner conversations in the first two weeks",
+        "Close one paid pilot for revenue recovery using a low-friction offer",
+        "Track which workflow repeats most consistently across shops",
+        "Productize only the repeated workflow after a pilot proves ROI"
+      ],
+      "tool_specs": [
+        "Concierge operations board for leads, estimates, and follow-up status",
+        "AI-generated call summaries and follow-up suggestions",
+        "Template library for missed-call text-back, estimate nudges, and renewal follow-up",
+        "Outcome dashboard showing recovered jobs and reopened pipeline"
+      ],
+      "kill_criteria": [
+        "Fewer than 5 meaningful owner conversations from the warm network within 2 weeks",
+        "No owner is willing to pay for a pilot tied to a clear revenue problem",
+        "No single workflow repeats enough to standardize into software"
+      ]
+    }
+  ],
+  "best_bet": "opp_hybrid_revenue_recovery",
+  "next_actions": [
+    "Get 8-12 warm intro targets from brother",
+    "Run 5 owner interviews focused on missed calls, stale estimates, and renewals",
+    "Pitch one paid pilot for a revenue recovery service",
+    "Use the pilot to identify the first narrow SaaS wedge",
+    "Avoid building broad contractor AI software before a repeated workflow proves out"
+  ]
+}

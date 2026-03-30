@@ -1,0 +1,67 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response downgrades the 120000 follower base because the audience is mostly non-buyers, and does not treat scale alone as strong founder edge.",
+      "passed": true,
+      "evidence": "`outputs/report.md:5-12` says there is 'not enough evidence' that a meaningful share of the 120,000 followers are buyers and that students/hobbyists imply 'low purchasing power.' `outputs/report.md:25-30` rates audience size as strong but buyer certainty as low and says 'do not assume follower count equals commercial demand.' `outputs/result.json:14-18` matches this with `audience_strength: \"high\"`, `buyer_certainty: \"low\"`, and the bottom line that large reach does not prove meaningful buyer presence."
+    },
+    {
+      "text": "Response names the core commercial weakness precisely, such as weak buyer quality, weak ICP proximity, or unproven monetizable distribution.",
+      "passed": true,
+      "evidence": "The response names the weakness directly rather than vaguely. `outputs/report.md:9-12` identifies the problem as audience composition dominated by students and hobbyists, which implies lower buyer density. `outputs/report.md:35-46` states the missing buyer signals are role, seniority, budget authority, pain, urgency, willingness to pay, and purchasing behavior, concluding that buyer presence is 'still unproven.' `outputs/result.json:15-18` and `20-25` echo this with `buyer_certainty: \"low\"`, `estimated_buyer_density: \"unknown_but_likely_minor_fraction\"`, and reasoning that follower count measures attention rather than budget or authority."
+    },
+    {
+      "text": "Response uses fake_or_overstated_edge or weak_spots to call out follower count or attention as an unreliable proxy for buyer demand.",
+      "passed": true,
+      "evidence": "Semantically, the response does this even without the exact template field names. `outputs/report.md:31-46` has a dedicated section, 'Why follower count is not enough,' stating 'Follower count tells you distribution, not demand' and that buyer presence is unproven without stronger signals. `outputs/report.md:70-76` adds risks such as 'High engagement but low conversion.' `outputs/result.json:20-25` likewise states that follower count measures attention, not budget, urgency, or authority. That is substantive callout of follower count/attention as an unreliable proxy for buyer demand."
+    },
+    {
+      "text": "Structured JSON uses the reusable profile contract with the exact top-level fields expected by the template.",
+      "passed": false,
+      "evidence": "`outputs/result.json:2-47` uses custom top-level fields: `task`, `inputs`, `assessment`, `reasoning`, `likely_segments`, `key_risks`, `recommended_next_steps`, and `verdict`. The reusable profile contract used elsewhere in this eval set is the top-level shape shown in `../with_skill/outputs/result.json:2-57`: `user_profile`, `usable_edge`, `restricted_or_unusable_edge`, `fake_or_overstated_edge`, `weak_spots`, `follow_up_questions`, and `confidence_notes`. The produced JSON does not match that exact contract."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 6224
+  },
+  "claims": [
+    {
+      "claim": "The reported audience composition is mostly students and hobbyists.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The prompt in `eval_metadata.json:4` says the followers are 'mostly students and hobbyists.' `outputs/result.json:7-10` repeats that composition exactly under `reported_audience_composition`."
+    },
+    {
+      "claim": "There is no known buyer evidence yet.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The prompt in `eval_metadata.json:4` says, 'I do not know if any are buyers.' `outputs/result.json:11` encodes this as `known_buyer_evidence: false`."
+    },
+    {
+      "claim": "The audience size is 120000 followers on X.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`eval_metadata.json:4` states 'I have 120000 followers on X.' `outputs/result.json:4-6` repeats this as platform `X` and `follower_count: 120000`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 3 by removing the template-field names or by explicitly requiring them in JSON; as written, it mixes semantic content with structural implementation and overlaps with assertion 4.",
+      "Add an assertion for actionable validation advice. The output includes specific monetization tests and segmentation steps in `report.md:89-107` and `result.json:41-45`, but the current suite does not check whether the response gives a practical path to verify buyer quality.",
+      "Add an assertion for consistency between prose and structured JSON. This run's diagnosis is strong in both formats, but the suite currently catches the contract failure without checking whether the narrative judgment and JSON judgment agree.",
+      "Improve executor observability. `transcript.md:6-7` says the detailed tool-by-tool transcript was not exposed, and `timing.json:1` reports zero tokens and zero duration, which makes process-level grading and performance interpretation weak."
+    ],
+    "overall": "The assertion set discriminates reasonably on the core commercial diagnosis, but one assertion conflates semantic content with template structure and the run artifacts provide very weak execution observability. This run substantively understands the buyer-quality problem, yet it still fails the reusable-contract requirement."
+  }
+}

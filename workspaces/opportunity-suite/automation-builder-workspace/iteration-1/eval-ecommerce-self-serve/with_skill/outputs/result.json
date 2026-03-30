@@ -1,0 +1,59 @@
+{
+  "system_objective": {
+    "primary_user": "Merchant operator or ecommerce manager",
+    "trigger": "User selects a date range and generates a report",
+    "output": "Ranked gross-margin report by SKU and discount code with CSV export",
+    "human_escalation": "Escalate when SKU cost data is missing, stale, or the report shows unusual negative-margin rows that require business judgment"
+  },
+  "components": [
+    "Small web UI for date range input and report viewing",
+    "Backend API for report creation and retrieval",
+    "Reporting worker for Shopify data ingestion and aggregation",
+    "Transformation layer for margin calculations",
+    "Relational database for report runs, normalized order lines, cost mappings, and warnings"
+  ],
+  "inputs": [
+    "Shopify orders",
+    "Shopify refunds",
+    "Shopify line items and product metadata",
+    "Merchant-managed SKU cost table"
+  ],
+  "outputs": [
+    "On-screen report by SKU and discount code",
+    "CSV export",
+    "Warnings for missing costs and anomalous negative margins"
+  ],
+  "integrations": [
+    "Shopify Admin API",
+    "Email or in-app notification for failed runs and data-quality warnings"
+  ],
+  "manual_steps": [
+    "Maintain SKU cost mappings",
+    "Review warnings for missing or stale costs",
+    "Interpret whether negative-margin rows are acceptable business decisions"
+  ],
+  "automated_steps": [
+    "Fetch orders, refunds, and line items from Shopify",
+    "Normalize order-line records",
+    "Join SKU costs",
+    "Compute revenue, discounts, refunds, COGS, and gross margin metrics",
+    "Generate the report and CSV export",
+    "Flag missing-cost and negative-margin warnings"
+  ],
+  "milestones": [
+    "Define metric rules and warning thresholds",
+    "Build Shopify ingestion and normalized order-line storage",
+    "Add SKU cost management and margin calculations",
+    "Ship the self-serve reporting UI and CSV export",
+    "Validate with finance spot checks and limited rollout"
+  ],
+  "out_of_scope": [
+    "Real-time dashboards",
+    "Marketing attribution",
+    "Inventory forecasting",
+    "Full net-profit accounting",
+    "Multi-store support",
+    "Automated optimization actions",
+    "ERP/accounting integrations"
+  ]
+}

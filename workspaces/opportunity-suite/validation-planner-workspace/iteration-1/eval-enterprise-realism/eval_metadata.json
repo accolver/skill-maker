@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "enterprise-realism",
+  "prompt": "Best bet: enterprise procurement analytics product for Fortune 500 teams. User has one weak second-degree intro, no product, and wants a 7-day validation plan with numeric goals.",
+  "assertions": [
+    "Response does not pretend enterprise revenue validation is realistically achievable in 7 days under the stated conditions.",
+    "Response identifies the primary near-term unknown, such as buyer access or problem verification, rather than trying to validate everything at once.",
+    "Response gives numeric thresholds for a realistic discovery or access-building plan instead of fake purchase targets.",
+    "Response includes go, revise, and kill thresholds with decisions attached."
+  ]
+}

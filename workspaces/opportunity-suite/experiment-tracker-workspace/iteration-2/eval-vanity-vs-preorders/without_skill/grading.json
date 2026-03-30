@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly treats clicks or praise as weak or vanity signal relative to failed paid conversion.",
+      "passed": true,
+      "evidence": "`outputs/report.md:14-16` says, 'Clicks and praise are encouraging, but they are vanity signals unless they lead to paid commitment.' `outputs/report.md:7-9` and `outputs/result.json:6-7` explicitly contrast that against zero preorders and failed purchase conversion at the stated price."
+    },
+    {
+      "text": "Response does not call the experiment a success just because engagement was high.",
+      "passed": true,
+      "evidence": "`outputs/report.md:7-9` frames the result as 'a failed purchase test at the stated price: zero preorders,' and `outputs/report.md:44-46` concludes the experiment showed 'interest without purchase intent at the current price.' No output labels the experiment a success."
+    },
+    {
+      "text": "Response uses exactly one decision state and one next experiment tied to pricing, segment, or offer mismatch.",
+      "passed": true,
+      "evidence": "The response presents one core state: failed paid conversion despite attention (`outputs/report.md:7-9`, `outputs/report.md:44-46`; `outputs/result.json:6-7`). It gives one next experiment, a single pricing/commitment sensitivity test (`outputs/report.md:21-33`; `outputs/result.json:9-22`), tied directly to pricing/offer mismatch. No competing next experiments are proposed."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/experiment-log-template.json.",
+      "passed": false,
+      "evidence": "`outputs/result.json` is valid JSON, but it does not match `assets/experiment-log-template.json:1-8`. The template requires top-level keys `experiments`, `strong_signals`, `weak_signals`, `contradictions`, `decision_state`, `next_experiment`, and `rationale`. `outputs/result.json:2-22` instead uses `state_summary` and `recommended_next_experiment`, so the schema/shape does not match."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 2973
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md:4` states both files were written, and both files are present in `outputs/` with substantive content."
+    },
+    {
+      "claim": "The send got about 800 clicks, lots of praise, and zero preorders.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This matches the task prompt in `eval_metadata.json:4`, and the same facts are reflected in `outputs/report.md:3-8` and `outputs/result.json:3-7`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the JSON assertion by naming the required top-level keys from `experiment-log-template.json`, since 'matching the template' currently bundles JSON validity and schema conformance into one check.",
+      "Add an assertion that the response identifies paid conversion as the primary metric for the next experiment; the current outputs make that recommendation, but the eval does not check for it.",
+      "Add an assertion that the next experiment preserves audience/message controls while changing price or offer, because that is a meaningful quality distinction not covered by the current suite."
+    ],
+    "overall": "The assertion set is reasonably discriminating for the core reasoning task, but it misses an important recommendation-quality dimension around using paid commitment as the success metric. The transcript is too sparse to support process-oriented assertions."
+  }
+}

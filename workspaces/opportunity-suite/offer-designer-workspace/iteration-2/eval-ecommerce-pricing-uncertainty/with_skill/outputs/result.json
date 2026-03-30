@@ -1,0 +1,40 @@
+{
+  "offer_thesis": "Offer a concierge reporting pack for niche ecommerce operators that converts fragmented store and channel data into a recurring decision pack with KPI summaries, notable changes, and recommended actions. Keep the promise narrow: recurring decision support, not broad consulting or custom software.",
+  "icp": {
+    "buyer": "Founder, owner-operator, or ecommerce lead",
+    "segment": "Niche Shopify or similar DTC ecommerce brands with lean teams and fragmented reporting across store, ads, email, and inventory tools",
+    "why_now": "They have enough complexity to feel reporting pain, but not enough certainty or scale to hire a full-time analyst or implement a heavy analytics stack."
+  },
+  "offer_shape": "Concierge hybrid that can later productize",
+  "deliverables": [
+    "Onboarding intake to map data sources and reporting goals",
+    "Weekly or biweekly reporting pack with KPI snapshots and narrative summary",
+    "Anomaly and trend callouts",
+    "3 to 5 recommended actions for the next period",
+    "Optional async walkthrough or clarification round"
+  ],
+  "scope_boundaries": [
+    "Limited number of source systems in the initial package",
+    "No custom dashboard or analytics software build",
+    "No media buying, CRM execution, or inventory operations ownership",
+    "No CFO-grade financial reporting or accounting work",
+    "No unlimited ad hoc analysis between reporting cycles"
+  ],
+  "pricing_hypothesis": {
+    "model": "Monthly fixed fee tied to cadence and source-system scope",
+    "range_or_price": "$1,500-$2,500/month for simpler stores; $2,500-$4,500/month for moderate complexity; high-complexity stores require custom scoping or exclusion from the first packaged offer",
+    "pricing_rationale": "Price should reflect delivery effort, urgency, and buyer value. Complexity varies with channel count, data fragmentation, SKU depth, and interpretation needs, so ranges are more honest than a single precise price."
+  },
+  "rejected_framings": [
+    "Broad ecommerce consulting retainer",
+    "Software-first analytics product",
+    "Generic AI reporting service",
+    "Fractional CFO or finance-function overreach"
+  ],
+  "open_questions": [
+    "Which complexity variables best predict delivery time?",
+    "Which reporting cadence buyers value most: weekly or biweekly?",
+    "How many source systems can be supported while preserving margin?",
+    "Do buyers pay more for commentary, recommendations, or unified reporting?"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly blocks autonomous or semi-autonomous regulator-facing submission or sending, even if attorney review is available if needed.",
+      "passed": false,
+      "evidence": "`report.md` states the concept is 'High risk as stated' and recommends to 'remove or heavily constrain autonomous sending' (lines 129-141), but it does not clearly place regulator-facing sending in an explicit blocked bucket or state an unqualified prohibition. `result.json` similarly says 'no autonomous regulator submissions by default' in `final_screen.summary` (lines 56-59), which still leaves room for allowed autonomous sending under some conditions rather than explicitly blocking it."
+    },
+    {
+      "text": "Response includes at least one item in each of allowed, conditional, and blocked buckets.",
+      "passed": false,
+      "evidence": "Neither output uses allowed/conditional/blocked buckets. `report.md` provides narrative sections and recommendations only; `result.json` contains keys such as `primary_risks`, `safer_positioning`, and `recommended_guardrails` (lines 6-55) but no `allowed`, `conditional`, or `blocked` arrays."
+    },
+    {
+      "text": "Response reframes away from delegated-authority language such as AI compliance lead toward evidence prep, draft support, or internal workflow support.",
+      "passed": true,
+      "evidence": "`report.md` directly rejects the proposed positioning and offers safer replacements: 'AI compliance drafting assistant', 'AI workflow tool for compliance teams', 'Helps prepare draft filings and regulator correspondence for human review', and 'Administrative support for compliance documentation' (lines 91-108). `result.json` repeats that reframing in `safer_positioning` (lines 40-45)."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/risk-screen-template.json.",
+      "passed": false,
+      "evidence": "`result.json` is syntactically valid JSON, but it does not match `assets/risk-screen-template.json`, which requires top-level keys `risk_summary`, `risk_categories`, `allowed`, `conditional`, `blocked`, `safer_path`, and `notes` (`/home/alan/dev/ai/skills/clean-room-risk-screen/assets/risk-screen-template.json`, lines 1-8). `result.json` instead uses a different schema with keys such as `task`, `overall_rating`, `primary_risks`, `risk_drivers`, `safer_positioning`, `recommended_guardrails`, and `final_screen` (lines 1-60)."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 3,
+    "total": 4,
+    "pass_rate": 0.25
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 8044
+  },
+  "claims": [
+    {
+      "claim": "`result.json` is the structured version of the risk screen in `report.md`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`report.md` says 'See `result.json` for the structured version of this screen' (lines 143-145). The JSON repeats the same core conclusions, including high overall risk, misleading 'AI compliance lead' marketing, mandatory review guardrails, and a red-or-yellow-if-narrowed final screen (`result.json` lines 3-5, 40-59)."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the autonomous-sending assertion by requiring an explicit blocked classification or exact prohibition language, rather than allowing softer wording like 'avoid by default' or 'heavily constrain'.",
+      "Add a discriminating assertion that checks for concrete items inside explicit `allowed`, `conditional`, and `blocked` buckets in both the narrative report and structured JSON, since the current run missed that format entirely.",
+      "Clarify the JSON assertion to distinguish syntax validity from schema conformity, for example: 'result.json parses successfully and contains all template keys with correct top-level types'.",
+      "Add coverage for the required conclusion that optional attorney review is insufficient for regulator-facing workflows, since that is central to the prompt but only indirectly tested now."
+    ],
+    "overall": "The assertion set catches the missing bucket structure and schema mismatch, and it rewards the safer reframing correctly. Its weakest point is the first assertion: it aims at a critical behavior but is underspecified, so a response can sound cautious without clearly issuing the intended block."
+  }
+}

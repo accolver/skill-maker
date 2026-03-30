@@ -1,0 +1,166 @@
+{
+  "user_profile": {
+    "skills": [
+      "ERP implementation",
+      "distributor operations workflow analysis",
+      "requirements discovery",
+      "reporting and exception management",
+      "AI-assisted workflow design"
+    ],
+    "domain_experience": [
+      "7 years implementing ERP systems for distributors"
+    ],
+    "assets": [
+      "deep knowledge of distributor ERP pain points",
+      "ability to translate messy operations into repeatable workflows"
+    ],
+    "distribution": [],
+    "network_access": [
+      "possible warm credibility with former ERP colleagues, partners, or operators"
+    ],
+    "constraints": [
+      "hates client work",
+      "refuses outbound",
+      "will not create content",
+      "3 hours per week",
+      "wants first revenue in 30 days",
+      "wants an AI-related path"
+    ],
+    "credibility_signals": [
+      "7 years in a narrow B2B workflow domain"
+    ],
+    "unfair_advantages": [
+      "better than a generic AI builder at identifying expensive distributor ERP pain",
+      "can frame solutions in operator language instead of generic AI language"
+    ]
+  },
+  "feasibility_verdict": "no_go",
+  "binding_constraints": [
+    "no outbound removes the fastest acquisition path",
+    "no content removes the main alternative acquisition path",
+    "no client work removes the fastest validation path",
+    "3 hours per week limits selling and build throughput",
+    "30-day revenue target is incompatible with product-first discovery under these constraints"
+  ],
+  "opportunities": [
+    {
+      "id": "opp_erp_exception_audit",
+      "title": "ERP exception audit plus weekly action pack",
+      "category": "cash_now",
+      "thesis": "Use AI to accelerate manual review of ERP exports and deliver a weekly action pack for distributor ops leaders.",
+      "why_user_can_win": "Strong niche judgment about which ERP exceptions actually matter to distributor operators.",
+      "why_this_could_fail": "Requires client work and selling, both of which the user currently rejects.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 6,
+        "durability": 4,
+        "distribution_fit": 3,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Draft a one-page offer for a weekly ERP exception pack.",
+        "Test pricing at $500-$1,500 with 5 warm contacts.",
+        "Require at least 1 paid pilot before building software."
+      ],
+      "tool_specs": [
+        "CSV ingest",
+        "AI exception classification",
+        "weekly report generator"
+      ],
+      "kill_criteria": [
+        "No paid pilot within 30 days",
+        "Prospects want fully custom work instead of a repeatable exception pack"
+      ]
+    },
+    {
+      "id": "opp_distributor_erp_copilot",
+      "title": "Narrow distributor ERP copilot product",
+      "category": "asset_later",
+      "thesis": "Build a narrow AI product that flags reorder, stockout, backorder, or master-data issues from ERP exports.",
+      "why_user_can_win": "Domain expertise makes the product framing more credible than a generic ops AI tool.",
+      "why_this_could_fail": "Product-first is too slow for first revenue in 30 days without audience, outbound, or partner distribution.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 2,
+        "durability": 8,
+        "distribution_fit": 2,
+        "ai_leverage": 6,
+        "defensibility": 5,
+        "execution_difficulty": 8,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Do not pursue unless a manual pilot shows repeated demand across 2-3 buyers.",
+        "Confirm one repeated exception workflow before coding.",
+        "Avoid ERP integrations until buyers request them."
+      ],
+      "tool_specs": [
+        "CSV upload",
+        "rules plus LLM exception tagging",
+        "human-reviewed recommended actions"
+      ],
+      "kill_criteria": [
+        "No repeated workflow across 3 discovery conversations",
+        "No one agrees to pay for the manual version first"
+      ]
+    },
+    {
+      "id": "opp_partner_led_exception_pack",
+      "title": "Partner-led ERP exception pack: concierge first, tool later",
+      "category": "hybrid",
+      "thesis": "Sell or license one narrow distributor ERP exception workflow through warm partners first, then turn the repeated delivery process into software.",
+      "why_user_can_win": "Combines real niche knowledge with a more realistic distribution wedge than product-first selling.",
+      "why_this_could_fail": "Still requires relaxing at least one constraint, especially around warm outreach or light pilot work.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 5,
+        "durability": 8,
+        "distribution_fit": 4,
+        "ai_leverage": 7,
+        "defensibility": 7,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Relax exactly one constraint: warm outreach, one pilot, or one referral ask.",
+        "Send 5 warm messages to ERP-adjacent contacts within 7 days.",
+        "Target 2 calls or 1 paid pilot at $500-$1,500."
+      ],
+      "tool_specs": [
+        "CSV ingest only",
+        "AI-assisted exception detection",
+        "weekly action report draft",
+        "human QA before delivery"
+      ],
+      "kill_criteria": [
+        "User refuses to relax any constraint",
+        "Fewer than 2 serious responses from 5 warm contacts",
+        "No paid pilot or partner interest within 30 days"
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Generic AI ERP dashboard",
+      "reason": "Weak differentiation and no credible initial customer path under the current constraints."
+    },
+    {
+      "title": "Pure content business",
+      "reason": "The user refuses content creation and has no audience advantage."
+    },
+    {
+      "title": "Broad ERP consulting offer",
+      "reason": "Fastest route to money, but directly conflicts with the user's dislike of client work."
+    }
+  ],
+  "best_bet": "opp_partner_led_exception_pack",
+  "next_actions": [
+    "Decide within 24 hours whether to relax one constraint.",
+    "If not, do not build a product for this 30-day goal.",
+    "If yes, test a one-page partner or pilot offer with 5 warm contacts in 7 days.",
+    "Only build an internal tool after a paid pilot or clear partner pull."
+  ]
+}

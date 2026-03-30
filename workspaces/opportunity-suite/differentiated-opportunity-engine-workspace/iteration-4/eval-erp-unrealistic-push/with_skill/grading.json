@@ -1,0 +1,81 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says first revenue in 30 days is unrealistic or at least highly conditional under the current constraints.",
+      "passed": true,
+      "evidence": "PASS. In `outputs/report.md:74-88`, the response says, 'You should not build a product if the goal is first revenue in 30 days under the current rules' and 'you are kidding yourself a bit if the plan is `build an AI product and get paid in 30 days`.' `outputs/result.json:37` also sets `\"feasibility_verdict\": \"no_go\"`."
+    },
+    {
+      "text": "Response identifies at least 3 binding constraints.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:79-85` lists five binding constraints: no outbound, no content, no client work, only 3 hours per week, and a 30-day revenue goal. `outputs/result.json:38-44` repeats five `binding_constraints`."
+    },
+    {
+      "text": "Best bet is constraint change, slower validation, or no_go, not immediate product building.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:90-98` explicitly says the least-bad realistic path is 'not `product first`' and instead is a 'constraint-change plan' followed by the hybrid ladder. `outputs/report.md:74-75` says not to build a product for the 30-day goal, and `outputs/result.json:37` records `no_go`."
+    },
+    {
+      "text": "Response does not treat ERP domain expertise alone as enough without a route to buyers.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:102-105` states, 'your edge is domain judgment, not current distribution' and 'In 30 days, distribution beats code.' `outputs/report.md:64-66` also says that without relaxing one constraint there is 'no credible distribution path.'"
+    },
+    {
+      "text": "Response gives a concrete plan for changing constraints or testing with numeric targets.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:93-98` specifies the constraint change: relax exactly one constraint, preferably warm partner outreach or one paid pilot. `outputs/report.md:119-141` gives numeric targets including 5 warm messages, 2 conversations or 1 referral, a $500-$1,500 pilot, and 1 paid pilot or 2 strong confirmations plus 1 commitment within 14 days. `outputs/result.json:127-130` mirrors the same numeric validation plan."
+    },
+    {
+      "text": "Kill or revisit criteria are quantified.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:162-170` gives quantified thresholds: fewer than 2 serious responses from 5 warm contacts, zero paid pilots and zero partner co-sell interest within 14 days, no payment of at least $500 within 30 days, and no repeated pattern across 3 conversations. `outputs/result.json:138-141` also includes quantified kill criteria for the best bet."
+    },
+    {
+      "text": "Structured JSON feasibility verdict matches the prose recommendation.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md:72-75` gives `feasibility_verdict: no_go` and says not to build a product for the 30-day goal. `outputs/result.json:37` also sets `\"feasibility_verdict\": \"no_go\"`, and `outputs/result.json:160-164` matches the prose by saying to either relax one constraint and test 5 warm contacts or not build."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 14351
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified by the transcript statement in `transcript.md:4` and by the presence and readable contents of `outputs/report.md` and `outputs/result.json`."
+    },
+    {
+      "claim": "The correct feasibility verdict is no_go under the stated constraints.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The recommendation is internally consistent across both outputs: `outputs/report.md:72-98` argues against product-first and for a constraint-change path, while `outputs/result.json:37-44` records `no_go` plus the same binding constraints."
+    },
+    {
+      "claim": "The partner-led ERP exception pack is the best bet if one constraint is relaxed.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md:97-98` recommends 'the hybrid ladder: partner-led ERP exception pack, manual first, tool second,' and `outputs/result.json:159` sets `\"best_bet\": \"opp_partner_led_exception_pack\"`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 3. 'Best bet is constraint change, slower validation, or no_go' mixes several acceptable outcomes into one check; split it into separate assertions for no product-first recommendation and for proposing a concrete alternative path.",
+      "Add assertion: 'The named best bet in JSON matches the specific opportunity recommended in prose' — current assertions check verdict alignment but not the consistency of the chosen opportunity.",
+      "Add assertion: 'Response recommends relaxing a specific constraint via warm outreach, referral asks, or a paid pilot' — this concrete mechanism is central to the answer quality but only indirectly covered now."
+    ],
+    "overall": "This eval discriminates reasonably well for the core judgment and all 7 assertions are substantively satisfied by the run. The main gap is internal-consistency coverage around the named best bet and the specific constraint-relaxation mechanism. Transcript and timing telemetry are minimal (`transcript.md:6-7`, `timing.json:1-5`), so execution-level assessment is limited even though output quality is clear."
+  }
+}

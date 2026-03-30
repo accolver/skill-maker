@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response identifies one dominant uncertainty, such as activation or legal friction, rather than trying to optimize everything at once.",
+      "passed": true,
+      "evidence": "`report.md:15-17` states the funnel breaks between trial start and activation, and `report.md:37-38` says to continue while focusing specifically on the activation barrier. `report.md:53-57` and `result.json:19` frame one dominant uncertainty: whether failed activation is mainly due to onboarding friction or legal/data-sharing constraints. The response narrows to activation failure rather than optimizing demand, demo requests, and onboarding independently."
+    },
+    {
+      "text": "Response distinguishes pain signal from activation or conversion signal.",
+      "passed": true,
+      "evidence": "`report.md:4-11` separates severe pain reports, demo requests, trial starts, and zero activations. `report.md:15-16` explicitly says there is real pain but the bottleneck is not demand generation; the funnel breaks between trial start and activation. `report.md:20-25` also labels pain reports as a strong signal and demo requests as weaker than activation. `result.json:7-18` preserves the same distinction in structured form."
+    },
+    {
+      "text": "Response uses exactly one decision state and exactly one next experiment.",
+      "passed": true,
+      "evidence": "`report.md:30-43` contains a single decision state, `continue`, and a single next experiment, the concierge activation experiment with 5 new trial users. `result.json:17-18` mirrors exactly one `decision_state` value and one `next_experiment` value. No alternative decision state or second experiment is proposed anywhere else in the outputs."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/experiment-log-template.json.",
+      "passed": true,
+      "evidence": "`outputs/result.json` parses successfully as JSON. The top-level keys match the template in `/home/alan/dev/ai/skills/experiment-tracker/assets/experiment-log-template.json:2-8`: `experiments`, `strong_signals`, `weak_signals`, `contradictions`, `decision_state`, `next_experiment`, and `rationale`. The value shapes also match the template: arrays for the first four keys and strings for the last three."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 3655
+  },
+  "claims": [
+    {
+      "claim": "The funnel breaks between trial start and activation.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The source data in `eval_metadata.json:4` reports 2 trial starts and 0 activations. `report.md:15-16` interprets this as the funnel breaking between those stages, which is supported by the counts."
+    },
+    {
+      "claim": "Known blockers point to both legal friction and onboarding confusion, so the primary cause of activation failure is still uncertain.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`eval_metadata.json:4` includes one legal blocker and one onboarding-confusion blocker. `report.md:27-28` and `result.json:14-15` accurately reflect that both blocker categories appeared and neither dominates the evidence."
+    },
+    {
+      "claim": "result.json is the machine-readable tracker output.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`report.md:59-61` directs the reader to `result.json` for the machine-readable tracker output, and `outputs/result.json` contains the structured experiment log in the expected template shape."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response explains why the chosen experiment is the best way to resolve the dominant uncertainty' so the eval checks the rationale quality, not just that one experiment exists.",
+      "Add assertion: 'Response includes measurable success criteria for the next experiment' because the report includes concrete thresholds in `report.md:45-49`, but the current eval does not reward that stronger output.",
+      "Strengthen the first assertion by defining what counts as a single dominant uncertainty. A weak answer could still mention one uncertainty superficially while spreading attention across several unrelated optimizations."
+    ],
+    "overall": "The current assertions are fairly discriminating and this run satisfies them with substantive evidence. Coverage is strongest on focus, structure, and JSON format, but it does not check whether the recommended experiment is well-justified or measurable."
+  }
+}

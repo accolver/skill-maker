@@ -1,0 +1,169 @@
+{
+  "user_profile": {
+    "skills": [
+      "junior full-stack development",
+      "basic web app development",
+      "basic AI feature integration"
+    ],
+    "domain_experience": [],
+    "assets": [],
+    "distribution": [],
+    "network_access": [],
+    "constraints": [
+      "no niche audience",
+      "no special domain access",
+      "no budget",
+      "2 hours per week",
+      "target of $3000 MRR in 30 days",
+      "refuses sales calls",
+      "refuses services",
+      "refuses content creation",
+      "refuses cold outreach"
+    ],
+    "credibility_signals": [
+      "can build simple software products"
+    ],
+    "unfair_advantages": []
+  },
+  "feasibility_verdict": "no_go",
+  "binding_constraints": [
+    "No existing audience or buyer access",
+    "No differentiated domain edge",
+    "No budget for acquisition or experimentation",
+    "Only 2 hours per week available",
+    "Refusal of sales calls, services, content creation, and cold outreach",
+    "Revenue target is too aggressive for a cold-start founder without distribution"
+  ],
+  "opportunities": [
+    {
+      "id": "opp_async_service_if_constraints_change",
+      "title": "Productized async AI workflow setup for one niche",
+      "category": "cash_now",
+      "thesis": "If the user relaxes the no-services and no-sales constraints, an async setup offer is the fastest realistic route to first revenue.",
+      "why_user_can_win": "The user can build and implement lightweight automations without capital.",
+      "why_this_could_fail": "The user currently refuses the exact delivery and acquisition methods that make this viable.",
+      "scores": {
+        "edge_fit": 3,
+        "speed_to_revenue": 6,
+        "durability": 3,
+        "distribution_fit": 2,
+        "ai_leverage": 6,
+        "defensibility": 2,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Only pursue if the user allows one async offer and one acquisition channel.",
+        "Pick one niche and define one measurable workflow outcome.",
+        "Target one paid pilot before any product build beyond a demo."
+      ],
+      "tool_specs": [
+        "Simple intake form",
+        "Manual backend workflow",
+        "AI-assisted extraction or summarization",
+        "Basic result delivery UI"
+      ],
+      "kill_criteria": [
+        "User still refuses both services and async selling after week 1.",
+        "No niche chosen.",
+        "No paid pilot target identified."
+      ]
+    },
+    {
+      "id": "opp_marketplace_micro_saas",
+      "title": "Tiny AI micro-SaaS sold through an existing marketplace",
+      "category": "asset_later",
+      "thesis": "The least-bad software-only path is a tiny utility in a built-in-demand channel, but it is not a credible path to $3000 MRR in 30 days under these constraints.",
+      "why_user_can_win": "The user can ship a narrow utility without much money.",
+      "why_this_could_fail": "There is no niche wedge, no buyer insight, and not enough time to iterate into product-market fit.",
+      "scores": {
+        "edge_fit": 2,
+        "speed_to_revenue": 2,
+        "durability": 4,
+        "distribution_fit": 3,
+        "ai_leverage": 5,
+        "defensibility": 1,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Identify one marketplace with obvious buyer intent.",
+        "Collect 20 competitor complaints before coding.",
+        "Launch only a fake-door or waitlist page first."
+      ],
+      "tool_specs": [
+        "One-task utility",
+        "No complex auth or collaboration",
+        "Marketplace-compatible landing page",
+        "Minimal analytics"
+      ],
+      "kill_criteria": [
+        "No built-in-demand channel exists.",
+        "No repeat pain found in public evidence.",
+        "No signups from initial listing traffic."
+      ]
+    },
+    {
+      "id": "opp_no_go_edge_building",
+      "title": "No-go for now with a 30-day edge-building plan",
+      "category": "hybrid",
+      "thesis": "The best move is to change one binding constraint, build problem clarity and buyer access, and delay product ambition until there is a narrow wedge.",
+      "why_user_can_win": "This is the only path that aligns with the actual starting position instead of assuming hidden leverage.",
+      "why_this_could_fail": "If the user refuses to change any constraint, there is still no credible business path.",
+      "scores": {
+        "edge_fit": 6,
+        "speed_to_revenue": 1,
+        "durability": 6,
+        "distribution_fit": 5,
+        "ai_leverage": 4,
+        "defensibility": 5,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 1
+      },
+      "validation_plan": [
+        "Choose exactly 3 niches with public pain and existing software spend.",
+        "Collect 60 public pain signals total across reviews, forums, and job posts.",
+        "Keep only problems that appear at least 8 times.",
+        "Review 20 to 30 competitors for pricing and complaint patterns.",
+        "Publish 1 fake-door page for the best wedge.",
+        "Require at least 25 qualified visits and 3 signups in 7 days without paid ads."
+      ],
+      "tool_specs": [
+        "Spreadsheet or database of pain signals",
+        "Simple landing page",
+        "Basic analytics",
+        "Optional waitlist form",
+        "One tiny prototype only after demand signal"
+      ],
+      "kill_criteria": [
+        "Fewer than 60 public pain signals collected by day 7.",
+        "No problem appears at least 8 times across sources.",
+        "No evidence of existing willingness to pay.",
+        "Landing page gets fewer than 25 qualified visits or fewer than 3 signups.",
+        "User refuses to relax at least one binding constraint after validation week."
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Generic AI wrapper",
+      "reason": "No founder edge, no audience, and no credible distribution wedge."
+    },
+    {
+      "title": "Pure content-led AI business",
+      "reason": "The user refuses content creation and does not have an audience advantage."
+    },
+    {
+      "title": "Broad software-first micro-SaaS",
+      "reason": "Too much discovery, positioning, and iteration work for 2 hours per week with no buyer access."
+    }
+  ],
+  "best_bet": "opp_no_go_edge_building",
+  "next_actions": [
+    "Decide which single constraint to relax: time, async selling, service-first wedge, or revenue target.",
+    "Pick 3 niches and collect 60 public pain signals in 7 days.",
+    "Reject any idea without repeated pain and existing spend.",
+    "Launch one fake-door test before building a real product.",
+    "Do not expect $3000 MRR in 30 days under the current constraint bundle."
+  ]
+}

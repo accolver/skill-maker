@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "recruiting-judgment-boundary",
+  "prompt": "The user runs a manual recruiting concierge for fractional CFO placements. They want AI to automate sourcing, screening, outreach, scheduling, and client reporting immediately. They have some repeat clients, but matching still depends heavily on human judgment. Scope the software decision.",
+  "assertions": [
+    "Response uses exactly one readiness verdict from build_now, stay_manual_for_now, or conditional_build.",
+    "Response does not allow end-to-end automation and keeps judgment-heavy matching or screening manual in v1.",
+    "Response automates only one narrow workflow first rather than the whole funnel.",
+    "Response includes valid JSON matching assets/micro-saas-scope-template.json with non-empty readiness_verdict, product_wedge.primary_user, product_wedge.job_to_be_done, product_wedge.core_workflow, manual_work, automated_first, mvp_boundary, productization_trigger, and do_not_build_yet."
+  ]
+}

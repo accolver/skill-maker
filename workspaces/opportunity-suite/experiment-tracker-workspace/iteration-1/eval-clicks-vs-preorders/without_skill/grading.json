@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response treats clicks and praise as weaker than failed paid conversion.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 9-12 state that zero preorders means interest did not convert into purchase intent and that there is 'no validated demand at this price and offer structure.' `outputs/report.md` lines 16-21 label the signal as mixed and distinguish positive engagement from the stronger negative conversion signal. `outputs/result.json` lines 14-18 likewise center 'Zero preorder conversions at stated price' as the key negative signal."
+    },
+    {
+      "text": "Response avoids calling the experiment a success just because engagement was high.",
+      "passed": true,
+      "evidence": "The response explicitly avoids a success framing. `outputs/report.md` lines 31-33 say 'Run a pricing-and-commitment test, not another awareness test,' and lines 64-68 conclude there is 'strong interest but no proof of willingness to pay at the current preorder price.' `outputs/result.json` lines 6 and 25-26 also frame the outcome as unvalidated willingness to preorder, not a success."
+    },
+    {
+      "text": "Response recommends one focused next experiment tied to pricing, segment, or offer mismatch.",
+      "passed": true,
+      "evidence": "The recommendation is a single focused follow-up experiment around pricing/commitment mismatch. `outputs/report.md` lines 44-48 specify the 'Best next experiment' as an A/B test comparing the original preorder price to a lower-commitment offer such as a refundable deposit. `outputs/result.json` lines 24-37 contain one structured `recommended_next_experiment` named `pricing_and_commitment_test` with a concrete design and decision rule."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "`outputs/result.json` is valid structured JSON with top-level keys `state`, `interpretation`, and `recommended_next_experiment`, plus nested arrays and objects (`decision_rule`, `likely_issues`, `design`)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 4147
+  },
+  "claims": [
+    {
+      "claim": "The experiment produced 800 clicks, lots of praise, and zero preorders at the stated price.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The source prompt in `eval_metadata.json` line 4 states 'got 800 clicks and lots of praise, but zero preorders at the stated price.' The same facts are restated in `outputs/report.md` lines 5-12 and `outputs/result.json` lines 2-6."
+    },
+    {
+      "claim": "The run completed and wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md` line 4 says 'Completed. Wrote `report.md` and `result.json`.' Both files are present in `outputs/` and contain substantive content."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response explains that the outcome does not validate willingness to pay at the stated price' — this is central to the evaluation and more specific than generic success/failure framing.",
+      "Add assertion: 'Recommended experiment includes a measurable decision rule or success metric' — the current output includes this, but the eval does not check for experiment quality beyond topic fit.",
+      "Strengthen 'Response includes structured JSON' to require key fields such as state, diagnosis, and next experiment — otherwise any minimal JSON blob could satisfy it."
+    ],
+    "overall": "All four assertions are objectively verifiable and this run satisfies them, but the suite could better discriminate output quality by checking for a concrete diagnostic rationale and an actionable experiment design with measurable outcomes."
+  }
+}

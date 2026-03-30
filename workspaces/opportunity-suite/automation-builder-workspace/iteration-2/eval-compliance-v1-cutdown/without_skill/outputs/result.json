@@ -1,0 +1,121 @@
+{
+  "artifact": "build_spec",
+  "product": "compliance evidence workflow",
+  "version": "v1",
+  "scope": {
+    "included": [
+      "read-only client portal",
+      "automated client delivery",
+      "heuristic predictive risk scoring",
+      "single-CRM sync",
+      "curated analytics dashboards"
+    ],
+    "excluded": [
+      "custom workflow engine",
+      "advanced ML model training",
+      "multi-CRM deep bidirectional sync",
+      "custom branded portals",
+      "self-serve BI"
+    ]
+  },
+  "users": [
+    "compliance operations",
+    "account/client success",
+    "client reviewers",
+    "revenue operations",
+    "leadership"
+  ],
+  "functional_requirements": {
+    "evidence_management": [
+      "store evidence metadata",
+      "support uploads and link references",
+      "approval workflow",
+      "version history and audit trail",
+      "package grouping"
+    ],
+    "client_portal": [
+      "secure account-scoped login",
+      "read-only package access",
+      "request status visibility",
+      "email invite and reset flows",
+      "access/download event logging"
+    ],
+    "automated_delivery": [
+      "manual and rules-based triggers",
+      "stable package snapshots",
+      "client notifications",
+      "retry and failure logging"
+    ],
+    "risk_scoring": [
+      "0-100 account risk score",
+      "heuristic inputs from freshness, SLA, approvals, engagement",
+      "factor explanations",
+      "scheduled and event-driven recomputation"
+    ],
+    "crm_sync": [
+      "import account identifiers",
+      "write back delivery summary",
+      "write back risk summary",
+      "retry failed sync jobs"
+    ],
+    "analytics": [
+      "operations dashboard",
+      "customer engagement dashboard",
+      "risk dashboard",
+      "executive snapshot",
+      "CSV export"
+    ]
+  },
+  "phases": [
+    {
+      "name": "foundation",
+      "deliverables": [
+        "evidence model",
+        "upload/reference handling",
+        "approval workflow",
+        "audit logging"
+      ]
+    },
+    {
+      "name": "client_delivery",
+      "deliverables": [
+        "delivery package creation",
+        "manual publish flow",
+        "portal auth and package view",
+        "notification emails"
+      ]
+    },
+    {
+      "name": "automation_integrations",
+      "deliverables": [
+        "rules-based delivery triggers",
+        "CRM sync",
+        "scheduled jobs",
+        "retry handling"
+      ]
+    },
+    {
+      "name": "risk_analytics",
+      "deliverables": [
+        "heuristic risk engine",
+        "risk explanations",
+        "operational dashboards"
+      ]
+    }
+  ],
+  "acceptance_criteria": [
+    "evidence can be created, approved, and packaged",
+    "approved package can be delivered to portal users",
+    "at least one automatic delivery rule works",
+    "each account has a visible risk score with factors",
+    "CRM receives delivery and risk summary fields",
+    "dashboards expose delivery, engagement, and risk metrics"
+  ],
+  "open_questions": [
+    "which CRM is authoritative",
+    "whether portal is read-only or supports uploads",
+    "which compliance frameworks launch with v1",
+    "whether client SSO is required",
+    "whether delivery is renewal-driven, ad hoc, or both"
+  ]
+}

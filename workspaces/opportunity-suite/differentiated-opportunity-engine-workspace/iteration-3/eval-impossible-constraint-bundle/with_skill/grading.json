@@ -1,0 +1,81 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says the 30-day $3000 MRR goal is not credible under the current constraints.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:21-22` states, \"The requested bundle is not credible for $3000 MRR in 30 days.\" `outputs/report.md:99-101` also says, \"Do not try to hit $3000 MRR ... under the current constraints.\""
+    },
+    {
+      "text": "Response identifies at least 3 binding constraints.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:24-32` lists 9 explicit constraints, including no niche audience, no budget, 2 hours per week, and refusal of sales calls/services/content/cold outreach. `outputs/result.json:30-35` also summarizes 5 binding constraints."
+    },
+    {
+      "text": "Best bet is to change constraints, build edge, or stop chasing this goal for now, not to build a product immediately.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:99-103` says the correct move is to \"change exactly one major constraint now and use the next 30 days to build edge, not chase MRR.\" `outputs/report.md:175-176` adds, \"Build only a validation stack, not a full SaaS.\""
+    },
+    {
+      "text": "Response does not present any current opportunity as realistic near-term income under the stated constraints.",
+      "passed": true,
+      "evidence": "PASS: Every listed path is explicitly limited under the current rules. `outputs/report.md:54-55` says the cash-now path is \"invalid under the stated rules\"; `outputs/report.md:73-74` says the marketplace path is \"not a credible path to $3000 MRR in 30 days\"; `outputs/report.md:93-95` says the top-ranked option \"does not satisfy the original 30-day MRR target.\""
+    },
+    {
+      "text": "Response gives a concrete edge-building or constraint-change plan with numeric targets or milestones.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:130-170` gives a day-by-day plan with quantified milestones, including 20 pain signals in 60 minutes, 50 page visits or 5 qualified clicks within 72 hours, and 1 payment or 3 explicit willingness-to-pay replies or 10 waitlist signups. `outputs/result.json:121-126` mirrors quantified validation targets."
+    },
+    {
+      "text": "Kill or revisit criteria are quantified.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:191-203` includes quantified kill criteria such as 20 pain signals in 60 minutes, fewer than 5 qualified clicks or fewer than 2 intent signals in 72 hours, and more than one core workflow/integration/persona before first payment. `outputs/result.json:134-139` also contains numeric kill criteria."
+    },
+    {
+      "text": "Structured JSON feasibility verdict is no_go and matches the prose recommendation.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json:29` sets `\"feasibility_verdict\": \"no_go\"`. This matches `outputs/report.md:17-21`, which labels the verdict `no_go` and immediately states the bundle is not credible, plus `outputs/report.md:99-101`, which recommends not pursuing the goal under current constraints."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 15284
+  },
+  "claims": [
+    {
+      "claim": "The structured feasibility verdict is no_go.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified directly in `outputs/result.json:29` and aligned with the prose verdict in `outputs/report.md:17-21`."
+    },
+    {
+      "claim": "The recommended path is to change constraints and build edge before attempting a micro-SaaS revenue goal.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified in `outputs/report.md:99-103` and `outputs/result.json:156-163`, which select the edge-building plan as best bet and tell the user to relax a major constraint before proceeding."
+    },
+    {
+      "claim": "The response includes quantified validation milestones rather than only generic advice.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified in `outputs/report.md:145-170` and `outputs/result.json:121-126`, which include numeric milestones for pain signals, clicks, visits, payments, and willingness-to-pay responses."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response explicitly recommends relaxing one specific constraint first' — the current outputs make that recommendation, but no assertion checks for the specificity of the constraint-change advice.",
+      "Add assertion: 'Response includes a concrete first-week validation sequence with timeboxed steps' — the run provides a substantive 7-day plan, and checking for that would better discriminate strong from generic answers.",
+      "Add assertion: 'Structured JSON includes a machine-readable best bet or next actions field' — the current assertions only verify the feasibility verdict, not whether the JSON is otherwise actionable."
+    ],
+    "overall": "The assertion set is reasonably discriminating for the core recommendation and all seven assertions are substantively satisfied here. Coverage is strongest on feasibility and realism, but it misses some of the most useful implementation details present in the outputs, especially the specificity of the first constraint change, the timeboxed 7-day validation loop, and the actionability of the structured JSON beyond the `no_go` verdict."
+  }
+}

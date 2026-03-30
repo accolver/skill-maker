@@ -1,0 +1,81 @@
+{
+  "skill_name": "experiment-tracker",
+  "iteration": 1,
+  "timestamp": "2026-03-30T00:13:29.485Z",
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 0,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0
+      },
+      "time_seconds": {
+        "mean": 0,
+        "stddev": 0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0
+      }
+    },
+    "delta": {
+      "pass_rate": 0,
+      "time_seconds": 0,
+      "tokens": 0
+    }
+  },
+  "per_eval": [
+    {
+      "eval_name": "clicks-vs-preorders",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "eval_name": "enterprise-interest-vs-procurement",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      }
+    },
+    {
+      "eval_name": "paid-pilot-vs-churn",
+      "with_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      },
+      "without_skill": {
+        "pass_rate": 1,
+        "time_seconds": 0,
+        "tokens": 0
+      }
+    }
+  ]
+}

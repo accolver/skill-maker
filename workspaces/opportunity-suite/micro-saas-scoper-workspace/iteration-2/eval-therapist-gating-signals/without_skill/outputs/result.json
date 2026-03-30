@@ -1,0 +1,52 @@
+{
+  "decision": "defer_software",
+  "confidence": "moderate",
+  "summary": "There is evidence of a niche therapist audience and willingness to pay for structured guidance, but not enough evidence yet of a repeated, painful operational workflow that clearly justifies custom software.",
+  "recommendation": {
+    "stage": "pre-software validation",
+    "action": "Keep selling the benchmark/template product and use it to validate whether one narrow workflow is frequent, painful, and subscription-worthy.",
+    "build_now": false
+  },
+  "positive_signals": [
+    "Niche therapist audience exists",
+    "Paid benchmark/template product suggests some willingness to pay",
+    "Existing product can act as a research wedge"
+  ],
+  "missing_evidence": [
+    "A single recurring workflow shared across multiple buyers",
+    "Clear frequency of the pain point",
+    "Strong evidence that templates are insufficient",
+    "Direct pull for automation or software workflows",
+    "Believable recurring pricing willingness"
+  ],
+  "software_gating_signals": [
+    "Workflow occurs weekly or daily",
+    "Current process is manual, error-prone, or mentally draining",
+    "Users already stitch together spreadsheets, docs, or copy/paste workflows",
+    "Mistakes or delays materially affect revenue, compliance confidence, or client experience",
+    "Users ask for reminders, guided flows, dashboards, or automation",
+    "Users express willingness to pay monthly"
+  ],
+  "non_software_signals": [
+    "Pain is mostly educational or strategic",
+    "Users mainly want better templates or examples",
+    "Workflow varies too much across practices",
+    "Use frequency is occasional rather than repeated",
+    "One-time products or services fit buying behavior better than subscriptions"
+  ],
+  "suggested_validation_questions": [
+    "What exact task do you repeat most often around this topic?",
+    "How often does it happen?",
+    "What tools do you use today?",
+    "Which step is most annoying or risky?",
+    "What happens if this is done late or poorly?",
+    "Would you pay monthly for a tool that removes this pain?",
+    "What automation or output would make you adopt it quickly?"
+  ],
+  "initial_product_strategy": [
+    "Continue the paid benchmark/template product",
+    "Offer a higher-touch implementation aid or audit if needed",
+    "Only scope software around one narrow job after repeated pain is confirmed"
+  ],
+  "final_call": "Not yet; gather evidence of repeated operational pain first."
+}

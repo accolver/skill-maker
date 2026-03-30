@@ -1,0 +1,81 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response explicitly says that a peer-heavy network weakens fast software sales or direct buyer access, rather than merely noting it in passing.",
+      "passed": true,
+      "evidence": "PASS. `report.md:10-12` says the user's access is to peers and operators, 'not founders' and that this is 'weaker for direct software sales.' `report.md:37-40` and `report.md:82-85` make this a core reason for the recommendation: the network is better for discovery and champions than for closing SaaS deals. `result.json:20-21`, `result.json:49`, and `result.json:116` align with the same point."
+    },
+    {
+      "text": "If service-first is recommended, the response names a concrete initial offer, a narrow ICP, one measurable outcome metric, and a specific productization trigger.",
+      "passed": false,
+      "evidence": "FAIL. The response recommends service-first (`report.md:77-85`) and does include a concrete initial offer (`report.md:87-90`) plus a specific productization trigger (`report.md:180-182`). But it does not commit to one narrow ICP; it names several possible buyer contexts and tells the user to pick one later (`report.md:119-121`). It also does not name one measurable outcome metric for the initial offer; the output gives timelines and process milestones, but no explicit business metric such as error reduction, hours saved, or conversion improvement. `result.json:60-65` also lacks a measurable outcome metric."
+    },
+    {
+      "text": "Response states what evidence would justify switching toward software-first or productization later.",
+      "passed": true,
+      "evidence": "PASS. `report.md:111-113` states that if the same workflow repeats with minor variations, that slice should be promoted into software. `report.md:180-182` makes the trigger explicit: 'once 70 percent of delivery follows the same steps across at least 3 to 5 paid pilots.' `result.json:48-49`, `result.json:64-65`, and `result.json:149` reinforce that software should follow a repeated, validated delivery unit."
+    },
+    {
+      "text": "Response uses the user's merchant reporting knowledge as the main edge rather than generic AI capability.",
+      "passed": true,
+      "evidence": "PASS. The response repeatedly centers the edge on merchant reporting knowledge: `report.md:3-9`, `report.md:19-21`, and `report.md:34-36` emphasize category-specific reporting pain recognition. `report.md:81-82` says the user's advantage is 'problem insight, not distribution,' and `report.md:155-156` explicitly limits AI to packaging acceleration rather than the core wedge. `result.json:4-7`, `result.json:15-17`, and `result.json:37-39` make the same case in structured form."
+    },
+    {
+      "text": "The validation plan includes numeric targets such as interview count, paid pilot target, or timeline.",
+      "passed": true,
+      "evidence": "PASS. The validation plan includes multiple numeric targets: `report.md:127-129` sets '15 to 20' outreach targets, `report.md:132-137` requires '5 interviews,' `report.md:145-149` targets '5 to 10' pitches, `report.md:160-161` requires 'at least 2 serious follow-up conversations and 1 credible path to a paid pilot,' and the plan is framed as a '7-Day Validation Plan' (`report.md:115-158`). `result.json:62-65` also includes numeric interview and pilot steps."
+    },
+    {
+      "text": "Kill criteria include at least 2 falsifiable stop or pivot conditions.",
+      "passed": true,
+      "evidence": "PASS. `report.md:188-196` lists at least four falsifiable stop/pivot conditions, including no recurring pain after '10 to 15 conversations,' no buyer path from peers, no repeatable workflow, and failure to get 'at least 1 paid pilot or a very strong pilot commitment.' `result.json:73-78` also contains four falsifiable kill criteria for the best-bet opportunity."
+    },
+    {
+      "text": "The prose recommendation and structured JSON agree on the same best bet.",
+      "passed": true,
+      "evidence": "PASS. The prose recommendation names the 'Hybrid Ladder: Merchant Reporting Concierge -> Automated KPI Pack -> Micro-SaaS' as the best fit (`report.md:28-43`, `report.md:75-85`). The structured JSON sets `best_bet` to `opp_reporting_concierge_hybrid` (`result.json:144`) and the matching opportunity title is 'Merchant reporting concierge to automated KPI pack to micro-SaaS' (`result.json:45-48`)."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.8571428571428571
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [],
+    "output_chars": 15154
+  },
+  "claims": [
+    {
+      "claim": "The user's peer-heavy network is stronger for discovery and internal champions than for direct software sales.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified against the user context in `eval_metadata.json:4`, which says the network is 'mostly peers, not founders.' The output then consistently interprets that as weak for direct SaaS selling and strong for discovery/champion access in `report.md:10-12`, `report.md:37-40`, and `result.json:20-25`."
+    },
+    {
+      "claim": "The user's main edge is merchant reporting knowledge, not generic AI capability.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by the prompt context in `eval_metadata.json:4`, which foregrounds merchant reporting pain expertise, and by the outputs in `report.md:34-36`, `report.md:81-82`, `report.md:155-156`, and `result.json:4-7`, `result.json:37-39`, which explicitly center domain knowledge and downplay AI as the main advantage."
+    },
+    {
+      "claim": "The best recommendation is a service-first hybrid ladder that can later become software.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified for internal consistency across outputs: `report.md:77-85` explicitly recommends a narrow service first, and `result.json:144` selects `opp_reporting_concierge_hybrid` as the best bet. The named opportunity in `result.json:45-48` matches the prose recommendation."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 2 by requiring a single committed ICP and an explicit measurable business outcome metric. In this run, examples and process numbers could look sufficient even though the recommendation never names one outcome metric for the offer.",
+      "Add an assertion that the recommendation identifies the likely budget owner or buying function. The report names several possible teams, but no assertion checks whether the buyer target is actually narrowed enough to be actionable.",
+      "Add an assertion for transcript sufficiency or execution trace quality. This run had almost no execution transcript (`transcript.md:7-8`), which reduces confidence in process claims, but the current assertion set does not penalize that limitation."
+    ],
+    "overall": "The assertion set discriminates reasonably well on recommendation quality and caught one substantive miss around ICP and measurable outcome definition. Coverage is still thin on buyer specificity and on whether the execution evidence is rich enough to support process-oriented evaluation."
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "user_profile": {
+    "skills": [
+      "software engineering",
+      "internal tool development",
+      "workflow automation",
+      "AI-enabled process design"
+    ],
+    "domain_experience": [
+      "6 years building internal tools for HVAC distributors",
+      "understands HVAC-adjacent operational workflows and niche language"
+    ],
+    "assets": [
+      "access to brother's HVAC service business as a pilot environment",
+      "ability to build automations and later productize them"
+    ],
+    "distribution": [
+      "warm intros through brother's regional owner network"
+    ],
+    "network_access": [
+      "brother runs a small HVAC service business",
+      "brother knows multiple HVAC owners in the region"
+    ],
+    "constraints": [
+      "no audience",
+      "wants near-term income",
+      "should avoid using employer-confidential data or IP",
+      "micro-SaaS should follow validation rather than precede it"
+    ],
+    "credibility_signals": [
+      "real HVAC domain experience",
+      "trusted connection into the niche",
+      "can speak credibly to ops pain rather than generic AI hype"
+    ],
+    "unfair_advantages": [
+      "combination of HVAC niche context plus software execution",
+      "immediate access to a design partner and warm buyer introductions"
+    ]
+  },
+  "feasibility_verdict": "go",
+  "binding_constraints": [
+    "Do not reuse confidential employer IP, code, or internal distributor data.",
+    "Do not start with a pure content-first path; distribution edge is too weak.",
+    "Do not build a full micro-SaaS before validating one repeated painful workflow."
+  ],
+  "opportunities": [
+    {
+      "id": "opp_hvac_ai_ops_sprint",
+      "title": "HVAC AI Ops Audit + Implementation Sprint",
+      "category": "cash_now",
+      "thesis": "Sell a fixed-scope sprint that identifies and fixes one broken HVAC back-office workflow with AI plus simple automation in 2-4 weeks.",
+      "why_user_can_win": "HVAC domain fluency plus warm access through the brother's network creates stronger trust and faster discovery than a generic automation freelancer has.",
+      "why_this_could_fail": "Without tight scope, the work stays custom and does not compound into a repeatable offer or product.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 9,
+        "durability": 5,
+        "distribution_fit": 8,
+        "ai_leverage": 7,
+        "defensibility": 5,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Write a one-page offer and ROI calculator.",
+        "Run 3-5 owner interviews through warm intros.",
+        "Close 1 paid sprint within 21 days."
+      ],
+      "tool_specs": [
+        "Lightweight workflow mapping template",
+        "Simple automation stack",
+        "Owner-facing ROI summary dashboard"
+      ],
+      "kill_criteria": [
+        "No paid sprint within 21 days.",
+        "Problem remains too custom across first 3 prospects."
+      ]
+    },
+    {
+      "id": "opp_missed_call_followup_service",
+      "title": "Missed Call and Estimate Follow-Up Service for HVAC Shops",
+      "category": "cash_now",
+      "thesis": "Recover lost bookings and stale estimates with automated callbacks, reminders, and office workflow support.",
+      "why_user_can_win": "Warm intros and niche language help get attention from owners who ignore generic AI outbound.",
+      "why_this_could_fail": "The space is crowded and weakly differentiated if positioned as a generic AI receptionist offer.",
+      "scores": {
+        "edge_fit": 6,
+        "speed_to_revenue": 9,
+        "durability": 4,
+        "distribution_fit": 8,
+        "ai_leverage": 7,
+        "defensibility": 3,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Test offer language with 5 owners.",
+        "Measure callback or follow-up completion within 24 hours.",
+        "Check willingness to pay against a setup plus monthly model."
+      ],
+      "tool_specs": [
+        "Message drafting workflow",
+        "Follow-up queue",
+        "Outcome tracker"
+      ],
+      "kill_criteria": [
+        "Owners compare the offer to generic receptionist tools and resist premium pricing.",
+        "No measurable booking or follow-up improvement in the pilot."
+      ]
+    },
+    {
+      "id": "opp_job_closeout_copilot",
+      "title": "Job Closeout Copilot for Small HVAC Service Businesses",
+      "category": "asset_later",
+      "thesis": "Turn technician notes, photos, and outcomes into job summaries, next-step tasks, estimate drafts, and same-day closeout prompts for office staff.",
+      "why_user_can_win": "The workflow sits close to the user's actual HVAC tooling background and can be shaped by real pilot data.",
+      "why_this_could_fail": "Building before repeated proof of demand would create a speculative niche SaaS.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 4,
+        "durability": 8,
+        "distribution_fit": 7,
+        "ai_leverage": 8,
+        "defensibility": 6,
+        "execution_difficulty": 7,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Document repeated fields and actions across 3 pilot accounts.",
+        "Confirm at least 2 accounts want a software-enabled monthly workflow.",
+        "Measure admin time saved and closeout lag reduction."
+      ],
+      "tool_specs": [
+        "Job record model",
+        "AI summarization module",
+        "Task and SLA tracker"
+      ],
+      "kill_criteria": [
+        "Less than 70 percent process overlap across first 3 pilots.",
+        "No customer requests for a productized version."
+      ]
+    },
+    {
+      "id": "opp_hvac_benchmark_subscription",
+      "title": "HVAC Service Ops Benchmark Subscription",
+      "category": "asset_later",
+      "thesis": "Aggregate anonymized workflow metrics into a benchmark product for HVAC owners once service delivery creates a defensible data asset.",
+      "why_user_can_win": "A service wedge can create the normalized niche data set needed for a stronger long-term asset.",
+      "why_this_could_fail": "The data asset does not exist yet, so it is premature as a first move.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 3,
+        "durability": 9,
+        "distribution_fit": 6,
+        "ai_leverage": 5,
+        "defensibility": 8,
+        "execution_difficulty": 8,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Collect baseline metrics from pilot accounts.",
+        "Test owner interest in comparative reporting.",
+        "Verify permission and anonymization standards."
+      ],
+      "tool_specs": [
+        "Normalized metrics schema",
+        "Anonymization rules",
+        "Benchmark reporting dashboard"
+      ],
+      "kill_criteria": [
+        "Insufficient data standardization across accounts.",
+        "Owners do not value benchmark views enough to pay recurring fees."
+      ]
+    },
+    {
+      "id": "opp_revenue_recovery_ladder",
+      "title": "HVAC Revenue Recovery Concierge to Automation Layer to Micro-SaaS",
+      "category": "hybrid",
+      "thesis": "Run a narrow revenue-recovery workflow manually for HVAC shops, automate the repeated steps, then spin the stable workflow into software once it is proven across multiple accounts.",
+      "why_user_can_win": "This path best combines the user's HVAC context, warm buyer access, ability to deliver a service immediately, and ability to convert the workflow into software later.",
+      "why_this_could_fail": "If each account requires a materially different process, the product thesis breaks and the business stays service-heavy.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 8,
+        "durability": 9,
+        "distribution_fit": 8,
+        "ai_leverage": 8,
+        "defensibility": 7,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Get 15 named prospects and send at least 8 intro requests.",
+        "Complete at least 3 owner interviews in 7 days.",
+        "Pilot the workflow in the brother's business.",
+        "Advance at least 1 serious paid-pilot conversation by day 7."
+      ],
+      "tool_specs": [
+        "Estimate and job record intake",
+        "AI summarization and draft generation",
+        "Follow-up state machine",
+        "SLA and ROI dashboard",
+        "Human review layer for customer-facing messages"
+      ],
+      "kill_criteria": [
+        "Fewer than 5 owner conversations from warm intros within 14 days.",
+        "Fewer than 2 of the first 5 owners say the problem is urgent enough to pay for now.",
+        "No paid pilot within 21 days.",
+        "Less than 70 percent workflow overlap across the first 3 pilots.",
+        "No savings of at least 5 admin hours per week or clear revenue recovery in early pilots."
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Generic HVAC AI chatbot or receptionist SaaS first",
+      "reason": "Too crowded and too easy to imitate; weak founder edge compared with the hybrid workflow path."
+    },
+    {
+      "title": "Pure content or audience-led HVAC AI business",
+      "reason": "The user has no audience, so this ignores the stronger edge of trusted buyer access and pilot availability."
+    }
+  ],
+  "best_bet": "opp_revenue_recovery_ladder",
+  "next_actions": [
+    "Write the one-page offer and ROI calculator.",
+    "Get 15 named prospects from the brother's network.",
+    "Run 3-5 owner interviews focused on stale estimates and job closeout lag.",
+    "Pilot the workflow in the brother's business before building software.",
+    "Try to close 1 paid 30-day sprint within 21 days."
+  ]
+}

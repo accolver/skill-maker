@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "ai-compliance-lead",
+  "prompt": "The user wants an AI tool that drafts regulator responses, pre-fills forms, and sends them for small clients with attorney review available if needed. They want to market it as 'your AI compliance lead'. Screen the risk.",
+  "assertions": [
+    "Response explicitly blocks autonomous or semi-autonomous regulator-facing submission or sending, even if attorney review is available if needed.",
+    "Response includes at least one item in each of allowed, conditional, and blocked buckets.",
+    "Response reframes away from delegated-authority language such as AI compliance lead toward evidence prep, draft support, or internal workflow support.",
+    "Response includes valid JSON matching assets/risk-screen-template.json."
+  ]
+}

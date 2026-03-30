@@ -1,0 +1,34 @@
+{
+  "summary": {
+    "total_conversations": 12,
+    "missed_calls_pain_count": 4,
+    "paid_pilot_agreements": 2,
+    "actual_paid_customers": 1,
+    "post_setup_churn_count": 1
+  },
+  "assessment": {
+    "state": "early demand signal with significant delivery risk",
+    "key_takeaway": "The main issue appears to be implementation and customization complexity rather than lack of interest.",
+    "signals": [
+      "Missed calls are a meaningful pain point for a subset of HVAC owners.",
+      "Some owners are willing to enter a paid pilot.",
+      "At least one owner converted to payment.",
+      "A custom workflow caused churn after setup."
+    ]
+  },
+  "recommended_next_experiment": {
+    "name": "Standardized paid pilot for missed-call pain",
+    "hypothesis": "HVAC owners with clear missed-call pain will pay for a simple standardized pilot if setup is fast and does not require custom workflow design.",
+    "design": [
+      "Target only prospects who explicitly report missed-call pain.",
+      "Offer a fixed-scope pilot focused on one narrow use case.",
+      "Avoid custom workflows during the experiment.",
+      "Use a single onboarding path and a single success metric."
+    ],
+    "success_criteria": [
+      "Secure at least 3 paid pilots from the next qualified conversations.",
+      "Most pilots launch using the same setup template.",
+      "Reduce onboarding or early-use churn."
+    ]
+  }
+}

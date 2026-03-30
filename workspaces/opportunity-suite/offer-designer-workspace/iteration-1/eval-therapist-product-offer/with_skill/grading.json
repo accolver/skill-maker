@@ -1,0 +1,60 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response chooses a product or subscription-shaped offer rather than a service offer.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 24-27 explicitly set the primary shape to a `template or benchmark product` and say the user `does not want service work`; lines 45-47 exclude ghostwriting, editing, custom strategy, and done-for-you setup. `result.json` lines 8-19 repeats a product offer with non-service scope boundaries."
+    },
+    {
+      "text": "Response defines a narrow buyer segment and concrete deliverables.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 11-20 define a narrow buyer segment as `solo and small-group private-practice therapists` using newsletters for specific jobs; lines 32-41 list four concrete deliverables including a benchmark report, annotated swipe file, template pack, and implementation guide. `result.json` lines 3-14 preserves the same ICP and deliverables in structured form."
+    },
+    {
+      "text": "Response rejects at least one weaker framing such as broad consulting or generic sponsorship monetization.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 66-77 has a `Rejected Framings` section. It explicitly rejects `Broad consulting offer` on lines 68-69 and also rejects `Generic AI newsletter service`, `Software-first newsletter platform`, and `Clinical or compliance guidance product`. `result.json` lines 26-30 also includes `Broad consulting offer` in `rejected_framings`."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 81-118 contains a fenced JSON block with structured keys such as `offer_thesis`, `icp`, `deliverables`, and `pricing_hypothesis`. `outputs/result.json` is a standalone valid JSON file with the same structured content on lines 1-37."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 7547
+  },
+  "claims": [
+    {
+      "claim": "The user explicitly does not want service work.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified from `eval_metadata.json` line 4: `The user does not want service work.` The response uses that constraint in `report.md` lines 25-27 and 68-69."
+    },
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified from `transcript.md` line 4 and the presence of both output files in `outputs/`: `report.md` and `result.json`, each containing substantive content."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen `Response includes structured JSON.` to require specific keys or schema alignment, since any loosely relevant JSON would satisfy the current assertion.",
+      "Add assertion: `Response includes pricing and purchase model for the proposed offer` because the run provides substantive pricing guidance in `report.md` lines 53-64 and `result.json` lines 21-25, but the eval does not check it.",
+      "Add assertion: `Response defines clear scope boundaries or exclusions` because the run meaningfully distinguishes the product from services and regulated advice in `report.md` lines 43-51 and `result.json` lines 15-20."
+    ],
+    "overall": "All 4 assertions passed with substantive evidence. The assertion set covers offer shape, audience, rejection of weak framings, and JSON presence, but it under-specifies the quality of the JSON and misses pricing and scope-boundary checks."
+  }
+}

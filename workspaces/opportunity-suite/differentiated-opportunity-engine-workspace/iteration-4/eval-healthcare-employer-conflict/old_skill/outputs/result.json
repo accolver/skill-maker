@@ -1,0 +1,214 @@
+{
+  "user_profile": {
+    "skills": [
+      "staff-level software engineering",
+      "AI automation",
+      "healthcare claims workflow analysis",
+      "denial management knowledge",
+      "prior authorization workflow knowledge"
+    ],
+    "domain_experience": [
+      "healthcare claims startup environment",
+      "deep understanding of where provider groups lose money on denials and prior auth"
+    ],
+    "assets": [
+      "ability to build software solo",
+      "operational understanding of denial and prior-auth failure modes",
+      "ability to convert payer and workflow complexity into product logic"
+    ],
+    "distribution": [
+      "best-fit channels are self-serve landing pages, written content, SEO, and async email distribution",
+      "partnership distribution through non-customer RCM consultants or billing services may be viable"
+    ],
+    "network_access": [
+      "no employer-customer access",
+      "possible access to adjacent non-customer buyers such as RCM consultants, billing services, MSOs, and independent provider operators"
+    ],
+    "constraints": [
+      "cannot use PHI",
+      "cannot use employer confidential information",
+      "cannot contact employer customers",
+      "does not want consulting or sales calls",
+      "approximately 4 hours per week"
+    ],
+    "credibility_signals": [
+      "staff engineer at a healthcare claims startup",
+      "credible domain fluency in denial and prior-auth operations"
+    ],
+    "unfair_advantages": [
+      "superior problem selection in a narrow high-value workflow",
+      "better than generic AI founders at knowing which payer and denial issues matter",
+      "can build products that are operationally useful without relying on regulated data"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_async_leakage_memo",
+      "title": "Async denial leakage memo for non-overlapping buyers",
+      "category": "cash_now",
+      "thesis": "Sell a fixed-scope asynchronous review that uses public payer policies, generalized expertise, and client-provided de-identified samples to identify likely denial and prior-auth leakage points and recommend corrective actions.",
+      "why_user_can_win": "The user already knows which workflow failures matter and can produce a sharper memo than a generic consultant or AI agency.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 6,
+        "durability": 4,
+        "distribution_fit": 4,
+        "ai_leverage": 7,
+        "defensibility": 6,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 4
+      },
+      "validation_plan": [
+        "Create a sample memo from public sources and synthetic examples",
+        "Offer a fixed-scope async review with no meetings",
+        "Test demand with a landing page and a small amount of written outbound"
+      ],
+      "tool_specs": [
+        "structured memo generator",
+        "public payer policy ingestion",
+        "template-based recommendation engine"
+      ],
+      "kill_criteria": [
+        "buyers insist on meetings or custom consulting",
+        "buyers require PHI or internal data for the offer to be useful"
+      ]
+    },
+    {
+      "id": "opp_playbook_library",
+      "title": "Denial and prior-auth playbook library with recurring updates",
+      "category": "asset_later",
+      "thesis": "Build a subscription library of denial root-cause playbooks, appeal frameworks, prior-auth checklists, and AI prompts using only public rules, synthetic scenarios, and generalized expertise.",
+      "why_user_can_win": "The user can make the content operationally precise and valuable, not generic healthcare AI content.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 5,
+        "durability": 7,
+        "distribution_fit": 5,
+        "ai_leverage": 6,
+        "defensibility": 5,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Publish 10 sample playbooks for one specialty",
+        "Test paid interest with a simple subscription page",
+        "Measure whether users value recurring updates over one-time templates"
+      ],
+      "tool_specs": [
+        "searchable template library",
+        "document update workflow",
+        "basic subscription and email delivery"
+      ],
+      "kill_criteria": [
+        "users treat it as free-content material rather than a paid operating tool",
+        "recurring updates do not materially increase willingness to pay"
+      ]
+    },
+    {
+      "id": "opp_synthetic_benchmark_dataset",
+      "title": "Synthetic denial benchmark and training dataset",
+      "category": "asset_later",
+      "thesis": "Create a synthetic dataset of denial and prior-auth scenarios with labeled causes, actions, and resolution paths for QA, training, and workflow testing.",
+      "why_user_can_win": "The user knows which scenarios are realistic, costly, and worth encoding into a structured asset.",
+      "scores": {
+        "edge_fit": 7,
+        "speed_to_revenue": 3,
+        "durability": 8,
+        "distribution_fit": 4,
+        "ai_leverage": 8,
+        "defensibility": 7,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Draft 25 synthetic scenarios",
+        "Test interest from adjacent buyers like consultants or vendors",
+        "Confirm whether dataset buyers exist before scaling the asset"
+      ],
+      "tool_specs": [
+        "scenario schema",
+        "labeling workflow",
+        "download or API delivery"
+      ],
+      "kill_criteria": [
+        "no clear buyer persona emerges",
+        "prospects prefer services or software over datasets"
+      ]
+    },
+    {
+      "id": "opp_policy_diff_copilot",
+      "title": "Payer policy diff monitor to action playbooks to self-serve copilot",
+      "category": "hybrid",
+      "thesis": "Start with a subscription that monitors public payer policy and prior-auth changes for a single specialty, translates changes into operational actions, and later adds a copilot that maps issues to likely causes, next steps, and appeal checklist templates.",
+      "why_user_can_win": "The user can convert noisy payer changes into operationally useful guidance because they understand exactly where provider groups lose money and what workflows break next.",
+      "scores": {
+        "edge_fit": 9,
+        "speed_to_revenue": 7,
+        "durability": 8,
+        "distribution_fit": 6,
+        "ai_leverage": 8,
+        "defensibility": 7,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Pick one specialty and payer cluster",
+        "Create 3 sample outputs from public sources only",
+        "Launch a landing page with screenshots and a self-serve CTA",
+        "Run 2 weeks of written distribution and measure signups or preorders"
+      ],
+      "tool_specs": [
+        "public document ingestion",
+        "deterministic policy diffing",
+        "LLM summarization with source links",
+        "playbook generation",
+        "searchable knowledge base and simple copilot UI"
+      ],
+      "kill_criteria": [
+        "public policy changes are too infrequent or too low-signal to support recurring value",
+        "2 weeks of distribution produce no signups, replies, or willingness to pay",
+        "the product requires PHI or customer-specific data to be useful"
+      ]
+    },
+    {
+      "id": "opp_white_label_consultant_copilot",
+      "title": "White-label copilot for RCM consultants and billing services",
+      "category": "hybrid",
+      "thesis": "Package denial and prior-auth intelligence into a branded tool and template bundle for independent RCM consultants and billing services so they can serve their clients faster without requiring the user to join calls.",
+      "why_user_can_win": "The user provides the specialized intelligence layer while adjacent experts provide the buyer relationships.",
+      "scores": {
+        "edge_fit": 8,
+        "speed_to_revenue": 6,
+        "durability": 7,
+        "distribution_fit": 6,
+        "ai_leverage": 8,
+        "defensibility": 6,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Create a white-label sample kit",
+        "Email a small set of non-customer consultants with the artifact",
+        "Test whether channel partners want recurring access"
+      ],
+      "tool_specs": [
+        "partner-facing workspace",
+        "template export and branding",
+        "curated denial/prior-auth knowledge base"
+      ],
+      "kill_criteria": [
+        "partner acquisition is too slow without calls",
+        "consultants prefer custom documents over a reusable product"
+      ]
+    }
+  ],
+  "best_bet": "opp_policy_diff_copilot",
+  "next_actions": [
+    "Review employment, moonlighting, confidentiality, and invention-assignment obligations before launch",
+    "Choose one specialty and one payer cluster with frequent prior-auth or denial changes",
+    "Produce 3 sample artifacts using only public sources and synthetic scenarios",
+    "Launch a one-page site with a self-serve waitlist or preorder CTA",
+    "Run 2 weeks of written distribution through posts, articles, and async email",
+    "Continue only if there is evidence of recurring demand for the subscription format"
+  ]
+}

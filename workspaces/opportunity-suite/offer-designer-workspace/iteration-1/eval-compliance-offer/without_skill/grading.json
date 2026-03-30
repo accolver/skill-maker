@@ -1,0 +1,47 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response defines a narrow ICP and a clear deliverable or outcome.",
+      "passed": true,
+      "evidence": "PASS from both outputs. `outputs/report.md:13-20` narrows the ICP to small financial firms with 5-50 people, including specific segments and buyer context, and `outputs/report.md:273-277` defines a concrete initial offer with outcome, timeline, and price. `outputs/result.json:4-18` further structures the target market by segments, company size, and buyer roles, while `outputs/result.json:106-114` gives a specific recommended initial offer."
+    },
+    {
+      "text": "Response explicitly rejects legal-advice or outsourced-CCO framing.",
+      "passed": true,
+      "evidence": "PASS with explicit boundary-setting. `outputs/report.md:8-11` states the service does not provide legal advice or act as counsel, `outputs/report.md:51-57` says it avoids legal interpretation and acting as chief compliance officer unless separately qualified and engaged, and `outputs/report.md:80-87` repeats these exclusions. The JSON mirrors this in `outputs/result.json:36-42` and `outputs/result.json:100-104`, which exclude legal advice, regulatory interpretation, and require legal determinations to remain with the client or counsel."
+    },
+    {
+      "text": "Response gives a pricing hypothesis tied to scope rather than generic consulting pricing.",
+      "passed": true,
+      "evidence": "PASS because pricing is scoped by package, duration, and service intensity. `outputs/report.md:118-157` gives separate price ranges for the setup sprint, essential retainer, and audit-ready retainer, with rationale tied to complexity, cadence, and turnaround needs. `outputs/report.md:273-277` also recommends a specific $4,500 fixed-fee launch offer plus a bounded follow-on retainer. `outputs/result.json:43-78` structures the same hypothesis into phase-based pricing with sprint duration, package tiers, and monthly ranges linked to deliverables."
+    },
+    {
+      "text": "Response includes readable offer sections and structured JSON.",
+      "passed": true,
+      "evidence": "PASS. `outputs/report.md` is organized into readable sections such as Positioning, Ideal Buyer, Offer Structure, Recommended Packages, Messaging, Sales Approach, Scope Guardrails, and Risks (`outputs/report.md:3-292`). `outputs/result.json:1-115` is valid structured JSON with nested objects and arrays for target market, constraints, delivery model, pricing, messaging, and guardrails."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 12837
+  },
+  "claims": [],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add assertion: 'Response explains why the offer fits warm-contact sales and limited weekly delivery capacity' because those prompt constraints are addressed in the outputs but not directly tested.",
+      "Add assertion: 'Response includes concrete scope guardrails that keep the service on the operational side of compliance' because this is central to the prompt and currently only indirectly covered by the legal-advice rejection assertion.",
+      "Split 'Response includes readable offer sections and structured JSON' into two assertions so formatting quality and machine-readable output are evaluated independently."
+    ],
+    "overall": "The current assertion set is reasonably discriminating and all four assertions pass on substance in this run. Coverage is strongest on ICP, legal-boundary framing, pricing, and output format, but it misses two important prompt-fit dimensions: whether the design explicitly leverages warm contacts and whether the delivery model is sustainably narrow for limited weekly time."
+  }
+}

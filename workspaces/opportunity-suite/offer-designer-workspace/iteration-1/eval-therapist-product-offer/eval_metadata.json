@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "therapist-product-offer",
+  "prompt": "Chosen direction: paid benchmark and template product for a niche therapist newsletter audience. The user does not want service work. Design the offer.",
+  "assertions": [
+    "Response chooses a product or subscription-shaped offer rather than a service offer.",
+    "Response defines a narrow buyer segment and concrete deliverables.",
+    "Response rejects at least one weaker framing such as broad consulting or generic sponsorship monetization.",
+    "Response includes structured JSON."
+  ]
+}

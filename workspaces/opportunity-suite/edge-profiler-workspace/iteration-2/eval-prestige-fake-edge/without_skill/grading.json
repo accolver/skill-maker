@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not inflate McKinsey background, smart peers, or broad fintech familiarity into strong usable edge.",
+      "passed": true,
+      "evidence": "`outputs/report.md:5-8` says the user can figure out a fintech SaaS 'not because of McKinsey prestige, smart friends, or broad fintech reading alone' and calls those inputs 'usually a fake edge' unless converted into specific buyer/workflow access. `outputs/result.json:3-4,12-17` similarly labels prestige, smart networks, and reading-heavy familiarity as weak or fake edges rather than a strong moat."
+    },
+    {
+      "text": "Response classifies at least part of the impressive-sounding background as fake or overstated edge, weak edge, or a similar category.",
+      "passed": true,
+      "evidence": "`outputs/report.md:19-27` has an explicit 'Likely fake edges' section naming 'I know smart people,' 'I read a lot about fintech,' and 'McKinsey brand.' `outputs/result.json:4` uses the verdict `mixed_fake_edge`, and `outputs/result.json:12-17` lists multiple `fake_edges`."
+    },
+    {
+      "text": "Response explicitly notes the absence of customers, audience, or special access as the key commercial weakness.",
+      "passed": false,
+      "evidence": "The outputs repeatedly say customer access and distribution matter, but they do not explicitly frame the user's stated absence of 'customers, audience, or special access' as the key commercial weakness. `outputs/report.md:7-8` refers to lacking 'repeated access to painful, specific workflows and buyers,' and `outputs/result.json:13-15` mentions 'without customer access' and 'without distribution or workflow access,' but the response never directly names the full absence of customers, audience, or special access as the central weakness in the user's profile."
+    },
+    {
+      "text": "Structured JSON uses the reusable profile contract and includes a concrete next-step path through follow_up_questions, weak_spots, or confidence_notes rather than only a verdict.",
+      "passed": false,
+      "evidence": "`outputs/result.json` is valid structured JSON and includes actionable `next_steps` (`outputs/result.json:26-32`), but it does not appear to use the reusable profile contract named in the assertion. The file uses ad hoc keys such as `task`, `summary`, `verdict`, `real_assets`, `fake_edges`, and `next_steps` (`outputs/result.json:2-32`) and does not include any of the specified contract fields `follow_up_questions`, `weak_spots`, or `confidence_notes`."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 2,
+    "total": 4,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 5563
+  },
+  "claims": [
+    {
+      "claim": "Prestige, smart networks, and broad fintech reading are weak edges unless converted into repeated access to specific painful workflows and reachable buyers.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This claim is made directly in `outputs/result.json:3` and elaborated in `outputs/report.md:5-8,31-33`. The report consistently treats those background traits as insufficient on their own and ties real advantage to repeated workflow and buyer access."
+    },
+    {
+      "claim": "The user's best-fit opportunity areas include compliance operations, KYB/onboarding, reconciliation/exception handling, treasury/payments ops, and finance ops tooling.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The same categories appear in both outputs: `outputs/report.md:53-60` and `outputs/result.json:18-24`, so the output consistently claims these are recommended areas to probe."
+    },
+    {
+      "claim": "A concrete next-step process is to choose 2-3 reachable buyer personas, run 20-30 workflow interviews, rank pains, and only build after repeated validation.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`outputs/report.md:70-81` provides a 4-6 week search strategy with those steps, and `outputs/result.json:26-32` repeats the same path in structured form."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen assertion 4 by naming the exact required top-level keys for the reusable profile contract; as written, a response can include concrete next steps yet still fail because the contract itself is unspecified in the artifact set.",
+      "Add an assertion that checks for a concrete recommendation to run customer-discovery interviews before building, since both outputs spend substantial space on that behavior and it is central to answer quality.",
+      "Consider tightening assertion 3 to require explicit mention of all three missing assets ('customers, audience, or special access') if that exact framing is important; otherwise broaden it to accept equivalent language about lack of distribution, customer access, and proprietary access."
+    ],
+    "overall": "The assertion set is moderately discriminating: the first two assertions cleanly separate fake-edge recognition from prestige inflation, while the third and fourth depend on phrasing and an external contract that is not present in the run artifacts. Coverage would improve by asserting the recommended discovery process, not just the diagnosis."
+  }
+}

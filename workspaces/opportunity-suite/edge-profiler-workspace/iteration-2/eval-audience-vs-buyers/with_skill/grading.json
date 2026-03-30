@@ -1,0 +1,69 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response downgrades the 120000 follower base because the audience is mostly non-buyers, and does not treat scale alone as strong founder edge.",
+      "passed": true,
+      "evidence": "PASS: `report.md:7-11` says the main issue is buyer quality, calls the audience 'not strong monetizable distribution yet,' and says it is 'an audience with attention, not proven buyer access.' `report.md:24-29` also says `120000 followers` is not the same as buyer access. The same downgrade appears in `result.json:35-44`, which treats follower count and audience interest as overstated edge and notes no paying customer evidence."
+    },
+    {
+      "text": "Response names the core commercial weakness precisely, such as weak buyer quality, weak ICP proximity, or unproven monetizable distribution.",
+      "passed": true,
+      "evidence": "PASS: `report.md:7-11` explicitly names 'buyer quality' as the main issue and states the distribution is not yet monetizable. `report.md:33-37` and `result.json:40-45` add precise commercial weaknesses: unknown buyer identity, no proof of conversions or purchases, low purchasing power concentration, and no warm buyer network or owned demand channel."
+    },
+    {
+      "text": "Response uses fake_or_overstated_edge or weak_spots to call out follower count or attention as an unreliable proxy for buyer demand.",
+      "passed": true,
+      "evidence": "PASS: The response does this in both formats. `report.md:24-29` says follower count is not buyer access and topic popularity does not prove commercial trust. `report.md:31-37` lists missing buyer proof under Weak Spots. `result.json:35-45` mirrors this with `fake_or_overstated_edge` entries ('Follower count treated as proof of buyer access', 'Audience interest treated as purchasing intent') and `weak_spots` entries about no validated buyer segment and no paying customer evidence."
+    },
+    {
+      "text": "Structured JSON uses the reusable profile contract with the exact top-level fields expected by the template.",
+      "passed": true,
+      "evidence": "PASS: The template at `/home/alan/dev/ai/skills/edge-profiler/assets/profile-template.json:2-17` requires top-level fields `user_profile`, `usable_edge`, `restricted_or_unusable_edge`, `fake_or_overstated_edge`, `weak_spots`, `follow_up_questions`, and `confidence_notes`. `result.json:1-58` uses exactly those top-level fields with no extras or omissions. The nested `user_profile` fields also match the template exactly (`result.json:2-29` vs. template lines 2-10)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 2,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 6950
+  },
+  "claims": [
+    {
+      "claim": "This is not strong monetizable distribution yet; it is an audience with attention, not proven buyer access.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified against the prompt and outputs. The prompt says most followers are students and hobbyists and the user does not know if any are buyers (`eval_metadata.json:4`). The output grounds this conclusion in `report.md:7-11` and `result.json:18-21,40-45`."
+    },
+    {
+      "claim": "The user has a real distribution asset: an X audience of roughly 120,000 followers centered on AI productivity.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The factual basis comes directly from the prompt in `eval_metadata.json:4`, which states the user has 120000 followers on X talking about AI productivity. The same fact is carried through consistently in `report.md:3-5` and `result.json:11-16`."
+    },
+    {
+      "claim": "No warm buyer network or owned demand channel is evidenced.",
+      "type": "process",
+      "verified": true,
+      "evidence": "This negative claim is supportable from the available evidence because the prompt supplies no buyer-network or owned-channel evidence, and the output explicitly frames it as lack of evidence rather than certainty: `report.md:36-37` and `result.json:21,44`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion for consistency between the human-readable summary and `result.json`; this run is strong partly because both formats agree, but the current eval does not check that.",
+      "Add an assertion that follow-up questions probe buyer qualification or monetization evidence; the outputs do this well (`report.md:41-49`, `result.json:46-52`) but the eval does not reward it.",
+      "Add an assertion that weak or missing buyer evidence stays out of `usable_edge` and `unfair_advantages`; this is central to the skill and would catch flattering but schema-compliant outputs.",
+      "Consider clarifying the phrase 'exact top-level fields expected by the template' by referencing the template path directly in the eval harness, since that assertion is only objectively gradable when the template is available."
+    ],
+    "overall": "The assertion set is fairly discriminating for this scenario and all four checks are substantively met in this run. Coverage is strongest on buyer-quality skepticism and schema compliance, but it misses cross-format consistency, follow-up-question quality, and whether weak signals were kept out of `usable_edge`."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not inflate McKinsey background, smart peers, or broad fintech familiarity into strong usable edge.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 5-16 say these assets are 'not yet a real edge' and 'mostly analytical confidence rather than company-building leverage.' `report.md` lines 58-62 adds there is no 'durable unfair advantage.' `result.json` lines 3-4 likewise says the assets 'do not yet constitute a durable edge' and labels the verdict `potential_edge_not_realized`."
+    },
+    {
+      "text": "Response classifies at least part of the impressive-sounding background as fake or overstated edge, weak edge, or a similar category.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 18-39 contains a dedicated 'What is real vs fake edge here' section and a 'Fake edge risks' subsection explicitly stating that 'I know fintech well,' 'I know smart people,' prestige, and reading can be misleading substitutes for real edge. `result.json` lines 12-16 mirrors this with a `fake_edge_risks` array."
+    },
+    {
+      "text": "Response explicitly notes the absence of customers, audience, or special access as the key commercial weakness.",
+      "passed": true,
+      "evidence": "PASS: `report.md` lines 7-10 explicitly says 'without customers, audience, distribution, proprietary data, or special access, that advantage is mostly analytical confidence rather than company-building leverage.' `report.md` lines 52-54 further says ideas die because the founder has 'no distribution, no embedded workflow access.' `result.json` line 3 also explicitly cites the lack of customers, distribution, proprietary data, and special access as the limiting factor."
+    },
+    {
+      "text": "Structured JSON reflects weak or overstated edge rather than inventing a stronger moat.",
+      "passed": true,
+      "evidence": "PASS: `result.json` line 4 sets `verdict` to `potential_edge_not_realized`; line 3 says the edge is 'mostly potential rather than realized'; and lines 12-16 enumerate fake-edge risks instead of claiming a moat. The JSON consistently frames the background as weak or overstated edge, not a strong defensible advantage."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 7367
+  },
+  "claims": [
+    {
+      "claim": "The user's current assets are useful but do not yet constitute a durable edge.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by the outputs themselves: `report.md` lines 5-16 and 58-62 repeatedly characterize the background as useful raw material but not a real or durable edge; `result.json` lines 3-4 matches that framing with `potential_edge_not_realized`."
+    },
+    {
+      "claim": "Knowing smart people is not the same as having buyers, champions, or a channel.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`report.md` lines 34-35 explicitly states this distinction, and `result.json` lines 13-14 restates it as 'Knowing smart people is not the same as having buyers or distribution.' This is internally consistent and supported by the response content."
+    },
+    {
+      "claim": "A stronger search process would involve 30-50 interviews in one workflow area before building.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`report.md` lines 70-76 recommends 'Run 30-50 interviews in one workflow area' and delay building until repeated painful evidence appears; `result.json` lines 18-23 reflects the same process in structured form."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Add an assertion that the response distinguishes analytical credibility from distribution or workflow access; that is a central quality of this output but is only indirectly covered.",
+      "Add an assertion that the answer provides a concrete next-step search process rather than only rejecting the prestige-based edge claim.",
+      "Current assertions do not verify whether `result.json` is valid JSON with the expected schema; adding a structural assertion would improve objective coverage."
+    ],
+    "overall": "The current assertion set is discriminating enough for the core fake-edge judgment and all four assertions are substantively satisfied here. Coverage is narrower on response quality beyond the verdict itself: it misses whether the answer explains why the edge is weak and whether it gives a concrete path to develop a real edge. The transcript is too limited to assess execution behavior, so this eval effectively grades final outputs only."
+  }
+}

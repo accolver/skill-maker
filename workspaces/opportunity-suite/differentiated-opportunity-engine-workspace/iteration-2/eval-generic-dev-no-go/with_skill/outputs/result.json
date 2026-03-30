@@ -1,0 +1,169 @@
+{
+  "user_profile": {
+    "skills": [
+      "junior full-stack development",
+      "shipping small web apps",
+      "basic AI feature integration"
+    ],
+    "domain_experience": [
+      "generic developer workflow familiarity"
+    ],
+    "assets": [
+      "can build the product personally"
+    ],
+    "distribution": [],
+    "network_access": [],
+    "constraints": [
+      "about 4 hours per week",
+      "wants an AI micro-SaaS in 30 days",
+      "wants money fast",
+      "no sales calls",
+      "no services",
+      "no content creation",
+      "no niche audience",
+      "no special domain access",
+      "no budget"
+    ],
+    "credibility_signals": [
+      "technical ability to prototype and ship"
+    ],
+    "unfair_advantages": [
+      "proximity to common developer workflow pain as a builder"
+    ]
+  },
+  "feasibility_verdict": "no_go",
+  "binding_constraints": [
+    "fast revenue requirement",
+    "no audience or buyer access",
+    "no niche differentiation",
+    "no sales calls",
+    "no services",
+    "no content creation",
+    "only about 16 hours total in 30 days"
+  ],
+  "opportunities": [
+    {
+      "id": "opp_dev_workflow_pack",
+      "title": "AI-assisted developer workflow kit for one boring pain",
+      "category": "cash_now",
+      "thesis": "Sell a tiny developer workflow pack through an existing checkout or marketplace to test whether a narrow pain converts without calls.",
+      "why_user_can_win": "Fast to ship, no need for calls, and can be based on firsthand developer pain.",
+      "why_this_could_fail": "Weak edge, weak defensibility, and low distribution make real revenue unlikely.",
+      "scores": {
+        "edge_fit": 2,
+        "speed_to_revenue": 6,
+        "durability": 2,
+        "distribution_fit": 2,
+        "ai_leverage": 5,
+        "defensibility": 1,
+        "execution_difficulty": 2,
+        "compliance_platform_risk": 1
+      },
+      "validation_plan": [
+        "Review 50 public pain signals and collect 20 exact phrases.",
+        "Publish one landing page with pricing by day 2.",
+        "Get at least 30 visits and 5 signups or 2 checkout attempts in 7 days."
+      ],
+      "tool_specs": [
+        "One narrow workflow",
+        "One checkout page",
+        "One simple deliverable"
+      ],
+      "kill_criteria": [
+        "Fewer than 30 qualified visits after 7 days",
+        "Zero purchase intent signals after launch"
+      ]
+    },
+    {
+      "id": "opp_ci_triage_app",
+      "title": "GitHub app for CI failure triage and recurring failure digests",
+      "category": "asset_later",
+      "thesis": "Build a tiny AI-assisted developer workflow product with a narrow promise and distribute it through existing developer channels.",
+      "why_user_can_win": "The user can build it solo and likely understands the pain from personal experience.",
+      "why_this_could_fail": "There is no strong moat, distribution is still hard, and 30 days is too short for dependable revenue.",
+      "scores": {
+        "edge_fit": 4,
+        "speed_to_revenue": 3,
+        "durability": 6,
+        "distribution_fit": 3,
+        "ai_leverage": 7,
+        "defensibility": 3,
+        "execution_difficulty": 6,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Choose one pain only: CI failure triage.",
+        "Publish a priced landing page and one working demo within 7 days.",
+        "Target 3 paying users, or 10 qualified signups, or 5 activated users with 2 stated willingness-to-pay signals."
+      ],
+      "tool_specs": [
+        "GitHub connection",
+        "One workflow run analysis screen",
+        "Plain-English summary",
+        "Likely root cause bucket",
+        "Suggested next debugging steps",
+        "Simple weekly digest",
+        "Basic checkout"
+      ],
+      "kill_criteria": [
+        "Fewer than 3 paying users after 30 days",
+        "Zero activation repeat usage after 14 days",
+        "Cannot explain the user and workflow in one sentence"
+      ]
+    },
+    {
+      "id": "opp_async_build_for_one",
+      "title": "Async build-for-one developer workflow tool, then productize",
+      "category": "hybrid",
+      "thesis": "Solve one painful workflow for a few real users through async setup, then convert the repeated workflow into product software.",
+      "why_user_can_win": "This is the fastest route to real demand learning and better future product fit.",
+      "why_this_could_fail": "It conflicts with the user's stated refusal to do service work and still requires some outreach.",
+      "scores": {
+        "edge_fit": 5,
+        "speed_to_revenue": 6,
+        "durability": 7,
+        "distribution_fit": 4,
+        "ai_leverage": 7,
+        "defensibility": 4,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Get 10-15 async customer conversations.",
+        "Complete 3 manual or semi-manual pilot setups.",
+        "Only productize if the same workflow repeats at least twice."
+      ],
+      "tool_specs": [
+        "Manual or semi-manual workflow",
+        "Simple dashboard or email output",
+        "Reusable prompt and process templates"
+      ],
+      "kill_criteria": [
+        "User remains unwilling to do any service-like setup",
+        "No repeated pain across the first 3 pilots"
+      ]
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "Generic AI wrapper for a broad audience",
+      "reason": "No differentiation, no audience, and no cheap acquisition path."
+    },
+    {
+      "title": "Content-first AI business",
+      "reason": "Conflicts with the user's preference and lacks an existing audience."
+    },
+    {
+      "title": "Broad freelance AI implementation",
+      "reason": "Fastest route to cash, but conflicts with no services and no sales calls."
+    }
+  ],
+  "best_bet": "opp_ci_triage_app",
+  "next_actions": [
+    "Treat the 30-day goal as validation, not reliable income.",
+    "Pick one narrow developer workflow pain and ignore everything else.",
+    "Ship a priced landing page by day 2 and a minimal demo by day 3 or 4.",
+    "List the product in at least 3 existing channels.",
+    "Kill the idea fast if there is no activation or buying intent."
+  ]
+}

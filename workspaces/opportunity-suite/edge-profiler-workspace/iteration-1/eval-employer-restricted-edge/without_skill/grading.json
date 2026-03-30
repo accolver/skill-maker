@@ -1,0 +1,66 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response marks employer templates, pricing logic, or internal process docs as restricted or unusable edge.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 16-22 says the scenario is an \"employer-restricted edge\" and states internal templates, pricing logic, and process documents are company-controlled assets that should not be treated as portable advantage. `outputs/report.md` lines 47-52 lists those materials under \"Not safely usable without permission.\" `outputs/result.json` lines 11-15 places the same items in `restricted_components`."
+    },
+    {
+      "text": "Response separates reusable market understanding from non-reusable internal materials.",
+      "passed": true,
+      "evidence": "`outputs/report.md` lines 24-30 distinguishes portable general industry knowledge from non-portable confidential strategy, pricing methods, and playbooks. `outputs/report.md` lines 41-52 further splits \"Potentially usable without restriction\" from \"Not safely usable without permission.\" `outputs/result.json` lines 6-16 mirrors that separation with `portable_components` and `restricted_components`."
+    },
+    {
+      "text": "Response explicitly says confidential or employer-owned materials cannot be counted as usable edge without independent lawful recreation.",
+      "passed": false,
+      "evidence": "The outputs clearly say employer-confidential materials are restricted and not safely usable without permission (`outputs/report.md` lines 20-22, 35-37, 47-52), but they do not explicitly state the standard \"cannot be counted as usable edge without independent lawful recreation.\" The response uses permission/authorization language instead of the required explicit lawful-recreation framing."
+    },
+    {
+      "text": "Structured JSON places internal templates, pricing logic, and process docs only under restricted or unusable edge and not under usable edge or unfair advantages.",
+      "passed": true,
+      "evidence": "`outputs/result.json` lines 11-15 lists `internal templates`, `pricing logic`, and `process documentation` only in `restricted_components`. `outputs/result.json` lines 6-10 limits `portable_components` to general market knowledge, public industry dynamics, and personal skills, so the restricted items do not appear under any usable category."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 2559
+  },
+  "claims": [
+    {
+      "claim": "No input files were provided.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "`outputs/report.md` line 12 states no input files were provided, and `outputs/result.json` lines 17-20 records `files_provided: 0` in the structured input summary."
+    },
+    {
+      "claim": "The run produced report.md and result.json.",
+      "type": "process",
+      "verified": true,
+      "evidence": "`transcript.md` line 4 says `report.md` and `result.json` were written, and both files exist in `outputs/` with substantive content."
+    },
+    {
+      "claim": "The described advantage should be classified as restricted / employer_restricted_edge.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "`outputs/report.md` lines 31-37 concludes \"Overall result: Restricted\" and recommends the label `employer_restricted_edge` at line 56. `outputs/result.json` lines 2-5 matches that classification with `label: employer_restricted_edge` and `result: restricted`."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Consider tightening the overlap between assertion 1 and assertion 4; both check that the same internal materials are classified as restricted, with one in prose and one in JSON.",
+      "Add an assertion for the permission/authorization boundary, since this run explicitly says restricted materials are not safely usable without permission but the current suite does not check for that nuance.",
+      "Add an assertion that the reusable portion is limited to generalized market knowledge and personal skills, not just that a separation exists, to better distinguish shallow from substantive answers."
+    ],
+    "overall": "The assertion set is reasonably discriminating and catches the main classification behavior, but it misses the permission-based reuse boundary expressed in the output and has some redundancy between the prose restriction check and the JSON restriction check."
+  }
+}

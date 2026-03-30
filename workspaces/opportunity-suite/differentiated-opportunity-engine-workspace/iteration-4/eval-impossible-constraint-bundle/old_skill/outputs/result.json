@@ -1,0 +1,157 @@
+{
+  "user_profile": {
+    "skills": [
+      "junior full-stack development",
+      "basic AI-enabled web app building"
+    ],
+    "domain_experience": [],
+    "assets": [],
+    "distribution": [],
+    "network_access": [],
+    "constraints": [
+      "no niche audience",
+      "no special domain access",
+      "no budget",
+      "2 hours per week",
+      "goal of $3000 MRR in 30 days",
+      "refuses sales calls",
+      "refuses services",
+      "refuses content creation",
+      "refuses cold outreach",
+      "wants an AI micro-SaaS"
+    ],
+    "credibility_signals": [
+      "can build simple full-stack software"
+    ],
+    "unfair_advantages": [
+      "ability to ship a small product solo"
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "opp_marketplace_micro_saas",
+      "title": "Marketplace-first micro-SaaS for a search-driven pain",
+      "category": "asset_later",
+      "thesis": "Borrow distribution from a marketplace such as the Chrome Web Store, Shopify App Store, or Slack App Directory by building a tiny painkiller for a single repetitive workflow.",
+      "why_user_can_win": "This is the only path that partially offsets missing audience and outreach by using marketplace discovery instead of direct selling.",
+      "scores": {
+        "edge_fit": 2,
+        "speed_to_revenue": 3,
+        "durability": 6,
+        "distribution_fit": 4,
+        "ai_leverage": 6,
+        "defensibility": 2,
+        "execution_difficulty": 5,
+        "compliance_platform_risk": 3
+      },
+      "validation_plan": [
+        "Choose one marketplace only",
+        "Collect 20 search terms and inspect existing listings",
+        "Read 30 low-rating competitor reviews to identify repeated complaints",
+        "Create a fake-door page or listing draft with pricing",
+        "Build only the core transformation and publish a prototype",
+        "Track impressions, installs or signups, activation, and willingness to pay"
+      ],
+      "tool_specs": [
+        "Chrome extension or equivalent lightweight marketplace app",
+        "Single AI-assisted transformation based on current page context or pasted text",
+        "Minimal backend API for AI calls",
+        "Basic analytics for install to activation tracking",
+        "Simple billing path or trial gating"
+      ],
+      "kill_criteria": [
+        "No repeated complaint pattern in competitor reviews",
+        "Cannot describe the offer as one persona, one workflow, one outcome",
+        "No traffic or interest from marketplace discovery",
+        "Prototype cannot reach usable state inside the monthly hour budget",
+        "No activation or willingness-to-pay signal"
+      ]
+    },
+    {
+      "id": "opp_concierge_to_saas",
+      "title": "Concierge workflow to micro-SaaS",
+      "category": "hybrid",
+      "thesis": "Manually solve a narrow workflow for a niche, then productize the repeated steps into software.",
+      "why_user_can_win": "This would normally create the fastest path to insight and eventual defensibility, but it conflicts with the user's refusal to do services or direct customer work.",
+      "scores": {
+        "edge_fit": 4,
+        "speed_to_revenue": 7,
+        "durability": 7,
+        "distribution_fit": 3,
+        "ai_leverage": 7,
+        "defensibility": 4,
+        "execution_difficulty": 4,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Only viable if the user relaxes the no-services rule"
+      ],
+      "tool_specs": [
+        "Manual workflow supported by lightweight internal tooling"
+      ],
+      "kill_criteria": [
+        "User refuses service-first execution"
+      ]
+    },
+    {
+      "id": "opp_async_audit_service",
+      "title": "Asynchronous AI audit productized service",
+      "category": "cash_now",
+      "thesis": "Package one narrow deliverable and sell it asynchronously through a platform.",
+      "why_user_can_win": "It fits a junior builder who can deliver a tightly scoped outcome fast, but it still violates the user's no-services constraint.",
+      "scores": {
+        "edge_fit": 3,
+        "speed_to_revenue": 6,
+        "durability": 3,
+        "distribution_fit": 4,
+        "ai_leverage": 6,
+        "defensibility": 2,
+        "execution_difficulty": 3,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Only viable if the user relaxes the no-services rule"
+      ],
+      "tool_specs": [
+        "Template-driven async delivery workflow"
+      ],
+      "kill_criteria": [
+        "User refuses service work"
+      ]
+    },
+    {
+      "id": "opp_template_ai_subscription",
+      "title": "Template-plus-AI subscription for a broad persona",
+      "category": "asset_later",
+      "thesis": "Offer AI-assisted templates or workflows to a broad persona such as job seekers or freelancers.",
+      "why_user_can_win": "Low build complexity is the only real advantage; otherwise it is generic and easy to copy.",
+      "scores": {
+        "edge_fit": 1,
+        "speed_to_revenue": 3,
+        "durability": 3,
+        "distribution_fit": 2,
+        "ai_leverage": 5,
+        "defensibility": 1,
+        "execution_difficulty": 2,
+        "compliance_platform_risk": 2
+      },
+      "validation_plan": [
+        "Reject unless a clear niche demand source appears"
+      ],
+      "tool_specs": [
+        "Simple template library and AI generation flow"
+      ],
+      "kill_criteria": [
+        "No founder edge",
+        "No credible acquisition channel"
+      ]
+    }
+  ],
+  "best_bet": "opp_marketplace_micro_saas",
+  "next_actions": [
+    "Acknowledge that $3000 MRR in 30 days is not realistic under the full constraint bundle",
+    "Relax at least one constraint if high-probability revenue is the real goal",
+    "If no constraints are relaxed, run a 7-day validation sprint for one marketplace-first wedge",
+    "Aim for first paying users and conversion signal, not the headline MRR target"
+  ]
+}

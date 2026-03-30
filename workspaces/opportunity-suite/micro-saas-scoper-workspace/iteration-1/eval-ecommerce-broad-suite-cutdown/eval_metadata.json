@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "ecommerce-broad-suite-cutdown",
+  "prompt": "The user wants a micro-SaaS for ecommerce reporting and immediately proposes a broad analytics suite. Scope the product.",
+  "assertions": [
+    "Response cuts the broad analytics suite down to a narrower wedge.",
+    "Response identifies one primary user and one workflow.",
+    "Response includes a do-not-build-yet list.",
+    "Response includes structured JSON."
+  ]
+}

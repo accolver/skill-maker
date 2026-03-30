@@ -1,0 +1,67 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response identifies one dominant uncertainty, such as activation or legal friction, rather than trying to optimize everything at once.",
+      "passed": true,
+      "evidence": "`report.md` lines 17-20 state, \"The main bottleneck is not awareness of the problem. It is activation during or immediately after trial start.\" Lines 32-54 then focus the next step on one activation-focused experiment rather than multiple parallel optimizations. `result.json` lines 28-35 also name one `primary_bottleneck`: `activation` and provide one recommended experiment."
+    },
+    {
+      "text": "Response distinguishes pain signal from activation or conversion signal.",
+      "passed": true,
+      "evidence": "`report.md` lines 9-12 separate pain and funnel metrics: 12 of 30 severe pain, 5 demos, 2 trials, 0 activations. Lines 14-15 explicitly say the problem is credible while users are not reaching first value. `result.json` lines 3-15 also separates `metrics` from `conversion_rates`, and lines 29-31 distinguish `market_signal: promising` from `primary_bottleneck: activation`."
+    },
+    {
+      "text": "Response uses exactly one decision state and exactly one next experiment.",
+      "passed": true,
+      "evidence": "The output converges on one state and one next step. `report.md` lines 63-68 present a single bottom line: the market signal is sufficient to continue, but the current problem is activation. Lines 32-60 define one next experiment: a guided pilot for the next 5 to 10 prospects. `result.json` lines 28-35 contain one `state_assessment` object and lines 33-49 contain one `recommended_next_experiment` object."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/experiment-log-template.json.",
+      "passed": false,
+      "evidence": "`outputs/result.json` is valid JSON, but it does not match `assets/experiment-log-template.json` lines 2-8. The template requires the top-level keys `experiments`, `strong_signals`, `weak_signals`, `contradictions`, `decision_state`, `next_experiment`, and `rationale`. Instead, `result.json` uses different keys such as `summary`, `metrics`, `conversion_rates`, `observed_blockers`, `state_assessment`, and `recommended_next_experiment`."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 4108
+  },
+  "claims": [
+    {
+      "claim": "30 founder interviews show meaningful problem severity but no activation.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The source prompt in `eval_metadata.json` line 4 states there were 30 interviews, 12 severe-pain responses, and 0 activations. `report.md` lines 3-5 and 9-12 restate those facts accurately, and `result.json` lines 2-15 encodes the same counts and rates."
+    },
+    {
+      "claim": "The main bottleneck is activation during or immediately after trial start.",
+      "type": "quality",
+      "verified": false,
+      "evidence": "`report.md` lines 19-20 make this claim, but the available evidence is thin: only 2 trials started, 0 activated, and the prompt reports one explicit legal blocker plus one onboarding complaint (`eval_metadata.json` line 4). The evidence supports that activation is weak, but it does not conclusively prove the bottleneck is specifically during or immediately after trial start rather than earlier legal friction in a very small sample."
+    },
+    {
+      "claim": "Reducing legal/data-sharing friction and simplifying onboarding will improve trial-to-activation conversion.",
+      "type": "quality",
+      "verified": false,
+      "evidence": "This appears as the hypothesis in `result.json` lines 34-40 and `report.md` lines 45-48. The run provides no validation or prior experiment evidence showing that these changes improve conversion; it is a proposed experiment, not a verified result."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the JSON assertion to check the exact required top-level fields from `assets/experiment-log-template.json`, not just general JSON validity.",
+      "Add an assertion that the response justifies why activation is prioritized over legal friction using the provided evidence; the current set allows a plausible but weak causal leap to pass.",
+      "Add an assertion that the recommended experiment includes a measurable success threshold tied to the chosen bottleneck; the output includes this, but the eval does not check for it.",
+      "Assertion 3 is somewhat non-discriminating because prose can satisfy it without using the template's `decision_state` and `next_experiment` fields; consider tying it to the required structured format."
+    ],
+    "overall": "The assertion set catches the major formatting miss, but it underspecifies evidence quality for the activation-vs-legal-friction judgment. This run passes 3 of 4 assertions despite making a weakly supported bottleneck inference and ignoring the required JSON template."
+  }
+}

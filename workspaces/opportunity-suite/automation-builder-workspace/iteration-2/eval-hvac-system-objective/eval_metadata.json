@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "hvac-system-objective",
+  "prompt": "Build spec: HVAC missed-call recovery tool with one call event input, one operator review step, and one owner-facing output. Produce the build plan.",
+  "assertions": [
+    "Response defines the exact system objective with a primary user, trigger, output, and human escalation point.",
+    "Response includes at least one manual step, one automated step, and keeps integrations limited to directly necessary ones.",
+    "Response avoids platform sprawl and keeps the architecture wedge-shaped.",
+    "Response includes valid JSON matching assets/build-plan-template.json."
+  ]
+}

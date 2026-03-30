@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response uses exactly one readiness verdict from build_now, stay_manual_for_now, or conditional_build.",
+      "passed": false,
+      "evidence": "FAIL: Neither output uses any of the required verdict tokens. `outputs/report.md` recommends to \"Proceed\" and scope the product as an internal AI-assisted system (lines 179-182), while `outputs/result.json` uses `decision: \"proceed_with_internal_ai_assisted_operator_platform\"` (line 2) instead of `build_now`, `stay_manual_for_now`, or `conditional_build`."
+    },
+    {
+      "text": "Response does not allow end-to-end automation and keeps judgment-heavy matching or screening manual in v1.",
+      "passed": true,
+      "evidence": "PASS: The response explicitly rejects full autonomy and keeps judgment-heavy matching manual. `outputs/report.md` says the correct scope is \"not an end-to-end replacement system\" (line 10), keeps humans in control of \"shortlist approval and match recommendation\" (lines 14-15), and lists \"Final shortlist approval\" and \"Final match recommendation\" as manual decisions (lines 61-62). `outputs/result.json` also keeps `final shortlist approval` and `final candidate-client match recommendation` in `keep_human_owned` (lines 17-22)."
+    },
+    {
+      "text": "Response automates only one narrow workflow first rather than the whole funnel.",
+      "passed": false,
+      "evidence": "FAIL: The proposed v1 scope covers much of the funnel, not one narrow workflow. `outputs/report.md` proposes automating sourcing, enrichment, first-pass screening, outreach drafting, scheduling coordination, and client reporting (lines 12-15, 79-94). `outputs/result.json` similarly includes seven `build_now` areas and ten `automation_candidates` spanning sourcing through reporting (lines 8-16, 29-40)."
+    },
+    {
+      "text": "Response includes valid JSON matching assets/micro-saas-scope-template.json with non-empty readiness_verdict, product_wedge.primary_user, product_wedge.job_to_be_done, product_wedge.core_workflow, manual_work, automated_first, mvp_boundary, productization_trigger, and do_not_build_yet.",
+      "passed": false,
+      "evidence": "FAIL: `outputs/result.json` is syntactically valid JSON, but it does not match the referenced template. The template at `/home/alan/dev/ai/skills/micro-saas-scoper/assets/micro-saas-scope-template.json` requires top-level keys `readiness_verdict`, `product_wedge`, `manual_work`, `automated_first`, `mvp_boundary`, `productization_trigger`, and `do_not_build_yet` (lines 2-12). `outputs/result.json` instead uses keys such as `decision`, `summary`, `product_type`, `fit`, `autonomy_level`, and `recommended_scope` (lines 2-72), so the required template fields are missing rather than non-empty."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 3,
+    "total": 4,
+    "pass_rate": 0.25
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [],
+    "output_chars": 9311
+  },
+  "claims": [
+    {
+      "claim": "Completed. Wrote `report.md` and `result.json`.",
+      "type": "process",
+      "verified": true,
+      "evidence": "The transcript states this explicitly (`transcript.md`, lines 4-6), and both files exist in `without_skill/outputs/` with substantive content."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen the verdict assertion to require the exact verdict token in a specific location, ideally `result.json.readiness_verdict`, so formatting drift is easier to grade consistently.",
+      "The current assertion set does not directly check whether the response recommends an internal operator tool versus a client-facing or autonomous marketplace, even though that distinction is central in this run's output.",
+      "Add an assertion that the first product wedge is a single constrained workflow or module, because assertion 3 currently has to infer this from broad narrative scope rather than from named structured fields.",
+      "Consider requiring the structured template file explicitly, because a run can produce detailed prose and still fail the schema expectation completely, as happened here."
+    ],
+    "overall": "The assertions discriminate meaningfully on verdict choice, judgment boundaries, and schema compliance, but they miss one central product-shaping dimension: whether the response chooses a narrow internal wedge versus a broad operator platform. Transcript quality is also limited here, which reduces visibility into process quality and tool use."
+  }
+}

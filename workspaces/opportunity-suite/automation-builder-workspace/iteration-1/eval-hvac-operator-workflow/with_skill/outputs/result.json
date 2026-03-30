@@ -1,0 +1,52 @@
+{
+  "system_objective": {
+    "primary_user": "HVAC business owner",
+    "trigger": "A missed inbound call from a prospective or existing customer",
+    "output": "A concise owner-facing follow-up summary with the recommended next action",
+    "human_escalation": "Internal operator reviews the drafted recovery message and customer details before anything is sent to the owner"
+  },
+  "components": [
+    "Missed-call intake endpoint",
+    "Workflow worker",
+    "Operator review screen",
+    "Delivery service",
+    "Lightweight datastore"
+  ],
+  "inputs": [
+    "One missed-call event containing caller phone number, timestamp, line or location, and optional voicemail or caller name if available"
+  ],
+  "outputs": [
+    "One owner-facing message containing caller identity if known, call time, whether the caller appears new or existing, operator notes, and a recommended next step"
+  ],
+  "integrations": [
+    "Telephony or call-tracking provider webhook",
+    "Internal auth for operator access",
+    "SMS or email provider for owner delivery",
+    "Optional CRM lookup if already available"
+  ],
+  "manual_steps": [
+    "Determine whether the missed call is urgent, spam, duplicate, or routine",
+    "Edit the owner summary when the raw data is incomplete or ambiguous",
+    "Suppress delivery for obvious spam or bad leads"
+  ],
+  "automated_steps": [
+    "Receive the missed-call event",
+    "Create and deduplicate a recovery case",
+    "Draft a default owner summary from known fields",
+    "Send the owner notification after operator approval"
+  ],
+  "milestones": [
+    "Define the missed-call payload and owner message format",
+    "Build intake endpoint, datastore schema, and case creation worker",
+    "Build the operator review screen with approve, edit, and suppress actions",
+    "Add owner delivery via one channel first, preferably SMS",
+    "Add audit logging, retry handling, and basic reporting on reviewed versus sent cases"
+  ],
+  "out_of_scope": [
+    "Automated customer outreach or auto-reply to the caller",
+    "Multi-branch routing logic beyond a single business owner recipient",
+    "Full CRM sync, lead scoring, or scheduling automation",
+    "AI voice handling, transcription pipelines, or after-hours virtual receptionist flows",
+    "Mobile app development"
+  ]
+}

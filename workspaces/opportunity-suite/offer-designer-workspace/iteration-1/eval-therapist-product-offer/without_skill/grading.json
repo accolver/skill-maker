@@ -1,0 +1,69 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response chooses a product or subscription-shaped offer rather than a service offer.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:5-12` says 'Create a paid digital product' and `outputs/report.md:16` explicitly states 'A product, not a service.' `outputs/result.json:3-8` also defines the direction as a 'paid benchmark and template product' and the type as a 'self-serve digital product'."
+    },
+    {
+      "text": "Response defines a narrow buyer segment and concrete deliverables.",
+      "passed": true,
+      "evidence": "PASS: `outputs/report.md:24-35` narrows the buyer to solo therapists, small group practice owners, and a secondary therapist-marketing support audience. Concrete deliverables are listed in `outputs/report.md:48-128` and `outputs/report.md:178-187`, including a benchmark report, self-assessment scorecard, template kit, 90-day improvement plan, and swipe file. `outputs/result.json:10-16` mirrors these components in structured form."
+    },
+    {
+      "text": "Response rejects at least one weaker framing such as broad consulting or generic sponsorship monetization.",
+      "passed": true,
+      "evidence": "PASS: The response repeatedly rejects service-style framing. `outputs/report.md:12` says buyers can use the offer 'without hiring a marketer'; `outputs/report.md:44` says therapists can improve 'without paying an agency or copywriter'; `outputs/report.md:130-131` says 'Avoid building software first'; and `outputs/report.md:170-171` says the product should replace consulting-style questions 'without becoming custom service work.' This is a substantive rejection of broader consulting/service framing."
+    },
+    {
+      "text": "Response includes structured JSON.",
+      "passed": true,
+      "evidence": "PASS: `outputs/result.json` is valid structured JSON with top-level keys `audience`, `direction`, `offer`, `components`, `pricing`, `whyThisFits`, `goToMarket`, `risks`, and `recommendation` (`outputs/result.json:1-41`)."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1
+  },
+  "execution_metrics": {
+    "tool_calls": [],
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": [
+      "Detailed tool-by-tool execution transcript was not exposed by the subagent runner in this environment."
+    ],
+    "output_chars": 9106
+  },
+  "claims": [
+    {
+      "claim": "The offer is productized rather than service-based.",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Verified by `outputs/report.md:16` ('A product, not a service') and `outputs/result.json:6` ('self-serve digital product')."
+    },
+    {
+      "claim": "The benchmark creates diagnostic value and the templates create implementation value.",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Verified by the structure of the deliverables: `outputs/report.md:48-86` defines a benchmark report and scorecard for diagnosis, while `outputs/report.md:87-120` defines the template kit and 90-day plan for action. `outputs/report.md:154-157` explicitly names these as 'Diagnostic value' and 'Implementation value'."
+    },
+    {
+      "claim": "The recommendation is to build the benchmark-first product and use templates as the action layer.",
+      "type": "process",
+      "verified": true,
+      "evidence": "Verified directly in `outputs/result.json:40` and reinforced by `outputs/report.md:147-152`, which argues the benchmark should answer the buyer's first question before templates are used for action."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      "Strengthen 'Response includes structured JSON' to check whether the JSON contains the core fields required by the prompt, not just any JSON object.",
+      "Add an assertion for the benchmark/diagnostic angle, since the chosen direction specifically called for a paid benchmark and template product and that strategic distinction is central to the output quality.",
+      "Add an assertion for pricing or product packaging, because a strong offer design should specify how the product is sold, not just what it contains.",
+      "Add an assertion that the response explains why the offer is better than service work, since the user explicitly did not want service work and that tradeoff is part of the task's intent."
+    ],
+    "overall": "All 4 assertions pass, but the eval is somewhat shallow: it checks format and broad direction well enough, yet it under-specifies key offer-design qualities like benchmark differentiation, pricing, and the rationale for avoiding service work."
+  }
+}
