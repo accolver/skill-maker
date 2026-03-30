@@ -1,0 +1,41 @@
+{
+  "skill_name": "automation-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build spec: compliance evidence workflow. The stakeholder is asking for a client portal, automated client delivery, predictive risk scoring, CRM sync, and analytics dashboards in v1. Produce the build plan.",
+      "expected_output": "A wedge-shaped internal workflow plan that rejects platform creep and defines the exact system objective plus human-review boundary.",
+      "files": [],
+      "assertions": [
+        "Response explicitly rejects at least 3 requested v1 expansions as out of scope.",
+        "Response includes at least one manual step, one automated step, and one explicit escalation or review gate with a reason tied to risk, ambiguity, or trust.",
+        "Response chooses a minimal internal workflow rather than a client-facing platform.",
+        "Response includes valid JSON matching assets/build-plan-template.json with non-empty system_objective.primary_user, trigger, output, human_escalation, plus components, inputs, outputs, integrations, manual_steps, automated_steps, milestones, and out_of_scope."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Build spec: HVAC missed-call recovery tool with one call event input, one operator review step, and one owner-facing output. Produce the build plan.",
+      "expected_output": "A narrow event-driven workflow with explicit trigger, output, human review, and minimal integrations.",
+      "files": [],
+      "assertions": [
+        "Response defines the exact system objective with a primary user, trigger, output, and human escalation point.",
+        "Response includes at least one manual step, one automated step, and keeps integrations limited to directly necessary ones.",
+        "Response avoids platform sprawl and keeps the architecture wedge-shaped.",
+        "Response includes valid JSON matching assets/build-plan-template.json."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Build spec: lightweight self-serve ecommerce reporting utility for one recurring merchant problem, but stakeholders keep asking for team collaboration, custom dashboards, alerts, and multi-store support. Produce the build plan.",
+      "expected_output": "A minimal self-serve architecture that rejects broad platform requests and preserves a single-user single-workflow v1.",
+      "files": [],
+      "assertions": [
+        "Response defines one primary user and one primary workflow in system_objective rather than a broad reporting platform.",
+        "Response explicitly rejects at least 3 platform expansions as out of scope.",
+        "Response includes milestones plus a real out_of_scope boundary in JSON.",
+        "Response includes valid JSON matching assets/build-plan-template.json."
+      ]
+    }
+  ]
+}

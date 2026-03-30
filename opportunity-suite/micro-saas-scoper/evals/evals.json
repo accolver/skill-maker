@@ -1,0 +1,41 @@
+{
+  "skill_name": "micro-saas-scoper",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The user runs a manual recruiting concierge for fractional CFO placements. They want AI to automate sourcing, screening, outreach, scheduling, and client reporting immediately. They have some repeat clients, but matching still depends heavily on human judgment. Scope the software decision.",
+      "expected_output": "A scope that keeps judgment-heavy work manual in v1, automates only a narrow front-end workflow first, and uses the exact verdict taxonomy and template.",
+      "files": [],
+      "assertions": [
+        "Response uses exactly one readiness verdict from build_now, stay_manual_for_now, or conditional_build.",
+        "Response does not allow end-to-end automation and keeps judgment-heavy matching or screening manual in v1.",
+        "Response automates only one narrow workflow first rather than the whole funnel.",
+        "Response includes valid JSON matching assets/micro-saas-scope-template.json with non-empty readiness_verdict, product_wedge.primary_user, product_wedge.job_to_be_done, product_wedge.core_workflow, manual_work, automated_first, mvp_boundary, productization_trigger, and do_not_build_yet."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The user has a niche therapist audience and a paid benchmark/template product, but little evidence that a software workflow is repeatedly painful yet. Scope the software decision.",
+      "expected_output": "A not-yet or conditional answer that names gating signals clearly instead of pushing to SaaS prematurely.",
+      "files": [],
+      "assertions": [
+        "Response does not force build_now without repeated workflow evidence.",
+        "If verdict is not build_now, response lists 3 concrete gating signals that would flip the verdict later.",
+        "Response includes at least 3 do_not_build_yet items.",
+        "Response includes valid JSON matching assets/micro-saas-scope-template.json."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The user wants a micro-SaaS for ecommerce reporting and immediately proposes a broad analytics suite. Scope the product.",
+      "expected_output": "A sharply bounded wedge and template-consistent scope rather than a broad analytics platform.",
+      "files": [],
+      "assertions": [
+        "Response cuts the broad analytics suite down to a narrower wedge with one primary user and one core workflow.",
+        "Response includes at least 3 items in manual_work or automated_first where appropriate, showing a real boundary between manual and automated work.",
+        "Response includes at least 3 do_not_build_yet items that exclude broad platform behavior.",
+        "Response includes valid JSON matching assets/micro-saas-scope-template.json."
+      ]
+    }
+  ]
+}

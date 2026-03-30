@@ -1,0 +1,41 @@
+{
+  "skill_name": "experiment-tracker",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Experiment log: 12 HVAC owner conversations, 4 said missed calls are painful, 2 agreed to a paid pilot, 1 actually paid, 1 churned after setup because the workflow was too custom. Summarize the state and recommend the next experiment.",
+      "expected_output": "A summary that treats the paid pilot as stronger than the pain chatter, names customization as the key contradiction, and chooses one next experiment.",
+      "files": [],
+      "assertions": [
+        "Response explicitly labels at least one strong signal and at least one weak, vanity, or contradictory signal.",
+        "Response identifies customization or delivery fit, not demand, as the primary blocker after the paid pilot.",
+        "Response uses exactly one decision state from continue, narrow, pivot, or stop and proposes exactly one next experiment tied to the main uncertainty.",
+        "Response includes valid JSON matching assets/experiment-log-template.json with non-empty experiments, strong_signals, weak_signals, contradictions, decision_state, next_experiment, and rationale."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Experiment log: a newsletter send got 800 clicks and lots of praise, but zero preorders at the stated price. Summarize the state and recommend the next experiment.",
+      "expected_output": "A summary that calls the clicks weak or vanity relative to zero preorders and chooses one focused next experiment.",
+      "files": [],
+      "assertions": [
+        "Response explicitly treats clicks or praise as weak or vanity signal relative to failed paid conversion.",
+        "Response does not call the experiment a success just because engagement was high.",
+        "Response uses exactly one decision state and one next experiment tied to pricing, segment, or offer mismatch.",
+        "Response includes valid JSON matching assets/experiment-log-template.json."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Experiment log: 30 founder interviews, 12 say the pain is severe, 5 ask for a demo, 2 start trials, 0 activate, 1 says legal blocked data sharing, and 1 says onboarding was confusing. Summarize the state and recommend the next experiment.",
+      "expected_output": "A summary that chooses one dominant uncertainty instead of a buffet of next steps and does not overstate traction.",
+      "files": [],
+      "assertions": [
+        "Response identifies one dominant uncertainty, such as activation or legal friction, rather than trying to optimize everything at once.",
+        "Response distinguishes pain signal from activation or conversion signal.",
+        "Response uses exactly one decision state and exactly one next experiment.",
+        "Response includes valid JSON matching assets/experiment-log-template.json."
+      ]
+    }
+  ]
+}

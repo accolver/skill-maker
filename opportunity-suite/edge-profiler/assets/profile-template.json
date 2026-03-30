@@ -1,0 +1,18 @@
+{
+  "user_profile": {
+    "skills": [],
+    "domain_experience": [],
+    "assets": [],
+    "distribution": [],
+    "network_access": [],
+    "constraints": [],
+    "credibility_signals": [],
+    "unfair_advantages": []
+  },
+  "usable_edge": [],
+  "restricted_or_unusable_edge": [],
+  "fake_or_overstated_edge": [],
+  "weak_spots": [],
+  "follow_up_questions": [],
+  "confidence_notes": []
+}

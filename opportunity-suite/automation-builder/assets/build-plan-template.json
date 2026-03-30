@@ -1,0 +1,16 @@
+{
+  "system_objective": {
+    "primary_user": "",
+    "trigger": "",
+    "output": "",
+    "human_escalation": ""
+  },
+  "components": [],
+  "inputs": [],
+  "outputs": [],
+  "integrations": [],
+  "manual_steps": [],
+  "automated_steps": [],
+  "milestones": [],
+  "out_of_scope": []
+}

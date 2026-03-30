@@ -1,0 +1,41 @@
+{
+  "skill_name": "distribution-ops",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Offer: HVAC missed-call recovery concierge for local service owners. User has warm owner access through a family member. Build the channel plan.",
+      "expected_output": "A warm-intro-first plan, not generic content marketing.",
+      "files": [],
+      "assertions": [
+        "Response chooses warm intros or direct owner network as the primary channel.",
+        "Response avoids defaulting to generic content or SEO as the main channel.",
+        "Response includes metrics and kill criteria.",
+        "Response includes structured JSON."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Offer: paid benchmark and template product for a therapist newsletter audience with existing trust. Build the channel plan.",
+      "expected_output": "An audience-led launch sequence with support assets and conversion metrics.",
+      "files": [],
+      "assertions": [
+        "Response chooses the owned audience as the primary channel.",
+        "Response includes concrete launch assets or sequence steps.",
+        "Response includes numeric metrics and kill criteria.",
+        "Response includes structured JSON."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Offer: ecommerce reporting product for merchants. User has strong workflow knowledge but weak buyer access and no audience. Build the channel plan.",
+      "expected_output": "A realistic access-building or niche-channel plan rather than generic launch advice.",
+      "files": [],
+      "assertions": [
+        "Response does not pretend weak buyer access is already solved.",
+        "Response chooses a realistic starting channel or access-building motion.",
+        "Response includes kill criteria for the chosen channel.",
+        "Response includes structured JSON."
+      ]
+    }
+  ]
+}

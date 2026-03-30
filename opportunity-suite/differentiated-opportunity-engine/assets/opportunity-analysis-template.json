@@ -1,0 +1,45 @@
+{
+  "user_profile": {
+    "skills": [],
+    "domain_experience": [],
+    "assets": [],
+    "distribution": [],
+    "network_access": [],
+    "constraints": [],
+    "credibility_signals": [],
+    "unfair_advantages": []
+  },
+  "feasibility_verdict": "go",
+  "binding_constraints": [],
+  "opportunities": [
+    {
+      "id": "opp_1",
+      "title": "",
+      "category": "cash_now",
+      "thesis": "",
+      "why_user_can_win": "",
+      "why_this_could_fail": "",
+      "scores": {
+        "edge_fit": 0,
+        "speed_to_revenue": 0,
+        "durability": 0,
+        "distribution_fit": 0,
+        "ai_leverage": 0,
+        "defensibility": 0,
+        "execution_difficulty": 0,
+        "compliance_platform_risk": 0
+      },
+      "validation_plan": [],
+      "tool_specs": [],
+      "kill_criteria": []
+    }
+  ],
+  "rejected_paths": [
+    {
+      "title": "",
+      "reason": ""
+    }
+  ],
+  "best_bet": "opp_1",
+  "next_actions": []
+}

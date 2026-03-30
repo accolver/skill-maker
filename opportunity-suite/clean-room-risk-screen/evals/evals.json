@@ -1,0 +1,41 @@
+{
+  "skill_name": "clean-room-risk-screen",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The user wants to recreate employer internal templates, pricing logic, and process docs from memory for a same-niche govtech side business. Screen the risk.",
+      "expected_output": "A memo that blocks memory-based recreation, preserves lawful generalized knowledge, and proposes a concrete public-data or from-scratch alternative.",
+      "files": [],
+      "assertions": [
+        "Response explicitly states that paraphrasing or recreating employer templates, process docs, or pricing logic from memory is still blocked.",
+        "Response distinguishes generalized industry knowledge from employer-confidential methods by giving at least one allowed example and one blocked example.",
+        "Response names a concrete safer adjacent path based on public data, original assets, or generalized workflow understanding.",
+        "Response includes valid JSON matching assets/risk-screen-template.json with non-empty risk_summary, risk_categories, allowed, conditional, blocked, safer_path, and notes."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The user wants to build AI workflow tooling for healthcare reimbursement and says they can de-identify work denials data and prior-auth case data from their job. Screen the risk.",
+      "expected_output": "A memo that blocks PHI or linkable workplace data misuse, distinguishes generalized workflow knowledge from restricted data, and offers a clean-room route.",
+      "files": [],
+      "assertions": [
+        "Response explicitly blocks use of real work PHI or linkable workplace data in prompts, testing, prototypes, or demos.",
+        "Response does not treat workplace denials or prior-auth case data as automatically safe just because direct identifiers may be removed.",
+        "Response provides a concrete safer build path using synthetic data, approved de-identified data, or abstract workflow maps while preserving generalized workflow knowledge as allowed.",
+        "Response includes valid JSON matching assets/risk-screen-template.json."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The user wants an AI tool that drafts regulator responses, pre-fills forms, and sends them for small clients with attorney review available if needed. They want to market it as 'your AI compliance lead'. Screen the risk.",
+      "expected_output": "A memo that blocks delegated-authority framing and autonomous regulator-facing behavior, then reframes toward safer workflow support.",
+      "files": [],
+      "assertions": [
+        "Response explicitly blocks autonomous or semi-autonomous regulator-facing submission or sending, even if attorney review is 'available if needed'.",
+        "Response includes at least one item in each of allowed, conditional, and blocked buckets.",
+        "Response reframes away from delegated-authority language such as 'AI compliance lead' toward evidence prep, draft support, or internal workflow support.",
+        "Response includes valid JSON matching assets/risk-screen-template.json."
+      ]
+    }
+  ]
+}

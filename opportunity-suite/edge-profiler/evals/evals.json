@@ -1,0 +1,53 @@
+{
+  "skill_name": "edge-profiler",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I spent 8 years in HVAC distribution ops and my brother runs a local HVAC service business. I do not have an audience, but he can introduce me to owners. I can build software and automations.",
+      "expected_output": "A profile that captures HVAC workflow knowledge as usable edge, classifies the brother's intros as limited warm access rather than owned distribution, and uses the exact reusable schema.",
+      "files": [],
+      "assertions": [
+        "Response explains why HVAC workflow knowledge is usable edge and does not upgrade it into distribution on its own.",
+        "Response classifies the brother's introductions as limited warm access or network access rather than durable owned distribution.",
+        "Response explicitly separates audience, network access, and monetizable distribution instead of merging them.",
+        "Structured JSON uses the reusable profile contract with user_profile, usable_edge, restricted_or_unusable_edge, fake_or_overstated_edge, weak_spots, follow_up_questions, and confidence_notes."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I have 120000 followers on X talking about AI productivity, but most of them are students and hobbyists. I do not know if any are buyers.",
+      "expected_output": "A profile that records reach but downgrades buyer quality, treats monetizable distribution as unproven, and uses the exact reusable schema with fake or overstated edge called out.",
+      "files": [],
+      "assertions": [
+        "Response downgrades the 120000 follower base because the audience is mostly non-buyers, and does not treat scale alone as strong founder edge.",
+        "Response names the core commercial weakness precisely, such as weak buyer quality, weak ICP proximity, or unproven monetizable distribution.",
+        "Response uses fake_or_overstated_edge or weak_spots to call out follower count or attention as an unreliable proxy for buyer demand.",
+        "Structured JSON uses the reusable profile contract with the exact top-level fields expected by the template."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I work at a govtech company and have access to internal templates, pricing logic, and process docs. I also know the market really well.",
+      "expected_output": "A profile that separates reusable market understanding from employer-owned materials, keeps restricted items out of general assets, and uses the exact schema.",
+      "files": [],
+      "assertions": [
+        "Response marks employer templates, pricing logic, or internal process docs as restricted or unusable edge.",
+        "Response separates reusable market understanding from non-reusable internal materials.",
+        "Response explicitly says confidential or employer-owned materials cannot be counted as usable edge without independent lawful recreation.",
+        "Structured JSON keeps internal templates, pricing logic, and process docs out of user_profile.assets and places them only under restricted_or_unusable_edge."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I worked at McKinsey for 2 years, know a lot of smart people, and read constantly about fintech. I do not have customers, audience, or any special access, but I feel like I should be able to figure out a fintech SaaS.",
+      "expected_output": "A profile that treats prestige and general familiarity as fake or overstated edge unless tied to real buyer access, and uses the exact schema with a practical next-step path.",
+      "files": [],
+      "assertions": [
+        "Response does not inflate McKinsey background, smart peers, or broad fintech familiarity into strong usable edge.",
+        "Response classifies at least part of the impressive-sounding background as fake or overstated edge, weak edge, or a similar category.",
+        "Response explicitly notes the absence of customers, audience, or special access as the key commercial weakness.",
+        "Structured JSON uses the reusable profile contract and includes a concrete next-step path through follow_up_questions, weak_spots, or confidence_notes rather than only a verdict."
+      ]
+    }
+  ]
+}

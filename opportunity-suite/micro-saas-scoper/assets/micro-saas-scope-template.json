@@ -1,0 +1,13 @@
+{
+  "readiness_verdict": "",
+  "product_wedge": {
+    "primary_user": "",
+    "job_to_be_done": "",
+    "core_workflow": ""
+  },
+  "manual_work": [],
+  "automated_first": [],
+  "mvp_boundary": [],
+  "productization_trigger": "",
+  "do_not_build_yet": []
+}

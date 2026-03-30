@@ -1,0 +1,53 @@
+{
+  "skill_name": "validation-planner",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Best bet: HVAC missed-call recovery concierge for small service businesses. User has warm owner access through a family member and wants to validate within 7 days.",
+      "expected_output": "A plan centered on the biggest unknown, using real commitment signals like paid pilots or deposits rather than just interest or interviews.",
+      "files": [],
+      "assertions": [
+        "Response explicitly names one primary unknown and ties the major steps to resolving that unknown within the 7-day window.",
+        "Response asks for a real commitment signal appropriate to the offer, such as a deposit, paid pilot, or booked implementation slot, not just soft interest.",
+        "Response includes go, revise, and kill thresholds with numeric cutoffs and linked decisions.",
+        "Response includes both a readable plan and a structured JSON block."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Best bet: paid template and benchmark product for a niche newsletter audience. User wants to avoid services and already has audience trust.",
+      "expected_output": "An audience-led pre-sell plan with conversion-quality thresholds and an explanation for why service-style validation is lower signal here.",
+      "files": [],
+      "assertions": [
+        "Response selects an audience-led validation motion that fits the user's constraints and opportunity type.",
+        "Response uses numeric thresholds tied to funnel quality, such as segmented send response, preorder attempts, or paid conversions, rather than vanity signups alone.",
+        "Response briefly explains why a lower-signal alternative, such as service pilots or generic interviews, is weaker for this case.",
+        "Response includes go, revise, and kill thresholds with numeric cutoffs."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Best bet: enterprise procurement analytics product for Fortune 500 teams. User has one weak second-degree intro, no product, and wants a 7-day validation plan with numeric goals.",
+      "expected_output": "A realistic plan that says genuine paid demand validation is not feasible in 7 days, isolates the real near-term unknown, and avoids fake precision about enterprise revenue validation.",
+      "files": [],
+      "assertions": [
+        "Response does not pretend enterprise revenue validation is realistically achievable in 7 days under the stated conditions.",
+        "Response identifies the primary near-term unknown, such as buyer access or problem verification, rather than trying to validate everything at once.",
+        "Response gives numeric thresholds for a realistic discovery or access-building plan instead of fake purchase targets.",
+        "Response includes go, revise, and kill thresholds with decisions attached."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Best bet is currently no-go because the user has no edge, no time, and no distribution.",
+      "expected_output": "A prerequisite or edge-building plan rather than fake validation theater.",
+      "files": [],
+      "assertions": [
+        "Response explicitly states that normal demand validation is premature because a prerequisite gap blocks it.",
+        "Response gives a bounded edge-building or constraint-change plan with measurable milestones that would justify re-running validation later.",
+        "Response avoids pretending the current idea is ready for standard validation activity.",
+        "Response includes numeric revisit thresholds and structured JSON."
+      ]
+    }
+  ]
+}
