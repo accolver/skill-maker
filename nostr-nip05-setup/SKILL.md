@@ -1,6 +1,6 @@
 ---
 name: nostr-nip05-setup
-description: Set up NIP-05 DNS-based identity verification for Nostr, including the /.well-known/nostr.json endpoint, CORS headers, and kind:0 profile updates. Use when configuring NIP-05, setting up nostr.json, debugging NIP-05 verification failures, adding DNS identity to a Nostr profile, or working with /.well-known/nostr.json files and CORS for Nostr clients.
+description: Set up or troubleshoot NIP-05 identity verification when the task involves nostr.json, DNS/web hosting, CORS, redirects, or profile metadata for Nostr identity mapping.
 ---
 
 # NIP-05 Identity Setup
@@ -14,18 +14,33 @@ headers, updating kind:0 profiles, and debugging verification failures.
 
 ## When to Use
 
-- Setting up NIP-05 verification for a domain
-- Creating or editing a `/.well-known/nostr.json` file
-- Configuring web server CORS headers for Nostr clients
-- Updating a kind:0 profile with a `nip05` field
-- Debugging why NIP-05 verification is failing
-- Setting up the `_@domain` root identifier
+- The task is setting up or troubleshooting NIP-05 identity verification for a Nostr identifier.
+- The user needs help with `/.well-known/nostr.json`, hosting behavior, CORS, redirects, DNS/domain mapping, or profile metadata.
+- The request is about getting `name@domain` verification to work correctly in clients.
+- The problem is NIP-05 serving and verification, not broader key management.
 
 **Do NOT use when:**
 
-- Building a Nostr relay (that's relay protocol)
-- Working with NIP-19 bech32 encoding (npub/nsec display format)
-- Implementing Nostr event signing or key management
+- The task is relay implementation.
+- The work is general signing, encryption, or key custody unrelated to NIP-05.
+- The request is only bech32 display/encoding with no domain-verification concern.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

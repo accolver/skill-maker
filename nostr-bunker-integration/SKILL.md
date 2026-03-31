@@ -1,6 +1,6 @@
 ---
 name: nostr-bunker-integration
-description: Guide implementation of NIP-46 Nostr remote signing (bunker) integration for both client and server sides. Covers bunker:// and nostrconnect:// connection flows, kind:24133 request/response protocol, NIP-44 encrypted transport, auth challenges, relay switching, permissions, and NIP-89 signer discovery. Use when building a Nostr app that connects to a remote signer, implementing a bunker/remote signer daemon, integrating NIP-46 signing into an existing Nostr client, handling bunker connection URIs, or debugging remote signing failures.
+description: Implement or debug NIP-46 remote-signer (bunker/Nostr Connect) integrations when the task involves client-signer communication, bunker URIs, auth challenges, or signer daemons.
 ---
 
 # Nostr Bunker Integration
@@ -17,20 +17,33 @@ patterns.
 
 ## When to Use
 
-- Building a Nostr client that connects to a remote signer (bunker)
-- Implementing a bunker / remote signer daemon or service
-- Parsing or generating `bunker://` or `nostrconnect://` connection URIs
-- Adding NIP-46 signer support alongside NIP-07 browser extension signing
-- Debugging remote signing failures (timeouts, auth challenges, wrong pubkeys)
-- Implementing permission-scoped signing (e.g., only allow `sign_event:1`)
-- Discovering available bunker providers via NIP-89
+- The task involves NIP-46 remote signing between a Nostr client and a bunker/signer.
+- The user needs bunker connection flows, request/response handling, auth challenges, permissions, or signer-daemon behavior.
+- The request mentions `bunker://`, `nostrconnect://`, remote signing, or NIP-89 signer discovery.
+- The core problem is client-signer integration, not general event construction.
 
 **Do NOT use when:**
 
-- Implementing NIP-44 encryption directly (use nostr-crypto-guide)
-- Building NIP-07 browser extension signers (different protocol)
-- Working with NIP-55 Android signer apps (different transport)
-- General Nostr event construction without remote signing needs
+- The task is direct NIP-44 or other crypto implementation without bunker flows.
+- The request is about NIP-07 browser extension signing instead of NIP-46 remote signing.
+- The problem is ordinary Nostr event creation with no signer-transport or permission model.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

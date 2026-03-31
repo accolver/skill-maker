@@ -1,6 +1,6 @@
 ---
 name: pr-description
-description: Generates structured pull request descriptions from branch diffs with context, motivation, testing instructions, rollback plans, and reviewer guidance. Produces descriptions that help reviewers understand what changed, why, and how to verify. Use when creating PRs, writing PR descriptions, preparing merge requests, or when the user asks for help describing their changes.
+description: Generate pull-request descriptions from branch diffs when the task is to explain change scope, motivation, testing, risk, and reviewer guidance for a reviewable branch.
 ---
 
 # PR Description Generator
@@ -15,17 +15,33 @@ deploy the change without asking follow-up questions.
 
 ## When to use
 
-- When creating a pull request or merge request
-- When writing or improving a PR description
-- When asked to summarize branch changes for review
-- When preparing a changeset for code review
-- When the user says "describe my changes" or "write a PR description"
+- The task is to write or improve a pull-request or merge-request description from an actual branch diff.
+- The user needs reviewer-facing context: motivation, change summary, testing, risk, rollback, and review guidance.
+- The deliverable is the PR body, not the PR itself and not a code review.
+- The branch is already implemented enough to describe what changed.
 
 **Do NOT use when:**
 
-- The user wants a commit message (use a commit message skill)
-- The user wants a changelog entry (use a changelog skill)
-- The user wants a code review of the changes (use a code review skill)
+- The task is writing a commit message.
+- The user wants a changelog or release note instead of a PR description.
+- The request is to review the code quality of the branch rather than explain it to reviewers.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

@@ -1,6 +1,6 @@
 ---
 name: database-migration
-description: Writes safe, reversible database migrations with rollback plans, data backup commands, zero-downtime deployment notes, and index impact analysis. Produces both up and down migration files with verification queries. Use when writing database migrations, schema changes, ALTER TABLE statements, adding indexes, or when the user needs to modify database structure.
+description: Design safe, reversible database schema or data migrations with rollback, verification, and deployment guidance when the task changes an existing database structure or stored data.
 ---
 
 # Database Migration
@@ -14,18 +14,33 @@ analysis, verification queries, and a deployment runbook. The core principle:
 
 ## When to use
 
-- When writing any database migration (schema change, ALTER TABLE, CREATE INDEX)
-- When adding, removing, or modifying columns on production tables
-- When renaming columns, tables, or constraints
-- When adding or dropping indexes on large tables
-- When the user says "migrate", "schema change", "alter table", or "add column"
-- When modifying database structure that could affect running applications
+- The task changes an existing database schema, constraints, indexes, or stored data through a migration.
+- The user needs forward and rollback steps, safety analysis, verification queries, or deployment guidance.
+- The migration must be safe for shared, staging, or production environments.
+- The request involves `ALTER TABLE`, backfills tied to schema evolution, or zero-downtime rollout concerns.
 
 **Do NOT use when:**
 
-- Writing application queries (SELECT, INSERT, UPDATE for data operations)
-- Designing a database schema from scratch (use a schema design skill)
-- Performing data-only backfills with no schema change
+- The task is designing a schema from scratch with no migration path.
+- The request is ad hoc application SQL rather than a migration artifact.
+- The work is a pure data script or ETL job with no schema-change lifecycle.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

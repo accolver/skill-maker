@@ -1,6 +1,6 @@
 ---
 name: nostr-marketplace-builder
-description: Build Nostr marketplace applications using NIP-15 stalls, products, auctions, and NIP-69 P2P orders. Use when creating e-commerce on Nostr, building product listings, setting up stalls with shipping zones, implementing auction bidding systems, constructing checkout flows with NIP-04 DMs, creating P2P trading orders, or generating marketplace UI configurations. Covers kind:30017 stalls, kind:30018 products, kind:30020 auctions, kind:1021 bids, kind:1022 bid confirmations, kind:30019 marketplace UI, and kind:38383 P2P orders.
+description: Implement Nostr marketplace flows using NIP-15 or NIP-69 when the task involves stalls, products, auctions, bids, checkout messaging, or P2P orders.
 ---
 
 # Nostr Marketplace Builder
@@ -14,19 +14,33 @@ and P2P order tag structures from NIP-69.
 
 ## When to Use
 
-- Creating a merchant stall with shipping zones (kind:30017)
-- Listing products with categories and specs (kind:30018)
-- Setting up auctions with bidding (kind:30020, kind:1021, kind:1022)
-- Building checkout flows (NIP-04 order → payment → status)
-- Creating P2P buy/sell orders for bitcoin trading (NIP-69 kind:38383)
-- Configuring a custom marketplace UI (kind:30019)
-- Calculating shipping costs across zones and products
+- The task involves Nostr marketplace primitives such as stalls, products, auctions, bids, checkout messaging, or NIP-69 orders.
+- The user is building commerce flows on Nostr rather than generic social posting.
+- The request needs event structures or workflow guidance for merchant listings, shipping, bidding, or order state.
+- The problem is marketplace-specific behavior under NIP-15 or NIP-69.
 
 **Do NOT use when:**
 
-- Building generic Nostr events (use nostr-event-builder)
-- Implementing relay WebSocket logic
-- Working with NIP-19 encoding/decoding
+- The task is general Nostr event building with no marketplace semantics.
+- The work is relay protocol, client architecture, or filter design.
+- The request is generic Lightning or Cashu integration outside a marketplace flow.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

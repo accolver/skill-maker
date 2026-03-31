@@ -1,6 +1,6 @@
 ---
 name: gcp-foundation-fabric
-description: Guide selection, configuration, and customization of Google Cloud Foundation Fabric (CFF) Terraform modules and FAST landing zone stages. Use when working with cloud-foundation-fabric, Fabric FAST, GCP landing zones, CFF modules, project factory, VPC factory, or when the user mentions Google Cloud Terraform modules from GoogleCloudPlatform/cloud-foundation-fabric. Also use when designing GCP organization structure, networking stages, or configuring factories_config patterns.
+description: Guide selection and customization of Google Cloud Foundation Fabric or FAST Terraform modules when the task explicitly targets cloud-foundation-fabric patterns, factories, or landing-zone stages.
 ---
 
 # Google Cloud Foundation Fabric
@@ -14,60 +14,33 @@ repository — Google Cloud's official Terraform modules and landing zone toolki
 
 ## When to use
 
-- When working with any CFF module (`modules/project`, `modules/net-vpc`, etc.)
-- When setting up or modifying FAST landing zone stages
-- When configuring factories (`factories_config`, project factory, VPC factory)
-- When designing GCP organization hierarchy, networking, or security with
-  Terraform
-- When the user references `cloud-foundation-fabric` or Fabric FAST
-- When creating GCP projects, VPCs, firewall policies, or IAM using CFF patterns
+- The task explicitly targets Google Cloud Foundation Fabric (CFF) modules, FAST stages, or factory patterns.
+- The user needs help selecting, wiring, or customizing `cloud-foundation-fabric` Terraform components.
+- The request references Fabric conventions such as project factory, VPC factory, stage contracts, or generated tfvars/outputs.
+- The work is GCP landing-zone composition using CFF, not generic Terraform authoring.
 
 **Do NOT use when:**
 
-- Working with generic Terraform (not CFF-specific) — use terraform-style-guide
-- Working with Terragrunt wrappers around CFF (unless asking about underlying
-  module config)
-- Working with Cloud Foundation Toolkit (CFT) — that's a different project
+- The task is plain Terraform with no CFF or FAST dependency.
+- The request is primarily Terragrunt orchestration with no underlying CFF module question.
+- The user is working on Cloud Foundation Toolkit or another Google IaC project that is not CFF.
 
-## Key Concepts
 
-### Repository structure
+## Response format
 
-```
-cloud-foundation-fabric/
-├── modules/          # Composable Terraform modules
-├── fast/             # FAST landing zone stages
-│   └── stages/       # Sequential stages (0-org-setup, 1-vpcsc, 2-networking, etc.)
-├── blueprints/       # Deprecated — use modules directly
-├── tools/            # Python utilities (tfdoc, linting, testing)
-└── tests/            # pytest + tftest-based tests
-```
+Always structure the final response with these top-level sections, in this order:
 
-### Module categories
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
 
-| Category     | Key Modules                                                                                                                          |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Foundational | `project`, `folder`, `organization`, `iam-service-account`, `billing-account`                                                        |
-| Networking   | `net-vpc`, `net-vpc-firewall`, `net-firewall-policy`, `net-vpn-ha`, `dns`, `net-lb-app-ext`, `net-lb-int`, `net-cloudnat`, `net-swp` |
-| Compute      | `compute-vm`, `compute-mig`, `gke-cluster-standard`, `gke-cluster-autopilot`, `gke-nodepool`                                         |
-| Data         | `bigquery-dataset`, `gcs`, `cloudsql-instance`, `pubsub`, `alloydb`, `spanner-instance`, `dataproc`                                  |
-| Security     | `kms`, `secret-manager`, `vpc-sc`, `certificate-authority-service`, `binauthz`                                                       |
-| Serverless   | `cloud-function-v2`, `cloud-run-v2`                                                                                                  |
-| Development  | `artifact-registry`, `apigee`, `api-gateway`                                                                                         |
-| Factories    | `project-factory`, `net-vpc-factory`                                                                                                 |
-
-### FAST stages
-
-FAST stages run sequentially and build on each other's outputs:
-
-| Stage               | Purpose                                | Key Resources                          |
-| ------------------- | -------------------------------------- | -------------------------------------- |
-| `0-org-setup`       | Bootstrap org, billing, logging, CI/CD | Projects, SAs, GCS buckets, IAM        |
-| `1-vpcsc`           | VPC Service Controls perimeters        | Access policies, perimeters, levels    |
-| `2-networking`      | Hub/spoke or shared VPC networking     | VPCs, subnets, firewall policies, VPNs |
-| `2-security`        | KMS, CAS, security projects            | KMS keyrings, CAS pools                |
-| `2-project-factory` | Managed project creation at scale      | Projects via YAML factories            |
-| `3-*`               | Workload-specific (GKE, data platform) | Varies                                 |
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

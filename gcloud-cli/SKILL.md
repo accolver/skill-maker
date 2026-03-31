@@ -1,6 +1,6 @@
 ---
 name: gcloud-cli
-description: Operate the Google Cloud gcloud CLI safely and effectively. Authenticates users, reads cloud resource state freely for debugging and exploration, and creates, updates, or deletes resources only after explicit user confirmation. Use when working with gcloud, Google Cloud CLI, GCP resources, cloud debugging, reading logs, managing Compute Engine, Cloud Run, Cloud Functions, GKE, IAM, networking, Cloud Storage, Cloud SQL, Pub/Sub, or when the user mentions any gcloud command, Google Cloud project, or needs to authenticate with GCP.
+description: Use the Google Cloud gcloud CLI for GCP inspection, debugging, or administration when the task explicitly involves gcloud commands or Google Cloud resources; require confirmation before mutating resources.
 ---
 
 # gcloud CLI
@@ -13,19 +13,33 @@ update, or delete operation.** This is non-negotiable.
 
 ## When to use
 
-- When running any `gcloud` command
-- When debugging GCP resources (reading logs, describing instances, checking
-  IAM)
-- When creating, updating, or deleting cloud resources
-- When authenticating to Google Cloud
-- When exploring what resources exist in a project
-- When the user asks about their GCP environment
+- The task explicitly involves `gcloud` commands or Google Cloud resource administration through the CLI.
+- The user needs to inspect, debug, authenticate, or operate GCP resources from the command line.
+- The request is about real project state: logs, IAM, services, networking, compute, storage, or config.
+- The workflow centers on CLI-driven operations rather than Terraform or application code.
 
 **Do NOT use when:**
 
-- Managing GCP infrastructure with Terraform (use terraform/IaC skills instead)
-- Working with Firebase CLI (`firebase` commands)
-- Using Google Cloud client libraries in application code (not CLI operations)
+- The task is infrastructure-as-code authoring in Terraform rather than CLI operations.
+- The request is for Firebase CLI usage or Google API client-library code.
+- The user wants destructive changes without explicit confirmation.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

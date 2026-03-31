@@ -1,6 +1,6 @@
 ---
 name: nostr-client-patterns
-description: Implement Nostr client architecture including relay pool management, subscription lifecycle with EOSE/CLOSED handling, event deduplication, optimistic UI for publishing, and reconnection strategies. Use when building Nostr clients, managing WebSocket relay connections, handling subscription state machines, implementing event caches, or debugging relay communication issues like missed events or broken reconnections.
+description: Implement or debug core Nostr client architecture—relay pools, subscriptions, deduplication, optimistic publishing, caching, and reconnect logic—when building or fixing a Nostr client.
 ---
 
 # Nostr Client Patterns
@@ -15,21 +15,33 @@ event delivery.
 
 ## When to Use
 
-- Building a Nostr client that connects to multiple relays
-- Implementing relay pool management (connection lifecycle, backoff)
-- Managing subscription state (loading vs live, EOSE transitions)
-- Deduplicating events received from multiple relays
-- Implementing optimistic UI for event publishing
-- Handling OK/EOSE/CLOSED/NOTICE relay messages correctly
-- Building reconnection logic that doesn't lose events
-- Caching events locally for offline or fast-load scenarios
+- The task is building or debugging a Nostr client’s relay, subscription, caching, publish, or reconnect architecture.
+- The user needs client-side patterns for handling relay pools, EOSE/CLOSED states, deduplication, or optimistic UI.
+- The problem is lifecycle management of events in a client, not protocol selection or relay-server code.
+- The request involves missed events, duplicate events, relay churn, or local cache behavior.
 
 **Do NOT use when:**
 
-- Constructing event JSON structures (use nostr-event-builder)
-- Building relay server software (this is client-side patterns)
-- Working with NIP-19 encoding/decoding (bech32 concerns)
-- Designing subscription filters (use nostr-filter-designer)
+- The task is constructing event JSON or tags.
+- The work is relay-server implementation.
+- The main problem is filter design rather than client architecture.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

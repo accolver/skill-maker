@@ -1,6 +1,6 @@
 ---
 name: ai-consultant
-description: Guides pre-implementation AI consulting and advisory engagements from discovery through proposal delivery. Covers company research, stakeholder interviews, AI readiness and maturity assessment, opportunity scoring with impact-feasibility analysis, and generating deliverables like SOWs, proposals, roadmaps, and executive briefings with emphasis on generative AI, LLMs, and AI agents. Use when acting as an AI consultant or advisor, running AI discovery for a client, assessing organizational AI maturity, building an AI strategy or business case, scoping AI projects, writing AI proposals or statements of work, planning enterprise AI adoption, preparing for client meetings about AI modernization or digital transformation with AI focus, or when a client asks where to start with AI. Do NOT use when building, implementing, or deploying AI systems — this skill is for the consulting and advisory phase before implementation begins.
+description: Run pre-implementation AI consulting engagements—company research, discovery, maturity assessment, opportunity prioritization, and proposal/SOW/roadmap creation—and use only for advisory work, not implementation.
 ---
 
 # AI Consultant
@@ -22,19 +22,33 @@ engagement systematically so nothing falls through the cracks.
 
 ## When to use
 
-- When starting AI discovery for a new client
-- When assessing a company's AI readiness or maturity
-- When identifying and prioritizing AI opportunities
-- When generating proposals, SOWs, or roadmaps for AI initiatives
-- When preparing stakeholder interview guides
-- When a client asks "where should we start with AI?"
-- When scoping GenAI or AI agent projects specifically
+- The task is pre-implementation AI advisory work for a client or business unit.
+- The user needs discovery artifacts such as interview guides, readiness assessments, opportunity maps, proposals, SOWs, or roadmaps.
+- The core question is strategic: where AI fits, what to prioritize, what it should cost, or how to scope the engagement.
+- The deliverable is consulting guidance, not production code or deployed systems.
 
 **Do NOT use when:**
 
-- Building or implementing AI systems (this is pre-implementation consulting)
-- The client already has a defined project and just needs execution
-- Providing generic AI education (use a teaching/mentoring approach instead)
+- The task is building, integrating, fine-tuning, or deploying an AI system.
+- The user already has an approved scope and needs execution instead of advisory framing.
+- The request is generic AI education with no client-engagement or strategy component.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

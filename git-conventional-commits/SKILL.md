@@ -1,6 +1,6 @@
 ---
 name: git-conventional-commits
-description: Generates conventional commit messages from staged git changes by analyzing diffs, classifying change types (feat, fix, refactor, docs, test, chore, ci, perf, style, build), and composing structured commit messages with optional scope and breaking change notation. Use when committing code, writing commit messages, preparing git commits, or when the user asks for help with commit messages.
+description: Generate conventional commit messages from staged git changes when the task is to name or format a commit, not to review code or write release notes.
 ---
 
 # Git Conventional Commits
@@ -15,19 +15,33 @@ with semantic versioning tools, changelogs, and CI pipelines.
 
 ## When to use
 
-- When committing staged changes to a git repository
-- When the user asks for help writing a commit message
-- When preparing a commit after implementing a feature, fix, or refactor
-- When the user says "commit this", "write a commit message", or similar
-- When reviewing staged changes before committing
+- The task is to write a conventional commit message for currently staged git changes.
+- The user wants help classifying a change as `feat`, `fix`, `refactor`, `docs`, and so on.
+- The deliverable is a commit subject/body/footer, not a PR description or changelog.
+- The repository expects or appears compatible with Conventional Commits.
 
 **Do NOT use when:**
 
-- The user explicitly provides their own commit message and just wants you to
-  run `git commit`
-- The repository uses a non-conventional commit format (check for
-  `.commitlintrc`, `CONTRIBUTING.md`, or prior commit history first)
-- There are no staged changes (`git diff --cached` is empty)
+- There are no staged changes to classify.
+- The user already supplied the exact commit message they want to use.
+- The repository follows a different commit convention that should be preserved.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

@@ -1,6 +1,6 @@
 ---
 name: nostr-zap-integration
-description: Implement Lightning Zaps (NIP-57) and Nutzaps (NIP-61) for Nostr applications. Use when building zap request construction (kind:9734), zap receipt validation (kind:9735), LNURL-pay flows, zap splits, Cashu/Nutzap sending (kind:9321), nutzap receiving configuration (kind:10019), or any payment integration between Nostr and Lightning/Cashu.
+description: Implement or debug NIP-57 zaps or NIP-61 nutzaps when the task involves zap requests, receipts, LNURL-pay, zap splits, Cashu tokens, or recipient payment configuration.
 ---
 
 # Nostr Zap Integration
@@ -14,22 +14,33 @@ invoice handling, zap receipt validation) and the NIP-61 Cashu alternative
 
 ## When to Use
 
-- Implementing "zap" functionality in a Nostr client
-- Constructing kind:9734 zap request events
-- Validating kind:9735 zap receipt events
-- Integrating LNURL-pay endpoints with Nostr
-- Building zap split support for events with multiple `zap` tags
-- Implementing NIP-61 Nutzaps (Cashu-based zaps)
-- Setting up kind:10019 nutzap receiving configuration
-- Constructing kind:9321 nutzap events with P2PK-locked tokens
-- Debugging zap flows (missing tags, validation failures, amount mismatches)
+- The task involves NIP-57 zaps or NIP-61 nutzaps in a Nostr application.
+- The user needs zap requests, receipts, LNURL-pay integration, zap splits, recipient config, or Cashu token flow tied to Nostr events.
+- The problem is payment interoperability between Nostr and Lightning/Cashu, not general wallet construction.
+- The request is about end-to-end zap behavior or zap validation.
 
 **Do NOT use when:**
 
-- Building general Lightning/LNURL wallets unrelated to Nostr
-- Implementing relay WebSocket protocol logic
-- Working with NIP-19 bech32 encoding (separate concern)
-- Building Cashu wallets without Nostr integration
+- The task is generic Lightning, LNURL, or Cashu work with no Nostr zap context.
+- The work is relay protocol or general Nostr event creation.
+- The request is bech32 encoding or other peripheral concerns unrelated to zap flows.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

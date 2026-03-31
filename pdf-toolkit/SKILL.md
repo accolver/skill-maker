@@ -1,6 +1,6 @@
 ---
 name: pdf-toolkit
-description: Extract text, tables, and images from PDFs, OCR scanned PDFs, create PDFs from text/images/markdown, and merge or split PDF files. Use when working with PDF documents, when the user mentions PDFs, document extraction, OCR, scanning, PDF merging, splitting, combining, or creating PDF reports. All operations use bundled Bun TypeScript scripts with structured JSON output.
+description: Operate the bundled PDF scripts to extract, OCR, create, merge, split, or convert PDFs when the task explicitly involves PDF document processing.
 ---
 
 # PDF Toolkit
@@ -11,23 +11,33 @@ TypeScript scripts that produce structured JSON output.
 
 ## When to use
 
-- When extracting text, tables, or images from PDF files
-- When OCR-ing scanned PDFs or image-based PDFs
-- When creating new PDFs from text, markdown, or images
-- When merging multiple PDFs into one
-- When splitting a PDF into separate files (by page, range, or chunk)
-- When the user mentions "PDF", "document extraction", or "scanned document"
+- The task explicitly involves PDF extraction, OCR, creation, merging, splitting, or conversion using the bundled scripts.
+- The user needs machine-processable output from PDF documents or wants to generate PDF artifacts.
+- The request is document-processing work on `.pdf` inputs or outputs, not general office-file editing.
+- The workflow should run through the toolkit’s existing Bun/TypeScript utilities.
 
 **Do NOT use when:**
 
-- Working with Word (.docx), Excel (.xlsx), or other non-PDF formats
-- The user needs interactive PDF form filling (not supported)
-- The user needs PDF encryption or digital signatures
+- The files are primarily DOCX, XLSX, PPTX, or another non-PDF format.
+- The task requires interactive AcroForm filling, digital signing, or PDF encryption features the toolkit does not cover.
+- The request is general OCR with no PDF input or output requirement.
 
-## Prerequisites
 
-All scripts require [Bun](https://bun.sh). Dependencies are auto-installed on
-first run.
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

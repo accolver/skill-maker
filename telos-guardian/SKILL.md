@@ -1,6 +1,6 @@
 ---
 name: telos-guardian
-description: Captures and guards a project's purpose hierarchy (telos). On first use, interviews the user through 4 levels (L4 Purpose, L3 Experience, L2 Contract, L1 Function) and writes a TELOS.md at the project root. On subsequent uses, reads the existing TELOS.md and assesses whether a proposed feature aligns with the project's purpose and is practically feasible given the codebase. Use when a new feature is proposed, when planning work, when someone says "let's add", "I want to build", "new feature", "should we implement", or when starting a new project that lacks a TELOS.md.
+description: Capture a project’s telos in TELOS.md or assess whether a proposed feature aligns with that telos when planning or evaluating new project work.
 ---
 
 # Telos Guardian
@@ -14,20 +14,33 @@ telos) and **Assess** (evaluate feature alignment).
 
 ## When to use
 
-- When a new feature, enhancement, or significant change is proposed
-- When the user says "I want to add...", "let's build...", "new feature:", or
-  "should we implement..."
-- When planning or scoping work on a project
-- When starting a new project that has no `TELOS.md`
-- When an agent detects no `TELOS.md` exists at the project root
+- The task is to capture a project’s purpose hierarchy in `TELOS.md` or assess a proposed feature against it.
+- The user is planning new work and needs an alignment check before implementation.
+- The request involves “should we build this?”, “does this fit the project?”, or initializing telos for a new project.
+- The output should clarify purpose, boundaries, user experience intent, and feature fit.
 
 **Do NOT use when:**
 
-- The change is a bug fix, typo, or mechanical refactor that doesn't alter
-  feature scope
-- The project already has a `TELOS.md` and the user is asking about an existing,
-  already-aligned feature
-- The user explicitly says they want to skip alignment checks
+- The task is a small bug fix, typo, or mechanical refactor with no product-scope change.
+- The feature is already clearly in-bounds and the user is asking for implementation help, not alignment review.
+- The user explicitly wants to skip telos or product-alignment analysis.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

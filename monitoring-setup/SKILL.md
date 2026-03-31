@@ -1,6 +1,6 @@
 ---
 name: monitoring-setup
-description: Adds structured observability to services including health check endpoints (liveness, readiness, startup), metrics collection (latency, error rates, throughput), distributed tracing with correlation IDs, alert threshold configuration with escalation policies, and runbook links. Use when adding monitoring, setting up observability, creating health checks, configuring alerts, or when the user needs production readiness instrumentation.
+description: Add production observability—health checks, metrics, tracing, alerts, and runbooks—when the task is to instrument or operationalize an existing service.
 ---
 
 # Monitoring Setup
@@ -15,20 +15,33 @@ OpenTelemetry, PagerDuty/OpsGenie).
 
 ## When to use
 
-- When adding monitoring or observability to a service
-- When creating health check endpoints for Kubernetes or load balancers
-- When instrumenting metrics (latency, error rates, throughput)
-- When setting up distributed tracing across services
-- When configuring alert thresholds and escalation policies
-- When the user mentions "production readiness", "SLOs", "SLIs", or "runbooks"
-- When deploying a service and needing operational instrumentation
+- The task is to instrument or operationalize an existing service with health checks, metrics, tracing, alerts, or runbooks.
+- The user is preparing a system for production readiness, SLOs, or on-call support.
+- The deliverable is observability configuration, code instrumentation, and operational guidance.
+- The problem is missing monitoring coverage, not analysis of an already-failing monitoring stack.
 
 **Do NOT use when:**
 
-- The user needs to debug an existing monitoring setup (use
-  systematic-debugging)
-- The task is configuring a specific vendor dashboard (just follow vendor docs)
-- The user needs log aggregation only (logging is not this skill's focus)
+- The task is debugging a current incident or broken observability pipeline.
+- The request is only vendor-specific dashboard clicking with no reusable monitoring design.
+- The work is log aggregation alone without broader observability requirements.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

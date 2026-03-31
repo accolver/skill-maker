@@ -1,6 +1,6 @@
 ---
 name: nostr-dvms
-description: Build Nostr Data Vending Machine (DVM) services and clients using NIP-90. Use when implementing AI/compute service providers (kinds 5000-5999 job requests, 6000-6999 job results, kind 7000 feedback), creating DVM job request clients with payment handling, chaining DVM jobs, handling encrypted DVM params, or publishing NIP-89 service provider discovery events for DVMs.
+description: Implement NIP-90 Data Vending Machine clients or services when the task involves DVM job requests, feedback, results, payments, chaining, encrypted params, or NIP-89 discovery.
 ---
 
 # Nostr Data Vending Machines (NIP-90)
@@ -14,19 +14,33 @@ optional feedback events (kind 7000) for status updates and payment negotiation.
 
 ## When to Use
 
-- Building a DVM service provider that processes job requests
-- Creating a client that publishes DVM job requests and handles results
-- Implementing payment flows for DVM services (bid, amount, bolt11)
-- Chaining multiple DVM jobs (output of one feeds into another)
-- Adding encrypted parameters to DVM requests for privacy
-- Publishing NIP-89 handler announcements for DVM discoverability
-- Handling DVM feedback states (processing, payment-required, error, partial)
+- The task involves NIP-90 Data Vending Machine request, feedback, result, discovery, or payment flows.
+- The user is building a DVM client, a DVM service provider, or chaining DVM jobs together.
+- The request includes DVM job kinds, encrypted params, payment-required states, or NIP-89 discovery events.
+- The problem is DVM-specific orchestration, not generic Nostr publishing.
 
 **Do NOT use when:**
 
-- Building general Nostr events (use nostr-event-builder)
-- Implementing relay WebSocket logic
-- Working with Lightning payments outside the DVM context
+- The task is generic event construction without DVM semantics.
+- The work is plain Lightning or Cashu integration outside a DVM workflow.
+- The problem is relay transport or subscription infrastructure rather than DVM behavior.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

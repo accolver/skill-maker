@@ -1,6 +1,6 @@
 ---
 name: error-handling
-description: Standardizes error handling across a codebase with a unified error taxonomy, consistent error codes, proper propagation chains, user-facing vs internal error separation, and structured logging with correlation IDs. Use when adding error handling, implementing error classes, standardizing exceptions, creating error responses, or when the user needs consistent error patterns.
+description: Standardize application error handling—taxonomy, propagation, response shapes, logging, and correlation IDs—when the task is to improve consistency of existing error behavior across a codebase.
 ---
 
 # Error Handling
@@ -15,19 +15,33 @@ entry.
 
 ## When to use
 
-- When adding error handling to an API or service
-- When implementing custom error/exception classes
-- When standardizing how errors propagate through layers
-- When designing error response formats for an API
-- When the user mentions "error handling", "exceptions", "error codes", or
-  "error responses"
-- When adding structured logging for errors with correlation IDs
+- The task is to standardize how an existing codebase models, propagates, logs, and returns errors.
+- The user needs an error taxonomy, error classes, response envelopes, or correlation-aware logging patterns.
+- The problem is inconsistency across layers, services, or endpoints rather than a single failing bug.
+- The deliverable is an error-handling framework or pattern, not one-off troubleshooting.
 
 **Do NOT use when:**
 
-- The user needs to debug a specific runtime error (use a debugging skill)
-- The user wants monitoring/alerting setup (use a monitoring skill)
-- The task is only about input validation logic, not error handling patterns
+- The task is debugging a specific runtime failure.
+- The request is about monitoring, alert routing, or dashboards rather than application error design.
+- The work is only input validation or business rules with no broader error-model concern.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

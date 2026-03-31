@@ -1,6 +1,6 @@
 ---
 name: changelog-generator
-description: Generates audience-aware changelogs from git history with SemVer impact classification, migration instructions for breaking changes, grouped categories (features, fixes, performance, dependencies), and upgrade guides for major versions. Use when generating changelogs, writing release notes, preparing version bumps, or when the user needs to document what changed between releases.
+description: Generate release notes and changelogs from git history with SemVer classification, grouped changes, and migration notes when documenting what changed between versions or refs.
 ---
 
 # Changelog Generator
@@ -14,18 +14,33 @@ produces migration guides for breaking changes.
 
 ## When to use
 
-- When generating a changelog between two git refs (tags, branches, SHAs)
-- When writing release notes for a new version
-- When preparing a version bump and need to determine SemVer impact
-- When the user mentions "changelog", "release notes", "what changed", or
-  "version bump"
-- When documenting breaking changes with migration instructions
+- The task is generating release notes or a changelog between git refs, versions, or releases.
+- The user needs grouped change summaries, SemVer impact, breaking-change notes, or upgrade guidance.
+- The source of truth is git history, tags, PRs, or commit ranges.
+- The output is audience-facing release documentation rather than raw commit history.
 
 **Do NOT use when:**
 
-- The user wants to _read_ an existing changelog (just open the file)
-- The task is writing commit messages (use git-conventional-commits instead)
-- The user needs a git log dump with no classification or formatting
+- The task is writing a single commit message.
+- The user only wants an unformatted `git log` or commit dump.
+- The request is to summarize working-tree changes that are not yet represented in git history.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

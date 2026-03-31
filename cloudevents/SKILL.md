@@ -1,6 +1,6 @@
 ---
 name: cloudevents
-description: Build, validate, serialize, and parse CloudEvents conforming to the CNCF CloudEvents v1.0 specification. Use when working with CloudEvents, event-driven architectures, webhook payloads, event schemas, serverless events, or when the user mentions CloudEvents, cloud events, event envelopes, ce- headers, structured/binary content mode, or application/cloudevents+json. Also use when producing or consuming events over HTTP, Kafka, or AMQP that need spec-compliant metadata.
+description: Build, validate, serialize, or parse CNCF CloudEvents v1.0 payloads and transports when the task explicitly involves CloudEvents envelopes, ce-* headers, or structured/binary event delivery.
 ---
 
 # CloudEvents
@@ -12,19 +12,33 @@ that agents consistently get wrong without guidance.
 
 ## When to use
 
-- When creating or consuming CloudEvents in any language
-- When building event producers, consumers, or intermediaries
-- When implementing HTTP webhooks that send/receive CloudEvents
-- When designing event schemas with proper `type` and `source` conventions
-- When serializing events to JSON (structured mode) or HTTP headers (binary
-  mode)
-- When validating existing CloudEvents for spec compliance
-- When batching multiple events into a single HTTP request
+- The task explicitly involves CloudEvents v1.0 envelopes, attributes, or transport bindings.
+- The user needs to build, validate, serialize, or parse events in structured or binary mode.
+- The request mentions `ce-` headers, `application/cloudevents+json`, or CloudEvents interoperability.
+- The event contract must be CNCF CloudEvents-compliant across HTTP, Kafka, AMQP, or similar transports.
 
 **Do NOT use when:**
 
-- Working with proprietary event formats that don't follow CloudEvents
-- Building generic pub/sub without CloudEvents requirements
+- The event format is proprietary or intentionally not CloudEvents.
+- The task is generic pub/sub design without a CloudEvents requirement.
+- The user only needs business-payload schema design with no event-envelope concern.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

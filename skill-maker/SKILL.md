@@ -1,6 +1,6 @@
 ---
 name: skill-maker
-description: Create new agent skills from scratch and iteratively improve them using eval-driven subagent loops. Use when users want to create a skill, build a SKILL.md, test skill quality with evaluations, benchmark skill performance, or optimize a skill's description for triggering accuracy. Also use when users mention making reusable agent workflows, capturing repeatable processes as skills, or packaging agent knowledge.
+description: Create or iteratively improve agent skills with eval-driven refinement when the task is to build a new SKILL.md package or tune an existing skill’s trigger accuracy and performance.
 ---
 
 # Skill Maker
@@ -59,6 +59,36 @@ All scripts use Bun. Run any script with `--help` for usage details.
   template to copy and fill in
 
 ---
+
+## When to use
+
+- The task is to create a new agent skill package or iteratively improve an existing skill.
+- The user needs SKILL.md authoring, trigger-description tuning, eval design, grading loops, or benchmark-driven refinement.
+- The deliverable is a reusable skill plus supporting references, scripts, or eval artifacts.
+- The work is about packaging a repeatable agent workflow, not merely performing the workflow once.
+
+**Do NOT use when:**
+
+- The user only wants the task completed once with no reusable skill artifact.
+- The request is to use an existing skill rather than build or tune one.
+- The problem is generic documentation or prompt writing with no skill-eval lifecycle.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Phase 1: Capture Intent
 

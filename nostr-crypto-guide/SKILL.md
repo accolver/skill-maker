@@ -1,6 +1,6 @@
 ---
 name: nostr-crypto-guide
-description: Guide implementation of Nostr cryptographic operations including NIP-44 encrypted payloads, NIP-59 gift wrap privacy layers, NIP-49 private key encryption (ncryptsec), NIP-06 key derivation from mnemonic, and NIP-46 remote signing. Use when implementing encrypted DMs, private messaging, key backup/export, mnemonic-based key generation, or remote signer integration in Nostr applications.
+description: Implement Nostr cryptography workflows—NIP-06, NIP-44, NIP-46, NIP-49, or NIP-59—when the task centers on keys, encryption, gift wrap, or remote signing in a Nostr app.
 ---
 
 # Nostr Crypto Guide
@@ -14,20 +14,33 @@ private key encryption for backup (NIP-49), and remote signing (NIP-46).
 
 ## When to Use
 
-- Implementing NIP-44 encrypted payloads between two Nostr users
-- Building NIP-59 gift-wrapped private messages (rumor/seal/wrap layers)
-- Encrypting a private key for backup or export (NIP-49 ncryptsec)
-- Deriving Nostr keys from a BIP39 mnemonic seed phrase (NIP-06)
-- Integrating a remote signer / bunker via NIP-46
-- Debugging encryption/decryption failures in Nostr messaging
-- Choosing between NIP-04 (deprecated) and NIP-44 encryption
+- The task centers on Nostr cryptographic operations such as NIP-06, NIP-44, NIP-46, NIP-49, or NIP-59.
+- The user needs help with key derivation, encryption/decryption, gift wrap, private-key protection, or remote-signing crypto flows.
+- The problem is cryptographic correctness, interoperability, or migration away from deprecated NIPs.
+- The request is about how secrets or ciphertext are produced and consumed inside a Nostr app.
 
 **Do NOT use when:**
 
-- Working with relay WebSocket protocol or subscription filters
-- Building event structures or tag arrays (use nostr-event-builder)
-- Implementing NIP-19 bech32 encoding (npub/nsec/note) without crypto context
-- General secp256k1 or Schnorr signature questions unrelated to Nostr
+- The task is event tagging or JSON construction.
+- The work is relay protocol, filters, or subscription handling.
+- The question is generic secp256k1 theory unrelated to Nostr workflows.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

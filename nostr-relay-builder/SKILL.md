@@ -1,6 +1,6 @@
 ---
 name: nostr-relay-builder
-description: Build a Nostr relay from scratch with WebSocket handling, NIP-01 event validation (id computation, Schnorr signature verification), filter matching, subscription management, and progressive NIP support (NIP-11, NIP-09, NIP-42, NIP-50). Use when building a Nostr relay, implementing the Nostr relay protocol, handling Nostr WebSocket connections, validating Nostr events, matching Nostr filters, or adding NIP support to a relay. Also use when the user mentions relay development, nostr server, event storage, or subscription handling.
+description: Implement or extend a Nostr relay when the task involves WebSocket protocol handling, event validation, filtering, storage, subscriptions, or relay-side NIP support.
 ---
 
 # Nostr Relay Builder
@@ -17,18 +17,33 @@ with the mandatory NIP-01 protocol and progressively adding optional NIPs.
 
 ## When to use
 
-- When building a Nostr relay from scratch
-- When adding NIP support to an existing relay
-- When implementing event validation (id computation, signature verification)
-- When building filter matching logic for Nostr subscriptions
-- When handling WebSocket connections for the Nostr protocol
-- When implementing replaceable/addressable event storage
+- The task is implementing or extending a Nostr relay server.
+- The user needs relay-side handling for WebSocket messages, event validation, storage rules, subscriptions, or relay-supported NIPs.
+- The problem lives on the server side of the protocol, not in a client app.
+- The output should shape relay behavior, persistence, or message handling.
 
 **Do NOT use when:**
 
-- Building a Nostr client (use nostr-client-patterns instead)
-- Working only with event creation/signing (use nostr-event-builder instead)
-- Setting up NIP-05 verification (use nostr-nip05-setup instead)
+- The task is building a Nostr client.
+- The work is only constructing events or filters for client use.
+- The request is NIP-05 identity hosting rather than relay protocol behavior.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

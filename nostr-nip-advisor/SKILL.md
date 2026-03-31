@@ -1,6 +1,6 @@
 ---
 name: nostr-nip-advisor
-description: Identifies which Nostr NIPs apply when implementing a feature (DMs, zaps, marketplace, groups, authentication, etc.), warns about deprecated or unrecommended NIPs, and provides correct event structures. Use when building Nostr clients, relays, or features, when asking which NIPs to implement, when planning Nostr protocol integration, or when encountering NIP-04, NIP-08, NIP-96, or NIP-26 in existing code.
+description: Identify which Nostr NIPs apply to a feature and warn about deprecated choices when the task is protocol planning or NIP selection rather than concrete implementation.
 ---
 
 # Nostr NIP Advisor
@@ -17,17 +17,33 @@ correct event structures look like. This skill fills those gaps.
 
 ## When to use
 
-- When implementing any Nostr feature (DMs, zaps, marketplace, groups, etc.)
-- When asking "which NIPs do I need for X?"
-- When reviewing code that uses NIP-04, NIP-08, NIP-96, or NIP-26
-- When designing event structures for a Nostr client or relay
-- When migrating from deprecated NIPs to their replacements
+- The task is to determine which Nostr NIPs are required, optional, deprecated, or interacting for a feature.
+- The user is in planning mode and needs protocol selection before implementation details.
+- The request asks “which NIPs do I need?”, “is this NIP deprecated?”, or “what replaces this older approach?”.
+- The output should map features to NIPs and warn about bad protocol choices.
 
 **Do NOT use when:**
 
-- Building non-Nostr protocols (ActivityPub, AT Protocol, etc.)
-- Working on Nostr relay infrastructure without protocol questions
-- The question is purely about cryptographic primitives unrelated to NIPs
+- The task is to build a concrete event, filter, client, or relay implementation directly.
+- The work is non-Nostr protocol planning.
+- The question is low-level cryptography with no NIP-selection decision.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

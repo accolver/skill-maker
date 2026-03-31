@@ -1,6 +1,6 @@
 ---
 name: nostr-event-builder
-description: Use when constructing Nostr events from natural language descriptions, building kind-specific tag structures, implementing NIP-10 threading for kind:1 replies, creating NIP-22 comments on non-note content, or generating correct event JSON with proper e/p/a tag markers and serialization format.
+description: Construct valid Nostr event JSON and tag structures from requirements when the task is to create or validate concrete events rather than choose which NIPs to use.
 ---
 
 # Nostr Event Builder
@@ -14,18 +14,33 @@ rules, and producing valid event JSON ready for signing.
 
 ## When to Use
 
-- Developer describes what they want to publish on Nostr
-- Building reply threads (NIP-10 kind:1 replies)
-- Commenting on non-note content (NIP-22 kind:1111 comments)
-- Creating or updating user profiles (kind:0 metadata)
-- Constructing any Nostr event and unsure about tag structure
-- Debugging malformed events (wrong markers, missing tags)
+- The task is to construct or validate a concrete Nostr event JSON object and its tag array.
+- The user describes what they want to publish and needs the exact event shape, kind, tags, and content rules.
+- The problem is correctness of event structure for replies, comments, metadata, or other publishable events.
+- The output should be an event payload, not protocol-planning advice.
 
 **Do NOT use when:**
 
-- Implementing relay WebSocket logic (that's relay protocol, not event building)
-- Working with NIP-19 encoding/decoding (bech32 concerns, not event structure)
-- Building subscription filters (REQ messages, not EVENT messages)
+- The task is deciding which NIPs apply at a high level.
+- The work is subscription filter design or relay query construction.
+- The problem is relay implementation rather than event payload construction.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

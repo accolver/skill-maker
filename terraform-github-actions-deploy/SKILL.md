@@ -1,6 +1,6 @@
 ---
 name: terraform-github-actions-deploy
-description: Create secure GitHub Actions workflows for Terraform and Terragrunt plan/apply pipelines with OIDC authentication (GCP Workload Identity Federation or AWS OIDC), environment protection, concurrency controls, and security scanning. Use when setting up CI/CD for Terraform, deploying infrastructure via GitHub Actions, creating terraform plan/apply workflows, adding Terragrunt to GitHub Actions, or securing infrastructure pipelines.
+description: Create secure GitHub Actions workflows for Terraform or Terragrunt plan/apply pipelines when the task is CI/CD automation for infrastructure deployments.
 ---
 
 # Terraform GitHub Actions Deploy
@@ -11,20 +11,33 @@ defense-in-depth security.
 
 ## When to use
 
-- When creating GitHub Actions workflows for Terraform or Terragrunt
-- When setting up CI/CD pipelines for infrastructure-as-code
-- When adding plan-on-PR / apply-on-merge automation
-- When configuring Workload Identity Federation or OIDC for GitHub Actions
-- When securing existing Terraform CI/CD workflows
-- When adding drift detection, cost estimation, or security scanning to infra
-  pipelines
+- The task is creating or hardening GitHub Actions workflows for Terraform or Terragrunt plan/apply automation.
+- The user needs CI/CD pipeline behavior, OIDC/WIF auth, PR plans, applies, concurrency, or security scanning for infrastructure repos.
+- The workflow target is GitHub Actions operating Terraform-style infrastructure deployments.
+- The problem is pipeline automation and deployment safety, not Terraform module design itself.
 
 **Do NOT use when:**
 
-- Writing Terraform/HCL itself (use `terraform-style-guide` skill instead)
-- Writing Terraform tests (use `terraform-test` skill instead)
-- Building app CI/CD that doesn't involve Terraform (use
-  `github-actions-templates` skill)
+- The task is writing or refactoring Terraform/HCL rather than the GitHub Actions workflow around it.
+- The request is generic application CI/CD with no Terraform or Terragrunt component.
+- The user needs Terraform tests or policy code rather than deployment automation.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

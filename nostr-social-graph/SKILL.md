@@ -1,6 +1,6 @@
 ---
 name: nostr-social-graph
-description: Build and traverse Nostr social graphs including follow lists (kind:3, NIP-02), relay list metadata (kind:10002, NIP-65), the outbox model for relay-aware event fetching, mute lists (kind:10000), and NIP-51 lists with public and private encrypted items. Use when implementing follow/unfollow, building feeds from followed users, discovering user relays, implementing the outbox model, creating mute or bookmark lists, or working with any NIP-51 list kind.
+description: Implement Nostr social-graph and list features when the task involves follows, relay lists, mute/bookmark lists, NIP-51 lists, or outbox-model relay discovery.
 ---
 
 # Nostr Social Graph
@@ -14,21 +14,33 @@ routing, private list item encryption, and efficient graph traversal patterns.
 
 ## When to Use
 
-- Building follow/unfollow functionality (kind:3)
-- Implementing a feed that fetches posts from followed users
-- Discovering where a user publishes or reads (kind:10002)
-- Implementing the outbox model for relay-aware fetching
-- Creating mute lists, bookmark lists, or pin lists (NIP-51)
-- Building lists with private encrypted entries
-- Traversing the social graph (follows-of-follows, Web of Trust)
-- Working with follow sets (kind:30000) or relay sets (kind:30002)
+- The task involves Nostr follow graphs, relay lists, mute/bookmark sets, NIP-51 lists, or outbox-model relay discovery.
+- The user is implementing list semantics, social traversal, or feed sourcing from relationship data.
+- The problem is graph/list behavior across users and relays, not individual-note publishing.
+- The request needs event structures or algorithms for follows, lists, or social discovery.
 
 **Do NOT use when:**
 
-- Building individual events like notes or replies (use nostr-event-builder)
-- Implementing relay WebSocket protocol logic
-- Working with NIP-19 encoding/decoding
-- Building subscription filters (REQ messages)
+- The task is building a single note, reply, or other standalone event.
+- The work is relay protocol or generic client lifecycle logic.
+- The problem is query-filter syntax rather than social-graph semantics.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

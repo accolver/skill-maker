@@ -1,6 +1,6 @@
 ---
 name: pr-qa
-description: End-to-end pull request quality assurance orchestrator that creates draft PRs via gh CLI, performs multi-persona code review (security engineer, application architect, network engineer, scalability engineer), runs secrets scanning with gitleaks, checks for CVE introductions, integrates with Greptile for automated review loops (comment @greptile, poll for findings, fix, re-request), and resolves all PR comments including inline code suggestions. Use when submitting a PR, preparing changes for review, doing PR QA, running pre-merge checks, or when the user mentions pull requests, code review, Greptile, PR comments, or merge readiness.
+description: Run end-to-end pull-request QA—draft PR creation, security scanning, multi-persona review, Greptile loops, and comment resolution—when a branch is being prepared for merge.
 ---
 
 # PR QA Orchestrator
@@ -12,18 +12,33 @@ comment resolution.
 
 ## When to Use
 
-- When submitting a pull request or preparing changes for review
-- When a developer says "submit my PR", "create a PR", "review my changes"
-- When running pre-merge quality checks on a branch
-- When integrating with Greptile for automated code review
-- When resolving PR comments or inline code suggestions
-- When checking for secrets, CVEs, or architectural issues before merge
+- The task is preparing a branch for merge with full pull-request QA, not just writing the PR description.
+- The workflow needs PR creation, scans, review loops, comment handling, or merge-readiness checks.
+- The user wants end-to-end assurance across security, architecture, dependency risk, and review feedback.
+- The branch is owned or controlled by the user and is intended for a real PR workflow.
 
 **Do NOT use when:**
 
-- Reviewing someone else's PR you don't own (use a code-review skill instead)
-- Writing commit messages only (use a conventional-commits skill)
-- The user just wants a PR description without the full QA workflow
+- The task is only to summarize changes into a PR body.
+- The user wants a lightweight code review with no PR orchestration.
+- The request concerns someone else’s PR where you should review rather than operate the full workflow.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

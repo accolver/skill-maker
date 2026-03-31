@@ -1,6 +1,6 @@
 ---
 name: code-reviewer
-description: Performs structured code reviews analyzing diffs or files for bugs, security vulnerabilities, performance issues, style violations, and maintainability concerns. Produces categorized findings with severity levels and actionable fix suggestions. Use when reviewing code, pull requests, merge requests, code changes, or when the user asks for feedback on their code.
+description: Review existing code or diffs for bugs, security issues, performance problems, maintainability risks, and test gaps when the user wants evaluation, not new implementation.
 ---
 
 # Code Reviewer
@@ -14,42 +14,33 @@ developer can act on immediately — not vague observations.
 
 ## When to use
 
-- When reviewing a pull request or merge request
-- When a user asks for feedback on code they've written
-- When examining a diff or changeset for issues
-- When auditing code for security, performance, or quality
-- When asked to "review this code" or "check this for bugs"
+- The task is evaluating existing code, a diff, or a pull request for defects and risks.
+- The user wants findings, severity, rationale, and fix suggestions rather than new implementation.
+- The review scope includes bugs, security, performance, maintainability, or test coverage.
+- The output should help a developer decide what to change before merging or shipping.
 
 **Do NOT use when:**
 
-- The user wants code written from scratch (use a code generation skill)
-- The user wants a refactoring plan (use a refactoring skill)
-- The user only wants formatting/linting (suggest an automated tool instead)
+- The user wants code written from scratch.
+- The task is primarily architecture planning or a refactor proposal with no review target.
+- The user only wants formatting or lint cleanup that an automated tool should handle.
 
-## Severity Classification
 
-Every finding MUST have one of these severity levels:
+## Response format
 
-| Severity     | Meaning                                                  | Examples                                                    |
-| ------------ | -------------------------------------------------------- | ----------------------------------------------------------- |
-| **critical** | Will cause data loss, security breach, or system failure | SQL injection, unvalidated auth, data corruption            |
-| **high**     | Likely to cause bugs in production or significant issues | Race conditions, missing error handling, N+1 queries        |
-| **medium**   | Code smell or moderate risk that should be addressed     | Magic numbers, overly complex logic, missing validation     |
-| **low**      | Minor improvement that would make code better            | Naming conventions, minor style issues, documentation gaps  |
-| **info**     | Observation or suggestion, not a problem                 | Alternative approaches, FYI notes, praise for good patterns |
+Always structure the final response with these top-level sections, in this order:
 
-## Category Definitions
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
 
-Every finding MUST be assigned one category:
-
-| Category            | What it covers                                                |
-| ------------------- | ------------------------------------------------------------- |
-| **bug**             | Logic errors, off-by-one, null derefs, incorrect conditions   |
-| **security**        | Injection, auth bypass, data exposure, insecure defaults      |
-| **performance**     | N+1 queries, unnecessary allocations, missing caching, O(n^2) |
-| **style**           | Naming, formatting, idiomatic usage, readability              |
-| **maintainability** | Complexity, coupling, missing abstractions, testability       |
-| **testing**         | Missing tests, untested edge cases, test quality              |
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 
@@ -135,11 +126,7 @@ Evaluate long-term code health:
 Compile all findings into the output format below. Order findings by severity
 (critical first, info last). Include a summary section with overall assessment.
 
-## Output Format
 
-Structure every review as follows:
-
-````markdown
 ## Code Review Summary
 
 **Context**: [1-2 sentence summary of what the code does] **Overall

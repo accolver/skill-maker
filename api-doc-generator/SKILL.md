@@ -1,6 +1,6 @@
 ---
 name: api-doc-generator
-description: Generates comprehensive API documentation from source code by analyzing endpoint definitions, request/response schemas, authentication requirements, and error codes. Produces structured docs in OpenAPI-compatible format with examples, parameter descriptions, and usage guides. Use when documenting APIs, generating API reference docs, creating endpoint documentation, or when the user needs API docs from their codebase.
+description: Generate API reference documentation from source code—endpoints, schemas, auth, errors, and examples—when the task is to document an existing API rather than design or implement one.
 ---
 
 # API Documentation Generator
@@ -15,19 +15,33 @@ machine-readable OpenAPI 3.0 JSON format.
 
 ## When to use
 
-- When the user asks to document an API or generate API docs
-- When a codebase has REST endpoints that need reference documentation
-- When migrating undocumented APIs and need to capture existing behavior
-- When generating OpenAPI/Swagger specs from source code
-- When the user mentions "API docs", "endpoint documentation", or "API
-  reference"
+- The task is documenting an existing API from source code, route definitions, handlers, or schemas.
+- The deliverable is reference documentation, endpoint docs, or an OpenAPI-style spec.
+- The user needs to capture current API behavior, inputs, outputs, auth, and error shapes.
+- The code already exists; the problem is documentation quality or completeness.
 
 **Do NOT use when:**
 
-- The user needs to _consume_ existing API docs (just read them directly)
-- The API is already fully documented and the user wants to call it
-- The user needs GraphQL schema docs (different structure, different tool)
-- The task is writing API _code_, not documenting existing code
+- The task is designing a new API contract before implementation exists.
+- The user only wants to consume or summarize already-written API docs.
+- The interface is GraphQL, gRPC, or another protocol that needs a different doc structure.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

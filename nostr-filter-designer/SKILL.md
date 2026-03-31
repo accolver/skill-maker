@@ -1,6 +1,6 @@
 ---
 name: nostr-filter-designer
-description: Construct correct Nostr REQ filters for complex queries. Use when building Nostr relay subscriptions, querying events, constructing REQ messages, filtering by tags, combining multiple filter conditions, or working with Nostr protocol filter syntax. Handles AND/OR semantics, tag filter gotchas, multi-filter subscriptions, and common query patterns like threads, zaps, reactions, and feeds.
+description: Design correct Nostr REQ filters when the task is to query relay data with precise AND/OR, tag, thread, zap, reaction, or feed semantics.
 ---
 
 # Nostr Filter Designer
@@ -13,87 +13,33 @@ subscriptions that agents consistently get wrong without explicit guidance.
 
 ## When to use
 
-- When building Nostr relay subscriptions or REQ messages
-- When querying for events by kind, author, tag, or time range
-- When constructing complex queries (threads, feeds, engagement metrics)
-- When combining multiple filter conditions with AND/OR logic
-- When working with tag filters (`#e`, `#p`, `#a`, etc.)
+- The task is to build Nostr REQ filters for querying relay data.
+- The user needs exact filter semantics for AND/OR behavior, tag constraints, time windows, or multi-filter subscriptions.
+- The problem is retrieving the right events—threads, zaps, feeds, replies, reactions—not publishing them.
+- The output should be one or more valid filter objects or REQ messages.
 
 **Do NOT use when:**
 
-- Publishing events (EVENT messages) -- this skill is read-only queries
-- Implementing relay-side filter matching logic
-- Working with NIP-42 authentication or NIP-45 counting
+- The task is constructing publishable events.
+- The work is relay-side implementation of filter matching rather than client-side filter design.
+- The request is protocol auth, counting, or another NIP unrelated to REQ filter construction.
 
-## Core Semantics
 
-These three rules govern ALL filter behavior. Every mistake traces back to
-violating one of them.
+## Response format
 
-### Rule 1: Single filter = AND
+Always structure the final response with these top-level sections, in this order:
 
-All conditions within one filter object must ALL match. There is no way to
-express OR within a single filter.
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
 
-```json
-{ "authors": ["<pk>"], "kinds": [1], "#e": ["<eid>"] }
-```
-
-This means: events BY this author AND of kind 1 AND tagging this event. Not
-"events by this author OR tagging this event."
-
-### Rule 2: Multiple filters = OR
-
-A REQ message can contain multiple filter objects. An event matches if it
-satisfies ANY of them.
-
-```json
-[
-  "REQ",
-  "sub-1",
-  { "authors": ["<pk>"], "kinds": [1] },
-  { "#p": ["<pk>"], "kinds": [1] }
-]
-```
-
-This means: notes BY this author OR notes MENTIONING this author.
-
-### Rule 3: Tag filters match the first value only
-
-The `#e`, `#p`, `#a` (and all single-letter tag) filters match against the
-**first value** (index 0) of each matching tag in the event. Additional tag
-values (relay hints, markers, pubkeys) are NOT matched.
-
-An event with tag `["e", "<id>", "wss://relay.example", "reply"]` will match
-filter `{"#e": ["<id>"]}` because `<id>` is at index 0.
-
-## Filter Structure
-
-```json
-{
-  "ids": ["<64-char-hex>..."],
-  "authors": ["<64-char-hex>..."],
-  "kinds": [<integer>...],
-  "#<single-letter>": ["<value>..."],
-  "since": <unix-timestamp>,
-  "until": <unix-timestamp>,
-  "limit": <integer>
-}
-```
-
-All fields are optional. Omitted fields impose no constraint.
-
-### Field rules
-
-| Field       | Type        | Constraint                                                                   |
-| ----------- | ----------- | ---------------------------------------------------------------------------- |
-| `ids`       | hex strings | Exact 64-char lowercase hex. Prefix matching NOT guaranteed.                 |
-| `authors`   | hex strings | Exact 64-char lowercase hex pubkeys.                                         |
-| `kinds`     | integers    | Event kind numbers (0-65535).                                                |
-| `#<letter>` | strings     | Tag value at index 0. For `#e`, `#p`: 64-char hex.                           |
-| `since`     | integer     | `created_at >= since`. Inclusive.                                            |
-| `until`     | integer     | `created_at <= until`. Inclusive.                                            |
-| `limit`     | integer     | Initial query only. Ignored for ongoing subscriptions. Returns newest first. |
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 

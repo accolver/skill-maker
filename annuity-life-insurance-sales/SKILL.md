@@ -1,6 +1,6 @@
 ---
 name: annuity-life-insurance-sales
-description: Expert sales agent assistant for annuities and life insurance. Guides the full client lifecycle from prospecting and fact-finding through discovery, suitability analysis, product selection (FIA, MYGA, SPIA, IUL, whole life, term), illustrations, objection handling, closing, contracting, and post-issue service. Use when an insurance agent needs help with annuity sales, life insurance sales, retirement income planning, client presentations, fact-finding questions, running illustrations, handling objections like "I hate annuities" or "I need to think about it", suitability compliance, e-application submission, or any aspect of selling insurance and annuity products to clients.
+description: Guide annuity and life-insurance sales workflows—discovery, suitability, product selection, objections, closing, and servicing—when supporting licensed insurance sales conversations or deliverables.
 ---
 
 # Annuity & Life Insurance Sales Expert
@@ -39,25 +39,33 @@ provide the paychecks; properly allocated investments provide the playchecks.
 
 ## When to use
 
-- When an agent asks for help preparing for a client meeting
-- When discussing annuity or life insurance product selection
-- When an agent needs fact-finding questions for a discovery meeting
-- When handling client objections about annuities or life insurance
-- When building a retirement income plan or illustration strategy
-- When navigating suitability requirements and compliance
-- When preparing contracting paperwork or e-application submissions
-- When coaching on closing techniques for insurance sales
-- When explaining retirement risks (longevity, inflation, market, sequence of
-  returns)
-- When an agent needs help with prospecting or seminar content
+- The task is supporting an annuity or life-insurance sales workflow from prospecting through post-issue service.
+- The user needs fact-finding questions, suitability framing, product-positioning help, objection handling, or presentation structure.
+- The deliverable is sales guidance, client-meeting prep, or compliant insurance-sales language.
+- The context is licensed insurance sales, retirement-income planning, or policy/annuity recommendations.
 
 **Do NOT use when:**
 
-- Providing specific legal or tax advice (refer to appropriate professionals)
-- Recommending specific carrier products by name without disclaimer
-- Providing securities advice for variable annuities (requires Series 6/7)
-- Acting as the client's fiduciary — you coach the agent, not the client
-  directly
+- The task requires legal, tax, or fiduciary advice to the end client.
+- The request is securities advice for products that require separate licensing.
+- The user needs carrier-specific underwriting rules or illustrations that must come from a carrier system.
+
+
+## Response format
+
+Always structure the final response with these top-level sections, in this order:
+
+1. **Summary** — state the task, scope, and main conclusion in 1-3 sentences.
+2. **Decision / Approach** — state the key classification, assumptions, or chosen path.
+3. **Artifacts** — provide the primary deliverable(s) for this skill. Use clear subheadings for multiple files, commands, JSON payloads, queries, or documents.
+4. **Validation** — state checks performed, important risks, caveats, or unresolved questions.
+5. **Next steps** — list concrete follow-up actions, or write `None` if nothing remains.
+
+Rules:
+- Do not omit a section; write `None` when a section does not apply.
+- If files are produced, list each file path under **Artifacts** before its contents.
+- If commands, JSON, SQL, YAML, or code are produced, put each artifact in fenced code blocks with the correct language tag when possible.
+- Keep section names exactly as written above so output stays predictable across skills.
 
 ## Workflow
 
