@@ -46,7 +46,44 @@
         "The plan mentions retry utility",
         "The plan mentions testing strategy",
         "The plan includes @greptile",
+        "The plan mentions reviewThreads",
+        "The plan mentions resolveReviewThread",
+        "The plan mentions isResolved",
+        "The plan mentions polling every 20 seconds",
         "The plan includes gh pr ready"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Take my draft PR #88 on myorg/billing to merge-ready. Greptile keeps leaving new comments after I push fixes, so do not just check once. Keep polling each review round until the latest Greptile run is actually done, close the Greptile review threads you addressed, and only then mark the PR ready.",
+      "files": [],
+      "expected_output": "The workflow restarts the Greptile polling loop after each fix push, compares new Greptile output against the current cycle, resolves addressed review threads with GraphQL, verifies isResolved, and only marks the PR ready after the latest Greptile round is clean.",
+      "assertions": [
+        "The plan includes @greptile",
+        "The plan mentions polling every 20 seconds",
+        "The plan mentions the latest Greptile round",
+        "The plan mentions restarting polling after fixes or pushes",
+        "The plan mentions reviewThreads",
+        "The plan mentions resolveReviewThread",
+        "The plan mentions isResolved",
+        "The plan includes gh pr ready"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "PR #112 on myorg/payments is already open for review and is not draft. Greptile left a top-level summary comment plus 2 inline comments after my last push. Keep polling until the latest Greptile cycle is clean, reply to the summary comment, resolve the inline threads you address, and do not recreate or redraft the PR.",
+      "files": [],
+      "expected_output": "The workflow reuses the existing open PR, handles both issue-level and inline Greptile comments correctly, verifies resolved threads with GraphQL, re-polls Greptile after fixes, and avoids unnecessary draft creation or gh pr ready calls on an already-open PR.",
+      "assertions": [
+        "The plan mentions issues/112/comments",
+        "The plan mentions pulls/112/comments",
+        "The plan mentions follow-up comment or summary comment",
+        "The plan mentions reviewThreads",
+        "The plan mentions resolveReviewThread",
+        "The plan mentions isResolved",
+        "The plan mentions restarting polling after fixes or pushes",
+        "The plan mentions not recreating or redrafting the PR",
+        "The plan mentions skipping gh pr ready for an already-open non-draft PR"
       ]
     }
   ]
