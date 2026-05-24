@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response recognizes missing Telos context and initializes or captures it before roadmap/module planning",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"telos\" (heuristic match):\n  output.md:3: There is no existing Telos context, so I would not start with a roadmap as authoritative yet. Below is a lightweight dra\n  output.md:7: **Classification: Mode A — Init missing Telos context, then provisional roadmap.**\n  output.md:11: Please confirm or correct this Telos before we treat it as authoritative:"
+    },
+    {
+      "text": "Response proposes or drafts a TELOS.md",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"telos\" (heuristic match):\n  output.md:3: There is no existing Telos context, so I would not start with a roadmap as authoritative yet. Below is a lightweight dra\n  output.md:7: **Classification: Mode A — Init missing Telos context, then provisional roadmap.**\n  output.md:11: Please confirm or correct this Telos before we treat it as authoritative:"
+    },
+    {
+      "text": "TELOS includes L4 Purpose with concrete beneficiary, problem, success metrics, and constraints",
+      "passed": false,
+      "evidence": "No matches for \"l4 purpose with concrete beneficiary, problem, success metrics, and constraints\" found across 1 output file(s)"
+    },
+    {
+      "text": "TELOS includes L3 Experience with key journeys and principles",
+      "passed": false,
+      "evidence": "No matches for \"l3 experience with key journeys and principles\" found across 1 output file(s)"
+    },
+    {
+      "text": "TELOS includes L2 Contract with interfaces, integrations, or data contracts",
+      "passed": false,
+      "evidence": "No matches for \"l2 contract with interfaces, integrations, or data contracts\" found across 1 output file(s)"
+    },
+    {
+      "text": "TELOS includes L1 Function with modules and testing strategy",
+      "passed": false,
+      "evidence": "No matches for \"l1 function with modules and testing strategy\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response marks uncertain items as TBD rather than inventing unsupported architecture",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"tbd\" (heuristic match):\n  output.md:59: - Time-to-create-invoice measurement: TBD\n  output.md:60: - Overdue detection latency: TBD\n  output.md:61: - Weekly active admin time or user-reported friction: TBD"
+    },
+    {
+      "text": "Response asks for confirmation before treating the Telos as authoritative",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"telos\" (heuristic match):\n  output.md:3: There is no existing Telos context, so I would not start with a roadmap as authoritative yet. Below is a lightweight dra\n  output.md:7: **Classification: Mode A — Init missing Telos context, then provisional roadmap.**\n  output.md:11: Please confirm or correct this Telos before we treat it as authoritative:"
+    },
+    {
+      "text": "Roadmap or module recommendations trace back to the captured Telos",
+      "passed": true,
+      "evidence": "Found 6 match(es) for keyword \"telos\" (heuristic match):\n  output.md:3: There is no existing Telos context, so I would not start with a roadmap as authoritative yet. Below is a lightweight dra\n  output.md:7: **Classification: Mode A — Init missing Telos context, then provisional roadmap.**\n  output.md:11: Please confirm or correct this Telos before we treat it as authoritative:"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 4,
+    "total": 9,
+    "pass_rate": 0.556
+  }
+}

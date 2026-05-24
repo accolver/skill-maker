@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not jump directly into an implementation plan before assessing Telos fit",
+      "passed": true,
+      "evidence": "Found 4 match(es) for keyword \"fit\" (heuristic match):\n  output.md:1: I would not start with a replacement implementation plan yet. This is an architectural decision, not just an API moderni\n  output.md:17: ### L4 Purpose fit\n  output.md:58: - Forcing binary/photo workflows through GraphQL would be a poor fit."
+    },
+    {
+      "text": "Response classifies the request as an architectural decision requiring Mode C-style assessment",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"mode\" (heuristic match):\n  output.md:1: I would not start with a replacement implementation plan yet. This is an architectural decision, not just an API moderni\n  output.md:22: - **Offline-first:** The current system is already built around local SQLite cache, a sync queue, and a backend-owned co\n  output.md:70: This is not just an API facade change. It affects the offline data model and the reliability guarantees that FieldOps Li"
+    },
+    {
+      "text": "Response uses telos/TELOS.md and telos/specs context, not just generic GraphQL tradeoffs",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"graphql\" (heuristic match):\n  output.md:13: The stated reason for GraphQL is that it is “more flexible for mobile clients.” That is not yet enough purpose pressure \n  output.md:19: A full REST-to-GraphQL replacement is risky against the stated constraints:\n  output.md:21: - **Mobile-first:** GraphQL can help shape payloads, but it can also add client complexity, schema/versioning complexity"
+    },
+    {
+      "text": "Response states that GraphQL is more flexible is insufficient purpose pressure for FieldOps Lite",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"graphql\" (heuristic match):\n  output.md:13: The stated reason for GraphQL is that it is “more flexible for mobile clients.” That is not yet enough purpose pressure \n  output.md:19: A full REST-to-GraphQL replacement is risky against the stated constraints:\n  output.md:21: - **Mobile-first:** GraphQL can help shape payloads, but it can also add client complexity, schema/versioning complexity"
+    },
+    {
+      "text": "Response ties risk to mobile-first, offline-first, poor-connectivity, and low-admin constraints",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"mobile\" (heuristic match):\n  output.md:13: The stated reason for GraphQL is that it is “more flexible for mobile clients.” That is not yet enough purpose pressure \n  output.md:21: - **Mobile-first:** GraphQL can help shape payloads, but it can also add client complexity, schema/versioning complexity\n  output.md:28: If there is no measured pain around over-fetching, under-fetching, slow route downloads, or API evolution blocking mobil"
+    },
+    {
+      "text": "Response discusses L2 impact on REST endpoints, local SQLite cache, sync queue, and conflict resolution",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rest\" (heuristic match):\n  output.md:13: The stated reason for GraphQL is that it is “more flexible for mobile clients.” That is not yet enough purpose pressure \n  output.md:19: A full REST-to-GraphQL replacement is risky against the stated constraints:\n  output.md:23: - **Poor connectivity:** GraphQL requests can become harder to retry, persist, inspect, and cache than simple purpose-bu"
+    },
+    {
+      "text": "Response discusses L1 impact on sync-queue, work-order-cache, backend sync-controller, and mobile offline tests",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"sync\" (heuristic match):\n  output.md:10: - 95% of work orders can be completed offline and synced later\n  output.md:13: The stated reason for GraphQL is that it is “more flexible for mobile clients.” That is not yet enough purpose pressure \n  output.md:22: - **Offline-first:** The current system is already built around local SQLite cache, a sync queue, and a backend-owned co"
+    },
+    {
+      "text": "Response recommends Reconsider or Reframe, not a full replacement plan",
+      "passed": true,
+      "evidence": "Found 8 match(es) for keyword \"replacement\" (heuristic match):\n  output.md:1: I would not start with a replacement implementation plan yet. This is an architectural decision, not just an API moderni\n  output.md:5: **Decision type:** Architecture / contract replacement assessment.\n  output.md:19: A full REST-to-GraphQL replacement is risky against the stated constraints:"
+    },
+    {
+      "text": "Response names the smallest aligned alternative, such as keeping REST, improving existing endpoints, or adding a narrow GraphQL layer only after a proven mobile/offline need",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"rest\" (heuristic match):\n  output.md:13: The stated reason for GraphQL is that it is “more flexible for mobile clients.” That is not yet enough purpose pressure \n  output.md:19: A full REST-to-GraphQL replacement is risky against the stated constraints:\n  output.md:23: - **Poor connectivity:** GraphQL requests can become harder to retry, persist, inspect, and cache than simple purpose-bu"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1
+  }
+}

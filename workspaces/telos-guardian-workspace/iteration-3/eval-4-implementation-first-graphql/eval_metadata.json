@@ -1,0 +1,16 @@
+{
+  "eval_id": 4,
+  "eval_name": "eval-4-implementation-first-graphql",
+  "prompt": "We\u2019re about to modernize FieldOps Lite\u2019s API. Please draft the implementation plan for replacing our REST API with GraphQL this quarter.\n\nExisting Telos context is in the full framework shape:\n\n# telos/TELOS.md\nProject: FieldOps Lite \u2014 a mobile-first work-order tool for small field service teams.\n\nRelevant specs:\n\n## telos/specs/L4-purpose/purpose.md\nPurpose: Reduce dispatch-to-completion time for 5-25 person HVAC/plumbing teams by giving technicians reliable offline access to assigned jobs, customer notes, and completion checklists. Success metrics: technicians can load today's jobs in under 2 seconds; 95% of work orders can be completed offline and synced later; office dispatch calls drop by 30%. Constraints: mobile-first, offline-first, low-admin, must work in poor connectivity, no dedicated IT staff.\n\n## telos/specs/L3-experience/technician-day.md\nJourney: technician opens app in the morning, downloads route, completes each work order offline, captures photos/signature, syncs at end of day. Principles: offline reliability over rich interactivity, simple screens over configurable workflows, fast tap targets over dense data.\n\n## telos/specs/L2-contract/work-orders-api.md\nCurrent contracts: REST endpoints GET /work-orders?date=today, PATCH /work-orders/:id/status, POST /work-orders/:id/photos, POST /sync. Mobile app uses a local SQLite cache and sync queue. Backend owns conflict resolution.\n\n## telos/specs/L1-function/sync-queue.md\nModules: mobile sync-queue, work-order-cache, photo-uploader, backend sync-controller. Tests use Vitest and Playwright mobile flows.\n\nThe CTO likes GraphQL because it is more flexible for mobile clients. Give me the plan, sequencing, and risks.",
+  "assertions": [
+    "Response does not jump directly into an implementation plan before assessing Telos fit",
+    "Response classifies the request as an architectural decision requiring Mode C-style assessment",
+    "Response uses telos/TELOS.md and telos/specs context, not just generic GraphQL tradeoffs",
+    "Response states that GraphQL is more flexible is insufficient purpose pressure for FieldOps Lite",
+    "Response ties risk to mobile-first, offline-first, poor-connectivity, and low-admin constraints",
+    "Response discusses L2 impact on REST endpoints, local SQLite cache, sync queue, and conflict resolution",
+    "Response discusses L1 impact on sync-queue, work-order-cache, backend sync-controller, and mobile offline tests",
+    "Response recommends Reconsider or Reframe, not a full replacement plan",
+    "Response names the smallest aligned alternative, such as keeping REST, improving existing endpoints, or adding a narrow GraphQL layer only after a proven mobile/offline need"
+  ]
+}

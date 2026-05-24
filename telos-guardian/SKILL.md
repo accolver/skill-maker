@@ -1,6 +1,6 @@
 ---
 name: telos-guardian
-description: "Captures and guards a project's telos: the purpose hierarchy that keeps features, architectural decisions, refactors, integrations, and implementation plans aligned. Use before adding a feature, changing architecture, choosing a new dependency/framework, expanding scope, planning a roadmap item, asking should we build this?, where should this live?, does this fit?, what is the right design?, or starting work in a project without Telos context. Reads telos/TELOS.md, telos/specs, or TELOS.md; initializes missing telos context; assesses L4 Purpose, L3 Experience, L2 Contract, and L1 Function fit before implementation."
+description: "Guards a project's telos/purpose hierarchy before scope, architecture, dependency, integration, roadmap, or implementation decisions. Use when the user asks should we build this?, does this fit?, where should this live?, what design aligns?, or when work may change product purpose, user experience, contracts, modules, or tests. Reads TELOS.md, telos/TELOS.md, telos/specs, and @telos annotations; initializes missing Telos context; evaluates L4 Purpose, L3 Experience, L2 Contract, and L1 Function before implementation."
 ---
 
 # Telos Guardian
@@ -14,6 +14,12 @@ user experience, system contracts, and code-level implementation.
 Use this as a lightweight Telos/Logos checkpoint, not a heavy planning process:
 identify the relevant telos context, scan enough of the codebase to understand
 fit, then recommend whether to proceed, reshape, or reject the proposal.
+
+If the user asks to implement, plan, or choose a design without explicitly
+asking for alignment, still run a brief Telos checkpoint first when the change
+affects scope, architecture, contracts, integrations, dependencies, or
+user-visible behavior. Do not proceed directly to implementation until you have
+classified the fit and named the smallest aligned scope.
 
 ## When to use
 
@@ -208,7 +214,10 @@ Choose exactly one:
 - **Reframe** — valuable idea, but should be reshaped to better serve the telos
 - **Reconsider** — misaligned, too costly, or purpose-diluting
 
-Name the smallest version that preserves the telos.
+Name the smallest version that preserves the telos. Do not reinterpret vague
+purpose statements to make the proposal fit. If the proposal only fits after
+changing L4 or core L3 principles, classify it as **Reframe** or **Reconsider**
+and ask for explicit confirmation before updating Telos.
 
 ---
 
@@ -273,6 +282,7 @@ explicit user confirmation.
 | Rewriting purpose to fit a desired feature | Require explicit confirmation for purpose changes. |
 | Producing a long plan when a checkpoint is enough | Keep it slim: decision, rationale, smallest aligned next step. |
 | Skipping codebase scan | Feasibility requires local architecture context. |
+| Jumping into implementation when scope or architecture changes | Run a brief Telos checkpoint first, then proceed only if fit is clear. |
 
 ## Quick reference
 

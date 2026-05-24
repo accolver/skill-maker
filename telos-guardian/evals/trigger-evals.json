@@ -1,0 +1,16 @@
+[
+  { "query": "Let's add a staff dashboard for commission overrides. Before we build it, does this fit the product?", "should_trigger": true },
+  { "query": "I want to switch this service from Cloud Run to GKE. Is that the right architecture for the project?", "should_trigger": true },
+  { "query": "Where should this new webhook receiver live in the codebase?", "should_trigger": true },
+  { "query": "Should we add real-time collaboration to this offline-first notes app?", "should_trigger": true },
+  { "query": "Plan the integration with Salesforce and decide whether it belongs in the existing ingestion pipeline or a new service.", "should_trigger": true },
+  { "query": "We are starting a repo with no TELOS.md. Help define the purpose and boundaries before coding.", "should_trigger": true },
+  { "query": "This feature is tempting but I worry it expands scope. Evaluate whether it aligns with our mission.", "should_trigger": true },
+  { "query": "Make an architectural decision record for whether to introduce Redis caching here.", "should_trigger": true },
+  { "query": "Fix the typo in the README heading.", "should_trigger": false },
+  { "query": "Run the test suite and summarize failures.", "should_trigger": false },
+  { "query": "Review this PR for security and performance issues.", "should_trigger": false },
+  { "query": "Generate a conventional commit message for my staged changes.", "should_trigger": false },
+  { "query": "Add missing semicolons and format the file.", "should_trigger": false },
+  { "query": "Debug this stack trace from the API server.", "should_trigger": false }
+]

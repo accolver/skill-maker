@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response recognizes missing Telos context and initializes or captures it before roadmap/module planning",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"module\" (heuristic match):\n  output.md:118: **Initial modules:**\n  output.md:163: Modules:\n  output.md:180: Modules:"
+    },
+    {
+      "text": "Response proposes or drafts a TELOS.md",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"telos\" (heuristic match):\n  output.md:1: Before jumping into a roadmap, I’d capture the project’s purpose in a lightweight `TELOS.md`. Since there isn’t one yet,\n  output.md:3: # TELOS — Freelancer Invoicing App\n  output.md:138: Please confirm whether this TELOS draft matches your intent, especially:"
+    },
+    {
+      "text": "TELOS includes L4 Purpose with concrete beneficiary, problem, success metrics, and constraints",
+      "passed": false,
+      "evidence": "No matches for \"l4 purpose with concrete beneficiary, problem, success metrics, and constraints\" found across 1 output file(s)"
+    },
+    {
+      "text": "TELOS includes L3 Experience with key journeys and principles",
+      "passed": false,
+      "evidence": "No matches for \"l3 experience with key journeys and principles\" found across 1 output file(s)"
+    },
+    {
+      "text": "TELOS includes L2 Contract with interfaces, integrations, or data contracts",
+      "passed": false,
+      "evidence": "No matches for \"l2 contract with interfaces, integrations, or data contracts\" found across 1 output file(s)"
+    },
+    {
+      "text": "TELOS includes L1 Function with modules and testing strategy",
+      "passed": false,
+      "evidence": "No matches for \"l1 function with modules and testing strategy\" found across 1 output file(s)"
+    },
+    {
+      "text": "Response marks uncertain items as TBD rather than inventing unsupported architecture",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"tbd\" (heuristic match):\n  output.md:64: - Export/send interface for invoices, likely PDF and/or email. **TBD:** exact delivery mechanism.\n  output.md:68: - Email sending: TBD, could be local mail client, SMTP, or manual export.\n  output.md:110: **Open questions / TBD:**"
+    },
+    {
+      "text": "Response asks for confirmation before treating the Telos as authoritative",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"telos\" (heuristic match):\n  output.md:1: Before jumping into a roadmap, I’d capture the project’s purpose in a lightweight `TELOS.md`. Since there isn’t one yet,\n  output.md:3: # TELOS — Freelancer Invoicing App\n  output.md:138: Please confirm whether this TELOS draft matches your intent, especially:"
+    },
+    {
+      "text": "Roadmap or module recommendations trace back to the captured Telos",
+      "passed": true,
+      "evidence": "Found 7 match(es) for keyword \"module\" (heuristic match):\n  output.md:118: **Initial modules:**\n  output.md:163: Modules:\n  output.md:180: Modules:"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 4,
+    "total": 9,
+    "pass_rate": 0.556
+  }
+}

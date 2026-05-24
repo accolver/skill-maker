@@ -1,0 +1,55 @@
+{
+  "assertion_results": [
+    {
+      "text": "Response does not jump directly into an implementation plan before assessing Telos fit",
+      "passed": true,
+      "evidence": "Found 9 match(es) for keyword \"telos\" (heuristic match):\n  output.md:3: This is an architecture decision, not just an implementation-planning task: replacing FieldOps Lite’s REST API with Grap\n  output.md:9: Telos fit:\n  output.md:11: - **L4 Purpose:** A full GraphQL replacement risks distracting from the actual success metrics: today’s jobs load in und"
+    },
+    {
+      "text": "Response classifies the request as an architectural decision requiring Mode C-style assessment",
+      "passed": true,
+      "evidence": "Found 3 match(es) for keyword \"decision\" (heuristic match):\n  output.md:3: This is an architecture decision, not just an implementation-planning task: replacing FieldOps Lite’s REST API with Grap\n  output.md:5: ## Decision / Approach\n  output.md:25: No implementation plan for a full REST-to-GraphQL replacement should be produced yet. Proposed decision record:"
+    },
+    {
+      "text": "Response uses telos/TELOS.md and telos/specs context, not just generic GraphQL tradeoffs",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"graphql\" (heuristic match):\n  output.md:3: This is an architecture decision, not just an implementation-planning task: replacing FieldOps Lite’s REST API with Grap\n  output.md:7: **Recommendation: Reframe.** “GraphQL is more flexible for mobile clients” is insufficient purpose pressure for FieldOps\n  output.md:11: - **L4 Purpose:** A full GraphQL replacement risks distracting from the actual success metrics: today’s jobs load in und"
+    },
+    {
+      "text": "Response states that GraphQL is more flexible is insufficient purpose pressure for FieldOps Lite",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"graphql\" (heuristic match):\n  output.md:3: This is an architecture decision, not just an implementation-planning task: replacing FieldOps Lite’s REST API with Grap\n  output.md:7: **Recommendation: Reframe.** “GraphQL is more flexible for mobile clients” is insufficient purpose pressure for FieldOps\n  output.md:11: - **L4 Purpose:** A full GraphQL replacement risks distracting from the actual success metrics: today’s jobs load in und"
+    },
+    {
+      "text": "Response ties risk to mobile-first, offline-first, poor-connectivity, and low-admin constraints",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"offline\" (heuristic match):\n  output.md:3: This is an architecture decision, not just an implementation-planning task: replacing FieldOps Lite’s REST API with Grap\n  output.md:7: **Recommendation: Reframe.** “GraphQL is more flexible for mobile clients” is insufficient purpose pressure for FieldOps\n  output.md:11: - **L4 Purpose:** A full GraphQL replacement risks distracting from the actual success metrics: today’s jobs load in und"
+    },
+    {
+      "text": "Response discusses L2 impact on REST endpoints, local SQLite cache, sync queue, and conflict resolution",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"sync\" (heuristic match):\n  output.md:3: This is an architecture decision, not just an implementation-planning task: replacing FieldOps Lite’s REST API with Grap\n  output.md:11: - **L4 Purpose:** A full GraphQL replacement risks distracting from the actual success metrics: today’s jobs load in und\n  output.md:12: - **L3 Experience:** Technician experience prioritizes offline reliability, simple screens, and fast tap targets over ri"
+    },
+    {
+      "text": "Response discusses L1 impact on sync-queue, work-order-cache, backend sync-controller, and mobile offline tests",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"sync\" (heuristic match):\n  output.md:3: This is an architecture decision, not just an implementation-planning task: replacing FieldOps Lite’s REST API with Grap\n  output.md:11: - **L4 Purpose:** A full GraphQL replacement risks distracting from the actual success metrics: today’s jobs load in und\n  output.md:12: - **L3 Experience:** Technician experience prioritizes offline reliability, simple screens, and fast tap targets over ri"
+    },
+    {
+      "text": "Response recommends Reconsider or Reframe, not a full replacement plan",
+      "passed": true,
+      "evidence": "Found 5 match(es) for keyword \"full\" (heuristic match):\n  output.md:3: This is an architecture decision, not just an implementation-planning task: replacing FieldOps Lite’s REST API with Grap\n  output.md:11: - **L4 Purpose:** A full GraphQL replacement risks distracting from the actual success metrics: today’s jobs load in und\n  output.md:25: No implementation plan for a full REST-to-GraphQL replacement should be produced yet. Proposed decision record:"
+    },
+    {
+      "text": "Response names the smallest aligned alternative, such as keeping REST, improving existing endpoints, or adding a narrow GraphQL layer only after a proven mobile/offline need",
+      "passed": true,
+      "evidence": "Found 10 match(es) for keyword \"graphql\" (heuristic match):\n  output.md:3: This is an architecture decision, not just an implementation-planning task: replacing FieldOps Lite’s REST API with Grap\n  output.md:7: **Recommendation: Reframe.** “GraphQL is more flexible for mobile clients” is insufficient purpose pressure for FieldOps\n  output.md:11: - **L4 Purpose:** A full GraphQL replacement risks distracting from the actual success metrics: today’s jobs load in und"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1
+  }
+}

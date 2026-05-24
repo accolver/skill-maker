@@ -1,0 +1,16 @@
+{
+  "eval_id": 6,
+  "eval_name": "eval-6-missing-telos-roadmap",
+  "prompt": "I\u2019m starting a new app for freelancers to invoice clients and track payments. Before we code, generate a feature roadmap and initial module breakdown. There\u2019s no TELOS.md yet. Constraints I care about: solo freelancers, privacy-first, local-first if possible, Stripe optional but not required, simple enough to use in under 10 minutes/week. Success means invoices go out in under 2 minutes and overdue payments are noticed within 24 hours.",
+  "assertions": [
+    "Response recognizes missing Telos context and initializes or captures it before roadmap/module planning",
+    "Response proposes or drafts a TELOS.md",
+    "TELOS includes L4 Purpose with concrete beneficiary, problem, success metrics, and constraints",
+    "TELOS includes L3 Experience with key journeys and principles",
+    "TELOS includes L2 Contract with interfaces, integrations, or data contracts",
+    "TELOS includes L1 Function with modules and testing strategy",
+    "Response marks uncertain items as TBD rather than inventing unsupported architecture",
+    "Response asks for confirmation before treating the Telos as authoritative",
+    "Roadmap or module recommendations trace back to the captured Telos"
+  ]
+}
