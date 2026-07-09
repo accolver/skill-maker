@@ -16,13 +16,17 @@ is actually supported by the artifacts.
    select candidates, and held-out test examples are only for final reporting.
 2. **Keep a frozen baseline.** Score the original skill or prompt on the same
    held-out test set before reporting an optimized result.
-3. **Record the exact environment.** Capture SkillOpt commit, model backend,
-   adapter code, dataset path, config file, command, and random seeds if used.
-4. **Bound external calls.** Time out rollouts, reflection, and update steps so a
+3. **Use SkillOpt's loop terms.** Think in documented stages: rollout, reflect,
+   aggregate, select, update, and gate. Slow update and meta skill happen at
+   epoch boundaries.
+4. **Record the exact environment.** Capture SkillOpt version or commit, model
+   backend, adapter code, dataset path, config file, command, and random seeds if
+   used.
+5. **Bound external calls.** Time out rollouts, reflection, and update steps so a
    single stuck backend does not consume the run.
-5. **Label fallbacks honestly.** Deterministic or mocked runs can validate
+6. **Label fallbacks honestly.** Deterministic or mocked runs can validate
    mechanics, but they are not live-LLM quality claims.
-6. **Preserve deployable frontmatter.** If optimizing a skill file, keep required
+7. **Preserve deployable frontmatter.** If optimizing a skill file, keep required
    metadata such as `name` and `description` valid and single-line.
 
 ---
@@ -45,18 +49,26 @@ allowed backend before starting.
 
 ### 2. Set up SkillOpt
 
-Use an isolated checkout and virtual environment unless the user already has a
-working installation.
+Use Python 3.10 or newer. For normal use, install SkillOpt from PyPI in an
+isolated virtual environment. Clone the repository only when you need examples,
+repository scripts, or custom benchmark development.
+
+```bash
+python3 -m venv /tmp/skillopt-venv
+/tmp/skillopt-venv/bin/pip install -U pip
+/tmp/skillopt-venv/bin/pip install skillopt
+```
+
+For source development or repository-script experiments:
 
 ```bash
 git clone https://github.com/microsoft/SkillOpt.git /tmp/SkillOpt
-python3 -m venv /tmp/skillopt-venv
-/tmp/skillopt-venv/bin/pip install -U pip
 /tmp/skillopt-venv/bin/pip install -e /tmp/SkillOpt
 git -C /tmp/SkillOpt rev-parse --short HEAD
 ```
 
-If `/tmp/SkillOpt` already exists, record the current commit before editing or
+Configure credentials for the chosen model backend before running rollouts. If
+`/tmp/SkillOpt` already exists, record the current commit before editing or
 reinstalling it.
 
 ### 3. Prepare data
@@ -98,22 +110,24 @@ Good split hygiene:
 
 ### 4. Configure the adapter
 
-A SkillOpt adapter must be able to:
+For custom benchmarks, follow SkillOpt's documented extension points:
 
-- Load split items.
-- Inject the candidate skill/prompt/instruction into the rollout.
-- Run the task through the selected backend.
+- Implement a `SplitDataLoader` or equivalent loader for train/val/test items.
+- Implement an `EnvAdapter` that injects the candidate skill, prompt, or
+  instruction into each rollout.
+- Add a rollout helper that runs the selected backend with bounded timeouts.
 - Score output using deterministic checks or a documented grader.
-- Return structured per-example metrics and evidence.
+- Register the environment/config so `scripts/train.py` can load it.
 
-Adapter outputs should include:
+SkillOpt rollout result dictionaries must include `id`, `hard`, and `soft`.
+Additional fields may store predictions, paths, and evidence:
 
 ```json
 {
-  "case_id": "case-001",
-  "score": 1.0,
-  "passed": true,
-  "output_path": "predictions/case-001/output.txt",
+  "id": "case-001",
+  "hard": 1,
+  "soft": 1.0,
+  "predicted_answer": "model output or path to stored output",
   "evidence": ["matched required field", "no forbidden claim found"]
 }
 ```
@@ -138,26 +152,37 @@ restart the comparison and clearly document the new dataset version.
 
 ### 6. Run SkillOpt
 
-Use the project’s SkillOpt command shape if one already exists. Otherwise, run a
-bounded training command and tee logs into a stable file:
+Use the documented CLI shape: `python scripts/train.py --config <config.yaml>
+[overrides...]`. Prefer `--cfg-options` for overrides, because public examples
+use it even though some guide text may describe bare `key=value` overrides.
 
 ```bash
 cd /tmp/SkillOpt
 PYTHONUNBUFFERED=1 \
 PATH=/tmp/skillopt-venv/bin:$PATH \
 /tmp/skillopt-venv/bin/python -u scripts/train.py \
-  --config configs/<config>.yaml \
-  --split_dir /absolute/path/to/data/<target> \
-  --skill_init /absolute/path/to/data/<target>/initial_skill.md \
-  --out_root /absolute/path/to/results/<target> \
-  --num_steps 4 \
+  --config configs/<env>/default.yaml \
+  --cfg-options \
+    env.split_mode=split_dir \
+    env.split_dir=/absolute/path/to/data/<target> \
+    env.skill_init=/absolute/path/to/data/<target>/initial_skill.md \
+    env.out_root=/absolute/path/to/results/<target> \
+    train.num_epochs=4 \
   2>&1 | tee /tmp/skillopt-<target>.log
 ```
 
-If the local SkillOpt checkout uses different CLI flags, inspect its `scripts/`
-and config files, then adapt the command while preserving the same principles:
-train split for feedback, validation for selection, held-out only for final
-reporting.
+If your installed SkillOpt version uses a different config schema, inspect the
+local `scripts/train.py`, `configs/`, and environment config, then adapt the
+`--cfg-options` keys while preserving the same principles: train split for
+feedback, validation for selection, held-out only for final reporting. Avoid
+inventing flags such as `--num_steps`; use documented config overrides or parser
+flags such as `--max_steps` only when they exist in the installed version.
+
+Optional WebUI for browsing run outputs:
+
+```bash
+python -m skillopt_webui.app --port 7860
+```
 
 ### 7. Collect artifacts
 
@@ -173,15 +198,18 @@ For every run, save:
 - Raw logs
 - Notes on any patches, failures, retries, or fallback behavior
 
-Use stable paths such as:
+Use paths that mirror SkillOpt's documented output structure when possible:
 
 ```text
-results/<run-name>/
-├── README.md
-├── summary.json
+outputs/<benchmark>/<run_id>/
+├── config.yaml
 ├── best_skill.md
 ├── history.json
-├── logs/
+├── steps/
+│   └── step_0001/
+│       ├── candidate_skill.md
+│       ├── step_record.json
+│       └── trajectory_digest.json
 └── predictions/
 ```
 
