@@ -1,0 +1,95 @@
+[
+  {
+    "id": "1",
+    "skill_name": "telos-guardian",
+    "prompt": "I'm starting a new project \u2014 a CLI tool that helps small dev teams manage their database migrations across multiple environments (dev, staging, prod). There's no TELOS.md yet. Help me define the project's purpose and capture it. When you ask me questions, here are my answers: Purpose: small teams (2-10 devs) waste hours debugging failed migrations in staging/prod because they tested only in dev. We want zero-surprise deployments. Beneficiaries: primary is backend developers, secondary is DevOps/SRE who get paged when migrations break prod. Success metrics: zero failed migrations in prod within 60 days of adoption, migration authoring time under 5 minutes. Constraints: must be database-agnostic (Postgres, MySQL, SQLite at minimum), must work in CI/CD pipelines without interactive prompts, MIT licensed. Key journeys: (1) developer creates a migration locally, tests it, pushes to CI (2) CI validates migration against staging schema snapshot (3) DevOps reviews and applies to prod. Experience principles: safety over speed, explicit over implicit, no magic. Feedback loops: migration success/failure logs, schema drift detection alerts. Interfaces: CLI with subcommands (create, validate, apply, rollback, status), config file (.migrations.yml), migration file format (SQL + metadata header). Integrations: connects to database via standard connection strings, optional Slack notifications for failures. Data contracts: migration files have a YAML header with id, author, depends-on, description followed by SQL body. Core modules: parser (reads migration files), validator (checks dependencies and schema compatibility), executor (applies/rolls back), reporter (outputs results). Patterns: Node.js, functional style, no classes, comprehensive unit tests with Vitest. Testing strategy: unit tests for parser and validator, integration tests against Docker-based databases, E2E tests for full migration workflows.",
+    "assertions": [
+      "Output includes a file named TELOS.md",
+      "TELOS.md contains an L4 Purpose section with a specific purpose statement about preventing failed database migrations in production",
+      "TELOS.md contains beneficiaries listing backend developers as primary and DevOps/SRE as secondary",
+      "TELOS.md contains success metrics with measurable targets (zero failed migrations in prod, migration authoring under 5 minutes)",
+      "TELOS.md contains an L3 Experience section with at least 2 user journeys described step by step",
+      "TELOS.md contains an L2 Contract section mentioning CLI subcommands (create, validate, apply, rollback, status) and the migration file format with YAML header",
+      "TELOS.md contains an L1 Function section listing core modules (parser, validator, executor, reporter) and mentioning Node.js and Vitest",
+      "TELOS.md contains constraints mentioning database-agnostic support (Postgres, MySQL, SQLite)"
+    ]
+  },
+  {
+    "id": "2",
+    "skill_name": "telos-guardian",
+    "prompt": "I want to add a real-time collaborative editing feature to our project. Multiple users should be able to edit the same document simultaneously, like Google Docs. Here is our existing TELOS.md:\n\n# TELOS \u2014 NoteKeeper\n\n> A fast, private, offline-first note-taking app for individual knowledge workers who distrust cloud services.\n\n## L4: Purpose\n\n**Why this project exists:**\nKnowledge workers need a note-taking tool that keeps their data local, works without internet, and launches in under 1 second. Existing tools (Notion, Evernote) require accounts, sync to cloud, and are slow to start.\n\n**Beneficiaries:**\n- Primary: Individual knowledge workers (researchers, writers, developers) who value privacy\n- Secondary: Privacy-conscious organizations that prohibit cloud-based tools\n\n**Success metrics:**\n- App launch to ready: < 1 second\n- Zero data leaves the device without explicit user action\n- 90% of users report feeling their data is safe\n\n**Constraints:**\n- No cloud requirement \u2014 must work fully offline\n- No user accounts \u2014 zero sign-up friction\n- Local-first storage (SQLite)\n- Must run on macOS, Windows, Linux\n\n## L3: Experience\n\n**Key user journeys:**\n\n### Journey 1: Quick Capture\nUser opens app (< 1s), types a note, closes app. Note persists locally.\n\n### Journey 2: Knowledge Retrieval\nUser searches their notes by keyword, finds relevant note, reads/edits it.\n\n**Experience principles:**\n- Speed over polish\n- Privacy over convenience\n- Simplicity over features\n\n**Feedback loops:**\n- Local usage analytics (never transmitted) showing note count, search frequency\n\n## L2: Contract\n\n**Major interfaces:**\n- Note CRUD API (create, read, update, delete, search)\n- Local SQLite database with FTS5 for full-text search\n- Markdown rendering pipeline\n\n**Integration points:**\n- None \u2014 intentionally isolated\n\n**Data contracts:**\n- Note: { id, title, body (markdown), created_at, updated_at, tags[] }\n\n## L1: Function\n\n**Core modules:**\n- note-store: SQLite CRUD operations\n- search-engine: FTS5 query builder\n- renderer: Markdown to HTML\n- editor: Text input with markdown shortcuts\n\n**Patterns:**\n- Electron app, vanilla JS, no framework\n- Event-driven architecture\n- Single-file modules\n\n**Testing strategy:**\n- Unit tests with Vitest\n- E2E tests with Playwright\n\nPlease evaluate whether real-time collaborative editing aligns with our project vision.",
+    "assertions": [
+      "Assessment explicitly identifies the conflict between collaborative editing (requires network) and the offline-first, no-cloud constraint in L4",
+      "Assessment references the L4 constraint about zero data leaving the device without explicit user action",
+      "Assessment addresses the L3 experience principle 'privacy over convenience' as conflicting with real-time collaboration",
+      "Assessment notes the L2 architecture impact \u2014 the current system has no network layer and intentionally has no integration points",
+      "Assessment evaluates L1 feasibility \u2014 current Electron/vanilla JS/event-driven architecture would need significant additions (WebSocket, CRDT or OT, conflict resolution)",
+      "Assessment delivers a clear recommendation of 'reconsider' or 'proceed with caveats' \u2014 not an unqualified 'proceed'",
+      "Assessment does NOT rubber-stamp the feature \u2014 it substantively challenges the alignment with at least 2 specific conflicts"
+    ]
+  },
+  {
+    "id": "3",
+    "skill_name": "telos-guardian",
+    "prompt": "We're thinking about adding webhook support to our project so that external services can subscribe to events. Here is our existing TELOS.md:\n\n# TELOS \u2014 BuildPulse\n\n> A CI/CD monitoring dashboard that gives engineering managers real-time visibility into build health across all their pipelines.\n\n## L4: Purpose\n\n**Why this project exists:**\nEngineering managers at mid-size companies (50-200 devs) have no unified view of CI/CD health. They check Jenkins, GitHub Actions, CircleCI separately. BuildPulse aggregates all pipelines into one dashboard with alerts on failures and trends.\n\n**Beneficiaries:**\n- Primary: Engineering managers who need pipeline health overview\n- Secondary: DevOps engineers who maintain the pipelines\n- Tertiary: Individual developers who want to see their build status\n\n**Success metrics:**\n- Time to detect build regression: < 5 minutes (down from 30+ minutes)\n- Pipeline coverage: monitor 90% of team's pipelines within first week\n- Manager weekly check-in time: reduced by 50%\n\n**Constraints:**\n- Must support at least Jenkins, GitHub Actions, CircleCI, GitLab CI\n- Read-only access to CI systems (never modifies pipelines)\n- Self-hosted option required (some companies can't use SaaS)\n- Must handle 100+ pipelines without performance degradation\n\n## L3: Experience\n\n**Key user journeys:**\n\n### Journey 1: Morning Health Check\nManager opens dashboard, sees green/red/yellow status for all pipelines, drills into any failures, sees commit that broke it.\n\n### Journey 2: Failure Alert\nBuild fails, manager gets Slack notification within 2 minutes, clicks through to see failure details and responsible commit.\n\n### Journey 3: Trend Analysis\nManager reviews weekly build success rate trends, identifies pipelines with degrading reliability.\n\n**Experience principles:**\n- Glanceable over detailed\n- Proactive alerts over passive dashboards\n- Aggregation over duplication\n\n**Feedback loops:**\n- Alert response time tracking\n- Dashboard usage frequency\n\n## L2: Contract\n\n**Major interfaces:**\n- REST API for pipeline data ingestion\n- WebSocket for real-time dashboard updates\n- Slack integration for alerts\n- Provider adapters (Jenkins, GitHub Actions, CircleCI, GitLab CI)\n\n**Integration points:**\n- CI provider APIs (read-only polling)\n- Slack API for notifications\n- PostgreSQL for persistence\n\n**Data contracts:**\n- Pipeline: { id, provider, name, repo, status, last_build_at }\n- Build: { id, pipeline_id, status, commit_sha, author, started_at, finished_at, duration_ms }\n- Alert: { id, type, pipeline_id, build_id, sent_at, channel }\n\n## L1: Function\n\n**Core modules:**\n- poller: Fetches build data from CI providers on schedule\n- normalizer: Converts provider-specific data to BuildPulse schema\n- alerter: Evaluates alert rules and sends notifications\n- dashboard-api: Serves REST and WebSocket endpoints for the frontend\n- trend-engine: Computes rolling statistics and detects regressions\n\n**Patterns:**\n- Node.js + Express backend\n- React frontend with TanStack Query\n- Adapter pattern for CI providers\n- Event-driven alert pipeline\n\n**Testing strategy:**\n- Unit tests for normalizer and trend-engine with Vitest\n- Integration tests for provider adapters against recorded responses\n- E2E tests for critical dashboard flows with Playwright\n\nPlease evaluate whether adding webhook support aligns with our vision and is feasible.",
+    "assertions": [
+      "Assessment identifies that webhooks directly support the L4 success metric of detecting build regressions in under 5 minutes (faster than polling)",
+      "Assessment references the L3 experience principle 'proactive alerts over passive dashboards' as supporting webhook-driven event ingestion",
+      "Assessment addresses L2 compatibility \u2014 the existing REST API and event-driven architecture naturally accommodate incoming webhook endpoints",
+      "Assessment evaluates L1 feasibility \u2014 the Node.js/Express backend and adapter pattern can naturally extend to receive webhooks alongside polling",
+      "Assessment mentions the read-only constraint from L4 and clarifies that receiving webhooks (inbound) does not violate the 'never modifies pipelines' constraint",
+      "Assessment delivers a clear recommendation of 'proceed' or 'proceed with caveats' \u2014 recognizing this is a well-aligned feature",
+      "Assessment addresses at least one practical consideration (e.g., webhook verification/security, retry handling, or self-hosted deployment implications)"
+    ]
+  },
+  {
+    "id": "4",
+    "skill_name": "telos-guardian",
+    "prompt": "We\u2019re about to modernize FieldOps Lite\u2019s API. Please draft the implementation plan for replacing our REST API with GraphQL this quarter.\n\nExisting Telos context is in the full framework shape:\n\n# telos/TELOS.md\nProject: FieldOps Lite \u2014 a mobile-first work-order tool for small field service teams.\n\nRelevant specs:\n\n## telos/specs/L4-purpose/purpose.md\nPurpose: Reduce dispatch-to-completion time for 5-25 person HVAC/plumbing teams by giving technicians reliable offline access to assigned jobs, customer notes, and completion checklists. Success metrics: technicians can load today's jobs in under 2 seconds; 95% of work orders can be completed offline and synced later; office dispatch calls drop by 30%. Constraints: mobile-first, offline-first, low-admin, must work in poor connectivity, no dedicated IT staff.\n\n## telos/specs/L3-experience/technician-day.md\nJourney: technician opens app in the morning, downloads route, completes each work order offline, captures photos/signature, syncs at end of day. Principles: offline reliability over rich interactivity, simple screens over configurable workflows, fast tap targets over dense data.\n\n## telos/specs/L2-contract/work-orders-api.md\nCurrent contracts: REST endpoints GET /work-orders?date=today, PATCH /work-orders/:id/status, POST /work-orders/:id/photos, POST /sync. Mobile app uses a local SQLite cache and sync queue. Backend owns conflict resolution.\n\n## telos/specs/L1-function/sync-queue.md\nModules: mobile sync-queue, work-order-cache, photo-uploader, backend sync-controller. Tests use Vitest and Playwright mobile flows.\n\nThe CTO likes GraphQL because it is more flexible for mobile clients. Give me the plan, sequencing, and risks.",
+    "assertions": [
+      "Response does not jump directly into an implementation plan before assessing Telos fit",
+      "Response classifies the request as an architectural decision requiring Mode C-style assessment",
+      "Response uses telos/TELOS.md and telos/specs context, not just generic GraphQL tradeoffs",
+      "Response states that GraphQL is more flexible is insufficient purpose pressure for FieldOps Lite",
+      "Response ties risk to mobile-first, offline-first, poor-connectivity, and low-admin constraints",
+      "Response discusses L2 impact on REST endpoints, local SQLite cache, sync queue, and conflict resolution",
+      "Response discusses L1 impact on sync-queue, work-order-cache, backend sync-controller, and mobile offline tests",
+      "Response recommends Reconsider or Reframe, not a full replacement plan",
+      "Response names the smallest aligned alternative, such as keeping REST, improving existing endpoints, or adding a narrow GraphQL layer only after a proven mobile/offline need"
+    ]
+  },
+  {
+    "id": "5",
+    "skill_name": "telos-guardian",
+    "prompt": "Please design the AI auto-reply feature for TrustDesk and break it into tickets. It should draft and send support-ticket responses automatically to reduce clinic workload.\n\nHere\u2019s our TELOS.md:\n\n# TELOS \u2014 TrustDesk\n\n> A customer support triage tool that helps small healthcare clinics route patient messages safely without exposing PHI to unnecessary systems.\n\n## L4: Purpose\nClinics need faster routing of inbound patient messages while preserving trust, privacy, and human accountability. Success metrics: urgent messages routed within 2 minutes; 40% less manual sorting; zero PHI sent to non-approved processors. Constraints: HIPAA-sensitive environment, human-in-the-loop for patient-facing messages, audit trail required, integrate only with approved vendors.\n\n## L3: Experience\nJourneys: intake coordinator reviews triaged queue; nurse sees urgent clinical messages first; admin audits message handling. Principles: safety over automation, explainability over magic, human accountability over speed.\n\n## L2: Contract\nInterfaces: message ingestion API, triage classifier, queue assignment service, audit log. Data contract: Ticket { id, patient_id, category, urgency, assigned_role, audit_events[] }. Integrations: EHR webhook, approved SMS gateway.\n\n## L1: Function\nModules: classifier, rules-engine, assignment-worker, audit-writer, queue-ui. Tests: unit tests for rules, integration tests for EHR/SMS adapters, E2E queue workflows.\n\nI want the output to be actionable for engineering.",
+    "assertions": [
+      "Response performs an alignment checkpoint before ticket breakdown or feature design",
+      "Response treats the human-in-the-loop constraint as a blocker for autonomous patient-facing sending, not merely as a consideration",
+      "Response identifies PHI and non-approved processor/vendor approval constraints",
+      "Response mentions safety over automation",
+      "Response mentions explainability over magic",
+      "Response mentions human accountability over speed",
+      "Response refuses or reframes auto-send rather than creating tickets for autonomous sending",
+      "Response names the smallest aligned scope as AI draft suggestions with human approval and auditable rationale",
+      "Response includes L2 contract changes for draft state, approval, rationale or audit events, message ingestion, SMS send provenance, or ticket data",
+      "Response includes L1 affected modules/tests such as classifier, rules-engine, audit-writer, queue-ui, and E2E workflows",
+      "Response explicitly says Telos should not be rewritten to justify auto-sending without user confirmation"
+    ]
+  },
+  {
+    "id": "6",
+    "skill_name": "telos-guardian",
+    "prompt": "I\u2019m starting a new app for freelancers to invoice clients and track payments. Before we code, generate a feature roadmap and initial module breakdown. There\u2019s no TELOS.md yet. Constraints I care about: solo freelancers, privacy-first, local-first if possible, Stripe optional but not required, simple enough to use in under 10 minutes/week. Success means invoices go out in under 2 minutes and overdue payments are noticed within 24 hours.",
+    "assertions": [
+      "Response recognizes missing Telos context and initializes or captures it before roadmap/module planning",
+      "Response proposes or drafts a TELOS.md",
+      "TELOS includes L4 Purpose with concrete beneficiary, problem, success metrics, and constraints",
+      "TELOS includes L3 Experience with key journeys and principles",
+      "TELOS includes L2 Contract with interfaces, integrations, or data contracts",
+      "TELOS includes L1 Function with modules and testing strategy",
+      "Response marks uncertain items as TBD rather than inventing unsupported architecture",
+      "Response asks for confirmation before treating the Telos as authoritative",
+      "Roadmap or module recommendations trace back to the captured Telos"
+    ]
+  }
+]

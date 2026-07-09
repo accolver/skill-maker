@@ -7,6 +7,7 @@ Start with:
 - [`results/comparison.md`](results/comparison.md) — original in-sample smoke comparison
 - [`results/synthetic-v2/comparison.md`](results/synthetic-v2/comparison.md) — new synthetic train/validation/held-out comparison addressing overfitting
 - [`results/synthetic-v2/multiepoch-fallback/README.md`](results/synthetic-v2/multiepoch-fallback/README.md) — completed 4-epoch SkillOpt mechanics run using deterministic fallbacks after live model subprocesses hung
+- [`results/remaining-v1/README.md`](results/remaining-v1/README.md) — 4-epoch deterministic fallback optimization run for the remaining repo skills
 
 ## Reproduce
 
@@ -32,3 +33,11 @@ python skillopt/scripts/run-skillmaker-heldout.py skillopt/data/synthetic-agent-
 ```
 
 Then run SkillOpt with `--split_dir /tmp/SkillOpt/data/agent_skill_eval_synthetic_v2/<skill>` and collect results into `skillopt/results/synthetic-v2/`.
+
+For the broad remaining-skills mechanics run:
+
+```bash
+python skillopt/scripts/prepare-remaining-skillopt-data.py . --skillopt-root /tmp/SkillOpt
+```
+
+The recorded `remaining-v1` results are deterministic fallback mechanics signals, not clean held-out quality claims.

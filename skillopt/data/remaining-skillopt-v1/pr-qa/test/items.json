@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "skill_name": "pr-qa",
+    "prompt": "I'm on branch feature/add-user-search with 4 commits that add a new search endpoint to our Express API. The endpoint queries PostgreSQL with user-provided search terms. I also added the `lodash` package for string utilities. Please submit my PR and do full QA. The base branch is main. The repo is myorg/myapi on GitHub.",
+    "assertions": [
+      "The plan includes gh auth status",
+      "The plan includes gitleaks detect",
+      "The plan includes npm audit",
+      "The plan mentions SQL injection",
+      "The plan includes gh pr create --draft",
+      "The plan includes @greptile",
+      "The plan includes parameterized queries",
+      "The plan includes gh pr ready"
+    ]
+  },
+  {
+    "id": "2",
+    "skill_name": "pr-qa",
+    "prompt": "I need to submit a PR for my branch fix/auth-bypass. It fixes a critical authentication bypass but I accidentally committed a .env file with database credentials 3 commits ago. The project is a Python FastAPI app with requirements.txt. The repo is myorg/backend. Do the full PR QA process.",
+    "assertions": [
+      "The plan includes gitleaks",
+      "The plan mentions HARD GATE",
+      "The plan includes filter-repo",
+      "The plan includes pip audit",
+      "The plan mentions sessions invalidated",
+      "The plan includes ARCHITECTURE.md",
+      "The plan includes gh pr create --draft",
+      "The plan includes @greptile"
+    ]
+  },
+  {
+    "id": "3",
+    "skill_name": "pr-qa",
+    "prompt": "My PR #47 on myorg/webapp is already created as a draft. Greptile just finished reviewing and left 3 inline comments on the PR about missing error handling in the payment flow, a potential race condition in the cart update, and a suggestion to use the existing retry utility instead of a custom implementation. There are also 2 comments from a human reviewer asking about the testing strategy and suggesting we add an index for the new query. Please resolve all these comments and get the PR ready to merge.",
+    "assertions": [
+      "The plan mentions pulls/47/comments",
+      "The plan mentions issues/47/comments",
+      "The plan mentions error handling",
+      "The plan mentions race condition",
+      "The plan mentions retry utility",
+      "The plan mentions testing strategy",
+      "The plan includes @greptile",
+      "The plan mentions reviewThreads",
+      "The plan mentions resolveReviewThread",
+      "The plan mentions isResolved",
+      "The plan mentions polling every 20 seconds",
+      "The plan includes gh pr ready"
+    ]
+  },
+  {
+    "id": "4",
+    "skill_name": "pr-qa",
+    "prompt": "Take my draft PR #88 on myorg/billing to merge-ready. Greptile keeps leaving new comments after I push fixes, so do not just check once. Keep polling each review round until the latest Greptile run is actually done, close the Greptile review threads you addressed, and only then mark the PR ready.",
+    "assertions": [
+      "The plan includes @greptile",
+      "The plan mentions polling every 20 seconds",
+      "The plan mentions the latest Greptile round",
+      "The plan mentions restarting polling after fixes or pushes",
+      "The plan mentions reviewThreads",
+      "The plan mentions resolveReviewThread",
+      "The plan mentions isResolved",
+      "The plan includes gh pr ready"
+    ]
+  },
+  {
+    "id": "5",
+    "skill_name": "pr-qa",
+    "prompt": "PR #112 on myorg/payments is already open for review and is not draft. Greptile left a top-level summary comment plus 2 inline comments after my last push. Keep polling until the latest Greptile cycle is clean, reply to the summary comment, resolve the inline threads you address, and do not recreate or redraft the PR.",
+    "assertions": [
+      "The plan mentions issues/112/comments",
+      "The plan mentions pulls/112/comments",
+      "The plan mentions follow-up comment or summary comment",
+      "The plan mentions reviewThreads",
+      "The plan mentions resolveReviewThread",
+      "The plan mentions isResolved",
+      "The plan mentions restarting polling after fixes or pushes",
+      "The plan mentions not recreating or redrafting the PR",
+      "The plan mentions skipping gh pr ready for an already-open non-draft PR"
+    ]
+  }
+]

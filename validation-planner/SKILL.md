@@ -153,3 +153,11 @@ statement, and kill criteria tied to urgency and willingness to pay.
    for, do not hide behind soft interest metrics.
 4. **Kill fast when needed** — A weak idea should be narrowed or stopped, not
    endlessly studied.
+
+## Optimization Notes
+
+- Preserve the user's requested output shape exactly and do not substitute generic advice for concrete artifacts.
+- Include exact commands, code structures, protocol fields, tags, parameters, file paths, or deliverable sections when the task asks for them.
+- Make safety gates explicit before irreversible, destructive, externally visible, or compliance-sensitive actions.
+- For multi-step work, present steps in execution order and include validation or rollback checks where relevant.
+- Avoid overfitting to a single eval example: express lessons as reusable rules, not as task-specific answers.

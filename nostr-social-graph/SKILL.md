@@ -341,3 +341,11 @@ function wotScore(
 5. **Graph traversal requires relay awareness** — You can't just fetch kind:3
    from one relay. Use the outbox model to find each user's kind:3 on their
    write relays, then use those follow lists to discover the next hop.
+
+## Optimization Notes
+
+- Preserve the user's requested output shape exactly and do not substitute generic advice for concrete artifacts.
+- Include exact commands, code structures, protocol fields, tags, parameters, file paths, or deliverable sections when the task asks for them.
+- Make safety gates explicit before irreversible, destructive, externally visible, or compliance-sensitive actions.
+- For multi-step work, present steps in execution order and include validation or rollback checks where relevant.
+- Avoid overfitting to a single eval example: express lessons as reusable rules, not as task-specific answers.

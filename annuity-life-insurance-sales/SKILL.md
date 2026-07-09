@@ -422,3 +422,11 @@ The sale is just the beginning. Ongoing service builds referrals and retention.
 5. **Compliance is your license to practice** — Every shortcut on paperwork,
    suitability, or disclosure is a career-ending risk. Do it right every time,
    even when it's inconvenient.
+
+## Optimization Notes
+
+- Preserve the user's requested output shape exactly and do not substitute generic advice for concrete artifacts.
+- Include exact commands, code structures, protocol fields, tags, parameters, file paths, or deliverable sections when the task asks for them.
+- Make safety gates explicit before irreversible, destructive, externally visible, or compliance-sensitive actions.
+- For multi-step work, present steps in execution order and include validation or rollback checks where relevant.
+- Avoid overfitting to a single eval example: express lessons as reusable rules, not as task-specific answers.

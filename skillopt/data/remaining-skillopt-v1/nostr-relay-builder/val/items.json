@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "skill_name": "nostr-relay-builder",
+    "prompt": "Build me a basic NIP-01 compliant Nostr relay in TypeScript using Bun. It should handle WebSocket connections, accept EVENT messages (validate the event id and signature), handle REQ messages with filter matching (ids, authors, kinds, tag filters, since, until, limit), handle CLOSE messages, and send proper OK, EVENT, EOSE, and NOTICE responses. Store events in memory for now. Make sure replaceable events (kind 0, 3, 10000-19999) only keep the latest per pubkey+kind, and addressable events (kind 30000-39999) only keep the latest per pubkey+kind+d-tag. Don't store ephemeral events (kind 20000-29999), just broadcast them.",
+    "assertions": [
+      "Uses JSON.stringify for canonical event serialization (no whitespace) when computing event ID",
+      "Uses SHA-256 to compute the event ID from the serialized array [0, pubkey, created_at, kind, tags, content]",
+      "Uses Schnorr signature verification (secp256k1) to validate event signatures",
+      "The canonical serialization starts with [0, as the first element per NIP-01 spec",
+      "Sends OK responses to EVENT messages with event_id, boolean, and message",
+      "Sends EOSE after delivering stored events for a REQ subscription",
+      "Implements filter matching logic covering NIP-01 filter fields",
+      "Handles replaceable event storage rules (kind 0, 3, 10000-19999)"
+    ]
+  },
+  {
+    "id": "2",
+    "skill_name": "nostr-relay-builder",
+    "prompt": "I have an existing Nostr relay running with Bun.serve(). I need to add NIP-11 relay information document support. When the relay receives an HTTP GET request with Accept: application/nostr+json header, it should return a JSON document with the relay's name, description, pubkey, supported_nips list, software URL, version, and a limitation object with max_message_length, max_subscriptions, and auth_required fields. Make sure to include proper CORS headers (Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Allow-Methods). The relay should still handle WebSocket upgrades normally for non-NIP-11 requests.",
+    "assertions": [
+      "Checks for the application/nostr+json Accept header to identify NIP-11 requests",
+      "Includes CORS Access-Control-Allow-Origin header in the NIP-11 response",
+      "The info document includes the supported_nips field listing implemented NIPs",
+      "The info document includes a limitation object with relay constraints",
+      "The limitation object includes max_message_length field",
+      "Still handles WebSocket upgrade for non-NIP-11 requests",
+      "Info document includes standard NIP-11 metadata fields",
+      "Includes CORS Access-Control-Allow-Headers in the response"
+    ]
+  },
+  {
+    "id": "3",
+    "skill_name": "nostr-relay-builder",
+    "prompt": "Add NIP-42 client authentication to my Nostr relay. The relay should: (1) send an AUTH challenge to clients when they connect, (2) handle AUTH messages from clients containing a signed kind:22242 event, (3) verify the auth event has correct relay and challenge tags, verify created_at is within 10 minutes, and verify the signature, (4) track which pubkeys are authenticated per connection, (5) use auth-required: prefix in OK and CLOSED messages when authentication is needed but not provided. Show me the complete AUTH flow including challenge generation, verification, and how to gate EVENT writes and REQ subscriptions behind authentication.",
+    "assertions": [
+      "Uses kind 22242 for the authentication event as specified by NIP-42",
+      "Implements challenge-based authentication with a challenge tag in the auth event",
+      "Verifies the relay tag in the auth event matches the relay URL",
+      "Uses auth-required: prefix in OK or CLOSED messages when auth is needed",
+      "Validates that the auth event created_at is within approximately 10 minutes",
+      "Relay sends AUTH challenge message to clients",
+      "Tracks authentication state per WebSocket connection",
+      "Verifies the signature on the auth event"
+    ]
+  }
+]

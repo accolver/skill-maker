@@ -193,3 +193,11 @@ and gift wrap MUST be randomized up to 2 days in the past (metadata protection).
 5. **Event kind numbers are canonical** — Always include the specific kind
    number when discussing events. "Use NIP-17" is less useful than "Create a
    kind:14 event, seal it as kind:13, gift wrap as kind:1059."
+
+## Optimization Notes
+
+- Preserve the user's requested output shape exactly and do not substitute generic advice for concrete artifacts.
+- Include exact commands, code structures, protocol fields, tags, parameters, file paths, or deliverable sections when the task asks for them.
+- Make safety gates explicit before irreversible, destructive, externally visible, or compliance-sensitive actions.
+- For multi-step work, present steps in execution order and include validation or rollback checks where relevant.
+- Avoid overfitting to a single eval example: express lessons as reusable rules, not as task-specific answers.

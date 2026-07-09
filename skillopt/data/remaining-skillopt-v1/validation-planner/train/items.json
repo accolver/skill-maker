@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1",
+    "skill_name": "validation-planner",
+    "prompt": "Best bet: HVAC missed-call recovery concierge for small service businesses. User has warm owner access through a family member and wants to validate within 7 days.",
+    "assertions": [
+      "Response explicitly names one primary unknown and ties the major steps to resolving that unknown within the 7-day window.",
+      "Response asks for a real commitment signal appropriate to the offer, such as a deposit, paid pilot, or booked implementation slot, not just soft interest.",
+      "Response includes go, revise, and kill thresholds with numeric cutoffs and linked decisions.",
+      "Response includes both a readable plan and a structured JSON block."
+    ]
+  },
+  {
+    "id": "2",
+    "skill_name": "validation-planner",
+    "prompt": "Best bet: paid template and benchmark product for a niche newsletter audience. User wants to avoid services and already has audience trust.",
+    "assertions": [
+      "Response selects an audience-led validation motion that fits the user's constraints and opportunity type.",
+      "Response uses numeric thresholds tied to funnel quality, such as segmented send response, preorder attempts, or paid conversions, rather than vanity signups alone.",
+      "Response briefly explains why a lower-signal alternative, such as service pilots or generic interviews, is weaker for this case.",
+      "Response includes go, revise, and kill thresholds with numeric cutoffs."
+    ]
+  },
+  {
+    "id": "3",
+    "skill_name": "validation-planner",
+    "prompt": "Best bet: enterprise procurement analytics product for Fortune 500 teams. User has one weak second-degree intro, no product, and wants a 7-day validation plan with numeric goals.",
+    "assertions": [
+      "Response does not pretend enterprise revenue validation is realistically achievable in 7 days under the stated conditions.",
+      "Response identifies the primary near-term unknown, such as buyer access or problem verification, rather than trying to validate everything at once.",
+      "Response gives numeric thresholds for a realistic discovery or access-building plan instead of fake purchase targets.",
+      "Response includes go, revise, and kill thresholds with decisions attached."
+    ]
+  },
+  {
+    "id": "4",
+    "skill_name": "validation-planner",
+    "prompt": "Best bet is currently no-go because the user has no edge, no time, and no distribution.",
+    "assertions": [
+      "Response explicitly states that normal demand validation is premature because a prerequisite gap blocks it.",
+      "Response gives a bounded edge-building or constraint-change plan with measurable milestones that would justify re-running validation later.",
+      "Response avoids pretending the current idea is ready for standard validation activity.",
+      "Response includes numeric revisit thresholds and structured JSON."
+    ]
+  }
+]

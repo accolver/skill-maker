@@ -79,6 +79,14 @@ python skillopt/scripts/generate-synthetic-splits.py . --skillopt-root /tmp/Skil
 Expected locations are the repo-local synthetic data directory and the copied `/tmp/SkillOpt` data directory, each containing `<skill>/{train,val,test}/items.json`.
 
 A tiny 3/3/3 split is acceptable for smoke tests but too noisy for conclusions.
+For broad repo-wide mechanics runs over existing evals, use:
+
+```bash
+python skillopt/scripts/prepare-remaining-skillopt-data.py . --skillopt-root /tmp/SkillOpt
+```
+
+That script reuses existing evals across train/val/test, so report those scores as in-sample mechanics/optimization signals, not held-out quality claims.
+
 For claims about quality, expand the split first.
 
 ### 4. Run frozen Skill Maker on held-out test

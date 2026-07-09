@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1",
+    "skill_name": "terraform-github-actions-deploy",
+    "prompt": "I need to set up GitHub Actions to run terraform plan on PRs and terraform apply when they merge to main. We use GCP and our Terraform is in the infrastructure/ directory. Make sure it's secure.",
+    "assertions": [
+      "Plan workflow triggers on pull_request with paths filter for infrastructure/",
+      "Apply workflow triggers on push to main with paths filter for infrastructure/",
+      "Authentication uses google-github-actions/auth with workload_identity_provider (not service account key)",
+      "id-token: write permission is present",
+      "All actions are pinned by commit SHA, not by tag",
+      "Apply workflow concurrency has cancel-in-progress: false",
+      "All terraform commands include -input=false flag",
+      "PR comment uses env variable for plan output, not direct interpolation in run block",
+      "permissions block is present and restrictive (contents: read at minimum)"
+    ]
+  },
+  {
+    "id": "2",
+    "skill_name": "terraform-github-actions-deploy",
+    "prompt": "We have a monorepo with Terragrunt. Our environments are in infrastructure/terragrunt/us-central1/dev/ and infrastructure/terragrunt/us-central1/prod/. I want dev to auto-apply on merge but prod to require manual approval. Set up the GitHub Actions workflows.",
+    "assertions": [
+      "Workflow handles both dev and prod environments",
+      "Dev environment applies automatically (no manual gate)",
+      "Prod environment uses GitHub Environment protection with required reviewers or explicit approval step",
+      "Prod job depends on dev job (needs: or sequential)",
+      "Terragrunt is installed (setup action or manual)",
+      "Each environment has a separate concurrency group",
+      "Caching is configured for terraform plugins and/or terragrunt cache"
+    ]
+  },
+  {
+    "id": "3",
+    "skill_name": "terraform-github-actions-deploy",
+    "prompt": "Add drift detection for our Terraform infrastructure. It should run on a schedule, check if real infrastructure has drifted from the code, and open a GitHub issue if drift is found.",
+    "assertions": [
+      "Workflow uses schedule trigger with cron expression",
+      "Uses terraform plan -detailed-exitcode to detect drift",
+      "Checks exit code 2 specifically (not just non-zero)",
+      "Creates a GitHub issue when drift is detected",
+      "Issue body includes plan output",
+      "Authentication uses OIDC/WIF (not static credentials)",
+      "issues: write permission is present"
+    ]
+  }
+]

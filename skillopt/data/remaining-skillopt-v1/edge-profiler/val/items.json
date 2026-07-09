@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1",
+    "skill_name": "edge-profiler",
+    "prompt": "I spent 8 years in HVAC distribution ops and my brother runs a local HVAC service business. I do not have an audience, but he can introduce me to owners. I can build software and automations.",
+    "assertions": [
+      "Response explains why HVAC workflow knowledge is usable edge and does not upgrade it into distribution on its own.",
+      "Response classifies the brother's introductions as limited warm access or network access rather than durable owned distribution.",
+      "Response explicitly separates audience, network access, and monetizable distribution instead of merging them.",
+      "Structured JSON uses the reusable profile contract with user_profile, usable_edge, restricted_or_unusable_edge, fake_or_overstated_edge, weak_spots, follow_up_questions, and confidence_notes."
+    ]
+  },
+  {
+    "id": "2",
+    "skill_name": "edge-profiler",
+    "prompt": "I have 120000 followers on X talking about AI productivity, but most of them are students and hobbyists. I do not know if any are buyers.",
+    "assertions": [
+      "Response downgrades the 120000 follower base because the audience is mostly non-buyers, and does not treat scale alone as strong founder edge.",
+      "Response names the core commercial weakness precisely, such as weak buyer quality, weak ICP proximity, or unproven monetizable distribution.",
+      "Response uses fake_or_overstated_edge or weak_spots to call out follower count or attention as an unreliable proxy for buyer demand.",
+      "Structured JSON uses the reusable profile contract with the exact top-level fields expected by the template."
+    ]
+  },
+  {
+    "id": "3",
+    "skill_name": "edge-profiler",
+    "prompt": "I work at a govtech company and have access to internal templates, pricing logic, and process docs. I also know the market really well.",
+    "assertions": [
+      "Response marks employer templates, pricing logic, or internal process docs as restricted or unusable edge.",
+      "Response separates reusable market understanding from non-reusable internal materials.",
+      "Response explicitly says confidential or employer-owned materials cannot be counted as usable edge without independent lawful recreation.",
+      "Structured JSON keeps internal templates, pricing logic, and process docs out of user_profile.assets and places them only under restricted_or_unusable_edge."
+    ]
+  },
+  {
+    "id": "4",
+    "skill_name": "edge-profiler",
+    "prompt": "I worked at McKinsey for 2 years, know a lot of smart people, and read constantly about fintech. I do not have customers, audience, or any special access, but I feel like I should be able to figure out a fintech SaaS.",
+    "assertions": [
+      "Response does not inflate McKinsey background, smart peers, or broad fintech familiarity into strong usable edge.",
+      "Response classifies at least part of the impressive-sounding background as fake or overstated edge, weak edge, or a similar category.",
+      "Response explicitly notes the absence of customers, audience, or special access as the key commercial weakness.",
+      "Structured JSON uses the reusable profile contract and includes a concrete next-step path through follow_up_questions, weak_spots, or confidence_notes rather than only a verdict."
+    ]
+  }
+]

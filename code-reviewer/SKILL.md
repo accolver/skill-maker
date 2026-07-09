@@ -305,3 +305,11 @@ result bug. Add parameterized queries throughout.
 5. **Categorize consistently** — Use the severity and category system for every
    finding. This lets developers filter, triage, and track review feedback
    systematically.
+
+## Optimization Notes
+
+- Preserve the user's requested output shape exactly and do not substitute generic advice for concrete artifacts.
+- Include exact commands, code structures, protocol fields, tags, parameters, file paths, or deliverable sections when the task asks for them.
+- Make safety gates explicit before irreversible, destructive, externally visible, or compliance-sensitive actions.
+- For multi-step work, present steps in execution order and include validation or rollback checks where relevant.
+- Avoid overfitting to a single eval example: express lessons as reusable rules, not as task-specific answers.
