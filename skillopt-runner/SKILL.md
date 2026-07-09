@@ -1,278 +1,315 @@
 ---
 name: skillopt-runner
-description: Run Microsoft SkillOpt benchmarks for agent skills with synthetic train/validation/held-out splits, stable adapter patching, multi-epoch runs, artifact collection, and honest comparison against Skill Maker baselines. Use when the user mentions SkillOpt, optimizing skills, benchmarking skills, multi-epoch skill optimization, held-out skill evals, overfitting checks, or comparing SkillOpt with Skill Maker.
+description: Run Microsoft SkillOpt experiments for agent skills, prompts, or instruction files with clean train/validation/held-out splits, adapter setup, bounded rollouts, artifact collection, and honest reporting. Use when the user wants to use SkillOpt, optimize a skill with SkillOpt, benchmark prompt variants, run multi-epoch skill optimization, check held-out quality, or diagnose SkillOpt runs.
 ---
 
 # SkillOpt Runner
 
-Run Microsoft SkillOpt experiments against agent skills without losing the
-lessons learned from prior runs: held-out evaluation matters, SkillOpt needs a
-custom adapter for agent-skill tasks, and live CLI backends can hang unless the
-run is isolated, bounded, and documented carefully.
+Use Microsoft SkillOpt to optimize agent skills, prompts, or instruction files in a
+reproducible way. Keep the process simple: prepare clean data, configure an
+adapter, run bounded optimization, evaluate on held-out examples, and report what
+is actually supported by the artifacts.
 
-## Core principles
+## Core rules
 
-1. **Always separate train / validation / held-out test.** Train and validation
-   are for SkillOpt; the final headline comparison uses held-out test only.
-2. **Compare against the right Skill Maker baseline.** Use frozen Skill Maker
-   held-out scores for transfer/generalization; label original Skill Maker eval
-   scores as in-sample/regression scores if they reused the skill's own evals.
-3. **Keep backends isolated.** Prevent installed user/project skills from
-   contaminating target rollouts. Use temporary `HOME` and preserve real auth via
-   `CODEX_HOME` when using Codex CLI.
-4. **Bound every external agent call.** SkillOpt can hang at rollout, reflect, or
-   final test evaluation. Use explicit timeouts, unbuffered logs, and inspect the
-   prediction directory when progress stops.
-5. **Document fallbacks honestly.** Deterministic or offline fallbacks are useful
-   for proving the SkillOpt loop mechanics, but they are not clean live-LLM
-   quality comparisons.
+1. **Separate the splits.** Training examples guide updates, validation examples
+   select candidates, and held-out test examples are only for final reporting.
+2. **Keep a frozen baseline.** Score the original skill or prompt on the same
+   held-out test set before reporting an optimized result.
+3. **Record the exact environment.** Capture SkillOpt commit, model backend,
+   adapter code, dataset path, config file, command, and random seeds if used.
+4. **Bound external calls.** Time out rollouts, reflection, and update steps so a
+   single stuck backend does not consume the run.
+5. **Label fallbacks honestly.** Deterministic or mocked runs can validate
+   mechanics, but they are not live-LLM quality claims.
+6. **Preserve deployable frontmatter.** If optimizing a skill file, keep required
+   metadata such as `name` and `description` valid and single-line.
 
-## Standard workflow
+---
 
-### 1. Prepare or refresh SkillOpt
+## Workflow
+
+### 1. Clarify the target
+
+Before running anything, identify:
+
+- Target type: skill, prompt, instruction file, system prompt, or workflow guide
+- Source file path and any supporting references/scripts
+- Desired output behavior and required response format
+- Available model/backend for rollouts
+- Runtime limits, cost limits, and whether network calls are allowed
+- Whether the user wants a live optimization run or a deterministic mechanics run
+
+If the request is underspecified, ask for the target file, success criteria, and
+allowed backend before starting.
+
+### 2. Set up SkillOpt
+
+Use an isolated checkout and virtual environment unless the user already has a
+working installation.
 
 ```bash
 git clone https://github.com/microsoft/SkillOpt.git /tmp/SkillOpt
 python3 -m venv /tmp/skillopt-venv
+/tmp/skillopt-venv/bin/pip install -U pip
 /tmp/skillopt-venv/bin/pip install -e /tmp/SkillOpt
-```
-
-If `/tmp/SkillOpt` already exists, record its commit before changing it:
-
-```bash
 git -C /tmp/SkillOpt rev-parse --short HEAD
 ```
 
-### 2. Patch SkillOpt for agent skill evals
+If `/tmp/SkillOpt` already exists, record the current commit before editing or
+reinstalling it.
 
-From this repo, copy the custom adapter/config and register the environment:
+### 3. Prepare data
 
-```bash
-python skillopt/scripts/patch-skillopt-for-codex.py /tmp/SkillOpt
+Create three splits for each target:
+
+```text
+data/<target>/
+├── initial_skill.md        # or initial_prompt.md / initial_instruction.md
+├── train/items.json        # examples used for optimization feedback
+├── val/items.json          # examples used for candidate selection
+└── test/items.json         # held-out examples used once for final reporting
 ```
 
-The adapter should provide:
+Each item should include enough information for deterministic scoring or
+repeatable grading:
 
-- `skillopt/envs/agent_skill_eval/adapter.py`
-- `skillopt/envs/agent_skill_eval/dataloader.py`
-- `configs/agent_skill_eval/default.yaml`
-- train/eval registry entries for `agent_skill_eval`
-- backend allowance for `codex_exec`
-
-Before long runs, verify the patched adapter compiles:
-
-```bash
-python3 -m py_compile \
-  /tmp/SkillOpt/skillopt/envs/agent_skill_eval/adapter.py \
-  /tmp/SkillOpt/skillopt/envs/agent_skill_eval/dataloader.py
+```json
+{
+  "id": "case-001",
+  "prompt": "User request to execute with the skill or prompt",
+  "context": "Optional files, snippets, constraints, or setup notes",
+  "checks": [
+    { "type": "contains", "value": "required phrase or field" },
+    { "type": "not_contains", "value": "forbidden claim" },
+    { "type": "regex", "value": "^structured pattern" }
+  ],
+  "notes": "Why this case matters"
+}
 ```
 
-### 3. Create synthetic split data
+Good split hygiene:
 
-Generate at least train, validation, and held-out test data. For this repo's
-existing benchmark harness:
+- Put realistic examples in every split.
+- Do not copy the same prompt between train, validation, and held-out test.
+- Include negative checks for common overclaiming or unsafe behavior.
+- Include at least one edge case that exercises boundaries or refusal behavior.
+- Keep held-out cases hidden from the update prompt.
 
-```bash
-python skillopt/scripts/generate-synthetic-splits.py . --skillopt-root /tmp/SkillOpt
+### 4. Configure the adapter
+
+A SkillOpt adapter must be able to:
+
+- Load split items.
+- Inject the candidate skill/prompt/instruction into the rollout.
+- Run the task through the selected backend.
+- Score output using deterministic checks or a documented grader.
+- Return structured per-example metrics and evidence.
+
+Adapter outputs should include:
+
+```json
+{
+  "case_id": "case-001",
+  "score": 1.0,
+  "passed": true,
+  "output_path": "predictions/case-001/output.txt",
+  "evidence": ["matched required field", "no forbidden claim found"]
+}
 ```
 
-Expected locations are the repo-local synthetic data directory and the copied `/tmp/SkillOpt` data directory, each containing `<skill>/{train,val,test}/items.json`.
+Prefer deterministic checks when possible. If an LLM grader is necessary, keep a
+fixed rubric, require evidence quotes, and store grader outputs as artifacts.
 
-A tiny 3/3/3 split is acceptable for smoke tests but too noisy for conclusions.
-For broad repo-wide mechanics runs over existing evals, use:
+### 5. Run a baseline evaluation
 
-```bash
-python skillopt/scripts/prepare-remaining-skillopt-data.py . --skillopt-root /tmp/SkillOpt
-```
+Before optimization, evaluate the original target on held-out test cases.
 
-That script reuses existing evals across train/val/test, so report those scores as in-sample mechanics/optimization signals, not held-out quality claims.
+Record:
 
-For claims about quality, expand the split first.
+- Baseline target path and content hash
+- Held-out dataset path and content hash
+- Scoring method
+- Per-case pass/fail evidence
+- Aggregate hard score and, if useful, partial/soft score
 
-### 4. Run frozen Skill Maker on held-out test
+Do not change the held-out test set after seeing baseline results unless you
+restart the comparison and clearly document the new dataset version.
 
-Run current repo skills only on held-out test:
+### 6. Run SkillOpt
 
-```bash
-python skillopt/scripts/run-skillmaker-heldout.py \
-  skillopt/data/synthetic-agent-skill-v2 \
-  skillopt/results/synthetic-v2/skillmaker-heldout
-```
-
-Report both hard and soft scores. Do not compare SkillOpt held-out results to
-Skill Maker's original in-sample eval-loop numbers as if they were equivalent.
-
-### 5. Run SkillOpt
-
-For a one-step live smoke run, use the repo script or equivalent `train.py`
-command:
-
-```bash
-PATH=/tmp/skillopt-venv/bin:$PATH \
-CODEX_HOME="$HOME/.codex" \
-CODEX_PROFILE=review \
-CODEX_SANDBOX_MODE=read-only \
-CODEX_CLI_BIN=codex \
-PYTHONUNBUFFERED=1 \
-skillopt/scripts/run-one-skillopt.sh \
-  /tmp/SkillOpt <skill-name> /tmp/SkillOpt/outputs/synthetic-v2-<skill-name>
-```
-
-For multi-epoch runs, prefer an explicit shell wrapper so logs stream live:
+Use the project’s SkillOpt command shape if one already exists. Otherwise, run a
+bounded training command and tee logs into a stable file:
 
 ```bash
 cd /tmp/SkillOpt
 PYTHONUNBUFFERED=1 \
-CODEX_HOME="$HOME/.codex" \
-CODEX_PROFILE=review \
-CODEX_SANDBOX_MODE=read-only \
-CODEX_CLI_BIN=codex \
+PATH=/tmp/skillopt-venv/bin:$PATH \
 /tmp/skillopt-venv/bin/python -u scripts/train.py \
-  --config configs/agent_skill_eval/default.yaml \
-  --split_dir /tmp/SkillOpt/data/agent_skill_eval_synthetic_v2/<skill-name> \
-  --skill_init /tmp/SkillOpt/data/agent_skill_eval_synthetic_v2/<skill-name>/initial_skill.md \
-  --out_root /tmp/SkillOpt/outputs/synthetic-v2-4epoch-<skill-name> \
-  --num_epochs 4 \
-  --batch_size 3 \
-  --optimizer_model gpt-5.4-mini \
-  --target_model gpt-5.4-mini \
-  --cfg-options \
-    env.exec_timeout=60 \
-    model.optimizer_backend=codex_exec \
-    model.target_backend=codex_exec \
-    model.reasoning_effort=low \
-    model.codex_exec_profile=review \
-    model.codex_exec_sandbox=read-only \
-    optimizer.use_slow_update=false \
-    optimizer.use_meta_skill=false \
-    evaluation.sel_env_num=3 \
-    evaluation.test_env_num=3 \
-    evaluation.gate_metric=soft \
-  2>&1 | tee /tmp/skillopt-synthetic-v2-4epoch-<skill-name>.log
+  --config configs/<config>.yaml \
+  --split_dir /absolute/path/to/data/<target> \
+  --skill_init /absolute/path/to/data/<target>/initial_skill.md \
+  --out_root /absolute/path/to/results/<target> \
+  --num_steps 4 \
+  2>&1 | tee /tmp/skillopt-<target>.log
 ```
 
-Use `slow_update=true` and `meta_skill=true` only after the fast path is stable;
-those settings can multiply runtime and make hangs harder to diagnose.
+If the local SkillOpt checkout uses different CLI flags, inspect its `scripts/`
+and config files, then adapt the command while preserving the same principles:
+train split for feedback, validation for selection, held-out only for final
+reporting.
 
-## Stability playbook
+### 7. Collect artifacts
 
-### If the run hangs at baseline or rollout
+For every run, save:
 
-Look under the active prediction directory:
+- Config file used for the run
+- Initial target file
+- Candidate files per step/epoch
+- Best selected target file
+- Rollout predictions for train/validation/test
+- Per-case scores and evidence
+- Aggregate summary JSON
+- Raw logs
+- Notes on any patches, failures, retries, or fallback behavior
+
+Use stable paths such as:
+
+```text
+results/<run-name>/
+├── README.md
+├── summary.json
+├── best_skill.md
+├── history.json
+├── logs/
+└── predictions/
+```
+
+### 8. Evaluate held-out quality
+
+After SkillOpt selects the best candidate, evaluate that candidate on the frozen
+held-out test split. Compare it only against the frozen baseline scored on the
+same held-out split.
+
+Report both aggregate and per-case results:
+
+```markdown
+| Target | Baseline hard | Baseline soft | SkillOpt hard | SkillOpt soft | Hard delta | Soft delta |
+|---|---:|---:|---:|---:|---:|---:|
+| example-skill | 66.7% | 88.9% | 100.0% | 96.3% | +33.3 | +7.4 |
+```
+
+If there is no clean held-out run, say so plainly and avoid quality claims.
+
+### 9. Apply the selected result
+
+When replacing a skill or prompt:
+
+1. Keep required metadata valid.
+2. Preserve useful scripts, assets, and references unless the optimized content
+   intentionally changes how they are used.
+3. Avoid adding process-history clutter to ordinary user-facing skill bodies.
+4. Validate the final file with the project’s validator or a frontmatter/parser
+   check.
+5. Re-run at least smoke-level tests before publishing or installing.
+
+---
+
+## Troubleshooting
+
+| Problem | Likely cause | Response |
+| --- | --- | --- |
+| Rollout hangs | Backend subprocess or network call is stuck | Add process timeout, capture logs, kill child processes, retry with fewer workers |
+| Reflection/update hangs | Model backend blocks inside threaded code | Disable parallelism, lower concurrency, or use a direct API backend |
+| Candidate degrades held-out score | Overfit to train/validation examples | Keep baseline, reject candidate, add broader validation cases |
+| Validation improves but test fails | Split leakage or narrow eval data | Regenerate cleaner splits and rerun from the original target |
+| Grader is inconsistent | Subjective rubric or missing evidence | Prefer deterministic checks; require quoted evidence for LLM grading |
+| Mechanics run succeeds only with fallback | Live backend instability | Label as mechanics-only and do not make live quality claims |
+| Optimized file breaks install | Invalid frontmatter or missing references | Restore metadata, check referenced files, validate before publishing |
+
+### Process cleanup
+
+After failures, check for lingering child processes before starting another run:
 
 ```bash
-find /tmp/SkillOpt/outputs/<run>/ -path '*/predictions/*' -maxdepth 6 -type f | sort | sed -n '1,160p'
+ps aux | grep -E 'SkillOpt|codex exec|python.*train.py' | grep -v grep
 ```
 
-Inspect the stuck item directory. Useful files are commonly:
+Terminate only processes that clearly belong to the failed run.
 
-- `target_user_prompt.txt`
-- `target_system_prompt.txt`
-- `target_prompt.txt`
-- `answer.txt` / `last_message.txt`
-- `codex.jsonl`, `codex.stderr`, or target stdout/stderr files
-- `debug_before_popen.txt`, `debug_after_popen.txt`, `debug_timeout.txt`
+---
 
-If only prompt/debug-before files exist, the target subprocess likely wedged
-before producing output.
+## Reporting template
 
-### If Codex CLI hangs
+Use this structure for the final report:
 
-Patch target calls to use:
+```markdown
+# SkillOpt Run Report
 
-- `timeout -k 5 <seconds> codex exec ...`
-- `subprocess.Popen(..., start_new_session=True)`
-- process-group kill on timeout: `os.killpg(proc.pid, 9)`
-- temporary `HOME` outside the SkillOpt output directory
-- preserved `CODEX_HOME=$HOME/.codex` for authentication
+## Target
+- Name:
+- Source file:
+- Initial content hash:
+- SkillOpt commit:
+- Backend/model:
+- Dataset version:
 
-Do **not** set `HOME` to the rollout output directory; Codex may treat generated
-files as workspace context and stall on later rollouts.
+## Run Type
+- Live LLM optimization / deterministic mechanics / mixed
+- Steps or epochs:
+- Timeout and concurrency limits:
 
-### If Pi subprocesses hang
+## Results
+| Split | Baseline hard | Baseline soft | SkillOpt hard | SkillOpt soft |
+|---|---:|---:|---:|---:|
+| held-out test |  |  |  |  |
 
-Use:
+## Selected Candidate
+- Path:
+- Why selected:
+- Main improvements:
+- Regressions or caveats:
 
-```bash
-pi -p --no-skills --no-tools --no-context-files --no-session --no-extensions \
-  --model google/gemini-2.5-flash --thinking off
+## Artifacts
+- Summary JSON:
+- Best candidate:
+- Logs:
+- Predictions:
+
+## Caveats
+- Any backend failures:
+- Any fallback behavior:
+- Any limitations of the eval set:
 ```
 
-Pipe prompts via a file when stdin pipe behavior is suspect. If Pi still wedges
-inside SkillOpt, switch to direct HTTP/API or a deterministic fallback and label
-that run as a mechanics check.
-
-### If direct Gemini calls hang inside threads
-
-Avoid `signal.alarm` in worker threads; it fails with `signal only works in main
-thread of the main interpreter`. Avoid macOS unsafe `fork()` after Objective-C
-runtime initialization; it can crash with `objc_initializeAfterForkError`.
-
-If using a fallback worker, prefer a separate process with `spawn`, or bypass
-network calls for a deterministic mechanics run.
-
-### If Gemini returns 404 for a model
-
-Use currently available models such as:
-
-- `google/gemini-2.5-flash`
-- `google/gemini-2.5-flash-lite`
-
-Do not use retired model IDs like `gemini-2.0-flash-lite`.
-
-## Deterministic fallback policy
-
-Use deterministic fallback only when the user explicitly wants the SkillOpt loop
-to complete and live model routes are blocked by hangs.
-
-When using fallback:
-
-1. Put results under a clearly named directory, e.g.
-   `skillopt/results/synthetic-v2/multiepoch-fallback/`.
-2. State that the run verifies orchestration mechanics, not clean LLM quality.
-3. Record accept/reject counts, best step, validation score, held-out score, and
-   the exact fallback behavior.
-4. Keep the clean live run results separate.
-
-## Reporting format
-
-Always include two tables when both are available:
-
-### Clean held-out comparison
-
-| Skill | Skill Maker hard | Skill Maker soft | SkillOpt hard | SkillOpt soft | Hard delta | Soft delta |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-
-### Multi-epoch mechanics run
-
-| Skill | Epochs | Accept / Reject | Best step | Held-out hard | Held-out soft | Caveat |
-| --- | ---: | ---: | ---: | ---: | ---: | --- |
-
-In the narrative, say which table is a quality comparison and which table is a
-mechanics check.
+---
 
 ## Common mistakes
 
-| Mistake | Why it matters | Correct action |
-| --- | --- | --- |
-| Comparing SkillOpt held-out to Skill Maker in-sample scores | Overstates Skill Maker or mixes protocols | Compare held-out to held-out; label in-sample separately |
-| Using the held-out test split for iteration decisions | Overfits final evaluation | Train on train, gate on validation, evaluate test once at the end |
-| Ending after a timeout without artifacts | Loses the useful failure evidence | Preserve logs, prompt files, predictions, and partial summaries |
-| Treating deterministic fallback wins as live SkillOpt wins | Misleads future decisions | Label as fallback mechanics run |
-| Running without `PYTHONUNBUFFERED=1` | No live progress during long hangs | Use `python -u` and `tee` logs |
-| Letting installed skills load in target rollouts | Contaminates benchmark | Use no-skills/no-tools modes or isolated `HOME` |
-| Trusting a 3-item validation split | Very noisy acceptance gate | Expand data before drawing quality conclusions |
+- Reusing training examples as held-out test examples.
+- Reporting validation scores as final quality.
+- Comparing optimized held-out scores against an unrelated baseline score.
+- Letting SkillOpt rewrite required frontmatter incorrectly.
+- Publishing a candidate without validating installability.
+- Hiding failed runs or fallback behavior.
+- Treating deterministic mechanics checks as proof that live model quality
+  improved.
+- Leaving stale generated artifacts mixed with source files without documenting
+  which files are authoritative.
 
-## Final validation checklist
+---
 
-Before reporting results:
+## Completion checklist
 
-- `summary.json` exists for every run.
-- Frozen Skill Maker held-out results are present.
-- SkillOpt best/final held-out results are present.
-- Candidate and best skill artifacts are copied into repo results.
-- JSON artifacts load with `json.load`.
-- Python scripts compile with `python3 -m py_compile`.
-- `ps` shows no lingering `SkillOpt`, `codex exec`, or `pi -p` processes.
-- The report explicitly states caveats about data size, backend fallbacks, and
-  whether Skill Maker was frozen or retrained.
+Before calling the work done, verify:
+
+- [ ] Target and backend were identified.
+- [ ] Train, validation, and held-out test splits exist.
+- [ ] Baseline was scored on the held-out test split.
+- [ ] SkillOpt command, config, commit, and logs were recorded.
+- [ ] Best candidate was evaluated on held-out test.
+- [ ] Report compares baseline and optimized candidate on the same held-out set.
+- [ ] Any fallback or failed backend behavior is clearly labeled.
+- [ ] Final skill/prompt file validates and remains installable.
+- [ ] No unrelated process-history notes were added to ordinary user-facing files.
+- [ ] No lingering SkillOpt or backend subprocesses remain.
