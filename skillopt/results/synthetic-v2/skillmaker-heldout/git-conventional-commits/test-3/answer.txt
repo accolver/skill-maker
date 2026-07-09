@@ -1,0 +1,22 @@
+**Summary**
+Write a conventional commit for the webhook validation bug fix. The correct classification is `fix`, and the scope is `webhook`.
+
+**Decision / Approach**
+I chose `fix(webhook)` because the primary intent is correcting `parseWebhook()` so it rejects invalid input instead of accepting a missing signature. The added tests support the fix but do not change the commit type.
+
+**Artifacts**
+`Conventional commit message`
+```text
+fix(webhook): throw on missing signatures
+
+parseWebhook() previously accepted webhook payloads without a
+signature, which let invalid requests pass validation. This change
+throws MissingSignatureError instead, and the added tests cover the
+missing-signature case.
+```
+
+**Validation**
+The subject line is imperative, lowercase after the colon, and under the 50-character limit. No commands were run, per instruction.
+
+**Next steps**
+None

@@ -1,0 +1,62 @@
+{
+  "step": 1,
+  "epoch": 1,
+  "step_in_epoch": 0,
+  "timing": {
+    "rollout_s": 325.4,
+    "reflect_s": 19.6,
+    "aggregate_s": 0.0,
+    "select_s": 0.0,
+    "update_s": 0.0,
+    "evaluate_s": 131.0
+  },
+  "tokens": {
+    "analyst": {
+      "calls": 2,
+      "prompt_tokens": 31120,
+      "completion_tokens": 2104
+    }
+  },
+  "rollout_hard": 0.0,
+  "rollout_soft": 0.541667,
+  "rollout_n": 3,
+  "accumulation_batches": [
+    {
+      "batch_idx": 0,
+      "batch_seed": 1043,
+      "n_envs": 3,
+      "hard": 0.0,
+      "soft": 0.5416666666666666,
+      "n_failure_patches": 1,
+      "n_success_patches": 0
+    }
+  ],
+  "n_patches": 1,
+  "n_failure_patches": 1,
+  "n_success_patches": 0,
+  "n_edits_merged": 1,
+  "n_edits_ranked": 1,
+  "edit_budget": null,
+  "lr_control_mode": "none",
+  "support_counts": [
+    3
+  ],
+  "candidate_hash": "cb020bef16768340",
+  "candidate_skill_len": 2952,
+  "rewrite_change_summary": [
+    "Add guidance for org-wide and multi-project lookups with clean JSON output for downstream scripts.",
+    "Clarify how to handle destructive commands together, and how to troubleshoot account/project misconfiguration before acting."
+  ],
+  "selection_hard": 0.0,
+  "selection_soft": 0.7916666666666666,
+  "gate_metric": "soft",
+  "candidate_gate_score": 0.7916666666666666,
+  "action": "accept_new_best",
+  "current_score": 0.7916666666666666,
+  "best_score": 0.7916666666666666,
+  "best_step": 1,
+  "current_origin": "step_0001",
+  "best_origin": "step_0001",
+  "skill_len": 2952,
+  "wall_time_s": 476.1
+}

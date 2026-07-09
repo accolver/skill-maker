@@ -1,0 +1,62 @@
+{
+  "step": 1,
+  "epoch": 1,
+  "step_in_epoch": 0,
+  "timing": {
+    "rollout_s": 20.4,
+    "reflect_s": 27.1,
+    "aggregate_s": 0.0,
+    "select_s": 0.0,
+    "update_s": 0.0,
+    "evaluate_s": 20.1
+  },
+  "tokens": {
+    "analyst": {
+      "calls": 2,
+      "prompt_tokens": 34920,
+      "completion_tokens": 1124
+    }
+  },
+  "rollout_hard": 0.0,
+  "rollout_soft": 0.279762,
+  "rollout_n": 3,
+  "accumulation_batches": [
+    {
+      "batch_idx": 0,
+      "batch_seed": 1043,
+      "n_envs": 3,
+      "hard": 0.0,
+      "soft": 0.2797619047619047,
+      "n_failure_patches": 1,
+      "n_success_patches": 0
+    }
+  ],
+  "n_patches": 1,
+  "n_failure_patches": 1,
+  "n_success_patches": 0,
+  "n_edits_merged": 1,
+  "n_edits_ranked": 1,
+  "edit_budget": null,
+  "lr_control_mode": "none",
+  "support_counts": [
+    3
+  ],
+  "candidate_hash": "571ccf7e09946625",
+  "candidate_skill_len": 1223,
+  "rewrite_change_summary": [
+    "Require a conventional commit header with type, scope, and short imperative subject",
+    "Prioritize concise, diff-driven wording that fits common length limits"
+  ],
+  "selection_hard": 0.0,
+  "selection_soft": 0.3214285714285714,
+  "gate_metric": "soft",
+  "candidate_gate_score": 0.3214285714285714,
+  "action": "reject",
+  "current_score": 0.3214285714285714,
+  "best_score": 0.3214285714285714,
+  "best_step": 0,
+  "current_origin": "initial_skill",
+  "best_origin": "initial_skill",
+  "skill_len": 71,
+  "wall_time_s": 67.6
+}

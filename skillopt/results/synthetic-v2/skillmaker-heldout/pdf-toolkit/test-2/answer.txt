@@ -1,0 +1,25 @@
+**Summary**  
+Plan to build `packet.pdf` by merging the three source PDFs in the requested order, then split the merged PDF into three range-based parts under `./packet-parts` with the `packet` prefix.
+
+**Decision / Approach**  
+Use `merge-pdf.ts` first with explicit per-input page ranges and `--bookmark`, then `split-pdf.ts` in `ranges` mode with the requested page spans. Page numbers are 1-indexed.
+
+**Artifacts**
+
+### Merge command
+```bash
+bun run scripts/merge-pdf.ts --output packet.pdf --page-ranges "1-2;all;4-9" --bookmark agenda.pdf deck.pdf appendix.pdf
+```
+
+### Split command
+```bash
+bun run scripts/split-pdf.ts packet.pdf --mode ranges --ranges "1-6;7-12;13-18" --output-dir ./packet-parts --prefix packet
+```
+
+**Validation**  
+Not run. This is a command plan only, so output existence and page counts are not verified here.
+
+**Next steps**  
+1. Run the merge command to create `packet.pdf`.
+2. Run the split command to generate the three packet parts in `./packet-parts`.
+3. Confirm the merged page count is 18 before splitting, if you want an extra sanity check.

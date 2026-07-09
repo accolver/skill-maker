@@ -1,0 +1,103 @@
+[
+  {
+    "id": "train-1",
+    "skill_name": "git-conventional-commits",
+    "prompt": "Do not run git. Write a conventional commit message for a staged diff that adds `--json` output to `src/cli/report.ts` and documents it in README. Include only the message artifact.",
+    "assertions": [
+      "Output includes conventional commit subject matching ^feat\\(cli\\): add json report output$",
+      "Output contains --json",
+      "Output does not contain Added",
+      "Output does not contain ."
+    ],
+    "checks": [
+      {
+        "type": "commit_subject",
+        "pattern": "^feat\\(cli\\): add json report output$",
+        "max_length": 50
+      },
+      {
+        "type": "contains",
+        "value": "--json"
+      },
+      {
+        "type": "not_contains",
+        "value": "Added"
+      },
+      {
+        "type": "not_contains",
+        "value": "."
+      }
+    ]
+  },
+  {
+    "id": "train-2",
+    "skill_name": "git-conventional-commits",
+    "prompt": "Do not run commands. Generate a conventional commit for a staged auth change: `getSession()` now throws `SessionExpiredError` instead of returning null and the public result field `role` is replaced by `permissions`.",
+    "assertions": [
+      "Output includes conventional commit subject matching ^fix\\(auth\\)!: .+",
+      "Output contains BREAKING CHANGE:",
+      "Output contains null",
+      "Output contains permissions",
+      "Output does not contain ."
+    ],
+    "checks": [
+      {
+        "type": "commit_subject",
+        "pattern": "^fix\\(auth\\)!: .+",
+        "max_length": 50
+      },
+      {
+        "type": "contains",
+        "value": "BREAKING CHANGE:"
+      },
+      {
+        "type": "contains",
+        "value": "null"
+      },
+      {
+        "type": "contains",
+        "value": "permissions"
+      },
+      {
+        "type": "not_contains",
+        "value": "."
+      }
+    ]
+  },
+  {
+    "id": "train-3",
+    "skill_name": "git-conventional-commits",
+    "prompt": "Do not inspect files. Write a conventional commit message for a refactor that renames `src/services/payment.ts` to `src/services/payment-processor.ts` and updates imports in checkout and orders. No behavior changed.",
+    "assertions": [
+      "Output includes conventional commit subject matching ^refactor\\(payments?\\): .+",
+      "Output matches regex rename|move",
+      "Output contains payment-processor",
+      "Output does not contain BREAKING CHANGE:",
+      "Output does not contain ."
+    ],
+    "checks": [
+      {
+        "type": "commit_subject",
+        "pattern": "^refactor\\(payments?\\): .+",
+        "max_length": 50
+      },
+      {
+        "type": "regex",
+        "pattern": "rename|move",
+        "flags": "i"
+      },
+      {
+        "type": "contains",
+        "value": "payment-processor"
+      },
+      {
+        "type": "not_contains",
+        "value": "BREAKING CHANGE:"
+      },
+      {
+        "type": "not_contains",
+        "value": "."
+      }
+    ]
+  }
+]

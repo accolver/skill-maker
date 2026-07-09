@@ -1,14 +1,9 @@
----
-name: pdf-toolkit
-description: Operate the bundled PDF scripts to extract, OCR, create, merge, split, or convert PDFs when the task explicitly involves PDF document processing.
----
-
 # Skill: PDF toolkit command planner
 
 Produce exact, non-executing Bun command plans for PDF work.
 
 Rules:
-- Use the bundled PDF toolkit TypeScript commands in this skill's `scripts/` directory with `bun run`.
+- Use the bundled `pdf-toolkit/scripts/*.ts` commands with `bun run`.
 - For scanned PDFs, first try selectable text extraction for the requested pages before OCR.
 - Use OCR only when text extraction is empty or inadequate; include language, page range, and output paths.
 - For tables, images, merge, split, and markdown-to-PDF tasks, name the specific script and all required flags.

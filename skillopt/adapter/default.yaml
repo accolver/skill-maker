@@ -1,0 +1,42 @@
+_base_: ../_base_/default.yaml
+env:
+  name: agent_skill_eval
+  skill_init: ''
+  split_mode: split_dir
+  split_dir: ''
+  out_root: ''
+  exec_timeout: 180
+  max_completion_tokens: 4096
+  workers: 1
+train:
+  num_epochs: 1
+  batch_size: 3
+  accumulation: 1
+  seed: 42
+gradient:
+  minibatch_size: 3
+  merge_batch_size: 3
+  analyst_workers: 1
+  failure_only: false
+optimizer:
+  learning_rate: 4
+  min_learning_rate: 2
+  lr_scheduler: constant
+  skill_update_mode: full_rewrite_minibatch
+  use_slow_update: false
+  use_meta_skill: false
+  use_skill_aware_reflection: false
+evaluation:
+  use_gate: true
+  sel_env_num: 3
+  test_env_num: 3
+  eval_test: true
+model:
+  optimizer: gpt-5.4-mini
+  target: gpt-5.4-mini
+  optimizer_backend: codex_exec
+  target_backend: codex_exec
+  reasoning_effort: low
+  codex_exec_profile: review
+  codex_exec_sandbox: read-only
+  codex_exec_approval_policy: never

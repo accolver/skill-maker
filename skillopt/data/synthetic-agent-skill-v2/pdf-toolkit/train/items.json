@@ -1,0 +1,174 @@
+[
+  {
+    "id": "train-1",
+    "skill_name": "pdf-toolkit",
+    "prompt": "Do not execute anything. Draft the exact Bun command plan for ./leases/scanned-lease.pdf: first try selectable text extraction for pages 1-2 as JSON to lease-text.json, then OCR pages 1-2 in English at 400 DPI to lease-ocr.json with JSON output and confidence threshold 60.",
+    "assertions": [
+      "Output contains scripts/extract-text.ts",
+      "Output contains --pages 1-2",
+      "Output contains --format json",
+      "Output contains --output lease-text.json",
+      "Output contains scripts/ocr-pdf.ts",
+      "Output contains --dpi 400",
+      "Output contains --confidence-threshold 60",
+      "Output contains --output lease-ocr.json"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "scripts/extract-text.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--pages 1-2"
+      },
+      {
+        "type": "contains",
+        "value": "--format json"
+      },
+      {
+        "type": "contains",
+        "value": "--output lease-text.json"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/ocr-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--dpi 400"
+      },
+      {
+        "type": "contains",
+        "value": "--confidence-threshold 60"
+      },
+      {
+        "type": "contains",
+        "value": "--output lease-ocr.json"
+      }
+    ]
+  },
+  {
+    "id": "train-2",
+    "skill_name": "pdf-toolkit",
+    "prompt": "Do not run commands. I need to merge cover.pdf pages 1-2, body.pdf all pages, and exhibits.pdf pages 5-8 into closing-packet.pdf with source bookmarks, then split closing-packet.pdf into 10-page chunks under ./closing-chunks with prefix closing.",
+    "assertions": [
+      "Output contains scripts/merge-pdf.ts",
+      "Output contains --output closing-packet.pdf",
+      "Output contains --page-ranges",
+      "Output contains 1-2;all;5-8",
+      "Output contains --bookmark",
+      "Output contains scripts/split-pdf.ts",
+      "Output contains --mode chunks",
+      "Output contains --chunk-size 10",
+      "Output contains --output-dir ./closing-chunks",
+      "Output contains --prefix closing"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "scripts/merge-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--output closing-packet.pdf"
+      },
+      {
+        "type": "contains",
+        "value": "--page-ranges"
+      },
+      {
+        "type": "contains",
+        "value": "1-2;all;5-8"
+      },
+      {
+        "type": "contains",
+        "value": "--bookmark"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/split-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--mode chunks"
+      },
+      {
+        "type": "contains",
+        "value": "--chunk-size 10"
+      },
+      {
+        "type": "contains",
+        "value": "--output-dir ./closing-chunks"
+      },
+      {
+        "type": "contains",
+        "value": "--prefix closing"
+      }
+    ]
+  },
+  {
+    "id": "train-3",
+    "skill_name": "pdf-toolkit",
+    "prompt": "Command plan only: create board-brief.pdf from ./brief.md using markdown mode, legal page size, margin 54, title \"Board Brief\"; then extract tables from board-brief.pdf pages 2-4 as CSV to board-tables.csv.",
+    "assertions": [
+      "Output contains scripts/create-pdf.ts",
+      "Output contains --from-markdown ./brief.md",
+      "Output contains --output board-brief.pdf",
+      "Output contains --page-size legal",
+      "Output contains --margin 54",
+      "Output contains --title",
+      "Output contains Board Brief",
+      "Output contains scripts/extract-tables.ts",
+      "Output contains --pages 2-4",
+      "Output contains --format csv",
+      "Output contains --output board-tables.csv"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "scripts/create-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--from-markdown ./brief.md"
+      },
+      {
+        "type": "contains",
+        "value": "--output board-brief.pdf"
+      },
+      {
+        "type": "contains",
+        "value": "--page-size legal"
+      },
+      {
+        "type": "contains",
+        "value": "--margin 54"
+      },
+      {
+        "type": "contains",
+        "value": "--title"
+      },
+      {
+        "type": "contains",
+        "value": "Board Brief"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/extract-tables.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--pages 2-4"
+      },
+      {
+        "type": "contains",
+        "value": "--format csv"
+      },
+      {
+        "type": "contains",
+        "value": "--output board-tables.csv"
+      }
+    ]
+  }
+]

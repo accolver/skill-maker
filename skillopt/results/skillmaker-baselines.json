@@ -1,0 +1,158 @@
+{
+  "pdf-toolkit": {
+    "source": "workspaces/pdf-toolkit-workspace/iteration-3/benchmark.json",
+    "iteration": 3,
+    "with_skill_pass_rate": 1,
+    "without_skill_pass_rate": 0.0417,
+    "delta_pass_rate": 0.9583,
+    "with_skill_time_seconds_mean": 32.6667,
+    "without_skill_time_seconds_mean": 19,
+    "with_skill_tokens_mean": 8800,
+    "without_skill_tokens_mean": 6300,
+    "per_eval": [
+      {
+        "eval_name": "extract-and-create-report",
+        "with_skill": {
+          "pass_rate": 1,
+          "time_seconds": 28,
+          "tokens": 8800
+        },
+        "without_skill": {
+          "pass_rate": 0.125,
+          "time_seconds": 19,
+          "tokens": 6300
+        }
+      },
+      {
+        "eval_name": "merge-split-workflow",
+        "with_skill": {
+          "pass_rate": 1,
+          "time_seconds": 32,
+          "tokens": 7800
+        },
+        "without_skill": {
+          "pass_rate": 0,
+          "time_seconds": 17,
+          "tokens": 5800
+        }
+      },
+      {
+        "eval_name": "scanned-pdf-ocr-extraction",
+        "with_skill": {
+          "pass_rate": 1,
+          "time_seconds": 38,
+          "tokens": 9800
+        },
+        "without_skill": {
+          "pass_rate": 0,
+          "time_seconds": 21,
+          "tokens": 6800
+        }
+      }
+    ]
+  },
+  "gcloud-cli": {
+    "source": "workspaces/gcloud-cli-workspace/iteration-2/benchmark.json",
+    "iteration": 2,
+    "with_skill_pass_rate": 1,
+    "without_skill_pass_rate": 0.875,
+    "delta_pass_rate": 0.125,
+    "with_skill_time_seconds_mean": 40,
+    "without_skill_time_seconds_mean": 30.6667,
+    "with_skill_tokens_mean": 14266.6667,
+    "without_skill_tokens_mean": 10500,
+    "per_eval": [
+      {
+        "eval_name": "auth-diagnosis",
+        "with_skill": {
+          "pass_rate": 1,
+          "time_seconds": 38,
+          "tokens": 13200
+        },
+        "without_skill": {
+          "pass_rate": 0.75,
+          "time_seconds": 27,
+          "tokens": 9500
+        }
+      },
+      {
+        "eval_name": "cross-project-formatting",
+        "with_skill": {
+          "pass_rate": 1,
+          "time_seconds": 40,
+          "tokens": 14500
+        },
+        "without_skill": {
+          "pass_rate": 1,
+          "time_seconds": 30,
+          "tokens": 10200
+        }
+      },
+      {
+        "eval_name": "mixed-read-write",
+        "with_skill": {
+          "pass_rate": 1,
+          "time_seconds": 42,
+          "tokens": 15100
+        },
+        "without_skill": {
+          "pass_rate": 0.875,
+          "time_seconds": 35,
+          "tokens": 11800
+        }
+      }
+    ]
+  },
+  "git-conventional-commits": {
+    "source": "workspaces/git-conventional-commits-workspace/iteration-3/benchmark.json",
+    "iteration": 3,
+    "with_skill_pass_rate": 1.0,
+    "without_skill_pass_rate": 0.72,
+    "delta_pass_rate": 0.28,
+    "with_skill_time_seconds_mean": 10.17,
+    "without_skill_time_seconds_mean": 5.67,
+    "with_skill_tokens_mean": 5060,
+    "without_skill_tokens_mean": 3143,
+    "per_eval": [
+      {
+        "eval_name": "simple-feature",
+        "with_skill": {
+          "pass_rate": 1.0,
+          "time_seconds": 8.6,
+          "tokens": 4400
+        },
+        "without_skill": {
+          "pass_rate": 0.71,
+          "time_seconds": 5.1,
+          "tokens": 2900
+        }
+      },
+      {
+        "eval_name": "bugfix-with-breaking",
+        "with_skill": {
+          "pass_rate": 1.0,
+          "time_seconds": 10.8,
+          "tokens": 5300
+        },
+        "without_skill": {
+          "pass_rate": 0.75,
+          "time_seconds": 5.9,
+          "tokens": 3180
+        }
+      },
+      {
+        "eval_name": "multi-file-refactor",
+        "with_skill": {
+          "pass_rate": 1.0,
+          "time_seconds": 11.1,
+          "tokens": 5480
+        },
+        "without_skill": {
+          "pass_rate": 0.71,
+          "time_seconds": 6.0,
+          "tokens": 3350
+        }
+      }
+    ]
+  }
+}

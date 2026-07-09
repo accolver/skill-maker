@@ -1,0 +1,94 @@
+{
+  "hard": 0.3333333333333333,
+  "soft": 0.8888888888888888,
+  "total_checks": 27,
+  "passed_checks": 24,
+  "usage": {
+    "calls": 3,
+    "prompt_tokens": 68553,
+    "completion_tokens": 5541,
+    "total_tokens": 74094
+  },
+  "items": [
+    {
+      "id": "test-1",
+      "score": {
+        "passed": 10,
+        "failed": 0,
+        "total": 10,
+        "pass_rate": 1.0,
+        "passed_checks": [
+          "contains 'gcloud auth list'",
+          "contains 'gcloud config get-value project'",
+          "contains 'gcloud config get-value account'",
+          "contains 'gcloud logging read'",
+          "contains 'api-gateway'",
+          "contains 'severity>=ERROR'",
+          "contains 'gcloud iam service-accounts keys delete KEY123'",
+          "contains '--iam-account=deployer@atlas-prod.iam.gserviceaccount.com'",
+          "regex 'confirm|approval|proceed'",
+          "does not contain '--quiet'"
+        ],
+        "failed_checks": []
+      },
+      "usage": {
+        "prompt_tokens": 22864,
+        "completion_tokens": 992,
+        "total_tokens": 23856
+      }
+    },
+    {
+      "id": "test-2",
+      "score": {
+        "passed": 7,
+        "failed": 1,
+        "total": 8,
+        "pass_rate": 0.875,
+        "passed_checks": [
+          "contains 'gcloud asset search-all-resources'",
+          "contains 'container.googleapis.com/Cluster'",
+          "contains 'env=prod'",
+          "contains '--format=json'",
+          "regex 'jq|json\\\\('",
+          "does not contain 'delete'",
+          "does not contain 'resize'"
+        ],
+        "failed_checks": [
+          "contains '--scope=organizations/998877'"
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 22840,
+        "completion_tokens": 1020,
+        "total_tokens": 23860
+      }
+    },
+    {
+      "id": "test-3",
+      "score": {
+        "passed": 7,
+        "failed": 2,
+        "total": 9,
+        "pass_rate": 0.7777777777777778,
+        "passed_checks": [
+          "contains 'gcloud redis instances list'",
+          "contains '--region=us-central1'",
+          "contains 'gcloud redis instances update cart-cache'",
+          "contains '--size=6'",
+          "regex 'confirm|approval|proceed'",
+          "contains 'gcloud redis instances describe cart-cache'",
+          "does not contain '--quiet'"
+        ],
+        "failed_checks": [
+          "contains 'gcloud auth list'",
+          "contains 'gcloud config get-value project'"
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 22849,
+        "completion_tokens": 3529,
+        "total_tokens": 26378
+      }
+    }
+  ]
+}

@@ -1,8 +1,3 @@
----
-name: gcloud-cli
-description: Use the Google Cloud gcloud CLI for GCP inspection, debugging, or administration when the task explicitly involves gcloud commands or Google Cloud resources; require confirmation before mutating resources.
----
-
 # Skill: gcloud CLI command planner
 
 Produce safe, non-executing gcloud command plans.

@@ -1,0 +1,82 @@
+{
+  "hard": 0.0,
+  "soft": 0.7857142857142857,
+  "total_checks": 14,
+  "passed_checks": 11,
+  "usage": {
+    "calls": 3,
+    "prompt_tokens": 67741,
+    "completion_tokens": 2400,
+    "total_tokens": 70141
+  },
+  "items": [
+    {
+      "id": "test-1",
+      "score": {
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "pass_rate": 0.75,
+        "passed_checks": [
+          "commit subject 'feat(cli): add csv export mode'",
+          "does not contain 'BREAKING CHANGE:'",
+          "does not contain '.'"
+        ],
+        "failed_checks": [
+          "contains '--csv'"
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 22581,
+        "completion_tokens": 395,
+        "total_tokens": 22976
+      }
+    },
+    {
+      "id": "test-2",
+      "score": {
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "pass_rate": 0.8,
+        "passed_checks": [
+          "commit subject 'refactor(config)!: nest retry settings'",
+          "contains 'BREAKING CHANGE:'",
+          "contains 'maxRetries'",
+          "contains 'retry.limit'"
+        ],
+        "failed_checks": [
+          "does not contain '.'"
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 22585,
+        "completion_tokens": 687,
+        "total_tokens": 23272
+      }
+    },
+    {
+      "id": "test-3",
+      "score": {
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "pass_rate": 0.8,
+        "passed_checks": [
+          "commit subject 'fix(webhook): throw on missing signatures'",
+          "contains 'MissingSignatureError'",
+          "regex 'signature|missing'",
+          "does not contain 'BREAKING CHANGE:'"
+        ],
+        "failed_checks": [
+          "does not contain '.'"
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 22575,
+        "completion_tokens": 1318,
+        "total_tokens": 23893
+      }
+    }
+  ]
+}

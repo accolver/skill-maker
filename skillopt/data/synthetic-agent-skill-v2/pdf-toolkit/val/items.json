@@ -1,0 +1,169 @@
+[
+  {
+    "id": "val-1",
+    "skill_name": "pdf-toolkit",
+    "prompt": "Do not execute. For ./archive/mixed-scan.pdf, give commands to extract images from pages 3-6 as JPEG files to ./mixed-images with min size 120, and OCR the same pages in French at 500 DPI to mixed-ocr.json.",
+    "assertions": [
+      "Output contains scripts/extract-images.ts",
+      "Output contains --pages 3-6",
+      "Output contains --format jpeg",
+      "Output contains --output-dir ./mixed-images",
+      "Output contains --min-size 120",
+      "Output contains scripts/ocr-pdf.ts",
+      "Output contains --lang fra",
+      "Output contains --dpi 500",
+      "Output contains --output mixed-ocr.json"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "scripts/extract-images.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--pages 3-6"
+      },
+      {
+        "type": "contains",
+        "value": "--format jpeg"
+      },
+      {
+        "type": "contains",
+        "value": "--output-dir ./mixed-images"
+      },
+      {
+        "type": "contains",
+        "value": "--min-size 120"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/ocr-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--lang fra"
+      },
+      {
+        "type": "contains",
+        "value": "--dpi 500"
+      },
+      {
+        "type": "contains",
+        "value": "--output mixed-ocr.json"
+      }
+    ]
+  },
+  {
+    "id": "val-2",
+    "skill_name": "pdf-toolkit",
+    "prompt": "Plan only: split annual-report.pdf into custom ranges 1-4,5-12,13-20 under ./annual-parts, then create a new PDF appendix.pdf from images ./appendix/*.png with A4 page size.",
+    "assertions": [
+      "Output contains scripts/split-pdf.ts",
+      "Output contains --mode ranges",
+      "Output contains --ranges",
+      "Output contains 1-4;5-12;13-20",
+      "Output contains --output-dir ./annual-parts",
+      "Output contains scripts/create-pdf.ts",
+      "Output contains --from-images",
+      "Output contains ./appendix/*.png",
+      "Output contains --output appendix.pdf",
+      "Output contains --page-size a4"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "scripts/split-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--mode ranges"
+      },
+      {
+        "type": "contains",
+        "value": "--ranges"
+      },
+      {
+        "type": "contains",
+        "value": "1-4;5-12;13-20"
+      },
+      {
+        "type": "contains",
+        "value": "--output-dir ./annual-parts"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/create-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--from-images"
+      },
+      {
+        "type": "contains",
+        "value": "./appendix/*.png"
+      },
+      {
+        "type": "contains",
+        "value": "--output appendix.pdf"
+      },
+      {
+        "type": "contains",
+        "value": "--page-size a4"
+      }
+    ]
+  },
+  {
+    "id": "val-3",
+    "skill_name": "pdf-toolkit",
+    "prompt": "Do not execute commands. Show how to extract text from handbook.pdf pages 1,3,5-7 as per-page JSON to handbook-text.json and tables from pages 6-7 as TSV to handbook-tables.tsv.",
+    "assertions": [
+      "Output contains scripts/extract-text.ts",
+      "Output contains --pages 1,3,5-7",
+      "Output contains --per-page",
+      "Output contains --format json",
+      "Output contains --output handbook-text.json",
+      "Output contains scripts/extract-tables.ts",
+      "Output contains --pages 6-7",
+      "Output contains --format tsv",
+      "Output contains --output handbook-tables.tsv"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "scripts/extract-text.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--pages 1,3,5-7"
+      },
+      {
+        "type": "contains",
+        "value": "--per-page"
+      },
+      {
+        "type": "contains",
+        "value": "--format json"
+      },
+      {
+        "type": "contains",
+        "value": "--output handbook-text.json"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/extract-tables.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--pages 6-7"
+      },
+      {
+        "type": "contains",
+        "value": "--format tsv"
+      },
+      {
+        "type": "contains",
+        "value": "--output handbook-tables.tsv"
+      }
+    ]
+  }
+]

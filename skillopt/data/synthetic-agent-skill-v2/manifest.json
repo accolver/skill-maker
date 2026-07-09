@@ -1,0 +1,21 @@
+{
+  "dataset": "synthetic-agent-skill-v2",
+  "splits": {
+    "pdf-toolkit": {
+      "train": 3,
+      "val": 3,
+      "test": 3
+    },
+    "gcloud-cli": {
+      "train": 3,
+      "val": 3,
+      "test": 3
+    },
+    "git-conventional-commits": {
+      "train": 3,
+      "val": 3,
+      "test": 3
+    }
+  },
+  "heldout_rule": "Only */test/items.json is used for final evaluation. SkillOpt training uses train and validation/gate uses val."
+}

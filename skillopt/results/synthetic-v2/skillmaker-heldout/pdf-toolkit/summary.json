@@ -1,0 +1,102 @@
+{
+  "hard": 1.0,
+  "soft": 1.0,
+  "total_checks": 37,
+  "passed_checks": 37,
+  "usage": {
+    "calls": 3,
+    "prompt_tokens": 68229,
+    "completion_tokens": 1783,
+    "total_tokens": 70012
+  },
+  "items": [
+    {
+      "id": "test-1",
+      "score": {
+        "passed": 13,
+        "failed": 0,
+        "total": 13,
+        "pass_rate": 1.0,
+        "passed_checks": [
+          "contains 'scripts/extract-text.ts'",
+          "contains '--pages 1-2'",
+          "contains '--format json'",
+          "contains '--output permit-text.json'",
+          "contains 'scripts/ocr-pdf.ts'",
+          "contains '--lang spa'",
+          "contains '--dpi 450'",
+          "contains '--confidence-threshold 55'",
+          "contains '--output permit-ocr.json'",
+          "contains 'scripts/extract-images.ts'",
+          "contains '--format jpeg'",
+          "contains '--output-dir ./permit-images'",
+          "contains '--min-size 180'"
+        ],
+        "failed_checks": []
+      },
+      "usage": {
+        "prompt_tokens": 22796,
+        "completion_tokens": 753,
+        "total_tokens": 23549
+      }
+    },
+    {
+      "id": "test-2",
+      "score": {
+        "passed": 11,
+        "failed": 0,
+        "total": 11,
+        "pass_rate": 1.0,
+        "passed_checks": [
+          "contains 'scripts/merge-pdf.ts'",
+          "contains '--output packet.pdf'",
+          "contains '--page-ranges'",
+          "contains '1-2;all;4-9'",
+          "contains '--bookmark'",
+          "contains 'scripts/split-pdf.ts'",
+          "contains '--mode ranges'",
+          "contains '--ranges'",
+          "contains '1-6;7-12;13-18'",
+          "contains '--output-dir ./packet-parts'",
+          "contains '--prefix packet'"
+        ],
+        "failed_checks": []
+      },
+      "usage": {
+        "prompt_tokens": 22719,
+        "completion_tokens": 534,
+        "total_tokens": 23253
+      }
+    },
+    {
+      "id": "test-3",
+      "score": {
+        "passed": 13,
+        "failed": 0,
+        "total": 13,
+        "pass_rate": 1.0,
+        "passed_checks": [
+          "contains 'scripts/create-pdf.ts'",
+          "contains '--from-markdown ./investor-update.md'",
+          "contains '--output investor-update.pdf'",
+          "contains '--page-size a4'",
+          "contains '--margin 66'",
+          "contains '--title'",
+          "contains 'Investor Update'",
+          "contains '--author'",
+          "contains 'Ops Team'",
+          "contains 'scripts/extract-tables.ts'",
+          "contains '--pages 2-5'",
+          "contains '--format json'",
+          "contains '--output investor-tables.json'"
+        ],
+        "failed_checks": []
+      },
+      "usage": {
+        "prompt_tokens": 22714,
+        "completion_tokens": 496,
+        "total_tokens": 23210
+      }
+    }
+  ]
+}

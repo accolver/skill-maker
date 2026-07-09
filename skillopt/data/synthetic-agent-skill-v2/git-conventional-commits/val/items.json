@@ -1,0 +1,104 @@
+[
+  {
+    "id": "val-1",
+    "skill_name": "git-conventional-commits",
+    "prompt": "Do not run git. Staged diff adds a cache hit metric and timing histogram around `src/cache/lookup.ts`, with no behavior change. Write the conventional commit.",
+    "assertions": [
+      "Output includes conventional commit subject matching ^perf\\(cache\\): .+",
+      "Output matches regex metric|histogram|latency|timing",
+      "Output does not contain BREAKING CHANGE:",
+      "Output does not contain ."
+    ],
+    "checks": [
+      {
+        "type": "commit_subject",
+        "pattern": "^perf\\(cache\\): .+",
+        "max_length": 50
+      },
+      {
+        "type": "regex",
+        "pattern": "metric|histogram|latency|timing",
+        "flags": "i"
+      },
+      {
+        "type": "not_contains",
+        "value": "BREAKING CHANGE:"
+      },
+      {
+        "type": "not_contains",
+        "value": "."
+      }
+    ]
+  },
+  {
+    "id": "val-2",
+    "skill_name": "git-conventional-commits",
+    "prompt": "Do not inspect files. Staged changes update only `.github/workflows/test.yml` to add Bun dependency caching and split lint/test jobs. Write the conventional commit.",
+    "assertions": [
+      "Output includes conventional commit subject matching ^ci\\(test\\): .+",
+      "Output contains Bun",
+      "Output matches regex cache|caching",
+      "Output does not contain BREAKING CHANGE:",
+      "Output does not contain ."
+    ],
+    "checks": [
+      {
+        "type": "commit_subject",
+        "pattern": "^ci\\(test\\): .+",
+        "max_length": 50
+      },
+      {
+        "type": "contains",
+        "value": "Bun"
+      },
+      {
+        "type": "regex",
+        "pattern": "cache|caching",
+        "flags": "i"
+      },
+      {
+        "type": "not_contains",
+        "value": "BREAKING CHANGE:"
+      },
+      {
+        "type": "not_contains",
+        "value": "."
+      }
+    ]
+  },
+  {
+    "id": "val-3",
+    "skill_name": "git-conventional-commits",
+    "prompt": "No commands. Staged diff removes deprecated `createClient(options.retries)` and replaces it with `createClient({ retry: { limit } })` across docs and tests. Write a conventional commit.",
+    "assertions": [
+      "Output includes conventional commit subject matching ^refactor\\(client\\)!: .+",
+      "Output contains BREAKING CHANGE:",
+      "Output contains options.retries",
+      "Output contains retry",
+      "Output does not contain ."
+    ],
+    "checks": [
+      {
+        "type": "commit_subject",
+        "pattern": "^refactor\\(client\\)!: .+",
+        "max_length": 50
+      },
+      {
+        "type": "contains",
+        "value": "BREAKING CHANGE:"
+      },
+      {
+        "type": "contains",
+        "value": "options.retries"
+      },
+      {
+        "type": "contains",
+        "value": "retry"
+      },
+      {
+        "type": "not_contains",
+        "value": "."
+      }
+    ]
+  }
+]

@@ -1,8 +1,3 @@
----
-name: git-conventional-commits
-description: Generate conventional commit messages from staged git changes when the task is to name or format a commit, not to review code or write release notes.
----
-
 # Skill: Conventional commit writer
 
 Write only the conventional commit message artifact requested by the user.

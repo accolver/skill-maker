@@ -1,0 +1,103 @@
+[
+  {
+    "id": "test-1",
+    "skill_name": "git-conventional-commits",
+    "prompt": "Held-out eval. Do not run git. Staged diff adds `--csv` export mode to `src/cli/export.ts`, adds unit tests, and updates CLI help text. Write the conventional commit message only.",
+    "assertions": [
+      "Output includes conventional commit subject matching ^feat\\(cli\\): add csv export mode$",
+      "Output contains --csv",
+      "Output does not contain BREAKING CHANGE:",
+      "Output does not contain ."
+    ],
+    "checks": [
+      {
+        "type": "commit_subject",
+        "pattern": "^feat\\(cli\\): add csv export mode$",
+        "max_length": 50
+      },
+      {
+        "type": "contains",
+        "value": "--csv"
+      },
+      {
+        "type": "not_contains",
+        "value": "BREAKING CHANGE:"
+      },
+      {
+        "type": "not_contains",
+        "value": "."
+      }
+    ]
+  },
+  {
+    "id": "test-2",
+    "skill_name": "git-conventional-commits",
+    "prompt": "Held-out eval. Do not inspect files. Staged diff changes public config from `maxRetries` and `retryDelayMs` to nested `retry.limit` and `retry.delayMs`; callers must update config. Write a conventional commit.",
+    "assertions": [
+      "Output includes conventional commit subject matching ^refactor\\(config\\)!: .+",
+      "Output contains BREAKING CHANGE:",
+      "Output contains maxRetries",
+      "Output contains retry.limit",
+      "Output does not contain ."
+    ],
+    "checks": [
+      {
+        "type": "commit_subject",
+        "pattern": "^refactor\\(config\\)!: .+",
+        "max_length": 50
+      },
+      {
+        "type": "contains",
+        "value": "BREAKING CHANGE:"
+      },
+      {
+        "type": "contains",
+        "value": "maxRetries"
+      },
+      {
+        "type": "contains",
+        "value": "retry.limit"
+      },
+      {
+        "type": "not_contains",
+        "value": "."
+      }
+    ]
+  },
+  {
+    "id": "test-3",
+    "skill_name": "git-conventional-commits",
+    "prompt": "Held-out eval. No commands. Staged changes fix a bug where `parseWebhook()` accepted missing signatures and now throws `MissingSignatureError`; tests were added. Write the conventional commit.",
+    "assertions": [
+      "Output includes conventional commit subject matching ^fix\\(webhooks?\\): .+",
+      "Output contains MissingSignatureError",
+      "Output matches regex signature|missing",
+      "Output does not contain BREAKING CHANGE:",
+      "Output does not contain ."
+    ],
+    "checks": [
+      {
+        "type": "commit_subject",
+        "pattern": "^fix\\(webhooks?\\): .+",
+        "max_length": 50
+      },
+      {
+        "type": "contains",
+        "value": "MissingSignatureError"
+      },
+      {
+        "type": "regex",
+        "pattern": "signature|missing",
+        "flags": "i"
+      },
+      {
+        "type": "not_contains",
+        "value": "BREAKING CHANGE:"
+      },
+      {
+        "type": "not_contains",
+        "value": "."
+      }
+    ]
+  }
+]

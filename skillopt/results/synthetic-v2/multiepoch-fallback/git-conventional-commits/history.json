@@ -1,0 +1,272 @@
+[
+  {
+    "step": 1,
+    "epoch": 1,
+    "step_in_epoch": 0,
+    "timing": {
+      "rollout_s": 0.0,
+      "reflect_s": 0.0,
+      "aggregate_s": 0.0,
+      "select_s": 0.0,
+      "update_s": 0.0,
+      "evaluate_s": 0.0
+    },
+    "tokens": {
+      "analyst": {
+        "calls": 2,
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      }
+    },
+    "rollout_hard": 0.0,
+    "rollout_soft": 0.366667,
+    "rollout_n": 3,
+    "accumulation_batches": [
+      {
+        "batch_idx": 0,
+        "batch_seed": 1043,
+        "n_envs": 3,
+        "hard": 0.0,
+        "soft": 0.3666666666666667,
+        "n_failure_patches": 1,
+        "n_success_patches": 0
+      }
+    ],
+    "n_patches": 1,
+    "n_failure_patches": 1,
+    "n_success_patches": 0,
+    "n_edits_merged": 1,
+    "n_edits_ranked": 1,
+    "edit_budget": null,
+    "lr_control_mode": "none",
+    "support_counts": [
+      3
+    ],
+    "candidate_hash": "09af6f8a57e7937d",
+    "candidate_skill_len": 690,
+    "rewrite_change_summary": [
+      "Use task-specific output format",
+      "Preserve exact constraints",
+      "Avoid generic advice"
+    ],
+    "selection_hard": 0.6666666666666666,
+    "selection_soft": 0.9333333333333332,
+    "gate_metric": "soft",
+    "candidate_gate_score": 0.9333333333333332,
+    "action": "accept_new_best",
+    "current_score": 0.9333333333333332,
+    "best_score": 0.9333333333333332,
+    "best_step": 1,
+    "current_origin": "step_0001",
+    "best_origin": "step_0001",
+    "skill_len": 690,
+    "wall_time_s": 0.0
+  },
+  {
+    "step": 2,
+    "epoch": 2,
+    "step_in_epoch": 0,
+    "timing": {
+      "rollout_s": 0.0,
+      "reflect_s": 0.0,
+      "aggregate_s": 0.0,
+      "select_s": 0.0,
+      "update_s": 0.0,
+      "evaluate_s": 0.0
+    },
+    "tokens": {
+      "analyst": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "merge": {
+        "calls": 2,
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      }
+    },
+    "rollout_hard": 0.666667,
+    "rollout_soft": 0.933333,
+    "rollout_n": 3,
+    "accumulation_batches": [
+      {
+        "batch_idx": 0,
+        "batch_seed": 2043,
+        "n_envs": 3,
+        "hard": 0.6666666666666666,
+        "soft": 0.9333333333333332,
+        "n_failure_patches": 1,
+        "n_success_patches": 1
+      }
+    ],
+    "n_patches": 2,
+    "n_failure_patches": 1,
+    "n_success_patches": 1,
+    "n_edits_merged": 2,
+    "n_edits_ranked": 2,
+    "edit_budget": null,
+    "lr_control_mode": "none",
+    "support_counts": [
+      3,
+      3
+    ],
+    "candidate_hash": "09af6f8a57e7937d",
+    "candidate_skill_len": 690,
+    "rewrite_change_summary": [
+      "Use task-specific output format",
+      "Preserve exact constraints",
+      "Avoid generic advice"
+    ],
+    "selection_hard": 0.6666666666666666,
+    "selection_soft": 0.9333333333333332,
+    "gate_metric": "soft",
+    "candidate_gate_score": 0.9333333333333332,
+    "action": "reject",
+    "current_score": 0.9333333333333332,
+    "best_score": 0.9333333333333332,
+    "best_step": 1,
+    "current_origin": "step_0001",
+    "best_origin": "step_0001",
+    "skill_len": 690,
+    "wall_time_s": 0.0
+  },
+  {
+    "step": 3,
+    "epoch": 3,
+    "step_in_epoch": 0,
+    "timing": {
+      "rollout_s": 0.0,
+      "reflect_s": 0.0,
+      "aggregate_s": 0.0,
+      "select_s": 0.0,
+      "update_s": 0.0,
+      "evaluate_s": 0.0
+    },
+    "tokens": {
+      "analyst": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "merge": {
+        "calls": 2,
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      }
+    },
+    "rollout_hard": 0.666667,
+    "rollout_soft": 0.933333,
+    "rollout_n": 3,
+    "accumulation_batches": [
+      {
+        "batch_idx": 0,
+        "batch_seed": 3043,
+        "n_envs": 3,
+        "hard": 0.6666666666666666,
+        "soft": 0.9333333333333332,
+        "n_failure_patches": 1,
+        "n_success_patches": 1
+      }
+    ],
+    "n_patches": 2,
+    "n_failure_patches": 1,
+    "n_success_patches": 1,
+    "n_edits_merged": 2,
+    "n_edits_ranked": 2,
+    "edit_budget": null,
+    "lr_control_mode": "none",
+    "support_counts": [
+      3,
+      3
+    ],
+    "candidate_hash": "09af6f8a57e7937d",
+    "candidate_skill_len": 690,
+    "rewrite_change_summary": [
+      "Use task-specific output format",
+      "Preserve exact constraints",
+      "Avoid generic advice"
+    ],
+    "selection_hard": 0.6666666666666666,
+    "selection_soft": 0.9333333333333332,
+    "gate_metric": "soft",
+    "candidate_gate_score": 0.9333333333333332,
+    "action": "reject",
+    "current_score": 0.9333333333333332,
+    "best_score": 0.9333333333333332,
+    "best_step": 1,
+    "current_origin": "step_0001",
+    "best_origin": "step_0001",
+    "skill_len": 690,
+    "wall_time_s": 0.0
+  },
+  {
+    "step": 4,
+    "epoch": 4,
+    "step_in_epoch": 0,
+    "timing": {
+      "rollout_s": 0.0,
+      "reflect_s": 0.0,
+      "aggregate_s": 0.0,
+      "select_s": 0.0,
+      "update_s": 0.0,
+      "evaluate_s": 0.0
+    },
+    "tokens": {
+      "analyst": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      },
+      "merge": {
+        "calls": 2,
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      }
+    },
+    "rollout_hard": 0.666667,
+    "rollout_soft": 0.933333,
+    "rollout_n": 3,
+    "accumulation_batches": [
+      {
+        "batch_idx": 0,
+        "batch_seed": 4043,
+        "n_envs": 3,
+        "hard": 0.6666666666666666,
+        "soft": 0.9333333333333332,
+        "n_failure_patches": 1,
+        "n_success_patches": 1
+      }
+    ],
+    "n_patches": 2,
+    "n_failure_patches": 1,
+    "n_success_patches": 1,
+    "n_edits_merged": 2,
+    "n_edits_ranked": 2,
+    "edit_budget": null,
+    "lr_control_mode": "none",
+    "support_counts": [
+      3,
+      3
+    ],
+    "candidate_hash": "09af6f8a57e7937d",
+    "candidate_skill_len": 690,
+    "rewrite_change_summary": [
+      "Use task-specific output format",
+      "Preserve exact constraints",
+      "Avoid generic advice"
+    ],
+    "selection_hard": 0.6666666666666666,
+    "selection_soft": 0.9333333333333332,
+    "gate_metric": "soft",
+    "candidate_gate_score": 0.9333333333333332,
+    "action": "reject",
+    "current_score": 0.9333333333333332,
+    "best_score": 0.9333333333333332,
+    "best_step": 1,
+    "current_origin": "step_0001",
+    "best_origin": "step_0001",
+    "skill_len": 690,
+    "wall_time_s": 0.0
+  }
+]

@@ -1,0 +1,275 @@
+{
+  "dataset": "skillopt/data/synthetic-agent-skill-v2",
+  "created_at": "2026-07-08",
+  "protocol": "SkillOpt trained on train and gated on val for one epoch/one step. Frozen Skill Maker skills were evaluated only on held-out test. Final comparison uses test split only.",
+  "skills": [
+    "pdf-toolkit",
+    "gcloud-cli",
+    "git-conventional-commits"
+  ],
+  "skillmaker_heldout": {
+    "pdf-toolkit": {
+      "hard": 1.0,
+      "soft": 1.0,
+      "total_checks": 37,
+      "passed_checks": 37,
+      "usage": {
+        "calls": 3,
+        "prompt_tokens": 68229,
+        "completion_tokens": 1783,
+        "total_tokens": 70012
+      }
+    },
+    "gcloud-cli": {
+      "hard": 0.3333333333333333,
+      "soft": 0.8888888888888888,
+      "total_checks": 27,
+      "passed_checks": 24,
+      "usage": {
+        "calls": 3,
+        "prompt_tokens": 68553,
+        "completion_tokens": 5541,
+        "total_tokens": 74094
+      }
+    },
+    "git-conventional-commits": {
+      "hard": 0.0,
+      "soft": 0.7857142857142857,
+      "total_checks": 14,
+      "passed_checks": 11,
+      "usage": {
+        "calls": 3,
+        "prompt_tokens": 67741,
+        "completion_tokens": 2400,
+        "total_tokens": 70141
+      }
+    }
+  },
+  "skillopt_heldout": {
+    "pdf-toolkit": {
+      "copied_artifacts": [
+        "summary.json",
+        "best_skill.md",
+        "candidate_skill.md",
+        "step_record.json"
+      ],
+      "best_step": 0,
+      "total_steps": 1,
+      "total_accepts": 0,
+      "total_rejects": 1,
+      "baseline_selection_hard": 0.0,
+      "baseline_test_hard": 0.0,
+      "baseline_test_soft": 0.07692307692307693,
+      "best_test_hard": 0.0,
+      "best_test_soft": 0.07692307692307693,
+      "test_delta_hard": 0,
+      "wall_time_seconds": 448.1,
+      "optimizer_token_summary": {
+        "_total": {
+          "calls": 2,
+          "prompt_tokens": 30644,
+          "completion_tokens": 1672,
+          "total_tokens": 32316
+        },
+        "analyst": {
+          "calls": 2,
+          "prompt_tokens": 30644,
+          "completion_tokens": 1672,
+          "total_tokens": 32316
+        }
+      },
+      "target_token_summary": {
+        "calls": 15,
+        "input_tokens": 207153,
+        "output_tokens": 35060,
+        "total_tokens": 242213
+      }
+    },
+    "gcloud-cli": {
+      "copied_artifacts": [
+        "summary.json",
+        "best_skill.md",
+        "candidate_skill.md",
+        "step_record.json"
+      ],
+      "best_step": 1,
+      "total_steps": 1,
+      "total_accepts": 1,
+      "total_rejects": 0,
+      "baseline_selection_hard": 0.3333333333333333,
+      "baseline_test_hard": 0.0,
+      "baseline_test_soft": 0.5925925925925926,
+      "best_test_hard": 0.0,
+      "best_test_soft": 0.487037037037037,
+      "test_delta_hard": 0,
+      "wall_time_seconds": 994.4,
+      "optimizer_token_summary": {
+        "_total": {
+          "calls": 2,
+          "prompt_tokens": 29426,
+          "completion_tokens": 1452,
+          "total_tokens": 30878
+        },
+        "analyst": {
+          "calls": 2,
+          "prompt_tokens": 29426,
+          "completion_tokens": 1452,
+          "total_tokens": 30878
+        }
+      },
+      "target_token_summary": {
+        "calls": 14,
+        "input_tokens": 232684,
+        "output_tokens": 25085,
+        "total_tokens": 257769
+      }
+    },
+    "git-conventional-commits": {
+      "copied_artifacts": [
+        "summary.json",
+        "best_skill.md",
+        "candidate_skill.md",
+        "step_record.json"
+      ],
+      "best_step": 0,
+      "total_steps": 1,
+      "total_accepts": 0,
+      "total_rejects": 1,
+      "baseline_selection_hard": 0.0,
+      "baseline_test_hard": 0.0,
+      "baseline_test_soft": 0.5666666666666667,
+      "best_test_hard": 0.0,
+      "best_test_soft": 0.7166666666666667,
+      "test_delta_hard": 0,
+      "wall_time_seconds": 592.8,
+      "optimizer_token_summary": {
+        "_total": {
+          "calls": 2,
+          "prompt_tokens": 27854,
+          "completion_tokens": 1704,
+          "total_tokens": 29558
+        },
+        "analyst": {
+          "calls": 2,
+          "prompt_tokens": 27854,
+          "completion_tokens": 1704,
+          "total_tokens": 29558
+        }
+      },
+      "target_token_summary": {
+        "calls": 15,
+        "input_tokens": 194877,
+        "output_tokens": 3778,
+        "total_tokens": 198655
+      }
+    }
+  },
+  "skillopt_multiepoch_fallback": {
+    "created_at": "2026-07-09",
+    "protocol": "Four-epoch SkillOpt orchestration run on synthetic train/val/test using deterministic offline optimizer/target fallback after Codex/Pi/Gemini subprocess calls repeatedly hung. Use as a multi-epoch mechanics check, not a clean LLM quality comparison.",
+    "epochs": 4,
+    "skills": [
+      "pdf-toolkit",
+      "gcloud-cli",
+      "git-conventional-commits"
+    ],
+    "runs": {
+      "pdf-toolkit": {
+        "source_output": "/tmp/SkillOpt/outputs/synthetic-v2-4epoch-fast-pdf-toolkit",
+        "best_step": 1,
+        "total_steps": 4,
+        "total_accepts": 1,
+        "total_rejects": 3,
+        "baseline_test_hard": 0.0,
+        "baseline_test_soft": 0.0,
+        "best_test_hard": 1.0,
+        "best_test_soft": 1.0,
+        "test_delta_hard": 1.0,
+        "best_selection_soft": 1.0,
+        "wall_time_seconds": 0.0,
+        "token_summary": {
+          "_total": {
+            "calls": 20,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "analyst": {
+            "calls": 14,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "merge": {
+            "calls": 6,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "gcloud-cli": {
+        "source_output": "/tmp/SkillOpt/outputs/synthetic-v2-4epoch-fast-gcloud-cli",
+        "best_step": 1,
+        "total_steps": 4,
+        "total_accepts": 1,
+        "total_rejects": 3,
+        "baseline_test_hard": 0.0,
+        "baseline_test_soft": 0.18703703703703703,
+        "best_test_hard": 0.6666666666666666,
+        "best_test_soft": 0.9666666666666667,
+        "test_delta_hard": 0.6666666666666666,
+        "best_selection_soft": 1.0,
+        "wall_time_seconds": 0.0,
+        "token_summary": {
+          "_total": {
+            "calls": 8,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "analyst": {
+            "calls": 8,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      },
+      "git-conventional-commits": {
+        "source_output": "/tmp/SkillOpt/outputs/synthetic-v2-4epoch-fast-git-conventional-commits",
+        "best_step": 1,
+        "total_steps": 4,
+        "total_accepts": 1,
+        "total_rejects": 3,
+        "baseline_test_hard": 0.0,
+        "baseline_test_soft": 0.3666666666666667,
+        "best_test_hard": 0.6666666666666666,
+        "best_test_soft": 0.9333333333333332,
+        "test_delta_hard": 0.6666666666666666,
+        "best_selection_soft": 0.9333333333333332,
+        "wall_time_seconds": 0.0,
+        "token_summary": {
+          "_total": {
+            "calls": 20,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "analyst": {
+            "calls": 14,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          "merge": {
+            "calls": 6,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        }
+      }
+    }
+  }
+}

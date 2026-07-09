@@ -1,0 +1,167 @@
+[
+  {
+    "id": "test-1",
+    "skill_name": "gcloud-cli",
+    "prompt": "Held-out eval. Do not execute commands. In project atlas-prod, inspect Cloud Run service api-gateway ERROR logs in us-central1, then prepare to delete service account key KEY123 for deployer@atlas-prod.iam.gserviceaccount.com. Read-only checks can proceed; key deletion must be separately confirmed and must not use --quiet.",
+    "assertions": [
+      "Output contains gcloud auth list",
+      "Output contains gcloud config get-value project",
+      "Output contains gcloud config get-value account",
+      "Output contains gcloud logging read",
+      "Output contains api-gateway",
+      "Output contains severity>=ERROR",
+      "Output contains gcloud iam service-accounts keys delete KEY123",
+      "Output contains --iam-account=deployer@atlas-prod.iam.gserviceaccount.com",
+      "Output matches regex confirm|approval|proceed",
+      "Output does not contain --quiet"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "gcloud auth list"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud config get-value project"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud config get-value account"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud logging read"
+      },
+      {
+        "type": "contains",
+        "value": "api-gateway"
+      },
+      {
+        "type": "contains",
+        "value": "severity>=ERROR"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud iam service-accounts keys delete KEY123"
+      },
+      {
+        "type": "contains",
+        "value": "--iam-account=deployer@atlas-prod.iam.gserviceaccount.com"
+      },
+      {
+        "type": "regex",
+        "pattern": "confirm|approval|proceed",
+        "flags": "i"
+      },
+      {
+        "type": "not_contains",
+        "value": "--quiet"
+      }
+    ]
+  },
+  {
+    "id": "test-2",
+    "skill_name": "gcloud-cli",
+    "prompt": "Held-out eval. Command plan only. Across organization 998877, find all GKE clusters whose resource labels include env=prod and output clean JSON with project, name, location, and status. This is read-only.",
+    "assertions": [
+      "Output contains gcloud asset search-all-resources",
+      "Output contains --scope=organizations/998877",
+      "Output contains container.googleapis.com/Cluster",
+      "Output contains env=prod",
+      "Output contains --format=json",
+      "Output matches regex jq|json\\(",
+      "Output does not contain delete",
+      "Output does not contain resize"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "gcloud asset search-all-resources"
+      },
+      {
+        "type": "contains",
+        "value": "--scope=organizations/998877"
+      },
+      {
+        "type": "contains",
+        "value": "container.googleapis.com/Cluster"
+      },
+      {
+        "type": "contains",
+        "value": "env=prod"
+      },
+      {
+        "type": "contains",
+        "value": "--format=json"
+      },
+      {
+        "type": "regex",
+        "pattern": "jq|json\\(",
+        "flags": "i"
+      },
+      {
+        "type": "not_contains",
+        "value": "delete"
+      },
+      {
+        "type": "not_contains",
+        "value": "resize"
+      }
+    ]
+  },
+  {
+    "id": "test-3",
+    "skill_name": "gcloud-cli",
+    "prompt": "Held-out eval. Do not run commands. Project checkout-prod: list current Memorystore Redis instances in us-central1, then prepare to update instance cart-cache to 6GB. Show exact read command, exact update command, impact, confirmation gate, and verification command.",
+    "assertions": [
+      "Output contains gcloud auth list",
+      "Output contains gcloud config get-value project",
+      "Output contains gcloud redis instances list",
+      "Output contains --region=us-central1",
+      "Output contains gcloud redis instances update cart-cache",
+      "Output contains --size=6",
+      "Output matches regex confirm|approval|proceed",
+      "Output contains gcloud redis instances describe cart-cache",
+      "Output does not contain --quiet"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "gcloud auth list"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud config get-value project"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud redis instances list"
+      },
+      {
+        "type": "contains",
+        "value": "--region=us-central1"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud redis instances update cart-cache"
+      },
+      {
+        "type": "contains",
+        "value": "--size=6"
+      },
+      {
+        "type": "regex",
+        "pattern": "confirm|approval|proceed",
+        "flags": "i"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud redis instances describe cart-cache"
+      },
+      {
+        "type": "not_contains",
+        "value": "--quiet"
+      }
+    ]
+  }
+]

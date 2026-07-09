@@ -1,0 +1,162 @@
+[
+  {
+    "id": "train-1",
+    "skill_name": "gcloud-cli",
+    "prompt": "Do not execute commands; produce the command plan. In project billing-prod, inspect recent ERROR logs for Cloud Run service invoice-api in us-central1, then prepare to delete Pub/Sub topic old-invoices. Read-only log checks should not require confirmation, but deletion must.",
+    "assertions": [
+      "Output contains gcloud auth list",
+      "Output contains gcloud config get-value project",
+      "Output contains gcloud config get-value account",
+      "Output contains gcloud logging read",
+      "Output contains invoice-api",
+      "Output contains severity>=ERROR",
+      "Output contains gcloud pubsub topics delete old-invoices",
+      "Output matches regex confirm|approval|proceed",
+      "Output does not contain --quiet"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "gcloud auth list"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud config get-value project"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud config get-value account"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud logging read"
+      },
+      {
+        "type": "contains",
+        "value": "invoice-api"
+      },
+      {
+        "type": "contains",
+        "value": "severity>=ERROR"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud pubsub topics delete old-invoices"
+      },
+      {
+        "type": "regex",
+        "pattern": "confirm|approval|proceed",
+        "flags": "i"
+      },
+      {
+        "type": "not_contains",
+        "value": "--quiet"
+      }
+    ]
+  },
+  {
+    "id": "train-2",
+    "skill_name": "gcloud-cli",
+    "prompt": "Plan only. Across organization 123456789, find Cloud SQL instances with databaseVersion POSTGRES_13 and output project, name, region, and state as JSON for scripting. This is read-only.",
+    "assertions": [
+      "Output contains gcloud asset search-all-resources",
+      "Output contains --scope=organizations/123456789",
+      "Output contains sqladmin.googleapis.com/Instance",
+      "Output contains databaseVersion",
+      "Output contains POSTGRES_13",
+      "Output contains --format=json",
+      "Output matches regex jq|json\\(",
+      "Output does not contain delete",
+      "Output does not contain patch"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "gcloud asset search-all-resources"
+      },
+      {
+        "type": "contains",
+        "value": "--scope=organizations/123456789"
+      },
+      {
+        "type": "contains",
+        "value": "sqladmin.googleapis.com/Instance"
+      },
+      {
+        "type": "contains",
+        "value": "databaseVersion"
+      },
+      {
+        "type": "contains",
+        "value": "POSTGRES_13"
+      },
+      {
+        "type": "contains",
+        "value": "--format=json"
+      },
+      {
+        "type": "regex",
+        "pattern": "jq|json\\(",
+        "flags": "i"
+      },
+      {
+        "type": "not_contains",
+        "value": "delete"
+      },
+      {
+        "type": "not_contains",
+        "value": "patch"
+      }
+    ]
+  },
+  {
+    "id": "train-3",
+    "skill_name": "gcloud-cli",
+    "prompt": "Command plan only. Project ml-prod may be wrong locally. Need to resize GKE cluster training-pool in us-east1 from 8 to 4 nodes, and also list recent operations first. Show safety steps.",
+    "assertions": [
+      "Output contains gcloud auth list",
+      "Output contains gcloud config get-value project",
+      "Output contains gcloud container operations list",
+      "Output contains gcloud container clusters resize training-pool",
+      "Output contains --region=us-east1",
+      "Output contains --num-nodes=4",
+      "Output matches regex confirm|approval|proceed",
+      "Output does not contain --quiet"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "gcloud auth list"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud config get-value project"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud container operations list"
+      },
+      {
+        "type": "contains",
+        "value": "gcloud container clusters resize training-pool"
+      },
+      {
+        "type": "contains",
+        "value": "--region=us-east1"
+      },
+      {
+        "type": "contains",
+        "value": "--num-nodes=4"
+      },
+      {
+        "type": "regex",
+        "pattern": "confirm|approval|proceed",
+        "flags": "i"
+      },
+      {
+        "type": "not_contains",
+        "value": "--quiet"
+      }
+    ]
+  }
+]

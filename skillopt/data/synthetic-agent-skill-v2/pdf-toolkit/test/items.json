@@ -1,0 +1,214 @@
+[
+  {
+    "id": "test-1",
+    "skill_name": "pdf-toolkit",
+    "prompt": "Held-out eval. Do not execute commands. For ./permits/permit-scan.pdf, first test pages 1-2 for selectable text as JSON to permit-text.json, then OCR pages 1-2 with Spanish language at 450 DPI, confidence threshold 55, JSON output to permit-ocr.json. Also extract JPEG images from pages 1-2 to ./permit-images with min size 180.",
+    "assertions": [
+      "Output contains scripts/extract-text.ts",
+      "Output contains --pages 1-2",
+      "Output contains --format json",
+      "Output contains --output permit-text.json",
+      "Output contains scripts/ocr-pdf.ts",
+      "Output contains --lang spa",
+      "Output contains --dpi 450",
+      "Output contains --confidence-threshold 55",
+      "Output contains --output permit-ocr.json",
+      "Output contains scripts/extract-images.ts",
+      "Output contains --format jpeg",
+      "Output contains --output-dir ./permit-images",
+      "Output contains --min-size 180"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "scripts/extract-text.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--pages 1-2"
+      },
+      {
+        "type": "contains",
+        "value": "--format json"
+      },
+      {
+        "type": "contains",
+        "value": "--output permit-text.json"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/ocr-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--lang spa"
+      },
+      {
+        "type": "contains",
+        "value": "--dpi 450"
+      },
+      {
+        "type": "contains",
+        "value": "--confidence-threshold 55"
+      },
+      {
+        "type": "contains",
+        "value": "--output permit-ocr.json"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/extract-images.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--format jpeg"
+      },
+      {
+        "type": "contains",
+        "value": "--output-dir ./permit-images"
+      },
+      {
+        "type": "contains",
+        "value": "--min-size 180"
+      }
+    ]
+  },
+  {
+    "id": "test-2",
+    "skill_name": "pdf-toolkit",
+    "prompt": "Held-out eval. Command plan only. Build packet.pdf by merging agenda.pdf pages 1-2, deck.pdf all pages, and appendix.pdf pages 4-9, with bookmarks. Then split packet.pdf by ranges 1-6,7-12,13-18 under ./packet-parts with prefix packet.",
+    "assertions": [
+      "Output contains scripts/merge-pdf.ts",
+      "Output contains --output packet.pdf",
+      "Output contains --page-ranges",
+      "Output contains 1-2;all;4-9",
+      "Output contains --bookmark",
+      "Output contains scripts/split-pdf.ts",
+      "Output contains --mode ranges",
+      "Output contains --ranges",
+      "Output contains 1-6;7-12;13-18",
+      "Output contains --output-dir ./packet-parts",
+      "Output contains --prefix packet"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "scripts/merge-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--output packet.pdf"
+      },
+      {
+        "type": "contains",
+        "value": "--page-ranges"
+      },
+      {
+        "type": "contains",
+        "value": "1-2;all;4-9"
+      },
+      {
+        "type": "contains",
+        "value": "--bookmark"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/split-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--mode ranges"
+      },
+      {
+        "type": "contains",
+        "value": "--ranges"
+      },
+      {
+        "type": "contains",
+        "value": "1-6;7-12;13-18"
+      },
+      {
+        "type": "contains",
+        "value": "--output-dir ./packet-parts"
+      },
+      {
+        "type": "contains",
+        "value": "--prefix packet"
+      }
+    ]
+  },
+  {
+    "id": "test-3",
+    "skill_name": "pdf-toolkit",
+    "prompt": "Held-out eval. Do not run anything. Create investor-update.pdf from ./investor-update.md with A4 page size, 66pt margin, title \"Investor Update\", author \"Ops Team\". Then extract tables from investor-update.pdf pages 2-5 as JSON to investor-tables.json.",
+    "assertions": [
+      "Output contains scripts/create-pdf.ts",
+      "Output contains --from-markdown ./investor-update.md",
+      "Output contains --output investor-update.pdf",
+      "Output contains --page-size a4",
+      "Output contains --margin 66",
+      "Output contains --title",
+      "Output contains Investor Update",
+      "Output contains --author",
+      "Output contains Ops Team",
+      "Output contains scripts/extract-tables.ts",
+      "Output contains --pages 2-5",
+      "Output contains --format json",
+      "Output contains --output investor-tables.json"
+    ],
+    "checks": [
+      {
+        "type": "contains",
+        "value": "scripts/create-pdf.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--from-markdown ./investor-update.md"
+      },
+      {
+        "type": "contains",
+        "value": "--output investor-update.pdf"
+      },
+      {
+        "type": "contains",
+        "value": "--page-size a4"
+      },
+      {
+        "type": "contains",
+        "value": "--margin 66"
+      },
+      {
+        "type": "contains",
+        "value": "--title"
+      },
+      {
+        "type": "contains",
+        "value": "Investor Update"
+      },
+      {
+        "type": "contains",
+        "value": "--author"
+      },
+      {
+        "type": "contains",
+        "value": "Ops Team"
+      },
+      {
+        "type": "contains",
+        "value": "scripts/extract-tables.ts"
+      },
+      {
+        "type": "contains",
+        "value": "--pages 2-5"
+      },
+      {
+        "type": "contains",
+        "value": "--format json"
+      },
+      {
+        "type": "contains",
+        "value": "--output investor-tables.json"
+      }
+    ]
+  }
+]

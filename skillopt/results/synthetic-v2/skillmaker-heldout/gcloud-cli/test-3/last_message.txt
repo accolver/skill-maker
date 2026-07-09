@@ -1,0 +1,43 @@
+**Summary**
+This is a gcloud CLI task for Memorystore Redis in project `checkout-prod`, region `us-central1`. I am not executing anything here; below is the exact read command, the mutating resize command, the impact, the approval gate, and the post-change verification command.
+
+**Decision / Approach**
+Use explicit `--project=checkout-prod` and `--region=us-central1` on every command to avoid context mistakes. Treat the inventory step as read-only and the resize as mutating, so the resize stays behind an approval gate.
+
+**Artifacts**
+### Read
+```bash
+gcloud redis instances list \
+  --project=checkout-prod \
+  --region=us-central1 \
+  --format="table(name,locationId,tier,memorySizeGb,state)"
+```
+
+### Update
+```bash
+gcloud redis instances update cart-cache \
+  --project=checkout-prod \
+  --region=us-central1 \
+  --size=6
+```
+
+### Impact
+This resizes `cart-cache` to 6 GB of allocated Redis memory in `us-central1`. The operation is mutating and may cause a brief maintenance, failover, or client reconnect event depending on the instance tier and current placement.
+
+### Confirmation Gate
+I need explicit approval before running the update command above. Reply with `yes` to proceed.
+
+### Verification
+```bash
+gcloud redis instances describe cart-cache \
+  --project=checkout-prod \
+  --region=us-central1 \
+  --format="table(name,memorySizeGb,state,host,port)"
+```
+
+**Validation**
+I did not run any commands, so authentication, active project context, and live instance state were not verified. The flag syntax above is best-effort and should be checked against `gcloud redis instances update --help` before execution if you want live confirmation.
+
+**Next steps**
+1. Approve the resize command.
+2. If you want a preflight check, run the read command first and confirm `cart-cache` is the correct instance to change.

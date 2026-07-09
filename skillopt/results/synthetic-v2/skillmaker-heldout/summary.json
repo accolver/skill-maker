@@ -1,0 +1,283 @@
+{
+  "dataset": "skillopt/data/synthetic-agent-skill-v2",
+  "skills": {
+    "pdf-toolkit": {
+      "hard": 1.0,
+      "soft": 1.0,
+      "total_checks": 37,
+      "passed_checks": 37,
+      "usage": {
+        "calls": 3,
+        "prompt_tokens": 68229,
+        "completion_tokens": 1783,
+        "total_tokens": 70012
+      },
+      "items": [
+        {
+          "id": "test-1",
+          "score": {
+            "passed": 13,
+            "failed": 0,
+            "total": 13,
+            "pass_rate": 1.0,
+            "passed_checks": [
+              "contains 'scripts/extract-text.ts'",
+              "contains '--pages 1-2'",
+              "contains '--format json'",
+              "contains '--output permit-text.json'",
+              "contains 'scripts/ocr-pdf.ts'",
+              "contains '--lang spa'",
+              "contains '--dpi 450'",
+              "contains '--confidence-threshold 55'",
+              "contains '--output permit-ocr.json'",
+              "contains 'scripts/extract-images.ts'",
+              "contains '--format jpeg'",
+              "contains '--output-dir ./permit-images'",
+              "contains '--min-size 180'"
+            ],
+            "failed_checks": []
+          },
+          "usage": {
+            "prompt_tokens": 22796,
+            "completion_tokens": 753,
+            "total_tokens": 23549
+          }
+        },
+        {
+          "id": "test-2",
+          "score": {
+            "passed": 11,
+            "failed": 0,
+            "total": 11,
+            "pass_rate": 1.0,
+            "passed_checks": [
+              "contains 'scripts/merge-pdf.ts'",
+              "contains '--output packet.pdf'",
+              "contains '--page-ranges'",
+              "contains '1-2;all;4-9'",
+              "contains '--bookmark'",
+              "contains 'scripts/split-pdf.ts'",
+              "contains '--mode ranges'",
+              "contains '--ranges'",
+              "contains '1-6;7-12;13-18'",
+              "contains '--output-dir ./packet-parts'",
+              "contains '--prefix packet'"
+            ],
+            "failed_checks": []
+          },
+          "usage": {
+            "prompt_tokens": 22719,
+            "completion_tokens": 534,
+            "total_tokens": 23253
+          }
+        },
+        {
+          "id": "test-3",
+          "score": {
+            "passed": 13,
+            "failed": 0,
+            "total": 13,
+            "pass_rate": 1.0,
+            "passed_checks": [
+              "contains 'scripts/create-pdf.ts'",
+              "contains '--from-markdown ./investor-update.md'",
+              "contains '--output investor-update.pdf'",
+              "contains '--page-size a4'",
+              "contains '--margin 66'",
+              "contains '--title'",
+              "contains 'Investor Update'",
+              "contains '--author'",
+              "contains 'Ops Team'",
+              "contains 'scripts/extract-tables.ts'",
+              "contains '--pages 2-5'",
+              "contains '--format json'",
+              "contains '--output investor-tables.json'"
+            ],
+            "failed_checks": []
+          },
+          "usage": {
+            "prompt_tokens": 22714,
+            "completion_tokens": 496,
+            "total_tokens": 23210
+          }
+        }
+      ]
+    },
+    "gcloud-cli": {
+      "hard": 0.3333333333333333,
+      "soft": 0.8888888888888888,
+      "total_checks": 27,
+      "passed_checks": 24,
+      "usage": {
+        "calls": 3,
+        "prompt_tokens": 68553,
+        "completion_tokens": 5541,
+        "total_tokens": 74094
+      },
+      "items": [
+        {
+          "id": "test-1",
+          "score": {
+            "passed": 10,
+            "failed": 0,
+            "total": 10,
+            "pass_rate": 1.0,
+            "passed_checks": [
+              "contains 'gcloud auth list'",
+              "contains 'gcloud config get-value project'",
+              "contains 'gcloud config get-value account'",
+              "contains 'gcloud logging read'",
+              "contains 'api-gateway'",
+              "contains 'severity>=ERROR'",
+              "contains 'gcloud iam service-accounts keys delete KEY123'",
+              "contains '--iam-account=deployer@atlas-prod.iam.gserviceaccount.com'",
+              "regex 'confirm|approval|proceed'",
+              "does not contain '--quiet'"
+            ],
+            "failed_checks": []
+          },
+          "usage": {
+            "prompt_tokens": 22864,
+            "completion_tokens": 992,
+            "total_tokens": 23856
+          }
+        },
+        {
+          "id": "test-2",
+          "score": {
+            "passed": 7,
+            "failed": 1,
+            "total": 8,
+            "pass_rate": 0.875,
+            "passed_checks": [
+              "contains 'gcloud asset search-all-resources'",
+              "contains 'container.googleapis.com/Cluster'",
+              "contains 'env=prod'",
+              "contains '--format=json'",
+              "regex 'jq|json\\\\('",
+              "does not contain 'delete'",
+              "does not contain 'resize'"
+            ],
+            "failed_checks": [
+              "contains '--scope=organizations/998877'"
+            ]
+          },
+          "usage": {
+            "prompt_tokens": 22840,
+            "completion_tokens": 1020,
+            "total_tokens": 23860
+          }
+        },
+        {
+          "id": "test-3",
+          "score": {
+            "passed": 7,
+            "failed": 2,
+            "total": 9,
+            "pass_rate": 0.7777777777777778,
+            "passed_checks": [
+              "contains 'gcloud redis instances list'",
+              "contains '--region=us-central1'",
+              "contains 'gcloud redis instances update cart-cache'",
+              "contains '--size=6'",
+              "regex 'confirm|approval|proceed'",
+              "contains 'gcloud redis instances describe cart-cache'",
+              "does not contain '--quiet'"
+            ],
+            "failed_checks": [
+              "contains 'gcloud auth list'",
+              "contains 'gcloud config get-value project'"
+            ]
+          },
+          "usage": {
+            "prompt_tokens": 22849,
+            "completion_tokens": 3529,
+            "total_tokens": 26378
+          }
+        }
+      ]
+    },
+    "git-conventional-commits": {
+      "hard": 0.0,
+      "soft": 0.7857142857142857,
+      "total_checks": 14,
+      "passed_checks": 11,
+      "usage": {
+        "calls": 3,
+        "prompt_tokens": 67741,
+        "completion_tokens": 2400,
+        "total_tokens": 70141
+      },
+      "items": [
+        {
+          "id": "test-1",
+          "score": {
+            "passed": 3,
+            "failed": 1,
+            "total": 4,
+            "pass_rate": 0.75,
+            "passed_checks": [
+              "commit subject 'feat(cli): add csv export mode'",
+              "does not contain 'BREAKING CHANGE:'",
+              "does not contain '.'"
+            ],
+            "failed_checks": [
+              "contains '--csv'"
+            ]
+          },
+          "usage": {
+            "prompt_tokens": 22581,
+            "completion_tokens": 395,
+            "total_tokens": 22976
+          }
+        },
+        {
+          "id": "test-2",
+          "score": {
+            "passed": 4,
+            "failed": 1,
+            "total": 5,
+            "pass_rate": 0.8,
+            "passed_checks": [
+              "commit subject 'refactor(config)!: nest retry settings'",
+              "contains 'BREAKING CHANGE:'",
+              "contains 'maxRetries'",
+              "contains 'retry.limit'"
+            ],
+            "failed_checks": [
+              "does not contain '.'"
+            ]
+          },
+          "usage": {
+            "prompt_tokens": 22585,
+            "completion_tokens": 687,
+            "total_tokens": 23272
+          }
+        },
+        {
+          "id": "test-3",
+          "score": {
+            "passed": 4,
+            "failed": 1,
+            "total": 5,
+            "pass_rate": 0.8,
+            "passed_checks": [
+              "commit subject 'fix(webhook): throw on missing signatures'",
+              "contains 'MissingSignatureError'",
+              "regex 'signature|missing'",
+              "does not contain 'BREAKING CHANGE:'"
+            ],
+            "failed_checks": [
+              "does not contain '.'"
+            ]
+          },
+          "usage": {
+            "prompt_tokens": 22575,
+            "completion_tokens": 1318,
+            "total_tokens": 23893
+          }
+        }
+      ]
+    }
+  }
+}

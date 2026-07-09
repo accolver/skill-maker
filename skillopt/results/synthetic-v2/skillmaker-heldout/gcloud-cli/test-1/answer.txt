@@ -1,0 +1,49 @@
+**Summary**  
+You asked for a safe gcloud workflow for `atlas-prod`: inspect Cloud Run `api-gateway` ERROR logs in `us-central1`, then prepare deletion of service account key `KEY123` for `deployer@atlas-prod.iam.gserviceaccount.com`. I have not executed anything; below is the command plan, with the delete step clearly separated for confirmation.
+
+**Decision / Approach**  
+This is a mixed read/write task. The log inspection is read-only and can run immediately in a live session, but the service account key deletion is mutating and must wait for explicit approval. I am also preserving the required safety check order: auth and project context first, then service logs, then a separately confirmed delete.
+
+**Artifacts**  
+### Context check
+```bash
+gcloud auth list
+gcloud config get-value project
+gcloud config get-value account
+```
+
+### Read-only inspection: Cloud Run ERROR logs
+```bash
+gcloud logging read \
+  'resource.type="cloud_run_revision" AND resource.labels.service_name="api-gateway" AND resource.labels.location="us-central1" AND severity>=ERROR' \
+  --limit=50 \
+  --format=json
+```
+
+### Optional follow-up read-only checks
+```bash
+gcloud run services describe api-gateway \
+  --region=us-central1 \
+  --format="yaml(status)"
+```
+
+```bash
+gcloud run revisions list \
+  --service=api-gateway \
+  --region=us-central1 \
+  --format="table(name,active,status)"
+```
+
+### Mutating step, pending explicit approval
+```bash
+gcloud iam service-accounts keys delete KEY123 \
+  --iam-account=deployer@atlas-prod.iam.gserviceaccount.com
+```
+
+**Validation**  
+No commands were run here, so there are no live results to report yet. The main risks are using the wrong project or account, and deleting the wrong key; that is why the context checks and explicit confirmation are required before the delete.
+
+**Next steps**  
+1. Run the context check commands.
+2. Inspect the ERROR logs for `api-gateway` in `us-central1`.
+3. If you want the key deleted, approve the exact delete command above and I can proceed in a live session.

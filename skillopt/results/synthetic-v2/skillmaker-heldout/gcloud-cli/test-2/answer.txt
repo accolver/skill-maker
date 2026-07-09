@@ -1,0 +1,44 @@
+**Summary**  
+Find all GKE clusters in organization `998877` whose labels include `env=prod`, and return clean JSON with `project`, `name`, `location`, and `status`. This is read-only, so no approval gate is needed.
+
+**Decision / Approach**  
+Use `gcloud` in read-only mode, but verify auth and active project first because org-wide inspection still depends on correct credentials/context. For an organization-wide inventory, the cleanest path is to query Cloud Asset Inventory for GKE clusters and filter on the `env=prod` label, then shape the output to the requested JSON fields.
+
+**Artifacts**  
+`Command plan`
+
+```bash
+# 1) Verify current authentication and context
+gcloud auth list
+gcloud config get-value project
+gcloud config get-value account
+```
+
+```bash
+# 2) If needed, inspect help for the exact asset search flags available in this gcloud version
+gcloud asset search-all-resources --help
+```
+
+```bash
+# 3) Query all GKE clusters in org 998877 with label env=prod
+# Expected output shape: JSON array of objects with project, name, location, status
+gcloud asset search-all-resources \
+  --scope="organizations/998877" \
+  --asset-types="container.googleapis.com/Cluster" \
+  --filter='labels.env=prod' \
+  --format=json(project,name,location,resource.data.status)
+```
+
+```bash
+# 4) If the asset search output does not expose status in the desired field shape,
+# fall back to per-project cluster listing after discovering candidate projects.
+# First list matching resources, then query each project with container clusters list/describe.
+```
+
+**Validation**  
+I did not execute commands, per your instruction. The main risk is that `gcloud asset search-all-resources` field names and label filter syntax can vary by `gcloud` version, so step 2 is included to confirm the exact flags and output fields before running the query. If `status` is not directly available from asset search output, a second pass with `gcloud container clusters describe` per match may be needed.
+
+**Next steps**  
+1. Run the auth/context checks.  
+2. Confirm the exact `gcloud asset search-all-resources` syntax with `--help`.  
+3. Execute the org-wide search and format the results as JSON.

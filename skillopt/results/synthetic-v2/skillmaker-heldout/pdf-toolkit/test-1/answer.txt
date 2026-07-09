@@ -1,0 +1,29 @@
+**Summary**  
+Prepared the PDF Toolkit command plan for `./permits/permit-scan.pdf`. The workflow first checks pages 1-2 for selectable text, then OCRs the same pages in Spanish, and extracts JPEG images from those pages.
+
+**Decision / Approach**  
+This is a PDF-processing task, so the correct path is the bundled PDF toolkit scripts. I am not executing anything here per your instruction; the deliverable is the exact command sequence and target artifacts.
+
+**Artifacts**  
+`permit-text.json`
+```bash
+bun run scripts/extract-text.ts --pages 1-2 --format json --output permit-text.json ./permits/permit-scan.pdf
+```
+
+`permit-ocr.json`
+```bash
+bun run scripts/ocr-pdf.ts --pages 1-2 --lang spa --dpi 450 --confidence-threshold 55 --format json --output permit-ocr.json ./permits/permit-scan.pdf
+```
+
+`./permit-images/`
+```bash
+bun run scripts/extract-images.ts --pages 1-2 --format jpeg --min-size 180 --output-dir ./permit-images ./permits/permit-scan.pdf
+```
+
+**Validation**  
+Not executed. No JSON was generated, so there is no runtime validation, file existence check, or content verification yet. The command order matches the required workflow: text test first, OCR second, images third.
+
+**Next steps**  
+1. Run the three commands in order.
+2. Inspect `permit-text.json` to see whether selectable text was present on pages 1-2.
+3. Review `permit-ocr.json` and the contents of `./permit-images/` for downstream use.

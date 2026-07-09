@@ -1,0 +1,24 @@
+**Summary**  
+This is a breaking config-shape change, so the commit should be a `refactor` with an explicit breaking-change footer. The change nests retry settings under `retry`, replacing the flat `maxRetries` and `retryDelayMs` fields.
+
+**Decision / Approach**  
+Use `refactor(config)!` because the primary intent is to restructure the public configuration API, not add behavior or fix a bug. The subject stays imperative, lowercase after the colon, and within the 50-character limit.
+
+**Artifacts**  
+`conventional commit message`
+
+```text
+refactor(config)!: nest retry settings
+
+Replace the flat maxRetries and retryDelayMs config fields with a
+nested retry object using retry.limit and retry.delayMs.
+
+BREAKING CHANGE: callers must update config objects to use the new
+retry nesting. maxRetries and retryDelayMs are no longer supported.
+```
+
+**Validation**  
+Subject line length is within the 50-character hard limit. The breaking change is explicit because existing callers must migrate their config shape.
+
+**Next steps**  
+None

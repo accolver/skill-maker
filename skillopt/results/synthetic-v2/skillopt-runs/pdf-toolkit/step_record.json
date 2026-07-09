@@ -1,0 +1,62 @@
+{
+  "step": 1,
+  "epoch": 1,
+  "step_in_epoch": 0,
+  "timing": {
+    "rollout_s": 68.7,
+    "reflect_s": 15.3,
+    "aggregate_s": 0.0,
+    "select_s": 0.0,
+    "update_s": 0.0,
+    "evaluate_s": 94.0
+  },
+  "tokens": {
+    "analyst": {
+      "calls": 2,
+      "prompt_tokens": 30644,
+      "completion_tokens": 1672
+    }
+  },
+  "rollout_hard": 0.0,
+  "rollout_soft": 0.280303,
+  "rollout_n": 3,
+  "accumulation_batches": [
+    {
+      "batch_idx": 0,
+      "batch_seed": 1043,
+      "n_envs": 3,
+      "hard": 0.0,
+      "soft": 0.28030303030303033,
+      "n_failure_patches": 1,
+      "n_success_patches": 0
+    }
+  ],
+  "n_patches": 1,
+  "n_failure_patches": 1,
+  "n_success_patches": 0,
+  "n_edits_merged": 1,
+  "n_edits_ranked": 1,
+  "edit_budget": null,
+  "lr_control_mode": "none",
+  "support_counts": [
+    3
+  ],
+  "candidate_hash": "0d344b237fbca3e4",
+  "candidate_skill_len": 1951,
+  "rewrite_change_summary": [
+    "State that outputs must be exact, user-scoped command plans with no execution and no internal implementation leakage.",
+    "Require the assistant to preserve requested page ranges, output names, formats, and sequencing while keeping the answer concise."
+  ],
+  "selection_hard": 0.0,
+  "selection_soft": 0.03333333333333333,
+  "gate_metric": "soft",
+  "candidate_gate_score": 0.03333333333333333,
+  "action": "reject",
+  "current_score": 0.03333333333333333,
+  "best_score": 0.03333333333333333,
+  "best_step": 0,
+  "current_origin": "initial_skill",
+  "best_origin": "initial_skill",
+  "skill_len": 71,
+  "wall_time_s": 178.0
+}

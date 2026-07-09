@@ -1,0 +1,62 @@
+{
+  "step": 1,
+  "epoch": 1,
+  "step_in_epoch": 0,
+  "timing": {
+    "rollout_s": 201.1,
+    "reflect_s": 51.7,
+    "aggregate_s": 0.0,
+    "select_s": 0.0,
+    "update_s": 0.0,
+    "evaluate_s": 158.2
+  },
+  "tokens": {
+    "analyst": {
+      "calls": 2,
+      "prompt_tokens": 29426,
+      "completion_tokens": 1452
+    }
+  },
+  "rollout_hard": 0.0,
+  "rollout_soft": 0.726852,
+  "rollout_n": 3,
+  "accumulation_batches": [
+    {
+      "batch_idx": 0,
+      "batch_seed": 1043,
+      "n_envs": 3,
+      "hard": 0.0,
+      "soft": 0.7268518518518517,
+      "n_failure_patches": 1,
+      "n_success_patches": 0
+    }
+  ],
+  "n_patches": 1,
+  "n_failure_patches": 1,
+  "n_success_patches": 0,
+  "n_edits_merged": 1,
+  "n_edits_ranked": 1,
+  "edit_budget": null,
+  "lr_control_mode": "none",
+  "support_counts": [
+    3
+  ],
+  "candidate_hash": "80a55a7fd73f12b9",
+  "candidate_skill_len": 1527,
+  "rewrite_change_summary": [
+    "Emphasize command plans over execution and keep read-only checks and destructive actions clearly separated.",
+    "Forbid unrequested local environment discovery and require explicit project scoping plus confirmation guards for mutating commands."
+  ],
+  "selection_hard": 0.3333333333333333,
+  "selection_soft": 0.8425925925925926,
+  "gate_metric": "soft",
+  "candidate_gate_score": 0.8425925925925926,
+  "action": "accept_new_best",
+  "current_score": 0.8425925925925926,
+  "best_score": 0.8425925925925926,
+  "best_step": 1,
+  "current_origin": "step_0001",
+  "best_origin": "step_0001",
+  "skill_len": 1527,
+  "wall_time_s": 411.0
+}
